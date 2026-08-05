@@ -1811,6 +1811,9 @@ export default function App() {
                 <div>{GENRES[selNode.genre]?.label || selNode.genre}</div>
               </div>
 
+              {/* Description */}
+              <div className="dp-desc">{renderDesc(selNode.desc, selNode.id, id => { selectNode(id); scrollToNode(id); })}</div>
+
               {/* Photo */}
               {PHOTOS[selNode.id] && (
                 <div className="dp-photo-wrap">
@@ -1851,9 +1854,6 @@ export default function App() {
                   </div>
                 </div>
               )}
-
-              {/* Description */}
-              <div className="dp-desc">{renderDesc(selNode.desc, selNode.id, id => { selectNode(id); scrollToNode(id); })}</div>
 
               {/* Bandcamp */}
               {selNode.bandcamp && (

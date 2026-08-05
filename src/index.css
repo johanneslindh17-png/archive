@@ -599,7 +599,7 @@ path.eg.dim{opacity:0.09}
 .dp-meta{font-family:'Syne Mono',monospace;font-size:0.6rem;color:#999;margin-bottom:16px;line-height:1.9;letter-spacing:0.04em;}
 .dp-meta-row{display:flex;align-items:center;gap:6px;}
 .dp-cdot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
-.dp-photo-wrap{margin-bottom:16px;}
+.dp-photo-wrap{margin-top:16px;margin-bottom:0;}
 .dp-photo-inner{position:relative;display:block;line-height:0;}
 .dp-photo{width:100%;display:block;object-fit:cover;max-height:260px;}
 
@@ -630,7 +630,7 @@ path.eg.dim{opacity:0.09}
   .dp-frame-dots{animation:none;}
 }
 
-.dp-photo-credit{font-size:0.65rem;color:#888;margin-top:4px;line-height:1.4;}
+.dp-photo-credit{font-size:0.65rem;color:#888;margin-top:2px;line-height:1.4;}
 .dp-photo-credit a{color:inherit;text-decoration:underline;}
 .dark .dp-photo-credit{color:#555;}
 .dp-desc{font-size:0.8rem;line-height:1.8;color:#444;margin-bottom:22px;}
