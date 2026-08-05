@@ -2071,9 +2071,9 @@ export default function App() {
       {paywallOpen && (
         <div className="paywall-overlay" onClick={e => { if (e.target === e.currentTarget) setPaywallOpen(false); }}>
           <div className="paywall-modal">
-            <div className="paywall-title">You've used your free views</div>
+            <div className="paywall-title">You've used your free node views</div>
             <div className="paywall-body">
-              The Archive maps 650+ artists, labels, venues and scenes across the history of electronic music — all verified, all connected.
+              The Archive is an ever-evolving project — currently mapping 650+ artists, labels, venues, and scenes across the history of electronic music, with new nodes and connections added continuously. By purchasing access you are also directly supporting the ongoing documentation.
             </div>
             <a
               className="paywall-buy"
@@ -2081,7 +2081,7 @@ export default function App() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Unlock lifetime access — €10
+              Get one year of access — €10
             </a>
             <div className="paywall-divider">Already purchased?</div>
             <input
