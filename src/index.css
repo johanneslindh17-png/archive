@@ -884,3 +884,59 @@ path.eg.dim{opacity:0.09}
   letter-spacing:0.1em;text-transform:uppercase;
   color:var(--tb-text);
 }
+
+/* ── Paywall ──────────────────────────────────────── */
+.trial-counter{
+  font-family:'Syne Mono',monospace;font-size:0.48rem;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--tb-text-mid);cursor:pointer;
+  border:1px solid var(--tb-border);padding:3px 8px;border-radius:2px;
+  transition:color 0.2s,border-color 0.2s;
+}
+.trial-counter:hover{color:var(--tb-text);border-color:var(--tb-text);}
+
+.paywall-overlay{
+  position:fixed;inset:0;z-index:9999;
+  background:rgba(0,0,0,0.75);backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;
+}
+.paywall-modal{
+  background:var(--tb-bg);border:1px solid var(--tb-border);
+  max-width:380px;width:90%;padding:32px;
+  display:flex;flex-direction:column;gap:16px;
+}
+.paywall-title{
+  font-family:'Syne Mono',monospace;font-size:0.85rem;
+  letter-spacing:0.12em;text-transform:uppercase;color:var(--tb-text);
+}
+.paywall-body{font-size:0.78rem;color:var(--tb-text-mid);line-height:1.6;}
+.paywall-buy{
+  display:block;text-align:center;padding:12px;
+  background:var(--tb-text);color:var(--tb-bg);
+  font-family:'Syne Mono',monospace;font-size:0.72rem;
+  letter-spacing:0.1em;text-transform:uppercase;
+  text-decoration:none;border:none;cursor:pointer;
+  transition:opacity 0.2s;
+}
+.paywall-buy:hover{opacity:0.8;}
+.paywall-divider{
+  font-size:0.65rem;color:var(--tb-text-mid);
+  text-align:center;letter-spacing:0.08em;text-transform:uppercase;
+  border-top:1px solid var(--tb-border);padding-top:16px;margin-top:4px;
+}
+.paywall-input{
+  width:100%;box-sizing:border-box;
+  background:transparent;border:1px solid var(--tb-border);
+  color:var(--tb-text);font-family:'Syne Mono',monospace;font-size:0.72rem;
+  padding:10px;outline:none;letter-spacing:0.04em;
+}
+.paywall-input:focus{border-color:var(--tb-text);}
+.paywall-input::placeholder{color:var(--tb-text-mid);}
+.paywall-error{font-size:0.65rem;color:#c0392b;line-height:1.5;}
+.paywall-verify{
+  padding:10px;background:transparent;border:1px solid var(--tb-border);
+  color:var(--tb-text);font-family:'Syne Mono',monospace;font-size:0.7rem;
+  letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;
+  transition:border-color 0.2s,color 0.2s;
+}
+.paywall-verify:hover:not(:disabled){border-color:var(--tb-text);}
+.paywall-verify:disabled{opacity:0.4;cursor:not-allowed;}

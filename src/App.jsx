@@ -274,6 +274,14 @@ export default function App() {
   const [history, setHistory] = useState([]);
   const [welcomeDone, setWelcomeDone] = useState(false);
   const [photoColors, setPhotoColors] = useState(null);
+  const [unlocked, setUnlocked] = useState(() => localStorage.getItem('archiveUnlocked') === '1');
+  const [trialCount, setTrialCount] = useState(() => parseInt(localStorage.getItem('archiveTrialCount') || '0', 10));
+  const [paywallOpen, setPaywallOpen] = useState(false);
+  const [licenseKey, setLicenseKey] = useState('');
+  const [verifying, setVerifying] = useState(false);
+  const [verifyError, setVerifyError] = useState('');
+
+  const TRIAL_LIMIT = 10;
 
   useEffect(() => {
     setPhotoColors(null);
@@ -291,11 +299,42 @@ export default function App() {
       setSelected(null);
       setHistory([]);
     } else {
+      if (!unlocked) {
+        const next = trialCount + 1;
+        localStorage.setItem('archiveTrialCount', next);
+        setTrialCount(next);
+        if (next > TRIAL_LIMIT) { setPaywallOpen(true); return; }
+      }
       // Continue trail from pinned node too, not just from an open panel
       setHistory(prev => (selected || pinned) ? [...prev, (selected || pinned)] : prev);
       setSelected(id);
       setPinned(null);
     }
+  }
+
+  async function verifyLicense() {
+    if (!licenseKey.trim()) return;
+    setVerifying(true);
+    setVerifyError('');
+    try {
+      const res = await fetch('/api/verify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ key: licenseKey.trim() }),
+      });
+      const data = await res.json();
+      if (data.valid) {
+        localStorage.setItem('archiveUnlocked', '1');
+        setUnlocked(true);
+        setPaywallOpen(false);
+        setLicenseKey('');
+      } else {
+        setVerifyError('Invalid license key. Check your purchase email and try again.');
+      }
+    } catch {
+      setVerifyError('Could not connect. Check your internet connection and try again.');
+    }
+    setVerifying(false);
   }
 
   // Close panel but keep the node highlighted and breadcrumb visible
@@ -2019,10 +2058,47 @@ export default function App() {
             target="_blank"
             rel="noopener noreferrer"
           >support this archive</a>
+          {!unlocked && (
+            <span className="trial-counter" onClick={() => setPaywallOpen(true)}>
+              {Math.max(0, TRIAL_LIMIT - trialCount)} free views left
+            </span>
+          )}
           <div className="statusbar-sep" />
           <div className="statusbar-item">ARCHIVE — Mapping the electronic underground · v0.2</div>
         </div>
       </div>
+
+      {paywallOpen && (
+        <div className="paywall-overlay" onClick={e => { if (e.target === e.currentTarget) setPaywallOpen(false); }}>
+          <div className="paywall-modal">
+            <div className="paywall-title">You've used your free views</div>
+            <div className="paywall-body">
+              The Archive maps 650+ artists, labels, venues and scenes across the history of electronic music — all verified, all connected.
+            </div>
+            <a
+              className="paywall-buy"
+              href="https://archivemteu.lemonsqueezy.com/checkout/buy/5737d134-2364-44c3-920f-7a1c635f91b0"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Unlock lifetime access — €10
+            </a>
+            <div className="paywall-divider">Already purchased?</div>
+            <input
+              className="paywall-input"
+              type="text"
+              placeholder="Paste your license key here"
+              value={licenseKey}
+              onChange={e => { setLicenseKey(e.target.value); setVerifyError(''); }}
+              onKeyDown={e => e.key === 'Enter' && verifyLicense()}
+            />
+            {verifyError && <div className="paywall-error">{verifyError}</div>}
+            <button className="paywall-verify" onClick={verifyLicense} disabled={verifying}>
+              {verifying ? 'Verifying…' : 'Unlock'}
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
