@@ -281,7 +281,7 @@ export default function App() {
   const [verifying, setVerifying] = useState(false);
   const [verifyError, setVerifyError] = useState('');
 
-  const TRIAL_LIMIT = 10;
+  const TRIAL_LIMIT = 15;
 
   useEffect(() => {
     setPhotoColors(null);
