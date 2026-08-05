@@ -108,9 +108,19 @@ const WIKI_OVERRIDES = {
   'dj_gregory':         'DJ Gregory (musician)',
   'dj_ez':              'DJ EZ',
   'dbridge':            'dBridge',
+  'bonobo':             'Bonobo (musician)',
+  'biosphere':          'Biosphere (musician)',
+  'shackleton':         'Shackleton (musician)',
 
   // No usable Wikipedia article — skip to avoid wrong image
   'vril':               null,  // occult concept dominates
+  'objekt':             null,  // no artist-specific article
+  'eartheater':         null,  // no article
+  'stimming':           null,  // no article
+  'kyle_hall':          null,  // no article
+  'pavel_petrov':       null,  // too many people with this name
+  'boo_williams':       null,  // no article
+  'rodriguez_jr':       null,  // wrong person dominates search
   'fluxion':            null,  // mathematical term dominates
   'nkisi':              null,  // African spiritual object dominates
   'lotic':              null,  // geological/hydrological term

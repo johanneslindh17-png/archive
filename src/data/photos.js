@@ -369,18 +369,6 @@ export const PHOTOS = {
     "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "author": "Michielderoo"
   },
-  "objekt": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Great_emblem_of_Main_Agency_of_Automobiles_and_Tanks.svg/500px-Great_emblem_of_Main_Agency_of_Automobiles_and_Tanks.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "license": "Public domain",
-    "licenseUrl": "",
-    "author": "Логотипы CorelDRAW скачать бесплатно Геральдика"
-  },
-  "shackleton": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Ernest_Shackleton_before_1909.jpg/500px-Ernest_Shackleton_before_1909.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "license": "Public domain",
-    "licenseUrl": "",
-    "author": "George Charles Beresford / Adam Cuerden"
-  },
   "move_d": {
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Move_d.jpg/500px-Move_d.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "license": "CC BY-SA 2.5",
@@ -400,10 +388,10 @@ export const PHOTOS = {
     "author": "deepskyobject from Saint Petersburg, Russia"
   },
   "bonobo": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Apeldoorn_Apenheul_zoo_Bonobo.jpg/500px-Apeldoorn_Apenheul_zoo_Bonobo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "license": "CC BY-SA 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "author": "natataek"
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/RF_2806_Bonobo_Krists_Luhaers-16_%2835611151756%29.jpg/500px-RF_2806_Bonobo_Krists_Luhaers-16_%2835611151756%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "author": "Krists Luhaers"
   },
   "burial": {
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Burial1.svg/500px-Burial1.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -454,10 +442,10 @@ export const PHOTOS = {
     "author": "acidpolly"
   },
   "biosphere": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Seawifs_global_biosphere.jpg/500px-Seawifs_global_biosphere.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "license": "Public domain",
-    "licenseUrl": "",
-    "author": "Provided by the SeaWiFS Project, Goddard Space Flight Center and ORBIMAGE"
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Geir_Jenssen_at_Sajeta_2011.jpg/500px-Geir_Jenssen_at_Sajeta_2011.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "author": "Mitja Podreka"
   },
   "pan_sonic": {
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Pansonic2.jpg/500px-Pansonic2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -579,12 +567,6 @@ export const PHOTOS = {
     "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
     "author": "Córdoba Beat"
   },
-  "eartheater": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Geophagus_brasiliensis_c01.jpg/500px-Geophagus_brasiliensis_c01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "license": "CC BY 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-    "author": "Cezary Porycki"
-  },
   "sophie": {
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Sophie_YOLA_D%C3%8DA_2019_2_%28cropped%29.jpg/500px-Sophie_YOLA_D%C3%8DA_2019_2_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "license": "CC BY-SA 4.0",
@@ -620,12 +602,6 @@ export const PHOTOS = {
     "license": "CC BY 2.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
     "author": "Das Kraftfuttermischwerk"
-  },
-  "stimming": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Black_and_Indigenous_Autistic_Non-binary_Person_Playing_with_Tangle.jpg/500px-Black_and_Indigenous_Autistic_Non-binary_Person_Playing_with_Tangle.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "license": "CC BY 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-    "author": "Disabledandhere"
   },
   "paul_kalkbrenner": {
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Paul_Kalkbrenner_2016_%281_von_3%29_%28cropped%29.jpg/500px-Paul_Kalkbrenner_2016_%281_von_3%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -692,12 +668,6 @@ export const PHOTOS = {
     "license": "CC BY 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "author": "Redimension Music Label"
-  },
-  "kyle_hall": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/5/59/Kyle_Hall.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "license": "Public domain",
-    "licenseUrl": "",
-    "author": "North Carolina General Assembly"
   },
   "adam_beyer": {
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Adam_Beyer_%283559941164%29.jpg/500px-Adam_Beyer_%283559941164%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -789,23 +759,11 @@ export const PHOTOS = {
     "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
     "author": "Peter Drier"
   },
-  "pavel_petrov": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB_%D0%9F%D0%B5%D1%82%D1%80%D0%BE%D0%B2%2C_%D1%82%D1%80%D0%B5%D1%85%D0%BA%D1%80%D0%B0%D1%82%D0%BD%D1%8B%D0%B9_%D1%87%D0%B5%D0%BC%D0%BF%D0%B8%D0%BE%D0%BD_%D0%BC%D0%B8%D1%80%D0%B0.jpg/500px-%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB_%D0%9F%D0%B5%D1%82%D1%80%D0%BE%D0%B2%2C_%D1%82%D1%80%D0%B5%D1%85%D0%BA%D1%80%D0%B0%D1%82%D0%BD%D1%8B%D0%B9_%D1%87%D0%B5%D0%BC%D0%BF%D0%B8%D0%BE%D0%BD_%D0%BC%D0%B8%D1%80%D0%B0.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "author": "ПупсикКотик"
-  },
   "derrick_carter": {
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Derrick_Carter_NYC_Boat_Party_21_July_2023_%28cropped%29.jpg/500px-Derrick_Carter_NYC_Boat_Party_21_July_2023_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "author": "voorts"
-  },
-  "boo_williams": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Boo_Williams.jpg/500px-Boo_Williams.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "license": "CC BY 2.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "author": "alexa627"
   },
   "todd_terry": {
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Todd_Terry%2C_2012.png/500px-Todd_Terry%2C_2012.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -818,12 +776,6 @@ export const PHOTOS = {
     "license": "CC BY 2.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
     "author": "Kevin3141 (https://www.flickr.com/people/kevint3141)"
-  },
-  "rodriguez_jr": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Paul_Rodriguez%2C_Jr.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "license": "CC BY 2.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "author": "Ray Yzguerra"
   },
   "isolee": {
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Isolee1.jpg/500px-Isolee1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
