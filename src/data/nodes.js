@@ -4582,6 +4582,42 @@ export const NODES = [
       { title: 'My House (OFF Recordings)', year: 2013 },
     ]},
 
+  // ── BERGHAIN RESIDENTS ─────────────────────────────────────────────────────
+  { id:'tama_sumo', label:'Tama Sumo', type:'artist', genre:'deep', era:1993, city:'Berlin', country:'DE',
+    desc:'Tama Sumo (Kerstin Egert) is a Berlin-based DJ born in Bavaria who began DJing in 1993 at Drama bar in Kreuzberg. She became a Tresor resident in 1994, remaining for a decade. When Ostgut became Berghain and Panorama Bar, she transitioned to become one of its central long-running residents. Her sets are known for traversing house, jazz, disco, broken beat, soul, funk, and Afrobeat — a deeply eclectic approach built over decades of careful listening.',
+    releases: [] },
+
+  { id:'luke_slater', label:'Luke Slater', type:'artist', genre:'techno', era:1993, city:'London', country:'UK',
+    desc:'Luke Slater is a British DJ and producer who has been one of Berghain\'s longest-serving residents and one of the architects of psychedelic, polyrhythmic British techno. Recording as Planetary Assault Systems, his productions are muscular, purposeful, and built for the Berghain main floor — bleepy, multi-layered loops that develop slowly and with great physical force. He has released on Ostgut Ton, Peacefrog, and his own Mote-Evolver imprint.',
+    releases: [
+      { title: 'Plantae (Ostgut Ton)', year: 2019 },
+    ] },
+
+  { id:'nd_baumecker', label:'nd_baumecker', type:'artist', genre:'deep', era:2004, city:'Berlin', country:'DE',
+    desc:'Andreas Baumecker began his DJ career in Frankfurt in 1991 before moving to Berlin in 2004. As a Berghain and Panorama Bar resident, his sets are known as deep, unpredictable, funky, and melodic — flowing between rhythms and genres with seamless craft. Since 2010 he has produced with Sam Barker as Barker & Baumecker, releasing on Ostgut Ton.',
+    releases: [
+      { title: 'Turns (Ostgut Ton)', year: 2013 },
+    ] },
+
+  { id:'steffi', label:'Steffi', type:'artist', genre:'deep', era:2008, city:'Berlin', country:'NL',
+    desc:'Steffi is a Dutch-born DJ and producer who grew up in the Netherlands and moved to Berlin in 2007, becoming a resident at Panorama Bar. She releases on Ostgut Ton — her debut album Yours & Mine appeared in 2011 — and her sound has evolved across warm reflective techno and intricate electro. She has collaborated extensively with Virginia, with whom she shares both a residency and a musical sensibility.',
+    releases: [
+      { title: 'Yours & Mine (Ostgut Ton)', year: 2011 },
+      { title: 'Power of Anonymity (Ostgut Ton)', year: 2014 },
+    ] },
+
+  { id:'virginia', label:'Virginia', type:'artist', genre:'deep', era:2012, city:'Berlin', country:'DE',
+    desc:'Virginia is a Berlin-based DJ and vocalist who grew up in Munich and holds a long-standing residency at Panorama Bar since 2012. Her sets fuse warm analogue house and electro with live vocals. She has collaborated with Steffi on the 2019 album Work A Change, exploring electro terrain together, and released her own album Fierce For The Night on Berghain\'s label in 2016.',
+    releases: [
+      { title: 'Fierce For The Night (Berghain)', year: 2016 },
+    ] },
+
+  { id:'norman_nodge', label:'Norman Nodge', type:'artist', genre:'techno', era:2005, city:'Berlin', country:'DE',
+    desc:'Norman Nodge was born in Leipzig and raised in Brandenburg, beginning to promote techno parties after the wall came down. He mentored Marcel Dettmann in techno during the 1990s before stepping back from DJing for a decade. In 2005 Marcel Dettmann brought him to Berghain management, where he became a resident. A lawyer by profession, he plays Berghain monthly and is known as a master of the warm-up, with a sound that is forceful, dubby, and hypnotic. He has released on MDR and Ostgut Ton.',
+    releases: [
+      { title: 'Berghain 06 (Ostgut Ton)', year: 2012 },
+    ] },
+
   { id:'jane_fitz', label:'Jane Fitz', type:'artist', genre:'deep', era:2000, city:'London', country:'UK',
     desc:'Jane Fitz is a London-based DJ with over two decades of experience, known for an eclectic approach spanning UK acid, deep and spacey house, psychedelic techno, and ambient. A resident at the non-profit festival Freerotation and The Pickle Factory in London, she has played at Tresor, Panorama Bar, and Concrete. She produces under the Invisible Menders alias with Dom Ahtuam, releasing on Porn Wax and related labels, and holds a regular slot on Rinse FM.',
     releases: [] },

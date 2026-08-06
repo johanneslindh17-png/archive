@@ -2237,6 +2237,33 @@ export const EDGES = [
   { from:'purple_disco_machine', to:'daft_punk',          strength:2, type:'influence' },
   { from:'purple_disco_machine', to:'french_touch',       strength:1, type:'aesthetic' },
 
+  // ── TAMA SUMO ──────────────────────────────────────────────────────────────
+  { from:'tama_sumo', to:'tresor_club',    strength:3, type:'roster' },
+  { from:'tama_sumo', to:'panorama_bar',   strength:3, type:'roster' },
+  { from:'tama_sumo', to:'ostgut_ton',     strength:2, type:'roster' },
+
+  // ── LUKE SLATER ────────────────────────────────────────────────────────────
+  { from:'luke_slater', to:'berghain',     strength:3, type:'roster' },
+  { from:'luke_slater', to:'ostgut_ton',   strength:2, type:'roster' },
+
+  // ── ND_BAUMECKER ───────────────────────────────────────────────────────────
+  { from:'nd_baumecker', to:'panorama_bar', strength:3, type:'roster' },
+  { from:'nd_baumecker', to:'ostgut_ton',   strength:2, type:'roster' },
+
+  // ── STEFFI ─────────────────────────────────────────────────────────────────
+  { from:'steffi', to:'panorama_bar',      strength:3, type:'roster' },
+  { from:'steffi', to:'ostgut_ton',        strength:3, type:'roster' },
+  { from:'steffi', to:'virginia',          strength:2, type:'aesthetic' },
+
+  // ── VIRGINIA ───────────────────────────────────────────────────────────────
+  { from:'virginia', to:'panorama_bar',    strength:3, type:'roster' },
+  { from:'virginia', to:'steffi',          strength:2, type:'aesthetic' },
+
+  // ── NORMAN NODGE ───────────────────────────────────────────────────────────
+  { from:'norman_nodge', to:'berghain',    strength:3, type:'roster' },
+  { from:'norman_nodge', to:'ostgut_ton',  strength:2, type:'roster' },
+  { from:'norman_nodge', to:'dettmann',    strength:2, type:'influence' },
+
   // ── JANE FITZ ──────────────────────────────────────────────────────────────
   { from:'jane_fitz', to:'tresor_club',    strength:2, type:'roster' },
   { from:'jane_fitz', to:'panorama_bar',   strength:2, type:'roster' },
