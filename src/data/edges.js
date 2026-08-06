@@ -2236,4 +2236,9 @@ export const EDGES = [
   // ── PURPLE DISCO MACHINE ───────────────────────────────────────────────────
   { from:'purple_disco_machine', to:'daft_punk',          strength:2, type:'influence' },
   { from:'purple_disco_machine', to:'french_touch',       strength:1, type:'aesthetic' },
+
+  // ── JANE FITZ ──────────────────────────────────────────────────────────────
+  { from:'jane_fitz', to:'tresor_club',    strength:2, type:'roster' },
+  { from:'jane_fitz', to:'panorama_bar',   strength:2, type:'roster' },
+  { from:'jane_fitz', to:'rinse_fm',       strength:2, type:'roster' },
 ];

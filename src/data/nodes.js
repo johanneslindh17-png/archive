@@ -4581,4 +4581,8 @@ export const NODES = [
     releases: [
       { title: 'My House (OFF Recordings)', year: 2013 },
     ]},
+
+  { id:'jane_fitz', label:'Jane Fitz', type:'artist', genre:'deep', era:2000, city:'London', country:'UK',
+    desc:'Jane Fitz is a London-based DJ with over two decades of experience, known for an eclectic approach spanning UK acid, deep and spacey house, psychedelic techno, and ambient. A resident at the non-profit festival Freerotation and The Pickle Factory in London, she has played at Tresor, Panorama Bar, and Concrete. She produces under the Invisible Menders alias with Dom Ahtuam, releasing on Porn Wax and related labels, and holds a regular slot on Rinse FM.',
+    releases: [] },
 ];
