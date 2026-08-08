@@ -921,7 +921,7 @@ export const NODES = [
 
   // ── GERMANY — WEIMAR / GIEGLING ─────────────────────────────────────────
   { id:'giegling', label:'Giegling', type:'label', genre:'giegling', era:2009, city:'Weimar', country:'DE',
-    desc:'Giegling is a label and collective based in Weimar, founded around 2009. Its members include Traumprinz, DJ Healer, Leafar Legov, Edward, and Kettenkarussell. The label does not maintain social media accounts and releases music that frequently moves away from functional club formats toward ambient and introspective territory. It is based in Weimar rather than Berlin, and this geographic position is part of its identity.',
+    desc:'Giegling is a label and collective based in Weimar, founded around 2009 by Konstantin, Leafar Legov, and others who met as students at the Bauhaus University. Its members include Konstantin, Traumprinz, DJ Healer, Leafar Legov, Edward, Kettenkarussell, Dwig, and Vril. The label does not maintain social media accounts and releases music that frequently moves away from functional club formats toward ambient and introspective territory. It is based in Weimar rather than Berlin, and this geographic position is part of its identity.',
     releases: [
       { title: '"All The Things" — Traumprinz', year: 2016 },
       { title: '"Talk" — Leafar Legov', year: 2017 },
@@ -943,16 +943,32 @@ export const NODES = [
     ]},
 
   { id:'leafar', label:'Leafar Legov', type:'artist', genre:'giegling', era:2010, city:'Weimar', country:'DE',
-    desc:'Leafar Legov is a Giegling member who also records as Edward. His releases are warm, melodic deep house with a strong harmonic character. His work has been cited as a direct influence on LB Honne, among others.',
+    desc:'Leafar Legov (Rafael Vogel) is a co-founder of the Giegling collective in Weimar. His solo releases are warm, melodic deep house with a strong harmonic character. With Konstantin, he forms Kettenkarussell — the duo whose debut EP launched the Giegling label. His work has been cited as a direct influence on LB Honne, among others.',
     releases: [
       { title: '"Talk" (Giegling)', year: 2017 },
       { title: '"Family" (Giegling)', year: 2017 },
     ]},
 
-  { id:'kettenkarussell', label:'Kettenkarussell', type:'artist', genre:'giegling', era:2012, city:'Weimar', country:'DE',
-    desc:'Kettenkarussell is a Giegling member or members whose identity has been kept private. Their productions are melodic and more accessible than other Giegling output, blending club-functional house with introspective character.',
+  { id:'kettenkarussell', label:'Kettenkarussell', type:'artist', genre:'giegling', era:2009, city:'Weimar', country:'DE',
+    desc:'Kettenkarussell is the duo of Konstantin and Leafar Legov, both co-founders of the Giegling collective. Their debut EP I Believe You and Me Make Love Forever (Giegling, 2009) was the label\'s first release. Their productions blend deep house and ambient music with a melodic, introspective character.',
     releases: [
+      { title: 'I Believe You and Me Make Love Forever (Giegling)', year: 2009 },
       { title: '"Mahagoni" (Giegling)', year: 2013 },
+    ]},
+
+  { id:'konstantin', label:'Konstantin', type:'artist', genre:'giegling', era:2009, city:'Weimar', country:'DE',
+    desc:'Konstantin is a co-founder of the Giegling collective, established in Weimar following study at the Bauhaus University in the mid-2000s. He DJs under his own name and produces under the alias Herr Koreander. With Leafar Legov, he forms Kettenkarussell — the duo whose debut EP was Giegling\'s first release. He is widely regarded as one of the defining voices of the collective\'s aesthetic.',
+    releases: [
+      { title: 'Giegling Mix 06: Einsame Inseln (Herr Koreander)', year: 2015 },
+      { title: 'Studio R° (Giegling)', year: 2018 },
+    ]},
+
+  { id:'edward', label:'Edward', type:'artist', genre:'giegling', era:2018, city:'Berlin', country:'DE', bandcamp:'edward-music', bandcamp_album:'3879708973',
+    desc:'Edward is the alias of Gilles Aiken, a Berlin-based DJ and producer and a core member of the Giegling collective. His productions work in a groove-centred, sample-based aesthetic that moves between house, techno, and psychedelic territory. He also releases on White, the imprint he co-runs with Oskar Offermann. His album Fortune Teller (Giegling, 2018) is his most widely recognised work.',
+    releases: [
+      { title: 'Fortune Teller (Giegling)', year: 2018 },
+      { title: 'Underwater Jams', year: 2019 },
+      { title: 'Turning (Giegling)', year: 2021 },
     ]},
 
   // ── SWITZERLAND ──────────────────────────────────────────────────────────
