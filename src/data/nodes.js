@@ -1596,6 +1596,13 @@ export const NODES = [
       { title: 'Siete (Beats in Space)', year: 2014 },
     ]},
 
+  { id:'pachanga_boys', label:'Pachanga Boys', type:'artist', genre:'minimal', era:2011, city:'Cologne', country:'DE', bandcamp:'pachangaboys', bandcamp_album:'1951222936',
+    desc:'Pachanga Boys is the duo of Aksel Schaufler (Superpitcher, Cologne) and Mauricio Rebolledo (Mexico City), who met in Playa del Carmen, Mexico. Schaufler releases on Kompakt-affiliated Hippie Dance; Rebolledo co-founded Cómeme. Together they created an extended, groove-driven melodic house sound with psychedelic reach. Their track "Time" (2011) became one of the defining anthems of the European minimal and melodic house underground.',
+    releases: [
+      { title: '"Time" (Hippie Dance)', year: 2011 },
+      { title: 'We Are Really Sorry (Hippie Dance)', year: 2012 },
+    ]},
+
   // ── RUSSIA ───────────────────────────────────────────────────────────────
   { id:'ninakraviz', label:'Nina Kraviz', type:'artist', genre:'techno', era:2010, city:'Moscow', country:'RU',
     desc:'Nina Kraviz was born in Irkutsk, Russia. She began DJing and producing in Moscow and released her self-titled debut album on Rekids in 2012. She founded the трип (Trip) label in 2014. Her productions range from acid and house to harder techno. She has become one of the most internationally prominent DJs in contemporary techno.',
@@ -3287,6 +3294,13 @@ export const NODES = [
       { title:'Happy Birthday! (BPitch Control)', year:2007 },
     ]},
 
+  { id:'fjaak', label:'FJAAK', type:'artist', genre:'techno', era:2012, city:'Berlin', country:'DE', bandcamp:'fjaak', bandcamp_album:'1074359548',
+    desc:'FJAAK is the Berlin duo of Felix Wagner and Aaron Röbig, who grew up together in Spandau and began making music as teenagers. Their productions are built entirely on analogue equipment and span driving warehouse techno, slower textural work, and influences from UK garage and breakbeat. They released on Klasse Recordings before signing to Modeselektor\'s 50 Weapons imprint in 2014, then moving to Monkeytown. In 2019 they founded their own SPANDAU20 label.',
+    releases:[
+      { title:'Remember Me (Klasse Recordings)', year:2013 },
+      { title:'FJAAK (Monkeytown)', year:2017 },
+    ]},
+
   { id:'apparat', label:'Apparat', type:'artist', genre:'experimental', era:2001, city:'Berlin', country:'DE',
     desc:'Sascha Ring produces as Apparat, making electronic music between post-rock, ambient, and techno. His albums on Shitkatapult and Mute Records blended live instrumentation with dense electronic processing and atmospheric melancholy. He is one half of Moderat alongside Modeselektor — a project that generated three albums reaching audiences well beyond club culture. His solo work increasingly explores orchestral and cinematic directions.',
     releases:[
@@ -3430,6 +3444,13 @@ export const NODES = [
     releases:[
       { title:'Genesys (Afterlife)', year:2022 },
       { title:'Eternity (Afterlife)', year:2023 },
+    ]},
+
+  { id:'black_loops', label:'Black Loops', type:'artist', genre:'deep', era:2015, city:'Arezzo', country:'IT', bandcamp:'blackloops', bandcamp_album:'2762269107',
+    desc:'Riccardo Paffetti records as Black Loops and is based in Italy. His productions are rooted in deep house and the 1990s UK and New York house traditions, combining live drums, analogue synthesizers, and sample-based layering. He was named Traxsource #1 Deep House Artist of 2017 and has released on Toy Tonics, Freerange, Classic, and Shall Not Fade.',
+    releases:[
+      { title:'Early EPs (Toy Tonics)', year:2016 },
+      { title:'Always Moving (Freerange)', year:2025 },
     ]},
 
   { id:'enrico_sangiuliano', label:'Enrico Sangiuliano', type:'artist', genre:'techno', era:2010, city:'Turin', country:'IT',

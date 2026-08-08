@@ -749,6 +749,8 @@ export const EDGES = [
   { from:'kompakt',       to:'aguayo',           strength:2, type:'roster' },
   { from:'aguayo',        to:'cómeme',           strength:3, type:'lineage' },
   { from:'aguayo',        to:'rebolledo',        strength:3, type:'aesthetic' },
+  { from:'rebolledo',     to:'pachanga_boys',    strength:3, type:'collab'    },
+  { from:'kompakt',       to:'pachanga_boys',    strength:2, type:'roster'    },
   { from:'cómeme',        to:'zzk_records',      strength:2, type:'aesthetic' },
 
   // ── COLOMBIA ─────────────────────────────────────────────────────────────
@@ -1551,6 +1553,10 @@ export const EDGES = [
   { from:'cluster',             to:'ambient',             strength:3, type:'influence' },
   { from:'cluster',             to:'basicchannel',        strength:2, type:'influence' },
   { from:'kraftwerk',           to:'cluster',             strength:2, type:'aesthetic' },
+
+  // ── FJAAK ────────────────────────────────────────────────────────────────
+  { from:'modeselektor',        to:'fjaak',               strength:2, type:'roster'    },
+  { from:'rodhad',              to:'fjaak',               strength:2, type:'collab'    },
 
   // ── MODERAT ──────────────────────────────────────────────────────────────
   { from:'modeselektor',        to:'moderat',             strength:3, type:'lineage'   },
