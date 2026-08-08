@@ -237,7 +237,7 @@ export const NODES = [
       { title: '"Victorious" — Floorplan', year: 2013 },
     ]},
 
-  { id:'drexciya', label:'Drexciya', type:'artist', genre:'detroit', era:1992, city:'Detroit', country:'US',
+  { id:'drexciya', label:'Drexciya', type:'artist', genre:'detroit', era:1992, city:'Detroit', country:'US', bandcamp:'drexciya', bandcamp_album:'3588309545',
     desc:'Drexciya was a Detroit duo formed by James Stinson and Gerald Donald. They built a sustained Afrofuturist mythology around their releases — an aquatic civilisation descended from enslaved Africans lost at sea during the Middle Passage — expressed through machine-paced electro with compressed, underwater-like production. Their releases appeared on Underground Resistance, Tresor, and Clone. Stinson passed away in September 2002; Donald continued producing under other aliases.',
     releases: [
       { title: '"Aquatic Invasion" EP (Underground Resistance)', year: 1992 },
@@ -396,7 +396,7 @@ export const NODES = [
       { title: '"Colonized" (Noise Manifesto)', year: 2018 },
     ]},
 
-  { id:'surgeon', label:'Surgeon', type:'artist', genre:'techno', era:1992, city:'Birmingham', country:'UK',
+  { id:'surgeon', label:'Surgeon', type:'artist', genre:'techno', era:1992, city:'Birmingham', country:'UK', bandcamp:'dj-surgeon', bandcamp_album:'0704672791',
     desc:'Anthony Child records as Surgeon and has been based in Birmingham throughout his career. He co-developed the Downwards label and sound with Karl O\'Connor from 1993 onward. His productions apply Chicago house rhythms to a colder European electronics aesthetic. He has been a resident at Berghain since the mid-2000s. As British Murder Boys — his duo with Regis (Karl O\'Connor) — he produced a more noise-influenced body of work in the early 2000s.',
     releases: [
       { title: 'Basictonalvocabulary (Tresor)', year: 1997 },
@@ -655,7 +655,7 @@ export const NODES = [
     ]},
 
 
-  { id:'monolake', label:'Monolake', type:'artist', genre:'ambient', era:1995, city:'Berlin', country:'DE',
+  { id:'monolake', label:'Monolake', type:'artist', genre:'ambient', era:1995, city:'Berlin', country:'DE', bandcamp:'roberthenke', bandcamp_album:'3644384027',
     desc:'Monolake was the project of Robert Henke, with early involvement from Gerhard Behles. Formed in Berlin in the mid-1990s, the project released dub-influenced techno on Chain Reaction. Henke and Behles subsequently co-founded Ableton and developed Ableton Live, the music production software widely used in electronic music today. Henke has continued releasing music as Monolake and working in installation and concert contexts.',
     releases: [
       { title: '"Cyan" (Chain Reaction)', year: 1996 },
@@ -698,7 +698,7 @@ export const NODES = [
       { title: 'Decay — Efdemin', year: 2015 },
     ]},
 
-  { id:'dettmann', label:'Marcel Dettmann', type:'artist', genre:'techno', era:2005, city:'Berlin', country:'DE',
+  { id:'dettmann', label:'Marcel Dettmann', type:'artist', genre:'techno', era:2005, city:'Berlin', country:'DE', bandcamp:'marceldettmann', bandcamp_album:'0747466778',
     desc:'Marcel Dettmann is a Berlin-based producer and DJ who has been a resident at Berghain since the club\'s opening years. He releases on Ostgut Ton and his own MOS label. His techno is characterised by precision and sustained intensity over long sets. He was among the first Berghain residents to establish an international profile through appearances at major European events.',
     releases: [
       { title: '"DDR/Return" (Ostgut Ton)', year: 2007 },
@@ -707,7 +707,7 @@ export const NODES = [
       { title: '"Repulsion" (MOS)', year: 2016 },
     ]},
 
-  { id:'function', label:'Function', type:'artist', genre:'techno', era:2010, city:'Berlin', country:'DE',
+  { id:'function', label:'Function', type:'artist', genre:'techno', era:2010, city:'Berlin', country:'DE', bandcamp:'function-inf-ny', bandcamp_album:'1601452348',
     desc:'Dave Sumner records as Function and has released on Ostgut Ton and Sandwell District, a label he co-founded. He relocated from Birmingham to Berlin. His techno is meditative and architectural in character, with an emphasis on atmosphere and long compositional development. His album Incubation (Ostgut Ton, 2013) is regarded as a significant work in contemporary techno.',
     releases: [
       { title: 'Incubation (Ostgut Ton)', year: 2013 },
@@ -715,7 +715,7 @@ export const NODES = [
       { title: '"Detached" (Ostgut Ton)', year: 2011 },
     ]},
 
-  { id:'efdemin', label:'Efdemin', type:'artist', genre:'minimal', era:2008, city:'Berlin', country:'DE',
+  { id:'efdemin', label:'Efdemin', type:'artist', genre:'minimal', era:2008, city:'Berlin', country:'DE', bandcamp:'efdemindial', bandcamp_album:'1319483591',
     desc:'Phillip Sollmann records as Efdemin and has released on Dial Records and Ostgut Ton. His productions have an avant-garde quality within the techno context — unusual structures, considered use of silence, and strong conceptual clarity. His album Decay (Ostgut Ton, 2015) is regarded as one of the more distinctive records in contemporary techno.',
     releases: [
       { title: 'Efdemin (Dial)', year: 2008 },
@@ -740,7 +740,7 @@ export const NODES = [
       { title: '"Oblong" (Innervisions)', year: 2014 },
     ]},
 
-  { id:'ame', label:'Âme', type:'artist', genre:'melodic', era:2005, city:'Berlin', country:'DE',
+  { id:'ame', label:'Âme', type:'artist', genre:'melodic', era:2005, city:'Berlin', country:'DE', bandcamp:'ame-engoli', bandcamp_album:'2071668193',
     desc:'Âme is the production duo of Kristian Beyer and Frank Wiedemann, based in Berlin. They co-founded Innervisions in 2005. Their production "Rej" (2005) became one of the most recognised records in European melodic deep house. They also perform live as a duo, combining synthesizer work with DJ mixing.',
     releases: [
       { title: '"Rej" (Innervisions)', year: 2005 },
@@ -756,7 +756,7 @@ export const NODES = [
       { title: '"Rejoice" — Massano', year: 2022 },
     ]},
 
-  { id:'taleofus', label:'Tale of Us', type:'artist', genre:'melodic', era:2010, city:'Berlin', country:'DE',
+  { id:'taleofus', label:'Tale of Us', type:'artist', genre:'melodic', era:2010, city:'Berlin', country:'DE', bandcamp:'taleofus', bandcamp_album:'4144816626',
     desc:'Tale of Us is the project of Matteo Milleri and Carmine Conte, Italian producers based in Berlin. They founded the Afterlife label in 2014. Their productions are melodic and atmospheric, with a cinematic character. They have become widely booked at major European festivals and through the Cercle performance series.',
     releases: [
       { title: '"North Star" (Afterlife)', year: 2016 },
@@ -765,7 +765,7 @@ export const NODES = [
       { title: '"Opaquer" (Afterlife)', year: 2019 },
     ]},
 
-  { id:'dvs1', label:'DVS1', type:'artist', genre:'techno', era:2010, city:'Berlin', country:'DE',
+  { id:'dvs1', label:'DVS1', type:'artist', genre:'techno', era:2010, city:'Berlin', country:'DE', bandcamp:'dvs1hush', bandcamp_album:'1840316539',
     desc:'Zak Khutoretsky records as DVS1. He grew up in Minneapolis and has been based in Berlin. He has been a Berghain resident and releases on his HUSH label and Ben Klock\'s Klockworks. He has published writing on DJ practice and produced educational content on techno performance.',
     releases: [
       { title: '"Black Leather" (Klockworks)', year: 2012 },
@@ -773,7 +773,7 @@ export const NODES = [
       { title: '"Reflections" (HUSH)', year: 2016 },
     ]},
 
-  { id:'rodhad', label:'Rødhåd', type:'artist', genre:'techno', era:2010, city:'Berlin', country:'DE',
+  { id:'rodhad', label:'Rødhåd', type:'artist', genre:'techno', era:2010, city:'Berlin', country:'DE', bandcamp:'rodhad', bandcamp_album:'2983765402',
     desc:'Rødhåd is a Berlin-based DJ and producer who founded the Dystopian label in 2010. He has performed at Berghain and Panorama Bar and is known for long, slow-building DJ sets in a heavy, hypnotic techno style.',
     releases: [
       { title: '"Wunderblock" EP (Dystopian)', year: 2011 },
@@ -911,7 +911,7 @@ export const NODES = [
     ]},
 
 
-  { id:'panthaduprince', label:'Pantha du Prince', type:'artist', genre:'ambient', era:2004, city:'Hamburg', country:'DE',
+  { id:'panthaduprince', label:'Pantha du Prince', type:'artist', genre:'ambient', era:2004, city:'Hamburg', country:'DE', bandcamp:'panthaduprinceofficial', bandcamp_album:'2000779958',
     desc:'Hendrik Weber records as Pantha du Prince and is based in Hamburg. His music is characterised by crystalline textures, slow tempos, and a connection to minimalist composition. His album Black Noise (Rough Trade, 2010) received substantial critical attention. His collaboration with the Norwegian group The Bell Laboratory, Elements of Light (2013), combined electronic production with live acoustic bells.',
     releases: [
       { title: 'This Bliss (Dial)', year: 2007 },
@@ -1071,7 +1071,7 @@ export const NODES = [
       { title: 'Dark Days — Legowelt', year: 2015 },
     ]},
 
-  { id:'legowelt', label:'Legowelt', type:'artist', genre:'experimental', era:1997, city:'The Hague', country:'NL',
+  { id:'legowelt', label:'Legowelt', type:'artist', genre:'experimental', era:1997, city:'The Hague', country:'NL', bandcamp:'legowelt', bandcamp_album:'3477513505',
     desc:'Danny Wolfers records as Legowelt and is based in The Hague. He has been producing across electro, house, techno, and ambient music since the mid-1990s with a consistently prolific output. He releases on Delsin, Clone, and his own Strange Life label, among many others. His productions are characterised by a lo-fi analog aesthetic and broad engagement with the full history of electronic music.',
     releases: [
       { title: '"Arp\'s Arp" (Clone)', year: 2001 },
