@@ -979,58 +979,81 @@ path.eg.dim{opacity:0.09}
 }
 .onboard-btn-secondary:hover{color:var(--tb-text);border-color:var(--tb-text);}
 
-/* ── TOUR ───────────────────────────────────────────────────────────────── */
-.tour-overlay{
-  position:fixed;inset:0;z-index:9997;
-  background:rgba(0,0,0,0.55);
+/* ── TOUR v2 ─────────────────────────────────────────────────────────────── */
+.tour-scrim{
+  position:fixed;inset:0;z-index:9994;
+  background:rgba(0,0,0,0.42);
   pointer-events:all;
 }
-.tour-dot{
-  position:fixed;
-  width:18px;height:18px;
-  border-radius:50%;
-  background:var(--tb-text);
-  transform:translate(-50%,-50%);
-  box-shadow:0 0 0 0 rgba(255,255,255,0.4);
-  animation:tour-pulse 1.8s ease-out infinite;
-  pointer-events:none;z-index:9998;
+.tour-hl-box{
+  position:fixed;pointer-events:none;z-index:9995;
+  box-sizing:border-box;
 }
-@keyframes tour-pulse{
-  0%  {box-shadow:0 0 0 0 rgba(255,255,255,0.5);}
-  70% {box-shadow:0 0 0 18px rgba(255,255,255,0);}
-  100%{box-shadow:0 0 0 0 rgba(255,255,255,0);}
+.tour-hl-c{
+  position:absolute;width:12px;height:12px;
+  border-style:solid;border-color:rgba(255,255,255,0.85);border-width:0;
+  animation:tourCornerBlink 2s ease-in-out infinite;
 }
-.tour-card{
-  position:fixed;bottom:80px;left:50%;transform:translateX(-50%);
+.tour-hl-tl{top:-1px;left:-1px;border-top-width:2px;border-left-width:2px;}
+.tour-hl-tr{top:-1px;right:-1px;border-top-width:2px;border-right-width:2px;}
+.tour-hl-bl{bottom:-1px;left:-1px;border-bottom-width:2px;border-left-width:2px;}
+.tour-hl-br{bottom:-1px;right:-1px;border-bottom-width:2px;border-right-width:2px;}
+@keyframes tourCornerBlink{
+  0%,100%{opacity:1;}
+  50%{opacity:0.25;}
+}
+.tour-connector{
+  position:fixed;inset:0;width:100vw;height:100vh;
+  pointer-events:none;z-index:9996;overflow:visible;
+}
+.tour-card-v2{
+  position:fixed;z-index:9999;pointer-events:all;
+  width:300px;
   background:var(--tb-bg);border:1px solid var(--tb-border);
-  width:340px;padding:24px;
-  display:flex;flex-direction:column;gap:12px;
-  z-index:9999;pointer-events:all;
+  padding:22px 24px;
+  display:flex;flex-direction:column;gap:14px;
 }
-.tour-count{
-  font-family:'Syne Mono',monospace;font-size:0.6rem;
-  letter-spacing:0.15em;color:var(--tb-text-dim);
-  text-transform:uppercase;
+.tour-card-v2--center{
+  left:50%;top:45%;
+  transform:translateX(-50%) translateY(-50%);
 }
-.tour-title{
-  font-family:'Syne Mono',monospace;font-size:0.78rem;
-  letter-spacing:0.18em;text-transform:uppercase;color:var(--tb-text);
+.tour-v2-progress{
+  display:flex;gap:5px;align-items:center;
 }
-.tour-body{font-size:0.78rem;line-height:1.65;color:var(--tb-text-mid);}
-.tour-actions{display:flex;justify-content:space-between;align-items:center;margin-top:4px;}
-.tour-skip{
+.tour-v2-pip{
+  height:2px;flex:1;
+  background:var(--tb-border);
+  transition:background 0.25s;
+}
+.tour-v2-pip.active{background:var(--tb-text);}
+.tour-v2-title{
+  font-family:'Syne Mono',monospace;
+  font-size:0.7rem;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--tb-text);
+  margin-top:2px;
+}
+.tour-v2-body{
+  font-size:0.78rem;line-height:1.65;
+  color:var(--tb-text-mid);
+}
+.tour-v2-nav{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:2px;
+}
+.tour-v2-skip{
   background:none;border:none;cursor:pointer;
-  font-family:'Syne Mono',monospace;font-size:0.65rem;
-  letter-spacing:0.1em;color:var(--tb-text-dim);
-  text-transform:uppercase;padding:0;
+  font-family:'Syne Mono',monospace;
+  font-size:0.6rem;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--tb-text-dim);padding:0;
   transition:color 0.15s;
 }
-.tour-skip:hover{color:var(--tb-text-mid);}
-.tour-next{
-  padding:9px 18px;background:var(--tb-text);color:var(--tb-bg);
-  font-family:'Syne Mono',monospace;font-size:0.65rem;
-  letter-spacing:0.1em;text-transform:uppercase;
-  border:none;cursor:pointer;
+.tour-v2-skip:hover{color:var(--tb-text-mid);}
+.tour-v2-next{
+  padding:8px 16px;
+  background:var(--tb-text);color:var(--tb-bg);
+  font-family:'Syne Mono',monospace;
+  font-size:0.6rem;letter-spacing:0.1em;
+  text-transform:uppercase;border:none;cursor:pointer;
   transition:opacity 0.15s;
 }
-.tour-next:hover{opacity:0.85;}
+.tour-v2-next:hover{opacity:0.85;}

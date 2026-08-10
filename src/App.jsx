@@ -266,6 +266,51 @@ async function samplePhotoColors(url) {
   } catch (e) { return null; }
 }
 
+const TOUR_STEPS = [
+  {
+    id: 'map',
+    title: 'A LIVING MAP',
+    body: 'Six decades of electronic music, documented and connected. Every node is real — an artist, label, club, or pivotal moment. Every line is a verified connection: influence, collaboration, lineage. Pan and zoom freely.',
+    getTarget: () => null,
+    cardSide: 'center',
+    onEnter: null,
+    delay: 0,
+  },
+  {
+    id: 'node',
+    title: 'EVERY NODE IS A STORY',
+    body: "We just opened Mike Dettmann — Berghain resident since 2004, one of Berlin's most influential selectors. Biography, key releases, scene context. Click any name inside to follow the thread.",
+    getTarget: () => document.querySelector('.dp.open'),
+    cardSide: 'left',
+    onEnter: ctx => {
+      ctx.setPanelOnLeft(false);
+      ctx.setPanelX(null);
+      ctx.tourSelectNode('dettmann');
+      ctx.scrollToNode('dettmann');
+    },
+    delay: 500,
+  },
+  {
+    id: 'player',
+    title: 'HEAR THE HISTORY',
+    body: 'Hundreds of artists have integrated Bandcamp players. Stream directly inside the archive — no tab-switching, no interruption. The bottom bar plays continuously as you explore.',
+    getTarget: () => document.querySelector('.player-inline'),
+    cardSide: 'top',
+    onEnter: ctx => { ctx.setPlayingNodeId('dettmann'); },
+    delay: 200,
+  },
+  {
+    id: 'search',
+    title: 'FIND ANYTHING',
+    body: '650+ nodes, instantly searchable. We searched for Aphex Twin — see the result in the bar above. Click any result to jump straight to that node.',
+    getTarget: () => null,
+    cardSide: 'none',
+    cardPosition: { top: 94, left: '50%', transform: 'translateX(-50%)', width: 300 },
+    onEnter: ctx => { ctx.setSearchQ('Aphex'); ctx.setSearchFocus(true); },
+    delay: 150,
+  },
+];
+
 export default function App() {
   const svgRef = useRef(null);
   const [expanded, setExpanded] = useState(null);
@@ -540,33 +585,88 @@ export default function App() {
   const [onboardStep, setOnboardStep] = useState(() =>
     localStorage.getItem('archiveOnboarded') ? null : 'welcome'
   );
+  const [tourHL, setTourHL] = useState(null);
 
-  const TOUR = [
-    {
-      title: 'THE MAP',
-      body: 'Each node is an artist, label, club, or defining moment in electronic music. Lines show direct connections — influence, collaboration, shared lineage. Pan and zoom freely.',
-      dot: { left: '50%', top: '50%' },
-    },
-    {
-      title: 'NODE PANELS',
-      body: 'Click any node to open its panel — biography, key releases, and clickable names that pull you deeper into the history.',
-      dot: { right: '420px', top: '40%' },
-    },
-    {
-      title: 'MUSIC PLAYER',
-      body: 'Artists with a Bandcamp page have a built-in player. Hit ▶ listen in any panel to stream, or browse with the bar at the bottom.',
-      dot: { left: '50%', bottom: '52px' },
-    },
-    {
-      title: 'SEARCH & FILTER',
-      body: 'Search any artist, label, or venue instantly. Genre filters on the left narrow the map to a specific scene.',
-      dot: { left: '180px', top: '31px' },
-    },
-  ];
+  function tourSelectNode(id) {
+    setSelected(id);
+    setPinned(null);
+    setHistory([]);
+  }
 
-  const dismissOnboard = () => { localStorage.setItem('archiveOnboarded', '1'); setOnboardStep(null); };
-  const startTour      = () => { localStorage.setItem('archiveOnboarded', '1'); setOnboardStep(0); };
-  const nextTour       = () => onboardStep >= TOUR.length - 1 ? setOnboardStep(null) : setOnboardStep(s => s + 1);
+  const dismissOnboard = () => {
+    localStorage.setItem('archiveOnboarded', '1');
+    setOnboardStep(null);
+    setTourHL(null);
+    setSearchQ('');
+    setSearchFocus(false);
+  };
+  const startTour = () => { localStorage.setItem('archiveOnboarded', '1'); setOnboardStep(0); };
+  const nextTour  = () => {
+    if (typeof onboardStep === 'number' && onboardStep >= TOUR_STEPS.length - 1) {
+      dismissOnboard();
+    } else {
+      setOnboardStep(s => (typeof s === 'number' ? s + 1 : 0));
+    }
+  };
+
+  useEffect(() => {
+    if (typeof onboardStep !== 'number') { setTourHL(null); return; }
+    const step = TOUR_STEPS[onboardStep];
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const ctx = { tourSelectNode, scrollToNode, setPlayingNodeId, setSearchQ, setSearchFocus, setPanelOnLeft, setPanelX };
+    if (step.onEnter) step.onEnter(ctx);
+    const ms = step.delay ?? 80;
+    const t = setTimeout(() => {
+      const el = step.getTarget?.();
+      if (!el) { setTourHL({ side: step.cardSide ?? 'center', cardStyle: step.cardPosition ?? {} }); return; }
+      const r = el.getBoundingClientRect();
+      if (!r.width && !r.height) { setTourHL({ side: 'center', cardStyle: {} }); return; }
+      const GAP = 28, CARD_W = 300, CARD_H = 200;
+      const vw = window.innerWidth, vh = window.innerHeight;
+      const tx = r.left, ty = r.top, tw = r.width, th = r.height;
+      const cx = tx + tw / 2, cy = ty + th / 2;
+      let cardStyle, lineStart, lineEnd;
+      switch (step.cardSide) {
+        case 'left': {
+          const cRight = tx - GAP;
+          const cTop = Math.min(Math.max(cy - CARD_H / 2, 20), vh - CARD_H - 20);
+          cardStyle = { right: vw - cRight, top: cTop, width: CARD_W };
+          lineStart = { x: cRight, y: cTop + CARD_H / 2 };
+          lineEnd   = { x: tx, y: cy };
+          break;
+        }
+        case 'right': {
+          const cLeft = r.right + GAP;
+          const cTop = Math.min(Math.max(cy - CARD_H / 2, 20), vh - CARD_H - 20);
+          cardStyle = { left: cLeft, top: cTop, width: CARD_W };
+          lineStart = { x: cLeft, y: cTop + CARD_H / 2 };
+          lineEnd   = { x: r.right, y: cy };
+          break;
+        }
+        case 'top': {
+          const cBottom = ty - GAP;
+          const cLeft = Math.min(Math.max(cx - CARD_W / 2, 20), vw - CARD_W - 20);
+          cardStyle = { bottom: vh - cBottom, left: cLeft, width: CARD_W };
+          lineStart = { x: cLeft + CARD_W / 2, y: cBottom };
+          lineEnd   = { x: cx, y: ty };
+          break;
+        }
+        case 'bottom': {
+          const cTop2 = r.bottom + GAP;
+          const cLeft2 = Math.min(Math.max(cx - CARD_W / 2, 20), vw - CARD_W - 20);
+          cardStyle = { top: cTop2, left: cLeft2, width: CARD_W };
+          lineStart = { x: cLeft2 + CARD_W / 2, y: cTop2 };
+          lineEnd   = { x: cx, y: r.bottom };
+          break;
+        }
+        default:
+          cardStyle = {}; lineStart = null; lineEnd = null;
+      }
+      setTourHL({ tx, ty, tw, th, cardStyle, lineStart, lineEnd, side: step.cardSide });
+    }, ms);
+    return () => clearTimeout(t);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [onboardStep]);
 
   const [pinned, setPinned] = useState(null); // highlighted but panel closed
   const [panelOnLeft, setPanelOnLeft] = useState(false); // panel flips left when clicked node is in right half
@@ -2107,7 +2207,7 @@ export default function App() {
           <div className="onboard-modal">
             <div className="onboard-wordmark">ARCHIVE</div>
             <div className="onboard-pitch">
-              Mapping the electronic underground — 650+ artists, labels, venues and scenes, connected by influence, lineage, and collaboration.
+              Six decades of electronic music, documented and connected. 650+ artists, labels, clubs, and pivotal moments — all linked by real influence, collaboration, and lineage.
             </div>
             <div className="onboard-btns">
               <button className="onboard-btn-primary" onClick={dismissOnboard}>Start exploring</button>
@@ -2117,23 +2217,55 @@ export default function App() {
         </div>
       )}
 
-      {/* ── TOUR ───────────────────────────────────────────────────────────── */}
-      {typeof onboardStep === 'number' && (
-        <div className="tour-overlay" onClick={dismissOnboard}>
-          <div className="tour-dot" style={TOUR[onboardStep].dot} />
-          <div className="tour-card" onClick={e => e.stopPropagation()}>
-            <div className="tour-count">{onboardStep + 1} / {TOUR.length}</div>
-            <div className="tour-title">{TOUR[onboardStep].title}</div>
-            <div className="tour-body">{TOUR[onboardStep].body}</div>
-            <div className="tour-actions">
-              <button className="tour-skip" onClick={dismissOnboard}>Skip</button>
-              <button className="tour-next" onClick={nextTour}>
-                {onboardStep === TOUR.length - 1 ? 'Start exploring' : 'Next →'}
+      {/* ── TOUR v2 ─────────────────────────────────────────────────────────── */}
+      {typeof onboardStep === 'number' && (<>
+        <div className="tour-scrim" onClick={dismissOnboard} />
+
+        {tourHL && tourHL.side !== 'center' && tourHL.side !== 'none' && (
+          <div className="tour-hl-box" style={{ left: tourHL.tx - 6, top: tourHL.ty - 6, width: tourHL.tw + 12, height: tourHL.th + 12 }}>
+            <span className="tour-hl-c tour-hl-tl" /><span className="tour-hl-c tour-hl-tr" />
+            <span className="tour-hl-c tour-hl-bl" /><span className="tour-hl-c tour-hl-br" />
+          </div>
+        )}
+
+        {tourHL?.lineStart && (
+          <svg className="tour-connector" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <marker id="tour-ah" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="rgba(255,255,255,0.5)" />
+              </marker>
+            </defs>
+            <line
+              x1={tourHL.lineStart.x} y1={tourHL.lineStart.y}
+              x2={tourHL.lineEnd.x}   y2={tourHL.lineEnd.y}
+              stroke="rgba(255,255,255,0.3)" strokeWidth="1" strokeDasharray="5 4"
+              markerEnd="url(#tour-ah)"
+            />
+          </svg>
+        )}
+
+        {tourHL && (
+          <div
+            className={`tour-card-v2${tourHL.side === 'center' ? ' tour-card-v2--center' : ''}`}
+            style={tourHL.cardStyle}
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="tour-v2-progress">
+              {TOUR_STEPS.map((_, i) => (
+                <div key={i} className={`tour-v2-pip${i <= onboardStep ? ' active' : ''}`} />
+              ))}
+            </div>
+            <div className="tour-v2-title">{TOUR_STEPS[onboardStep].title}</div>
+            <div className="tour-v2-body">{TOUR_STEPS[onboardStep].body}</div>
+            <div className="tour-v2-nav">
+              <button className="tour-v2-skip" onClick={dismissOnboard}>Skip</button>
+              <button className="tour-v2-next" onClick={nextTour}>
+                {onboardStep === TOUR_STEPS.length - 1 ? 'Start exploring' : 'Next →'}
               </button>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </>)}
 
       {paywallOpen && (
         <div className="paywall-overlay" onClick={e => { if (e.target === e.currentTarget) setPaywallOpen(false); }}>
