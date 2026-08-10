@@ -537,6 +537,37 @@ export default function App() {
     scrollToNode(id);
   }
 
+  const [onboardStep, setOnboardStep] = useState(() =>
+    localStorage.getItem('archiveOnboarded') ? null : 'welcome'
+  );
+
+  const TOUR = [
+    {
+      title: 'THE MAP',
+      body: 'Each node is an artist, label, club, or defining moment in electronic music. Lines show direct connections — influence, collaboration, shared lineage. Pan and zoom freely.',
+      dot: { left: '50%', top: '50%' },
+    },
+    {
+      title: 'NODE PANELS',
+      body: 'Click any node to open its panel — biography, key releases, and clickable names that pull you deeper into the history.',
+      dot: { right: '420px', top: '40%' },
+    },
+    {
+      title: 'MUSIC PLAYER',
+      body: 'Artists with a Bandcamp page have a built-in player. Hit ▶ listen in any panel to stream, or browse with the bar at the bottom.',
+      dot: { left: '50%', bottom: '52px' },
+    },
+    {
+      title: 'SEARCH & FILTER',
+      body: 'Search any artist, label, or venue instantly. Genre filters on the left narrow the map to a specific scene.',
+      dot: { left: '180px', top: '31px' },
+    },
+  ];
+
+  const dismissOnboard = () => { localStorage.setItem('archiveOnboarded', '1'); setOnboardStep(null); };
+  const startTour      = () => { localStorage.setItem('archiveOnboarded', '1'); setOnboardStep(0); };
+  const nextTour       = () => onboardStep >= TOUR.length - 1 ? setOnboardStep(null) : setOnboardStep(s => s + 1);
+
   const [pinned, setPinned] = useState(null); // highlighted but panel closed
   const [panelOnLeft, setPanelOnLeft] = useState(false); // panel flips left when clicked node is in right half
   const [panelX, setPanelX] = useState(null); // null = CSS default (right/left edge)
@@ -2069,6 +2100,40 @@ export default function App() {
           <div className="statusbar-item">ARCHIVE — Mapping the electronic underground · v0.2</div>
         </div>
       </div>
+
+      {/* ── ONBOARDING WELCOME ─────────────────────────────────────────────── */}
+      {onboardStep === 'welcome' && (
+        <div className="onboard-overlay">
+          <div className="onboard-modal">
+            <div className="onboard-wordmark">ARCHIVE</div>
+            <div className="onboard-pitch">
+              Mapping the electronic underground — 650+ artists, labels, venues and scenes, connected by influence, lineage, and collaboration.
+            </div>
+            <div className="onboard-btns">
+              <button className="onboard-btn-primary" onClick={dismissOnboard}>Start exploring</button>
+              <button className="onboard-btn-secondary" onClick={startTour}>Take a tour</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── TOUR ───────────────────────────────────────────────────────────── */}
+      {typeof onboardStep === 'number' && (
+        <div className="tour-overlay" onClick={dismissOnboard}>
+          <div className="tour-dot" style={TOUR[onboardStep].dot} />
+          <div className="tour-card" onClick={e => e.stopPropagation()}>
+            <div className="tour-count">{onboardStep + 1} / {TOUR.length}</div>
+            <div className="tour-title">{TOUR[onboardStep].title}</div>
+            <div className="tour-body">{TOUR[onboardStep].body}</div>
+            <div className="tour-actions">
+              <button className="tour-skip" onClick={dismissOnboard}>Skip</button>
+              <button className="tour-next" onClick={nextTour}>
+                {onboardStep === TOUR.length - 1 ? 'Start exploring' : 'Next →'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {paywallOpen && (
         <div className="paywall-overlay" onClick={e => { if (e.target === e.currentTarget) setPaywallOpen(false); }}>
