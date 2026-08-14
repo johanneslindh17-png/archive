@@ -279,10 +279,11 @@ const TOUR_STEPS = [
   {
     id: 'node',
     title: 'EVERY NODE IS A STORY',
-    body: "We just opened Mike Dettmann's profile — Berghain resident, one of Berlin's most influential selectors. Scroll the panel to see his connections, releases, and full context. Click any highlighted name to follow the thread.",
+    body: "We just opened Marcel Dettmann's profile — Berghain resident, one of Berlin's most influential selectors. Scroll the panel to see his connections, releases, and full context. Click any highlighted name to follow the thread.",
     getTarget: () => document.querySelector('.dp.open'),
-    cardSide: 'left',
-    minCardTop: 0.62,
+    cardSide: 'none',
+    cardPosition: { top: 24, left: 20, width: 300 },
+    cardLineAnchor: 'right',
     onEnter: ctx => {
       ctx.setPanelOnLeft(false);
       ctx.setPanelX(null);
@@ -297,6 +298,7 @@ const TOUR_STEPS = [
     body: "When an artist has music on Bandcamp, the player is built right in. It keeps playing as you explore — the whole history, with a soundtrack.",
     getTarget: () => document.querySelector('.player-inline'),
     cardSide: 'top',
+    cardLeftMax: 40,
     onEnter: ctx => { ctx.setPlayingNodeId('dettmann'); },
     delay: 200,
   },
@@ -312,7 +314,7 @@ const TOUR_STEPS = [
       ctx.setSearchQ('');
       const text = 'Aphex Twin';
       let i = 0;
-      const iv = setInterval(() => { ctx.setSearchQ(text.slice(0, ++i)); if (i >= text.length) clearInterval(iv); }, 70);
+      const iv = setInterval(() => { ctx.setSearchQ(text.slice(0, ++i)); if (i >= text.length) clearInterval(iv); }, 120);
       return () => clearInterval(iv);
     },
     delay: 200,
@@ -627,12 +629,35 @@ export default function App() {
     const ms = step.delay ?? 80;
     const t = setTimeout(() => {
       const el = step.getTarget?.();
+      const GAP = 28, CARD_W = 300, CARD_H = 200;
+      const vw = window.innerWidth, vh = window.innerHeight;
+
+      // Fixed card position — highlight target if it exists, draw line from card
+      if (step.cardSide === 'none') {
+        const cp = step.cardPosition ?? {};
+        const cardW = typeof cp.width === 'number' ? cp.width : CARD_W;
+        const cardLeft = typeof cp.left === 'number' ? cp.left : 20;
+        const cardTopEst = typeof cp.top === 'number' ? cp.top :
+          typeof cp.bottom === 'number' ? (vh - cp.bottom - CARD_H) : 0;
+        if (!el) {
+          setTourHL({ side: 'none', cardStyle: cp, lineStart: null, lineEnd: null, tx: 0, ty: 0, tw: 0, th: 0 });
+          return;
+        }
+        const r2 = el.getBoundingClientRect();
+        const aTw = step.maxHighlightWidth ? Math.min(r2.width, step.maxHighlightWidth) : r2.width;
+        const anchor = step.cardLineAnchor ?? 'right';
+        const ls = anchor === 'right'  ? { x: cardLeft + cardW, y: cardTopEst + CARD_H / 2 } :
+                   anchor === 'left'   ? { x: cardLeft, y: cardTopEst + CARD_H / 2 } :
+                   anchor === 'bottom' ? { x: cardLeft + cardW / 2, y: cardTopEst + CARD_H } :
+                                         { x: cardLeft + cardW / 2, y: cardTopEst };
+        const le = { x: r2.left, y: r2.top + r2.height / 2 };
+        setTourHL({ tx: r2.left, ty: r2.top, tw: aTw, th: r2.height, cardStyle: cp, lineStart: ls, lineEnd: le, side: 'none' });
+        return;
+      }
+
       if (!el) { setTourHL({ side: step.cardSide ?? 'center', cardStyle: step.cardPosition ?? {} }); return; }
       const r = el.getBoundingClientRect();
       if (!r.width && !r.height) { setTourHL({ side: 'center', cardStyle: {} }); return; }
-      const GAP = 28, CARD_W = 300, CARD_H = 200;
-      const vw = window.innerWidth, vh = window.innerHeight;
-      // Apply optional width cap (for wide elements like search input)
       const tw = step.maxHighlightWidth ? Math.min(r.width, step.maxHighlightWidth) : r.width;
       const tx = r.left, ty = r.top, th = r.height;
       const cx = tx + tw / 2, cy = ty + th / 2;
@@ -641,7 +666,6 @@ export default function App() {
         case 'left': {
           const cRight = tx - GAP;
           const cTopRaw = Math.min(Math.max(cy - CARD_H / 2, 20), vh - CARD_H - 20);
-          // Push card below graph node area if step requests it
           const cTop = step.minCardTop ? Math.max(cTopRaw, Math.floor(vh * step.minCardTop)) : cTopRaw;
           cardStyle = { right: vw - cRight, top: cTop, width: CARD_W };
           lineStart = { x: cRight, y: cTop + CARD_H / 2 };
@@ -658,7 +682,8 @@ export default function App() {
         }
         case 'top': {
           const cBottom = ty - GAP;
-          const cLeft = Math.min(Math.max(cx - CARD_W / 2, 20), vw - CARD_W - 20);
+          const rawCLeft = Math.min(Math.max(cx - CARD_W / 2, 20), vw - CARD_W - 20);
+          const cLeft = step.cardLeftMax !== undefined ? Math.min(rawCLeft, step.cardLeftMax) : rawCLeft;
           cardStyle = { bottom: vh - cBottom, left: cLeft, width: CARD_W };
           lineStart = { x: cLeft + CARD_W / 2, y: cBottom };
           lineEnd   = { x: cx, y: ty };
@@ -2236,8 +2261,8 @@ export default function App() {
       {typeof onboardStep === 'number' && (<>
         <div className="tour-scrim" onClick={dismissOnboard} />
 
-        {tourHL && tourHL.side !== 'center' && tourHL.side !== 'none' && (
-          <div className="tour-hl-box" style={{ left: tourHL.tx - 6, top: tourHL.ty - 6, width: tourHL.tw + 12, height: tourHL.th + 12 }}>
+        {tourHL && (tourHL.tw > 0) && tourHL.side !== 'center' && (
+          <div key={`hl-${onboardStep}`} className="tour-hl-box" style={{ left: tourHL.tx - 6, top: tourHL.ty - 6, width: tourHL.tw + 12, height: tourHL.th + 12 }}>
             <span className="tour-hl-c tour-hl-tl" /><span className="tour-hl-c tour-hl-tr" />
             <span className="tour-hl-c tour-hl-bl" /><span className="tour-hl-c tour-hl-br" />
           </div>
@@ -2261,6 +2286,7 @@ export default function App() {
 
         {tourHL && (
           <div
+            key={onboardStep}
             className={`tour-card-v2${tourHL.side === 'center' ? ' tour-card-v2--center' : ''}`}
             style={tourHL.cardStyle}
             onClick={e => e.stopPropagation()}
