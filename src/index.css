@@ -1029,16 +1029,10 @@ path.eg.dim{opacity:0.09}
   background:var(--tb-bg);border:1px solid var(--tb-border);
   padding:22px 24px;
   display:flex;flex-direction:column;gap:14px;
-  animation:tourCardIn 1.6s ease-out both;
 }
-@keyframes tourCardIn{
-  0%  {opacity:0;filter:blur(24px) brightness(2.2);transform:scale(1.06);}
-  18% {opacity:0.1;filter:blur(18px) brightness(1.7);}
-  40% {opacity:0.3;filter:blur(12px) brightness(1.35);transform:scale(1.03);}
-  62% {opacity:0.6;filter:blur(6px) brightness(1.12);}
-  80% {opacity:0.84;filter:blur(2px) brightness(1.04);transform:scale(1.01);}
-  92% {opacity:0.96;filter:blur(0.5px) brightness(1.01);}
-  100%{opacity:1;filter:blur(0) brightness(1);transform:scale(1);}
+.tour-card-pixels{
+  position:absolute;inset:0;
+  pointer-events:none;z-index:10;
 }
 .tour-card-v2--center{
   left:50%;top:45%;

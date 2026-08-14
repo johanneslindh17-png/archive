@@ -282,8 +282,9 @@ const TOUR_STEPS = [
     body: "We just opened Marcel Dettmann's profile — Berghain resident, one of Berlin's most influential selectors. Scroll the panel to see his connections, releases, and full context. Click any highlighted name to follow the thread.",
     getTarget: () => document.querySelector('.dp.open'),
     cardSide: 'none',
-    cardPosition: { top: 140, width: 300 },
-    cardLeftPct: 0.28,
+    cardPosition: { width: 300 },
+    cardLeftPct: 0.04,
+    alignVerticalWithTarget: true,
     cardLineAnchor: 'right',
     onEnter: ctx => {
       ctx.setPanelOnLeft(false);
@@ -299,7 +300,7 @@ const TOUR_STEPS = [
     body: "When an artist has music on Bandcamp, the player is built right in. It keeps playing as you explore — the whole history, with a soundtrack.",
     getTarget: () => document.querySelector('.player-inline'),
     cardSide: 'top',
-    cardLeftMax: 40,
+    cardLeftMax: 295,
     onEnter: ctx => { ctx.setPlayingNodeId('dettmann'); },
     delay: 200,
   },
@@ -323,6 +324,7 @@ const TOUR_STEPS = [
 
 export default function App() {
   const svgRef = useRef(null);
+  const pixelCanvasRef = useRef(null);
   const [expanded, setExpanded] = useState(null);
   const [searchQ, setSearchQ] = useState('');
   const [selected, setSelected] = useState(null);
@@ -639,21 +641,26 @@ export default function App() {
         const cardW = typeof cp.width === 'number' ? cp.width : CARD_W;
         const cardLeft = step.cardLeftPct !== undefined ? Math.round(vw * step.cardLeftPct) :
           typeof cp.left === 'number' ? cp.left : 20;
-        const cardTopEst = typeof cp.top === 'number' ? cp.top :
-          typeof cp.bottom === 'number' ? (vh - cp.bottom - CARD_H) : 0;
         if (!el) {
-          setTourHL({ side: 'none', cardStyle: { ...cp, left: cardLeft }, lineStart: null, lineEnd: null, tx: 0, ty: 0, tw: 0, th: 0 });
+          const cardTop = typeof cp.top === 'number' ? cp.top :
+            typeof cp.bottom === 'number' ? (vh - cp.bottom - CARD_H) : 100;
+          setTourHL({ side: 'none', cardStyle: { ...cp, left: cardLeft, top: cardTop }, lineStart: null, lineEnd: null, tx: 0, ty: 0, tw: 0, th: 0 });
           return;
         }
         const r2 = el.getBoundingClientRect();
         const aTw = step.maxHighlightWidth ? Math.min(r2.width, step.maxHighlightWidth) : r2.width;
+        const cardTop = step.alignVerticalWithTarget
+          ? Math.max(20, Math.min(r2.top + r2.height / 2 - CARD_H / 2, vh - CARD_H - 20))
+          : typeof cp.top === 'number' ? cp.top
+          : typeof cp.bottom === 'number' ? (vh - cp.bottom - CARD_H)
+          : 100;
         const anchor = step.cardLineAnchor ?? 'right';
-        const ls = anchor === 'right'  ? { x: cardLeft + cardW, y: cardTopEst + CARD_H / 2 } :
-                   anchor === 'left'   ? { x: cardLeft, y: cardTopEst + CARD_H / 2 } :
-                   anchor === 'bottom' ? { x: cardLeft + cardW / 2, y: cardTopEst + CARD_H } :
-                                         { x: cardLeft + cardW / 2, y: cardTopEst };
+        const ls = anchor === 'right'  ? { x: cardLeft + cardW, y: cardTop + CARD_H / 2 } :
+                   anchor === 'left'   ? { x: cardLeft, y: cardTop + CARD_H / 2 } :
+                   anchor === 'bottom' ? { x: cardLeft + cardW / 2, y: cardTop + CARD_H } :
+                                         { x: cardLeft + cardW / 2, y: cardTop };
         const le = { x: r2.left, y: r2.top + r2.height / 2 };
-        setTourHL({ tx: r2.left, ty: r2.top, tw: aTw, th: r2.height, cardStyle: { ...cp, left: cardLeft }, lineStart: ls, lineEnd: le, side: 'none' });
+        setTourHL({ tx: r2.left, ty: r2.top, tw: aTw, th: r2.height, cardStyle: { ...cp, left: cardLeft, top: cardTop }, lineStart: ls, lineEnd: le, side: 'none' });
         return;
       }
 
@@ -707,6 +714,46 @@ export default function App() {
     return () => { clearTimeout(t); if (onEnterCleanup) onEnterCleanup(); };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onboardStep]);
+
+  // Pixel dissolve animation: canvas covers card, random pixel blocks clear away to reveal content
+  useEffect(() => {
+    const canvas = pixelCanvasRef.current;
+    if (!canvas || !tourHL) return;
+    canvas.width = canvas.offsetWidth || 300;
+    canvas.height = canvas.offsetHeight || 240;
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width, H = canvas.height;
+    const bgColor = getComputedStyle(canvas.parentElement).backgroundColor || '#111';
+    ctx.fillStyle = bgColor;
+    ctx.fillRect(0, 0, W, H);
+    const PS = 5;
+    const cols = Math.ceil(W / PS), rows = Math.ceil(H / PS);
+    const total = cols * rows;
+    const order = Array.from({ length: total }, (_, i) => i);
+    for (let i = order.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    const duration = 750;
+    const start = performance.now();
+    let raf;
+    canvas.style.opacity = '1';
+    canvas.style.transition = 'none';
+    function draw(now) {
+      const t = Math.min((now - start) / duration, 1);
+      ctx.fillStyle = bgColor;
+      ctx.fillRect(0, 0, W, H);
+      const n = Math.floor(t * total);
+      for (let i = 0; i < n; i++) {
+        const idx = order[i];
+        ctx.clearRect((idx % cols) * PS, Math.floor(idx / cols) * PS, PS, PS);
+      }
+      if (t < 1) { raf = requestAnimationFrame(draw); }
+      else { canvas.style.transition = 'opacity 0.2s'; canvas.style.opacity = '0'; }
+    }
+    raf = requestAnimationFrame(draw);
+    return () => { cancelAnimationFrame(raf); };
+  }, [tourHL]);
 
   const [pinned, setPinned] = useState(null); // highlighted but panel closed
   const [panelOnLeft, setPanelOnLeft] = useState(false); // panel flips left when clicked node is in right half
@@ -2293,6 +2340,7 @@ export default function App() {
             style={tourHL.cardStyle}
             onClick={e => e.stopPropagation()}
           >
+            <canvas ref={pixelCanvasRef} className="tour-card-pixels" />
             <div className="tour-v2-progress">
               {TOUR_STEPS.map((_, i) => (
                 <div key={i} className={`tour-v2-pip${i <= onboardStep ? ' active' : ''}`} />
