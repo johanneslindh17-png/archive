@@ -270,7 +270,7 @@ const TOUR_STEPS = [
   {
     id: 'map',
     title: 'A LIVING MAP',
-    body: 'Six decades of electronic music, documented and connected. Every node is real — an artist, label, club, or pivotal moment. Every line is a verified connection: influence, collaboration, lineage. Pan and zoom freely.',
+    body: 'Welcome. Six decades of electronic music — 650+ artists, labels, clubs, and pivotal moments, all connected by real, documented lines of influence and lineage. Take your time.',
     getTarget: () => null,
     cardSide: 'center',
     onEnter: null,
@@ -279,9 +279,10 @@ const TOUR_STEPS = [
   {
     id: 'node',
     title: 'EVERY NODE IS A STORY',
-    body: "We just opened Mike Dettmann — Berghain resident since 2004, one of Berlin's most influential selectors. Biography, key releases, scene context. Click any name inside to follow the thread.",
+    body: "We just opened Mike Dettmann's profile — Berghain resident, one of Berlin's most influential selectors. Scroll the panel to see his connections, releases, and full context. Click any highlighted name to follow the thread.",
     getTarget: () => document.querySelector('.dp.open'),
     cardSide: 'left',
+    minCardTop: 0.62,
     onEnter: ctx => {
       ctx.setPanelOnLeft(false);
       ctx.setPanelX(null);
@@ -293,7 +294,7 @@ const TOUR_STEPS = [
   {
     id: 'player',
     title: 'HEAR THE HISTORY',
-    body: 'Hundreds of artists have integrated Bandcamp players. Stream directly inside the archive — no tab-switching, no interruption. The bottom bar plays continuously as you explore.',
+    body: "When an artist has music on Bandcamp, the player is built right in. It keeps playing as you explore — the whole history, with a soundtrack.",
     getTarget: () => document.querySelector('.player-inline'),
     cardSide: 'top',
     onEnter: ctx => { ctx.setPlayingNodeId('dettmann'); },
@@ -302,12 +303,19 @@ const TOUR_STEPS = [
   {
     id: 'search',
     title: 'FIND ANYTHING',
-    body: '650+ nodes, instantly searchable. We searched for Aphex Twin — see the result in the bar above. Click any result to jump straight to that node.',
-    getTarget: () => null,
-    cardSide: 'none',
-    cardPosition: { top: 94, left: '50%', transform: 'translateX(-50%)', width: 300 },
-    onEnter: ctx => { ctx.setSearchQ('Aphex'); ctx.setSearchFocus(true); },
-    delay: 150,
+    body: 'Type an artist, label, or venue and jump straight to it. The whole archive is searchable in seconds — try clicking the result above.',
+    getTarget: () => document.querySelector('.topbar input'),
+    cardSide: 'bottom',
+    maxHighlightWidth: 480,
+    onEnter: ctx => {
+      ctx.setSearchFocus(true);
+      ctx.setSearchQ('');
+      const text = 'Aphex Twin';
+      let i = 0;
+      const iv = setInterval(() => { ctx.setSearchQ(text.slice(0, ++i)); if (i >= text.length) clearInterval(iv); }, 70);
+      return () => clearInterval(iv);
+    },
+    delay: 200,
   },
 ];
 
@@ -614,7 +622,8 @@ export default function App() {
     const step = TOUR_STEPS[onboardStep];
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const ctx = { tourSelectNode, scrollToNode, setPlayingNodeId, setSearchQ, setSearchFocus, setPanelOnLeft, setPanelX };
-    if (step.onEnter) step.onEnter(ctx);
+    let onEnterCleanup;
+    if (step.onEnter) onEnterCleanup = step.onEnter(ctx);
     const ms = step.delay ?? 80;
     const t = setTimeout(() => {
       const el = step.getTarget?.();
@@ -623,13 +632,17 @@ export default function App() {
       if (!r.width && !r.height) { setTourHL({ side: 'center', cardStyle: {} }); return; }
       const GAP = 28, CARD_W = 300, CARD_H = 200;
       const vw = window.innerWidth, vh = window.innerHeight;
-      const tx = r.left, ty = r.top, tw = r.width, th = r.height;
+      // Apply optional width cap (for wide elements like search input)
+      const tw = step.maxHighlightWidth ? Math.min(r.width, step.maxHighlightWidth) : r.width;
+      const tx = r.left, ty = r.top, th = r.height;
       const cx = tx + tw / 2, cy = ty + th / 2;
       let cardStyle, lineStart, lineEnd;
       switch (step.cardSide) {
         case 'left': {
           const cRight = tx - GAP;
-          const cTop = Math.min(Math.max(cy - CARD_H / 2, 20), vh - CARD_H - 20);
+          const cTopRaw = Math.min(Math.max(cy - CARD_H / 2, 20), vh - CARD_H - 20);
+          // Push card below graph node area if step requests it
+          const cTop = step.minCardTop ? Math.max(cTopRaw, Math.floor(vh * step.minCardTop)) : cTopRaw;
           cardStyle = { right: vw - cRight, top: cTop, width: CARD_W };
           lineStart = { x: cRight, y: cTop + CARD_H / 2 };
           lineEnd   = { x: tx, y: cy };
@@ -664,7 +677,7 @@ export default function App() {
       }
       setTourHL({ tx, ty, tw, th, cardStyle, lineStart, lineEnd, side: step.cardSide });
     }, ms);
-    return () => clearTimeout(t);
+    return () => { clearTimeout(t); if (onEnterCleanup) onEnterCleanup(); };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onboardStep]);
 
@@ -2198,6 +2211,8 @@ export default function App() {
           )}
           <div className="statusbar-sep" />
           <div className="statusbar-item">ARCHIVE — Mapping the electronic underground · v0.2</div>
+          <div className="statusbar-sep" />
+          <button className="tour-relaunch" onClick={() => setOnboardStep('welcome')} title="Relaunch intro">?</button>
         </div>
       </div>
 
@@ -2207,7 +2222,7 @@ export default function App() {
           <div className="onboard-modal">
             <div className="onboard-wordmark">ARCHIVE</div>
             <div className="onboard-pitch">
-              Six decades of electronic music, documented and connected. 650+ artists, labels, clubs, and pivotal moments — all linked by real influence, collaboration, and lineage.
+              Six decades of electronic music, mapped from the inside. 650+ artists, labels, clubs, and pivotal moments — all connected by real influence, collaboration, and lineage. Explore freely, or let us show you around.
             </div>
             <div className="onboard-btns">
               <button className="onboard-btn-primary" onClick={dismissOnboard}>Start exploring</button>
