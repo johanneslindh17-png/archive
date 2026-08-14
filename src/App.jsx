@@ -282,7 +282,8 @@ const TOUR_STEPS = [
     body: "We just opened Marcel Dettmann's profile — Berghain resident, one of Berlin's most influential selectors. Scroll the panel to see his connections, releases, and full context. Click any highlighted name to follow the thread.",
     getTarget: () => document.querySelector('.dp.open'),
     cardSide: 'none',
-    cardPosition: { top: 24, left: 20, width: 300 },
+    cardPosition: { top: 140, width: 300 },
+    cardLeftPct: 0.28,
     cardLineAnchor: 'right',
     onEnter: ctx => {
       ctx.setPanelOnLeft(false);
@@ -308,7 +309,6 @@ const TOUR_STEPS = [
     body: 'Type an artist, label, or venue and jump straight to it. The whole archive is searchable in seconds — try clicking the result above.',
     getTarget: () => document.querySelector('.topbar input'),
     cardSide: 'bottom',
-    maxHighlightWidth: 480,
     onEnter: ctx => {
       ctx.setSearchFocus(true);
       ctx.setSearchQ('');
@@ -621,6 +621,7 @@ export default function App() {
 
   useEffect(() => {
     if (typeof onboardStep !== 'number') { setTourHL(null); return; }
+    setTourHL(null); // clear immediately so old content doesn't show at wrong position
     const step = TOUR_STEPS[onboardStep];
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const ctx = { tourSelectNode, scrollToNode, setPlayingNodeId, setSearchQ, setSearchFocus, setPanelOnLeft, setPanelX };
@@ -636,11 +637,12 @@ export default function App() {
       if (step.cardSide === 'none') {
         const cp = step.cardPosition ?? {};
         const cardW = typeof cp.width === 'number' ? cp.width : CARD_W;
-        const cardLeft = typeof cp.left === 'number' ? cp.left : 20;
+        const cardLeft = step.cardLeftPct !== undefined ? Math.round(vw * step.cardLeftPct) :
+          typeof cp.left === 'number' ? cp.left : 20;
         const cardTopEst = typeof cp.top === 'number' ? cp.top :
           typeof cp.bottom === 'number' ? (vh - cp.bottom - CARD_H) : 0;
         if (!el) {
-          setTourHL({ side: 'none', cardStyle: cp, lineStart: null, lineEnd: null, tx: 0, ty: 0, tw: 0, th: 0 });
+          setTourHL({ side: 'none', cardStyle: { ...cp, left: cardLeft }, lineStart: null, lineEnd: null, tx: 0, ty: 0, tw: 0, th: 0 });
           return;
         }
         const r2 = el.getBoundingClientRect();
@@ -651,7 +653,7 @@ export default function App() {
                    anchor === 'bottom' ? { x: cardLeft + cardW / 2, y: cardTopEst + CARD_H } :
                                          { x: cardLeft + cardW / 2, y: cardTopEst };
         const le = { x: r2.left, y: r2.top + r2.height / 2 };
-        setTourHL({ tx: r2.left, ty: r2.top, tw: aTw, th: r2.height, cardStyle: cp, lineStart: ls, lineEnd: le, side: 'none' });
+        setTourHL({ tx: r2.left, ty: r2.top, tw: aTw, th: r2.height, cardStyle: { ...cp, left: cardLeft }, lineStart: ls, lineEnd: le, side: 'none' });
         return;
       }
 
