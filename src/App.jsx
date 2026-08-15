@@ -281,11 +281,7 @@ const TOUR_STEPS = [
     title: 'EVERY NODE IS A STORY',
     body: "We just opened Marcel Dettmann's profile — Berghain resident, one of Berlin's most influential selectors. Scroll the panel to see his connections, releases, and full context. Click any highlighted name to follow the thread.",
     getTarget: () => document.querySelector('.dp.open'),
-    cardSide: 'none',
-    cardPosition: { width: 300 },
-    cardLeftPct: 0.04,
-    alignVerticalWithTarget: true,
-    cardLineAnchor: 'right',
+    cardSide: 'persist',
     onEnter: ctx => {
       ctx.setPanelOnLeft(false);
       ctx.setPanelX(null);
@@ -299,8 +295,7 @@ const TOUR_STEPS = [
     title: 'HEAR THE HISTORY',
     body: "When an artist has music on Bandcamp, the player is built right in. It keeps playing as you explore — the whole history, with a soundtrack.",
     getTarget: () => document.querySelector('.player-inline'),
-    cardSide: 'top',
-    cardLeftMax: 295,
+    cardSide: 'persist',
     onEnter: ctx => { ctx.setPlayingNodeId('dettmann'); },
     delay: 200,
   },
@@ -309,7 +304,7 @@ const TOUR_STEPS = [
     title: 'FIND ANYTHING',
     body: 'Type an artist, label, or venue and jump straight to it. The whole archive is searchable in seconds — try clicking the result above.',
     getTarget: () => document.querySelector('.topbar input'),
-    cardSide: 'bottom',
+    cardSide: 'persist',
     onEnter: ctx => {
       ctx.setSearchFocus(true);
       ctx.setSearchQ('');
@@ -325,6 +320,8 @@ const TOUR_STEPS = [
 export default function App() {
   const svgRef = useRef(null);
   const pixelCanvasRef = useRef(null);
+  const textCanvasRef = useRef(null);
+  const persistCardRef = useRef(null);
   const [expanded, setExpanded] = useState(null);
   const [searchQ, setSearchQ] = useState('');
   const [selected, setSelected] = useState(null);
@@ -508,7 +505,7 @@ export default function App() {
     const x0 = live.x, y0 = live.y, k0 = live.k;
     animatingRef.current = true;
     d3.select(svgRef.current)
-      .transition().duration(380).ease(d3.easeCubicOut)
+      .transition().duration(220).ease(d3.easeCubicOut)
       .tween('scroll-to-node', () => t => {
         const y  = y0 + (y1 - y0) * t;
         svgRef.current.__zoom = d3.zoomIdentity.translate(x1, y).scale(k1);
@@ -623,109 +620,106 @@ export default function App() {
 
   useEffect(() => {
     if (typeof onboardStep !== 'number') { setTourHL(null); return; }
-    setTourHL(null); // clear immediately so old content doesn't show at wrong position
+
     const step = TOUR_STEPS[onboardStep];
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const ctx = { tourSelectNode, scrollToNode, setPlayingNodeId, setSearchQ, setSearchFocus, setPanelOnLeft, setPanelX };
     let onEnterCleanup;
     if (step.onEnter) onEnterCleanup = step.onEnter(ctx);
     const ms = step.delay ?? 80;
+
+    // Partial clear: keep card visible at its current position but remove
+    // highlight brackets and connector line during the transition delay.
+    // ready:false prevents the canvas dissolve from firing prematurely.
+    setTourHL(prev => prev ? { ...prev, tx: 0, ty: 0, tw: 0, th: 0, lineStart: null, lineEnd: null, ready: false } : null);
+
+    // For the first persist step (0→1): schedule an early cardStyle update so
+    // the card slides to its final position during the transition delay rather
+    // than jumping there when content loads.
+    let t0;
+    if (onboardStep === 1 && !persistCardRef.current) {
+      t0 = setTimeout(() => {
+        const CARD_W = 300, CARD_H = 200;
+        const vw = window.innerWidth, vh = window.innerHeight;
+        const graphCanvasW = vw - 360;
+        const pos = { left: Math.round(graphCanvasW / 2 + 120), top: Math.round(vh / 2 - CARD_H / 2), width: CARD_W };
+        persistCardRef.current = pos;
+        setTourHL(prev => prev ? { ...prev, cardStyle: pos } : null);
+      }, 60);
+    }
+
     const t = setTimeout(() => {
-      const el = step.getTarget?.();
-      const GAP = 28, CARD_W = 300, CARD_H = 200;
+      const CARD_W = 300, CARD_H = 200;
       const vw = window.innerWidth, vh = window.innerHeight;
 
-      // Fixed card position — highlight target if it exists, draw line from card
-      if (step.cardSide === 'none') {
-        const cp = step.cardPosition ?? {};
-        const cardW = typeof cp.width === 'number' ? cp.width : CARD_W;
-        const cardLeft = step.cardLeftPct !== undefined ? Math.round(vw * step.cardLeftPct) :
-          typeof cp.left === 'number' ? cp.left : 20;
-        if (!el) {
-          const cardTop = typeof cp.top === 'number' ? cp.top :
-            typeof cp.bottom === 'number' ? (vh - cp.bottom - CARD_H) : 100;
-          setTourHL({ side: 'none', cardStyle: { ...cp, left: cardLeft, top: cardTop }, lineStart: null, lineEnd: null, tx: 0, ty: 0, tw: 0, th: 0 });
-          return;
-        }
-        const r2 = el.getBoundingClientRect();
-        const aTw = step.maxHighlightWidth ? Math.min(r2.width, step.maxHighlightWidth) : r2.width;
-        const cardTop = step.alignVerticalWithTarget
-          ? Math.max(20, Math.min(r2.top + r2.height / 2 - CARD_H / 2, vh - CARD_H - 20))
-          : typeof cp.top === 'number' ? cp.top
-          : typeof cp.bottom === 'number' ? (vh - cp.bottom - CARD_H)
-          : 100;
-        const anchor = step.cardLineAnchor ?? 'right';
-        const ls = anchor === 'right'  ? { x: cardLeft + cardW, y: cardTop + CARD_H / 2 } :
-                   anchor === 'left'   ? { x: cardLeft, y: cardTop + CARD_H / 2 } :
-                   anchor === 'bottom' ? { x: cardLeft + cardW / 2, y: cardTop + CARD_H } :
-                                         { x: cardLeft + cardW / 2, y: cardTop };
-        const le = { x: r2.left, y: r2.top + r2.height / 2 };
-        setTourHL({ tx: r2.left, ty: r2.top, tw: aTw, th: r2.height, cardStyle: { ...cp, left: cardLeft, top: cardTop }, lineStart: ls, lineEnd: le, side: 'none' });
+      // ── Step 0: centered welcome card ─────────────────────────────────────
+      if (onboardStep === 0) {
+        persistCardRef.current = null;
+        const centerLeft = Math.round(vw / 2 - CARD_W / 2);
+        const centerTop  = Math.round(vh / 2 - CARD_H / 2);
+        setTourHL({ side: 'center', cardStyle: { left: centerLeft, top: centerTop, width: CARD_W }, tx: 0, ty: 0, tw: 0, th: 0, lineStart: null, lineEnd: null, ready: true });
         return;
       }
 
-      if (!el) { setTourHL({ side: step.cardSide ?? 'center', cardStyle: step.cardPosition ?? {} }); return; }
+      // ── Steps 1–3: persistent card position ───────────────────────────────
+      if (!persistCardRef.current) {
+        const graphCanvasW = vw - 360;
+        const pos = { left: Math.round(graphCanvasW / 2 + 120), top: Math.round(vh / 2 - CARD_H / 2), width: CARD_W };
+        persistCardRef.current = pos;
+      }
+      const cp = persistCardRef.current;
+
+      const el = step.getTarget?.();
+      if (!el) {
+        setTourHL({ side: 'persist', cardStyle: cp, tx: 0, ty: 0, tw: 0, th: 0, lineStart: null, lineEnd: null, ready: true });
+        return;
+      }
       const r = el.getBoundingClientRect();
-      if (!r.width && !r.height) { setTourHL({ side: 'center', cardStyle: {} }); return; }
+      if (!r.width && !r.height) {
+        setTourHL({ side: 'persist', cardStyle: cp, tx: 0, ty: 0, tw: 0, th: 0, lineStart: null, lineEnd: null, ready: true });
+        return;
+      }
       const tw = step.maxHighlightWidth ? Math.min(r.width, step.maxHighlightWidth) : r.width;
       const tx = r.left, ty = r.top, th = r.height;
-      const cx = tx + tw / 2, cy = ty + th / 2;
-      let cardStyle, lineStart, lineEnd;
-      switch (step.cardSide) {
-        case 'left': {
-          const cRight = tx - GAP;
-          const cTopRaw = Math.min(Math.max(cy - CARD_H / 2, 20), vh - CARD_H - 20);
-          const cTop = step.minCardTop ? Math.max(cTopRaw, Math.floor(vh * step.minCardTop)) : cTopRaw;
-          cardStyle = { right: vw - cRight, top: cTop, width: CARD_W };
-          lineStart = { x: cRight, y: cTop + CARD_H / 2 };
-          lineEnd   = { x: tx, y: cy };
-          break;
-        }
-        case 'right': {
-          const cLeft = r.right + GAP;
-          const cTop = Math.min(Math.max(cy - CARD_H / 2, 20), vh - CARD_H - 20);
-          cardStyle = { left: cLeft, top: cTop, width: CARD_W };
-          lineStart = { x: cLeft, y: cTop + CARD_H / 2 };
-          lineEnd   = { x: r.right, y: cy };
-          break;
-        }
-        case 'top': {
-          const cBottom = ty - GAP;
-          const rawCLeft = Math.min(Math.max(cx - CARD_W / 2, 20), vw - CARD_W - 20);
-          const cLeft = step.cardLeftMax !== undefined ? Math.min(rawCLeft, step.cardLeftMax) : rawCLeft;
-          cardStyle = { bottom: vh - cBottom, left: cLeft, width: CARD_W };
-          lineStart = { x: cLeft + CARD_W / 2, y: cBottom };
-          lineEnd   = { x: cx, y: ty };
-          break;
-        }
-        case 'bottom': {
-          const cTop2 = r.bottom + GAP;
-          const cLeft2 = Math.min(Math.max(cx - CARD_W / 2, 20), vw - CARD_W - 20);
-          cardStyle = { top: cTop2, left: cLeft2, width: CARD_W };
-          lineStart = { x: cLeft2 + CARD_W / 2, y: cTop2 };
-          lineEnd   = { x: cx, y: r.bottom };
-          break;
-        }
-        default:
-          cardStyle = {}; lineStart = null; lineEnd = null;
+      const targetCx = r.left + tw / 2;
+      const targetCy = r.top + r.height / 2;
+      const cardCy   = cp.top + CARD_H / 2;
+
+      // Auto-pick the nearest card edge as line anchor
+      let lineStart;
+      if (targetCy < cp.top) {
+        lineStart = { x: cp.left + CARD_W / 2, y: cp.top };
+      } else if (targetCy > cp.top + CARD_H) {
+        lineStart = { x: cp.left + CARD_W / 2, y: cp.top + CARD_H };
+      } else if (targetCx > cp.left + CARD_W) {
+        lineStart = { x: cp.left + CARD_W, y: cardCy };
+      } else {
+        lineStart = { x: cp.left, y: cardCy };
       }
-      setTourHL({ tx, ty, tw, th, cardStyle, lineStart, lineEnd, side: step.cardSide });
+      const lineEnd = { x: targetCx, y: targetCy };
+
+      setTourHL({ tx, ty, tw, th, cardStyle: cp, lineStart, lineEnd, side: 'persist', ready: true });
     }, ms);
-    return () => { clearTimeout(t); if (onEnterCleanup) onEnterCleanup(); };
+    return () => { clearTimeout(t0); clearTimeout(t); if (onEnterCleanup) onEnterCleanup(); };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onboardStep]);
 
-  // Pixel dissolve animation: canvas covers card, random pixel blocks clear away to reveal content
+  // Pixel dissolve — fires only when tourHL.ready transitions to true.
+  // Full-card canvas on step 0, text-zone canvas on steps 1-3.
   useEffect(() => {
-    const canvas = pixelCanvasRef.current;
-    if (!canvas || !tourHL) return;
-    canvas.width = canvas.offsetWidth || 300;
-    canvas.height = canvas.offsetHeight || 240;
-    const ctx = canvas.getContext('2d');
+    if (!tourHL?.ready) return;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const isWelcome = onboardStep === 0;
+    const canvas = isWelcome ? pixelCanvasRef.current : textCanvasRef.current;
+    if (!canvas) return;
+
+    canvas.width  = canvas.offsetWidth  || (isWelcome ? 300 : 276);
+    canvas.height = canvas.offsetHeight || (isWelcome ? 220 : 110);
+    const ctx2 = canvas.getContext('2d');
     const W = canvas.width, H = canvas.height;
     const bgColor = getComputedStyle(canvas.parentElement).backgroundColor || '#111';
-    ctx.fillStyle = bgColor;
-    ctx.fillRect(0, 0, W, H);
+    ctx2.fillStyle = bgColor;
+    ctx2.fillRect(0, 0, W, H);
     const PS = 5;
     const cols = Math.ceil(W / PS), rows = Math.ceil(H / PS);
     const total = cols * rows;
@@ -734,26 +728,48 @@ export default function App() {
       const j = Math.floor(Math.random() * (i + 1));
       [order[i], order[j]] = [order[j], order[i]];
     }
-    const duration = 750;
+    const duration = isWelcome ? 750 : 550;
     const start = performance.now();
     let raf;
     canvas.style.opacity = '1';
     canvas.style.transition = 'none';
     function draw(now) {
       const t = Math.min((now - start) / duration, 1);
-      ctx.fillStyle = bgColor;
-      ctx.fillRect(0, 0, W, H);
+      ctx2.fillStyle = bgColor;
+      ctx2.fillRect(0, 0, W, H);
       const n = Math.floor(t * total);
       for (let i = 0; i < n; i++) {
         const idx = order[i];
-        ctx.clearRect((idx % cols) * PS, Math.floor(idx / cols) * PS, PS, PS);
+        ctx2.clearRect((idx % cols) * PS, Math.floor(idx / cols) * PS, PS, PS);
       }
       if (t < 1) { raf = requestAnimationFrame(draw); }
       else { canvas.style.transition = 'opacity 0.2s'; canvas.style.opacity = '0'; }
     }
     raf = requestAnimationFrame(draw);
-    return () => { cancelAnimationFrame(raf); };
+    return () => cancelAnimationFrame(raf);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tourHL]);
+
+  // Cover the text zone canvas immediately when step changes (steps 1-3),
+  // so new text is hidden until the dissolve reveal begins.
+  useEffect(() => {
+    if (typeof onboardStep !== 'number' || onboardStep === 0) return;
+    let raf = requestAnimationFrame(() => {
+      const canvas = textCanvasRef.current;
+      if (!canvas || !canvas.offsetWidth) return;
+      canvas.width  = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight || 110;
+      const ctx2 = canvas.getContext('2d');
+      const parent = canvas.parentElement;
+      if (!parent) return;
+      const bgColor = getComputedStyle(parent).backgroundColor || '#111';
+      ctx2.fillStyle = bgColor;
+      ctx2.fillRect(0, 0, canvas.width, canvas.height);
+      canvas.style.opacity = '1';
+      canvas.style.transition = 'none';
+    });
+    return () => cancelAnimationFrame(raf);
+  }, [onboardStep]);
 
   const [pinned, setPinned] = useState(null); // highlighted but panel closed
   const [panelOnLeft, setPanelOnLeft] = useState(false); // panel flips left when clicked node is in right half
@@ -2335,19 +2351,21 @@ export default function App() {
 
         {tourHL && (
           <div
-            key={onboardStep}
-            className={`tour-card-v2${tourHL.side === 'center' ? ' tour-card-v2--center' : ''}`}
+            className="tour-card-v2"
             style={tourHL.cardStyle}
             onClick={e => e.stopPropagation()}
           >
-            <canvas ref={pixelCanvasRef} className="tour-card-pixels" />
+            {onboardStep === 0 && <canvas ref={pixelCanvasRef} className="tour-card-pixels" />}
             <div className="tour-v2-progress">
               {TOUR_STEPS.map((_, i) => (
                 <div key={i} className={`tour-v2-pip${i <= onboardStep ? ' active' : ''}`} />
               ))}
             </div>
-            <div className="tour-v2-title">{TOUR_STEPS[onboardStep].title}</div>
-            <div className="tour-v2-body">{TOUR_STEPS[onboardStep].body}</div>
+            <div className="tour-text-zone">
+              {onboardStep > 0 && <canvas ref={textCanvasRef} className="tour-text-pixels" />}
+              <div className="tour-v2-title">{TOUR_STEPS[onboardStep].title}</div>
+              <div className="tour-v2-body">{TOUR_STEPS[onboardStep].body}</div>
+            </div>
             <div className="tour-v2-nav">
               <button className="tour-v2-skip" onClick={dismissOnboard}>Skip</button>
               <button className="tour-v2-next" onClick={nextTour}>

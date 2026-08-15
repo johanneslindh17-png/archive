@@ -1029,14 +1029,19 @@ path.eg.dim{opacity:0.09}
   background:var(--tb-bg);border:1px solid var(--tb-border);
   padding:22px 24px;
   display:flex;flex-direction:column;gap:14px;
+  transition:left 0.6s cubic-bezier(0.4,0,0.2,1),top 0.6s cubic-bezier(0.4,0,0.2,1);
 }
 .tour-card-pixels{
   position:absolute;inset:0;
   pointer-events:none;z-index:10;
 }
-.tour-card-v2--center{
-  left:50%;top:45%;
-  transform:translateX(-50%) translateY(-50%);
+.tour-text-zone{
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;gap:10px;
+}
+.tour-text-pixels{
+  position:absolute;inset:0;
+  pointer-events:none;z-index:5;
 }
 .tour-v2-progress{
   display:flex;gap:5px;align-items:center;
