@@ -4658,4 +4658,53 @@ export const NODES = [
   { id:'jane_fitz', label:'Jane Fitz', type:'artist', genre:'deep', era:2000, city:'London', country:'UK',
     desc:'Jane Fitz is a London-based DJ with over two decades of experience, known for an eclectic approach spanning UK acid, deep and spacey house, psychedelic techno, and ambient. A resident at the non-profit festival Freerotation and The Pickle Factory in London, she has played at Tresor, Panorama Bar, and Concrete. She produces under the Invisible Menders alias with Dom Ahtuam, releasing on Porn Wax and related labels, and holds a regular slot on Rinse FM.',
     releases: [] },
+
+  // ── DC-10 / CIRCOLOCO ─────────────────────────────────────────────────────
+  { id:'dc10', label:'DC-10', type:'venue', genre:'techhouse', era:1999, city:'Ibiza', country:'ES',
+    desc:'DC-10 is a club in San José near Ibiza airport, built around a former aircraft hangar. Its raw, unpretentious aesthetic — exposed concrete, low ceilings, an outdoor terrace that runs through the night — positioned it as a direct alternative to the island\'s commercial superclubs. The Circoloco Monday parties launched in 1999 became one of the most celebrated underground club nights in Europe, drawing a roster built around Tania Vulcano, Seth Troxler, Loco Dice, and DJ Harvey. DC-10 attracted the same artists who played Berghain and fabric, creating a counterpart to Berlin\'s underground scene on Mediterranean soil.' },
+
+  { id:'circoloco', label:'Circoloco', type:'moment', genre:'techhouse', era:1999, city:'Ibiza', country:'ES',
+    desc:'Circoloco is a DJ collective and party brand founded in 1999 by Antonio Carbonaro and Giancarlo Greco at DC-10 in Ibiza. The Monday residency became one of the most respected underground club nights in the world over the following two decades, running through the Ibiza summer season with a roster that consistently centred Tania Vulcano, Seth Troxler, Loco Dice, and Damian Lazarus. The night extended into a global touring brand staging events at fabric, Watergate, and festivals worldwide. Circoloco defined a specific Ibiza aesthetic — deep, long, and explicitly disconnected from the mainstream commercial circuit that dominated the island.' },
+
+  // ── SETH TROXLER ──────────────────────────────────────────────────────────
+  { id:'seth_troxler', label:'Seth Troxler', type:'artist', genre:'deep', era:2008, city:'Detroit', country:'US',
+    desc:'Seth Troxler was born in 1984 in South Lyon, Michigan. He became one of the most prominent DJs of his generation, building a reputation for deep, hypnotic house and techno distinguished by an improvisational quality and a refusal of formulaic programming. He co-founded the Wolf + Lamb label and collective in Brooklyn with Gadi Mizrahi and released on Crosstown Rebels and Skint. A long-running resident at DC-10\'s Circoloco parties in Ibiza, he held one of the most documented DJ-to-club relationships in the contemporary scene. Now based in Berlin, he has played extensively at Panorama Bar, fabric, and clubs across Europe, the US, and beyond.' },
+
+  // ── TANIA VULCANO ─────────────────────────────────────────────────────────
+  { id:'tania_vulcano', label:'Tania Vulcano', type:'artist', genre:'deep', era:1999, city:'Ibiza', country:'ES',
+    desc:'Tania Vulcano was born in Ibiza and is one of the foundational residents of Circoloco at DC-10, holding a weekly slot from the party\'s first season in 1999. Known for an eclectic, instinctive approach that moves between house, techno, and harder-to-define territory, she is among the small number of DJs whose sustained presence shaped the identity of a specific club night over more than two decades. Her sets are characterised by long arcs, unusual selections, and an emotional directness that has made her one of the most respected selectors in the Ibiza circuit.' },
+
+  // ── LOCO DICE ─────────────────────────────────────────────────────────────
+  { id:'loco_dice', label:'Loco Dice', type:'artist', genre:'techno', era:2000, city:'Düsseldorf', country:'DE',
+    desc:'Loco Dice was born in Hameln, Germany of Tunisian heritage and raised in Düsseldorf, where he began as a hip-hop DJ before moving into techno and house in the late 1990s. A long-running resident at DC-10\'s Circoloco and a close associate of Ricardo Villalobos, he founded the Desolat label in 2008 and built it into one of the most consistently-released minimal/techno imprints of the following decade. Known for a fluid, hypnotic style at the intersection of techno and deep house, he has been a regular at Berghain, fabric, and the leading underground clubs worldwide.',
+    releases: [
+      { title: 'Serengeti Calling (Desolat)', year: 2010 },
+    ] },
+
+  // ── MATADOR ───────────────────────────────────────────────────────────────
+  { id:'matador', label:'Matador', type:'artist', genre:'techno', era:2006, city:'Cork', country:'IE',
+    desc:'Matador is the alias of Gavin Lynch, a DJ and producer from Cork, Ireland. Known for a dark, industrial-influenced techno aesthetic, he built early connections through Richie Hawtin\'s Minus circle and has released on Blueprint, Cocoon, and related labels. A long-running resident at DC-10\'s Circoloco and a regular at Berghain and fabric, he is one of the few Irish artists to have become a central figure in the European techno circuit. His productions favour tension and precision over melody, drawing on industrial and EBM influences filtered through the minimal techno tradition.',
+    releases: [
+      { title: 'Matador 01 EP (Minus)', year: 2010 },
+    ] },
+
+  // ── CRAIG RICHARDS ────────────────────────────────────────────────────────
+  { id:'craig_richards', label:'Craig Richards', type:'artist', genre:'deep', era:1999, city:'London', country:'UK',
+    desc:'Craig Richards is the co-founder and artistic director of fabric in London, where he has held a resident DJ position since the club opened in 1999. His influence on fabric\'s identity — the aesthetic of room 1, the booking policy, the long-form approach to a night — is inseparable from the club\'s reputation. As a DJ he is known for deep, exploratory sets that move fluidly between house, techno, and ambient over extended durations. He has released mixes on the fabric mix series and runs his own label.',
+    releases: [
+      { title: 'Fabric 24 (mix compilation)', year: 2005 },
+    ] },
+
+  // ── ANCIENT METHODS ───────────────────────────────────────────────────────
+  { id:'ancient_methods', label:'Ancient Methods', type:'artist', genre:'techno', era:2011, city:'Berlin', country:'DE',
+    desc:'Ancient Methods is an anonymous Berlin-based producer and DJ operating at the intersection of techno, industrial, and EBM. Active since around 2011 on the Methkin label, the project produces dense, aggressive music drawing on industrial textures and the functional minimalism of peak-hour techno. A regular at Berghain and representative of the harder end of the Berlin underground, Ancient Methods has maintained total anonymity while building a significant following through recorded output and club appearances.' },
+
+  // ── CINTHIE ───────────────────────────────────────────────────────────────
+  { id:'cinthie', label:'Cinthie', type:'artist', genre:'deep', era:2012, city:'Berlin', country:'DE',
+    desc:'Cinthie was born and raised in East Berlin. A Panorama Bar resident, she is known for a deep, warm sound drawing on house, disco, and soul rather than peak-hour techno. She runs the 803 Crystal Grooves, Beste Modus, and Aethon labels, with productions that share the unhurried, groove-centred quality of her DJ sets. She is the partner of Lawrence, the Hamburg-based producer whose work for Dial and Mule Musiq has defined a strand of the German deep house tradition.',
+    releases: [] },
+
+  // ── PAULA TEMPLE ──────────────────────────────────────────────────────────
+  { id:'paula_temple', label:'Paula Temple', type:'artist', genre:'techno', era:2013, city:'London', country:'UK',
+    desc:'Paula Temple is a British DJ and producer known for industrial and noise-influenced techno. She runs the Noise Manifesto label and has produced work that draws on the harder end of the techno canon while incorporating industrial music and noise aesthetics. A regular at Berghain and an internationally active artist, she has been an outspoken advocate for trans rights and LGBTQ+ inclusion in club culture. Her sets are physically demanding and technically precise, operating at the boundary between techno and experimental noise.' },
 ];

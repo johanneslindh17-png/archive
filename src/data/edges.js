@@ -2278,4 +2278,47 @@ export const EDGES = [
   { from:'jane_fitz', to:'tresor_club',    strength:2, type:'roster' },
   { from:'jane_fitz', to:'panorama_bar',   strength:2, type:'roster' },
   { from:'jane_fitz', to:'rinse_fm',       strength:2, type:'roster' },
+
+  // ── DC-10 / CIRCOLOCO ──────────────────────────────────────────────────────
+  { from:'ibiza',       to:'dc10',         strength:3, type:'lineage' },
+  { from:'dc10',        to:'circoloco',    strength:3, type:'lineage' },
+  { from:'dc10',        to:'berghain',     strength:2, type:'aesthetic' },  // parallel underground ecosystems
+  { from:'circoloco',   to:'berghain',     strength:2, type:'aesthetic' },
+
+  // ── SETH TROXLER ──────────────────────────────────────────────────────────
+  { from:'seth_troxler', to:'dc10',         strength:3, type:'roster' },
+  { from:'seth_troxler', to:'circoloco',    strength:3, type:'roster' },
+  { from:'seth_troxler', to:'panorama_bar', strength:2, type:'roster' },
+  { from:'seth_troxler', to:'fabric',       strength:2, type:'roster' },
+
+  // ── TANIA VULCANO ─────────────────────────────────────────────────────────
+  { from:'tania_vulcano', to:'circoloco',   strength:3, type:'roster' },
+  { from:'tania_vulcano', to:'dc10',        strength:3, type:'roster' },
+
+  // ── LOCO DICE ─────────────────────────────────────────────────────────────
+  { from:'loco_dice', to:'circoloco',       strength:3, type:'roster' },
+  { from:'loco_dice', to:'dc10',            strength:3, type:'roster' },
+  { from:'loco_dice', to:'berghain',        strength:2, type:'roster' },
+  { from:'loco_dice', to:'villalobos',      strength:2, type:'aesthetic' },
+
+  // ── MATADOR ───────────────────────────────────────────────────────────────
+  { from:'matador', to:'dc10',              strength:2, type:'roster' },
+  { from:'matador', to:'circoloco',         strength:2, type:'roster' },
+  { from:'matador', to:'berghain',          strength:2, type:'roster' },
+  { from:'matador', to:'fabric',            strength:1, type:'roster' },
+  { from:'matador', to:'hawtin',            strength:2, type:'aesthetic' },
+
+  // ── CRAIG RICHARDS ────────────────────────────────────────────────────────
+  { from:'craig_richards', to:'fabric',     strength:3, type:'roster' },
+
+  // ── ANCIENT METHODS ───────────────────────────────────────────────────────
+  { from:'ancient_methods', to:'berghain',  strength:3, type:'roster' },
+  { from:'ancient_methods', to:'blawan',    strength:2, type:'aesthetic' },
+
+  // ── CINTHIE ───────────────────────────────────────────────────────────────
+  { from:'cinthie', to:'panorama_bar',      strength:3, type:'roster' },
+
+  // ── PAULA TEMPLE ──────────────────────────────────────────────────────────
+  { from:'paula_temple', to:'berghain',     strength:2, type:'roster' },
+  { from:'paula_temple', to:'surgeon',      strength:1, type:'aesthetic' },
 ];
