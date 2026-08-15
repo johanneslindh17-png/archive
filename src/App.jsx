@@ -641,8 +641,7 @@ export default function App() {
       t0 = setTimeout(() => {
         const CARD_W = 300, CARD_H = 200;
         const vw = window.innerWidth, vh = window.innerHeight;
-        const graphCanvasW = vw - 360;
-        const pos = { left: Math.round(graphCanvasW / 2 + 120), top: Math.round(vh / 2 - CARD_H / 2), width: CARD_W };
+        const pos = { left: Math.round(vw * 0.25), top: Math.round(vh / 2 - CARD_H / 2), width: CARD_W };
         persistCardRef.current = pos;
         setTourHL(prev => prev ? { ...prev, cardStyle: pos } : null);
       }, 60);
@@ -663,8 +662,7 @@ export default function App() {
 
       // ── Steps 1–3: persistent card position ───────────────────────────────
       if (!persistCardRef.current) {
-        const graphCanvasW = vw - 360;
-        const pos = { left: Math.round(graphCanvasW / 2 + 120), top: Math.round(vh / 2 - CARD_H / 2), width: CARD_W };
+        const pos = { left: Math.round(vw * 0.25), top: Math.round(vh / 2 - CARD_H / 2), width: CARD_W };
         persistCardRef.current = pos;
       }
       const cp = persistCardRef.current;
