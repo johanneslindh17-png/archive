@@ -1024,6 +1024,10 @@ path.eg.dim{opacity:0.09}
   pointer-events:none;z-index:9996;overflow:visible;
   color:var(--tb-text);
 }
+/* Lifted above the tour scrim (z-index 9994) so it stays fully visible */
+.tour-spotlit{
+  z-index:9997 !important;
+}
 .tour-card-v2{
   position:fixed;z-index:9999;pointer-events:all;
   width:300px;

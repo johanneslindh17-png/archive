@@ -301,14 +301,14 @@ const TOUR_STEPS = [
   {
     id: 'node',
     title: 'EVERY NODE IS A STORY',
-    body: "We just opened Marcel Dettmann's profile — Berghain resident, one of Berlin's most influential selectors. Scroll the panel to see his connections, releases, and full context. Click any highlighted name to follow the thread.",
+    body: "We just opened Surgeon's profile — Anthony Child is a Berghain resident from Birmingham who co-founded the Downwards label with Regis. Scroll the panel to see his connections, releases, and full context. Click any highlighted name to follow the thread.",
     getTarget: () => document.querySelector('.dp.open'),
     cardSide: 'persist',
     onEnter: ctx => {
       ctx.setPanelOnLeft(false);
       ctx.setPanelX(null);
-      ctx.tourSelectNode('dettmann');
-      ctx.scrollToNode('dettmann');
+      ctx.tourSelectNode('surgeon');
+      ctx.scrollToNode('surgeon');
     },
     delay: 500,
   },
@@ -318,7 +318,7 @@ const TOUR_STEPS = [
     body: "When an artist has music on Bandcamp, the player is built right in. It keeps playing as you explore — the whole history, with a soundtrack.",
     getTarget: () => document.querySelector('.player-inline'),
     cardSide: 'persist',
-    onEnter: ctx => { ctx.setPlayingNodeId('dettmann'); },
+    onEnter: ctx => { ctx.setPlayingNodeId('surgeon'); },
     delay: 200,
   },
   {
@@ -344,6 +344,7 @@ export default function App() {
   const pixelCanvasRef = useRef(null);
   const textCanvasRef = useRef(null);
   const persistCardRef = useRef(null);
+  const spotlitElRef = useRef(null);
   const [expanded, setExpanded] = useState(null);
   const [searchQ, setSearchQ] = useState('');
   const [selected, setSelected] = useState(null);
@@ -630,6 +631,10 @@ export default function App() {
     setTourHL(null);
     setSearchQ('');
     setSearchFocus(false);
+    if (spotlitElRef.current) {
+      spotlitElRef.current.classList.remove('tour-spotlit');
+      spotlitElRef.current = null;
+    }
   };
   const startTour = () => { localStorage.setItem('archiveOnboarded', '1'); setOnboardStep(0); };
   const nextTour  = () => {
@@ -689,6 +694,12 @@ export default function App() {
       }
       const cp = persistCardRef.current;
 
+      // Clear previous spotlit element before applying a new one
+      if (spotlitElRef.current) {
+        spotlitElRef.current.classList.remove('tour-spotlit');
+        spotlitElRef.current = null;
+      }
+
       const el = step.getTarget?.();
       if (!el) {
         setTourHL({ side: 'persist', cardStyle: cp, tx: 0, ty: 0, tw: 0, th: 0, lineStart: null, lineEnd: null, ready: true });
@@ -699,6 +710,12 @@ export default function App() {
         setTourHL({ side: 'persist', cardStyle: cp, tx: 0, ty: 0, tw: 0, th: 0, lineStart: null, lineEnd: null, ready: true });
         return;
       }
+
+      // Lift the element's fixed container above the scrim
+      const spotlitContainer = el.closest('.topbar') || el.closest('.dp') || el.closest('.player-inline') || el;
+      spotlitContainer.classList.add('tour-spotlit');
+      spotlitElRef.current = spotlitContainer;
+
       const tw = step.maxHighlightWidth ? Math.min(r.width, step.maxHighlightWidth) : r.width;
       const tx = r.left, ty = r.top, th = r.height;
       const targetCx = r.left + tw / 2;
@@ -725,7 +742,16 @@ export default function App() {
 
       setTourHL({ tx, ty, tw, th, cardStyle: cp, lineStart, lineEnd, side: 'persist', ready: true });
     }, ms);
-    return () => { clearTimeout(t0); clearTimeout(t); if (onEnterCleanup) onEnterCleanup(); };
+    return () => {
+      clearTimeout(t0);
+      clearTimeout(t);
+      if (onEnterCleanup) onEnterCleanup();
+      // Clean up spotlit when tour step changes or tour ends
+      if (spotlitElRef.current) {
+        spotlitElRef.current.classList.remove('tour-spotlit');
+        spotlitElRef.current = null;
+      }
+    };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onboardStep]);
 
@@ -736,11 +762,13 @@ export default function App() {
     const canvas = textCanvasRef.current;
     if (!canvas) return;
 
-    canvas.width  = canvas.offsetWidth  || 276;
-    canvas.height = canvas.offsetHeight || 110;
+    const parent = canvas.parentElement; // .tour-text-zone (transparent — climb to card for bg)
+    canvas.width  = parent.offsetWidth  || 276;
+    canvas.height = parent.offsetHeight || 110;
     const ctx2 = canvas.getContext('2d');
     const W = canvas.width, H = canvas.height;
-    const bgColor = getComputedStyle(canvas.parentElement).backgroundColor || '#111';
+    const card = canvas.closest('.tour-card-v2') ?? parent;
+    const bgColor = getComputedStyle(card).backgroundColor || '#111';
     ctx2.fillStyle = bgColor;
     ctx2.fillRect(0, 0, W, H);
     const PS = 5;
@@ -779,13 +807,14 @@ export default function App() {
     if (typeof onboardStep !== 'number') return;
     let raf = requestAnimationFrame(() => {
       const canvas = textCanvasRef.current;
-      if (!canvas || !canvas.offsetWidth) return;
-      canvas.width  = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight || 110;
+      if (!canvas) return;
+      const parent = canvas.parentElement; // .tour-text-zone
+      if (!parent || !parent.offsetWidth) return;
+      canvas.width  = parent.offsetWidth;
+      canvas.height = parent.offsetHeight || 110;
       const ctx2 = canvas.getContext('2d');
-      const parent = canvas.parentElement;
-      if (!parent) return;
-      const bgColor = getComputedStyle(parent).backgroundColor || '#111';
+      const card = canvas.closest('.tour-card-v2') ?? parent;
+      const bgColor = getComputedStyle(card).backgroundColor || '#111';
       ctx2.fillStyle = bgColor;
       ctx2.fillRect(0, 0, canvas.width, canvas.height);
       canvas.style.opacity = '1';
