@@ -660,19 +660,7 @@ export default function App() {
     // ready:false prevents the canvas dissolve from firing prematurely.
     setTourHL(prev => prev ? { ...prev, tx: 0, ty: 0, tw: 0, th: 0, lineStart: null, lineEnd: null, ready: false } : null);
 
-    // For the first persist step (0→1): schedule an early cardStyle update so
-    // the card slides to its final position during the transition delay rather
-    // than jumping there when content loads.
     let t0;
-    if (onboardStep === 1 && !persistCardRef.current) {
-      t0 = setTimeout(() => {
-        const CARD_W = 300, CARD_H = 200;
-        const vw = window.innerWidth, vh = window.innerHeight;
-        const pos = { left: Math.round(vw * 0.25), top: Math.round(vh / 2 - CARD_H / 2), width: CARD_W };
-        persistCardRef.current = pos;
-        setTourHL(prev => prev ? { ...prev, cardStyle: pos } : null);
-      }, 60);
-    }
 
     const t = setTimeout(() => {
       const CARD_W = 300, CARD_H = 200;
@@ -687,9 +675,9 @@ export default function App() {
         return;
       }
 
-      // ── Steps 1–3: persistent card position ───────────────────────────────
+      // ── Steps 1–3: centered card position (same as step 0) ───────────────
       if (!persistCardRef.current) {
-        const pos = { left: Math.round(vw * 0.25), top: Math.round(vh / 2 - CARD_H / 2), width: CARD_W };
+        const pos = { left: Math.round(vw / 2 - CARD_W / 2), top: Math.round(vh / 2 - CARD_H / 2), width: CARD_W };
         persistCardRef.current = pos;
       }
       const cp = persistCardRef.current;
