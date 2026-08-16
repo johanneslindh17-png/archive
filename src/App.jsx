@@ -266,6 +266,28 @@ async function samplePhotoColors(url) {
   } catch (e) { return null; }
 }
 
+// Returns where the line (x1,y1)→(x2,y2) enters a rect, backed off by `gap` px.
+// Used so connector arrows stop at the highlight box edge rather than overlapping it.
+function lineRectEntry(x1, y1, x2, y2, rL, rT, rR, rB, gap = 10) {
+  const dx = x2 - x1, dy = y2 - y1;
+  let tBest = 1;
+  if (Math.abs(dx) > 0.01) {
+    for (const ex of [rL, rR]) {
+      const t = (ex - x1) / dx;
+      if (t > 0 && t < tBest) { const y = y1 + t * dy; if (y >= rT && y <= rB) tBest = t; }
+    }
+  }
+  if (Math.abs(dy) > 0.01) {
+    for (const ey of [rT, rB]) {
+      const t = (ey - y1) / dy;
+      if (t > 0 && t < tBest) { const x = x1 + t * dx; if (x >= rL && x <= rR) tBest = t; }
+    }
+  }
+  const len = Math.sqrt(dx * dx + dy * dy);
+  const tFinal = Math.max(0, tBest - gap / len);
+  return { x: x1 + tFinal * dx, y: y1 + tFinal * dy };
+}
+
 const TOUR_STEPS = [
   {
     id: 'map',
@@ -694,7 +716,12 @@ export default function App() {
       } else {
         lineStart = { x: cp.left, y: cardCy };
       }
-      const lineEnd = { x: targetCx, y: targetCy };
+      // Stop arrow at the highlight-box border (6px outside element) with an 8px gap,
+      // so the arrowhead points at the element without overlapping it.
+      const lineEnd = lineRectEntry(
+        lineStart.x, lineStart.y, targetCx, targetCy,
+        tx - 6, ty - 6, tx + tw + 6, ty + th + 6, 8
+      );
 
       setTourHL({ tx, ty, tw, th, cardStyle: cp, lineStart, lineEnd, side: 'persist', ready: true });
     }, ms);
@@ -703,16 +730,14 @@ export default function App() {
   }, [onboardStep]);
 
   // Pixel dissolve — fires only when tourHL.ready transitions to true.
-  // Full-card canvas on step 0, text-zone canvas on steps 1-3.
+  // Text-zone canvas on all steps.
   useEffect(() => {
     if (!tourHL?.ready) return;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const isWelcome = onboardStep === 0;
-    const canvas = isWelcome ? pixelCanvasRef.current : textCanvasRef.current;
+    const canvas = textCanvasRef.current;
     if (!canvas) return;
 
-    canvas.width  = canvas.offsetWidth  || (isWelcome ? 300 : 276);
-    canvas.height = canvas.offsetHeight || (isWelcome ? 220 : 110);
+    canvas.width  = canvas.offsetWidth  || 276;
+    canvas.height = canvas.offsetHeight || 110;
     const ctx2 = canvas.getContext('2d');
     const W = canvas.width, H = canvas.height;
     const bgColor = getComputedStyle(canvas.parentElement).backgroundColor || '#111';
@@ -726,7 +751,7 @@ export default function App() {
       const j = Math.floor(Math.random() * (i + 1));
       [order[i], order[j]] = [order[j], order[i]];
     }
-    const duration = isWelcome ? 750 : 550;
+    const duration = 600;
     const start = performance.now();
     let raf;
     canvas.style.opacity = '1';
@@ -748,10 +773,10 @@ export default function App() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tourHL]);
 
-  // Cover the text zone canvas immediately when step changes (steps 1-3),
+  // Cover the text zone canvas immediately when step changes,
   // so new text is hidden until the dissolve reveal begins.
   useEffect(() => {
-    if (typeof onboardStep !== 'number' || onboardStep === 0) return;
+    if (typeof onboardStep !== 'number') return;
     let raf = requestAnimationFrame(() => {
       const canvas = textCanvasRef.current;
       if (!canvas || !canvas.offsetWidth) return;
@@ -2334,14 +2359,14 @@ export default function App() {
         {tourHL?.lineStart && (
           <svg className="tour-connector" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <marker id="tour-ah" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-                <polygon points="0 0, 8 3, 0 6" fill="rgba(255,255,255,0.5)" />
+              <marker id="tour-ah" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="currentColor" />
               </marker>
             </defs>
             <line
               x1={tourHL.lineStart.x} y1={tourHL.lineStart.y}
               x2={tourHL.lineEnd.x}   y2={tourHL.lineEnd.y}
-              stroke="rgba(255,255,255,0.3)" strokeWidth="1" strokeDasharray="5 4"
+              stroke="currentColor" strokeWidth="1.5" strokeDasharray="6 4" opacity="0.75"
               markerEnd="url(#tour-ah)"
             />
           </svg>
@@ -2353,14 +2378,13 @@ export default function App() {
             style={tourHL.cardStyle}
             onClick={e => e.stopPropagation()}
           >
-            {onboardStep === 0 && <canvas ref={pixelCanvasRef} className="tour-card-pixels" />}
             <div className="tour-v2-progress">
               {TOUR_STEPS.map((_, i) => (
                 <div key={i} className={`tour-v2-pip${i <= onboardStep ? ' active' : ''}`} />
               ))}
             </div>
             <div className="tour-text-zone">
-              {onboardStep > 0 && <canvas ref={textCanvasRef} className="tour-text-pixels" />}
+              <canvas ref={textCanvasRef} className="tour-text-pixels" />
               <div className="tour-v2-title">{TOUR_STEPS[onboardStep].title}</div>
               <div className="tour-v2-body">{TOUR_STEPS[onboardStep].body}</div>
             </div>
