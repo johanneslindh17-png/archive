@@ -237,7 +237,7 @@ export const NODES = [
       { title: '"Victorious" — Floorplan', year: 2013 },
     ]},
 
-  { id:'drexciya', label:'Drexciya', type:'artist', genre:'detroit', era:1992, city:'Detroit', country:'US', bandcamp:'drexciya', bandcamp_album:'3588309545',
+  { id:'drexciya', label:'Drexciya', type:'artist', genre:'detroit', era:1992, city:'Detroit', country:'US', bandcamp:'drexciya', bandcamp_album:'4001767279',
     desc:'Drexciya was a Detroit duo formed by James Stinson and Gerald Donald. They built a sustained Afrofuturist mythology around their releases — an aquatic civilisation descended from enslaved Africans lost at sea during the Middle Passage — expressed through machine-paced electro with compressed, underwater-like production. Their releases appeared on Underground Resistance, Tresor, and Clone. Stinson passed away in September 2002; Donald continued producing under other aliases.',
     releases: [
       { title: '"Aquatic Invasion" EP (Underground Resistance)', year: 1992 },
@@ -372,8 +372,7 @@ export const NODES = [
   { id:'sub_club', label:'Sub Club', type:'venue', genre:'techno', era:1987, city:'Glasgow', country:'UK',
     desc:'The Sub Club is a basement venue at 22 Jamaica Street in Glasgow, operating since 1 April 1987. It is commonly cited as the longest-running underground dance club in the world under continuous operation. The Subculture night, run by Harri & Domenic, has operated every Saturday since 1994. Optimo (Espacio), a Sunday night run by JD Twitch and JG Wilkes, ran from 1997 to 2010 and was widely regarded as one of the most adventurously programmed club nights in Europe.' },
 
-  { id:'modern_love', label:'Modern Love', type:'label', genre:'ambient', era:2002, city:'Manchester', country:'UK', bandcamp:'modern-love', bandcamp_album:'1295411745',
-    desc:'Modern Love was founded in Manchester in 2002. The label became most closely associated with Andy Stott and Miles Whittaker, whose solo and collaborative output defined a particular strain of slow, industrial-influenced electronic music. Stott\'s albums from 2011 and 2012 received substantial critical attention and positioned Modern Love as one of the most significant UK labels for experimental electronic music of that period.',
+  { id:'modern_love', label:'Modern Love', type:'label', genre:'ambient', era:2002, city:'Manchester', country:'UK',     desc:'Modern Love was founded in Manchester in 2002. The label became most closely associated with Andy Stott and Miles Whittaker, whose solo and collaborative output defined a particular strain of slow, industrial-influenced electronic music. Stott\'s albums from 2011 and 2012 received substantial critical attention and positioned Modern Love as one of the most significant UK labels for experimental electronic music of that period.',
     releases: [
       { title: 'Passed Me By — Andy Stott', year: 2011 },
       { title: 'We Stay Together — Andy Stott', year: 2011 },
@@ -396,7 +395,7 @@ export const NODES = [
       { title: '"Colonized" (Noise Manifesto)', year: 2018 },
     ]},
 
-  { id:'surgeon', label:'Surgeon', type:'artist', genre:'techno', era:1992, city:'Birmingham', country:'UK', bandcamp:'dj-surgeon', bandcamp_album:'0704672791',
+  { id:'surgeon', label:'Surgeon', type:'artist', genre:'techno', era:1992, city:'Birmingham', country:'UK', bandcamp:'dj-surgeon', bandcamp_album:'931518171',
     desc:'Anthony Child records as Surgeon and has been based in Birmingham throughout his career. He co-developed the Downwards label and sound with Karl O\'Connor from 1993 onward. His productions apply Chicago house rhythms to a colder European electronics aesthetic. He has been a resident at Berghain since the mid-2000s. As British Murder Boys — his duo with Regis (Karl O\'Connor) — he produced a more noise-influenced body of work in the early 2000s.',
     releases: [
       { title: 'Basictonalvocabulary (Tresor)', year: 1997 },
@@ -655,7 +654,7 @@ export const NODES = [
     ]},
 
 
-  { id:'monolake', label:'Monolake', type:'artist', genre:'ambient', era:1995, city:'Berlin', country:'DE', bandcamp:'roberthenke', bandcamp_album:'3644384027',
+  { id:'monolake', label:'Monolake', type:'artist', genre:'ambient', era:1995, city:'Berlin', country:'DE', bandcamp:'roberthenke', bandcamp_album:'2163278068',
     desc:'Monolake was the project of Robert Henke, with early involvement from Gerhard Behles. Formed in Berlin in the mid-1990s, the project released dub-influenced techno on Chain Reaction. Henke and Behles subsequently co-founded Ableton and developed Ableton Live, the music production software widely used in electronic music today. Henke has continued releasing music as Monolake and working in installation and concert contexts.',
     releases: [
       { title: '"Cyan" (Chain Reaction)', year: 1996 },
@@ -698,7 +697,7 @@ export const NODES = [
       { title: 'Decay — Efdemin', year: 2015 },
     ]},
 
-  { id:'dettmann', label:'Marcel Dettmann', type:'artist', genre:'techno', era:2005, city:'Berlin', country:'DE', bandcamp:'marceldettmann', bandcamp_album:'0747466778',
+  { id:'dettmann', label:'Marcel Dettmann', type:'artist', genre:'techno', era:2005, city:'Berlin', country:'DE', bandcamp:'marceldettmann', bandcamp_album:'1321514538',
     desc:'Marcel Dettmann is a Berlin-based producer and DJ who has been a resident at Berghain since the club\'s opening years. He releases on Ostgut Ton and his own MOS label. His techno is characterised by precision and sustained intensity over long sets. He was among the first Berghain residents to establish an international profile through appearances at major European events.',
     releases: [
       { title: '"DDR/Return" (Ostgut Ton)', year: 2007 },
@@ -707,7 +706,7 @@ export const NODES = [
       { title: '"Repulsion" (MOS)', year: 2016 },
     ]},
 
-  { id:'function', label:'Function', type:'artist', genre:'techno', era:2010, city:'Berlin', country:'DE', bandcamp:'function-inf-ny', bandcamp_album:'1601452348',
+  { id:'function', label:'Function', type:'artist', genre:'techno', era:2010, city:'Berlin', country:'DE', bandcamp:'function-inf-ny', bandcamp_album:'3802197456',
     desc:'Dave Sumner records as Function and has released on Ostgut Ton and Sandwell District, a label he co-founded. He relocated from Birmingham to Berlin. His techno is meditative and architectural in character, with an emphasis on atmosphere and long compositional development. His album Incubation (Ostgut Ton, 2013) is regarded as a significant work in contemporary techno.',
     releases: [
       { title: 'Incubation (Ostgut Ton)', year: 2013 },
@@ -740,7 +739,7 @@ export const NODES = [
       { title: '"Oblong" (Innervisions)', year: 2014 },
     ]},
 
-  { id:'ame', label:'Âme', type:'artist', genre:'melodic', era:2005, city:'Berlin', country:'DE', bandcamp:'ame-engoli', bandcamp_album:'2071668193',
+  { id:'ame', label:'Âme', type:'artist', genre:'melodic', era:2005, city:'Berlin', country:'DE', bandcamp:'ame-engoli', bandcamp_album:'3845194777',
     desc:'Âme is the production duo of Kristian Beyer and Frank Wiedemann, based in Berlin. They co-founded Innervisions in 2005. Their production "Rej" (2005) became one of the most recognised records in European melodic deep house. They also perform live as a duo, combining synthesizer work with DJ mixing.',
     releases: [
       { title: '"Rej" (Innervisions)', year: 2005 },
@@ -756,7 +755,7 @@ export const NODES = [
       { title: '"Rejoice" — Massano', year: 2022 },
     ]},
 
-  { id:'taleofus', label:'Tale of Us', type:'artist', genre:'melodic', era:2010, city:'Berlin', country:'DE', bandcamp:'taleofus', bandcamp_album:'4144816626',
+  { id:'taleofus', label:'Tale of Us', type:'artist', genre:'melodic', era:2010, city:'Berlin', country:'DE', bandcamp:'taleofus', bandcamp_album:'3260776828',
     desc:'Tale of Us is the project of Matteo Milleri and Carmine Conte, Italian producers based in Berlin. They founded the Afterlife label in 2014. Their productions are melodic and atmospheric, with a cinematic character. They have become widely booked at major European festivals and through the Cercle performance series.',
     releases: [
       { title: '"North Star" (Afterlife)', year: 2016 },
@@ -773,7 +772,7 @@ export const NODES = [
       { title: '"Reflections" (HUSH)', year: 2016 },
     ]},
 
-  { id:'rodhad', label:'Rødhåd', type:'artist', genre:'techno', era:2010, city:'Berlin', country:'DE', bandcamp:'rodhad', bandcamp_album:'2983765402',
+  { id:'rodhad', label:'Rødhåd', type:'artist', genre:'techno', era:2010, city:'Berlin', country:'DE', bandcamp:'rodhad', bandcamp_album:'1051229826',
     desc:'Rødhåd is a Berlin-based DJ and producer who founded the Dystopian label in 2010. He has performed at Berghain and Panorama Bar and is known for long, slow-building DJ sets in a heavy, hypnotic techno style.',
     releases: [
       { title: '"Wunderblock" EP (Dystopian)', year: 2011 },
@@ -911,7 +910,7 @@ export const NODES = [
     ]},
 
 
-  { id:'panthaduprince', label:'Pantha du Prince', type:'artist', genre:'ambient', era:2004, city:'Hamburg', country:'DE', bandcamp:'panthaduprinceofficial', bandcamp_album:'2000779958',
+  { id:'panthaduprince', label:'Pantha du Prince', type:'artist', genre:'ambient', era:2004, city:'Hamburg', country:'DE', bandcamp:'panthaduprinceofficial', bandcamp_album:'377250429',
     desc:'Hendrik Weber records as Pantha du Prince and is based in Hamburg. His music is characterised by crystalline textures, slow tempos, and a connection to minimalist composition. His album Black Noise (Rough Trade, 2010) received substantial critical attention. His collaboration with the Norwegian group The Bell Laboratory, Elements of Light (2013), combined electronic production with live acoustic bells.',
     releases: [
       { title: 'This Bliss (Dial)', year: 2007 },
@@ -928,7 +927,7 @@ export const NODES = [
       { title: 'Mothercave — Traumprinz', year: 2013 },
     ]},
 
-  { id:'traumprinz', label:'Traumprinz', type:'artist', genre:'giegling', era:2010, city:'Weimar', country:'DE', bandcamp:'allpossibleworlds', bandcamp_album:'2294222565',
+  { id:'traumprinz', label:'Traumprinz', type:'artist', genre:'giegling', era:2010, city:'Weimar', country:'DE', bandcamp:'allpossibleworlds', bandcamp_album:'2720353527',
     desc:'Traumprinz is a producer who releases under multiple aliases: Traumprinz on Giegling (introspective, ambient-influenced deep house), Prince of Denmark on Smallville (more club-oriented deep house), and DJ Healer on his own All Possible Worlds label. All bodies of work are regarded as important within the deeper end of European underground music.',
     releases: [
       { title: 'Mothercave (Giegling)', year: 2013 },
@@ -1021,7 +1020,7 @@ export const NODES = [
       { title: 'Senior', year: 2010 },
     ]},
 
-  { id:'the_knife', label:'The Knife', type:'artist', genre:'experimental', era:1999, city:'Gothenburg', country:'SE', bandcamp:'theknife', bandcamp_album:'1630306458',
+  { id:'the_knife', label:'The Knife', type:'artist', genre:'experimental', era:1999, city:'Gothenburg', country:'SE', bandcamp:'theknife', bandcamp_album:'0085002230',
     desc:'The Knife — Karin Dreijer and Olof Dreijer — formed in Gothenburg in 1999 and became one of the most significant electronic acts to emerge from Scandinavia through a combination of sonic experimentation, visual anonymity, and political commitment unusual in the mainstream of European dance music. Their album "Silent Shout" (2006) — built from processed voices pitch-shifted to the point of species ambiguity, over drum machine patterns and dark synthesiser textures — is one of the most original electronic records of the 2000s. The Knife rejected interviews, refused awards, and used their platform consistently and explicitly for feminist and queer politics. A genuinely oppositional cultural project inside a pop-facing form.',
     releases: [
       { title: '"Heartbeats"', year: 2003 },
@@ -1087,7 +1086,7 @@ export const NODES = [
       { title: 'Dark Days — Legowelt', year: 2015 },
     ]},
 
-  { id:'legowelt', label:'Legowelt', type:'artist', genre:'experimental', era:1997, city:'The Hague', country:'NL', bandcamp:'legowelt', bandcamp_album:'3477513505',
+  { id:'legowelt', label:'Legowelt', type:'artist', genre:'experimental', era:1997, city:'The Hague', country:'NL', bandcamp:'legowelt', bandcamp_album:'0467449780',
     desc:'Danny Wolfers records as Legowelt and is based in The Hague. He has been producing across electro, house, techno, and ambient music since the mid-1990s with a consistently prolific output. He releases on Delsin, Clone, and his own Strange Life label, among many others. His productions are characterised by a lo-fi analog aesthetic and broad engagement with the full history of electronic music.',
     releases: [
       { title: '"Arp\'s Arp" (Clone)', year: 2001 },
@@ -1283,7 +1282,7 @@ export const NODES = [
       { title: 'Sunseeker (R&S Records)', year: 1999 },
     ]},
 
-  { id:'susumu_yokota', label:'Susumu Yokota', type:'artist', genre:'techno', era:1993, city:'Tokyo', country:'JP', bandcamp:'susumuyokota', bandcamp_album:'3052834527',
+  { id:'susumu_yokota', label:'Susumu Yokota', type:'artist', genre:'techno', era:1993, city:'Tokyo', country:'JP', bandcamp:'susumuyokota', bandcamp_album:'3077482968',
     desc:'Susumu Yokota (1960–2015) trained in economics and graphic design, lived in India, and returned to Tokyo to pursue music. His early work on Germany\'s Harthouse label placed him within the Frankfurt hard techno scene; his 1994 Acid Mt. Fuji (Sublime Records) deliberately mapped Japanese nature imagery onto the Detroit/Chicago acid grid and was a watershed for Japanese electronic identity. He quickly pivoted toward a more introspective style on Lo Recordings (London) — Sakura (2000) and Symbol (2005) dissolve orchestral and traditional Japanese textures into electronic washes — while releasing ambient material under the pseudonyms Ebi and Stevia. He passed away in 2015.',
     releases: [
       { title: 'Frankfurt–Tokyo Connection (Harthouse)', year: 1993 },
@@ -1306,7 +1305,7 @@ export const NODES = [
     desc:'Sublime Records was born on the dancefloor of Tokyo\'s Maniac Love club in 1994, and its founding simultaneous releases — Ken Ishii\'s Reference to Difference and Susumu Yokota\'s Acid Mt. Fuji — gave Japanese-made techno a coherent identity for the first time. Its September 1994 launch event at Shibuya Beam Hall featured Speedy J (Rotterdam) performing alongside Yokota and Ishii, crystallising the Japan–Europe techno axis. Through the late 1990s the label nurtured Rei Harakami\'s idiosyncratic microhouse alongside harder techno, maintaining a philosophical range that prevented it from calcifying into a single style. It is retrospectively cited as one of the most significant Japanese electronic labels.',
     releases: []},
 
-  { id:'rei_harakami', label:'Rei Harakami', type:'artist', genre:'ambient', era:1997, city:'Tokyo', country:'JP', bandcamp:'reiharakami', bandcamp_album:'2952695191',
+  { id:'rei_harakami', label:'Rei Harakami', type:'artist', genre:'ambient', era:1997, city:'Tokyo', country:'JP', bandcamp:'reiharakami', bandcamp_album:'0278229899',
     desc:'Rei Harakami (1970–2011) originally intended to make films at Kyoto University of Arts and stumbled into music while composing soundtracks, discovering a voice so distinct that music became primary. His defining instrument was the Roland SC-88 Pro sound module — a device intended for general MIDI playback — which he coaxed into producing sounds of astonishing intimacy, the electronic equivalent of a hand-drawn line. His albums Red Curb (2001) and Lust (2005), released on Sublime Records, blend ambient, microhouse, and subtle jazz harmony in a style that resisted categorisation and was frequently compared to Aphex Twin\'s ambient releases. He passed away unexpectedly in 2011 aged 40.',
     releases: [
       { title: 'Unrest (Sublime Records)', year: 1998 },
@@ -1533,7 +1532,7 @@ export const NODES = [
       { title: '"Una Sola Cosa" — Matias Aguayo', year: 2013 },
     ]},
 
-  { id:'aguayo', label:'Matias Aguayo', type:'artist', genre:'minimal', era:2005, city:'Buenos Aires', country:'AR', bandcamp:'matiasaguayo', bandcamp_album:'3735349589',
+  { id:'aguayo', label:'Matias Aguayo', type:'artist', genre:'minimal', era:2005, city:'Buenos Aires', country:'AR', bandcamp:'matiasaguayo', bandcamp_album:'0270349786',
     desc:'Matias Aguayo was born in Chile and is based between Buenos Aires and Cologne. He founded the Cómeme label. His productions combine European minimal techno with Latin American rhythmic traditions and a playful approach to structure. He has released on Kompakt and his own label.',
     releases: [
       { title: 'Ay Ay Ay (Kompakt)', year: 2006 },
@@ -1797,7 +1796,7 @@ export const NODES = [
     ]},
 
   // ── UK — HYPERDUB / PLANET MU ────────────────────────────────────────────
-  { id:'hyperdub', label:'Hyperdub', type:'label', genre:'experimental', era:2004, city:'London', country:'UK', bandcamp:'hyperdub', bandcamp_album:'4223265698',
+  { id:'hyperdub', label:'Hyperdub', type:'label', genre:'experimental', era:2004, city:'London', country:'UK', bandcamp:'hyperdub',
     desc:'Hyperdub was founded in London in 2004 by Steve Goodman (Kode9). Beginning as a website and netlabel, it became the primary home for dubstep-adjacent experimental bass music. Burial\'s self-titled debut (2006) and Untrue (2007) established it as a label of major artistic importance. Subsequent releases by Laurel Halo, Ikonika, Jessy Lanza, Actress, and Jlin extended the label across a decade of global experimental club music. It released DJ Rashad\'s Double Cup in 2013 and Jlin\'s early tracks, making it a key bridge between the UK underground and the Chicago footwork scene. It is among the most consistently significant UK labels of the 2000s–2020s.',
     releases: [
       { title: 'Burial — Burial (Hyperdub)', year: 2006 },
@@ -1806,7 +1805,7 @@ export const NODES = [
       { title: 'Dark Energy — Jlin (Hyperdub)', year: 2015 },
     ]},
 
-  { id:'kode9', label:'Kode9', type:'artist', genre:'experimental', era:2004, city:'London', country:'UK', bandcamp:'kode9', bandcamp_album:'1335102901',
+  { id:'kode9', label:'Kode9', type:'artist', genre:'experimental', era:2004, city:'London', country:'UK', bandcamp:'kode9', bandcamp_album:'0107193543',
     desc:'Steve Goodman records as Kode9 and founded Hyperdub in London in 2004. His theoretical writing — Sonic Warfare (2009, MIT Press) — is among the most influential texts on bass music and its physical-political dimensions. His productions with the late Spaceape (Stephen Gordon) introduced dub-influenced, voice-led electronics into what became dubstep. He is responsible for signing and releasing Burial\'s first recordings — one of the most consequential curatorial decisions in British underground music.',
     releases: [
       { title: 'Memories of the Future — Kode9 & Spaceape (Hyperdub)', year: 2006 },
@@ -1836,7 +1835,7 @@ export const NODES = [
       { title: '"Unfold" (Hessle Audio)', year: 2016 },
     ]},
 
-  { id:'call_super', label:'Call Super', type:'artist', genre:'experimental', era:2012, city:'London', country:'UK', bandcamp:'callsuper', bandcamp_album:'2574682481',
+  { id:'call_super', label:'Call Super', type:'artist', genre:'experimental', era:2012, city:'London', country:'UK', bandcamp:'callsuper', bandcamp_album:'2315348673',
     desc:'JR Seaton releases as Call Super. His productions sit between techno, electro and post-club abstraction — meticulously detailed and resistant to easy genre placement. A key figure in the Hessle Audio orbit, he has also released on Dekmantel, Optimo Music and his own Phinery imprint, embodying the strand of UK electronic music that refuses to separate the intellectual from the physical.',
     releases:[
       {title:'"Arpo" (Hessle Audio)', year:2013},
@@ -1857,7 +1856,7 @@ export const NODES = [
       { title: 'Testpressing series (Modern Love)', year: 2012 },
     ]},
 
-  { id:'special_request', label:'Special Request', type:'artist', genre:'experimental', era:2014, city:'London', country:'UK', bandcamp:'special-request', bandcamp_album:'657058287',
+  { id:'special_request', label:'Special Request', type:'artist', genre:'experimental', era:2014, city:'London', country:'UK', bandcamp:'special-request', bandcamp_album:'4275236258',
     desc:'Paul Woolford records as Special Request and has been active in the UK underground since the late 1990s under various aliases. The Special Request project, launched in 2014, channelled the hardcore continuum — jungle, drum & bass, rave — into a contemporary techno and club music context, producing dense, polyrhythmic music with a distinctive nostalgic charge. His Vortex album (Houndstooth, 2019) received substantial critical attention as a document of the rave revival. He is one of the central figures in the reintegration of UK hardcore into the contemporary underground.',
     releases: [
       { title: 'Belief System (Houndstooth)', year: 2017 },
@@ -1881,7 +1880,7 @@ export const NODES = [
     ]},
 
   // ── BERLIN — BERGHAIN RESIDENTS ──────────────────────────────────────────
-  { id:'ben_klock', label:'Ben Klock', type:'artist', genre:'techno', era:2006, city:'Berlin', country:'DE', bandcamp:'benklock', bandcamp_album:'1218945776',
+  { id:'ben_klock', label:'Ben Klock', type:'artist', genre:'techno', era:2006, city:'Berlin', country:'DE', bandcamp:'benklock', bandcamp_album:'2544763768',
     desc:'Ben Klock is a Berlin DJ and producer who has held a Berghain residency since the club opened in 2004, making him one of its longest-serving residents. He founded the Klockworks label in 2007. His productions are dense, layered, and atmospheric — industrial and minimal simultaneously — with exceptional attention to the build and release of tension across extended sets. His Fabric 66 mix (2013) is among the most praised in that label\'s catalogue. He is one of the central figures in defining the Berghain sound internationally.',
     releases: [
       { title: '"Subzero" (Ostgut Ton)', year: 2008 },
@@ -1979,7 +1978,7 @@ export const NODES = [
       { title: 'HEKA (Hyperdub, posthumous)', year: 2016 },
     ]},
 
-  { id:'jlin', label:'Jlin', type:'artist', genre:'experimental', era:2015, city:'Chicago', country:'US', bandcamp:'jlin', bandcamp_album:'2765736108',
+  { id:'jlin', label:'Jlin', type:'artist', genre:'experimental', era:2015, city:'Chicago', country:'US', bandcamp:'jlin', bandcamp_album:'1810844722',
     desc:'Jlin (Jerrilynn Patton) is a producer from Gary, Indiana who emerged from the Chicago footwork scene with her debut album Dark Energy (Planet Mu, 2015). Her music departed from standard footwork in its density, structural complexity, and refusal of dancefloor legibility — Dark Energy was immediately recognised as transcending its genre. Black Origami (Planet Mu, 2017) consolidated her position as one of the most significant experimental electronic composers of her generation. She has collaborated with Holly Herndon, produced scores for contemporary dance by William Forsythe, and composed works for the Kronos Quartet. Her influence extends from footwork into contemporary composition globally.',
     releases: [
       { title: 'Dark Energy (Planet Mu)', year: 2015 },
@@ -2037,7 +2036,7 @@ export const NODES = [
     releases: [] },
 
   // ── UK — EXPERIMENTAL / IDM ──────────────────────────────────────────────
-  { id:'boards_of_canada', label:'Boards of Canada', type:'artist', genre:'ambient', era:1995, city:'Edinburgh', country:'UK', bandcamp:'boardsofcanada', bandcamp_album:'3297123711',
+  { id:'boards_of_canada', label:'Boards of Canada', type:'artist', genre:'ambient', era:1995, city:'Edinburgh', country:'UK', bandcamp:'boardsofcanada', bandcamp_album:'3411624925',
     desc:'Boards of Canada is the project of Michael Sandison and Marcus Eoin, based near Edinburgh. They released their first widely distributed records on Warp from 1998. Their music samples and processes analogue recordings with a nostalgic, slightly degraded quality that evokes childhood and lost time. Music Has the Right to Children (1998) and Geogaddi (2002) are their most celebrated records.',
     releases: [
       { title: 'Music Has the Right to Children (Warp)', year: 1998 },
@@ -2046,7 +2045,7 @@ export const NODES = [
       { title: 'Tomorrow\'s Harvest (Warp)', year: 2013 },
     ]},
 
-  { id:'four_tet', label:'Four Tet', type:'artist', genre:'experimental', era:1999, city:'London', country:'UK', bandcamp:'fourtet', bandcamp_album:'3827513954',
+  { id:'four_tet', label:'Four Tet', type:'artist', genre:'experimental', era:1999, city:'London', country:'UK', bandcamp:'fourtet', bandcamp_album:'1714700601',
     desc:'Kieran Hebden records as Four Tet and has been based in London throughout his career. He began releasing on Domino Records in 1999 and has subsequently released on his own Text label. His early records combined sampled acoustic jazz and folk with IDM production; later work moved toward house and club music while retaining a strong melodic identity. He has collaborated extensively with Burial and Floating Points.',
     releases: [
       { title: 'Rounds (Domino)', year: 2003 },
@@ -2055,7 +2054,7 @@ export const NODES = [
       { title: 'New Energy (Text)', year: 2017 },
     ]},
 
-  { id:'actress', label:'Actress', type:'artist', genre:'experimental', era:2008, city:'London', country:'UK', bandcamp:'actress', bandcamp_album:'2170439212',
+  { id:'actress', label:'Actress', type:'artist', genre:'experimental', era:2008, city:'London', country:'UK', bandcamp:'actress', bandcamp_album:'0035817025',
     desc:'Darren Cunningham records as Actress and was born in Wolverhampton, later based in London. He founded the Werkdiscs label as the home for his releases. His music works across a range of tempos and textures — from near-ambient to club-functional — with a deliberately degraded, grainy production aesthetic. Hazyville (2008), R.I.P. (2012), and Ghettoville (2014) are his principal albums.',
     releases: [
       { title: 'Hazyville (Werkdiscs)', year: 2008 },
@@ -2073,7 +2072,7 @@ export const NODES = [
       { title: 'A Pox on the Pioneers (Rotters Golf Club)', year: 2009 },
     ]},
 
-  { id:'djrum', label:'DJrum', type:'artist', genre:'experimental', era:2012, city:'London', country:'UK', bandcamp:'djrum', bandcamp_album:'2405195433',
+  { id:'djrum', label:'DJrum', type:'artist', genre:'experimental', era:2012, city:'London', country:'UK', bandcamp:'djrum', bandcamp_album:'1924727225',
     desc:'Felix Manuel records as DJrum and is based in London. His productions span a wide range of tempos and moods, from ambient to hard percussive techno, and resist easy genre categorisation. He has released on Hessle Audio and his own labels. His Portrait With Firewood album (2018) is regarded as a strong document of his range.',
     releases: [
       { title: '"Seven Lies" (Hessle Audio)', year: 2013 },
@@ -2090,7 +2089,7 @@ export const NODES = [
       { title: 'Wet My Plants (Ternesc)', year: 2016 },
     ]},
 
-  { id:'leon_vynehall', label:'Leon Vynehall', type:'artist', genre:'deep', era:2013, city:'London', country:'UK', bandcamp:'leonvynehall', bandcamp_album:'3069680126',
+  { id:'leon_vynehall', label:'Leon Vynehall', type:'artist', genre:'deep', era:2013, city:'London', country:'UK', bandcamp:'leonvynehall', bandcamp_album:'4071241862',
     desc:'Leon Vynehall is a London-based producer whose work develops a deep house aesthetic with strong melodic and cinematic qualities. He began releasing on Wolf Music in 2013 and subsequently on Ninja Tune. His album Nothing Is Still (2018) incorporated personal family history into an ambient-leaning deep house framework. He has been widely cited as a significant figure in contemporary British deep house.',
     releases: [
       { title: '"Butterflies" (Wolf Music)', year: 2013 },
@@ -2107,21 +2106,21 @@ export const NODES = [
       { title: 'Levitate (Greco-Roman)', year: 2016 },
     ]},
 
-  { id:'ross_from_friends', label:'Ross from Friends', type:'artist', genre:'deep', era:2017, city:'London', country:'UK', bandcamp:'rossfromfriends', bandcamp_album:'1002687036',
+  { id:'ross_from_friends', label:'Ross from Friends', type:'artist', genre:'deep', era:2017, city:'London', country:'UK', bandcamp:'rossfromfriends', bandcamp_album:'2290899204',
     desc:'Felix Clary Weatherall records as Ross from Friends. Growing up in Suffolk and moving to London, he began releasing online in the mid-2010s — bedroom productions combining lo-fi sensibility with deep house, UK rave and broken beat influences. His EP A Heartwarming Selection (2018) brought wider attention, followed by Tread (Brainfeeder, 2021), which expanded into live instrumentation and modular synthesis while retaining his signature hazy intimacy. His music sits in a lineage with Four Tet\'s blurring of electronic and live-recorded texture, filtered through the aesthetics of London\'s post-club underground.',
     releases: [
       { title: 'A Heartwarming Selection EP (Lobster Theremin)', year: 2018 },
       { title: 'Tread (Brainfeeder)', year: 2021 },
     ]},
 
-  { id:'ejeca', label:'Ejeca', type:'artist', genre:'deep', era:2016, city:'London', country:'UK', bandcamp:'ejeca', bandcamp_album:'347894306',
+  { id:'ejeca', label:'Ejeca', type:'artist', genre:'deep', era:2016, city:'London', country:'UK', bandcamp:'ejeca', bandcamp_album:'1071678593',
     desc:'EJECA is a UK-based electronic producer known for warmly nostalgic, sample-rooted house music. Drawing from French touch, Chicago house and disco, his productions loop and recontextualise classic electronic references — Daft Punk, Stardust, classic soul — into new arrangements with a distinctly feel-good energy. He works across original productions and remix projects, releasing independently and via UK labels.',
     releases: [
       { title: 'Keep Climbing EP', year: 2022 },
       { title: 'Daft Essentials (self-released)', year: 2026 },
     ]},
 
-  { id:'last_pines', label:'Last Pines', type:'artist', genre:'deep', era:2024, city:'London', country:'UK', bandcamp:'lastpines', bandcamp_album:'446300739',
+  { id:'last_pines', label:'Last Pines', type:'artist', genre:'deep', era:2024, city:'London', country:'UK', bandcamp:'lastpines', bandcamp_album:'0685012952',
     desc:'Last Pines is a London-based producer working in minimal deep tech and minimal house. Their releases blend the textural density of minimal techno with deep house groove — long-form tracks where subtle percussive shifts and low-end pressure accumulate slowly. Terminal Swiv (2026) is their debut release.',
     releases: [
       { title: 'The Gathering EP', year: 2024 },
@@ -2155,7 +2154,7 @@ export const NODES = [
     ]},
 
   // ── INTERNATIONAL — VARIOUS ───────────────────────────────────────────────
-  { id:'floating_points', label:'Floating Points', type:'artist', genre:'experimental', era:2009, city:'London', country:'UK', bandcamp:'floatingpoints', bandcamp_album:'3149089081',
+  { id:'floating_points', label:'Floating Points', type:'artist', genre:'experimental', era:2009, city:'London', country:'UK', bandcamp:'floatingpoints', bandcamp_album:'2214058814',
     desc:'Sam Shepherd records as Floating Points. He completed a PhD in neuroscience while developing his music career. His early releases on Eglo combined jazz and electronic music; subsequent work on his own Pluto label has moved toward dance floor contexts while retaining strong harmonic complexity. His collaboration with Pharoah Sanders and the London Symphony Orchestra, Promises (2021), received wide critical attention. He performs live with an ensemble.',
     releases: [
       { title: 'Elaenia (Pluto)', year: 2015 },
@@ -2172,7 +2171,7 @@ export const NODES = [
       { title: 'Modern Love Story (Wagon Repair)', year: 2011 },
     ]},
 
-  { id:'kiasmos', label:'Kiasmos', type:'artist', genre:'ambient', era:2014, city:'Reykjavik', country:'IS', bandcamp:'kiasmos', bandcamp_album:'3643027682',
+  { id:'kiasmos', label:'Kiasmos', type:'artist', genre:'ambient', era:2014, city:'Reykjavik', country:'IS', bandcamp:'kiasmos', bandcamp_album:'3693906721',
     desc:'Kiasmos is the collaboration between Ólafur Arnalds and Janus Rasmussen, both Icelandic musicians based between Reykjavik and Berlin. The project combines Arnalds\'s background in neo-classical composition with Rasmussen\'s electronic production. Their self-titled debut album (2014) on Erased Tapes established an aesthetic of processed piano, pulsing electronic rhythm, and slow harmonic movement that has been widely influential within modern ambient and melodic techno.',
     releases: [
       { title: 'Kiasmos (Erased Tapes)', year: 2014 },
@@ -2205,7 +2204,7 @@ export const NODES = [
     ]},
 
   // ── GERMANY / SWEDEN — MISC ───────────────────────────────────────────────
-  { id:'the_field', label:'The Field', type:'artist', genre:'minimal', era:2007, city:'Stockholm', country:'SE', bandcamp:'thefield', bandcamp_album:'1216253061',
+  { id:'the_field', label:'The Field', type:'artist', genre:'minimal', era:2007, city:'Stockholm', country:'SE', bandcamp:'thefield', bandcamp_album:'2286154674',
     desc:'Axel Willner records as The Field and grew up in Stockholm before relocating to Berlin. His debut album From Here We Go Sublime (Kompakt, 2007) built tracks from heavily looped vocal and instrumental samples processed to the point of abstraction, producing music of unusual warmth and hypnotic depth. He has released on Kompakt throughout his career.',
     releases: [
       { title: 'From Here We Go Sublime (Kompakt)', year: 2007 },
@@ -2338,7 +2337,7 @@ export const NODES = [
       { title: 'To Illustrate (with K-LONE, Wisdom Teeth)', year: 2022 },
     ]},
 
-  { id:'k_lone', label:'K-LONE', type:'artist', genre:'ambient', era:2014, city:'London', country:'UK', bandcamp:'k-lone', bandcamp_album:'3811009189',
+  { id:'k_lone', label:'K-LONE', type:'artist', genre:'ambient', era:2014, city:'London', country:'UK', bandcamp:'k-lone', bandcamp_album:'0341866469',
     desc:'Joe Gladwell records as K-LONE and co-founded Wisdom Teeth in London in 2014. While his club productions work in the same experimental bass music territory as his labelmates, his 2020 solo album Cape Cira (Wisdom Teeth) is a sustained ambient work — slow, spatial, and deeply considered — that stands apart from the functional club context and has been praised as one of the strongest ambient records of its era. This dual capacity — club tools and ambient listening — is characteristic of the Wisdom Teeth aesthetic at its most developed.',
     releases: [
       { title: '"Late Night" (Wisdom Teeth)', year: 2014 },
@@ -2362,7 +2361,7 @@ export const NODES = [
     ]},
 
   // ── UK/BERLIN — OBJEKT ───────────────────────────────────────────────────
-  { id:'objekt', label:'Objekt', type:'artist', genre:'techno', era:2011, city:'Berlin', country:'DE', bandcamp:'objekt', bandcamp_album:'2783508421',
+  { id:'objekt', label:'Objekt', type:'artist', genre:'techno', era:2011, city:'Berlin', country:'DE', bandcamp:'objekt', bandcamp_album:'3840456850',
     desc:'TJ Hertz records as Objekt. Born in Tokyo to British-American and Filipino parents, he grew up in Belgium and the UK and settled in Berlin in 2009 after studying electronic engineering at Oxford. His first records — self-titled white-labels released in 2011 — immediately established a reputation for technically exceptional production: dense, complex, and rhythmically precise across a range of tempos and genres from IDM to techno to broken beats. His Cactus/Porcupine 12" on Hessle Audio (2012) is a landmark; his debut album Flatland (PAN, 2014) and its follow-up Cocoon Crush (PAN, 2018) are among the most critically acclaimed techno albums of the decade. "Ganzfeld" was voted RA\'s #1 track of 2014. Mixmag named him DJ of the Year in 2018. A decade-plus of consistent excellence makes him one of the few artists who can claim to have genuinely shaped the sound of Berlin techno from outside its original circle.',
     releases: [
       { title: 'Cactus / Porcupine (Hessle Audio)', year: 2012 },
