@@ -1087,4 +1087,39 @@ path.eg.dim{opacity:0.09}
   text-transform:uppercase;border:none;cursor:pointer;
   transition:opacity 0.15s;
 }
+
+/* ── Mobile responsive ──────────────────────────────────────────────────── */
+@media(max-width:600px){
+  /* Topbar: hide subtitle to save vertical space */
+  .wordmark-sub{display:none;}
+  .wordmark{padding:0 14px;}
+
+  /* Column headers: unreadable when compressed, hide them */
+  .column-header-strip{display:none;}
+
+  /* Statusbar: scroll horizontally so all chips are reachable */
+  .statusbar{overflow-x:auto;flex-wrap:nowrap;padding:0 12px;gap:10px;}
+  .statusbar::-webkit-scrollbar{display:none;}
+
+  /* Detail panel: bottom sheet instead of side panel */
+  .dp{
+    position:fixed !important;
+    left:0 !important;right:0 !important;bottom:44px !important;top:auto !important;
+    width:100% !important;height:62vh;
+    border-radius:16px 16px 0 0;
+    border-left:none !important;border-right:none !important;border-bottom:none !important;
+    border-top:1px solid var(--tb-border) !important;
+    box-shadow:0 -4px 32px rgba(0,0,0,0.35) !important;
+  }
+  .dp.left{left:0 !important;right:0 !important;}
+
+  /* Hide the drag-to-reposition hint — not applicable on mobile */
+  .dp-move-hint{display:none;}
+}
+
+@media(max-width:900px){
+  /* Tablet: just make the statusbar scrollable */
+  .statusbar{overflow-x:auto;flex-wrap:nowrap;}
+  .statusbar::-webkit-scrollbar{display:none;}
+}
 .tour-v2-next:hover{opacity:0.85;}
