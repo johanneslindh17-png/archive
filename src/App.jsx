@@ -2424,7 +2424,7 @@ export default function App() {
             </div>
             <a
               className="paywall-buy"
-              href="https://archivemteu.lemonsqueezy.com/checkout/buy/5737d134-2364-44c3-920f-7a1c635f91b0"
+              href="https://lindhster.gumroad.com/l/ELECTRONICARCHIVE"
               target="_blank"
               rel="noopener noreferrer"
             >
