@@ -394,16 +394,14 @@ export default function App() {
     setVerifying(true);
     setVerifyError('');
     try {
-      const existingInstanceId = localStorage.getItem('archiveInstanceId');
       const res = await fetch('/api/verify', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ key: licenseKey.trim(), instanceId: existingInstanceId }),
+        body: JSON.stringify({ key: licenseKey.trim() }),
       });
       const data = await res.json();
       if (data.valid) {
         localStorage.setItem('archiveUnlocked', '1');
-        if (data.instanceId) localStorage.setItem('archiveInstanceId', data.instanceId);
         setUnlocked(true);
         setPaywallOpen(false);
         setLicenseKey('');
