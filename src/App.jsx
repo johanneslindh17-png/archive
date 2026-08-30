@@ -394,14 +394,16 @@ export default function App() {
     setVerifying(true);
     setVerifyError('');
     try {
+      const existingInstanceId = localStorage.getItem('archiveInstanceId');
       const res = await fetch('/api/verify', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ key: licenseKey.trim() }),
+        body: JSON.stringify({ key: licenseKey.trim(), instanceId: existingInstanceId }),
       });
       const data = await res.json();
       if (data.valid) {
         localStorage.setItem('archiveUnlocked', '1');
+        if (data.instanceId) localStorage.setItem('archiveInstanceId', data.instanceId);
         setUnlocked(true);
         setPaywallOpen(false);
         setLicenseKey('');
@@ -2422,7 +2424,7 @@ export default function App() {
             </div>
             <a
               className="paywall-buy"
-              href="https://lindhster.gumroad.com/l/ELECTRONICARCHIVE"
+              href="https://archivemteu.lemonsqueezy.com/checkout/buy/5737d134-2364-44c3-920f-7a1c635f91b0"
               target="_blank"
               rel="noopener noreferrer"
             >

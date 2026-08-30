@@ -5,26 +5,35 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ valid: false });
 
-  const { key } = req.body || {};
+  const { key, instanceId } = req.body || {};
   if (!key) return res.status(400).json({ valid: false });
 
+  const headers = {
+    'Authorization': `Bearer ${process.env.LEMONSQUEEZY_API_KEY}`,
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  };
+
   try {
-    const params = new URLSearchParams({
-      product_permalink: 'ELECTRONICARCHIVE',
-      license_key: key.trim(),
-      increment_uses_count: 'false',
-    });
+    // Deactivate previous instance if we have one (re-entry after clearing storage)
+    if (instanceId) {
+      await fetch('https://api.lemonsqueezy.com/v1/licenses/deactivate', {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({ license_key: key.trim(), instance_id: instanceId }),
+      }).catch(() => {}); // ignore errors — old instance may already be gone
+    }
 
-    const response = await fetch('https://api.gumroad.com/v2/licenses/verify', {
+    // Activate a fresh instance
+    const response = await fetch('https://api.lemonsqueezy.com/v1/licenses/activate', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: params.toString(),
+      headers,
+      body: JSON.stringify({ license_key: key.trim(), instance_name: 'web' }),
     });
-
     const data = await response.json();
 
-    if (data.success) {
-      res.json({ valid: true });
+    if (data.activated) {
+      res.json({ valid: true, instanceId: data.instance?.id || null });
     } else {
       res.json({ valid: false });
     }
