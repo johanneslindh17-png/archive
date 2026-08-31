@@ -2635,4 +2635,27 @@ export const EDGES = [
   { from:'throbbing_gristle', to:'front_242',     strength:3, type:'lineage' },
   { from:'front_242',        to:'detroit_scene',  strength:2, type:'influence' },
   { from:'front_242',        to:'underground_resistance', strength:2, type:'influence' },
+
+  // ── NITZER EBB ────────────────────────────────────────────────────────────
+  { from:'ebm',              to:'nitzer_ebb',     strength:3, type:'lineage' },
+  { from:'throbbing_gristle', to:'nitzer_ebb',    strength:3, type:'influence' },
+  { from:'daf',              to:'nitzer_ebb',     strength:3, type:'influence' },
+  { from:'front_242',        to:'nitzer_ebb',     strength:2, type:'aesthetic' },
+
+  // ── D.A.F. ────────────────────────────────────────────────────────────────
+  { from:'ebm',              to:'daf',            strength:3, type:'lineage' },
+  { from:'throbbing_gristle', to:'daf',           strength:2, type:'influence' },
+  { from:'daf',              to:'front_242',      strength:3, type:'lineage' },
+  { from:'daf',              to:'liaisons_dangereuses', strength:3, type:'lineage' },
+
+  // ── LIAISONS DANGEREUSES ──────────────────────────────────────────────────
+  { from:'daf',              to:'liaisons_dangereuses', strength:3, type:'lineage' },
+  { from:'liaisons_dangereuses', to:'chicago_scene', strength:2, type:'influence' },
+  { from:'liaisons_dangereuses', to:'detroit_scene', strength:2, type:'influence' },
+
+  // ── AMNESIA IBIZA ─────────────────────────────────────────────────────────
+  { from:'ibiza_moment',     to:'amnesia_ibiza',  strength:3, type:'roster' },
+  { from:'amnesia_ibiza',    to:'summer_of_love', strength:3, type:'lineage' },
+  { from:'amnesia_ibiza',    to:'paul_oakenfold', strength:3, type:'lineage' },
+  { from:'amnesia_ibiza',    to:'danny_rampling', strength:3, type:'lineage' },
 ];

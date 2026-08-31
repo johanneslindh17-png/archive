@@ -5081,6 +5081,37 @@ export const NODES = [
       { title: 'Front by Front (album)', year: 1988 },
     ]},
 
+  // ── NITZER EBB ────────────────────────────────────────────────────────────
+  { id:'nitzer_ebb', label:'Nitzer Ebb', type:'artist', genre:'experimental', era:1982, city:'Chelmsford', country:'UK',
+    desc:'Nitzer Ebb formed in Chelmsford, Essex in 1982, with Douglas McCarthy (vocals) and Bon Harris (electronics) as the core duo. Their music — released on Mute Records — placed harsh, distorted electronics under vocal performances that combined aggressive command with physical directness, producing a template for Electronic Body Music that reached further into mainstream hearing than most of their peers. "Join in the Chant" (1987) and the debut album "That Total Age" (1987) defined the Nitzer Ebb sound: minimal, hard, built on rhythm and repetition rather than melody or harmonic development. Their influence extended into industrial techno, and their collaboration with Flood as producer linked them to the wider Mute Records community of experimental pop and electronic music that included Depeche Mode and Cabaret Voltaire.',
+    releases: [
+      { title: '"Join in the Chant"', year: 1987 },
+      { title: 'That Total Age (album)', year: 1987 },
+      { title: 'Belief (album)', year: 1989 },
+    ]},
+
+  // ── D.A.F. ────────────────────────────────────────────────────────────────
+  { id:'daf', label:'D.A.F.', type:'artist', genre:'experimental', era:1978, city:'Düsseldorf', country:'DE',
+    desc:'Deutsch-Amerikanische Freundschaft (D.A.F.) formed in Düsseldorf in 1978 and, by 1980, had reduced to the core duo of Gabi Delgado-López (vocals) and Robert Görl (electronics and drums). Their records on Mute Records — including "Alles Ist Gut" (1981) and "Gold und Liebe" (1981) — stripped German electronic music down to an aggressive, rhythmic minimum: drum machine patterns, synthesiser bass lines, and vocalisations that owed more to physical provocation than to song. "Der Mussolini" (from "Alles Ist Gut") became one of the most cited EBM records. D.A.F. were a direct influence on Nitzer Ebb, Front 242, and much of the 1980s industrial-dance lineage. Several of their early members — including Chrislo Haas and Beate Bartel — went on to form Liaisons Dangereuses, extending the same minimal electronic approach into different contexts.',
+    releases: [
+      { title: '"Der Mussolini"', year: 1981 },
+      { title: 'Alles Ist Gut (album)', year: 1981 },
+      { title: 'Gold und Liebe (album)', year: 1981 },
+    ]},
+
+  // ── LIAISONS DANGEREUSES ──────────────────────────────────────────────────
+  { id:'liaisons_dangereuses', label:'Liaisons Dangereuses', type:'artist', genre:'experimental', era:1981, city:'Düsseldorf', country:'DE',
+    desc:'Liaisons Dangereuses was the Düsseldorf duo of Chrislo Haas and Beate Bartel, both former members of the early D.A.F. lineup, who recorded a single self-titled album in 1981. The record — particularly the track "Los Niños del Parque" — became one of the most sampled and referenced recordings in dance music history, its stark drum machine pattern and cold bass sequencer circulating through house and techno production long after the duo had dissolved. The album was released on the West German What\'s So Funny About Records label. Liaisons Dangereuses produced a narrow but disproportionately influential body of work: a single album, a handful of tracks, and a sound that demonstrated how far European electronic music had moved from both Krautrock\'s expansiveness and disco\'s warmth.',
+    releases: [
+      { title: 'Liaisons Dangereuses (album)', year: 1981 },
+      { title: '"Los Niños del Parque"', year: 1981 },
+    ]},
+
+  // ── AMNESIA IBIZA ─────────────────────────────────────────────────────────
+  { id:'amnesia_ibiza', label:'Amnesia', type:'venue', genre:'disco', era:1976, city:'Ibiza', country:'ES',
+    desc:'Amnesia is a nightclub on the road between Eivissa and Sant Antoni de Portmany in Ibiza, open since the mid-1970s. In the late 1980s it became the site through which UK club culture and Chicago house music intersected with continental Europe\'s party scene. DJ Alfredo Fiorito held a residency at Amnesia from 1984, playing an eclectic mix of pop, rock, house, and electronic music to a crowd that included tourists and Ibiza regulars. In the summer of 1987, a group of UK DJs — including Paul Oakenfold, Danny Rampling, Nicky Holloway, and Johnny Walker — attended a holiday in Ibiza and experienced Alfredo\'s sets there. On returning to London they attempted to recreate the atmosphere and the music in new club nights, directly triggering the UK acid house movement of 1988 and the Summer of Love. Amnesia thus functions as the relay point between American house music and its British transformation.',
+    releases: [] },
+
   // ── LOEFAH ────────────────────────────────────────────────────────────────
   { id:'loefah', label:'Loefah', type:'artist', genre:'ambient', era:2004, city:'London', country:'UK',
     desc:'Loefah — born Joseph McNulty in South London — co-founded the DMZ club night at Mass in Brixton alongside Mala and Coki, helping establish that venue as the central institution of the early dubstep scene. His own productions took the genre\'s bass-weight and minimalism to an extreme: sparse percussion, long periods of near-silence, sub-bass frequencies used as the primary compositional material. He founded the Swamp81 label in 2009, which released work by artists including Bok Bok and Dark0, and maintained a curatorial commitment to deep, functional, aesthetically uncompromising club music. Where some dubstep producers moved toward heavier or more melodic forms, Loefah consistently pursued reduction — treating removal as the primary creative gesture.',
