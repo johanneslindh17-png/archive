@@ -4783,4 +4783,45 @@ export const NODES = [
   { id:'technics_1200', label:'Technics SL-1200', type:'label', genre:'detroit', era:1972, city:'Osaka', country:'JP',
     desc:'The Technics SL-1200, introduced by Matsushita Electric (now Panasonic) in 1972, became the universal standard DJ turntable by the early 1980s. The SL-1200 MK2, released in 1978, offered a direct-drive motor with high torque — enabling the slip-cueing and manual manipulation central to hip-hop DJing — combined with a variable pitch control that allowed DJs to match tempos between records. Its durability, torque, and precision made it the de facto instrument of DJ culture worldwide, used in identical form by Larry Levan, Jeff Mills, Frankie Knuckles, and virtually every significant DJ of the following four decades. Technics discontinued the MK2 series in 2010 and reintroduced the line as the SL-1200G in 2016.',
     releases: [] },
+
+  // ── DERRICK MAY ───────────────────────────────────────────────────────────
+  { id:'derrick_may', label:'Derrick May', type:'artist', genre:'detroit', era:1986, city:'Belleville', country:'US',
+    desc:'Derrick May is one of the three founders of Detroit techno — the Belleville Three — alongside Juan Atkins and Kevin Saunderson. Recording as Rhythim Is Rhythim, he released "Strings of Life" in 1987 on Transmat Records, a track built around a cascading piano loop that remains one of the most celebrated records in techno history. May founded Transmat Records in 1986, which became a foundational Detroit techno label. His productions are characterised by an emotional complexity that distinguished them from the more austere machine aesthetic of contemporaries — a quality he described as "the synthesis of George Clinton and Kraftwerk." His studio output has been sparse relative to his influence, with a career sustained as much by his reputation as a DJ as by his recorded work.',
+    releases: [
+      { title: '"Nude Photo" — Rhythim Is Rhythim', year: 1987 },
+      { title: '"Strings of Life" — Rhythim Is Rhythim', year: 1987 },
+      { title: '"It Is What It Is" — Rhythim Is Rhythim', year: 1990 },
+    ]},
+
+  // ── KEVIN SAUNDERSON ──────────────────────────────────────────────────────
+  { id:'kevin_saunderson', label:'Kevin Saunderson', type:'artist', genre:'detroit', era:1986, city:'Belleville', country:'US',
+    desc:'Kevin Saunderson is one of the three founders of Detroit techno — the Belleville Three — alongside Juan Atkins and Derrick May. He founded KMS Records in Detroit, which became a key label for Detroit techno and house crossovers. As E-Dancer he produced underground techno; as Inner City, in collaboration with vocalist Paris Grey, he recorded "Big Fun" and "Good Life" (1988) — tracks that brought Detroit\'s machine aesthetic into contact with gospel-inflected pop vocals and reached mainstream chart positions in the UK and across Europe. This commercial reach gave Detroit techno its broadest popular audience and distinguished Saunderson\'s trajectory from those of his Belleville Three counterparts.',
+    releases: [
+      { title: '"Big Fun" — Inner City', year: 1988 },
+      { title: '"Good Life" — Inner City', year: 1988 },
+      { title: '"Heavenly" — E-Dancer', year: 1998 },
+    ]},
+
+  // ── THE KLF ───────────────────────────────────────────────────────────────
+  { id:'the_klf', label:'The KLF', type:'artist', genre:'rave', era:1987, city:'London', country:'GB',
+    desc:'The KLF — Bill Drummond and Jimmy Cauty — operated from 1987 to 1992 as one of the most commercially successful and conceptually radical acts in British pop. Beginning as The Justified Ancients of Mu Mu, they produced stadium house anthems including "What Time Is Love?" (1988), "3 A.M. Eternal" (1991), and "Justified and Ancient" (1991), all of which reached number one in the UK. Their 1990 album Chill Out — a continuous ambient journey recorded in a single session — is a foundational document of the ambient house genre. Cauty had been an early collaborator with Alex Paterson, forming the initial version of The Orb together. In 1992 the duo deleted their entire catalog and publicly retired; in 1994 they burned £1,000,000 on the island of Jura. Their combination of pop ambition, rave aesthetics, and willingness to destroy their own commercial position placed them at the intersection of multiple scenes simultaneously.',
+    releases: [
+      { title: 'Chill Out', year: 1990 },
+      { title: '"3 A.M. Eternal"', year: 1991 },
+      { title: '"Justified and Ancient"', year: 1991 },
+    ]},
+
+  // ── AFRIKA BAMBAATAA ──────────────────────────────────────────────────────
+  { id:'afrika_bambaataa', label:'Afrika Bambaataa', type:'artist', genre:'detroit', era:1982, city:'Bronx', country:'US',
+    desc:'Afrika Bambaataa — born Kevin Donovan — grew up in the South Bronx and founded the Zulu Nation in 1973, transforming a gang into a cultural organisation centred on hip-hop. In 1982 he recorded "Planet Rock" with the Soulsonic Force, produced by Arthur Baker. "Planet Rock" sampled Kraftwerk\'s "Trans-Europe Express" and "Numbers", fusing them with a Roland TR-808 and hip-hop vocal culture to create electro — a genre that became a direct ancestor of Detroit techno. The Detroit producers Juan Atkins, Derrick May, and Kevin Saunderson all acknowledged both Kraftwerk and Bambaataa as influences. "Planet Rock" is one of the most sampled and remixed records in electronic music history and established the template for machine music that prioritised futurism and rhythm over rock instrumentation.',
+    releases: [
+      { title: '"Planet Rock" — Afrika Bambaataa & the Soulsonic Force', year: 1982 },
+      { title: '"Looking for the Perfect Beat"', year: 1983 },
+      { title: '"Renegades of Funk"', year: 1983 },
+    ]},
+
+  // ── DAVID MANCUSO ─────────────────────────────────────────────────────────
+  { id:'david_mancuso', label:'David Mancuso', type:'artist', genre:'disco', era:1970, city:'New York', country:'US',
+    desc:'David Mancuso opened The Loft in his home at 647 Broadway, New York, in February 1970, inviting guests by word of mouth to what he described as rent parties. The Loft was not a commercial club — there was no liquor licence, guests brought their own food and drink, and there was no DJ booth in the conventional sense. Mancuso played records on a high-fidelity sound system of his own specification, prioritising audio quality above all. His focus on community, sound quality, and the creation of a safe space for Black and gay New Yorkers directly shaped the generation of DJs who followed him — Larry Levan and Frankie Knuckles danced at The Loft before beginning their own careers. Every principle of the DJ as curator, and of the club as sanctuary rather than business, traces back to Mancuso and The Loft.',
+    releases: [] },
 ];

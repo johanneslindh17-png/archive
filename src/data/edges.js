@@ -2397,4 +2397,40 @@ export const EDGES = [
   { from:'technics_1200',   to:'knuckles',      strength:2, type:'influence' },
   { from:'technics_1200',   to:'jeff_mills',    strength:2, type:'influence' },
   { from:'technics_1200',   to:'belleville3',   strength:2, type:'influence' },
+
+  // ── DERRICK MAY ───────────────────────────────────────────────────────────
+  { from:'derrick_may',     to:'belleville3',   strength:3, type:'lineage' },
+  { from:'derrick_may',     to:'transmat',      strength:3, type:'roster' },
+  { from:'kraftwerk',       to:'derrick_may',   strength:3, type:'influence' },
+  { from:'derrick_may',     to:'detroit_scene', strength:3, type:'lineage' },
+  { from:'juan_atkins',     to:'derrick_may',   strength:3, type:'collaboration' },
+
+  // ── KEVIN SAUNDERSON ──────────────────────────────────────────────────────
+  { from:'kevin_saunderson', to:'belleville3',  strength:3, type:'lineage' },
+  { from:'kevin_saunderson', to:'kms',          strength:3, type:'roster' },
+  { from:'kraftwerk',        to:'kevin_saunderson', strength:3, type:'influence' },
+  { from:'kevin_saunderson', to:'detroit_scene', strength:3, type:'lineage' },
+  { from:'juan_atkins',      to:'kevin_saunderson', strength:3, type:'collaboration' },
+
+  // ── THE KLF ───────────────────────────────────────────────────────────────
+  { from:'summer_of_love',  to:'the_klf',       strength:3, type:'lineage' },
+  { from:'acid',            to:'the_klf',       strength:2, type:'influence' },
+  { from:'the_klf',         to:'the_orb',       strength:3, type:'collaboration' },
+  { from:'the_klf',         to:'ambient',       strength:2, type:'lineage' },
+
+  // ── AFRIKA BAMBAATAA ──────────────────────────────────────────────────────
+  { from:'kraftwerk',       to:'afrika_bambaataa', strength:3, type:'influence' },
+  { from:'funk',            to:'afrika_bambaataa', strength:2, type:'lineage' },
+  { from:'afrika_bambaataa', to:'electro',      strength:3, type:'lineage' },
+  { from:'afrika_bambaataa', to:'juan_atkins',  strength:2, type:'influence' },
+  { from:'tr808',           to:'afrika_bambaataa', strength:3, type:'influence' },
+
+  // ── DAVID MANCUSO ─────────────────────────────────────────────────────────
+  { from:'disco',           to:'david_mancuso', strength:3, type:'lineage' },
+  { from:'black_club_culture', to:'david_mancuso', strength:3, type:'lineage' },
+  { from:'queer_dancefloor', to:'david_mancuso', strength:3, type:'lineage' },
+  { from:'david_mancuso',   to:'levan',         strength:3, type:'influence' },
+  { from:'david_mancuso',   to:'knuckles',      strength:3, type:'influence' },
+  { from:'david_mancuso',   to:'paradise_garage', strength:3, type:'influence' },
+  { from:'david_mancuso',   to:'nyc_scene',     strength:3, type:'lineage' },
 ];
