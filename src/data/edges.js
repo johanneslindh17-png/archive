@@ -2564,4 +2564,26 @@ export const EDGES = [
   { from:'paradise_garage', to:'blaze',          strength:2, type:'influence' },
   { from:'kerri_chandler',  to:'blaze',          strength:2, type:'aesthetic' },
   { from:'masters_at_work', to:'blaze',          strength:2, type:'aesthetic' },
+
+  // ── STUDIO 54 ─────────────────────────────────────────────────────────────
+  { from:'disco',          to:'studio_54',       strength:3, type:'roster' },
+  { from:'nyc_scene',      to:'studio_54',       strength:3, type:'lineage' },
+  { from:'studio_54',      to:'paradise_garage', strength:2, type:'lineage' },
+  { from:'studio_54',      to:'the_loft',        strength:2, type:'aesthetic' },
+
+  // ── CONGO NATTY ───────────────────────────────────────────────────────────
+  { from:'jungle',             to:'congo_natty',    strength:3, type:'lineage' },
+  { from:'reinforced_records', to:'congo_natty',    strength:2, type:'aesthetic' },
+  { from:'congo_natty',        to:'jungle',         strength:3, type:'lineage' },
+
+  // ── HOSPITAL RECORDS ──────────────────────────────────────────────────────
+  { from:'goldie',          to:'hospital_records', strength:2, type:'aesthetic' },
+  { from:'ltj_bukem',       to:'hospital_records', strength:2, type:'aesthetic' },
+  { from:'grooverider',     to:'hospital_records', strength:2, type:'aesthetic' },
+
+  // ── HARDFLOOR ─────────────────────────────────────────────────────────────
+  { from:'acid',             to:'hardfloor',      strength:3, type:'influence' },
+  { from:'sven_vath',        to:'hardfloor',      strength:3, type:'roster' },
+  { from:'phuture',          to:'hardfloor',      strength:2, type:'influence' },
+  { from:'berlin_zero_hour', to:'hardfloor',      strength:2, type:'aesthetic' },
 ];

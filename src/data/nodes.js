@@ -5004,4 +5004,30 @@ export const NODES = [
     releases: [
       { title: '"Lovelee Dae"', year: 1990 },
     ]},
+
+  // ── STUDIO 54 ─────────────────────────────────────────────────────────────
+  { id:'studio_54', label:'Studio 54', type:'venue', genre:'disco', era:1977, city:'New York', country:'US',
+    desc:'Studio 54 opened on 26 April 1977 at 254 West 54th Street in Manhattan, co-owned by Steve Rubell and Ian Schrager. For less than three years — before Rubell and Schrager were arrested for tax evasion and the club closed on 4 February 1980 — it was the most visible and documented site of New York\'s disco moment. Its door policy, its theatrical lighting, and the unrestrained behaviour it hosted inside made it a flashpoint for both the possibilities and the excesses of the era. Its DJs, including Richie Kaczor, controlled the dancefloor\'s energy through curated sequencing. Studio 54 exists in the archive not as a cause but as a symptom — the moment when DJ-driven club culture achieved maximum cultural visibility before the backlash that partly defined what came after, including the more private, community-centred spaces like The Loft and the Paradise Garage.',
+    releases: [] },
+
+  // ── CONGO NATTY (REBEL MC) ────────────────────────────────────────────────
+  { id:'congo_natty', label:'Congo Natty', type:'artist', genre:'jungle', era:1992, city:'London', country:'UK',
+    desc:'Congo Natty is the project of Michael West, a London artist who began his career as Rebel MC — a hip hop MC whose 1989 single "Street Tuff" (with Double Trouble, on Desire Records) reached the UK top ten. As the rave and jungle scenes emerged in the early 1990s, West moved decisively into the new music, founding the Congo Natty label (also known as Tribal Bass) and recording under that name as well as Conquering Lion. His approach fused the rhythmic density of jungle with the vocal traditions and political sensibility of Jamaican roots reggae and ragga, producing a body of work in which the dancefloor and the political statement were inseparable. "Junglist" (1994) is among the most significant Congo Natty releases. He continued releasing through subsequent decades, playing a key role in maintaining jungle\'s connection to its sound system roots.',
+    releases: [
+      { title: '"Street Tuff" — Rebel MC & Double Trouble', year: 1989 },
+      { title: '"Junglist"', year: 1994 },
+    ]},
+
+  // ── HOSPITAL RECORDS ──────────────────────────────────────────────────────
+  { id:'hospital_records', label:'Hospital Records', type:'label', genre:'techno', era:1996, city:'London', country:'UK',
+    desc:'Hospital Records was founded in London in 1996 by Tony Colman — who records as London Elektricity — and Chris Goss, initially as a fanzine before becoming a label. It occupies the melodic and compositional end of drum and bass: where much of the genre prioritised functional dancefloor energy, Hospital pursued arrangements, dynamics, and song structure, building a catalogue that brought drum and bass to audiences that had little interest in its harder incarnations. Artists including High Contrast, Nu:Tone, and Danny Byrd released on the label, which grew into one of the longest-running and most commercially successful independent operations in the genre. Hospital\'s existence demonstrated that drum and bass could sustain an audience willing to buy albums, attend festivals, and follow artists over career arcs.',
+    releases: [] },
+
+  // ── HARDFLOOR ─────────────────────────────────────────────────────────────
+  { id:'hardfloor', label:'Hardfloor', type:'artist', genre:'techno', era:1992, city:'Düsseldorf', country:'DE',
+    desc:'Hardfloor is the project of Oliver Bondzio and Ramon Zenker, formed in Düsseldorf in the early 1990s. Their "Acperience 1" (1992, Harthouse Records) became one of the definitive European acid techno records — a piece that demonstrated what the TB-303 bass synthesiser could do when treated as a primary compositional instrument rather than a texture. Where the Chicago acid house records of Phuture had introduced the 303 to house music, Hardfloor pushed it into a harder, more mechanical context, producing a sound that influenced a generation of German and European producers. Harthouse Records, the Frankfurt label co-founded by Sven Väth and Rolf Ellmer, provided the release context — part of the mid-1990s German techno infrastructure that also included Eye Q Records and Cocoon.',
+    releases: [
+      { title: '"Acperience 1"', year: 1992 },
+      { title: '"Hardfloor EP"', year: 1992 },
+    ]},
 ];
