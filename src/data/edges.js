@@ -2611,4 +2611,28 @@ export const EDGES = [
   { from:'digital_mystikz',  to:'loefah',         strength:3, type:'collaboration' },
   { from:'dubstep',          to:'loefah',         strength:3, type:'lineage' },
   { from:'mala',             to:'loefah',         strength:3, type:'collaboration' },
+
+  // ── ARTHUR RUSSELL ────────────────────────────────────────────────────────
+  { from:'nyc_scene',        to:'arthur_russell', strength:3, type:'lineage' },
+  { from:'west_end_records', to:'arthur_russell', strength:3, type:'roster' },
+  { from:'levan',            to:'arthur_russell', strength:3, type:'collaboration' },
+  { from:'paradise_garage',  to:'arthur_russell', strength:2, type:'aesthetic' },
+  { from:'disco',            to:'arthur_russell', strength:2, type:'lineage' },
+
+  // ── PATRICK COWLEY ────────────────────────────────────────────────────────
+  { from:'disco',            to:'patrick_cowley', strength:3, type:'lineage' },
+  { from:'giorgio_moroder',  to:'patrick_cowley', strength:3, type:'influence' },
+  { from:'italo_disco',      to:'patrick_cowley', strength:2, type:'aesthetic' },
+
+  // ── THROBBING GRISTLE ─────────────────────────────────────────────────────
+  { from:'cabaret_voltaire',  to:'throbbing_gristle', strength:2, type:'aesthetic' },
+  { from:'throbbing_gristle', to:'ebm',               strength:3, type:'lineage' },
+  { from:'throbbing_gristle', to:'front_242',          strength:3, type:'lineage' },
+  { from:'throbbing_gristle', to:'cabaret_voltaire',   strength:2, type:'aesthetic' },
+
+  // ── FRONT 242 ─────────────────────────────────────────────────────────────
+  { from:'ebm',              to:'front_242',      strength:3, type:'lineage' },
+  { from:'throbbing_gristle', to:'front_242',     strength:3, type:'lineage' },
+  { from:'front_242',        to:'detroit_scene',  strength:2, type:'influence' },
+  { from:'front_242',        to:'underground_resistance', strength:2, type:'influence' },
 ];

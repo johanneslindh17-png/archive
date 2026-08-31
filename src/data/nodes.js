@@ -5046,6 +5046,41 @@ export const NODES = [
     desc:'West End Records was founded in New York in 1976 by Mel Cheren. The label became one of the key sites for the DJ-remix form in its early years — commissioning extended dance versions of tracks for club use at a point when this practice was just being formalised commercially. Larry Levan\'s remix of "Is It All Over My Face?" by Loose Joints (1980) and Taana Gardner\'s "Heartbeat" (1981) are among its most enduring releases. West End operated across the boundary between disco\'s commercial decline and the early house era, maintaining relationships with the DJ community at the Paradise Garage and similar spaces. Its catalogue — like Salsoul\'s — became a source for sampling as Chicago and New York producers built the next generation of dance music from the raw material the disco labels had left behind.',
     releases: [] },
 
+  // ── ARTHUR RUSSELL ────────────────────────────────────────────────────────
+  { id:'arthur_russell', label:'Arthur Russell', type:'artist', genre:'disco', era:1979, city:'New York', country:'US',
+    desc:'Arthur Russell was a New York composer, cellist, and vocalist who worked across the boundary between downtown experimental music and the dance club in ways that were unusual for their time and remained influential long after his death in 1992. His involvement with the Paradise Garage scene and his collaboration with DJ Larry Levan produced "Is It All Over My Face?" (1980, West End Records), released as Loose Joints — a track that circulated in New York clubs in both its original and Levan-remixed versions and became one of the more improbable pieces of avant-garde dance music to achieve genuine dancefloor currency. His Dinosaur L project (active early 1980s) extended this into more abstract territory, and his solo recordings — including "World of Echo" (1986, Rough Trade) — placed the cello and his voice into meditative, partly ambient frameworks that anticipated later strands of electronic composition. Russell died of AIDS-related illness in April 1992, and the full scope of his work became more widely understood through posthumous reissues from the 2000s onward.',
+    releases: [
+      { title: '"Is It All Over My Face?" — Loose Joints', year: 1980 },
+      { title: 'World of Echo (album)', year: 1986 },
+    ]},
+
+  // ── PATRICK COWLEY ────────────────────────────────────────────────────────
+  { id:'patrick_cowley', label:'Patrick Cowley', type:'artist', genre:'disco', era:1979, city:'San Francisco', country:'US',
+    desc:'Patrick Cowley was a San Francisco musician and producer who became one of the key figures in Hi-NRG — the faster, harder variant of disco that dominated gay club culture in the early 1980s. He is best known for his extended synthesiser overdubs on Donna Summer\'s "I Feel Love" (originally produced by Giorgio Moroder in 1977), released in 1982 as an extended version that pushed the track\'s synthesiser textures further into club use. His collaboration with Sylvester — including "Do You Wanna Funk" (1982, Fantasy Records) — produced some of the defining Hi-NRG recordings of the period. Cowley recorded under his own name on Megatone Records, the San Francisco label he co-founded, releasing "Menergy" (1981) and "Mind Warp" (1982). He died of AIDS-related illness in November 1982, before the style he helped define had fully run its course.',
+    releases: [
+      { title: '"Menergy"', year: 1981 },
+      { title: '"Do You Wanna Funk" — Sylvester feat. Patrick Cowley', year: 1982 },
+      { title: '"I Feel Love" (extended version)', year: 1982 },
+    ]},
+
+  // ── THROBBING GRISTLE ─────────────────────────────────────────────────────
+  { id:'throbbing_gristle', label:'Throbbing Gristle', type:'artist', genre:'experimental', era:1975, city:'London', country:'UK',
+    desc:'Throbbing Gristle — Genesis P-Orridge, Cosey Fanni Tutti, Peter Christopherson, and Chris Carter — formed in Hull in 1975 and became the central group in the emergence of industrial music as a named genre. They founded Industrial Records in 1976 and released "Second Annual Report" (1977), establishing a practice that combined tape manipulation, electronic noise, and confrontational performance. Their music drew on the aesthetics of information overload, violence, and the bureaucratic machinery of the modern state, and their label\'s name gave the genre its term. The group split in 1981. Their influence on the development of electronic music is structural: EBM, techno, and noise all carry traceable debts to the sonic and conceptual territory they opened. A reformed version of the group performed from 2004 until P-Orridge\'s illness and death in 2020.',
+    releases: [
+      { title: 'Second Annual Report (album)', year: 1977 },
+      { title: '20 Jazz Funk Greats (album)', year: 1979 },
+      { title: 'Heathen Earth (album)', year: 1980 },
+    ]},
+
+  // ── FRONT 242 ─────────────────────────────────────────────────────────────
+  { id:'front_242', label:'Front 242', type:'artist', genre:'experimental', era:1981, city:'Brussels', country:'BE',
+    desc:'Front 242 are a Belgian group formed in Brussels in 1981 whose recordings defined Electronic Body Music as a genre — a term the group themselves used to describe the synthesis of industrial electronics, sequenced rhythm, and physical impact. The core members Daniel Bressanutti, Patrick Codenys, Jean-Luc De Meyer, and Richard 23 developed a sound on releases including "Official Version" (1987, Play It Again Sam) and "Front by Front" (1988) in which the grid-locked drum machine patterns, distorted bass lines, and aggressive vocal delivery of EBM were codified into a reproducible form. "Headhunter" (1988), from "Front by Front", became the genre\'s most widely known recording. Front 242\'s influence on techno, industrial techno, and subsequent Belgian club music — including New Beat — was direct and well documented.',
+    releases: [
+      { title: '"Headhunter"', year: 1988 },
+      { title: 'Official Version (album)', year: 1987 },
+      { title: 'Front by Front (album)', year: 1988 },
+    ]},
+
   // ── LOEFAH ────────────────────────────────────────────────────────────────
   { id:'loefah', label:'Loefah', type:'artist', genre:'ambient', era:2004, city:'London', country:'UK',
     desc:'Loefah — born Joseph McNulty in South London — co-founded the DMZ club night at Mass in Brixton alongside Mala and Coki, helping establish that venue as the central institution of the early dubstep scene. His own productions took the genre\'s bass-weight and minimalism to an extreme: sparse percussion, long periods of near-silence, sub-bass frequencies used as the primary compositional material. He founded the Swamp81 label in 2009, which released work by artists including Bok Bok and Dark0, and maintained a curatorial commitment to deep, functional, aesthetically uncompromising club music. Where some dubstep producers moved toward heavier or more melodic forms, Loefah consistently pursued reduction — treating removal as the primary creative gesture.',
