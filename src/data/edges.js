@@ -2469,4 +2469,31 @@ export const EDGES = [
   { from:'jesse_saunders',  to:'musicbox',      strength:2, type:'roster' },
   { from:'jesse_saunders',  to:'knuckles',      strength:2, type:'aesthetic' },
   { from:'jesse_saunders',  to:'dj_international', strength:2, type:'roster' },
+
+  // ── SUBURBAN KNIGHT ───────────────────────────────────────────────────────
+  { from:'detroit_scene',   to:'suburban_knight', strength:3, type:'lineage' },
+  { from:'transmat',        to:'suburban_knight', strength:3, type:'roster' },
+  { from:'derrick_may',     to:'suburban_knight', strength:2, type:'lineage' },
+
+  // ── STEVE "SILK" HURLEY ───────────────────────────────────────────────────
+  { from:'chicago_scene',     to:'steve_silk_hurley', strength:3, type:'lineage' },
+  { from:'dj_international',  to:'steve_silk_hurley', strength:3, type:'roster' },
+  { from:'jesse_saunders',    to:'steve_silk_hurley', strength:2, type:'aesthetic' },
+
+  // ── FARLEY "JACKMASTER" FUNK ──────────────────────────────────────────────
+  { from:'chicago_scene',      to:'farley_jackmaster_funk', strength:3, type:'lineage' },
+  { from:'dj_international',   to:'farley_jackmaster_funk', strength:3, type:'roster' },
+  { from:'farley_jackmaster_funk', to:'steve_silk_hurley',  strength:2, type:'aesthetic' },
+
+  // ── LIL LOUIS ─────────────────────────────────────────────────────────────
+  { from:'chicago_scene',  to:'lil_louis',   strength:3, type:'lineage' },
+  { from:'ron_hardy',      to:'lil_louis',   strength:3, type:'lineage' },
+  { from:'musicbox',       to:'lil_louis',   strength:3, type:'roster' },
+
+  // ── THE LOFT ──────────────────────────────────────────────────────────────
+  { from:'david_mancuso',  to:'the_loft',        strength:3, type:'roster' },
+  { from:'the_loft',       to:'levan',            strength:3, type:'lineage' },
+  { from:'the_loft',       to:'knuckles',         strength:3, type:'lineage' },
+  { from:'the_loft',       to:'paradise_garage',  strength:3, type:'lineage' },
+  { from:'the_loft',       to:'warehouse',        strength:3, type:'lineage' },
 ];

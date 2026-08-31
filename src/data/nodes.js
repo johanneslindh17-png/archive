@@ -4866,4 +4866,41 @@ export const NODES = [
     releases: [
       { title: '"On and On"', year: 1984 },
     ]},
+
+  // ── SUBURBAN KNIGHT ───────────────────────────────────────────────────────
+  { id:'suburban_knight', label:'Suburban Knight', type:'artist', genre:'detroit', era:1989, city:'Detroit', country:'US',
+    desc:'Suburban Knight is the project of James Pennington, a Detroit producer operating in the city\'s techno underground since the late 1980s. His 1990 Transmat release "The Art of Stalking" established a sound characterised by paranoid, labyrinthine percussion and a sense of pursuit that drew on the specific atmosphere of Detroit\'s streets rather than any abstract futurism. Pennington remained a consistent presence in Detroit\'s underground through the following decades, releasing on Transmat and other labels and maintaining a low public profile in the tradition of the city\'s anonymous producers. His work represents the darker, more psychological strand of Detroit techno — less concerned with cosmic speculation than with the immediate texture of urban experience.',
+    releases: [
+      { title: '"The Art of Stalking"', year: 1990 },
+      { title: '"Hi-Tech Jazz"', year: 1990 },
+    ]},
+
+  // ── STEVE "SILK" HURLEY ───────────────────────────────────────────────────
+  { id:'steve_silk_hurley', label:'Steve "Silk" Hurley', type:'artist', genre:'chicago', era:1985, city:'Chicago', country:'US',
+    desc:'Steve "Silk" Hurley is a Chicago DJ and producer whose 1986 recording "Jack Your Body", released on DJ International Records, became the first house track to reach number one on the UK Singles Chart in January 1987. The record arrived in Britain without mainstream promotion and climbed the chart through club play and word of mouth, demonstrating the commercial reach of house music to an industry that had largely ignored it. Hurley had previously recorded as JM Silk with Keith Nunnally, releasing "I Can\'t Turn Around" (1985) and other records on DJ International. "Jack Your Body" remains one of the most significant single events in the international spread of Chicago house.',
+    releases: [
+      { title: '"I Can\'t Turn Around" — JM Silk', year: 1985 },
+      { title: '"Jack Your Body"', year: 1986 },
+    ]},
+
+  // ── FARLEY "JACKMASTER" FUNK ──────────────────────────────────────────────
+  { id:'farley_jackmaster_funk', label:'Farley "Jackmaster" Funk', type:'artist', genre:'chicago', era:1982, city:'Chicago', country:'US',
+    desc:'Farley "Jackmaster" Funk — born Ernest Duane James — was one of the Hot Mix 5, the group of DJs who broadcast on WBMX radio in Chicago in the early 1980s, introducing a mass audience to the emerging house sound through a weekly mix show. His 1986 DJ International release "Love Can\'t Turn Around", featuring vocalist Darryl Pandy, reached number ten on the UK Singles Chart and was among the first Chicago house tracks to achieve significant British commercial success — preceding Steve "Silk" Hurley\'s chart-topper by several months. His radio work through WBMX was foundational in spreading house music beyond Chicago\'s clubs to a broader audience.',
+    releases: [
+      { title: '"Love Can\'t Turn Around" feat. Darryl Pandy', year: 1986 },
+      { title: '"Farley Knows House"', year: 1987 },
+    ]},
+
+  // ── LIL LOUIS ─────────────────────────────────────────────────────────────
+  { id:'lil_louis', label:'Lil Louis', type:'artist', genre:'chicago', era:1987, city:'Chicago', country:'US',
+    desc:'Lil Louis — born Marvin Louis Burns in Chicago — is a producer and DJ whose 1989 recording "French Kiss", released on FFRR Records, became one of the most distinctive and widely recognised house tracks of its era. The record is structured around a gradually decelerating tempo that drops almost to half-speed at its centre before rebuilding, accompanied by a vocal performance of simulated intimacy that made it both controversial and impossible to ignore. It reached number two on the UK Singles Chart. Louis had been active in Chicago\'s house scene from the mid-1980s and worked alongside Ron Hardy at the Music Box. "French Kiss" demonstrated that house music could sustain formal experimentation — a structural gesture as radical as anything produced in the genre.',
+    releases: [
+      { title: '"French Kiss"', year: 1989 },
+      { title: '"I Called U"', year: 1989 },
+    ]},
+
+  // ── THE LOFT ──────────────────────────────────────────────────────────────
+  { id:'the_loft', label:'The Loft', type:'venue', genre:'disco', era:1970, city:'New York', country:'US',
+    desc:'The Loft opened on Valentine\'s Day 1970 in David Mancuso\'s home at 647 Broadway, New York. Unlike commercial clubs, The Loft had no liquor licence, no cover charge, and no formal DJ booth — guests were invited by word of mouth to a party where Mancuso played records on a high-fidelity sound system he built and refined over decades. The Loft established the model of the DJ as host and curator, the dancefloor as sanctuary, and sonic quality as a moral commitment. Larry Levan and Frankie Knuckles both danced at The Loft before beginning their careers. When Knuckles moved to Chicago and opened the Warehouse, and Levan later opened the Paradise Garage, both were consciously extending The Loft\'s principles into new cities. The entire lineage of the DJ-centred club — from Chicago to Detroit to London — begins here.',
+    releases: [] },
 ];
