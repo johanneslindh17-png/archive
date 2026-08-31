@@ -4904,6 +4904,42 @@ export const NODES = [
     desc:'The Loft opened on Valentine\'s Day 1970 in David Mancuso\'s home at 647 Broadway, New York. Unlike commercial clubs, The Loft had no liquor licence, no cover charge, and no formal DJ booth — guests were invited by word of mouth to a party where Mancuso played records on a high-fidelity sound system he built and refined over decades. The Loft established the model of the DJ as host and curator, the dancefloor as sanctuary, and sonic quality as a moral commitment. Larry Levan and Frankie Knuckles both danced at The Loft before beginning their careers. When Knuckles moved to Chicago and opened the Warehouse, and Levan later opened the Paradise Garage, both were consciously extending The Loft\'s principles into new cities. The entire lineage of the DJ-centred club — from Chicago to Detroit to London — begins here.',
     releases: [] },
 
+  // ── FINGERS INC. ──────────────────────────────────────────────────────────
+  { id:'fingers_inc', label:'Fingers Inc.', type:'artist', genre:'chicago', era:1985, city:'Chicago', country:'US',
+    desc:'Fingers Inc. was the Chicago group formed by producer Larry Heard, vocalist Robert Owens, and keyboardist Ron Wilson. Operating between 1985 and 1988, they were the vocal wing of the deep house sound Heard had begun developing as Mr. Fingers — their records added the warmth of a human voice to the stripped-back, emotionally direct production style that Heard had largely arrived at alone. Key releases include "Mystery of Love" (1985) and "Bring Down the Walls" (1986), both circulated through Jack Trax in the UK and Trax Records in the US. Their 1988 LP "Another Side" on DJM Records remains among the most fully realised statements of early deep house, and Robert Owens\'s vocal presence established a template for gospel-influenced house singing that persists across the genre to the present day.',
+    releases: [
+      { title: '"Mystery of Love"', year: 1985 },
+      { title: '"Bring Down the Walls"', year: 1986 },
+      { title: 'Another Side (album)', year: 1988 },
+    ]},
+
+  // ── TEN CITY ──────────────────────────────────────────────────────────────
+  { id:'ten_city', label:'Ten City', type:'artist', genre:'chicago', era:1987, city:'Chicago', country:'US',
+    desc:'Ten City was a Chicago vocal house group whose records brought the expressive tradition of gospel and soul directly into the house club. The group centred on the voice of Byron Stingily, one of the most technically accomplished vocalists to emerge from the Chicago scene, whose range and delivery placed Ten City outside the mechanical minimalism of early house and into something more deliberately song-oriented. They released on DJ International Records — the same label that distributed much of the scene\'s output to the UK — with early singles including "That\'s the Way Love Is" (1987) and albums including "Foundation" (1989) and "State of Mind" (1990). After the group dissolved, Stingily pursued a solo career in house music, where his voice remained a recurring presence in the following decades.',
+    releases: [
+      { title: '"That\'s the Way Love Is"', year: 1987 },
+      { title: 'Foundation (album)', year: 1989 },
+      { title: 'State of Mind (album)', year: 1990 },
+    ]},
+
+  // ── MODEL 500 ─────────────────────────────────────────────────────────────
+  { id:'model_500', label:'Model 500', type:'artist', genre:'detroit', era:1985, city:'Detroit', country:'US',
+    desc:'Model 500 is the principal recording project of Juan Atkins, released on his own Metroplex label. "No UFO\'s" (1985) and "Night Drive (Thru-Babylon)" (1985) are among the first records that can be identified as Detroit techno in its mature form — recordings in which the influence of European electronic music and American funk had been distilled into something specific to the city and its moment. Where Atkins\'s earlier Cybotron project (with Richard Davis) had moved between electro and synthesiser pop, Model 500 stripped the sound down to its functional core: machine percussion, synthesiser bass, and a disciplined use of texture and space. The label Metroplex operated as the initial distribution channel for the Detroit sound, predating the formation of Transmat and Underground Resistance.',
+    releases: [
+      { title: '"No UFO\'s"', year: 1985 },
+      { title: '"Night Drive (Thru-Babylon)"', year: 1985 },
+      { title: '"The Chase"', year: 1989 },
+    ]},
+
+  // ── PHOTEK ────────────────────────────────────────────────────────────────
+  { id:'photek', label:'Photek', type:'artist', genre:'techno', era:1994, city:'London', country:'UK',
+    desc:'Photek is the project of Rupert Parkes, a UK producer whose work in the mid-1990s pushed drum and bass\'s rhythmic complexity further than almost any of his contemporaries. His records — released primarily on his own Photek Productions label — were built around drum patterns of extraordinary intricacy, drawing as much from jazz percussion and martial arts philosophy as from the rave and jungle lineage he emerged from. "Ni Ten Ichi Ryu (Two Swords Technique)" (1995) is widely regarded as one of the most technically sophisticated pieces of drum programming in the genre, and his album "Modus Operandi" (1997) remains a critical touchstone. Parkes subsequently moved toward more minimal and techno-influenced production, demonstrating the same formalist discipline across different tempos and contexts.',
+    releases: [
+      { title: '"Ni Ten Ichi Ryu (Two Swords Technique)"', year: 1995 },
+      { title: '"The Hidden Camera"', year: 1996 },
+      { title: 'Modus Operandi (album)', year: 1997 },
+    ]},
+
   // ── LARRY HEARD (MR. FINGERS) ─────────────────────────────────────────────
   { id:'larry_heard', label:'Larry Heard', type:'artist', genre:'chicago', era:1985, city:'Chicago', country:'US',
     desc:'Larry Heard is a Chicago producer and musician whose recordings under the name Mr. Fingers in 1985–86 essentially created what became known as deep house — a strand of house music built on slower tempos, piano chords, Roland drum machine patterns, and an emotional directness closer to gospel and soul than to disco. "Can You Feel It" (1986, Trax Records), recorded alone in his bedroom, is among the most significant records in the history of house music: its combination of restraint, feeling, and structural simplicity defined a sound that influenced producers across Chicago, New York, and the UK for the following four decades. With Robert Owens and Ron Wilson he recorded as Fingers Inc., releasing tracks on Trax and Jack Trax that deepened the same approach with live vocals. Heard continued recording into the 1990s under his own name and on his Alleviated Music label, maintaining artistic independence throughout.',

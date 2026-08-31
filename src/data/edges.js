@@ -2497,6 +2497,28 @@ export const EDGES = [
   { from:'the_loft',       to:'paradise_garage',  strength:3, type:'lineage' },
   { from:'the_loft',       to:'warehouse',        strength:3, type:'lineage' },
 
+  // ── FINGERS INC. ──────────────────────────────────────────────────────────
+  { from:'larry_heard',    to:'fingers_inc',     strength:3, type:'roster' },
+  { from:'robert_owens',   to:'fingers_inc',     strength:3, type:'roster' },
+  { from:'chicago_scene',  to:'fingers_inc',     strength:3, type:'lineage' },
+  { from:'trax',           to:'fingers_inc',     strength:2, type:'roster' },
+
+  // ── TEN CITY ──────────────────────────────────────────────────────────────
+  { from:'chicago_scene',   to:'ten_city',       strength:3, type:'lineage' },
+  { from:'dj_international', to:'ten_city',      strength:3, type:'roster' },
+  { from:'fingers_inc',     to:'ten_city',       strength:2, type:'aesthetic' },
+
+  // ── MODEL 500 ─────────────────────────────────────────────────────────────
+  { from:'juan_atkins',    to:'model_500',       strength:3, type:'roster' },
+  { from:'metroplex',      to:'model_500',       strength:3, type:'roster' },
+  { from:'detroit_scene',  to:'model_500',       strength:3, type:'lineage' },
+  { from:'belleville3',    to:'model_500',       strength:3, type:'lineage' },
+
+  // ── PHOTEK ────────────────────────────────────────────────────────────────
+  { from:'grooverider',    to:'photek',          strength:2, type:'aesthetic' },
+  { from:'goldie',         to:'photek',          strength:2, type:'aesthetic' },
+  { from:'moving_shadow',  to:'photek',          strength:2, type:'influence' },
+
   // ── LARRY HEARD (MR. FINGERS) ─────────────────────────────────────────────
   { from:'chicago_scene',  to:'larry_heard',     strength:3, type:'lineage' },
   { from:'trax',           to:'larry_heard',     strength:3, type:'roster' },
