@@ -4824,4 +4824,46 @@ export const NODES = [
   { id:'david_mancuso', label:'David Mancuso', type:'artist', genre:'disco', era:1970, city:'New York', country:'US',
     desc:'David Mancuso opened The Loft in his home at 647 Broadway, New York, in February 1970, inviting guests by word of mouth to what he described as rent parties. The Loft was not a commercial club — there was no liquor licence, guests brought their own food and drink, and there was no DJ booth in the conventional sense. Mancuso played records on a high-fidelity sound system of his own specification, prioritising audio quality above all. His focus on community, sound quality, and the creation of a safe space for Black and gay New Yorkers directly shaped the generation of DJs who followed him — Larry Levan and Frankie Knuckles danced at The Loft before beginning their own careers. Every principle of the DJ as curator, and of the club as sanctuary rather than business, traces back to Mancuso and The Loft.',
     releases: [] },
+
+  // ── SUN RA ────────────────────────────────────────────────────────────────
+  { id:'sun_ra', label:'Sun Ra', type:'artist', genre:'experimental', era:1956, city:'Chicago', country:'US',
+    desc:'Sun Ra — born Herman Blount in Birmingham, Alabama in 1914 — was a pianist, composer, and bandleader who led the Arkestra from Chicago through New York to Philadelphia across four decades. He was among the first musicians to use the Moog synthesizer and electronic keyboards as central compositional tools, integrating them with free jazz, big band, and ancient Egyptian cosmology within a total theatre built around the conviction that he had originated on Saturn. His Saturn Records label, self-operated from the 1950s, prefigured the independent label model. The Detroit producers explicitly acknowledged his influence: afrofuturism as a cultural framework for Detroit techno draws directly on Sun Ra\'s fusion of machine aesthetics, Black identity, and cosmic imagination. He died in 1993 in Birmingham, Alabama.',
+    releases: [
+      { title: 'Jazz in Silhouette', year: 1959 },
+      { title: 'The Heliocentric Worlds of Sun Ra', year: 1965 },
+      { title: 'Space Is the Place', year: 1973 },
+    ]},
+
+  // ── PAUL OAKENFOLD ────────────────────────────────────────────────────────
+  { id:'paul_oakenfold', label:'Paul Oakenfold', type:'artist', genre:'progressive', era:1987, city:'London', country:'GB',
+    desc:'Paul Oakenfold was one of four British DJs — alongside Danny Rampling, Nicky Holloway, and Johnny Walker — who attended Ibiza\'s Amnesia club in the summer of 1987, where they encountered DJ Alfredo\'s eclectic mixing style and the emerging acid house sound. Returning to London, Oakenfold launched Spectrum at Heaven nightclub in April 1988, one of the key spaces where acid house reached a mass UK audience. He later held a residency at the Haçienda in Manchester and founded Perfecto Records, releasing progressive trance and electronic music across the 1990s. His productions and remixes for artists including U2 and Happy Mondays brought club culture into rock contexts, and his long-running radio show transmitted the progressive and trance aesthetic globally.',
+    releases: [
+      { title: 'Tranceport', year: 1998 },
+      { title: 'Bunkka', year: 2002 },
+    ]},
+
+  // ── DANNY RAMPLING ────────────────────────────────────────────────────────
+  { id:'danny_rampling', label:'Danny Rampling', type:'artist', genre:'chicago', era:1987, city:'London', country:'GB',
+    desc:'Danny Rampling was one of the four British DJs present at Ibiza\'s Amnesia club in the summer of 1987, alongside Paul Oakenfold, Nicky Holloway, and Johnny Walker. On returning to London, Rampling opened Shoom in December 1987 — a small club in a Southwark fitness centre that became the epicentre of UK acid house. The smiley face logo Rampling adopted for Shoom became the defining symbol of the acid house era. Shoom was a genuinely underground space, with a capacity of around 300, strict door policies, and a culture built around community and the new music rather than celebrity. Rampling subsequently held a long-running show on BBC Radio 1 and remained a key figure in the development of UK dance music culture.',
+    releases: [] },
+
+  // ── SHOOM ─────────────────────────────────────────────────────────────────
+  { id:'shoom', label:'Shoom', type:'venue', genre:'chicago', era:1987, city:'London', country:'GB',
+    desc:'Shoom opened in December 1987 at The Fitness Centre in Southwark, London, run by Danny Rampling. With a capacity of approximately 300 and a strict door policy, it was the club most closely identified with the moment acid house crossed from Ibiza and Chicago into British youth culture. The smiley face logo it popularised became the visual emblem of the second summer of love. Shoom was small, intense, and deliberately exclusive — a quality that distinguished it from the arena-scale raves that followed. Its influence on UK club culture was disproportionate to its size: virtually every subsequent strand of British dance music culture can be traced to the network of people and ideas that passed through Shoom in 1988.',
+    releases: [] },
+
+  // ── PRIMAL SCREAM ─────────────────────────────────────────────────────────
+  { id:'primal_scream', label:'Primal Scream', type:'artist', genre:'chicago', era:1990, city:'Glasgow', country:'GB',
+    desc:'Primal Scream formed in Glasgow in 1982 under Bobby Gillespie, originally as a post-punk guitar band. Their trajectory changed when Andrew Weatherall remixed "I\'m Losing More Than I\'ll Ever Have" as "Loaded" in 1990 — a record that fused rock vocals with acid house production and became a UK hit. Screamadelica (1991), produced primarily by Weatherall with contributions from Terry Farley and Hugo Nicolson, extended this synthesis across a full album combining gospel, acid house, dub, and rock. It is among the most celebrated British albums of its decade. The record demonstrated that acid house\'s production methodology could absorb and transform other musical traditions rather than simply replace them, and it brought the sound of UK club culture to an audience that had not previously engaged with it.',
+    releases: [
+      { title: '"Loaded"', year: 1990 },
+      { title: 'Screamadelica', year: 1991 },
+    ]},
+
+  // ── JESSE SAUNDERS ────────────────────────────────────────────────────────
+  { id:'jesse_saunders', label:'Jesse Saunders', type:'artist', genre:'chicago', era:1984, city:'Chicago', country:'US',
+    desc:'Jesse Saunders is a Chicago DJ and producer whose 1984 recording "On and On" — co-written with Vince Lawrence and recorded with vocalist Paris Brightledge — is among the earliest commercially pressed house records. Released on Saunders\'s own Jes Say label and later distributed more broadly, the record documented the Chicago house sound at its very inception and demonstrated that the music being made in the city\'s clubs could sustain commercial release. Saunders was resident at the Music Box alongside Ron Hardy and played a formative role in the Chicago scene\'s early development. He subsequently founded the On Trax distribution company, which helped channel independent Chicago house recordings to wider audiences.',
+    releases: [
+      { title: '"On and On"', year: 1984 },
+    ]},
 ];

@@ -2433,4 +2433,40 @@ export const EDGES = [
   { from:'david_mancuso',   to:'knuckles',      strength:3, type:'influence' },
   { from:'david_mancuso',   to:'paradise_garage', strength:3, type:'influence' },
   { from:'david_mancuso',   to:'nyc_scene',     strength:3, type:'lineage' },
+
+  // ── SUN RA ────────────────────────────────────────────────────────────────
+  { from:'sun_ra',          to:'afrofuturism',  strength:3, type:'lineage' },
+  { from:'funk',            to:'sun_ra',        strength:2, type:'lineage' },
+  { from:'sun_ra',          to:'detroit_scene', strength:2, type:'influence' },
+  { from:'sun_ra',          to:'belleville3',   strength:2, type:'influence' },
+
+  // ── PAUL OAKENFOLD ────────────────────────────────────────────────────────
+  { from:'acid',            to:'paul_oakenfold', strength:3, type:'influence' },
+  { from:'summer_of_love',  to:'paul_oakenfold', strength:3, type:'lineage' },
+  { from:'paul_oakenfold',  to:'hacienda',      strength:2, type:'roster' },
+  { from:'paul_oakenfold',  to:'progressive_house', strength:2, type:'lineage' },
+  { from:'paul_oakenfold',  to:'danny_rampling', strength:3, type:'collaboration' },
+
+  // ── DANNY RAMPLING ────────────────────────────────────────────────────────
+  { from:'acid',            to:'danny_rampling', strength:3, type:'influence' },
+  { from:'summer_of_love',  to:'danny_rampling', strength:3, type:'lineage' },
+  { from:'danny_rampling',  to:'shoom',         strength:3, type:'roster' },
+  { from:'danny_rampling',  to:'paul_oakenfold', strength:3, type:'collaboration' },
+
+  // ── SHOOM ─────────────────────────────────────────────────────────────────
+  { from:'acid',            to:'shoom',         strength:3, type:'lineage' },
+  { from:'summer_of_love',  to:'shoom',         strength:3, type:'lineage' },
+  { from:'shoom',           to:'hacienda',      strength:2, type:'aesthetic' },
+
+  // ── PRIMAL SCREAM ─────────────────────────────────────────────────────────
+  { from:'acid',            to:'primal_scream', strength:3, type:'influence' },
+  { from:'weatherall',      to:'primal_scream', strength:3, type:'collaboration' },
+  { from:'summer_of_love',  to:'primal_scream', strength:2, type:'influence' },
+  { from:'primal_scream',   to:'weatherall',    strength:3, type:'collaboration' },
+
+  // ── JESSE SAUNDERS ────────────────────────────────────────────────────────
+  { from:'chicago_scene',   to:'jesse_saunders', strength:3, type:'lineage' },
+  { from:'jesse_saunders',  to:'musicbox',      strength:2, type:'roster' },
+  { from:'jesse_saunders',  to:'knuckles',      strength:2, type:'aesthetic' },
+  { from:'jesse_saunders',  to:'dj_international', strength:2, type:'roster' },
 ];
