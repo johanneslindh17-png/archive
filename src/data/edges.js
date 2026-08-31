@@ -1,4 +1,4 @@
-export const EDGES = [
+﻿export const EDGES = [
   // ── ROOTS ───────────────────────────────────────────────────────────────
   { from:'funk',          to:'disco',          strength:2, type:'lineage' },
   { from:'funk',          to:'nyc_scene',      strength:2, type:'influence' },
@@ -2658,4 +2658,150 @@ export const EDGES = [
   { from:'amnesia_ibiza',    to:'summer_of_love', strength:3, type:'lineage' },
   { from:'amnesia_ibiza',    to:'paul_oakenfold', strength:3, type:'lineage' },
   { from:'amnesia_ibiza',    to:'danny_rampling', strength:3, type:'lineage' },
+
+  // -- STUDIO ONE --------------------------------------------------------
+  { from:'studio_one',       to:'king_tubby',       strength:3, type:'lineage' },
+  { from:'studio_one',       to:'lee_scratch_perry', strength:3, type:'roster' },
+
+  // -- KING TUBBY --------------------------------------------------------
+  { from:'king_tubby',       to:'lee_scratch_perry', strength:3, type:'aesthetic' },
+  { from:'king_tubby',       to:'jungle',            strength:3, type:'lineage' },
+  { from:'king_tubby',       to:'dubstep',           strength:2, type:'lineage' },
+
+  // -- LEE SCRATCH PERRY -------------------------------------------------
+  { from:'lee_scratch_perry', to:'jungle',           strength:2, type:'lineage' },
+  { from:'lee_scratch_perry', to:'congo_natty',      strength:3, type:'influence' },
+
+  // -- FELA KUTI ---------------------------------------------------------
+  { from:'fela_kuti',        to:'tony_allen',        strength:3, type:'roster' },
+
+  // -- TONY ALLEN --------------------------------------------------------
+  { from:'tony_allen',       to:'nujabes',           strength:2, type:'influence' },
+
+  // -- GALAXY 2 GALAXY ---------------------------------------------------
+  { from:'underground_resistance', to:'galaxy_2_galaxy', strength:3, type:'roster' },
+  { from:'detroit_scene',   to:'galaxy_2_galaxy',   strength:3, type:'lineage' },
+
+  // -- EDDIE FOWLKES -----------------------------------------------------
+  { from:'detroit_scene',   to:'eddie_fowlkes',     strength:3, type:'lineage' },
+  { from:'belleville3',     to:'eddie_fowlkes',     strength:3, type:'aesthetic' },
+  { from:'metroplex',       to:'eddie_fowlkes',     strength:3, type:'roster' },
+
+  // -- THE MUSIC INSTITUTE -----------------------------------------------
+  { from:'detroit_scene',   to:'the_music_institute', strength:3, type:'lineage' },
+  { from:'belleville3',     to:'the_music_institute', strength:3, type:'roster' },
+  { from:'the_music_institute', to:'underground_resistance', strength:3, type:'lineage' },
+
+  // -- AUX 88 ------------------------------------------------------------
+  { from:'detroit_scene',   to:'aux_88',            strength:3, type:'lineage' },
+  { from:'model_500',       to:'aux_88',            strength:2, type:'influence' },
+
+  // -- J DILLA -----------------------------------------------------------
+  { from:'detroit_scene',   to:'j_dilla',           strength:2, type:'lineage' },
+  { from:'slum_village',    to:'j_dilla',           strength:3, type:'roster' },
+  { from:'j_dilla',         to:'slum_village',      strength:3, type:'roster' },
+  { from:'j_dilla',         to:'stones_throw',      strength:3, type:'roster' },
+  { from:'j_dilla',         to:'madlib',            strength:3, type:'aesthetic' },
+  { from:'j_dilla',         to:'nujabes',           strength:2, type:'aesthetic' },
+
+  // -- SLUM VILLAGE ------------------------------------------------------
+  { from:'detroit_scene',   to:'slum_village',      strength:2, type:'lineage' },
+
+  // -- STONES THROW ------------------------------------------------------
+  { from:'madlib',          to:'stones_throw',      strength:3, type:'roster' },
+  { from:'mf_doom',         to:'stones_throw',      strength:3, type:'roster' },
+
+  // -- MADLIB ------------------------------------------------------------
+  { from:'stones_throw',    to:'madlib',            strength:3, type:'roster' },
+  { from:'madlib',          to:'mf_doom',           strength:3, type:'collaboration' },
+
+  // -- MF DOOM -----------------------------------------------------------
+  { from:'stones_throw',    to:'mf_doom',           strength:3, type:'roster' },
+
+  // -- NUJABES -----------------------------------------------------------
+  { from:'j_dilla',         to:'nujabes',           strength:2, type:'aesthetic' },
+
+  // -- COLDCUT -----------------------------------------------------------
+  { from:'coldcut',         to:'ninja_tune',        strength:3, type:'roster' },
+
+  // -- BASEMENT JAXX -----------------------------------------------------
+  { from:'chicago_scene',   to:'basement_jaxx',     strength:2, type:'influence' },
+  { from:'xl_recordings',   to:'basement_jaxx',     strength:3, type:'roster' },
+
+  // -- FATBOY SLIM -------------------------------------------------------
+  { from:'summer_of_love',  to:'fatboy_slim',       strength:3, type:'lineage' },
+
+  // -- MR. SCRUFF --------------------------------------------------------
+  { from:'ninja_tune',      to:'mr_scruff',         strength:3, type:'roster' },
+
+  // -- MOBY --------------------------------------------------------------
+  { from:'detroit_scene',   to:'moby',              strength:2, type:'influence' },
+  { from:'summer_of_love',  to:'moby',              strength:2, type:'influence' },
+
+  // -- DEATH IN VEGAS ----------------------------------------------------
+  { from:'summer_of_love',  to:'death_in_vegas',    strength:2, type:'influence' },
+  { from:'throbbing_gristle', to:'death_in_vegas',  strength:2, type:'influence' },
+
+  // -- TODD EDWARDS ------------------------------------------------------
+  { from:'chicago_scene',   to:'todd_edwards',      strength:2, type:'influence' },
+  { from:'todd_edwards',    to:'uk_garage',         strength:3, type:'lineage' },
+
+  // -- ARTFUL DODGER -----------------------------------------------------
+  { from:'uk_garage',       to:'artful_dodger',     strength:3, type:'lineage' },
+  { from:'todd_edwards',    to:'artful_dodger',     strength:2, type:'influence' },
+
+  // -- SO SOLID CREW -----------------------------------------------------
+  { from:'uk_garage',       to:'so_solid_crew',     strength:3, type:'lineage' },
+  { from:'so_solid_crew',   to:'grime',             strength:3, type:'lineage' },
+
+  // -- MOTORBASS ---------------------------------------------------------
+  { from:'chicago_scene',   to:'motorbass',         strength:2, type:'influence' },
+  { from:'disco',           to:'motorbass',         strength:2, type:'influence' },
+  { from:'motorbass',       to:'daft_punk',         strength:3, type:'lineage' },
+
+  // -- BOB SINCLAR -------------------------------------------------------
+  { from:'disco',           to:'bob_sinclar',       strength:2, type:'influence' },
+  { from:'motorbass',       to:'bob_sinclar',       strength:2, type:'aesthetic' },
+
+  // -- DIMITRI FROM PARIS ------------------------------------------------
+  { from:'disco',           to:'dimitri_from_paris', strength:3, type:'influence' },
+  { from:'motorbass',       to:'dimitri_from_paris', strength:2, type:'aesthetic' },
+
+  // -- MUTE RECORDS ------------------------------------------------------
+  { from:'mute_records',    to:'depeche_mode',      strength:3, type:'roster' },
+  { from:'mute_records',    to:'nitzer_ebb',        strength:3, type:'roster' },
+  { from:'mute_records',    to:'daf',               strength:3, type:'roster' },
+
+  // -- FACTORY RECORDS ---------------------------------------------------
+  { from:'factory_records', to:'summer_of_love',    strength:2, type:'lineage' },
+
+  // -- XL RECORDINGS ----------------------------------------------------
+  { from:'xl_recordings',   to:'basement_jaxx',     strength:3, type:'roster' },
+
+  // -- DEPECHE MODE ------------------------------------------------------
+  { from:'mute_records',    to:'depeche_mode',      strength:3, type:'roster' },
+  { from:'ebm',             to:'depeche_mode',      strength:2, type:'influence' },
+
+  // -- SUICIDE -----------------------------------------------------------
+  { from:'suicide_band',    to:'ebm',               strength:3, type:'lineage' },
+  { from:'suicide_band',    to:'throbbing_gristle', strength:2, type:'aesthetic' },
+
+  // -- NEW BEAT ----------------------------------------------------------
+  { from:'ebm',             to:'new_beat',          strength:3, type:'lineage' },
+  { from:'daf',             to:'new_beat',          strength:2, type:'influence' },
+
+  // -- GLOBAL COMMUNICATIONS ----------------------------------------------
+  { from:'ambient',         to:'global_communications', strength:3, type:'lineage' },
+  { from:'the_black_dog',   to:'global_communications', strength:2, type:'aesthetic' },
+
+  // -- THE BLACK DOG -------------------------------------------------------
+  { from:'warp',            to:'the_black_dog',     strength:3, type:'roster' },
+  { from:'detroit_scene',   to:'the_black_dog',     strength:2, type:'influence' },
+
+  // -- GILLES PETERSON ---------------------------------------------------
+  { from:'gilles_peterson', to:'talkin_loud',       strength:3, type:'roster' },
+  { from:'gilles_peterson', to:'brownswood_recordings', strength:3, type:'roster' },
+
+  // -- TALKIN' LOUD -------------------------------------------------------
+  { from:'talkin_loud',     to:'brownswood_recordings', strength:3, type:'lineage' },
 ];

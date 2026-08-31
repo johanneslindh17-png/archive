@@ -5116,4 +5116,264 @@ export const NODES = [
   { id:'loefah', label:'Loefah', type:'artist', genre:'ambient', era:2004, city:'London', country:'UK',
     desc:'Loefah — born Joseph McNulty in South London — co-founded the DMZ club night at Mass in Brixton alongside Mala and Coki, helping establish that venue as the central institution of the early dubstep scene. His own productions took the genre\'s bass-weight and minimalism to an extreme: sparse percussion, long periods of near-silence, sub-bass frequencies used as the primary compositional material. He founded the Swamp81 label in 2009, which released work by artists including Bok Bok and Dark0, and maintained a curatorial commitment to deep, functional, aesthetically uncompromising club music. Where some dubstep producers moved toward heavier or more melodic forms, Loefah consistently pursued reduction — treating removal as the primary creative gesture.',
     releases: [] },
+
+  // ── JAMAICAN DUB & ROOTS ──────────────────────────────────────────────────
+
+  { id:'studio_one', label:'Studio One', type:'label', genre:'disco', era:1963, city:'Kingston', country:'JM',
+    desc:'Studio One was founded by Clement Seymour "Sir Coxsone" Dodd at 13 Brentford Road in Kingston, Jamaica in 1963. It became the foundational label of Jamaican popular music — the site where ska, rocksteady, and early reggae were recorded by artists including The Wailers, The Skatalites, Burning Spear, Dennis Brown, and Horace Andy. Studio One\'s recording and sound system culture established practices — the remix, the dub plate, the exclusive cut, the bass-heavy mix for outdoor amplification — that travelled directly into hip hop, jungle, dubstep, and UK garage. The label\'s catalogue remains one of the most sampled bodies of recordings in popular music.',
+    releases: [] },
+
+  { id:'king_tubby', label:'King Tubby', type:'artist', genre:'experimental', era:1968, city:'Kingston', country:'JM',
+    desc:'King Tubby — born Osbourne Ruddock on 28 January 1941 in Kingston, Jamaica — invented dub music by treating the recording studio\'s mixing desk as a compositional instrument. Working at his studio in Waterhouse, Kingston, he developed a practice of stripping tracks back to their rhythmic foundations and reintroducing elements — bass, drums, vocal fragments — through echo, reverb, and fader manipulation, creating new versions of existing recordings that foregrounded process and texture over song. His work with Augustus Pablo, Lee "Scratch" Perry, and many others produced hundreds of dub recordings through the 1970s. "King Tubby Meets the Rockers Uptown" (1976, Clocktower Records) is among the most celebrated. He was shot and killed in Kingston on 6 February 1989. The influence of his studio methodology on all subsequent forms of remix culture — from house to techno to hip hop — is structural and continuous.',
+    releases: [
+      { title: 'King Tubby Meets the Rockers Uptown', year: 1976 },
+    ]},
+
+  { id:'lee_scratch_perry', label:'Lee "Scratch" Perry', type:'artist', genre:'experimental', era:1966, city:'Kingston', country:'JM',
+    desc:'Lee "Scratch" Perry — born Rainford Hugh Perry on 20 March 1936 in Kendal, Jamaica, died 29 August 2021 — was a producer, songwriter, and conceptual artist whose work at his Black Ark studio in Washington Gardens, Kingston, from 1974 to 1979 produced some of the most influential recordings in the history of recorded music. He worked with The Wailers before their Island Records period, and produced records for Max Romeo, Junior Murvin, the Congos, and many others, developing a studio aesthetic built on dense layering, found sounds, and effects processing that anticipated much of what would later be called experimental production. When he burned down the Black Ark in 1979 he effectively ended one of music\'s most productive studios. He continued working and performing until shortly before his death at 85.',
+    releases: [
+      { title: 'Super Ape (album)', year: 1976 },
+      { title: '"Police and Thieves" — Junior Murvin', year: 1976 },
+    ]},
+
+  // ── AFROBEAT ──────────────────────────────────────────────────────────────
+
+  { id:'fela_kuti', label:'Fela Kuti', type:'artist', genre:'experimental', era:1969, city:'Lagos', country:'NG',
+    desc:'Fela Anikulapo Kuti — born 15 October 1938 in Abeokuta, Nigeria, died 2 June 1997 — created Afrobeat: a music that combined the rhythmic density of West African highlife and traditional music with the harmonic language of American jazz and funk, and set it beneath explicitly political lyrics directed at Nigerian military governments and at Western imperialism. He ran the Kalakuta Republic commune in Lagos and the Afrika Shrine club, both of which the Nigerian military repeatedly raided and destroyed. His drummer Tony Allen was integral to the Afrobeat sound. Key albums including "Zombie" (1977), "Expensive Shit" (1975), and "Music of Many Colours" (with Roy Ayers, 1980) document a career that was as much political practice as musical output. His influence on global club music — through sampling, direct influence on Afrohouse and Afrobeats, and his structural approach to extended groove — continues to grow.',
+    releases: [
+      { title: 'Expensive Shit (album)', year: 1975 },
+      { title: 'Zombie (album)', year: 1977 },
+    ]},
+
+  { id:'tony_allen', label:'Tony Allen', type:'artist', genre:'experimental', era:1969, city:'Lagos', country:'NG',
+    desc:'Tony Allen — born Anthony Oladipo Allen on 12 July 1940 in Lagos, Nigeria, died 30 April 2020 in Paris — was the drummer and musical director of Fela Kuti\'s Africa 70 band and the primary architect of the Afrobeat rhythmic style. His polyrhythmic approach — maintaining independent patterns across kick, snare, hi-hat, and percussion simultaneously, creating an interlocking groove that could sustain extended improvisation — became the template for the genre and for much of the African popular music that followed. After leaving Fela\'s band in 1978 he pursued a long solo career, collaborating with artists including Damon Albarn (in The Good, the Bad & the Queen), Hugh Masekela, and Charlotte Gainsbourg. His final album "Rejoice" (with Hugh Masekela) was completed posthumously.',
+    releases: [
+      { title: 'No Accommodation for Lagos (album)', year: 1979 },
+      { title: 'Black Voices (album)', year: 1999 },
+    ]},
+
+  // ── DETROIT EXTRA ─────────────────────────────────────────────────────────
+
+  { id:'galaxy_2_galaxy', label:'Galaxy 2 Galaxy', type:'artist', genre:'detroit', era:1993, city:'Detroit', country:'US',
+    desc:'Galaxy 2 Galaxy is an Underground Resistance project whose 1993 recording "Hi-Tech Jazz" became one of the most celebrated releases in Detroit techno. Released on the Underground Resistance label, it proposed a synthesis of jazz harmony and machine rhythm that directly continued the speculative futurism of Detroit\'s earlier techno — the sense that electronic music could carry the emotional weight and improvisatory freedom of jazz while remaining rooted in the dancefloor. The record\'s combination of warm piano chords, filtered bass lines, and live-feeling rhythm programming gave Detroit techno a new point of reference and inspired a generation of producers interested in softening the genre\'s harder edges without losing its structural discipline.',
+    releases: [
+      { title: '"Hi-Tech Jazz"', year: 1993 },
+    ]},
+
+  { id:'eddie_fowlkes', label:'Eddie Fowlkes', type:'artist', genre:'detroit', era:1986, city:'Detroit', country:'US',
+    desc:'Eddie Fowlkes is one of the original Detroit techno DJs, active in the city\'s scene from the early 1980s alongside Juan Atkins, Derrick May, and Kevin Saunderson. His "Goodbye Kiss" (1986, Metroplex Records) was among the earliest Metroplex releases and one of the first commercially distributed Detroit techno records. Fowlkes\'s approach was warmer and more house-influenced than some of his contemporaries, retaining a connection to the vocal and soulful end of the Chicago scene while working within the machine-driven aesthetic of Detroit. He continued DJing and producing through subsequent decades, remaining active in the Detroit underground and building connections between the original techno scene and younger generations of producers.',
+    releases: [
+      { title: '"Goodbye Kiss"', year: 1986 },
+    ]},
+
+  { id:'the_music_institute', label:'The Music Institute', type:'venue', genre:'detroit', era:1988, city:'Detroit', country:'US',
+    desc:'The Music Institute was a Detroit nightclub that opened in 1988, operating on Congress Street near the city centre. It became the central physical space of the early Detroit techno scene — the venue where Juan Atkins, Derrick May, Kevin Saunderson, and their extended circle performed for local audiences at a point when the music they were making was better known in the UK and Europe than at home. The club operated for approximately four years before closing in 1992. In its brief existence it provided Detroit techno with a local institution and a community: a space where the music was not an export but a living practice. Its closure coincided with the Detroit scene\'s shift toward international recognition and the loss of some of the original scene\'s intimacy.',
+    releases: [] },
+
+  { id:'aux_88', label:'Aux 88', type:'artist', genre:'detroit', era:1994, city:'Detroit', country:'US',
+    desc:'Aux 88 is the Detroit electro group of Tommy Hamilton and Keith Tucker, active from the early 1990s. Their music extends Detroit\'s lineage of machine-funk and electro — the style associated with early Drexciya, Model 500, and the 313 area code — into a harder, more bass-driven direction that anticipated the ghettotech sound while retaining the genre\'s roots in synthesiser programming and drum machine rhythm. They have released on Detroit\'s Direct Beat label and on other platforms, maintaining a consistent body of work that is less widely discussed than the canonical Detroit techno figures but no less disciplined in its formal concerns.',
+    releases: [
+      { title: '"Is It Man or Machine?"', year: 1995 },
+    ]},
+
+  // ── HIP HOP / BEAT SCENE ──────────────────────────────────────────────────
+
+  { id:'j_dilla', label:'J Dilla', type:'artist', genre:'experimental', era:1996, city:'Detroit', country:'US',
+    desc:'J Dilla — born James Dewitt Yancey on 7 February 1974 in Detroit, died 10 February 2006 in Los Angeles — was a producer and rapper whose approach to sampling, rhythm programming, and arrangement redefined what hip hop production could be. Working initially as Jay Dee and as part of Slum Village, he produced records for artists including De La Soul, D\'Angelo, Erykah Badu, and A Tribe Called Quest, developing a style in which drum patterns deliberately deviated from the grid, creating a loose, breathing rhythm that felt simultaneously improvised and precisely placed. "Donuts" (2006, Stones Throw Records), completed while he was hospitalised with the rare blood disease TTP that would kill him three days after his 32nd birthday, is among the most influential albums in contemporary music. His influence on producers across hip hop, R&B, and electronic music continues to expand.',
+    releases: [
+      { title: 'Fantastic Vol. 2 — Slum Village', year: 2000 },
+      { title: 'Ruff Draft (album)', year: 2003 },
+      { title: 'Donuts (album)', year: 2006 },
+    ]},
+
+  { id:'slum_village', label:'Slum Village', type:'artist', genre:'experimental', era:1996, city:'Detroit', country:'US',
+    desc:'Slum Village is the Detroit hip hop group formed by J Dilla (James Yancey), T3 (Dion Griffin), and Baatin (Jason Holder). Their early recordings — circulated as the "Fan-Tas-Tic" cassette series from 1996 before official release — established a sound in which J Dilla\'s production style and the group\'s understated vocal delivery created a template for Detroit hip hop that was influential on the wider neo-soul and alternative hip hop movements of the late 1990s and 2000s. The official release of "Fantastic Vol. 2" (2000, Barak Records) brought the group wider recognition. Baatin died in 2009. Slum Village represents the point where Detroit\'s creative community — primarily associated with techno — produced a parallel hip hop lineage of equal sophistication.',
+    releases: [
+      { title: 'Fantastic Vol. 2 (album)', year: 2000 },
+      { title: 'Trinity (album)', year: 2002 },
+    ]},
+
+  { id:'stones_throw', label:'Stones Throw Records', type:'label', genre:'experimental', era:1996, city:'Los Angeles', country:'US',
+    desc:'Stones Throw Records was founded in Los Angeles in 1996 by Chris Manak (Peanut Butter Wolf). The label became one of the defining institutions of the hip hop underground — releasing records by Madlib, J Dilla, MF DOOM, Guilty Simpson, and many others — while maintaining curatorial independence from major label commercial pressures. Its catalogue is unified by an interest in jazz, soul, and funk as source material and by a production aesthetic that values texture, restraint, and rhythmic complexity over polish or accessibility. Stones Throw demonstrated that a small independent label could sustain a genuine artistic identity across a large body of work over decades, and its model influenced many subsequent independent labels in hip hop and beyond.',
+    releases: [] },
+
+  { id:'madlib', label:'Madlib', type:'artist', genre:'experimental', era:1999, city:'Oxnard', country:'US',
+    desc:'Madlib — born Otis Jackson Jr. on 24 October 1973 in Oxnard, California — is one of the most prolific and formally inventive producers in hip hop. Working under dozens of aliases — including Quasimoto, Yesterdays New Quintet, Beat Konducta, and others — he has built a body of work that ranges from jazz-influenced instrumental music to raw sample-based hip hop, drawing equally from West African records, Brazilian tropicália, Japanese jazz, and American funk. His album "The Unseen" (2000, Stones Throw) as Quasimoto and his collaboration with MF DOOM as Madvillain — "Madvillainy" (2004, Stones Throw) — are among the most celebrated records in the genre. He has remained consistently prolific while maintaining a deliberately uncommercial stance.',
+    releases: [
+      { title: 'The Unseen — Quasimoto (album)', year: 2000 },
+      { title: 'Madvillainy — Madvillain (album)', year: 2004 },
+    ]},
+
+  { id:'mf_doom', label:'MF DOOM', type:'artist', genre:'experimental', era:1999, city:'New York', country:'US',
+    desc:'MF DOOM — born Daniel Dumile on 9 January 1971 in London, raised on Long Island, died 31 December 2020 — was a rapper, producer, and conceptual artist who operated through a series of masked personas and aliases across a career that began in the early 1990s with the group KMD. After the shelving of KMD\'s second album "Black Bastards" (1993) and a period of homelessness, he returned to recording in 1999 with "Operation Doomsday" (Fondle \'Em Records), wearing a metal mask modelled on Marvel\'s Doctor Doom and developing a lyrical approach in which internal rhyme schemes, obscure cultural references, and self-referential loops created a distinctive density. His collaboration with Madlib, "Madvillainy" (2004, Stones Throw), is widely considered among the finest hip hop albums. He continued releasing music under multiple aliases until his death.',
+    releases: [
+      { title: 'Operation Doomsday (album)', year: 1999 },
+      { title: 'Madvillainy — Madvillain (album)', year: 2004 },
+      { title: 'Mm.. Food (album)', year: 2004 },
+    ]},
+
+  { id:'nujabes', label:'Nujabes', type:'artist', genre:'experimental', era:2001, city:'Tokyo', country:'JP',
+    desc:'Nujabes — born Jun Seba on 7 February 1974 in Tokyo, died 26 February 2010 in a traffic accident — was a Japanese producer whose work synthesised jazz harmony, soul sampling, and hip hop rhythm into a sound that became the reference point for an entire strain of introspective, melodically rich beat music. His two main albums, "Metaphorical Music" (2003) and "Modal Soul" (2005), both released on his own Hydeout Productions label, established an aesthetic that proved remarkably durable — spreading through the internet in the years after his death into a global audience far larger than the one he had in his lifetime. His music for the anime "Samurai Champloo" (2004, with Fat Jon) brought his sound to a wider audience. He and J Dilla shared a birthday — 7 February 1974 — a coincidence that has become part of both artists\' mythology.',
+    releases: [
+      { title: 'Metaphorical Music (album)', year: 2003 },
+      { title: 'Modal Soul (album)', year: 2005 },
+    ]},
+
+  // ── UK ELECTRONIC / BIG BEAT ──────────────────────────────────────────────
+
+  { id:'coldcut', label:'Coldcut', type:'artist', genre:'experimental', era:1987, city:'London', country:'UK',
+    desc:'Coldcut — Matt Black and Jonathan More — formed in London in the mid-1980s and became pioneers of the cut-and-paste aesthetic in British electronic music. Their early records, including "Say Kids (What Time Is It?)" (1987) and their remixes of Eric B. and Rakim\'s "Paid in Full" (1987), demonstrated what could be done with sampling and turntablism before the tools to do it easily existed. They founded Ninja Tune Records in 1990 as a platform for their own work and for a wider community of artists whose approach — eclectic, hip hop-influenced, rooted in crate-digging — would define the label\'s identity. Coldcut\'s VJing practice and their Hex Media software development extended their work into visual performance. They remain active.',
+    releases: [
+      { title: '"Say Kids (What Time Is It?)"', year: 1987 },
+      { title: '"Timber"', year: 1987 },
+      { title: 'Some Like It Cold (album)', year: 1990 },
+    ]},
+
+  { id:'basement_jaxx', label:'Basement Jaxx', type:'artist', genre:'deep', era:1994, city:'London', country:'UK',
+    desc:'Basement Jaxx — Simon Ratcliffe and Felix Buxton — formed in Brixton, South London in the early 1990s, initially running a club night in Brixton and releasing records on their own Atlantic Jaxx label before signing to XL Recordings. Their debut album "Remedy" (1999, XL Recordings) arrived as one of the most joyful and genre-agnostic records in British electronic music: house, garage, R&B, samba, bhangra, and rave all appeared within it without apology or forced coherence, unified by a shared energy and a genuine commitment to dancefloor function. Subsequent albums including "Rooty" (2001) and "Kish Kash" (2003) maintained this eclecticism. Basement Jaxx represent the point where UK house music abandoned genre purity in favour of an inclusive, maximalist approach.',
+    releases: [
+      { title: 'Remedy (album)', year: 1999 },
+      { title: 'Rooty (album)', year: 2001 },
+      { title: 'Kish Kash (album)', year: 2003 },
+    ]},
+
+  { id:'fatboy_slim', label:'Fatboy Slim', type:'artist', genre:'experimental', era:1996, city:'Brighton', country:'UK',
+    desc:'Fatboy Slim is the principal alias of Norman Cook, born in 1963 and based in Brighton. Cook had worked in earlier groups — The Housemartins, Beats International, Freak Power — before developing the Fatboy Slim persona as a vehicle for a harder, sample-based big beat sound. "Better Living Through Chemistry" (1996, Skint Records) established the template; "You\'ve Come a Long Way, Baby" (1998, Skint) was the commercial breakthrough, containing "Rockafeller Skank", "Praise You", and "Right Here, Right Now". His large-scale open-air events at Brighton Beach in 2002 and 2008 demonstrated that DJ-led events could sustain festival-scale audiences. Fatboy Slim mainstreamed a version of rave culture\'s sensibility without losing the form\'s commitment to dancefloor physicality.',
+    releases: [
+      { title: 'Better Living Through Chemistry (album)', year: 1996 },
+      { title: 'You\'ve Come a Long Way, Baby (album)', year: 1998 },
+    ]},
+
+  { id:'mr_scruff', label:'Mr. Scruff', type:'artist', genre:'experimental', era:1996, city:'Manchester', country:'UK',
+    desc:'Mr. Scruff — Andy Carthy, born in Macclesfield and based in Manchester — is a DJ and producer whose records on Ninja Tune, including "Keep It Unreal" (1999) and "Trouser Jazz" (2002), synthesise hip hop, jazz, funk, and electronic music through a distinctly English sensibility rooted in crate-digging and a non-hierarchical approach to genre. His long-form DJ sets — often lasting six or eight hours — and their associated tea-van stalls became a fixture of UK festival and club culture. Scruff\'s work represents the eclectic, non-confrontational end of British underground club culture: curious, good-humoured, and precise in its musical knowledge.',
+    releases: [
+      { title: 'Keep It Unreal (album)', year: 1999 },
+      { title: 'Trouser Jazz (album)', year: 2002 },
+    ]},
+
+  { id:'moby', label:'Moby', type:'artist', genre:'experimental', era:1991, city:'New York', country:'US',
+    desc:'Moby — Richard Melville Hall, born 1965 in New York — was one of the most commercially successful electronic musicians of the late 1990s and early 2000s. His early records, including "Go" (1991), connected him to the rave and techno underground; subsequent work on Ambient (1993) and Animal Rights (1996) moved through different registers. "Play" (1999, V2 Records) became one of the best-selling albums of the era, in part through an unprecedented strategy of licensing every track to film, television, and advertising — a move that simultaneously broadened the reach of electronic music and accelerated the commercialisation of its aesthetic. Moby\'s career is instructive for the tension between underground credibility and mainstream visibility that runs through the history of electronic music.',
+    releases: [
+      { title: '"Go"', year: 1991 },
+      { title: 'Ambient (album)', year: 1993 },
+      { title: 'Play (album)', year: 1999 },
+    ]},
+
+  { id:'death_in_vegas', label:'Death in Vegas', type:'artist', genre:'experimental', era:1994, city:'London', country:'UK',
+    desc:'Death in Vegas — primarily the project of Richard Fearless, based in London — emerged in the mid-1990s as part of the UK\'s big beat and alternative electronic scene. "Dead Elvis" (1997, Concrete Records) introduced a sound combining drum machine aggression, rock guitar textures, and psychedelic samples that positioned Death in Vegas between the Chemical Brothers\' breakbeat approach and a darker, more confrontational aesthetic. "The Contino Sessions" (1999) featured vocal collaborations with Iggy Pop, Bobby Gillespie, and others, extending the project into a kind of electronic rock that used studio production as its primary instrument. Fearless has continued under the Death in Vegas name, exploring noise, psychedelia, and dark electronic music.',
+    releases: [
+      { title: 'Dead Elvis (album)', year: 1997 },
+      { title: 'The Contino Sessions (album)', year: 1999 },
+    ]},
+
+  // ── UK GARAGE / GRIME ─────────────────────────────────────────────────────
+
+  { id:'todd_edwards', label:'Todd Edwards', type:'artist', genre:'deep', era:1993, city:'New Jersey', country:'US',
+    desc:'Todd Edwards is a New Jersey-born producer and singer who pioneered a distinctive style of cut-up, chopped vocal house in the early 1990s that became one of the primary influences on UK garage and, through it, on Daft Punk. His technique — taking vocal fragments, looping them into interlocking patterns, and placing them over deep house rhythms — created a distinctive texture that was simultaneously soulful and machine-made. His records circulated through UK clubs in the mid-1990s and directly shaped the vocal-splicing approach of British garage producers. Daft Punk cited his influence repeatedly and he appeared on the track "Face to Face" from their "Human After All" album (2005). He has continued releasing music, primarily for niche club audiences, without seeking mainstream visibility.',
+    releases: [
+      { title: '"Saved My Life"', year: 1995 },
+    ]},
+
+  { id:'artful_dodger', label:'Artful Dodger', type:'artist', genre:'experimental', era:1997, city:'Southampton', country:'UK',
+    desc:'Artful Dodger — primarily Mark Hill, from Southampton — were the producers who brought UK garage to a mass audience. Their recording "Re-Rewind (Find Out)" featuring Craig David, released in 1999 on Public Demand Records, reached number two on the UK Singles Chart and established both Craig David as a vocalist and UK garage as a genre with commercial potential beyond the underground. The record\'s combination of rolling two-step rhythms, pitched-up vocal samples, and David\'s smooth vocal performance defined the sound that UK garage would become known for in the mainstream. Hill continued producing hits in the same vein but Artful Dodger\'s cultural impact was concentrated in this single defining moment.',
+    releases: [
+      { title: '"Re-Rewind (Find Out)" feat. Craig David', year: 1999 },
+      { title: '"Woman Trouble" feat. Robbie Craig', year: 2000 },
+    ]},
+
+  { id:'so_solid_crew', label:'So Solid Crew', type:'artist', genre:'experimental', era:1999, city:'London', country:'UK',
+    desc:'So Solid Crew are a South London collective whose "21 Seconds" (2001, Relentless Records) reached number one on the UK Singles Chart — becoming the first garage track to top the chart and introducing a harder, faster, and more confrontational sound that would become grime. The track\'s structure — each of the collective\'s many MCs rapping for 21 seconds — demonstrated the possibility of collective ownership within the genre and placed urban South London creativity into the mainstream conversation. The group faced persistent tabloid moral panic around gun crime, which limited their commercial longevity but did not reduce their cultural significance. Their trajectory — from pirate radio to chart success to cultural controversy — was a model that subsequent grime artists would follow.',
+    releases: [
+      { title: '"21 Seconds"', year: 2001 },
+      { title: 'They Don\'t Know (album)', year: 2001 },
+    ]},
+
+  // ── FRENCH HOUSE ──────────────────────────────────────────────────────────
+
+  { id:'motorbass', label:'Motorbass', type:'artist', genre:'deep', era:1996, city:'Paris', country:'FR',
+    desc:'Motorbass was the Paris duo of Étienne de Crécy and Philippe Zdar. Their 1996 album "Pansoul" (Solid Records) is one of the key documents of the French touch movement — the specific strain of sample-based, filtered house music that emerged from Paris in the mid-1990s and influenced Daft Punk, Cassius, and the broader French house scene. "Pansoul" synthesised Chicago house rhythms, funk and disco samples, and a production aesthetic rooted in warmth and groove rather than formal experimentation. Zdar became one of the most in-demand studio producers of his era, working with Phoenix, Cassius, and The Beastie Boys; he died in 2019. The album\'s influence on French and European dance music was considerable.',
+    releases: [
+      { title: 'Pansoul (album)', year: 1996 },
+    ]},
+
+  { id:'bob_sinclar', label:'Bob Sinclar', type:'artist', genre:'deep', era:1995, city:'Paris', country:'FR',
+    desc:'Bob Sinclar — born Chris le Friant in Paris in 1968 — is a French DJ and producer who worked at the intersection of house music and nu-disco. He founded Yellow Productions, a Paris label that released his own work and that of a wider community of French house producers. His production "Gym Tonic" (1998), built on a sample of Jane Fonda\'s exercise audio, became one of the most circulated and imitated tracks of the French touch era before legal pressure forced its withdrawal. He continued releasing music through the 2000s, achieving mainstream success with "World, Hold On" (2006, Defected Records). His career traces an arc from underground club culture through pop crossover that mirrors the trajectory of several French house artists.',
+    releases: [
+      { title: '"Gym Tonic"', year: 1998 },
+      { title: '"World, Hold On"', year: 2006 },
+    ]},
+
+  { id:'dimitri_from_paris', label:'Dimitri from Paris', type:'artist', genre:'deep', era:1994, city:'Paris', country:'FR',
+    desc:'Dimitri from Paris — born Dimitri Yerasimos in Istanbul, raised and based in Paris — is a DJ and producer associated with the French house and nu-disco scenes of the 1990s. His debut album "Sacrebleu" (1996) presented a sound that referenced 1970s disco production with affection and precision, filtering it through a contemporary electronic sensibility. He compiled and produced for the Defected Records network and other labels, developing a reputation as a meticulous curator of dance music history across a long career. Where many of his French contemporaries were interested in distorting or ironising their disco influences, Dimitri approached them with relatively straight-faced admiration, maintaining a commitment to warmth and dancefloor functionality.',
+    releases: [
+      { title: 'Sacrebleu (album)', year: 1996 },
+    ]},
+
+  // ── KEY LABELS ────────────────────────────────────────────────────────────
+
+  { id:'mute_records', label:'Mute Records', type:'label', genre:'experimental', era:1978, city:'London', country:'UK',
+    desc:'Mute Records was founded in London in 1978 by Daniel Miller, who released his own first record — "Warm Leatherette" b/w "T.V.O.D." as The Normal — as the label\'s first release. The label became one of the defining independent labels of the following three decades, releasing D.A.F., Nitzer Ebb, Depeche Mode, Nick Cave & the Bad Seeds, Yazoo, Erasure, Moby, and many others. Mute\'s identity was rooted in electronic experimentation and a willingness to pursue artists whose commercial appeal was uncertain: it demonstrated that a label committed to formal seriousness could also sustain a commercially significant catalogue. Miller sold the majority of Mute to EMI in 2002 but retained creative control; he reacquired independence in 2010.',
+    releases: [] },
+
+  { id:'factory_records', label:'Factory Records', type:'label', genre:'experimental', era:1978, city:'Manchester', country:'UK',
+    desc:'Factory Records was founded in Manchester in 1978 by Tony Wilson and Alan Erasmus, with graphic designer Peter Saville providing the visual identity that made Factory\'s releases as recognisable as any in UK independent music history. The label released Joy Division, New Order, A Certain Ratio, The Durutti Column, Happy Mondays, and many others. Its most expensive undertaking was co-funding and operating the Haçienda nightclub (FAC 51) from 1982 — the venue that brought Chicago house music to Manchester and became central to the UK acid house movement. Factory went into receivership in 1992, partly because it had no standard artist contracts and no legal ownership of its catalogue. The label\'s contradictions — between commercial unseriousness and cultural significance — are its most instructive feature.',
+    releases: [] },
+
+  { id:'xl_recordings', label:'XL Recordings', type:'label', genre:'experimental', era:1989, city:'London', country:'UK',
+    desc:'XL Recordings was founded in London in 1989 initially as a rave and breakbeat label, releasing early Prodigy recordings among others, before evolving into one of Britain\'s most significant independent labels. Its subsequent catalogue includes Basement Jaxx, Dizzee Rascal, M.I.A., Adele, Vampire Weekend, The White Stripes\' UK releases, and many others — a breadth that reflects a curatorial approach guided by quality rather than genre. XL demonstrated that an independent label could sustain a roster of global artists without major label infrastructure, becoming a model for how British independent music could operate commercially at scale while retaining artistic credibility.',
+    releases: [] },
+
+  { id:'rough_trade', label:'Rough Trade Records', type:'label', genre:'experimental', era:1978, city:'London', country:'UK',
+    desc:'Rough Trade Records was founded in London in 1978 by Geoff Travis, initially as the label arm of a record shop on Kensington Park Road. The label became central to the UK post-punk and independent music scene, releasing The Smiths, Scritti Politti, Young Marble Giants, The Raincoats, Robert Wyatt, and Arthur Russell\'s "World of Echo" (1986), among many others. Rough Trade pioneered a distribution model — the Cartel — that allowed small independent labels to access national distribution without major label involvement, shaping the infrastructure of UK independent music. The label went into receivership in 1991 and was reconstituted in 2000; in its second phase it has released the Strokes\' UK debut, Arcade Fire, and others.',
+    releases: [] },
+
+  { id:'ghostly_international', label:'Ghostly International', type:'label', genre:'experimental', era:1999, city:'Ann Arbor', country:'US',
+    desc:'Ghostly International was founded in Ann Arbor, Michigan in 1999 by Sam Valenti IV. The label emerged from the same Michigan underground that produced Detroit techno and occupied a space between electronic music, experimental composition, and independent pop. Key artists have included Matthew Dear, Tycho, Shigeto, Com Truise, and Nils Frahm\'s Erased Tapes roster (in collaboration). Ghostly\'s visual identity — developed in partnership with Ghostly-affiliated designers — became as distinctive as its sound. The label represents the possibility of a regional, independent label maintaining a globally significant profile through curatorial consistency and community-building rather than commercial scale.',
+    releases: [] },
+
+  // ── ELECTRONIC PIONEERS ───────────────────────────────────────────────────
+
+  { id:'depeche_mode', label:'Depeche Mode', type:'artist', genre:'experimental', era:1980, city:'Basildon', country:'UK',
+    desc:'Depeche Mode formed in Basildon, Essex in 1980, initially with Vince Clarke as primary songwriter before Clarke left to form Yazoo and later Erasure. Under the songwriting of Martin Gore and with Dave Gahan as vocalist, the group signed to Mute Records and developed a sound across the 1980s and into the 1990s that moved from synth-pop toward increasingly dark and complex electronic music. "Some Great Reward" (1984), "Music for the Masses" (1987), and "Violator" (1990) trace a trajectory from dance-oriented pop toward something closer to industrial in texture and emotional weight. Depeche Mode are among the most commercially successful acts in Mute\'s history and their influence on electronic body music, dark techno, and goth-adjacent electronic music is substantial.',
+    releases: [
+      { title: 'Some Great Reward (album)', year: 1984 },
+      { title: 'Music for the Masses (album)', year: 1987 },
+      { title: 'Violator (album)', year: 1990 },
+    ]},
+
+  { id:'suicide_band', label:'Suicide', type:'artist', genre:'experimental', era:1970, city:'New York', country:'US',
+    desc:'Suicide — Alan Vega (vocals) and Martin Rev (keyboards/electronics) — formed in New York in 1970 and began performing in the mid-1970s as part of the city\'s punk and no wave underground. Their 1977 self-titled debut album (Red Star Records) is one of the most extreme and influential records of its era: drum machine patterns, distorted electronics, and Vega\'s anguished vocal delivery produced a sound that was simultaneously terrifying and formally rigorous, with almost nothing unnecessary in it. Suicide\'s confrontational performances and their insistence on electronic instrumentation in the context of rock performance made them a direct precedent for industrial, EBM, and the more aggressive ends of electronic music. Alan Vega died in July 2016.',
+    releases: [
+      { title: 'Suicide (album)', year: 1977 },
+      { title: '"Dream Baby Dream"', year: 1979 },
+    ]},
+
+  { id:'new_beat', label:'New Beat', type:'style', genre:'experimental', era:1987, city:'Brussels', country:'BE',
+    desc:'New Beat is a Belgian electronic style that emerged in Brussels and Antwerp around 1987, combining elements of EBM, acid house, and Hi-NRG into something slower, heavier, and more hypnotic than any of its sources. The style was largely created by accident — DJs playing EBM records at slower speeds — and its characteristic tempo (around 100 BPM, slower than the EBM records it descended from) gave it a distinctly drugged quality. A Split-Second\'s "Flesh" (1987), Confetti\'s "The Sound of C" (1988), and many records on the Antler-Subway label defined the genre. New Beat is a precursor to the Belgian techno and trance scenes of the early 1990s and a demonstration of how tempo manipulation alone can create a new genre.',
+    releases: [] },
+
+  { id:'global_communications', label:'Global Communications', type:'artist', genre:'ambient', era:1992, city:'London', country:'UK',
+    desc:'Global Communications is the project of Tom Middleton and Mark Pritchard, who also recorded as Reload, Jedi Knights, and other aliases. Their album "76:14" (1994, Dedicated Records) is one of the landmark documents of ambient electronic music — a record built on long-form development, delicate synthesis, and an emotional directness unusual in ambient music. Pritchard subsequently became one of the most versatile producers in UK electronic music, working across ambient, techno, and bass music. Middleton continued developing the Global Communications material in live and recorded contexts. "76:14" remains the project\'s central document and is frequently cited alongside Aphex Twin\'s "Selected Ambient Works Volume II" as a defining work of ambient electronic music.',
+    releases: [
+      { title: '76:14 (album)', year: 1994 },
+    ]},
+
+  { id:'the_black_dog', label:'The Black Dog', type:'artist', genre:'experimental', era:1989, city:'Sheffield', country:'UK',
+    desc:'The Black Dog is a Sheffield electronic music project, initially comprising Ken Downie, Martin Dust, and Ed Handley. Signed to Warp Records, they released "Bytes" (1993, as Black Dog Productions) and "Temple of Transparent Balls" (1993), producing techno and IDM that occupied a space between the physical demands of the dancefloor and the structural complexity of experimental composition. Handley and Dust subsequently left to form Plaid, another Warp act; Downie continued under The Black Dog name. The project represents Sheffield\'s contribution to the Warp Records aesthetic — geographically adjacent to the industrial music of Cabaret Voltaire and the pop intelligence of the Human League, but pointed toward a different future.',
+    releases: [
+      { title: 'Bytes (album)', year: 1993 },
+      { title: 'Temple of Transparent Balls (album)', year: 1993 },
+    ]},
+
+  { id:'gilles_peterson', label:'Gilles Peterson', type:'artist', genre:'experimental', era:1987, city:'London', country:'UK',
+    desc:'Gilles Peterson — born 28 September 1964 in Paris, raised in Epsom, Surrey — is a DJ, broadcaster, and record label founder who has operated at the intersection of jazz, soul, broken beat, world music, and electronic music for four decades. He founded Talkin\' Loud Records in 1990 and Brownswood Recordings in 2006, using both as platforms for music that does not fit neatly into existing commercial categories. His radio programmes — on pirate stations, then BBC Radio 1, then BBC Radio 6 Music, and latterly on his own Worldwide FM — have introduced generations of listeners to music they would not otherwise have encountered. Peterson\'s career demonstrates the possibility of a taste-making role that operates independently of industry structures.',
+    releases: [] },
+
+  { id:'talkin_loud', label:'Talkin\' Loud', type:'label', genre:'experimental', era:1990, city:'London', country:'UK',
+    desc:'Talkin\' Loud Records was founded in London in 1990 by Gilles Peterson, distributed through Phonogram/Mercury Records. The label released music at the intersection of jazz, soul, funk, and dance — including Galliano, The Young Disciples, Omar, Incognito, and Courtney Pine — during a period when the UK was developing its own version of jazz-influenced club music. Talkin\' Loud operated as a conduit between the American acid jazz tradition and the UK club scene, establishing a template for jazz-influenced labels that Brownswood Recordings would later extend into a broader international repertoire.',
+    releases: [] },
+
+  { id:'brownswood_recordings', label:'Brownswood Recordings', type:'label', genre:'experimental', era:2006, city:'London', country:'UK',
+    desc:'Brownswood Recordings was founded in London in 2006 by Gilles Peterson as the successor to his Talkin\' Loud label. It occupies a broader and more international territory than its predecessor — releasing music from across Africa, Brazil, the UK, and the US that connects jazz, soul, electronic music, and global folk traditions. Key releases and signings have included Esperanza Spalding, Moses Sumney, Yussef Kamaal, and many others. Brownswood\'s annual "We Out Here" compilation series has become a document of the UK jazz revival of the 2010s. The label demonstrates a sustained commitment to music that resists easy categorisation while maintaining a coherent curatorial identity.',
+    releases: [] },
 ];
