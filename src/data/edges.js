@@ -2496,4 +2496,26 @@ export const EDGES = [
   { from:'the_loft',       to:'knuckles',         strength:3, type:'lineage' },
   { from:'the_loft',       to:'paradise_garage',  strength:3, type:'lineage' },
   { from:'the_loft',       to:'warehouse',        strength:3, type:'lineage' },
+
+  // ── LARRY HEARD (MR. FINGERS) ─────────────────────────────────────────────
+  { from:'chicago_scene',  to:'larry_heard',     strength:3, type:'lineage' },
+  { from:'trax',           to:'larry_heard',     strength:3, type:'roster' },
+  { from:'larry_heard',    to:'robert_owens',    strength:3, type:'collaboration' },
+  { from:'larry_heard',    to:'musicbox',        strength:2, type:'aesthetic' },
+
+  // ── BASIC CHANNEL ─────────────────────────────────────────────────────────
+  { from:'berlin_zero_hour',      to:'basic_channel',  strength:3, type:'lineage' },
+  { from:'detroit_scene',         to:'basic_channel',  strength:3, type:'influence' },
+  { from:'underground_resistance', to:'basic_channel', strength:2, type:'influence' },
+  { from:'basic_channel',         to:'chain_reaction', strength:3, type:'lineage' },
+
+  // ── MASTERS AT WORK ───────────────────────────────────────────────────────
+  { from:'nyc_scene',       to:'masters_at_work', strength:3, type:'lineage' },
+  { from:'paradise_garage', to:'masters_at_work', strength:3, type:'influence' },
+  { from:'levan',           to:'masters_at_work', strength:2, type:'influence' },
+
+  // ── KERRI CHANDLER ────────────────────────────────────────────────────────
+  { from:'nyc_scene',      to:'kerri_chandler',  strength:3, type:'lineage' },
+  { from:'paradise_garage', to:'kerri_chandler', strength:2, type:'influence' },
+  { from:'larry_heard',    to:'kerri_chandler',  strength:2, type:'influence' },
 ];

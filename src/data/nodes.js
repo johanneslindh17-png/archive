@@ -4903,4 +4903,37 @@ export const NODES = [
   { id:'the_loft', label:'The Loft', type:'venue', genre:'disco', era:1970, city:'New York', country:'US',
     desc:'The Loft opened on Valentine\'s Day 1970 in David Mancuso\'s home at 647 Broadway, New York. Unlike commercial clubs, The Loft had no liquor licence, no cover charge, and no formal DJ booth — guests were invited by word of mouth to a party where Mancuso played records on a high-fidelity sound system he built and refined over decades. The Loft established the model of the DJ as host and curator, the dancefloor as sanctuary, and sonic quality as a moral commitment. Larry Levan and Frankie Knuckles both danced at The Loft before beginning their careers. When Knuckles moved to Chicago and opened the Warehouse, and Levan later opened the Paradise Garage, both were consciously extending The Loft\'s principles into new cities. The entire lineage of the DJ-centred club — from Chicago to Detroit to London — begins here.',
     releases: [] },
+
+  // ── LARRY HEARD (MR. FINGERS) ─────────────────────────────────────────────
+  { id:'larry_heard', label:'Larry Heard', type:'artist', genre:'chicago', era:1985, city:'Chicago', country:'US',
+    desc:'Larry Heard is a Chicago producer and musician whose recordings under the name Mr. Fingers in 1985–86 essentially created what became known as deep house — a strand of house music built on slower tempos, piano chords, Roland drum machine patterns, and an emotional directness closer to gospel and soul than to disco. "Can You Feel It" (1986, Trax Records), recorded alone in his bedroom, is among the most significant records in the history of house music: its combination of restraint, feeling, and structural simplicity defined a sound that influenced producers across Chicago, New York, and the UK for the following four decades. With Robert Owens and Ron Wilson he recorded as Fingers Inc., releasing tracks on Trax and Jack Trax that deepened the same approach with live vocals. Heard continued recording into the 1990s under his own name and on his Alleviated Music label, maintaining artistic independence throughout.',
+    releases: [
+      { title: '"Can You Feel It" — Mr. Fingers', year: 1986 },
+      { title: '"Washing Machine" — Mr. Fingers', year: 1986 },
+      { title: '"Mystery of Love" — Fingers Inc.', year: 1985 },
+    ]},
+
+  // ── BASIC CHANNEL ─────────────────────────────────────────────────────────
+  { id:'basic_channel', label:'Basic Channel', type:'label', genre:'techno', era:1993, city:'Berlin', country:'DE',
+    desc:'Basic Channel is the Berlin-based label and production project of Moritz von Oswald and Mark Ernestus, launched in 1993. Their records — released on 12-inch vinyl with minimal sleeve information, typically without track listings or personnel credits — fused the mechanical grid of Detroit techno with the long reverb tails, heavy bass frequencies, and spatial depth of Jamaican dub, creating what became known as dub techno. Releases such as "Phylyps Trak" (1993), "Quadrant Dub" (1993), and "Octagon" (1994) established an aesthetic in which texture, space, and gradual evolution took precedence over melody or harmonic movement. Their Chain Reaction sublabel extended the sound to a wider circle of producers. Basic Channel\'s approach defined one of the most influential sonic territories in 1990s electronic music, shaping producers in Berlin, London, and across Europe.',
+    releases: [
+      { title: '"Phylyps Trak"', year: 1993 },
+      { title: '"Quadrant Dub"', year: 1993 },
+      { title: '"Octagon"', year: 1994 },
+    ]},
+
+  // ── MASTERS AT WORK ───────────────────────────────────────────────────────
+  { id:'masters_at_work', label:'Masters at Work', type:'artist', genre:'deep', era:1990, city:'New York', country:'US',
+    desc:'Masters at Work is the New York production partnership of Louie Vega (born 1965, Bronx) and Kenny "Dope" Gonzalez (born 1970, Brooklyn), formed around 1990. Working from the tradition of the Paradise Garage and the deeper end of the New York club continuum, they built a body of work that bridged deep house, garage house, and Latin-influenced soul — a sound rooted in the New York borough experience rather than European minimalism. They produced records under multiple aliases and released on their MAW Records label, and their Nuyorican Soul project (1997, recorded with Jorge Morales and featuring vocalists including India, George Benson, and Jocelyn Brown) represented an attempt to document the Latin soul and house continuum through a full album. Their remixes and productions for other artists — including Diane Ross, Roy Ayers, and countless club records — made them among the most prolific and influential production teams of the 1990s.',
+    releases: [
+      { title: 'Nuyorican Soul (album)', year: 1997 },
+    ]},
+
+  // ── KERRI CHANDLER ────────────────────────────────────────────────────────
+  { id:'kerri_chandler', label:'Kerri Chandler', type:'artist', genre:'deep', era:1993, city:'Newark', country:'US',
+    desc:'Kerri Chandler is a New Jersey-born producer and DJ whose work from the early 1990s onward represents one of the most sustained explorations of deep house\'s relationship with gospel, soul, and emotional directness. His releases on Shelter Records — including "Bar A Thym" (1994) — and the label Madhouse Records (co-founded with Jerome Sydenham) established a sound characterised by raw drum machine programming, warm bass frequencies, and a sense of unresolved longing. Chandler grew up in a musical household — his father was a singer and his family was involved in the church — and the gospel influence in his work is structural as much as atmospheric. He continued recording and releasing through the 2000s and 2010s, maintaining a reputation as one of deep house\'s most consistent and uncompromised practitioners.',
+    releases: [
+      { title: '"Bar A Thym"', year: 1994 },
+      { title: '"Rain"', year: 1994 },
+    ]},
 ];
