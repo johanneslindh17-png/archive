@@ -2321,4 +2321,80 @@ export const EDGES = [
   // ── PAULA TEMPLE ──────────────────────────────────────────────────────────
   { from:'paula_temple', to:'berghain',     strength:2, type:'roster' },
   { from:'paula_temple', to:'surgeon',      strength:1, type:'aesthetic' },
+
+  // ── THE PRODIGY ───────────────────────────────────────────────────────────
+  { from:'summer_of_love',  to:'the_prodigy',   strength:3, type:'lineage' },
+  { from:'acid',            to:'the_prodigy',   strength:3, type:'influence' },
+  { from:'the_prodigy',     to:'chemical_brothers', strength:2, type:'aesthetic' },
+  { from:'the_prodigy',     to:'orbital',       strength:2, type:'aesthetic' },
+  { from:'the_prodigy',     to:'lfo',           strength:2, type:'aesthetic' },
+  { from:'the_prodigy',     to:'drum_and_bass', strength:2, type:'influence' },
+
+  // ── JUAN ATKINS ───────────────────────────────────────────────────────────
+  { from:'juan_atkins',     to:'belleville3',   strength:3, type:'lineage' },
+  { from:'juan_atkins',     to:'metroplex',     strength:3, type:'roster' },
+  { from:'kraftwerk',       to:'juan_atkins',   strength:3, type:'influence' },
+  { from:'juan_atkins',     to:'detroit_scene', strength:3, type:'lineage' },
+  { from:'juan_atkins',     to:'electro',       strength:3, type:'lineage' },
+
+  // ── MARSHALL JEFFERSON ────────────────────────────────────────────────────
+  { from:'marshall_jefferson', to:'chicago_scene', strength:3, type:'lineage' },
+  { from:'marshall_jefferson', to:'trax',          strength:3, type:'roster' },
+  { from:'marshall_jefferson', to:'dj_international', strength:2, type:'roster' },
+  { from:'marshall_jefferson', to:'knuckles',      strength:2, type:'aesthetic' },
+  { from:'marshall_jefferson', to:'heard',         strength:2, type:'aesthetic' },
+  { from:'marshall_jefferson', to:'robert_owens',  strength:3, type:'collaboration' },
+
+  // ── THE ORB ───────────────────────────────────────────────────────────────
+  { from:'brian_eno',       to:'the_orb',       strength:3, type:'influence' },
+  { from:'summer_of_love',  to:'the_orb',       strength:2, type:'lineage' },
+  { from:'the_orb',         to:'ambient',       strength:3, type:'lineage' },
+  { from:'the_orb',         to:'ambient_techno', strength:2, type:'lineage' },
+  { from:'the_orb',         to:'global_communication', strength:2, type:'aesthetic' },
+  { from:'the_orb',         to:'biosphere',     strength:2, type:'aesthetic' },
+
+  // ── JOHN DIGWEED ──────────────────────────────────────────────────────────
+  { from:'john_digweed',    to:'sasha',         strength:3, type:'collaboration' },
+  { from:'john_digweed',    to:'progressive_house', strength:3, type:'aesthetic' },
+  { from:'john_digweed',    to:'fabric',        strength:2, type:'roster' },
+
+  // ── SPIRAL TRIBE ──────────────────────────────────────────────────────────
+  { from:'summer_of_love',  to:'spiral_tribe',  strength:3, type:'lineage' },
+  { from:'acid',            to:'spiral_tribe',  strength:2, type:'influence' },
+  { from:'spiral_tribe',    to:'orbital',       strength:1, type:'aesthetic' },
+
+  // ── TONY HUMPHRIES ────────────────────────────────────────────────────────
+  { from:'tony_humphries',  to:'zanzibar',      strength:3, type:'roster' },
+  { from:'tony_humphries',  to:'nyc_scene',     strength:3, type:'lineage' },
+  { from:'tony_humphries',  to:'deep_house',    strength:3, type:'aesthetic' },
+  { from:'tony_humphries',  to:'levan',         strength:2, type:'aesthetic' },
+  { from:'disco',           to:'tony_humphries', strength:2, type:'influence' },
+
+  // ── DJ INTERNATIONAL RECORDS ──────────────────────────────────────────────
+  { from:'chicago_scene',   to:'dj_international', strength:3, type:'lineage' },
+  { from:'knuckles',        to:'dj_international', strength:2, type:'roster' },
+  { from:'marshall_jefferson', to:'dj_international', strength:2, type:'roster' },
+  { from:'dj_international', to:'trax',         strength:2, type:'aesthetic' },
+
+  // ── MINISTRY OF SOUND ─────────────────────────────────────────────────────
+  { from:'paradise_garage', to:'ministry_of_sound', strength:3, type:'influence' },
+  { from:'levan',           to:'ministry_of_sound', strength:2, type:'collaboration' },
+  { from:'sasha',           to:'ministry_of_sound', strength:3, type:'roster' },
+  { from:'danny_tenaglia',  to:'ministry_of_sound', strength:2, type:'roster' },
+  { from:'carl_cox',        to:'ministry_of_sound', strength:2, type:'roster' },
+  { from:'ministry_of_sound', to:'progressive_house', strength:3, type:'aesthetic' },
+  { from:'ministry_of_sound', to:'drum_and_bass', strength:2, type:'aesthetic' },
+  { from:'ministry_of_sound', to:'uk_garage',   strength:2, type:'aesthetic' },
+
+  // ── ZANZIBAR ──────────────────────────────────────────────────────────────
+  { from:'zanzibar',        to:'nyc_scene',     strength:3, type:'lineage' },
+  { from:'zanzibar',        to:'deep_house',    strength:3, type:'aesthetic' },
+  { from:'paradise_garage', to:'zanzibar',      strength:2, type:'aesthetic' },
+
+  // ── TECHNICS SL-1200 ──────────────────────────────────────────────────────
+  { from:'roland',          to:'technics_1200', strength:2, type:'aesthetic' },
+  { from:'technics_1200',   to:'levan',         strength:2, type:'influence' },
+  { from:'technics_1200',   to:'knuckles',      strength:2, type:'influence' },
+  { from:'technics_1200',   to:'jeff_mills',    strength:2, type:'influence' },
+  { from:'technics_1200',   to:'belleville3',   strength:2, type:'influence' },
 ];

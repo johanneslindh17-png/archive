@@ -4706,4 +4706,81 @@ export const NODES = [
   // ── PAULA TEMPLE ──────────────────────────────────────────────────────────
   { id:'paula_temple', label:'Paula Temple', type:'artist', genre:'techno', era:2013, city:'London', country:'UK',
     desc:'Paula Temple is a British DJ and producer known for industrial and noise-influenced techno. She runs the Noise Manifesto label and has produced work that draws on the harder end of the techno canon while incorporating industrial music and noise aesthetics. A regular at Berghain and an internationally active artist, she has been an outspoken advocate for trans rights and LGBTQ+ inclusion in club culture. Her sets are physically demanding and technically precise, operating at the boundary between techno and experimental noise.' },
+
+  // ── THE PRODIGY ───────────────────────────────────────────────────────────
+  { id:'the_prodigy', label:'The Prodigy', type:'artist', genre:'rave', era:1990, city:'Braintree', country:'GB',
+    desc:'The Prodigy formed in 1990 in Braintree, Essex, founded by Liam Howlett as a studio project that rapidly expanded into a live act featuring Keith Flint and Maxim. Emerging directly from the UK rave scene, early recordings were rooted in hardcore breakbeat and acid, but Howlett pushed the sound into increasingly abrasive directions. Music for the Jilted Generation (1994) was in part a response to the Criminal Justice Act, positioning the group within the politics of UK rave culture. The Fat of the Land (1997) achieved global commercial success while retaining aggressive production values that distinguished them from the contemporaneous Britpop mainstream. Their crossover success brought the rave lineage — breakbeat, acid, hardcore — into wider cultural visibility, and their influence extends across big beat, drum and bass, and electronic rock.',
+    releases: [
+      { title: 'Experience', year: 1992 },
+      { title: 'Music for the Jilted Generation', year: 1994 },
+      { title: 'The Fat of the Land', year: 1997 },
+    ]},
+
+  // ── JUAN ATKINS ───────────────────────────────────────────────────────────
+  { id:'juan_atkins', label:'Juan Atkins', type:'artist', genre:'detroit', era:1981, city:'Belleville', country:'US',
+    desc:'Juan Atkins is one of the three founders of Detroit techno, alongside Derrick May and Kevin Saunderson — the Belleville Three. In the early 1980s he recorded as Cybotron with Rick Davis, producing electro records that established Detroit\'s machine aesthetic. He founded Metroplex Records in 1985, releasing his own Model 500 alias and establishing a template for independent techno production. "No UFOs" (1985) is widely cited as one of the first canonical Detroit techno records. Atkins absorbed Kraftwerk, George Clinton, and Alvin Toffler\'s writing on the post-industrial future in roughly equal measure, translating that synthesis into a machine music that treated Detroit\'s deindustrialisation not as a wound but as a launch pad.',
+    releases: [
+      { title: '"Clear" — Cybotron', year: 1983 },
+      { title: '"No UFOs" — Model 500', year: 1985 },
+      { title: '"Classics" — Model 500', year: 1995 },
+    ]},
+
+  // ── MARSHALL JEFFERSON ────────────────────────────────────────────────────
+  { id:'marshall_jefferson', label:'Marshall Jefferson', type:'artist', genre:'chicago', era:1984, city:'Chicago', country:'US',
+    desc:'Marshall Jefferson is a Chicago house pioneer whose 1986 recording "Move Your Body" is considered the first house track built around a full piano melody — a radical departure from the drum machine minimalism of early house. Released on Trax Records, the track demonstrated that house music could absorb gospel and soul harmonic language without abandoning its electronic origins. Jefferson produced extensively throughout the late 1980s, working with Robert Owens and contributing to the development of acid house. He also released on DJ International Records alongside Steve "Silk" Hurley and Farley "Jackmaster" Funk, and later produced for the Ten City vocal group. His production touched virtually every strand of Chicago\'s golden-era house output.',
+    releases: [
+      { title: '"Move Your Body"', year: 1986 },
+      { title: '"Open Our Eyes" — Jungle Wonz', year: 1988 },
+    ]},
+
+  // ── THE ORB ───────────────────────────────────────────────────────────────
+  { id:'the_orb', label:'The Orb', type:'artist', genre:'ambient', era:1988, city:'London', country:'GB',
+    desc:'The Orb was formed in London in 1988 by Alex Paterson, initially with Jimmy Cauty (who departed to focus on the KLF). Drawing on Brian Eno\'s ambient theory and the chill-out rooms developing around the UK rave scene, The Orb pioneered ambient house — a form that retained the tempo and harmonic palette of rave music while prioritising texture and atmosphere over dancefloor function. Adventures Beyond the Ultraworld (1991) and "Blue Room" (1992) — at 39 minutes 57 seconds, the longest track to enter the UK Top 40 — defined the genre. Paterson and Thomas Fehlmann\'s long-running collaboration sustained the project across three decades.',
+    releases: [
+      { title: 'Adventures Beyond the Ultraworld', year: 1991 },
+      { title: 'U.F.Orb', year: 1992 },
+      { title: 'Orbus Terrarum', year: 1995 },
+    ]},
+
+  // ── JOHN DIGWEED ──────────────────────────────────────────────────────────
+  { id:'john_digweed', label:'John Digweed', type:'artist', genre:'progressive', era:1992, city:'Hastings', country:'GB',
+    desc:'John Digweed built his career from Hastings on the English south coast, developing a DJ style centred on long, tightly structured progressive house sets that prioritised narrative arc. His partnership with Sasha — documented on Renaissance: The Mix Collection (1994) and Northern Exposure (1996) — defined the sound of progressive house at its commercial peak and brought the form to international audiences. Digweed founded the Bedrock label in 1999 and maintained a long residency at Fabric in London. His appearances at Twilo in New York were among the most attended club nights of that city\'s late 1990s clubbing era.',
+    releases: [
+      { title: 'Renaissance: The Mix Collection (with Sasha)', year: 1994 },
+      { title: 'Northern Exposure (with Sasha)', year: 1996 },
+      { title: 'Bedrock', year: 1999 },
+    ]},
+
+  // ── SPIRAL TRIBE ──────────────────────────────────────────────────────────
+  { id:'spiral_tribe', label:'Spiral Tribe', type:'culture', genre:'techno', era:1990, city:'London', country:'GB',
+    desc:'Spiral Tribe was a London-based sound system collective founded in 1990 that became central to the UK free party movement. The collective organised large-scale illegal raves, culminating in the Castlemorton Common Festival in May 1992 — estimated at 40,000 attendees — which provoked intense media and political backlash. Thirteen Spiral Tribe members were subsequently prosecuted; the Criminal Justice and Public Order Act 1994, which criminalised gatherings featuring amplified music with "a succession of repetitive beats", was in significant part a response to free party culture. Spiral Tribe relocated to mainland Europe following the legal pressure, influencing the development of the French and European free tekno scene through their SP23 label.',
+    releases: [] },
+
+  // ── TONY HUMPHRIES ────────────────────────────────────────────────────────
+  { id:'tony_humphries', label:'Tony Humphries', type:'artist', genre:'deep', era:1981, city:'Newark', country:'US',
+    desc:'Tony Humphries served as the resident DJ at Club Zanzibar in Newark, New Jersey from the early 1980s through the 1990s, establishing it as one of the defining spaces of the New York metropolitan deep house and garage scene. Alongside Larry Levan at the Paradise Garage, Humphries developed a DJing approach that prioritised emotional depth and long-arc sets over purely functional dancefloor programming. His weekly show on KISS FM (92.7) in New York brought this aesthetic to a radio audience. As a remixer he worked extensively across house, pop, and R&B, consistently finding the deep house core within commercial material.',
+    releases: [] },
+
+  // ── DJ INTERNATIONAL RECORDS ──────────────────────────────────────────────
+  { id:'dj_international', label:'DJ International Records', type:'label', genre:'chicago', era:1985, city:'Chicago', country:'US',
+    desc:'DJ International Records was founded in Chicago in 1985 by Rocky Jones and became the city\'s second major house label alongside Trax Records. Its roster included Frankie Knuckles, Farley "Jackmaster" Funk, Marshall Jefferson, Steve "Silk" Hurley, and Jesse Saunders. Steve "Silk" Hurley\'s "Jack Your Body", released on DJ International in 1986, became the first house record to reach number one on the UK Singles Chart in January 1987 — the moment at which house music\'s commercial potential in Britain became apparent to the mainstream industry. The label documented Chicago house at its most commercially ambitious, capturing a strand of the scene distinct from the rawer productions of Trax.',
+    releases: [
+      { title: '"Jack Your Body" — Steve "Silk" Hurley', year: 1986 },
+      { title: '"Love Can\'t Turn Around" — Farley Jackmaster Funk', year: 1986 },
+    ]},
+
+  // ── MINISTRY OF SOUND ─────────────────────────────────────────────────────
+  { id:'ministry_of_sound', label:'Ministry of Sound', type:'venue', genre:'progressive', era:1991, city:'London', country:'GB',
+    desc:'Ministry of Sound opened in Elephant and Castle, London, in September 1991, founded by James Palumbo and Justin Berkmann. Berkmann had been inspired by the Paradise Garage in New York and invited Larry Levan to DJ the opening night. The venue was built around a purpose-designed sound system and a strict no-talking policy on the dancefloor, importing principles of the New York garage clubs into a London context. It became the defining British superclub of the 1990s and expanded into one of the world\'s largest independent dance music labels, with artists including Sasha, Danny Tenaglia, and Carl Cox building long associations with the venue.',
+    releases: [] },
+
+  // ── ZANZIBAR ──────────────────────────────────────────────────────────────
+  { id:'zanzibar', label:'Club Zanzibar', type:'venue', genre:'deep', era:1981, city:'Newark', country:'US',
+    desc:'Club Zanzibar operated in Newark, New Jersey from 1981, serving a primarily Black and Latino clientele and functioning as one of the key venues for deep house and garage music in the New York metropolitan area. Tony Humphries\' residency through the 1980s and 1990s made Zanzibar a central institution in the formation of the New York garage sound alongside the Paradise Garage. The club\'s combination of a serious sound system, a loyal community, and programming that prioritised depth over spectacle placed it in the same tradition as the Warehouse, the Music Box, and the Paradise Garage — spaces that incubated the early house and garage scene.',
+    releases: [] },
+
+  // ── TECHNICS SL-1200 ──────────────────────────────────────────────────────
+  { id:'technics_1200', label:'Technics SL-1200', type:'label', genre:'detroit', era:1972, city:'Osaka', country:'JP',
+    desc:'The Technics SL-1200, introduced by Matsushita Electric (now Panasonic) in 1972, became the universal standard DJ turntable by the early 1980s. The SL-1200 MK2, released in 1978, offered a direct-drive motor with high torque — enabling the slip-cueing and manual manipulation central to hip-hop DJing — combined with a variable pitch control that allowed DJs to match tempos between records. Its durability, torque, and precision made it the de facto instrument of DJ culture worldwide, used in identical form by Larry Levan, Jeff Mills, Frankie Knuckles, and virtually every significant DJ of the following four decades. Technics discontinued the MK2 series in 2010 and reintroduced the line as the SL-1200G in 2016.',
+    releases: [] },
 ];
