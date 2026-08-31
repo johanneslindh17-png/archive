@@ -5030,4 +5030,24 @@ export const NODES = [
       { title: '"Acperience 1"', year: 1992 },
       { title: '"Hardfloor EP"', year: 1992 },
     ]},
+
+  // ── SALSOUL RECORDS ───────────────────────────────────────────────────────
+  { id:'salsoul', label:'Salsoul Records', type:'label', genre:'disco', era:1974, city:'New York', country:'US',
+    desc:'Salsoul Records was founded in New York in 1974 by the Cayre family — Ken, Stanley, and Joseph — initially to release Latin soul and salsa before expanding into disco. The label became one of the most important sites of formal innovation in recorded dance music: in 1976 it released Walter Gibbons\'s remix of "Ten Percent" by Double Exposure, widely recognised as one of the first commercially pressed 12-inch singles conceived as a DJ tool. Salsoul\'s relationship with remixers including Larry Levan and Shep Pettibone established the remix as a distinct creative form rather than a promotional afterthought. Key artists included First Choice, Loleatta Holloway, the Salsoul Orchestra, and Double Exposure. The label\'s catalogue later became a primary sample source for house music, closing a loop that connected Chicago\'s DJ culture back to the New York workshops where the DJ-remix form was first developed commercially.',
+    releases: [] },
+
+  // ── NICKY SIANO ───────────────────────────────────────────────────────────
+  { id:'nicky_siano', label:'Nicky Siano', type:'artist', genre:'disco', era:1973, city:'New York', country:'US',
+    desc:'Nicky Siano founded The Gallery, a New York DJ club that opened in 1973 at 172 Mercer Street in SoHo — preceding the Paradise Garage and running parallel to The Loft as one of the defining spaces of the pre-house New York club scene. Siano was among the earliest DJs to use a three-channel mixer to blend records in real time, developing a seamless, continuous style of mixing that became standard practice. Larry Levan and Frankie Knuckles both worked at The Gallery before their own careers began — Levan initially as a lighting operator — and both credited its atmosphere and Siano\'s approach as formative. The Gallery\'s emphasis on a community of Black and Latino gay dancers, sophisticated sound, and emotional arc over the course of a night established norms that the Paradise Garage and the Warehouse would later carry forward.',
+    releases: [] },
+
+  // ── WEST END RECORDS ──────────────────────────────────────────────────────
+  { id:'west_end_records', label:'West End Records', type:'label', genre:'disco', era:1976, city:'New York', country:'US',
+    desc:'West End Records was founded in New York in 1976 by Mel Cheren. The label became one of the key sites for the DJ-remix form in its early years — commissioning extended dance versions of tracks for club use at a point when this practice was just being formalised commercially. Larry Levan\'s remix of "Is It All Over My Face?" by Loose Joints (1980) and Taana Gardner\'s "Heartbeat" (1981) are among its most enduring releases. West End operated across the boundary between disco\'s commercial decline and the early house era, maintaining relationships with the DJ community at the Paradise Garage and similar spaces. Its catalogue — like Salsoul\'s — became a source for sampling as Chicago and New York producers built the next generation of dance music from the raw material the disco labels had left behind.',
+    releases: [] },
+
+  // ── LOEFAH ────────────────────────────────────────────────────────────────
+  { id:'loefah', label:'Loefah', type:'artist', genre:'ambient', era:2004, city:'London', country:'UK',
+    desc:'Loefah — born Joseph McNulty in South London — co-founded the DMZ club night at Mass in Brixton alongside Mala and Coki, helping establish that venue as the central institution of the early dubstep scene. His own productions took the genre\'s bass-weight and minimalism to an extreme: sparse percussion, long periods of near-silence, sub-bass frequencies used as the primary compositional material. He founded the Swamp81 label in 2009, which released work by artists including Bok Bok and Dark0, and maintained a curatorial commitment to deep, functional, aesthetically uncompromising club music. Where some dubstep producers moved toward heavier or more melodic forms, Loefah consistently pursued reduction — treating removal as the primary creative gesture.',
+    releases: [] },
 ];

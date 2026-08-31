@@ -2586,4 +2586,29 @@ export const EDGES = [
   { from:'sven_vath',        to:'hardfloor',      strength:3, type:'roster' },
   { from:'phuture',          to:'hardfloor',      strength:2, type:'influence' },
   { from:'berlin_zero_hour', to:'hardfloor',      strength:2, type:'aesthetic' },
+
+  // ── SALSOUL RECORDS ───────────────────────────────────────────────────────
+  { from:'disco',            to:'salsoul',        strength:3, type:'roster' },
+  { from:'nyc_scene',        to:'salsoul',        strength:3, type:'lineage' },
+  { from:'salsoul',          to:'levan',          strength:2, type:'aesthetic' },
+  { from:'salsoul',          to:'chicago_scene',  strength:2, type:'influence' },
+
+  // ── WEST END RECORDS ──────────────────────────────────────────────────────
+  { from:'disco',            to:'west_end_records', strength:3, type:'roster' },
+  { from:'nyc_scene',        to:'west_end_records', strength:3, type:'lineage' },
+  { from:'levan',            to:'west_end_records', strength:2, type:'roster' },
+  { from:'paradise_garage',  to:'west_end_records', strength:2, type:'aesthetic' },
+
+  // ── NICKY SIANO ───────────────────────────────────────────────────────────
+  { from:'disco',            to:'nicky_siano',    strength:3, type:'lineage' },
+  { from:'nyc_scene',        to:'nicky_siano',    strength:3, type:'lineage' },
+  { from:'nicky_siano',      to:'levan',          strength:3, type:'lineage' },
+  { from:'nicky_siano',      to:'knuckles',       strength:3, type:'lineage' },
+  { from:'david_mancuso',    to:'nicky_siano',    strength:2, type:'aesthetic' },
+
+  // ── LOEFAH ────────────────────────────────────────────────────────────────
+  { from:'dmz',              to:'loefah',         strength:3, type:'roster' },
+  { from:'digital_mystikz',  to:'loefah',         strength:3, type:'collaboration' },
+  { from:'dubstep',          to:'loefah',         strength:3, type:'lineage' },
+  { from:'mala',             to:'loefah',         strength:3, type:'collaboration' },
 ];
