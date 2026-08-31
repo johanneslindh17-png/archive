@@ -2540,4 +2540,28 @@ export const EDGES = [
   { from:'nyc_scene',      to:'kerri_chandler',  strength:3, type:'lineage' },
   { from:'paradise_garage', to:'kerri_chandler', strength:2, type:'influence' },
   { from:'larry_heard',    to:'kerri_chandler',  strength:2, type:'influence' },
+
+  // ── CYBOTRON ──────────────────────────────────────────────────────────────
+  { from:'juan_atkins',    to:'cybotron',        strength:3, type:'roster' },
+  { from:'detroit_scene',  to:'cybotron',        strength:3, type:'lineage' },
+  { from:'kraftwerk',      to:'cybotron',        strength:3, type:'influence' },
+  { from:'cybotron',       to:'model_500',       strength:3, type:'lineage' },
+  { from:'cybotron',       to:'belleville3',     strength:3, type:'lineage' },
+
+  // ── INNER CITY ────────────────────────────────────────────────────────────
+  { from:'kevin_saunderson', to:'inner_city',    strength:3, type:'roster' },
+  { from:'kms',              to:'inner_city',    strength:3, type:'roster' },
+  { from:'detroit_scene',    to:'inner_city',    strength:3, type:'lineage' },
+  { from:'belleville3',      to:'inner_city',    strength:3, type:'lineage' },
+
+  // ── FRANKIE BONES ─────────────────────────────────────────────────────────
+  { from:'summer_of_love',  to:'frankie_bones',  strength:3, type:'influence' },
+  { from:'nyc_scene',       to:'frankie_bones',  strength:3, type:'lineage' },
+  { from:'frankie_bones',   to:'nyc_scene',      strength:3, type:'lineage' },
+
+  // ── BLAZE ─────────────────────────────────────────────────────────────────
+  { from:'nyc_scene',       to:'blaze',          strength:3, type:'lineage' },
+  { from:'paradise_garage', to:'blaze',          strength:2, type:'influence' },
+  { from:'kerri_chandler',  to:'blaze',          strength:2, type:'aesthetic' },
+  { from:'masters_at_work', to:'blaze',          strength:2, type:'aesthetic' },
 ];

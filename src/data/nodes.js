@@ -4972,4 +4972,36 @@ export const NODES = [
       { title: '"Bar A Thym"', year: 1994 },
       { title: '"Rain"', year: 1994 },
     ]},
+
+  // ── CYBOTRON ──────────────────────────────────────────────────────────────
+  { id:'cybotron', label:'Cybotron', type:'artist', genre:'detroit', era:1981, city:'Detroit', country:'US',
+    desc:'Cybotron was the duo of Juan Atkins and Rik Davis, formed in the Detroit area in the early 1980s. Their recordings sit at the junction of electro, funk, and the European synthesiser music that Atkins had absorbed through Kraftwerk and Giorgio Moroder — the same fusion that would produce Detroit techno, but arrived at here before the genre had a name. "Alleys of Your Mind" (1981, Deep Space Records) was their debut, a hard, cold piece of drum-machine funk. "Clear" (1983, Fantasy Records) became their most widely circulated record, its grid-locked percussion and descending synthesiser figure heard across clubs in Detroit, Chicago, and New York. When Davis and Atkins parted ways in 1985, Atkins continued as Model 500 on his own Metroplex label, translating the Cybotron sound into what became the template for Detroit techno.',
+    releases: [
+      { title: '"Alleys of Your Mind"', year: 1981 },
+      { title: '"Clear"', year: 1983 },
+      { title: '"Techno City"', year: 1984 },
+    ]},
+
+  // ── INNER CITY ────────────────────────────────────────────────────────────
+  { id:'inner_city', label:'Inner City', type:'artist', genre:'detroit', era:1988, city:'Detroit', country:'US',
+    desc:'Inner City is the project of Kevin Saunderson and vocalist Paris Grey, formed in Detroit in 1988. Where Saunderson\'s earlier techno productions were functional and floor-focused, Inner City reached toward a more song-oriented sound — "Big Fun" and "Good Life", both released in 1988 on the Ten label in the UK and distributed through Network Records, crossed into mainstream chart positions in Britain and Europe, becoming among the first Detroit-derived records to achieve significant commercial reach. The warm, gospel-touched vocal performances of Paris Grey gave the project a distinct identity from the colder textures of contemporaneous Detroit techno. Inner City made the case that the Detroit sound could carry radio-friendly emotion without losing its structural integrity.',
+    releases: [
+      { title: '"Big Fun"', year: 1988 },
+      { title: '"Good Life"', year: 1988 },
+      { title: '"Pennies from Heaven"', year: 1992 },
+    ]},
+
+  // ── FRANKIE BONES ─────────────────────────────────────────────────────────
+  { id:'frankie_bones', label:'Frankie Bones', type:'artist', genre:'rave', era:1989, city:'New York', country:'US',
+    desc:'Frankie Bones is a Brooklyn-born DJ who played a documented role in the transmission of UK rave culture to the United States. After travelling to the UK in 1989 and experiencing the acid house and rave scene firsthand — including performing at events alongside the UK\'s leading DJs — he returned to New York and began organising Storm Rave events in Brooklyn from 1990 onward, adapting the energy and format of the UK warehouse party to the American context. He is frequently cited as the person who coined the phrase PLUR — Peace, Love, Unity, Respect — as a guiding ethos for the rave community. His role was logistical and cultural as much as musical: he built the infrastructure of the US east coast rave scene at a point when there was none.',
+    releases: [
+      { title: 'Storm Rave series (events)', year: 1990 },
+    ]},
+
+  // ── BLAZE ─────────────────────────────────────────────────────────────────
+  { id:'blaze', label:'Blaze', type:'artist', genre:'deep', era:1990, city:'Newark', country:'US',
+    desc:'Blaze is the Newark, New Jersey duo of Josh Milan and Kevin Hedge, whose records from the early 1990s brought a gospel-saturated warmth to deep house that set them apart from the more austere end of the genre. Their signature track "Lovelee Dae" (1990) — built on piano chords, a spoken vocal, and a rhythm that breathes rather than drives — became one of the most sampled and re-released tracks in the deep house tradition, demonstrating a staying power rooted in emotional directness rather than formal complexity. Milan and Hedge grew up in church communities in New Jersey and made no attempt to separate that musical inheritance from their club output. Blaze represented the gospel-house axis of the NYC/NJ scene with a consistency matched by few of their contemporaries.',
+    releases: [
+      { title: '"Lovelee Dae"', year: 1990 },
+    ]},
 ];
