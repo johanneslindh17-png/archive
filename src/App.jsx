@@ -1928,14 +1928,11 @@ export default function App() {
             if (!hasNodes) return null;
             const screenX = svgCenterX * tf.k + tf.x;
             if (screenX < -300 || screenX > window.innerWidth + 300) return null;
-            const parts = r.label.toUpperCase().split(' / ');
             return (
               <div key={key} className="column-header-label"
                 style={{ left: screenX, cursor: 'pointer' }}
                 onClick={() => doExpand(key)}>
-                {parts.length > 1
-                  ? parts.map((p, i) => <span key={i} style={{ display:'block', lineHeight:'1.15' }}>{p}</span>)
-                  : r.label.toUpperCase()}
+                {r.label.toUpperCase()}
               </div>
             );
           })}

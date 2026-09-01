@@ -47,19 +47,19 @@ export const GENRES = {
 };
 
 export const REGIONS = {
-  'LATAM': {label:'S. America / Mexico', order:0},
-  'CA':    {label:'Canada',          order:1},
-  'US':    {label:'United States',   order:2},
+  'LATAM': {label:'Lat. America',      order:0},
+  'CA':    {label:'Canada',            order:1},
+  'US':    {label:'United States',     order:2},
   'WEUR':  {label:'W. Europe',         order:3},
   'SEUR':  {label:'S. Europe',         order:4},
   'FR':    {label:'France',            order:5},
-  'BENELUX':{label:'Belgium / NL',    order:6},
+  'BENELUX':{label:'Benelux',          order:6},
   'DE':    {label:'Germany',           order:7},
   'UK':    {label:'United Kingdom',    order:8},
   'SCAND': {label:'Scandinavia',       order:9},
-  'EEUR':  {label:'E. Europe',          order:10},
+  'EEUR':  {label:'E. Europe',         order:10},
   'AFRICA':{label:'Africa',            order:11},
-  'ASIA':  {label:'Asia / Pacific',    order:12},
+  'ASIA':  {label:'Asia-Pacific',      order:12},
 };
 
 export const REGION_COUNT = Object.keys(REGIONS).length;
