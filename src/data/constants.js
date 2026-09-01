@@ -47,7 +47,7 @@ export const GENRES = {
 };
 
 export const REGIONS = {
-  'LATAM': {label:'Latin America / Mexico', order:0},
+  'LATAM': {label:'S. America / Mexico', order:0},
   'CA':    {label:'Canada',          order:1},
   'US':    {label:'United States',   order:2},
   'WEUR':  {label:'W. Europe',         order:3},
