@@ -292,7 +292,7 @@ const TOUR_STEPS = [
   {
     id: 'map',
     title: 'A LIVING MAP',
-    body: 'Welcome. Six decades of electronic music — 650+ artists, labels, clubs, and pivotal moments, all connected by real, documented lines of influence and lineage. Take your time.',
+    body: 'Welcome. Six decades of electronic music — 770+ artists, labels, clubs, and pivotal moments, all connected by documented lines of influence and lineage. Take your time.',
     getTarget: () => null,
     cardSide: 'center',
     onEnter: null,
@@ -1501,8 +1501,11 @@ export default function App() {
     const isHovPrev = !isSel && !isHovSelf && (hovHlIds?.has(n.id) ?? false) && !(isHl && hovIsSel);
     const isHovPrevDim = isHovPrev && isDim; // text pulse only when node is currently dimmed
     const charW = 4.3, pad = 4;
-    const isNotch = n.type === 'style' || n.type === 'moment' || n.type === 'culture';
-    const bw = n.label.length * charW + pad * 2 + (isNotch ? 8 : 0); // extra width so notch doesn't bite into text
+    const isMoment  = n.type === 'moment';
+    const isStyle   = n.type === 'style';
+    const isCulture = n.type === 'culture';
+    const isNotch   = isMoment;
+    const bw = n.label.length * charW + pad * 2 + (isNotch ? 8 : (isStyle || isCulture) ? 6 : 0);
     const bh = 13;
     const dm = darkMode;
     const tc = getThemeColors(n, colorTheme, dm);
@@ -1543,6 +1546,15 @@ export default function App() {
     const ntchPts  = `${-hw},${-hh} ${hw},${-hh} ${hw},${-ni} ${hw-nd},0 ${hw},${ni} ${hw},${hh} ${-hw},${hh} ${-hw},${ni} ${-hw+nd},0 ${-hw},${-ni}`;
     const ntchPtsO = `${-hw-1},${-hh-1} ${hw+1},${-hh-1} ${hw+1},${-ni-1} ${hw-nd+1},0 ${hw+1},${ni+1} ${hw+1},${hh+1} ${-hw-1},${hh+1} ${-hw-1},${ni+1} ${-hw+nd-1},0 ${-hw-1},${-ni-1}`;
 
+    // ── Rightward chevron (style): arrow pointing right ──────────────────────
+    const at = 4; // arrow tip depth
+    const stylePts  = `${-hw},${-hh} ${hw-at},${-hh} ${hw},0 ${hw-at},${hh} ${-hw},${hh}`;
+    const stylePtsO = `${-hw-1},${-hh-1} ${hw-at+1},${-hh-1} ${hw+1},0 ${hw-at+1},${hh+1} ${-hw-1},${hh+1}`;
+
+    // ── Leftward banner (culture): flag pointing left ─────────────────────────
+    const cultPts  = `${-hw+at},${-hh} ${hw},${-hh} ${hw},${hh} ${-hw+at},${hh} ${-hw},0`;
+    const cultPtsO = `${-hw+at-1},${-hh-1} ${hw+1},${-hh-1} ${hw+1},${hh+1} ${-hw+at-1},${hh+1} ${-hw-1},0`;
+
     // ── Folded corner (channel): single chamfered top-right corner ─────────────
     const fc = 5; // fold size
     const chanPts  = `${-hw},${-hh} ${hw-fc},${-hh} ${hw},${-hh+fc} ${hw},${hh} ${-hw},${hh}`;
@@ -1553,23 +1565,29 @@ export default function App() {
     const isChan   = n.type === 'channel';
 
     const renderBg = () =>
-      isArtist ? <rect className="nd-bg" x={-hw-1} y={-hh-1} width={bw+2} height={bh+2} rx={9} fill={bgFill} stroke="none" />
+      isArtist  ? <rect className="nd-bg" x={-hw-1} y={-hh-1} width={bw+2} height={bh+2} rx={9} fill={bgFill} stroke="none" />
       : isLabel  ? <polygon className="nd-bg" points={octPtsO} fill={bgFill} stroke="none" />
       : isNotch  ? <polygon className="nd-bg" points={ntchPtsO} fill={bgFill} stroke="none" />
+      : isStyle  ? <polygon className="nd-bg" points={stylePtsO} fill={bgFill} stroke="none" />
+      : isCulture? <polygon className="nd-bg" points={cultPtsO} fill={bgFill} stroke="none" />
       : isChan   ? <polygon className="nd-bg" points={chanPtsO} fill={bgFill} stroke="none" />
       :            <rect className="nd-bg" x={-hw-1} y={-hh-1} width={bw+2} height={bh+2} rx={3} fill={bgFill} stroke="none" />;
 
     const renderBorder = () =>
-      isArtist ? <rect className="nd-border" x={-hw} y={-hh} width={bw} height={bh} rx={8} fill={fillColor} stroke={strokeColor} strokeWidth={strokeW} />
+      isArtist  ? <rect className="nd-border" x={-hw} y={-hh} width={bw} height={bh} rx={8} fill={fillColor} stroke={strokeColor} strokeWidth={strokeW} />
       : isLabel  ? <polygon className="nd-border" points={octPts} fill={fillColor} stroke={strokeColor} strokeWidth={strokeW} />
       : isNotch  ? <polygon className="nd-border" points={ntchPts} fill={fillColor} stroke={strokeColor} strokeWidth={strokeW} />
+      : isStyle  ? <polygon className="nd-border" points={stylePts} fill={fillColor} stroke={strokeColor} strokeWidth={strokeW} />
+      : isCulture? <polygon className="nd-border" points={cultPts} fill={fillColor} stroke={strokeColor} strokeWidth={strokeW} />
       : isChan   ? <polygon className="nd-border" points={chanPts} fill={fillColor} stroke={strokeColor} strokeWidth={strokeW} />
       :            <rect className="nd-border" x={-hw} y={-hh} width={bw} height={bh} rx={2} fill={fillColor} stroke={strokeColor} strokeWidth={strokeW} />;
 
     const renderMarch = (cls, stroke) =>
-      isArtist ? <rect className={cls} x={-hw-1} y={-hh-1} width={bw+2} height={bh+2} rx={9} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="2 11" />
+      isArtist  ? <rect className={cls} x={-hw-1} y={-hh-1} width={bw+2} height={bh+2} rx={9} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="2 11" />
       : isLabel  ? <polygon className={cls} points={octPtsO} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="2 11" />
       : isNotch  ? <polygon className={cls} points={ntchPtsO} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="2 11" />
+      : isStyle  ? <polygon className={cls} points={stylePtsO} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="2 11" />
+      : isCulture? <polygon className={cls} points={cultPtsO} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="2 11" />
       : isChan   ? <polygon className={cls} points={chanPtsO} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="2 11" />
       :            <rect className={cls} x={-hw-1} y={-hh-1} width={bw+2} height={bh+2} rx={3} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="2 11" />;
 
@@ -1803,8 +1821,12 @@ export default function App() {
                     ? <rect x={1} y={1} width={W-2} height={H-2} rx={1.5} fill="none" stroke={swatch} strokeWidth={1.2} />
                     : type === 'channel'
                     ? <polygon points={`1,1 ${W-1-fc},1 ${W-1},${1+fc} ${W-1},${H-1} 1,${H-1}`} fill="none" stroke={swatch} strokeWidth={1.2} />
-                    : /* notch (style/moment/culture) */
-                      <polygon points={`1,1 ${W-1},1 ${W-1},${hh-ni} ${W-1-nd},${hh} ${W-1},${hh+ni} ${W-1},${H-1} 1,${H-1} 1,${hh+ni} ${1+nd},${hh} 1,${hh-ni}`} fill="none" stroke={swatch} strokeWidth={1.2} />;
+                    : type === 'moment'
+                    ? <polygon points={`1,1 ${W-1},1 ${W-1},${hh-ni} ${W-1-nd},${hh} ${W-1},${hh+ni} ${W-1},${H-1} 1,${H-1} 1,${hh+ni} ${1+nd},${hh} 1,${hh-ni}`} fill="none" stroke={swatch} strokeWidth={1.2} />
+                    : type === 'style'
+                    ? <polygon points={`1,1 ${W-1-fc},1 ${W-1},${hh} ${W-1-fc},${H-1} 1,${H-1}`} fill="none" stroke={swatch} strokeWidth={1.2} />
+                    : /* culture: leftward banner */
+                      <polygon points={`${1+fc},1 ${W-1},1 ${W-1},${H-1} ${1+fc},${H-1} 1,${hh}`} fill="none" stroke={swatch} strokeWidth={1.2} />;
                   return (
                     <div key={type} className="leg-type-row">
                       <svg width={W} height={H} style={{ flexShrink:0, overflow:'visible' }}>{shapeEl}</svg>
@@ -2250,26 +2272,34 @@ export default function App() {
               chipText   = darkMode ? '#e0ddd8' : '#0a0a0a';
             }
             const CW = 5.5, CP = 7, CBH = 17;
-            const isNotchT = key === 'style' || key === 'moment' || key === 'culture';
-            const isLblT   = key === 'label';
-            const isArtT   = key === 'artist';
-            const isChanT  = key === 'channel';
-            const cbw  = label.length * CW + CP * 2 + (isNotchT ? 10 : 0);
+            const isMomentT = key === 'moment';
+            const isStyleT  = key === 'style';
+            const isCultT   = key === 'culture';
+            const isLblT    = key === 'label';
+            const isArtT    = key === 'artist';
+            const isChanT   = key === 'channel';
+            const cbw  = label.length * CW + CP * 2 + (isMomentT ? 10 : (isStyleT || isCultT) ? 8 : 0);
             const chw  = cbw / 2, chh = CBH / 2;
-            const coc = 5, cnd = 4, cni = 5, cfc = 6;
+            const coc = 5, cnd = 4, cni = 5, cfc = 6, cat = 5;
             const svgW = cbw + 4, svgH = CBH + 4;
             const ccx = svgW / 2, ccy = svgH / 2;
             const octP  = `${-chw+coc},${-chh} ${chw-coc},${-chh} ${chw},${-chh+coc} ${chw},${chh-coc} ${chw-coc},${chh} ${-chw+coc},${chh} ${-chw},${chh-coc} ${-chw},${-chh+coc}`;
             const ntchP = `${-chw},${-chh} ${chw},${-chh} ${chw},${-cni} ${chw-cnd},0 ${chw},${cni} ${chw},${chh} ${-chw},${chh} ${-chw},${cni} ${-chw+cnd},0 ${-chw},${-cni}`;
             const chanP = `${-chw},${-chh} ${chw-cfc},${-chh} ${chw},${-chh+cfc} ${chw},${chh} ${-chw},${chh}`;
+            const styleP= `${-chw},${-chh} ${chw-cat},${-chh} ${chw},0 ${chw-cat},${chh} ${-chw},${chh}`;
+            const cultP = `${-chw+cat},${-chh} ${chw},${-chh} ${chw},${chh} ${-chw+cat},${chh} ${-chw},0`;
             const shEl = isArtT
               ? <rect x={-chw} y={-chh} width={cbw} height={CBH} rx={8} fill={chipFill} stroke={chipStroke} strokeWidth={0.75} />
               : isLblT
-              ? <polygon points={octP}  fill={chipFill} stroke={chipStroke} strokeWidth={0.75} />
-              : isNotchT
-              ? <polygon points={ntchP} fill={chipFill} stroke={chipStroke} strokeWidth={0.75} />
+              ? <polygon points={octP}   fill={chipFill} stroke={chipStroke} strokeWidth={0.75} />
+              : isMomentT
+              ? <polygon points={ntchP}  fill={chipFill} stroke={chipStroke} strokeWidth={0.75} />
+              : isStyleT
+              ? <polygon points={styleP} fill={chipFill} stroke={chipStroke} strokeWidth={0.75} />
+              : isCultT
+              ? <polygon points={cultP}  fill={chipFill} stroke={chipStroke} strokeWidth={0.75} />
               : isChanT
-              ? <polygon points={chanP} fill={chipFill} stroke={chipStroke} strokeWidth={0.75} />
+              ? <polygon points={chanP}  fill={chipFill} stroke={chipStroke} strokeWidth={0.75} />
               : <rect x={-chw} y={-chh} width={cbw} height={CBH} rx={2} fill={chipFill} stroke={chipStroke} strokeWidth={0.75} />;
             return (
               <button
@@ -2352,7 +2382,7 @@ export default function App() {
           <div className="onboard-modal">
             <div className="onboard-wordmark">ARCHIVE</div>
             <div className="onboard-pitch">
-              Six decades of electronic music, mapped from the inside. 650+ artists, labels, clubs, and pivotal moments — all connected by real influence, collaboration, and lineage. Explore freely, or let us show you around.
+              Six decades of electronic music, mapped by the community itself. 770+ artists, labels, clubs, and pivotal moments — all connected by documented lines of influence, collaboration, and lineage. Explore freely, or let us show you around.
             </div>
             <div className="onboard-btns">
               <button className="onboard-btn-primary" onClick={dismissOnboard}>Start exploring</button>
