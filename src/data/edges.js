@@ -2373,7 +2373,6 @@
   // ── DJ INTERNATIONAL RECORDS ──────────────────────────────────────────────
   { from:'chicago_scene',   to:'dj_international', strength:3, type:'lineage' },
   { from:'knuckles',        to:'dj_international', strength:2, type:'roster' },
-  { from:'marshall_jefferson', to:'dj_international', strength:2, type:'roster' },
   { from:'dj_international', to:'trax',         strength:2, type:'aesthetic' },
 
   // ── MINISTRY OF SOUND ─────────────────────────────────────────────────────
@@ -2632,7 +2631,6 @@
 
   // ── FRONT 242 ─────────────────────────────────────────────────────────────
   { from:'ebm',              to:'front_242',      strength:3, type:'lineage' },
-  { from:'throbbing_gristle', to:'front_242',     strength:3, type:'lineage' },
   { from:'front_242',        to:'detroit_scene',  strength:2, type:'influence' },
   { from:'front_242',        to:'underground_resistance', strength:2, type:'influence' },
 
@@ -2649,7 +2647,6 @@
   { from:'daf',              to:'liaisons_dangereuses', strength:3, type:'lineage' },
 
   // ── LIAISONS DANGEREUSES ──────────────────────────────────────────────────
-  { from:'daf',              to:'liaisons_dangereuses', strength:3, type:'lineage' },
   { from:'liaisons_dangereuses', to:'chicago_scene', strength:2, type:'influence' },
   { from:'liaisons_dangereuses', to:'detroit_scene', strength:2, type:'influence' },
 
@@ -2775,11 +2772,7 @@
   // -- FACTORY RECORDS ---------------------------------------------------
   { from:'factory_records', to:'summer_of_love',    strength:2, type:'lineage' },
 
-  // -- XL RECORDINGS ----------------------------------------------------
-  { from:'xl_recordings',   to:'basement_jaxx',     strength:3, type:'roster' },
-
   // -- DEPECHE MODE ------------------------------------------------------
-  { from:'mute_records',    to:'depeche_mode',      strength:3, type:'roster' },
   { from:'ebm',             to:'depeche_mode',      strength:2, type:'influence' },
 
   // -- SUICIDE -----------------------------------------------------------
@@ -2795,7 +2788,6 @@
   { from:'the_black_dog',   to:'global_communications', strength:2, type:'aesthetic' },
 
   // -- THE BLACK DOG -------------------------------------------------------
-  { from:'warp',            to:'the_black_dog',     strength:3, type:'roster' },
   { from:'detroit_scene',   to:'the_black_dog',     strength:2, type:'influence' },
 
   // -- GILLES PETERSON ---------------------------------------------------

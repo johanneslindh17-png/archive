@@ -5358,13 +5358,6 @@ export const NODES = [
       { title: '76:14 (album)', year: 1994 },
     ]},
 
-  { id:'the_black_dog', label:'The Black Dog', type:'artist', genre:'experimental', era:1989, city:'Sheffield', country:'UK',
-    desc:'The Black Dog is a Sheffield electronic music project, initially comprising Ken Downie, Martin Dust, and Ed Handley. Signed to Warp Records, they released "Bytes" (1993, as Black Dog Productions) and "Temple of Transparent Balls" (1993), producing techno and IDM that occupied a space between the physical demands of the dancefloor and the structural complexity of experimental composition. Handley and Dust subsequently left to form Plaid, another Warp act; Downie continued under The Black Dog name. The project represents Sheffield\'s contribution to the Warp Records aesthetic — geographically adjacent to the industrial music of Cabaret Voltaire and the pop intelligence of the Human League, but pointed toward a different future.',
-    releases: [
-      { title: 'Bytes (album)', year: 1993 },
-      { title: 'Temple of Transparent Balls (album)', year: 1993 },
-    ]},
-
   { id:'gilles_peterson', label:'Gilles Peterson', type:'artist', genre:'experimental', era:1987, city:'London', country:'UK',
     desc:'Gilles Peterson — born 28 September 1964 in Paris, raised in Epsom, Surrey — is a DJ, broadcaster, and record label founder who has operated at the intersection of jazz, soul, broken beat, world music, and electronic music for four decades. He founded Talkin\' Loud Records in 1990 and Brownswood Recordings in 2006, using both as platforms for music that does not fit neatly into existing commercial categories. His radio programmes — on pirate stations, then BBC Radio 1, then BBC Radio 6 Music, and latterly on his own Worldwide FM — have introduced generations of listeners to music they would not otherwise have encountered. Peterson\'s career demonstrates the possibility of a taste-making role that operates independently of industry structures.',
     releases: [] },
