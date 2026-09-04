@@ -3652,7 +3652,7 @@ export const NODES = [
   { id:'the_black_dog', label:'The Black Dog', type:'artist', genre:'experimental', era:1989, city:'Sheffield', country:'UK',
     desc:'The Black Dog formed in Sheffield in 1989 with Ken Downie, Ed Handley, and Andy Turner. They were among the first artists on Warp Records, releasing a series of twelve-inches and the landmark album "Bytes" (1993) — credited to Black Dog Productions and featuring Plaid — that helped define the IDM aesthetic. Handley and Turner left to form Plaid; Downie continued as The Black Dog, maintaining a prolific output across subsequent decades. The group is a direct lineage node between Sheffield\'s industrial heritage, Warp\'s early bleep sound, and the fully formed IDM tradition.',
     releases: [
-      { title: 'Bytes — Black Dog Productions (Warp)', year: 1993 },
+      { title: 'Bytes — Black Dog Productions (Warp)', year: 1993, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/d/d8/Blackdog_bytes_cover.jpg' },
       { title: 'Spanners (Warp)', year: 1995 },
       { title: 'Further Vexations (Dust Science)', year: 2008 },
     ]},
@@ -5126,13 +5126,13 @@ export const NODES = [
   { id:'king_tubby', label:'King Tubby', type:'artist', genre:'experimental', era:1968, city:'Kingston', country:'JM',
     desc:'King Tubby — born Osbourne Ruddock on 28 January 1941 in Kingston, Jamaica — invented dub music by treating the recording studio\'s mixing desk as a compositional instrument. Working at his studio in Waterhouse, Kingston, he developed a practice of stripping tracks back to their rhythmic foundations and reintroducing elements — bass, drums, vocal fragments — through echo, reverb, and fader manipulation, creating new versions of existing recordings that foregrounded process and texture over song. His work with Augustus Pablo, Lee "Scratch" Perry, and many others produced hundreds of dub recordings through the 1970s. "King Tubby Meets the Rockers Uptown" (1976, Clocktower Records) is among the most celebrated. He was shot and killed in Kingston on 6 February 1989. The influence of his studio methodology on all subsequent forms of remix culture — from house to techno to hip hop — is structural and continuous.',
     releases: [
-      { title: 'King Tubby Meets the Rockers Uptown', year: 1976 },
+      { title: 'King Tubby Meets the Rockers Uptown', year: 1976, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/c/c7/AugustusPablo-KingTubbyMeetsRockersUptown.jpg' },
     ]},
 
   { id:'lee_scratch_perry', label:'Lee "Scratch" Perry', type:'artist', genre:'experimental', era:1966, city:'Kingston', country:'JM',
     desc:'Lee "Scratch" Perry — born Rainford Hugh Perry on 20 March 1936 in Kendal, Jamaica, died 29 August 2021 — was a producer, songwriter, and conceptual artist whose work at his Black Ark studio in Washington Gardens, Kingston, from 1974 to 1979 produced some of the most influential recordings in the history of recorded music. He worked with The Wailers before their Island Records period, and produced records for Max Romeo, Junior Murvin, the Congos, and many others, developing a studio aesthetic built on dense layering, found sounds, and effects processing that anticipated much of what would later be called experimental production. When he burned down the Black Ark in 1979 he effectively ended one of music\'s most productive studios. He continued working and performing until shortly before his death at 85.',
     releases: [
-      { title: 'Super Ape (album)', year: 1976 },
+      { title: 'Super Ape (album)', year: 1976, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/4/46/TheUpsetters-SuperApe.jpg' },
       { title: '"Police and Thieves" — Junior Murvin', year: 1976 },
     ]},
 
@@ -5142,7 +5142,7 @@ export const NODES = [
     desc:'Fela Anikulapo Kuti — born 15 October 1938 in Abeokuta, Nigeria, died 2 June 1997 — created Afrobeat: a music that combined the rhythmic density of West African highlife and traditional music with the harmonic language of American jazz and funk, and set it beneath explicitly political lyrics directed at Nigerian military governments and at Western imperialism. He ran the Kalakuta Republic commune in Lagos and the Afrika Shrine club, both of which the Nigerian military repeatedly raided and destroyed. His drummer Tony Allen was integral to the Afrobeat sound. Key albums including "Zombie" (1977), "Expensive Shit" (1975), and "Music of Many Colours" (with Roy Ayers, 1980) document a career that was as much political practice as musical output. His influence on global club music — through sampling, direct influence on Afrohouse and Afrobeats, and his structural approach to extended groove — continues to grow.',
     releases: [
       { title: 'Expensive Shit (album)', year: 1975 },
-      { title: 'Zombie (album)', year: 1977 },
+      { title: 'Zombie (album)', year: 1977, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/f/f5/FelaZombie.jpg' },
     ]},
 
   { id:'tony_allen', label:'Tony Allen', type:'artist', genre:'experimental', era:1969, city:'Lagos', country:'NG',
@@ -5183,13 +5183,13 @@ export const NODES = [
     releases: [
       { title: 'Fantastic Vol. 2 — Slum Village', year: 2000 },
       { title: 'Ruff Draft (album)', year: 2003 },
-      { title: 'Donuts (album)', year: 2006 },
+      { title: 'Donuts (album)', year: 2006, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/1/14/Dilladonutscover.jpg' },
     ]},
 
   { id:'slum_village', label:'Slum Village', type:'artist', genre:'experimental', era:1996, city:'Detroit', country:'US',
     desc:'Slum Village is the Detroit hip hop group formed by J Dilla (James Yancey), T3 (Dion Griffin), and Baatin (Jason Holder). Their early recordings — circulated as the "Fan-Tas-Tic" cassette series from 1996 before official release — established a sound in which J Dilla\'s production style and the group\'s understated vocal delivery created a template for Detroit hip hop that was influential on the wider neo-soul and alternative hip hop movements of the late 1990s and 2000s. The official release of "Fantastic Vol. 2" (2000, Barak Records) brought the group wider recognition. Baatin died in 2009. Slum Village represents the point where Detroit\'s creative community — primarily associated with techno — produced a parallel hip hop lineage of equal sophistication.',
     releases: [
-      { title: 'Fantastic Vol. 2 (album)', year: 2000 },
+      { title: 'Fantastic Vol. 2 (album)', year: 2000, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/SV_fantastic.jpg/330px-SV_fantastic.jpg' },
       { title: 'Trinity (album)', year: 2002 },
     ]},
 
@@ -5201,13 +5201,13 @@ export const NODES = [
     desc:'Madlib — born Otis Jackson Jr. on 24 October 1973 in Oxnard, California — is one of the most prolific and formally inventive producers in hip hop. Working under dozens of aliases — including Quasimoto, Yesterdays New Quintet, Beat Konducta, and others — he has built a body of work that ranges from jazz-influenced instrumental music to raw sample-based hip hop, drawing equally from West African records, Brazilian tropicália, Japanese jazz, and American funk. His album "The Unseen" (2000, Stones Throw) as Quasimoto and his collaboration with MF DOOM as Madvillain — "Madvillainy" (2004, Stones Throw) — are among the most celebrated records in the genre. He has remained consistently prolific while maintaining a deliberately uncommercial stance.',
     releases: [
       { title: 'The Unseen — Quasimoto (album)', year: 2000 },
-      { title: 'Madvillainy — Madvillain (album)', year: 2004 },
+      { title: 'Madvillainy — Madvillain (album)', year: 2004, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/5/5e/Madvillainy_cover.png' },
     ]},
 
   { id:'mf_doom', label:'MF DOOM', type:'artist', genre:'experimental', era:1999, city:'New York', country:'US',
     desc:'MF DOOM — born Daniel Dumile on 9 January 1971 in London, raised on Long Island, died 31 December 2020 — was a rapper, producer, and conceptual artist who operated through a series of masked personas and aliases across a career that began in the early 1990s with the group KMD. After the shelving of KMD\'s second album "Black Bastards" (1993) and a period of homelessness, he returned to recording in 1999 with "Operation Doomsday" (Fondle \'Em Records), wearing a metal mask modelled on Marvel\'s Doctor Doom and developing a lyrical approach in which internal rhyme schemes, obscure cultural references, and self-referential loops created a distinctive density. His collaboration with Madlib, "Madvillainy" (2004, Stones Throw), is widely considered among the finest hip hop albums. He continued releasing music under multiple aliases until his death.',
     releases: [
-      { title: 'Operation Doomsday (album)', year: 1999 },
+      { title: 'Operation Doomsday (album)', year: 1999, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/0/03/MF-DOOM-Operation.jpeg' },
       { title: 'Madvillainy — Madvillain (album)', year: 2004 },
       { title: 'Mm.. Food (album)', year: 2004 },
     ]},
@@ -5216,7 +5216,7 @@ export const NODES = [
     desc:'Nujabes — born Jun Seba on 7 February 1974 in Tokyo, died 26 February 2010 in a traffic accident — was a Japanese producer whose work synthesised jazz harmony, soul sampling, and hip hop rhythm into a sound that became the reference point for an entire strain of introspective, melodically rich beat music. His two main albums, "Metaphorical Music" (2003) and "Modal Soul" (2005), both released on his own Hydeout Productions label, established an aesthetic that proved remarkably durable — spreading through the internet in the years after his death into a global audience far larger than the one he had in his lifetime. His music for the anime "Samurai Champloo" (2004, with Fat Jon) brought his sound to a wider audience. He and J Dilla shared a birthday — 7 February 1974 — a coincidence that has become part of both artists\' mythology.',
     releases: [
       { title: 'Metaphorical Music (album)', year: 2003 },
-      { title: 'Modal Soul (album)', year: 2005 },
+      { title: 'Modal Soul (album)', year: 2005, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/5/56/ModalMusic.jpg' },
     ]},
 
   // ── UK ELECTRONIC / BIG BEAT ──────────────────────────────────────────────
@@ -5232,7 +5232,7 @@ export const NODES = [
   { id:'basement_jaxx', label:'Basement Jaxx', type:'artist', genre:'deep', era:1994, city:'London', country:'UK',
     desc:'Basement Jaxx — Simon Ratcliffe and Felix Buxton — formed in Brixton, South London in the early 1990s, initially running a club night in Brixton and releasing records on their own Atlantic Jaxx label before signing to XL Recordings. Their debut album "Remedy" (1999, XL Recordings) arrived as one of the most joyful and genre-agnostic records in British electronic music: house, garage, R&B, samba, bhangra, and rave all appeared within it without apology or forced coherence, unified by a shared energy and a genuine commitment to dancefloor function. Subsequent albums including "Rooty" (2001) and "Kish Kash" (2003) maintained this eclecticism. Basement Jaxx represent the point where UK house music abandoned genre purity in favour of an inclusive, maximalist approach.',
     releases: [
-      { title: 'Remedy (album)', year: 1999 },
+      { title: 'Remedy (album)', year: 1999, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/4/4c/Basement_Jaxx_-_Remedy_album_cover.jpeg' },
       { title: 'Rooty (album)', year: 2001 },
       { title: 'Kish Kash (album)', year: 2003 },
     ]},
@@ -5241,7 +5241,7 @@ export const NODES = [
     desc:'Fatboy Slim is the principal alias of Norman Cook, born in 1963 and based in Brighton. Cook had worked in earlier groups — The Housemartins, Beats International, Freak Power — before developing the Fatboy Slim persona as a vehicle for a harder, sample-based big beat sound. "Better Living Through Chemistry" (1996, Skint Records) established the template; "You\'ve Come a Long Way, Baby" (1998, Skint) was the commercial breakthrough, containing "Rockafeller Skank", "Praise You", and "Right Here, Right Now". His large-scale open-air events at Brighton Beach in 2002 and 2008 demonstrated that DJ-led events could sustain festival-scale audiences. Fatboy Slim mainstreamed a version of rave culture\'s sensibility without losing the form\'s commitment to dancefloor physicality.',
     releases: [
       { title: 'Better Living Through Chemistry (album)', year: 1996 },
-      { title: 'You\'ve Come a Long Way, Baby (album)', year: 1998 },
+      { title: 'You\'ve Come a Long Way, Baby (album)', year: 1998, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/f/f8/YouveComeALongWayBaby2.jpg' },
     ]},
 
   { id:'mr_scruff', label:'Mr. Scruff', type:'artist', genre:'experimental', era:1996, city:'Manchester', country:'UK',
@@ -5263,7 +5263,7 @@ export const NODES = [
     desc:'Death in Vegas — primarily the project of Richard Fearless, based in London — emerged in the mid-1990s as part of the UK\'s big beat and alternative electronic scene. "Dead Elvis" (1997, Concrete Records) introduced a sound combining drum machine aggression, rock guitar textures, and psychedelic samples that positioned Death in Vegas between the Chemical Brothers\' breakbeat approach and a darker, more confrontational aesthetic. "The Contino Sessions" (1999) featured vocal collaborations with Iggy Pop, Bobby Gillespie, and others, extending the project into a kind of electronic rock that used studio production as its primary instrument. Fearless has continued under the Death in Vegas name, exploring noise, psychedelia, and dark electronic music.',
     releases: [
       { title: 'Dead Elvis (album)', year: 1997 },
-      { title: 'The Contino Sessions (album)', year: 1999 },
+      { title: 'The Contino Sessions (album)', year: 1999, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/1/1c/The_Contino_Sessions.jpg' },
     ]},
 
   // ── UK GARAGE / GRIME ─────────────────────────────────────────────────────
@@ -5293,7 +5293,7 @@ export const NODES = [
   { id:'motorbass', label:'Motorbass', type:'artist', genre:'deep', era:1996, city:'Paris', country:'FR',
     desc:'Motorbass was the Paris duo of Étienne de Crécy and Philippe Zdar. Their 1996 album "Pansoul" (Solid Records) is one of the key documents of the French touch movement — the specific strain of sample-based, filtered house music that emerged from Paris in the mid-1990s and influenced Daft Punk, Cassius, and the broader French house scene. "Pansoul" synthesised Chicago house rhythms, funk and disco samples, and a production aesthetic rooted in warmth and groove rather than formal experimentation. Zdar became one of the most in-demand studio producers of his era, working with Phoenix, Cassius, and The Beastie Boys; he died in 2019. The album\'s influence on French and European dance music was considerable.',
     releases: [
-      { title: 'Pansoul (album)', year: 1996 },
+      { title: 'Pansoul (album)', year: 1996, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/c/c0/Pansoul_cover.png' },
     ]},
 
   { id:'bob_sinclar', label:'Bob Sinclar', type:'artist', genre:'deep', era:1995, city:'Paris', country:'FR',
@@ -5306,7 +5306,7 @@ export const NODES = [
   { id:'dimitri_from_paris', label:'Dimitri from Paris', type:'artist', genre:'deep', era:1994, city:'Paris', country:'FR',
     desc:'Dimitri from Paris — born Dimitri Yerasimos in Istanbul, raised and based in Paris — is a DJ and producer associated with the French house and nu-disco scenes of the 1990s. His debut album "Sacrebleu" (1996) presented a sound that referenced 1970s disco production with affection and precision, filtering it through a contemporary electronic sensibility. He compiled and produced for the Defected Records network and other labels, developing a reputation as a meticulous curator of dance music history across a long career. Where many of his French contemporaries were interested in distorting or ironising their disco influences, Dimitri approached them with relatively straight-faced admiration, maintaining a commitment to warmth and dancefloor functionality.',
     releases: [
-      { title: 'Sacrebleu (album)', year: 1996 },
+      { title: 'Sacrebleu (album)', year: 1996, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/9/98/Dimitri_from_Paris-Sacrebleu_Original_French_Cover.jpg' },
     ]},
 
   // ── KEY LABELS ────────────────────────────────────────────────────────────
@@ -5336,15 +5336,15 @@ export const NODES = [
   { id:'depeche_mode', label:'Depeche Mode', type:'artist', genre:'experimental', era:1980, city:'Basildon', country:'UK',
     desc:'Depeche Mode formed in Basildon, Essex in 1980, initially with Vince Clarke as primary songwriter before Clarke left to form Yazoo and later Erasure. Under the songwriting of Martin Gore and with Dave Gahan as vocalist, the group signed to Mute Records and developed a sound across the 1980s and into the 1990s that moved from synth-pop toward increasingly dark and complex electronic music. "Some Great Reward" (1984), "Music for the Masses" (1987), and "Violator" (1990) trace a trajectory from dance-oriented pop toward something closer to industrial in texture and emotional weight. Depeche Mode are among the most commercially successful acts in Mute\'s history and their influence on electronic body music, dark techno, and goth-adjacent electronic music is substantial.',
     releases: [
-      { title: 'Some Great Reward (album)', year: 1984 },
+      { title: 'Some Great Reward (album)', year: 1984, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/2/2a/Depeche_Mode_-_Some_Great_Reward.png' },
       { title: 'Music for the Masses (album)', year: 1987 },
-      { title: 'Violator (album)', year: 1990 },
+      { title: 'Violator (album)', year: 1990, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/9/92/Depeche_Mode_-_Violator.png' },
     ]},
 
   { id:'suicide_band', label:'Suicide', type:'artist', genre:'experimental', era:1970, city:'New York', country:'US',
     desc:'Suicide — Alan Vega (vocals) and Martin Rev (keyboards/electronics) — formed in New York in 1970 and began performing in the mid-1970s as part of the city\'s punk and no wave underground. Their 1977 self-titled debut album (Red Star Records) is one of the most extreme and influential records of its era: drum machine patterns, distorted electronics, and Vega\'s anguished vocal delivery produced a sound that was simultaneously terrifying and formally rigorous, with almost nothing unnecessary in it. Suicide\'s confrontational performances and their insistence on electronic instrumentation in the context of rock performance made them a direct precedent for industrial, EBM, and the more aggressive ends of electronic music. Alan Vega died in July 2016.',
     releases: [
-      { title: 'Suicide (album)', year: 1977 },
+      { title: 'Suicide (album)', year: 1977, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/2/26/Suicide1977.jpg' },
       { title: '"Dream Baby Dream"', year: 1979 },
     ]},
 
@@ -5355,7 +5355,7 @@ export const NODES = [
   { id:'global_communications', label:'Global Communications', type:'artist', genre:'ambient', era:1992, city:'London', country:'UK',
     desc:'Global Communications is the project of Tom Middleton and Mark Pritchard, who also recorded as Reload, Jedi Knights, and other aliases. Their album "76:14" (1994, Dedicated Records) is one of the landmark documents of ambient electronic music — a record built on long-form development, delicate synthesis, and an emotional directness unusual in ambient music. Pritchard subsequently became one of the most versatile producers in UK electronic music, working across ambient, techno, and bass music. Middleton continued developing the Global Communications material in live and recorded contexts. "76:14" remains the project\'s central document and is frequently cited alongside Aphex Twin\'s "Selected Ambient Works Volume II" as a defining work of ambient electronic music.',
     releases: [
-      { title: '76:14 (album)', year: 1994 },
+      { title: '76:14 (album)', year: 1994, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/0/0d/GC_7614.jpg' },
     ]},
 
   { id:'gilles_peterson', label:'Gilles Peterson', type:'artist', genre:'experimental', era:1987, city:'London', country:'UK',

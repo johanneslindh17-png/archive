@@ -363,9 +363,11 @@ export default function App() {
   useEffect(() => {
     setPhotoColors(null);
     const node = NODES.find(n => n.id === selected);
-    if (!node || !PHOTOS[node.id]) return;
+    if (!node) return;
+    const photoUrl = PHOTOS[node.id]?.url || node.releases?.find(r => r.coverUrl)?.coverUrl;
+    if (!photoUrl) return;
     let cancelled = false;
-    samplePhotoColors(PHOTOS[node.id].url).then(colors => {
+    samplePhotoColors(photoUrl).then(colors => {
       if (!cancelled) setPhotoColors(colors);
     });
     return () => { cancelled = true; };
@@ -2107,46 +2109,58 @@ export default function App() {
                 <div>{GENRES[selNode.genre]?.label || selNode.genre}</div>
               </div>
 
-              {/* Photo */}
-              {PHOTOS[selNode.id] && (
-                <div className="dp-photo-wrap">
-                  <div className="dp-photo-inner">
-                    <img
-                      className="dp-photo"
-                      src={PHOTOS[selNode.id].url}
-                      alt={selNode.label}
-                      loading="lazy"
-                    />
-                    <svg className="dp-photo-frame" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                      {photoColors && (
-                        <defs>
-                          <linearGradient id="dp-pg" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
-                            {photoColors.flatMap((color, i, arr) => {
-                              const pct = n => `${(n / arr.length * 100).toFixed(2)}%`;
-                              return [
-                                <stop key={`${i}a`} offset={pct(i)}   stopColor={color} />,
-                                <stop key={`${i}b`} offset={pct(i+1)} stopColor={color} />,
-                              ];
-                            })}
-                          </linearGradient>
-                        </defs>
-                      )}
-                      <rect
-                        className="dp-frame-dots"
-                        style={photoColors ? { stroke: 'url(#dp-pg)' } : undefined}
+              {/* Photo / album art fallback */}
+              {(() => {
+                const photoEntry = PHOTOS[selNode.id];
+                const coverRelease = !photoEntry && selNode.releases?.find(r => r.coverUrl);
+                const imgUrl = photoEntry?.url || coverRelease?.coverUrl;
+                if (!imgUrl) return null;
+                return (
+                  <div className="dp-photo-wrap">
+                    <div className="dp-photo-inner">
+                      <img
+                        className={`dp-photo${coverRelease ? ' dp-photo--cover' : ''}`}
+                        src={imgUrl}
+                        alt={selNode.label}
+                        loading="lazy"
                       />
-                    </svg>
+                      <svg className="dp-photo-frame" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                        {photoColors && (
+                          <defs>
+                            <linearGradient id="dp-pg" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+                              {photoColors.flatMap((color, i, arr) => {
+                                const pct = n => `${(n / arr.length * 100).toFixed(2)}%`;
+                                return [
+                                  <stop key={`${i}a`} offset={pct(i)}   stopColor={color} />,
+                                  <stop key={`${i}b`} offset={pct(i+1)} stopColor={color} />,
+                                ];
+                              })}
+                            </linearGradient>
+                          </defs>
+                        )}
+                        <rect
+                          className="dp-frame-dots"
+                          style={photoColors ? { stroke: 'url(#dp-pg)' } : undefined}
+                        />
+                      </svg>
+                    </div>
+                    <div className="dp-photo-credit">
+                      {photoEntry ? (
+                        <>
+                          {photoEntry.author && <span>{photoEntry.author} · </span>}
+                          {photoEntry.licenseUrl
+                            ? <a href={photoEntry.licenseUrl} target="_blank" rel="noopener noreferrer">{photoEntry.license}</a>
+                            : <span>{photoEntry.license}</span>
+                          }
+                          {' · Wikimedia Commons'}
+                        </>
+                      ) : (
+                        <span>{coverRelease.title} · Cover art</span>
+                      )}
+                    </div>
                   </div>
-                  <div className="dp-photo-credit">
-                    {PHOTOS[selNode.id].author && <span>{PHOTOS[selNode.id].author} · </span>}
-                    {PHOTOS[selNode.id].licenseUrl
-                      ? <a href={PHOTOS[selNode.id].licenseUrl} target="_blank" rel="noopener noreferrer">{PHOTOS[selNode.id].license}</a>
-                      : <span>{PHOTOS[selNode.id].license}</span>
-                    }
-                    {' · Wikimedia Commons'}
-                  </div>
-                </div>
-              )}
+                );
+              })()}
 
               {/* Description */}
               <div className="dp-desc">{renderDesc(selNode.desc, selNode.id, id => { selectNode(id); scrollToNode(id); })}</div>
