@@ -292,7 +292,7 @@ const TOUR_STEPS = [
   {
     id: 'map',
     title: 'A LIVING MAP',
-    body: 'Welcome. Six decades of electronic music — 770+ artists, labels, clubs, and pivotal moments, all connected by documented lines of influence and lineage. Take your time.',
+    body: 'Welcome. Six decades of electronic music — 780+ artists, labels, clubs, and pivotal moments, all connected by documented lines of influence and lineage. Take your time.',
     getTarget: () => null,
     cardSide: 'center',
     onEnter: null,
@@ -2396,7 +2396,7 @@ export default function App() {
           <div className="onboard-modal">
             <div className="onboard-wordmark">ARCHIVE</div>
             <div className="onboard-pitch">
-              Six decades of electronic music, mapped by the community itself. 770+ artists, labels, clubs, and pivotal moments — all connected by documented lines of influence, collaboration, and lineage. Explore freely, or let us show you around.
+              Six decades of electronic music, mapped by the community itself. 780+ artists, labels, clubs, and pivotal moments — all connected by documented lines of influence, collaboration, and lineage. Explore freely, or let us show you around.
             </div>
             <div className="onboard-btns">
               <button className="onboard-btn-primary" onClick={dismissOnboard}>Start exploring</button>

@@ -2796,4 +2796,37 @@
 
   // -- TALKIN' LOUD -------------------------------------------------------
   { from:'talkin_loud',     to:'brownswood_recordings', strength:3, type:'lineage' },
+
+  // -- GOMMA RECORDS -------------------------------------------------------
+  { from:'disco',           to:'gomma_records',         strength:2, type:'influence' },
+  { from:'gomma_records',   to:'toy_tonics',            strength:3, type:'lineage' },
+  { from:'gomma_records',   to:'phenomenal_handclap_band', strength:3, type:'roster' },
+  { from:'dimitri_from_paris', to:'gomma_records',      strength:2, type:'collaboration' },
+
+  // -- TOY TONICS ----------------------------------------------------------
+  { from:'toy_tonics',      to:'kapote',                strength:3, type:'roster' },
+  { from:'toy_tonics',      to:'coeo',                  strength:3, type:'roster' },
+  { from:'toy_tonics',      to:'cody_currie',           strength:3, type:'roster' },
+  { from:'toy_tonics',      to:'felipe_gordon',         strength:2, type:'roster' },
+  { from:'toy_tonics',      to:'luke_solomon',          strength:2, type:'roster' },
+  { from:'toy_tonics',      to:'phenomenal_handclap_band', strength:2, type:'roster' },
+
+  // -- KAPOTE / MUNK -------------------------------------------------------
+  { from:'gomma_records',   to:'kapote',                strength:3, type:'lineage' },
+  { from:'disco',           to:'kapote',                strength:2, type:'influence' },
+
+  // -- COEO ----------------------------------------------------------------
+  { from:'disco',           to:'coeo',                  strength:3, type:'influence' },
+
+  // -- CODY CURRIE ---------------------------------------------------------
+  { from:'deep_house',      to:'cody_currie',           strength:2, type:'influence' },
+
+  // -- FELIPE GORDON -------------------------------------------------------
+  { from:'disco',           to:'felipe_gordon',         strength:2, type:'influence' },
+
+  // -- LUKE SOLOMON --------------------------------------------------------
+  { from:'derrick_carter',  to:'luke_solomon',          strength:3, type:'collaboration' },
+
+  // -- PHENOMENAL HANDCLAP BAND -------------------------------------------
+  { from:'disco',           to:'phenomenal_handclap_band', strength:3, type:'influence' },
 ];

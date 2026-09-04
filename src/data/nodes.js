@@ -5369,4 +5369,42 @@ export const NODES = [
   { id:'brownswood_recordings', label:'Brownswood Recordings', type:'label', genre:'experimental', era:2006, city:'London', country:'UK',
     desc:'Brownswood Recordings was founded in London in 2006 by Gilles Peterson as the successor to his Talkin\' Loud label. It occupies a broader and more international territory than its predecessor — releasing music from across Africa, Brazil, the UK, and the US that connects jazz, soul, electronic music, and global folk traditions. Key releases and signings have included Esperanza Spalding, Moses Sumney, Yussef Kamaal, and many others. Brownswood\'s annual "We Out Here" compilation series has become a document of the UK jazz revival of the 2010s. The label demonstrates a sustained commitment to music that resists easy categorisation while maintaining a coherent curatorial identity.',
     releases: [] },
+
+  // ─── Toy Tonics cluster ───────────────────────────────────────────────────
+
+  { id:'gomma_records', label:'Gomma Records', type:'label', genre:'experimental', era:2000, city:'Munich', country:'DE',
+    desc:'Gomma Records was founded in Munich in 2000 by Mathias Modica (Munk) and Jonas Imbery after no other label would release their music. The label released indie disco, new wave funk, weird pop, and experimental electronica by artists including Munk, The Phenomenal Handclap Band, Moullinex, WhoMadeWho, Daniel Avery, and Dimitri from Paris. Gomma\'s first release "Pin" (2000), remixed by Jacques Lu Cont, sold out across Europe and the US. The label operated from Munich with a roster drawing from Germany, France, Italy, the UK, and the US. Gomma ceased activities in 2016, with Modica going on to found Toy Tonics and Kryptox. Its catalog has been revisited through Toy Tonics\' "Gomma Dancefloor Gems" compilation series.',
+    releases: [] },
+
+  { id:'toy_tonics', label:'Toy Tonics', type:'label', genre:'disco', era:2012, city:'Berlin', country:'DE',
+    desc:'Toy Tonics was founded in Berlin in 2012 by Mathias Modica (Kapote) as a successor to his Gomma Records label, initially as a sub-label before becoming independent. The label specialises in house and disco infused with live instrumentation — Modica describes the approach as "real piano, guitar and bass, with complex chords and rhythms played by traditional musicians." Key artists include COEO, Rhode + Brown, Cody Currie, The Phenomenal Handclap Band, Luke Solomon, Black Loops, Mangabey, and Felipe Gordon. Toy Tonics releases exclusively on vinyl, with many records reaching thousands of copies sold and frequent represses. The label has developed a distinct visual identity through collaborations with Berlin-based artists, and has released over 100 records.',
+    releases: [] },
+
+  { id:'kapote', label:'Kapote', type:'artist', genre:'disco', era:2012, city:'Berlin', country:'DE',
+    desc:'Kapote is the stage name of Mathias Modica, born 18 March 1977 in Rome, Italy, and based in Berlin. Under his earlier alias Munk, Modica co-founded Gomma Records in Munich in 2000 with Jonas Imbery, releasing records that combined indie disco, funk, and experimental electronics, and collaborating with Peaches, James Murphy and Nancy Whang of LCD Soundsystem, and Franz Ferdinand. He founded Toy Tonics in 2012 as an outlet for house and disco music built around live instrumentation and vinyl-only releases. As Kapote he produces and DJs, running the Toy Tonics label alongside his own recorded output. The Gomma and Toy Tonics catalogs represent two decades of label work connecting European club culture with American house and disco traditions.',
+    releases: [] },
+
+  { id:'coeo', label:'COEO', type:'artist', genre:'disco', era:2013, city:'Munich', country:'DE',
+    desc:'COEO is the Munich-based duo of Florian Vietz and Andreas Höpfl, producing a blend of disco-house built from chopped samples, programmed rhythm, and a melodic sensibility rooted in vintage American and European disco. The duo became one of the core acts of the Toy Tonics label alongside Rhode + Brown and Cody Currie, and have also released on Razor-N-Tape and Let\'s Play House. Their "Tonic Edits" series on Toy Tonics — sample-based reworkings of obscure funk and disco records — became some of the label\'s most in-demand releases, reaching multiple represses. COEO sits within a broader wave of European producers revisiting the dancefloor language of late-1970s disco through contemporary production techniques.',
+    releases: [] },
+
+  { id:'cody_currie', label:'Cody Currie', type:'artist', genre:'deep', era:2015, city:'London', country:'UK',
+    desc:'Cody Currie was born and raised in Leytonstone, East London, to a fashion designer father and a Spanish music writer mother, and studied music at Camberwell Art School before moving to Berlin. His music combines jazz-funk, broken beat, and deep house — shaped by an ear for retro disco licks, chopped keys, and live instrumentation. After meeting Toy Tonics founder Mathias Modica, Currie joined the label and released a sequence of EPs, culminating in his debut album "Lucas" (Toy Tonics, 2022). He has also released on Razor-N-Tape and Dan Shake\'s Shake Records. Currie belongs to a generation of UK-born producers who moved to Berlin and connected with the city\'s growing jazz-oriented club scene.',
+    releases: [
+      { title: 'Lucas (album)', year: 2022 },
+    ]},
+
+  { id:'felipe_gordon', label:'Felipe Gordon', type:'artist', genre:'deep', era:2014, city:'Bogotá', country:'CO',
+    desc:'Felipe Gordon is a producer, multi-instrumentalist, and DJ born and raised in Bogotá, Colombia. As a teenager he played drums and guitar in punk bands before discovering electronic music through artists like Cassius, which led to a lifelong interest in vintage synthesizers. Around 2014 he began self-releasing music on his own Nómada Records imprint, developing a style that fuses jazz samples, flowing pianos, and acid bass lines into house records that also draw on hip-hop and broken beat influences. He later founded Wide Awake Records as a second label outlet. Gordon has released on Toy Tonics, Clone Records, Local Talk, Shall Not Fade, and Razor-N-Tape, and is one of a growing number of Bogotá-based producers building an international profile from South America\'s emerging house music scene.',
+    releases: [] },
+
+  { id:'luke_solomon', label:'Luke Solomon', type:'artist', genre:'deep', era:1993, city:'London', country:'UK',
+    desc:'Luke Solomon is a London-based DJ, producer, and label founder who has operated in house music since the early 1990s. He began DJing while a student at Middlesex University in the early \'90s, and after meeting Derrick Carter, the two co-founded Classic Music Company in London in 1995. Classic released seminal records by Herbert, DJ Sneak, and Gemini and established itself as one of the key deep house labels of the late 1990s. In 1999 Solomon co-founded Music for Freaks with Justin Harris, and the two formed the production duo Freaks, whose records connected deep house with post-punk and jazz influences. Solomon also served as A&R director at Defected Records, and later released on Toy Tonics as part of that label\'s extended international network.',
+    releases: [] },
+
+  { id:'phenomenal_handclap_band', label:'Phenomenal Handclap Band', type:'artist', genre:'disco', era:2008, city:'New York', country:'US',
+    desc:'The Phenomenal Handclap Band is a New York collective formed in the East Village by producer Daniel Collás and DJ Sean Marquand, who had previously produced tracks for veteran soul musicians Joe Bataan and União Black under the name Embassy Sound Productions. Collás assembled a rotating group of musicians — including Patrick Wood, Luke O\'Malley, Laura Marin, Bing Ji Ling, and Pier Pappalardo — to record the band\'s first recordings, which were leaked online before their debut album. The self-titled debut (Friendly Fire, 2009; reissued Tummy Touch, 2010) brought together cosmic disco, funk, and orchestrated pop across a large ensemble format. The band toured the US and UK with Bryan Ferry in 2011. They have released on both Gomma Records and Toy Tonics, positioning them at the intersection of the New York disco revival and the European house scene.',
+    releases: [
+      { title: 'The Phenomenal Handclap Band (album)', year: 2009 },
+    ]},
 ];
