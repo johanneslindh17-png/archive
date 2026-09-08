@@ -358,7 +358,7 @@ export default function App() {
   const [verifying, setVerifying] = useState(false);
   const [verifyError, setVerifyError] = useState('');
 
-  const TRIAL_LIMIT = 15;
+  const TRIAL_LIMIT = 25;
 
   useEffect(() => {
     setPhotoColors(null);
@@ -1432,9 +1432,12 @@ export default function App() {
   }, [visibleEdges, positions, expandedPositions, expanded, hlEdges, darkMode, colorTheme]);
 
   // Hover dash FX — dashes flow along connected edge paths outward from hovered node
+  // Hidden when the free trial is exhausted — connections are a paid feature
+  const trialExhausted = !unlocked && trialCount >= TRIAL_LIMIT;
   const hovPathEls = useMemo(() => {
     if (!hovNode) return null;
     if (!getPos(hovNode.id)) return null;
+    if (trialExhausted) return null;
 
     const fromIdx = {}, toIdx = {};
     visibleEdges.forEach((e, i) => {
@@ -1476,7 +1479,7 @@ export default function App() {
         fill="none" strokeWidth={1} strokeDasharray="2 11" className={cls}
         stroke={darkMode ? 'rgba(255,255,255,0.45)' : 'rgba(0,0,0,0.38)'} />;
     }).filter(Boolean);
-  }, [hovNode, visibleEdges, positions, expandedPositions, expanded, hlEdges, darkMode]);
+  }, [hovNode, visibleEdges, positions, expandedPositions, expanded, hlEdges, darkMode, trialExhausted]);
 
   // Which nodes would light up on click — drives the marching-ants preview
   const hovHlIds = useMemo(() => {
@@ -2380,7 +2383,7 @@ export default function App() {
           >support this archive</a>
           {!unlocked && (
             <span className="trial-counter" onClick={() => setPaywallOpen(true)}>
-              {Math.max(0, TRIAL_LIMIT - trialCount)} free views left
+              {trialExhausted ? 'Support the archive ↗' : `${Math.max(0, TRIAL_LIMIT - trialCount)} free explores left`}
             </span>
           )}
           <div className="statusbar-sep" />
@@ -2462,9 +2465,9 @@ export default function App() {
       {paywallOpen && (
         <div className="paywall-overlay" onClick={e => { if (e.target === e.currentTarget) setPaywallOpen(false); }}>
           <div className="paywall-modal">
-            <div className="paywall-title">You've used your free node views</div>
+            <div className="paywall-title">Help keep the Archive alive</div>
             <div className="paywall-body">
-              The Archive is an ever-evolving project — currently mapping 650+ artists, labels, venues, and scenes across the history of electronic music, with new nodes and connections added continuously. By purchasing access you are also directly supporting the ongoing documentation.
+              The Archive is a community effort to document the genealogy of electronic music — artists, labels, clubs, and pivotal moments, all connected by verified lines of influence and lineage. It grows continuously, with new nodes and connections added every week. Your support directly funds the research and keeps it free to explore for everyone.
             </div>
             <a
               className="paywall-buy"
@@ -2472,7 +2475,7 @@ export default function App() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Get one year of access — €10
+              Support the Archive — €20 / year
             </a>
             <div className="paywall-divider">Already purchased?</div>
             <input
