@@ -877,7 +877,7 @@ export default function App() {
   // Step 3: a lightweight global Y-only sweep resolves the rare cases where
   //   tall stacks at adjacent era lines overlap across group boundaries.
   useEffect(() => {
-    const CHAR_W = 4.3, PAD = 4, BH = 13, X_GAP = 4, Y_GAP = 3;
+    const CHAR_W = 3.9, PAD = 3, BH = 11, X_GAP = 3, Y_GAP = 2;
 
     // Stable hash — same string → same number, every render
     const hash = s => {
@@ -955,8 +955,8 @@ export default function App() {
     // era line — priority is zero overlaps over perfect era alignment).
     // When Y headroom is exhausted, nudge X within the chart bounds instead;
     // nodes may stray past a region boundary as long as they stay on-canvas.
-    const MAX_DRIFT = 160;
-    for (let pass = 0; pass < 200; pass++) {
+    const MAX_DRIFT = 220;
+    for (let pass = 0; pass < 350; pass++) {
       let any = false;
       for (let i = 0; i < flat.length; i++) {
         for (let j = i + 1; j < flat.length; j++) {
@@ -1058,7 +1058,7 @@ export default function App() {
   useEffect(() => {
     if (!expanded) { setExpandedPositions({}); return; }
 
-    const CHAR_W = 4.3, PAD = 4, BH = 13, X_GAP = 4, Y_GAP = 3;
+    const CHAR_W = 3.9, PAD = 3, BH = 11, X_GAP = 3, Y_GAP = 2;
 
     const hash = s => {
       let h = 0;
@@ -1129,8 +1129,8 @@ export default function App() {
     });
 
     // ── Step 3: global Y-push sweep with X fallback ──────────────────────────
-    const MAX_DRIFT = 160;
-    for (let pass = 0; pass < 200; pass++) {
+    const MAX_DRIFT = 220;
+    for (let pass = 0; pass < 350; pass++) {
       let any = false;
       for (let i = 0; i < flat.length; i++) {
         for (let j = i + 1; j < flat.length; j++) {
@@ -1502,13 +1502,13 @@ export default function App() {
     const hovIsSel = hovNode && (hovNode.id === selected || hovNode.id === pinned);
     const isHovPrev = !isSel && !isHovSelf && (hovHlIds?.has(n.id) ?? false) && !(isHl && hovIsSel);
     const isHovPrevDim = isHovPrev && isDim; // text pulse only when node is currently dimmed
-    const charW = 4.3, pad = 4;
+    const charW = 3.9, pad = 3;
     const isMoment  = n.type === 'moment';
     const isStyle   = n.type === 'style';
     const isCulture = n.type === 'culture';
     const isNotch   = isMoment;
     const bw = n.label.length * charW + pad * 2 + (isNotch ? 8 : (isStyle || isCulture) ? 6 : 0);
-    const bh = 13;
+    const bh = 11;
     const dm = darkMode;
     const tc = getThemeColors(n, colorTheme, dm);
     const fillColor = isSel
@@ -1618,7 +1618,7 @@ export default function App() {
           {isHovPrev && renderMarch('nd-march', mPrev)}
           <text textAnchor="middle" dominantBaseline="middle"
             className={isHovSelf ? 'nd-self-text' : isHovPrevDim ? 'nd-prev-text' : undefined}
-            style={{ fill: textFill, fontSize: '7.8px', fontWeight: isHl || isSel ? '600' : '400' }}>
+            style={{ fill: textFill, fontSize: '7.0px', fontWeight: isHl || isSel ? '600' : '400' }}>
             {n.label}
           </text>
         </g>
