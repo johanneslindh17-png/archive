@@ -5370,6 +5370,65 @@ export const NODES = [
     desc:'Brownswood Recordings was founded in London in 2006 by Gilles Peterson as the successor to his Talkin\' Loud label. It occupies a broader and more international territory than its predecessor — releasing music from across Africa, Brazil, the UK, and the US that connects jazz, soul, electronic music, and global folk traditions. Key releases and signings have included Esperanza Spalding, Moses Sumney, Yussef Kamaal, and many others. Brownswood\'s annual "We Out Here" compilation series has become a document of the UK jazz revival of the 2010s. The label demonstrates a sustained commitment to music that resists easy categorisation while maintaining a coherent curatorial identity.',
     releases: [] },
 
+  // ─── Jungle / Drum and Bass cluster ──────────────────────────────────────
+
+  { id:'reinforced_records', label:'Reinforced Records', type:'label', genre:'experimental', era:1989, city:'London', country:'UK',
+    desc:'Reinforced Records was founded in 1989 in Dollis Hill, North London by 4 Hero members Marc Mac, Dego, and Gus Lawrence as an outlet for their own productions, with their first release "All B 3 / Rising Son" in 1990. The label became one of the foundational institutions of breakbeat hardcore and jungle, releasing records that developed the genre\'s characteristic combination of accelerated breakbeats, bass pressure, and sample collage. Reinforced sketched the blueprint that later DnB labels — Metalheadz, Good Looking Records, Moving Shadow — would follow. The label released records by 4 Hero, Doc Scott, Manix, and Goldie (then recording as Rufige Kru), and was central to documenting the transition from hardcore rave to jungle in 1992–93.',
+    releases: [] },
+
+  { id:'4_hero', label:'4 Hero', type:'artist', genre:'experimental', era:1989, city:'London', country:'UK',
+    desc:'4 Hero is the electronic music project of producers Marc Mac (Mark Clair) and Denis "Dego" McFarlane, formed in Dollis Hill, North London in the late 1980s after the pair met through involvement with the Strong Island FM pirate radio station. They co-founded Reinforced Records in 1989 and became central figures in the development of breakbeat hardcore and jungle, then drum and bass. Their album "Parallel Universe" (1994, Reinforced) was a landmark of early DnB, and "Two Pages" (1998, Talkin\' Loud) pushed into jazz-inflected territory. Dego and Marc Mac both went on to extensive solo careers; Dego became a key figure in the London broken beat scene of the 2000s. 4 Hero are recognised as among the earliest architects of the drum and bass genre.',
+    releases: [
+      { title: 'Parallel Universe (album)', year: 1994 },
+      { title: 'Two Pages (album)', year: 1998 },
+    ]},
+
+  { id:'moving_shadow', label:'Moving Shadow', type:'label', genre:'experimental', era:1990, city:'London', country:'UK',
+    desc:'Moving Shadow was founded in 1990 by producer Rob Playford, initially operating from his home in Stevenage before becoming one of the most prolific and respected jungle and drum and bass labels in the UK. Playford began by releasing his own material and that of emerging hardcore artists, initially selling records from the trunk of his car. The label grew alongside the jungle scene and became known for consistent quality and a roster that included Omni Trio, E-Z Rollers, Dom & Roland, Technical Itch, and Aquasky. Moving Shadow accumulated over 700 releases across more than a decade, documented the evolution from hardcore through jungle to DnB, and maintained a reputation for sonic diversity within the genre.',
+    releases: [] },
+
+  { id:'goldie', label:'Goldie', type:'artist', genre:'experimental', era:1992, city:'London', country:'UK',
+    desc:'Goldie — born Clifford Joseph Price on 19 September 1965 in Walsall, raised in Wolverhampton — is a producer, DJ, and visual artist who became one of the defining figures of drum and bass. He began as a graffiti artist in Wolverhampton and Birmingham before moving into music via the early 1990s London rave scene, releasing records as Rufige Kru and Metalheads on Reinforced Records. In 1994 he co-founded Metalheadz label with DJ partners Kemistry & Storm. His debut album "Timeless" (1995, FFRR/London Records) entered the UK charts at number 7 and is widely regarded as one of the most important albums in drum and bass history — a complex, album-oriented work that extended the sonic ambitions of the genre far beyond its dancefloor origins. Goldie later worked in television, acting, and continued releasing music.',
+    releases: [
+      { title: 'Timeless (album)', year: 1995, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/2/2f/Goldietimeless.jpg' },
+    ]},
+
+  { id:'metalheadz', label:'Metalheadz', type:'label', genre:'experimental', era:1994, city:'London', country:'UK',
+    desc:'Metalheadz was founded in London in 1994 by Goldie and DJ duo Kemistry & Storm as one of the central institutions of drum and bass. The label\'s aesthetic leaned toward technical precision, dark atmospheres, and innovation — embodied by early releases from Goldie, Grooverider, Doc Scott, and Alex Reece. Metalheadz became the benchmark label of the DnB scene through the mid-to-late 1990s, and its Sunday sessions at the Blue Note in Hoxton became legendary club nights that drew international attention. The label continued releasing records into the 2000s and beyond, consistently representing the more technically adventurous end of the genre.',
+    releases: [] },
+
+  { id:'ltj_bukem', label:'LTJ Bukem', type:'artist', genre:'experimental', era:1990, city:'London', country:'UK',
+    desc:'LTJ Bukem — born Daniel Andrew Williamson on 20 September 1967 in Watford — is a DJ and producer whose work defined the atmospheric, jazz-influenced wing of drum and bass. Trained as a classical pianist and exposed to jazz fusion in his teens, he founded Good Looking Records in 1991 as an outlet for his own productions and those of like-minded artists. His track "Horizons" (1995) became one of the most recognised pieces of atmospheric DnB. His "Logical Progression" compilation series (1996 onwards) crystallised the style that became widely known as intelligent drum and bass. Bukem\'s DJ sets — long, hypnotic mixes that worked across tempo and texture — were equally influential in establishing the idea that DnB could sustain full-evening listening rather than function purely as high-intensity dancefloor music.',
+    releases: [] },
+
+  { id:'good_looking_records', label:'Good Looking Records', type:'label', genre:'experimental', era:1991, city:'London', country:'UK',
+    desc:'Good Looking Records was founded in 1991 by LTJ Bukem as a home for jazz-influenced and atmospheric drum and bass. The label stood in contrast to the harder, more abrasive styles that dominated the genre at the time, releasing music from Bukem, Peshay, Photek, and Wax Doctor that prioritised texture, space, and melodic development over sheer speed and weight. The "Logical Progression" compilation series released on Good Looking between 1996 and 2001 became the defining document of intelligent drum and bass and introduced the subgenre to a global audience. Good Looking\'s aesthetic remains a reference point for the ambient and atmospheric end of DnB.',
+    releases: [] },
+
+  { id:'grooverider', label:'Grooverider', type:'artist', genre:'experimental', era:1988, city:'London', country:'UK',
+    desc:'Grooverider — born Raymond Bingham on 16 April 1967 in Streatham, South London — is a DJ and producer widely regarded as one of the originators of drum and bass. Beginning his career at illegal raves and warehouse parties in the late 1980s, he rose to prominence alongside DJ partner Fabio at the Rage club night at Heaven in London, where the two pioneered a harder, faster direction from techno and early house that would become hardcore and then jungle. Grooverider and Fabio brought their radio show to a national audience on BBC Radio 1 in 1998. As a label owner, Grooverider runs Prototype Recordings, known for sporadic but highly anticipated releases from the genre\'s leading producers. He released one album as a recording artist, "Mysteries of Funk" (1998, Sony), produced with Optical.',
+    releases: [
+      { title: 'Mysteries of Funk (album)', year: 1998 },
+    ]},
+
+  { id:'fabio_dnb', label:'Fabio', type:'artist', genre:'experimental', era:1988, city:'London', country:'UK',
+    desc:'Fabio — born Fitzroy Heslop in Brixton, South London — is a DJ and producer who, together with Grooverider, is regarded as one of the originators of drum and bass. He began as a pirate radio DJ in the mid-1980s, playing across dub, rare groove, hip hop, disco, and early house before the two DJs drove the Rage club night at Heaven, London, into the territory that would become hardcore and jungle. Fabio pioneered the "Liquid Funk" style — a smooth, melodic take on DnB drawing on jazz and soul — which gave the genre an accessible emotional depth distinct from both the atmospheric DnB of LTJ Bukem and the harder sounds of Metalheadz. He and Grooverider joined BBC Radio 1 in 1998, introducing drum and bass to millions of listeners over more than a decade of broadcasting.',
+    releases: [] },
+
+  { id:'roni_size', label:'Roni Size', type:'artist', genre:'experimental', era:1994, city:'Bristol', country:'UK',
+    desc:'Roni Size is a Bristol-based drum and bass producer and DJ whose debut album "New Forms" (Talkin\' Loud, 1997) — recorded with the collective Reprazent — won the Mercury Music Prize, making it one of the first electronic dance records to receive the award. "New Forms" was built on live drums, double bass, and vocals woven into drum and bass architecture, creating an album-length argument for DnB as a jazz-fusion successor. The album propelled drum and bass firmly into mainstream critical consciousness. Size\'s approach to live instrumentation within the DnB format influenced a generation of producers attempting to bridge electronic and acoustic music, and the Bristol collective model he developed with Reprazent pointed toward possibilities for the genre beyond pure dancefloor function.',
+    releases: [
+      { title: 'New Forms (album)', year: 1997, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/1/17/New_Forms_album_cover.jpg' },
+    ]},
+
+  { id:'reprazent', label:'Reprazent', type:'artist', genre:'experimental', era:1994, city:'Bristol', country:'UK',
+    desc:'Reprazent is the Bristol-based drum and bass collective fronted by Roni Size, whose debut album "New Forms" (Talkin\' Loud, 1997) won the Mercury Music Prize and brought the genre into mainstream critical recognition. The collective combined drum and bass programming with live drums, double bass, keyboards, and vocalists in a format that challenged the distinction between electronic music production and live band performance. Reprazent drew on a deep pool of Bristol musicians and MCs, operating as a collective creative entity rather than a conventional group. Their work extended Bristol\'s established identity — built through the Wild Bunch, Massive Attack, Portishead, and Tricky — into drum and bass.',
+    releases: [] },
+
+  { id:'wiley', label:'Wiley', type:'artist', genre:'grime', era:2001, city:'London', country:'UK',
+    desc:'Wiley — born Richard Kylea Cowie Jr. on 19 January 1979 in Bow, East London — is an MC and producer widely known as the "Godfather of Grime." He grew up with a reggae artist father and absorbed early hip-hop before becoming central to the East London pirate radio and rave scene. From 2001 Wiley produced a series of instrumental singles — "Eskimo," "Avalanche," "Ice Rink" — that defined the aggressive, syncopated sound later identified as grime. He founded the Roll Deep collective, which included a teenage Dizzee Rascal among its MCs. Wiley\'s career as a label runner, mentor, and sonic innovator shaped the foundational vocabulary of grime: the icy, minimal, 140bpm instrumental template that subsequent producers and MCs built their careers upon.',
+    releases: [] },
+
   // ─── Toy Tonics cluster ───────────────────────────────────────────────────
 
   { id:'gomma_records', label:'Gomma Records', type:'label', genre:'experimental', era:2000, city:'Munich', country:'DE',
