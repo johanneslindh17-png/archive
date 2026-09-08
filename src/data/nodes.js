@@ -3116,7 +3116,7 @@ export const NODES = [
     ]},
 
   // ── ARCA ─────────────────────────────────────────────────────────────────
-  { id:'arca', label:'Arca', type:'artist', genre:'experimental', era:2012, city:'London', country:'VE', bandcamp:'arca1000000', bandcamp_album:'661734388',
+  { id:'arca', label:'Arca', type:'artist', genre:'experimental', era:2012, city:'London', country:'UK', bandcamp:'arca1000000', bandcamp_album:'661734388',
     desc:'Alejandra Ghersi (born 1989, Caracas, Venezuela; based in London and Barcelona) records as Arca. Her early mixtapes (Stretch 1 and 2, &&&&&) established an aesthetic of fragmented, visceral club music; subsequent albums on Mute Records extended this into maximalist opera, noise, and drone. She produced for Kanye West (Yeezus, 2013), Björk (Vulnicura, 2015), and FKA twigs (LP1, 2014), bringing her sound design to records heard by millions. Her own albums — especially Mutant (2015), AΛA (2017), and the self-titled Arca (2017) — are among the most significant experimental records of their decade.',
     releases: [
       { title: 'Xen (Mute)', year: 2014 },
@@ -4708,7 +4708,7 @@ export const NODES = [
     desc:'Paula Temple is a British DJ and producer known for industrial and noise-influenced techno. She runs the Noise Manifesto label and has produced work that draws on the harder end of the techno canon while incorporating industrial music and noise aesthetics. A regular at Berghain and an internationally active artist, she has been an outspoken advocate for trans rights and LGBTQ+ inclusion in club culture. Her sets are physically demanding and technically precise, operating at the boundary between techno and experimental noise.' },
 
   // ── THE PRODIGY ───────────────────────────────────────────────────────────
-  { id:'the_prodigy', label:'The Prodigy', type:'artist', genre:'rave', era:1990, city:'Braintree', country:'GB',
+  { id:'the_prodigy', label:'The Prodigy', type:'artist', genre:'rave', era:1990, city:'Braintree', country:'UK',
     desc:'The Prodigy formed in 1990 in Braintree, Essex, founded by Liam Howlett as a studio project that rapidly expanded into a live act featuring Keith Flint and Maxim. Emerging directly from the UK rave scene, early recordings were rooted in hardcore breakbeat and acid, but Howlett pushed the sound into increasingly abrasive directions. Music for the Jilted Generation (1994) was in part a response to the Criminal Justice Act, positioning the group within the politics of UK rave culture. The Fat of the Land (1997) achieved global commercial success while retaining aggressive production values that distinguished them from the contemporaneous Britpop mainstream. Their crossover success brought the rave lineage — breakbeat, acid, hardcore — into wider cultural visibility, and their influence extends across big beat, drum and bass, and electronic rock.',
     releases: [
       { title: 'Experience', year: 1992 },
@@ -4734,7 +4734,7 @@ export const NODES = [
     ]},
 
   // ── THE ORB ───────────────────────────────────────────────────────────────
-  { id:'the_orb', label:'The Orb', type:'artist', genre:'ambient', era:1988, city:'London', country:'GB',
+  { id:'the_orb', label:'The Orb', type:'artist', genre:'ambient', era:1988, city:'London', country:'UK',
     desc:'The Orb was formed in London in 1988 by Alex Paterson, initially with Jimmy Cauty (who departed to focus on the KLF). Drawing on Brian Eno\'s ambient theory and the chill-out rooms developing around the UK rave scene, The Orb pioneered ambient house — a form that retained the tempo and harmonic palette of rave music while prioritising texture and atmosphere over dancefloor function. Adventures Beyond the Ultraworld (1991) and "Blue Room" (1992) — at 39 minutes 57 seconds, the longest track to enter the UK Top 40 — defined the genre. Paterson and Thomas Fehlmann\'s long-running collaboration sustained the project across three decades.',
     releases: [
       { title: 'Adventures Beyond the Ultraworld', year: 1991 },
@@ -4743,7 +4743,7 @@ export const NODES = [
     ]},
 
   // ── JOHN DIGWEED ──────────────────────────────────────────────────────────
-  { id:'john_digweed', label:'John Digweed', type:'artist', genre:'progressive', era:1992, city:'Hastings', country:'GB',
+  { id:'john_digweed', label:'John Digweed', type:'artist', genre:'progressive', era:1992, city:'Hastings', country:'UK',
     desc:'John Digweed built his career from Hastings on the English south coast, developing a DJ style centred on long, tightly structured progressive house sets that prioritised narrative arc. His partnership with Sasha — documented on Renaissance: The Mix Collection (1994) and Northern Exposure (1996) — defined the sound of progressive house at its commercial peak and brought the form to international audiences. Digweed founded the Bedrock label in 1999 and maintained a long residency at Fabric in London. His appearances at Twilo in New York were among the most attended club nights of that city\'s late 1990s clubbing era.',
     releases: [
       { title: 'Renaissance: The Mix Collection (with Sasha)', year: 1994 },
@@ -4752,7 +4752,7 @@ export const NODES = [
     ]},
 
   // ── SPIRAL TRIBE ──────────────────────────────────────────────────────────
-  { id:'spiral_tribe', label:'Spiral Tribe', type:'culture', genre:'techno', era:1990, city:'London', country:'GB',
+  { id:'spiral_tribe', label:'Spiral Tribe', type:'culture', genre:'techno', era:1990, city:'London', country:'UK',
     desc:'Spiral Tribe was a London-based sound system collective founded in 1990 that became central to the UK free party movement. The collective organised large-scale illegal raves, culminating in the Castlemorton Common Festival in May 1992 — estimated at 40,000 attendees — which provoked intense media and political backlash. Thirteen Spiral Tribe members were subsequently prosecuted; the Criminal Justice and Public Order Act 1994, which criminalised gatherings featuring amplified music with "a succession of repetitive beats", was in significant part a response to free party culture. Spiral Tribe relocated to mainland Europe following the legal pressure, influencing the development of the French and European free tekno scene through their SP23 label.',
     releases: [] },
 
@@ -4770,7 +4770,7 @@ export const NODES = [
     ]},
 
   // ── MINISTRY OF SOUND ─────────────────────────────────────────────────────
-  { id:'ministry_of_sound', label:'Ministry of Sound', type:'venue', genre:'progressive', era:1991, city:'London', country:'GB',
+  { id:'ministry_of_sound', label:'Ministry of Sound', type:'venue', genre:'progressive', era:1991, city:'London', country:'UK',
     desc:'Ministry of Sound opened in Elephant and Castle, London, in September 1991, founded by James Palumbo and Justin Berkmann. Berkmann had been inspired by the Paradise Garage in New York and invited Larry Levan to DJ the opening night. The venue was built around a purpose-designed sound system and a strict no-talking policy on the dancefloor, importing principles of the New York garage clubs into a London context. It became the defining British superclub of the 1990s and expanded into one of the world\'s largest independent dance music labels, with artists including Sasha, Danny Tenaglia, and Carl Cox building long associations with the venue.',
     releases: [] },
 
@@ -4803,7 +4803,7 @@ export const NODES = [
     ]},
 
   // ── THE KLF ───────────────────────────────────────────────────────────────
-  { id:'the_klf', label:'The KLF', type:'artist', genre:'rave', era:1987, city:'London', country:'GB',
+  { id:'the_klf', label:'The KLF', type:'artist', genre:'rave', era:1987, city:'London', country:'UK',
     desc:'The KLF — Bill Drummond and Jimmy Cauty — operated from 1987 to 1992 as one of the most commercially successful and conceptually radical acts in British pop. Beginning as The Justified Ancients of Mu Mu, they produced stadium house anthems including "What Time Is Love?" (1988), "3 A.M. Eternal" (1991), and "Justified and Ancient" (1991), all of which reached number one in the UK. Their 1990 album Chill Out — a continuous ambient journey recorded in a single session — is a foundational document of the ambient house genre. Cauty had been an early collaborator with Alex Paterson, forming the initial version of The Orb together. In 1992 the duo deleted their entire catalog and publicly retired; in 1994 they burned £1,000,000 on the island of Jura. Their combination of pop ambition, rave aesthetics, and willingness to destroy their own commercial position placed them at the intersection of multiple scenes simultaneously.',
     releases: [
       { title: 'Chill Out', year: 1990 },
@@ -4835,7 +4835,7 @@ export const NODES = [
     ]},
 
   // ── PAUL OAKENFOLD ────────────────────────────────────────────────────────
-  { id:'paul_oakenfold', label:'Paul Oakenfold', type:'artist', genre:'progressive', era:1987, city:'London', country:'GB',
+  { id:'paul_oakenfold', label:'Paul Oakenfold', type:'artist', genre:'progressive', era:1987, city:'London', country:'UK',
     desc:'Paul Oakenfold was one of four British DJs — alongside Danny Rampling, Nicky Holloway, and Johnny Walker — who attended Ibiza\'s Amnesia club in the summer of 1987, where they encountered DJ Alfredo\'s eclectic mixing style and the emerging acid house sound. Returning to London, Oakenfold launched Spectrum at Heaven nightclub in April 1988, one of the key spaces where acid house reached a mass UK audience. He later held a residency at the Haçienda in Manchester and founded Perfecto Records, releasing progressive trance and electronic music across the 1990s. His productions and remixes for artists including U2 and Happy Mondays brought club culture into rock contexts, and his long-running radio show transmitted the progressive and trance aesthetic globally.',
     releases: [
       { title: 'Tranceport', year: 1998 },
@@ -4843,17 +4843,17 @@ export const NODES = [
     ]},
 
   // ── DANNY RAMPLING ────────────────────────────────────────────────────────
-  { id:'danny_rampling', label:'Danny Rampling', type:'artist', genre:'chicago', era:1987, city:'London', country:'GB',
+  { id:'danny_rampling', label:'Danny Rampling', type:'artist', genre:'chicago', era:1987, city:'London', country:'UK',
     desc:'Danny Rampling was one of the four British DJs present at Ibiza\'s Amnesia club in the summer of 1987, alongside Paul Oakenfold, Nicky Holloway, and Johnny Walker. On returning to London, Rampling opened Shoom in December 1987 — a small club in a Southwark fitness centre that became the epicentre of UK acid house. The smiley face logo Rampling adopted for Shoom became the defining symbol of the acid house era. Shoom was a genuinely underground space, with a capacity of around 300, strict door policies, and a culture built around community and the new music rather than celebrity. Rampling subsequently held a long-running show on BBC Radio 1 and remained a key figure in the development of UK dance music culture.',
     releases: [] },
 
   // ── SHOOM ─────────────────────────────────────────────────────────────────
-  { id:'shoom', label:'Shoom', type:'venue', genre:'chicago', era:1987, city:'London', country:'GB',
+  { id:'shoom', label:'Shoom', type:'venue', genre:'chicago', era:1987, city:'London', country:'UK',
     desc:'Shoom opened in December 1987 at The Fitness Centre in Southwark, London, run by Danny Rampling. With a capacity of approximately 300 and a strict door policy, it was the club most closely identified with the moment acid house crossed from Ibiza and Chicago into British youth culture. The smiley face logo it popularised became the visual emblem of the second summer of love. Shoom was small, intense, and deliberately exclusive — a quality that distinguished it from the arena-scale raves that followed. Its influence on UK club culture was disproportionate to its size: virtually every subsequent strand of British dance music culture can be traced to the network of people and ideas that passed through Shoom in 1988.',
     releases: [] },
 
   // ── PRIMAL SCREAM ─────────────────────────────────────────────────────────
-  { id:'primal_scream', label:'Primal Scream', type:'artist', genre:'chicago', era:1990, city:'Glasgow', country:'GB',
+  { id:'primal_scream', label:'Primal Scream', type:'artist', genre:'chicago', era:1990, city:'Glasgow', country:'UK',
     desc:'Primal Scream formed in Glasgow in 1982 under Bobby Gillespie, originally as a post-punk guitar band. Their trajectory changed when Andrew Weatherall remixed "I\'m Losing More Than I\'ll Ever Have" as "Loaded" in 1990 — a record that fused rock vocals with acid house production and became a UK hit. Screamadelica (1991), produced primarily by Weatherall with contributions from Terry Farley and Hugo Nicolson, extended this synthesis across a full album combining gospel, acid house, dub, and rock. It is among the most celebrated British albums of its decade. The record demonstrated that acid house\'s production methodology could absorb and transform other musical traditions rather than simply replace them, and it brought the sound of UK club culture to an audience that had not previously engaged with it.',
     releases: [
       { title: '"Loaded"', year: 1990 },

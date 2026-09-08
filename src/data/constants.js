@@ -73,14 +73,14 @@ export const COUNTRY_REGION = {
   ES:'WEUR', PT:'WEUR',
   CH:'SEUR', AT:'SEUR', IT:'SEUR', GR:'SEUR',
   SE:'SCAND', NO:'SCAND', DK:'SCAND', FI:'SCAND', IS:'SCAND',
-  RU:'EEUR', PL:'EEUR', CZ:'EEUR', UA:'EEUR', RO:'EEUR', GE:'EEUR', HU:'EEUR', PS:'EEUR',
-  JP:'ASIA', AU:'ASIA', KR:'ASIA', NZ:'ASIA',
-  BR:'LATAM', AR:'LATAM', CL:'LATAM', CO:'LATAM', MX:'LATAM', PE:'LATAM',
+  RU:'EEUR', PL:'EEUR', CZ:'EEUR', UA:'EEUR', RO:'EEUR', GE:'EEUR', HU:'EEUR', PS:'EEUR', RS:'EEUR',
+  JP:'ASIA', AU:'ASIA', KR:'ASIA', NZ:'ASIA', CN:'ASIA', HK:'ASIA',
+  BR:'LATAM', AR:'LATAM', CL:'LATAM', CO:'LATAM', MX:'LATAM', PE:'LATAM', JM:'LATAM',
   ZA:'AFRICA', NG:'AFRICA', KE:'AFRICA', AO:'AFRICA', CD:'AFRICA',
 };
 
 export const CITY_BANDS = {
-  'LATAM':  ['Buenos Aires','São Paulo','Rio de Janeiro','Bogotá','Barranquilla','Medellín','Lima','Mexico City','Tijuana'],
+  'LATAM':  ['Buenos Aires','São Paulo','Rio de Janeiro','Bogotá','Barranquilla','Medellín','Lima','Mexico City','Tijuana','Kingston'],
   'CA':     ['Montreal','Toronto','Windsor','Vancouver'],
   'US':     ['Chicago','Detroit','New York','New Jersey','Buffalo','Various'],
   'WEUR':   ['Lisbon','Barcelona','Madrid','Ibiza'],
@@ -90,9 +90,9 @@ export const CITY_BANDS = {
   'DE':     ['Berlin','Hamburg','Frankfurt','Cologne','Munich','Weimar','Stuttgart','Düsseldorf','Heidelberg','Chemnitz','Dresden'],
   'UK':     ['London','Manchester','Glasgow','Birmingham','Sheffield','Edinburgh','Nottingham','Wolverhampton','Bristol','Dublin'],
   'SCAND':  ['Stockholm','Gothenburg','Malmö','Copenhagen','Aarhus','Oslo','Helsinki','Reykjavik','Tromsø','Turku','Various'],
-  'EEUR':   ['Moscow','Warsaw','Bucharest','Tbilisi','Kyiv','Budapest','Kraków','Prague','Ramallah'],
+  'EEUR':   ['Moscow','Warsaw','Bucharest','Tbilisi','Kyiv','Budapest','Kraków','Prague','Ramallah','Belgrade','Novi Sad'],
   'AFRICA': ['Johannesburg','Cape Town','Durban','Lagos'],
-  'ASIA':   ['Tokyo','Osaka','Seoul','Sydney','Melbourne'],
+  'ASIA':   ['Tokyo','Osaka','Seoul','Sydney','Melbourne','Shanghai','Hong Kong'],
 };
 
 export const CITY_COORDS = {
@@ -178,6 +178,11 @@ export const CITY_COORDS = {
   'Medellín':    [-75.57,  6.25],
   Dresden:       [13.74,  51.05],
   Ramallah:      [35.20,  31.90],
+  Belgrade:      [20.46,  44.80],
+  'Novi Sad':    [19.84,  45.25],
+  Shanghai:      [121.47, 31.23],
+  'Hong Kong':   [114.17, 22.32],
+  Kingston:      [-76.79, 17.99],
 };
 
 export const CITY_MAP = {};
