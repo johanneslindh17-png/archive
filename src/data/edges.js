@@ -2797,6 +2797,33 @@
   // -- TALKIN' LOUD -------------------------------------------------------
   { from:'talkin_loud',     to:'brownswood_recordings', strength:3, type:'lineage' },
 
+  // -- 90s HOUSE FIGURES ---------------------------------------------------
+  { from:'deep_house',      to:'pete_tong',            strength:2, type:'influence' },
+  { from:'pete_tong',       to:'ffrr',                 strength:3, type:'roster' },
+  { from:'chicago_house',   to:'ffrr',                 strength:2, type:'influence' },
+  { from:'pete_tong',       to:'ben_watt',             strength:1, type:'aesthetic' },
+  { from:'deep_house',      to:'ben_watt',             strength:3, type:'influence' },
+  { from:'ben_watt',        to:'buzzin_fly',           strength:3, type:'roster' },
+  { from:'defected',        to:'buzzin_fly',            strength:1, type:'aesthetic' },
+  { from:'deep_house',      to:'david_morales',        strength:3, type:'lineage' },
+  { from:'david_morales',   to:'joe_claussell',        strength:2, type:'aesthetic' },
+  { from:'deep_house',      to:'joe_claussell',        strength:3, type:'lineage' },
+  { from:'joe_claussell',   to:'body_and_soul',        strength:3, type:'collaboration' },
+  { from:'francois_k',      to:'body_and_soul',        strength:3, type:'collaboration' },
+  { from:'deep_house',      to:'body_and_soul',        strength:3, type:'lineage' },
+  { from:'acid_house',      to:'junior_boys_own',      strength:2, type:'influence' },
+  { from:'weatherall',      to:'junior_boys_own',      strength:3, type:'collaboration' },
+  { from:'junior_boys_own', to:'terry_farley',         strength:3, type:'roster' },
+  { from:'acid_house',      to:'graeme_park',          strength:3, type:'influence' },
+  { from:'hacienda',        to:'graeme_park',          strength:3, type:'collaboration' },
+  { from:'deep_house',      to:'junior_vasquez',       strength:3, type:'lineage' },
+  { from:'junior_vasquez',  to:'sound_factory',        strength:3, type:'roster' },
+  { from:'deep_house',      to:'ron_trent',            strength:3, type:'lineage' },
+  { from:'the_music_institute',to:'chez_damier',       strength:3, type:'collaboration' },
+  { from:'deep_house',      to:'chez_damier',          strength:3, type:'lineage' },
+  { from:'ron_trent',       to:'prescription_records', strength:3, type:'roster' },
+  { from:'chez_damier',     to:'prescription_records', strength:3, type:'roster' },
+
   // -- JUNGLE / DnB CLUSTER ------------------------------------------------
   { from:'jungle',           to:'reinforced_records',   strength:3, type:'lineage' },
   { from:'reinforced_records',to:'4_hero',              strength:3, type:'roster' },
