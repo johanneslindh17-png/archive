@@ -114,7 +114,6 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   font-size:0.52rem;letter-spacing:0.06em;
   text-transform:uppercase;color:var(--tb-text-mid);
   margin-top:5px;
-  text-align:justify;text-align-last:justify;
 }
 .tbsep{width:1px;height:100%;background:var(--tb-border);flex-shrink:0}
 .sw{position:relative;flex:1;height:100%}
