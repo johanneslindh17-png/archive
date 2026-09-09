@@ -292,7 +292,7 @@ const TOUR_STEPS = [
   {
     id: 'map',
     title: 'A LIVING MAP',
-    body: 'Welcome. Six decades of electronic music — 805+ artists, labels, clubs, and pivotal moments, all connected by documented lines of influence and lineage. Take your time.',
+    body: 'A living map of electronic music — 835+ artists, labels, clubs, and pivotal moments connected by documented lines of influence and lineage. Take your time.',
     getTarget: () => null,
     cardSide: 'center',
     onEnter: null,
@@ -2399,7 +2399,7 @@ export default function App() {
           <div className="onboard-modal">
             <div className="onboard-wordmark">ARCHIVE</div>
             <div className="onboard-pitch">
-              Six decades of electronic music, mapped by the community itself. 805+ artists, labels, clubs, and pivotal moments — all connected by documented lines of influence, collaboration, and lineage. Explore freely, or let us show you around.
+              Welcome to the Archive. This is an ongoing project to map the underground electronic music scene and culture — artists, labels, clubs, and pivotal moments, connected by documented lines of influence and lineage. Starting from the roots of Chicago and Detroit in the late 70s, tracing the threads that run through London, Berlin, Kingston, Tokyo and beyond. It's a living map, and it grows every week.
             </div>
             <div className="onboard-btns">
               <button className="onboard-btn-primary" onClick={dismissOnboard}>Start exploring</button>
