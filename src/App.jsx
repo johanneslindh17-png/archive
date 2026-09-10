@@ -877,7 +877,7 @@ export default function App() {
   // Step 3: a lightweight global Y-only sweep resolves the rare cases where
   //   tall stacks at adjacent era lines overlap across group boundaries.
   useEffect(() => {
-    const CHAR_W = 3.9, PAD = 3, BH = 11, X_GAP = 3, Y_GAP = 2;
+    const CHAR_W = 4.2, PAD = 4, BH = 11, X_GAP = 3, Y_GAP = 2;
 
     // Stable hash — same string → same number, every render
     const hash = s => {
@@ -1058,7 +1058,7 @@ export default function App() {
   useEffect(() => {
     if (!expanded) { setExpandedPositions({}); return; }
 
-    const CHAR_W = 3.9, PAD = 3, BH = 11, X_GAP = 3, Y_GAP = 2;
+    const CHAR_W = 4.2, PAD = 4, BH = 11, X_GAP = 3, Y_GAP = 2;
 
     const hash = s => {
       let h = 0;
@@ -1505,7 +1505,7 @@ export default function App() {
     const hovIsSel = hovNode && (hovNode.id === selected || hovNode.id === pinned);
     const isHovPrev = !isSel && !isHovSelf && (hovHlIds?.has(n.id) ?? false) && !(isHl && hovIsSel);
     const isHovPrevDim = isHovPrev && isDim; // text pulse only when node is currently dimmed
-    const charW = 3.9, pad = 3;
+    const charW = 4.2, pad = 4;
     const isMoment  = n.type === 'moment';
     const isStyle   = n.type === 'style';
     const isCulture = n.type === 'culture';
