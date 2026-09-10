@@ -453,11 +453,11 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 }
 .nbc-welcome {
   font-family:'Syne Mono',monospace;font-size:0.54rem;letter-spacing:0.13em;
-  text-transform:uppercase;color:#888;white-space:nowrap;
+  text-transform:uppercase;color:#555;white-space:nowrap;
   position:absolute;left:0;
-  animation: nbc-ticker 22s linear forwards;
+  animation: nbc-ticker 44s linear forwards;
 }
-.dark .nbc-welcome { color:#888; }
+.dark .nbc-welcome { color:#aaa; }
 .nbc-home{
   font-family:'Syne Mono',monospace;font-size:0.54rem;letter-spacing:0.16em;
   text-transform:uppercase;color:#aaa;cursor:pointer;white-space:nowrap;

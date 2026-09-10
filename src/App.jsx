@@ -9,6 +9,7 @@ import {
 import { NODES } from './data/nodes.js';
 import { EDGES } from './data/edges.js';
 import { PHOTOS } from './data/photos.js';
+import { NEWS_TICKER } from './data/newsTicker.js';
 
 // ── Variable-width region layout ─────────────────────────────────────────────
 // Widths are proportional to node count, with a minimum of 50 % of the average.
@@ -350,6 +351,8 @@ export default function App() {
   const [selected, setSelected] = useState(null);
   const [history, setHistory] = useState([]);
   const [welcomeDone, setWelcomeDone] = useState(false);
+  const [newsItem, setNewsItem] = useState(null);
+  const [newsKey, setNewsKey] = useState(0);
   const [photoColors, setPhotoColors] = useState(null);
   const [unlocked, setUnlocked] = useState(() => localStorage.getItem('archiveUnlocked') === '1');
   const [trialCount, setTrialCount] = useState(() => parseInt(localStorage.getItem('archiveTrialCount') || '0', 10));
@@ -1590,13 +1593,13 @@ export default function App() {
       :            <rect className="nd-border" x={-hw} y={-hh} width={bw} height={bh} rx={2} fill={fillColor} stroke={strokeColor} strokeWidth={strokeW} />;
 
     const renderMarch = (cls, stroke) =>
-      isArtist  ? <rect className={cls} x={-hw-1} y={-hh-1} width={bw+2} height={bh+2} rx={9} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="2 11" />
-      : isLabel  ? <polygon className={cls} points={octPtsO} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="2 11" />
-      : isNotch  ? <polygon className={cls} points={ntchPtsO} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="2 11" />
-      : isStyle  ? <polygon className={cls} points={stylePtsO} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="2 11" />
-      : isCulture? <polygon className={cls} points={cultPtsO} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="2 11" />
-      : isChan   ? <polygon className={cls} points={chanPtsO} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="2 11" />
-      :            <rect className={cls} x={-hw-1} y={-hh-1} width={bw+2} height={bh+2} rx={3} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="2 11" />;
+      isArtist  ? <rect className={cls} x={-hw-1} y={-hh-1} width={bw+2} height={bh+2} rx={9} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="5 8" />
+      : isLabel  ? <polygon className={cls} points={octPtsO} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="5 8" />
+      : isNotch  ? <polygon className={cls} points={ntchPtsO} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="5 8" />
+      : isStyle  ? <polygon className={cls} points={stylePtsO} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="5 8" />
+      : isCulture? <polygon className={cls} points={cultPtsO} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="5 8" />
+      : isChan   ? <polygon className={cls} points={chanPtsO} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="5 8" />
+      :            <rect className={cls} x={-hw-1} y={-hh-1} width={bw+2} height={bh+2} rx={3} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="5 8" />;
 
     return (
       <g
@@ -1896,8 +1899,21 @@ export default function App() {
       {/* Node breadcrumb bar — always rendered to avoid layout shift on selection */}
       <div className="nodebreadcrumb" style={themeStyle ? { background: themeStyle.surface, borderBottomColor: themeStyle.border } : undefined}>
         {!selected && !pinned && !welcomeDone && (
-          <div className="nbc-welcome" onAnimationEnd={() => setWelcomeDone(true)}>
+          <div className="nbc-welcome" onAnimationEnd={() => {
+            setWelcomeDone(true);
+            const item = NEWS_TICKER[Math.floor(Math.random() * NEWS_TICKER.length)];
+            setNewsItem(item);
+          }}>
             {'› Welcome to Archive — Mapping the electronic underground. An interactive resource for discovery and learning about the emergence of electronic music and its culture. Have fun!'}
+          </div>
+        )}
+        {!selected && !pinned && welcomeDone && newsItem && (
+          <div key={newsKey} className="nbc-welcome" onAnimationEnd={() => {
+            const next = NEWS_TICKER[Math.floor(Math.random() * NEWS_TICKER.length)];
+            setNewsItem(next);
+            setNewsKey(k => k + 1);
+          }}>
+            {'› ' + newsItem}
           </div>
         )}
         {(selected || pinned) && <>
