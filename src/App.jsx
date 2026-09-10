@@ -359,7 +359,7 @@ export default function App() {
 
   function clearShake() {
     if (shakeTimerRef.current) { clearTimeout(shakeTimerRef.current); shakeTimerRef.current = null; }
-    if (shakeInnerRef.current) { shakeInnerRef.current.style.transform = ''; shakeInnerRef.current = null; }
+    if (shakeInnerRef.current) { shakeInnerRef.current.style.transform = ''; shakeInnerRef.current.style.transition = ''; shakeInnerRef.current = null; }
     if (shakeElRef.current) { shakeElRef.current = null; }
   }
 
@@ -1744,6 +1744,8 @@ export default function App() {
             shakeInnerRef.current = self.querySelector('.nd-inner');
             const startRamp = () => {
               const t0 = Date.now();
+              // Disable the CSS hover-scale transition so 50ms ticks are instant
+              if (shakeInnerRef.current) shakeInnerRef.current.style.transition = 'none';
               const tick = () => {
                 if (!shakeInnerRef.current) return;
                 const now = Date.now();
@@ -1751,7 +1753,8 @@ export default function App() {
                 const sh = t * 3.5;
                 const dx = (Math.sin(now / 47) * 0.8 + Math.sin(now / 31) * 0.2) * sh;
                 const dy = (Math.cos(now / 53) * 0.5 + Math.cos(now / 29) * 0.3) * sh;
-                shakeInnerRef.current.style.transform = `translate(${dx}px, ${dy}px)`;
+                // Keep the CSS hover scale (1.14) and add the shake offset
+                shakeInnerRef.current.style.transform = `scale(1.14) translate(${dx}px, ${dy}px)`;
                 if (t < 1) shakeTimerRef.current = setTimeout(tick, 50);
                 else shakeTimerRef.current = null;
               };
