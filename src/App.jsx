@@ -1529,9 +1529,7 @@ export default function App() {
         : isHl
           ? (tc ? tc.stroke : (dm ? 'rgba(255,255,255,0.85)' : 'rgba(0,0,0,0.75)'))
           : tc ? tc.stroke : (dm ? 'rgba(255,255,255,0.40)' : 'rgba(0,0,0,0.28)');
-    const textFill = isHovSelf
-      ? (tc ? tc.text : (dm ? '#0c0c10' : '#ffffff'))
-      : isSel
+    const textFill = isSel
       ? (dm ? '#0c0c10' : '#ffffff')
       : isHovPrevDim
         // Bright base colour — CSS opacity animation pulses it 15%→85% of this
