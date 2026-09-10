@@ -5475,4 +5475,33 @@ export const NODES = [
     releases: [
       { title: 'The Phenomenal Handclap Band (album)', year: 2009 },
     ]},
+
+  // ── NL — TOM TRAGO ──────────────────────────────────────────────────────
+  { id:'tom_trago', label:'Tom Trago', type:'artist', genre:'deep', era:2008, city:'Amsterdam', country:'NL',
+    desc:'Tom Trago is an Amsterdam-born DJ and producer. His debut album Voyage Direct appeared on Clone Records (Rotterdam) in 2008, establishing him as one of the more distinctive voices in Dutch electronic music. He founded the Voyage Direct imprint and has released on Rush Hour (Amsterdam). His productions combine deep house, disco, and a Dutch aesthetic rooted in the Amsterdam underground.',
+    releases: [
+      { title: 'Voyage Direct (Clone)', year: 2008 },
+    ]},
+
+  // ── NL — YOUNG MARCO ────────────────────────────────────────────────────
+  { id:'young_marco', label:'Young Marco', type:'artist', genre:'deep', era:2011, city:'Amsterdam', country:'NL',
+    desc:'Young Marco is a Dutch DJ and producer based in Amsterdam. He has released on Delsin Records (Amsterdam) and is closely associated with the Rush Hour network. His sets range widely — spanning cosmic disco, deep house, library music, and experimental electronic — and he is part of the generation of Amsterdam artists who built the city\'s reputation for eclectic, genre-crossing underground club music.',
+    releases: [] },
+
+  // ── NL — SAN PROPER ─────────────────────────────────────────────────────
+  { id:'san_proper', label:'San Proper', type:'artist', genre:'deep', era:2010, city:'Amsterdam', country:'NL',
+    desc:'San Proper is an Amsterdam-based DJ and musician known for deep, hypnotic house music and live performances that blur the line between DJ set and live act. He has released on Clone Records (Rotterdam) and is part of the Amsterdam underground that surrounds the Clone and Rush Hour networks.',
+    releases: [] },
+
+  // ── UK — MAYA JANE COLES ────────────────────────────────────────────────
+  { id:'maya_jane_coles', label:'Maya Jane Coles', type:'artist', genre:'deep', era:2012, city:'London', country:'UK',
+    desc:'Maya Jane Coles is a British DJ and producer born in London in 1989, of Japanese and British heritage. "What They Say", released in 2012 on her What We Play imprint, became one of the most widely played underground house tracks of that year and established her international profile. She plays across deep house and techno and has performed at Berghain, fabric, and major festivals globally.',
+    releases: [
+      { title: '"What They Say" (What We Play)', year: 2012 },
+    ]},
+
+  // ── DE — MARLON HOFFSTADT ───────────────────────────────────────────────
+  { id:'marlon_hoffstadt', label:'Marlon Hoffstadt', type:'artist', genre:'deep', era:2015, city:'Berlin', country:'DE',
+    desc:'Marlon Hoffstadt is a German DJ and producer based in Berlin who works across house music with influences from disco and Chicago house. He has performed at major European clubs and festivals and is part of the contemporary German house scene that bridges the Berlin club world with the broader European underground.',
+    releases: [] },
 ];

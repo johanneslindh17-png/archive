@@ -2876,4 +2876,26 @@
 
   // -- PHENOMENAL HANDCLAP BAND -------------------------------------------
   { from:'disco',           to:'phenomenal_handclap_band', strength:3, type:'influence' },
+
+  // -- TOM TRAGO -----------------------------------------------------------
+  { from:'clone',           to:'tom_trago',             strength:3, type:'roster'    },
+  { from:'rush_hour',       to:'tom_trago',             strength:2, type:'roster'    },
+  { from:'hunee',           to:'tom_trago',             strength:2, type:'aesthetic' },
+  { from:'tom_trago',       to:'young_marco',           strength:2, type:'aesthetic' },
+
+  // -- YOUNG MARCO ---------------------------------------------------------
+  { from:'rush_hour',       to:'young_marco',           strength:2, type:'aesthetic' },
+  { from:'delsin',          to:'young_marco',           strength:2, type:'aesthetic' },
+
+  // -- SAN PROPER ----------------------------------------------------------
+  { from:'clone',           to:'san_proper',            strength:2, type:'roster'    },
+  { from:'rush_hour',       to:'san_proper',            strength:1, type:'aesthetic' },
+
+  // -- MAYA JANE COLES -----------------------------------------------------
+  { from:'deep_house',      to:'maya_jane_coles',       strength:2, type:'influence' },
+  { from:'fabric',          to:'maya_jane_coles',       strength:2, type:'aesthetic' },
+
+  // -- MARLON HOFFSTADT ----------------------------------------------------
+  { from:'deep_house',      to:'marlon_hoffstadt',      strength:2, type:'influence' },
+  { from:'toy_tonics',      to:'marlon_hoffstadt',      strength:1, type:'aesthetic' },
 ];
