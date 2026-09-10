@@ -108,7 +108,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   border-right:1px solid var(--tb-border);line-height:1.25;
 }
 .wordmark-line1{ display:block; }
-.wordmark-line2{ display:block; margin-left:-4px; }
+.wordmark-line2{ display:block; }
 .tbsep{width:1px;height:100%;background:var(--tb-border);flex-shrink:0}
 .sw{position:relative;flex:1;height:100%}
 .sw input{
@@ -410,7 +410,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   60%  { transform: translate(calc(-0.7 * var(--sh,0) * 1px), calc(0.5 * var(--sh,0) * 1px)); }
   80%  { transform: translate(calc(0.8 * var(--sh,0) * 1px), calc(-0.2 * var(--sh,0) * 1px)); }
 }
-.nd.hov-shake .nd-inner { animation: nd-shake 0.15s linear infinite; }
+/* shake driven by JS (shakeInnerRef.current.style.transform) — no CSS class needed */
 /* March elements: always in DOM for perf, shown via hover class */
 .nd-march      { display: none; }
 .nd-self-march { display: none; }

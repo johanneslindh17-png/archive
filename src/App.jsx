@@ -354,15 +354,13 @@ export default function App() {
   const hovPrevRef  = useRef([]);   // DOM elements modified on hover — cleaned on mouseleave
   const shakeTimerRef   = useRef(null);
   const shakeElRef      = useRef(null);
+  const shakeInnerRef   = useRef(null);
   const marchOverlayRef = useRef([]);
 
   function clearShake() {
     if (shakeTimerRef.current) { clearTimeout(shakeTimerRef.current); shakeTimerRef.current = null; }
-    if (shakeElRef.current) {
-      shakeElRef.current.classList.remove('hov-shake');
-      shakeElRef.current.style.removeProperty('--sh');
-      shakeElRef.current = null;
-    }
+    if (shakeInnerRef.current) { shakeInnerRef.current.style.transform = ''; shakeInnerRef.current = null; }
+    if (shakeElRef.current) { shakeElRef.current = null; }
   }
 
   function clearMarchOverlay() {
@@ -390,7 +388,7 @@ export default function App() {
       el.setAttribute('fill', 'none');
       el.setAttribute('stroke', stroke);
       el.setAttribute('stroke-width', '1.5');
-      el.setAttribute('stroke-dasharray', '5 8');
+      el.setAttribute('stroke-dasharray', '2 11');
       el.style.animation = `nd-march-ants ${speed}s linear infinite`;
       el.style.pointerEvents = 'none';
       svgGRef.current.appendChild(el);
@@ -1743,15 +1741,18 @@ export default function App() {
             // Easter egg: shake after 10s, ramp to max over next 10s
             clearShake();
             shakeElRef.current = self;
+            shakeInnerRef.current = self.querySelector('.nd-inner');
             const startRamp = () => {
               const t0 = Date.now();
               const tick = () => {
-                if (!shakeElRef.current) return;
-                const t = Math.min(1, (Date.now() - t0) / 10000);
-                shakeElRef.current.style.setProperty('--sh', (t * 3.5).toFixed(2));
-                if (!shakeElRef.current.classList.contains('hov-shake'))
-                  shakeElRef.current.classList.add('hov-shake');
-                if (t < 1) shakeTimerRef.current = setTimeout(tick, 80);
+                if (!shakeInnerRef.current) return;
+                const now = Date.now();
+                const t = Math.min(1, (now - t0) / 10000);
+                const sh = t * 3.5;
+                const dx = (Math.sin(now / 47) * 0.8 + Math.sin(now / 31) * 0.2) * sh;
+                const dy = (Math.cos(now / 53) * 0.5 + Math.cos(now / 29) * 0.3) * sh;
+                shakeInnerRef.current.style.transform = `translate(${dx}px, ${dy}px)`;
+                if (t < 1) shakeTimerRef.current = setTimeout(tick, 50);
                 else shakeTimerRef.current = null;
               };
               tick();
@@ -1795,7 +1796,7 @@ export default function App() {
           title="Return to home"
         >
           <span className="wordmark-line1">Electronic</span>
-          <span className="wordmark-line2">Archive</span>
+          <span className="wordmark-line2">Archive.</span>
         </div>
         <div className="tbsep" />
         <div className="sw">
