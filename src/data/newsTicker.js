@@ -36,11 +36,6 @@ export const NEWS_TICKER = [
   'Ron Hardy plays marathon sets at Music Box, introducing tracks weeks before release',
   'Jeff Mills plays a three-turntable set at the Music Institute that becomes legendary',
 
-  // ── Deaths & losses ──────────────────────────────────────────────────────────
-  'Larry Levan passes away, aged 38 · 1992',
-  'Frankie Knuckles — the Godfather of House — passes away, aged 59 · 2014',
-  'DJ Rashad passes away in Chicago, aged 34 · 2014',
-
   // ── Hardware & scene firsts ───────────────────────────────────────────────────
   'Roland releases the TR-808 drum machine — its sound defines a decade · 1980',
   'Roland releases the TR-909 drum machine · 1983',
