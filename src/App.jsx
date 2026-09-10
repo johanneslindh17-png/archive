@@ -1254,6 +1254,8 @@ export default function App() {
     if (searchQ.trim()) {
       const q = searchQ.toLowerCase();
       const m = new Set(NODES.filter(n => nodeMatchesQuery(n, q)).map(n => n.id));
+      // include direct neighbours so connections stay visible
+      EDGES.forEach(e => { if (m.has(e.from)) m.add(e.to); if (m.has(e.to)) m.add(e.from); });
       ids = new Set([...ids].filter(id => m.has(id)));
     }
     return ids;
