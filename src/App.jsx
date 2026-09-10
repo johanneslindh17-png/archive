@@ -404,7 +404,7 @@ export default function App() {
     EDGES.forEach(e => {
       if (e.type === 'aesthetic') return;
       const nbId = e.from === n.id ? e.to : e.to === n.id ? e.from : null;
-      if (!nbId) return;
+      if (!nbId || nbId === selected || nbId === pinned) return;
       const nb = NODES.find(nd => nd.id === nbId);
       if (nb) makeMarchEl(nb, 'var(--march-prev)', 1.0);
     });
