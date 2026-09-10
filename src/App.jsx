@@ -2413,7 +2413,7 @@ export default function App() {
             </span>
           )}
           <div style={{ position: 'relative' }}>
-            <button className="trial-counter" onClick={() => setContactOpen(o => !o)}>contact</button>
+            <button className="trial-counter" onClick={e => { e.stopPropagation(); setContactOpen(o => !o); }}>contact</button>
             {contactOpen && (
               <div className="contact-dropdown" onClick={e => e.stopPropagation()}>
                 <div className="contact-body">
