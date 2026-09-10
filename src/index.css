@@ -403,16 +403,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .dark { --march-self: rgba(255,255,255,0.7); --march-prev: rgba(255,255,255,0.45); }
 
 @keyframes nd-march-ants { to { stroke-dashoffset: -13; } }
-@keyframes nd-dim-pulse-dark {
-  0%, 100% { fill: rgba(255,255,255,0.1); }
-  50%       { fill: rgba(255,255,255,0.85); }
-}
-@keyframes nd-dim-pulse-light {
-  0%, 100% { fill: rgba(0,0,0,0.15); }
-  50%       { fill: rgba(0,0,0,0.8); }
-}
-.dark .nd.dim.nd-march-pulse text { animation: nd-dim-pulse-dark 1.5s ease-in-out infinite; }
-.nd.dim.nd-march-pulse text        { animation: nd-dim-pulse-light 1.5s ease-in-out infinite; }
+/* dim-node text pulse driven by rAF in addMarchOverlay — no CSS rule needed */
 @keyframes nd-shake {
   0%,100% { transform: translate(0px, 0px); }
   20%  { transform: translate(calc(-1 * var(--sh,0) * 1px), calc(0.4 * var(--sh,0) * 1px)); }

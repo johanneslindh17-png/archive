@@ -372,7 +372,10 @@ export default function App() {
   function clearMarchOverlay() {
     marchOverlayRef.current.forEach(el => el.parentNode?.removeChild(el));
     marchOverlayRef.current = [];
-    marchPulseEls.current.forEach(el => el.classList.remove('nd-march-pulse'));
+    marchPulseEls.current.forEach(({ txt, origFill, raf }) => {
+      cancelAnimationFrame(raf);
+      if (txt) txt.style.fill = origFill;
+    });
     marchPulseEls.current = [];
   }
 
@@ -414,8 +417,20 @@ export default function App() {
       makeMarchEl(nb, 'var(--march-prev)', 1.0);
       const nbEl = svgGRef.current?.querySelector(`[data-nid="${nbId}"]`);
       if (nbEl?.classList.contains('dim')) {
-        nbEl.classList.add('nd-march-pulse');
-        marchPulseEls.current.push(nbEl);
+        const txt = nbEl.querySelector('text');
+        if (txt) {
+          const origFill = txt.style.fill;
+          const t0 = performance.now();
+          let raf;
+          const tick = (now) => {
+            const phase = (Math.sin((now - t0) / 1500 * Math.PI * 2) + 1) / 2;
+            const a = darkMode ? (0.08 + phase * 0.77) : (0.12 + phase * 0.68);
+            txt.style.fill = darkMode ? `rgba(255,255,255,${a.toFixed(3)})` : `rgba(0,0,0,${a.toFixed(3)})`;
+            raf = requestAnimationFrame(tick);
+          };
+          raf = requestAnimationFrame(tick);
+          marchPulseEls.current.push({ txt, origFill, raf });
+        }
       }
     });
   }
