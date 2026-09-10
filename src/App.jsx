@@ -356,7 +356,6 @@ export default function App() {
   const shakeElRef      = useRef(null);  // outer <g> being shaken
   const shakeOrigRef    = useRef(null);  // its original transform string
   const marchOverlayRef = useRef([]);
-  const marchPulseEls  = useRef([]);
 
   function clearShake() {
     if (shakeTimerRef.current) { clearTimeout(shakeTimerRef.current); shakeTimerRef.current = null; }
@@ -372,10 +371,6 @@ export default function App() {
   function clearMarchOverlay() {
     marchOverlayRef.current.forEach(el => el.parentNode?.removeChild(el));
     marchOverlayRef.current = [];
-    marchPulseEls.current.forEach(({ txt, origFill }) => {
-      if (txt) { txt.classList.remove('nd-march-pulse-text'); txt.style.fill = origFill; }
-    });
-    marchPulseEls.current = [];
   }
 
   function addMarchOverlay(n, positions) {
@@ -406,7 +401,6 @@ export default function App() {
     };
 
     makeMarchEl(n, 'var(--march-self)', 0.7);
-    marchPulseEls.current = [];
     EDGES.forEach(e => {
       if (e.type === 'aesthetic') return;
       const nbId = e.from === n.id ? e.to : e.to === n.id ? e.from : null;
@@ -414,14 +408,28 @@ export default function App() {
       const nb = NODES.find(nd => nd.id === nbId);
       if (!nb) return;
       makeMarchEl(nb, 'var(--march-prev)', 1.0);
-      const nbEl = svgGRef.current?.querySelector(`[data-nid="${nbId}"]`);
-      if (nbEl?.classList.contains('dim')) {
-        const txt = nbEl.querySelector('text');
-        if (txt) {
-          const origFill = txt.style.fill;
-          txt.style.removeProperty('fill');     // clear inline fill so CSS animation wins
-          txt.classList.add('nd-march-pulse-text');
-          marchPulseEls.current.push({ txt, origFill });
+      if (hlIds && !hlIds.has(nbId)) {
+        // Node is dim — add a pulsing text overlay directly to the SVG overlay layer.
+        // Cannot add classes to the React-managed element: setHovNode triggers a re-render
+        // that moves neighbor nodes between <g> groups, causing React to remount them and
+        // destroy any DOM mutations we made. Appending to svgGRef (outside React's tree)
+        // is immune to reconciliation.
+        const p = positions[nbId];
+        if (p) {
+          const overlayTxt = document.createElementNS(svgNS, 'text');
+          overlayTxt.setAttribute('text-anchor', 'middle');
+          overlayTxt.setAttribute('dominant-baseline', 'middle');
+          overlayTxt.setAttribute('x', p.x);
+          overlayTxt.setAttribute('y', p.y);
+          overlayTxt.setAttribute('font-size', '7px');
+          overlayTxt.setAttribute('font-weight', '400');
+          overlayTxt.setAttribute('fill', darkMode ? 'white' : 'black');
+          overlayTxt.setAttribute('fill-opacity', '0');
+          overlayTxt.classList.add('nd-march-pulse-text');
+          overlayTxt.style.pointerEvents = 'none';
+          overlayTxt.textContent = nb.label;
+          svgGRef.current.appendChild(overlayTxt);
+          marchOverlayRef.current.push(overlayTxt);
         }
       }
     });

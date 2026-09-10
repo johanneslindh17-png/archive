@@ -403,10 +403,8 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .dark { --march-self: rgba(255,255,255,0.7); --march-prev: rgba(255,255,255,0.45); }
 
 @keyframes nd-march-ants { to { stroke-dashoffset: -13; } }
-@keyframes nd-dim-pulse-dark  { 0%,100%{fill:rgba(255,255,255,0.08)} 50%{fill:rgba(255,255,255,0.85)} }
-@keyframes nd-dim-pulse-light { 0%,100%{fill:rgba(0,0,0,0.12)}       50%{fill:rgba(0,0,0,0.80)}       }
-.dark .nd-march-pulse-text { animation: nd-dim-pulse-dark  1.5s ease-in-out infinite; }
-      .nd-march-pulse-text { animation: nd-dim-pulse-light 1.5s ease-in-out infinite; }
+@keyframes nd-dim-pulse { 0%,100%{fill-opacity:0.05} 50%{fill-opacity:0.85} }
+.nd-march-pulse-text { animation: nd-dim-pulse 1.5s ease-in-out infinite; }
 @keyframes nd-shake {
   0%,100% { transform: translate(0px, 0px); }
   20%  { transform: translate(calc(-1 * var(--sh,0) * 1px), calc(0.4 * var(--sh,0) * 1px)); }
