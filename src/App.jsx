@@ -2462,6 +2462,7 @@ export default function App() {
           <div className="statusbar-item">ARCHIVE — Mapping the electronic underground · v0.2</div>
           <div className="statusbar-sep" />
           <button className="tour-relaunch" onClick={() => setOnboardStep('welcome')} title="Relaunch intro">TOUR</button>
+          <span className="archive-credit">DJ TJ</span>
         </div>
       </div>
 
