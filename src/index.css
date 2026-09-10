@@ -230,7 +230,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .colorbtn:hover{ color:var(--tb-text); }
 .colorbtn-swatch{
   display:block;width:16px;height:16px;border-radius:2px;
-  background:conic-gradient(hsl(0,60%,55%),hsl(45,65%,55%),hsl(90,55%,48%),hsl(180,50%,48%),hsl(220,55%,55%),hsl(280,50%,52%),hsl(360,60%,55%));
+  background:linear-gradient(to right,hsl(0,65%,55%),hsl(40,70%,55%),hsl(80,60%,48%),hsl(160,55%,48%),hsl(220,60%,55%),hsl(270,55%,55%));
   opacity:0.7;transition:opacity 0.15s;
 }
 .colorbtn:hover .colorbtn-swatch{ opacity:1; }
