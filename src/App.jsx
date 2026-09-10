@@ -357,6 +357,7 @@ export default function App() {
   const [unlocked, setUnlocked] = useState(() => localStorage.getItem('archiveUnlocked') === '1');
   const [trialCount, setTrialCount] = useState(() => parseInt(localStorage.getItem('archiveTrialCount') || '0', 10));
   const [paywallOpen, setPaywallOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
   const [licenseKey, setLicenseKey] = useState('');
   const [verifying, setVerifying] = useState(false);
   const [verifyError, setVerifyError] = useState('');
@@ -447,7 +448,7 @@ export default function App() {
     const svgCy = (vh / 2 - live.y) / live.k;
     // At the new scale, keep that same SVG y centred — clamped to valid range
     const ty = Math.min(0, Math.max(vh - H * k, vh / 2 - svgCy * k));
-    const x1 = 0, y1 = ty, k1 = k;
+    const x1 = 54 - LEFT * k, y1 = ty, k1 = k;
     const x0 = live.x, y0 = live.y, k0 = live.k;
     const target = d3.zoomIdentity.translate(x1, y1).scale(k1);
 
@@ -1004,6 +1005,14 @@ export default function App() {
   useEffect(() => { tfRef.current = tf; }, [tf]);
   useEffect(() => { expandedRef.current = expanded; }, [expanded]);
 
+  // Close contact dropdown on outside click
+  useEffect(() => {
+    if (!contactOpen) return;
+    const close = () => setContactOpen(false);
+    document.addEventListener('click', close);
+    return () => document.removeEventListener('click', close);
+  }, [contactOpen]);
+
   // Zoom
   const zoomRef = useRef(null);
   const svgGRef = useRef(null);       // ref to the main <g> — d3 owns its transform directly
@@ -1039,7 +1048,8 @@ export default function App() {
     const svg = d3.select(svgRef.current);
     svg.call(zoom);
     const vw = window.innerWidth;
-    svg.call(zoom.transform, d3.zoomIdentity.translate(0, 0).scale(vw / W));
+    const initK = vw / W;
+    svg.call(zoom.transform, d3.zoomIdentity.translate(54 - LEFT * initK, 0).scale(initK));
 
     // Regular scroll wheel → pan vertically
     const handleWheel = event => {
@@ -2402,6 +2412,17 @@ export default function App() {
               {`${Math.max(0, TRIAL_LIMIT - trialCount)} node views`}
             </span>
           )}
+          <div style={{ position: 'relative' }}>
+            <button className="trial-counter" onClick={() => setContactOpen(o => !o)}>contact</button>
+            {contactOpen && (
+              <div className="contact-dropdown" onClick={e => e.stopPropagation()}>
+                <div className="contact-body">
+                  Do you know an artist that should be part of the archive? Did you spot something that wasn't quite right? Reach out — we read everything and will make sure to fix it.
+                </div>
+                <a className="contact-email" href="mailto:electronicarchive@gmail.com">electronicarchive@gmail.com</a>
+              </div>
+            )}
+          </div>
           <div className="statusbar-sep" />
           <div className="statusbar-item">ARCHIVE — Mapping the electronic underground · v0.2</div>
           <div className="statusbar-sep" />

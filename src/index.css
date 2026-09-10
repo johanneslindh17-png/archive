@@ -901,6 +901,23 @@ path.eg.dim{opacity:0.09}
 }
 .trial-counter:hover{color:var(--tb-text);border-color:var(--tb-text);}
 
+.contact-dropdown{
+  position:absolute;bottom:calc(100% + 8px);right:0;
+  background:var(--tb-bg);border:1px solid var(--tb-border);
+  padding:16px 18px;width:260px;z-index:500;
+  font-family:'Syne Mono',monospace;
+}
+.contact-body{
+  font-size:0.54rem;letter-spacing:0.06em;line-height:1.7;
+  color:var(--tb-text-mid);margin-bottom:12px;
+}
+.contact-email{
+  display:block;font-size:0.54rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--tb-text);text-decoration:none;border-bottom:1px solid var(--tb-border);
+  padding-bottom:2px;
+}
+.contact-email:hover{color:var(--tb-text);border-bottom-color:var(--tb-text);}
+
 .paywall-overlay{
   position:fixed;inset:0;z-index:9999;
   background:rgba(0,0,0,0.75);backdrop-filter:blur(4px);
