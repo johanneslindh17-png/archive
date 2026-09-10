@@ -876,9 +876,9 @@ path.eg.dim{opacity:0.09}
 .player-btn{
   background:transparent;border:1px solid var(--tb-border);
   color:var(--tb-text-mid);border-radius:3px;
-  width:28px;height:28px;
+  width:32px;height:32px;
   display:flex;align-items:center;justify-content:center;
-  font-size:0.9rem;cursor:pointer;flex-shrink:0;
+  font-size:1rem;cursor:pointer;flex-shrink:0;
   transition:background 0.15s,color 0.15s,border-color 0.15s;
   padding:0;line-height:1;
 }
@@ -896,7 +896,7 @@ path.eg.dim{opacity:0.09}
   font-family:'Syne Mono',monospace;font-size:0.58rem;letter-spacing:0.08em;
   text-transform:uppercase;color:var(--tb-text-mid);cursor:pointer;
   border:1px solid var(--tb-border);padding:0 10px;border-radius:2px;
-  height:28px;line-height:1;display:inline-flex;align-items:center;white-space:nowrap;flex-shrink:0;
+  height:32px;line-height:1;display:inline-flex;align-items:center;white-space:nowrap;flex-shrink:0;
   transition:color 0.2s,border-color 0.2s;
   background:transparent;outline:none;
 }
