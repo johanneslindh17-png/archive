@@ -2575,7 +2575,7 @@ export default function App() {
           <div className="paywall-modal">
             <div className="paywall-title">Help keep the Archive alive</div>
             <div className="paywall-body">
-              The Archive is a passion project documenting the genealogy of electronic music — artists, labels, clubs, and pivotal moments, all connected by verified lines of influence and lineage. It grows continuously, with new nodes and connections added every week. Your support directly helps me keep the Archive growing.
+              The Archive is a passion project documenting the genealogy of electronic music — artists, labels, clubs, and pivotal moments, all connected by verified lines of influence and lineage. It grows continuously, with new nodes and connections added every week. Your support directly helps me keep the Archive growing. Thank you!
             </div>
             <a
               className="paywall-buy"
