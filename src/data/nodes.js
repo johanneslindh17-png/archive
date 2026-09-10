@@ -3347,7 +3347,7 @@ export const NODES = [
     ]},
 
   { id:'jackmaster', label:'Jackmaster', type:'artist', genre:'house', era:2007, city:'Glasgow', country:'UK',
-    desc:'Jack Revill is one of Glasgow\'s most celebrated DJs and co-founder of Numbers. His DJ sets fuse house, techno, electro, and bass music in ways that reflect Glasgow\'s unusually eclectic dance culture. Through Numbers he has championed music from Rustie, Girl Unit, and Actress, helping define a distinctly British club music that owes as much to Chicago house as to grime.',
+    desc:'Jack Revill (1983–2023) was one of Glasgow\'s most celebrated DJs and co-founder of Numbers. His DJ sets fused house, techno, electro, and bass music in ways that reflected Glasgow\'s unusually eclectic dance culture. Through Numbers he championed music from Rustie, Girl Unit, and Actress, helping define a distinctly British club music that owed as much to Chicago house as to grime.',
     releases:[
       { title:'Live at Robert Johnson Vol. 14 (Playhouse)', year:2012 },
     ]},
@@ -4449,7 +4449,7 @@ export const NODES = [
     releases: [] },
 
   // ── MEDIA — RESIDENT ADVISOR ──────────────────────────────────────────────
-  { id:'resident_advisor', label:'Resident Advisor', type:'moment', genre:'experimental', era:2001, city:'London', country:'UK',
+  { id:'resident_advisor', label:'Resident Advisor', type:'channel', genre:'experimental', era:2001, city:'London', country:'UK',
     desc:'Resident Advisor (RA) is an electronic music media platform and events guide founded in Sydney in 2001 by Paul Clement and Nick Sabine. Originally focused on the Australian dance music scene, it expanded globally and incorporated in the UK in 2006 with a Berlin office opening in 2007. It has become one of the most widely read publications covering electronic music internationally, running news, reviews, artist profiles, a podcast series, and RA Films from 2011.',
     releases: [] },
 

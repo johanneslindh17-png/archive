@@ -911,7 +911,7 @@ export default function App() {
   // Step 3: a lightweight global Y-only sweep resolves the rare cases where
   //   tall stacks at adjacent era lines overlap across group boundaries.
   useEffect(() => {
-    const CHAR_W = 4.0, PAD = 3, BH = 11, X_GAP = 3, Y_GAP = 2;
+    const CHAR_W = 4.3, PAD = 3, BH = 11, X_GAP = 5, Y_GAP = 3;
 
     // Stable hash — same string → same number, every render
     const hash = s => {
@@ -1034,6 +1034,14 @@ export default function App() {
   // Keep refs in sync so zoom event handlers always see current values
   useEffect(() => { tfRef.current = tf; }, [tf]);
   useEffect(() => { expandedRef.current = expanded; }, [expanded]);
+
+  // Resume news ticker when returning to the grid — if no item is queued, load one immediately
+  useEffect(() => {
+    if (!selected && !pinned && welcomeDone && !newsItem) {
+      setNewsItem(nextNewsItem());
+      setNewsKey(k => k + 1);
+    }
+  }, [selected, pinned, welcomeDone]);
 
   // Close contact dropdown on outside click
   useEffect(() => {
@@ -1760,7 +1768,7 @@ export default function App() {
             ? (darkMode ? 'Manual: dark — click for light' : 'Manual: light — click for dark')
             : (darkMode ? 'Auto: night — click to override' : 'Auto: day — click to override')}
         >
-          <svg width={16} height={16} viewBox="0 0 100 100">
+          <svg width={20} height={20} viewBox="0 0 100 100">
             <circle cx={50} cy={50} r={49} fill={darkMode ? '#ddd' : '#111'} stroke="none" />
             <path d="M50,1 A49,49,0,0,1,50,99 A24.5,24.5,0,0,1,50,50 A24.5,24.5,0,0,0,50,1 Z" fill={darkMode ? '#111' : '#ddd'} />
             <circle cx={50} cy={25} r={12} fill={darkMode ? '#111' : '#ddd'} />
@@ -1966,7 +1974,7 @@ export default function App() {
             setWelcomeDone(true);
             setNewsItem(nextNewsItem());
           }}>
-            {'› Welcome to Archive — Mapping the electronic underground. An interactive resource for discovery and learning about the emergence of electronic music and its culture. If you discover music you love, please follow the link to Bandcamp and support the artists by purchasing their music. Have fun! / TJ'}
+            {'› Welcome to Archive — Mapping the electronic underground. An interactive resource for discovery and learning about the emergence of electronic music and its culture. If you discover music you love, please follow the link to Bandcamp and support the artists by purchasing their music. Have fun exploring! — TJ'}
           </div>
         )}
         {!selected && !pinned && welcomeDone && newsItem && (
@@ -2074,7 +2082,14 @@ export default function App() {
           })()}
         </div>
 
-        <svg ref={svgRef} className="msv">
+        <svg ref={svgRef} className="msv" onMouseLeave={() => {
+          setHovNode(null);
+          hovPrevRef.current.forEach(({ el, txt, orig }) => {
+            el.classList.remove('hov-self', 'hov-prev');
+            if (txt) txt.style.fill = orig;
+          });
+          hovPrevRef.current = [];
+        }}>
           <rect x={0} y={0} width="100%" height="100%" fill={themeStyle?.bg || (darkMode ? '#0c0c10' : '#ffffff')} onClick={() => { clearAll(); flyHome(); }} />
           <g ref={svgGRef} style={{ transformOrigin: '0 0', willChange: 'transform' }}>
 

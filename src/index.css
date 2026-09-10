@@ -229,7 +229,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 }
 .colorbtn:hover{ color:var(--tb-text); }
 .colorbtn-swatch{
-  display:block;width:16px;height:16px;border-radius:2px;
+  display:block;width:20px;height:20px;border-radius:2px;
   background:linear-gradient(to right,hsl(0,65%,55%),hsl(40,70%,55%),hsl(80,60%,48%),hsl(160,55%,48%),hsl(220,60%,55%),hsl(270,55%,55%));
   opacity:0.7;transition:opacity 0.15s;
 }
@@ -476,7 +476,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   font-family:'Syne Mono',monospace;font-size:0.54rem;letter-spacing:0.13em;
   text-transform:uppercase;color:#555;white-space:nowrap;
   position:absolute;left:0;
-  animation: nbc-ticker 44s linear forwards;
+  animation: nbc-ticker 60s linear forwards;
 }
 .nbc-welcome--linked { cursor:pointer; }
 .nbc-welcome--linked:hover { color:#333; }
@@ -535,12 +535,12 @@ svg.msv:active{cursor:grabbing}
 .nd{cursor:pointer}
 .nd rect{transition:opacity 0.2s}
 .nd text{font-family:'Syne Mono',monospace;font-size:7.5px;fill:var(--node-text);pointer-events:none;transition:opacity 0.2s;letter-spacing:0.03em;}
-.nd.dim .nd-border,.nd.dim text{opacity:0.45}
+.nd.dim .nd-border,.nd.dim text{opacity:0.28}
 .nd.lit text{fill:#c0c0d4}
 .nd.sel rect,.nd.sel polygon{stroke:#ffffff!important;stroke-width:1.5px!important}
 .nd.sel text{fill:#e0e0ee!important}
 path.eg{fill:none;transition:opacity 0.2s}
-path.eg.dim{opacity:0.09}
+path.eg.dim{opacity:0.055}
 .dp{
   position:absolute;right:50px;top:44px;bottom:0;width:360px;
   background:var(--tb-bg);
