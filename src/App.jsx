@@ -2028,6 +2028,7 @@ export default function App() {
               <g>
                 {Object.entries(REGIONS).map(([key]) => {
                   const x = REGION_LEFTS[key] || LEFT;
+                  if (x <= LEFT) return null; // skip leftmost line — year strip covers that edge
                   return <line key={key} x1={x} y1={0} x2={x} y2={H} stroke={themeAccent ? themeAccent + '55' : (darkMode ? '#252535' : '#e0e0e0')} strokeWidth={1} />;
                 })}
                 {hlIds ? <>
