@@ -895,8 +895,8 @@ path.eg.dim{opacity:0.09}
 .trial-counter{
   font-family:'Syne Mono',monospace;font-size:0.58rem;letter-spacing:0.08em;
   text-transform:uppercase;color:var(--tb-text-mid);cursor:pointer;
-  border:1px solid var(--tb-border);padding:2px 10px;border-radius:2px;
-  line-height:1;display:inline-flex;align-items:center;white-space:nowrap;flex-shrink:0;
+  border:1px solid var(--tb-border);padding:0 10px;border-radius:2px;
+  height:28px;line-height:1;display:inline-flex;align-items:center;white-space:nowrap;flex-shrink:0;
   transition:color 0.2s,border-color 0.2s;
   background:transparent;outline:none;
 }
