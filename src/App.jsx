@@ -448,7 +448,7 @@ export default function App() {
     const svgCy = (vh / 2 - live.y) / live.k;
     // At the new scale, keep that same SVG y centred — clamped to valid range
     const ty = Math.min(0, Math.max(vh - H * k, vh / 2 - svgCy * k));
-    const x1 = 54 - LEFT * k, y1 = ty, k1 = k;
+    const x1 = 0, y1 = ty, k1 = k;
     const x0 = live.x, y0 = live.y, k0 = live.k;
     const target = d3.zoomIdentity.translate(x1, y1).scale(k1);
 
@@ -1048,8 +1048,7 @@ export default function App() {
     const svg = d3.select(svgRef.current);
     svg.call(zoom);
     const vw = window.innerWidth;
-    const initK = vw / W;
-    svg.call(zoom.transform, d3.zoomIdentity.translate(54 - LEFT * initK, 0).scale(initK));
+    svg.call(zoom.transform, d3.zoomIdentity.translate(0, 0).scale(vw / W));
 
     // Regular scroll wheel → pan vertically
     const handleWheel = event => {

@@ -188,7 +188,7 @@ export const CITY_COORDS = {
 export const CITY_MAP = {};
 
 export const W = 1400, H = 2600;
-export const LEFT = 72;
+export const LEFT = 54; // matches year-strip CSS width
 export const RIGHT = 50; // right sidebar width — columns must end before this
 export const ERA_MIN = 1968, ERA_MAX = 2025;
 export const eraY = d3.scaleLinear().domain([ERA_MIN, ERA_MAX]).range([H-80, 70]);
