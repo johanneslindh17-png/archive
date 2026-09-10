@@ -1919,9 +1919,12 @@ export default function App() {
         )}
         {!selected && !pinned && welcomeDone && newsItem && (
           <div key={newsKey} className="nbc-welcome" onAnimationEnd={() => {
-            const next = NEWS_TICKER[Math.floor(Math.random() * NEWS_TICKER.length)];
-            setNewsItem(next);
-            setNewsKey(k => k + 1);
+            setNewsItem(null);
+            setTimeout(() => {
+              const next = NEWS_TICKER[Math.floor(Math.random() * NEWS_TICKER.length)];
+              setNewsItem(next);
+              setNewsKey(k => k + 1);
+            }, 90000); // ~90s gap so total cycle is ~2 min
           }}>
             {'› ' + newsItem}
           </div>
