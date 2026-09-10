@@ -1913,7 +1913,7 @@ export default function App() {
             const item = NEWS_TICKER[Math.floor(Math.random() * NEWS_TICKER.length)];
             setNewsItem(item);
           }}>
-            {'› Welcome to Archive — Mapping the electronic underground. An interactive resource for discovery and learning about the emergence of electronic music and its culture. Have fun!'}
+            {'› Welcome to Archive — Mapping the electronic underground. An interactive resource for discovery and learning about the emergence of electronic music and its culture. If you discover music you love, please follow the link to Bandcamp and support the artists by purchasing their music. Have fun!'}
           </div>
         )}
         {!selected && !pinned && welcomeDone && newsItem && (
