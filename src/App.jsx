@@ -356,6 +356,7 @@ export default function App() {
   const shakeElRef      = useRef(null);  // outer <g> being shaken
   const shakeOrigRef    = useRef(null);  // its original transform string
   const marchOverlayRef = useRef([]);
+  const marchPulseEls   = useRef([]);
 
   function clearShake() {
     if (shakeTimerRef.current) { clearTimeout(shakeTimerRef.current); shakeTimerRef.current = null; }
@@ -371,6 +372,8 @@ export default function App() {
   function clearMarchOverlay() {
     marchOverlayRef.current.forEach(el => el.parentNode?.removeChild(el));
     marchOverlayRef.current = [];
+    marchPulseEls.current.forEach(el => el.classList.remove('nd-march-pulse'));
+    marchPulseEls.current = [];
   }
 
   function addMarchOverlay(n, positions) {
@@ -401,12 +404,19 @@ export default function App() {
     };
 
     makeMarchEl(n, 'var(--march-self)', 0.7);
+    marchPulseEls.current = [];
     EDGES.forEach(e => {
       if (e.type === 'aesthetic') return;
       const nbId = e.from === n.id ? e.to : e.to === n.id ? e.from : null;
       if (!nbId || nbId === selected || nbId === pinned) return;
       const nb = NODES.find(nd => nd.id === nbId);
-      if (nb) makeMarchEl(nb, 'var(--march-prev)', 1.0);
+      if (!nb) return;
+      makeMarchEl(nb, 'var(--march-prev)', 1.0);
+      const nbEl = svgGRef.current?.querySelector(`[data-nid="${nbId}"]`);
+      if (nbEl?.classList.contains('dim')) {
+        nbEl.classList.add('nd-march-pulse');
+        marchPulseEls.current.push(nbEl);
+      }
     });
   }
   const [welcomeDone, setWelcomeDone] = useState(false);
