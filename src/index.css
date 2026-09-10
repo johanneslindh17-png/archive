@@ -417,15 +417,12 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 }
 .nd-self-text { animation: nd-self-text-pulse 2.6s ease-in-out infinite; }
 
-/* Node breathe: subtle scale pulse on hovered non-dimmed nodes */
-@keyframes nd-breathe {
-  0%, 100% { transform: scale(1);    }
-  50%       { transform: scale(1.03); }
-}
+/* Node scale-up on hover */
 .nd:not(.dim):hover .nd-inner {
-  animation: nd-breathe 2.4s ease-in-out infinite;
+  transform: scale(1.14);
   transform-box: fill-box;
   transform-origin: center;
+  transition: transform 0.12s ease-out;
 }
 .regionlabel{
   height:28px;border-bottom:1px solid var(--tb-border);
