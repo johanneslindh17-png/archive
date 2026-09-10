@@ -1,6 +1,21 @@
 // Verified electronic music milestones — events, clubs, cultural moments
 // Each entry has a nodeId for click-to-navigate (null = no linked node yet)
 export const NEWS_TICKER = [
+
+  // ── Black heritage ───────────────────────────────────────────────────────────
+  { text: 'House music was created by Black American DJs — Frankie Knuckles, Larry Levan, and Ron Hardy built the form from the ground up · 1970s–80s', nodeId: 'knuckles' },
+  { text: 'The Warehouse was a club for Black gay men on Chicago\'s South Side — it is where house music was born · 1977', nodeId: 'warehouse' },
+  { text: 'Detroit techno was invented by three Black musicians from Belleville — Juan Atkins, Derrick May, and Kevin Saunderson · 1981', nodeId: 'derrick_may' },
+  { text: 'Black club culture — from Harlem rent parties to Chicago\'s Bronzeville ballrooms — built the dancefloor infrastructure that made house possible', nodeId: 'black_club_culture' },
+  { text: 'Larry Levan and Frankie Knuckles both found their musical voice dancing at The Loft before starting their own careers · early 1970s', nodeId: 'the_loft' },
+
+  // ── Queer heritage ───────────────────────────────────────────────────────────
+  { text: 'The Paradise Garage served a primarily Black and Latino gay clientele — its freedom shaped the emotional language of house music · 1977–87', nodeId: 'paradise_garage' },
+  { text: 'The queer dancefloor is where house music found its emotional vocabulary — the four-on-the-floor beat as a collective insistence on joy', nodeId: 'queer_dancefloor' },
+  { text: 'Ballroom culture — houses, voguing, balls — emerged from Black and Latinx LGBTQ+ New York and gave birth to its own musical form · 1960s–', nodeId: 'ballroom' },
+  { text: 'David Mancuso opened The Loft in 1970 as a space for those excluded elsewhere — the founding model of the club as sanctuary rather than business', nodeId: 'the_loft' },
+  { text: 'Electronic dance music as we know it was shaped in spaces that mainstream culture had refused to allow — Black, Latino, and queer communities built the template', nodeId: 'black_club_culture' },
+
   // ── Clubs & venues ──────────────────────────────────────────────────────────
   { text: 'Frankie Knuckles begins his residency at The Warehouse, Chicago · 1977', nodeId: 'knuckles' },
   { text: 'Ron Hardy takes over at Music Box, Chicago · 1983', nodeId: 'ron_hardy' },

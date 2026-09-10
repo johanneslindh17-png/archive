@@ -354,6 +354,18 @@ export default function App() {
   const [newsItem, setNewsItem] = useState(null);
   const [newsKey, setNewsKey] = useState(0);
   const [newsHovered, setNewsHovered] = useState(false);
+  const newsQueueRef = useRef([]);
+  function nextNewsItem() {
+    if (newsQueueRef.current.length === 0) {
+      const idx = NEWS_TICKER.map((_, i) => i);
+      for (let i = idx.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [idx[i], idx[j]] = [idx[j], idx[i]];
+      }
+      newsQueueRef.current = idx;
+    }
+    return NEWS_TICKER[newsQueueRef.current.pop()];
+  }
   const [photoColors, setPhotoColors] = useState(null);
   const [unlocked, setUnlocked] = useState(() => localStorage.getItem('archiveUnlocked') === '1');
   const [trialCount, setTrialCount] = useState(() => parseInt(localStorage.getItem('archiveTrialCount') || '0', 10));
@@ -1927,8 +1939,7 @@ export default function App() {
         {!selected && !pinned && !welcomeDone && (
           <div className="nbc-welcome" onAnimationEnd={() => {
             setWelcomeDone(true);
-            const item = NEWS_TICKER[Math.floor(Math.random() * NEWS_TICKER.length)];
-            setNewsItem(item);
+            setNewsItem(nextNewsItem());
           }}>
             {'› Welcome to Archive — Mapping the electronic underground. An interactive resource for discovery and learning about the emergence of electronic music and its culture. If you discover music you love, please follow the link to Bandcamp and support the artists by purchasing their music. Have fun! / TJ'}
           </div>
@@ -1950,8 +1961,7 @@ export default function App() {
               setNewsHovered(false);
               setNewsItem(null);
               setTimeout(() => {
-                const next = NEWS_TICKER[Math.floor(Math.random() * NEWS_TICKER.length)];
-                setNewsItem(next);
+                setNewsItem(nextNewsItem());
                 setNewsKey(k => k + 1);
               }, 90000);
             }}
