@@ -1514,9 +1514,7 @@ export default function App() {
     const bh = 11;
     const dm = darkMode;
     const tc = getThemeColors(n, colorTheme, dm);
-    const fillColor = isHovSelf
-      ? (tc ? tc.stroke : (dm ? 'rgba(255,255,255,0.18)' : 'rgba(0,0,0,0.12)'))
-      : isSel
+    const fillColor = isSel
       ? (tc ? tc.stroke : '#5a5a70')
       : isDim ? (dm ? '#0c0c10' : '#ffffff')
       : tc ? tc.fill : 'transparent';
@@ -1625,7 +1623,7 @@ export default function App() {
           {isHovPrev && renderMarch('nd-march', mPrev)}
           <text textAnchor="middle" dominantBaseline="middle"
             className={isHovSelf ? 'nd-self-text' : isHovPrevDim ? 'nd-prev-text' : undefined}
-            style={{ fill: textFill, fontSize: '7.0px', fontWeight: isHl || isSel ? '600' : '400' }}>
+            style={{ fill: textFill, fontSize: '7.0px', fontWeight: isHl || isSel || isHovSelf ? '600' : '400', opacity: isHovSelf ? 1 : undefined }}>
             {n.label}
           </text>
         </g>
