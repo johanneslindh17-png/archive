@@ -350,6 +350,8 @@ export default function App() {
   const [searchQ, setSearchQ] = useState('');
   const [selected, setSelected] = useState(null);
   const [history, setHistory] = useState([]);
+  const tfRafRef    = useRef(null); // RAF handle for throttling setTf
+  const hovPrevRef  = useRef([]);   // DOM elements modified on hover — cleaned on mouseleave
   const [welcomeDone, setWelcomeDone] = useState(false);
   const [newsItem, setNewsItem] = useState(null);
   const [newsKey, setNewsKey] = useState(0);
@@ -1064,8 +1066,11 @@ export default function App() {
           const { x, y, k } = e.transform;
           svgGRef.current.style.transform = `translate(${x}px,${y}px) scale(${k})`;
         }
-        // Update React state for HTML overlays — suppressed during flyHome to avoid lag
-        if (!animatingRef.current) setTf(e.transform);
+        // Update React state for HTML overlays — throttled to one update per animation frame
+        if (!animatingRef.current) {
+          if (tfRafRef.current) cancelAnimationFrame(tfRafRef.current);
+          tfRafRef.current = requestAnimationFrame(() => setTf(e.transform));
+        }
       })
       .on('end', () => {
         // Keep topbar locked briefly so the stray click (which fires async after
@@ -1540,10 +1545,6 @@ export default function App() {
     const isHl = hlIds ? hlIds.has(n.id) : isFilt;
     const isDim = (hlIds && !hlIds.has(n.id)) || (!hlIds && !isFilt);
     const isSel = n.id === selected || n.id === pinned;
-    const isHovSelf = !isSel && hovNode?.id === n.id;
-    const hovIsSel = hovNode && (hovNode.id === selected || hovNode.id === pinned);
-    const isHovPrev = !isSel && !isHovSelf && (hovHlIds?.has(n.id) ?? false) && !(isHl && hovIsSel);
-    const isHovPrevDim = isHovPrev && isDim; // text pulse only when node is currently dimmed
     const charW = 4.0, pad = 3;
     const isMoment  = n.type === 'moment';
     const isStyle   = n.type === 'style';
@@ -1557,9 +1558,7 @@ export default function App() {
       ? (tc ? tc.stroke : '#5a5a70')
       : isDim ? (dm ? '#0c0c10' : '#ffffff')
       : tc ? tc.fill : 'transparent';
-    const strokeColor = isHovSelf
-      ? 'none'
-      : isSel
+    const strokeColor = isSel
       ? (dm ? '#e0ddd8' : '#111111')
       : isDim
         ? (tc ? `${tc.stroke}28` : (dm ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.08)'))
@@ -1568,9 +1567,6 @@ export default function App() {
           : tc ? tc.stroke : (dm ? 'rgba(255,255,255,0.40)' : 'rgba(0,0,0,0.28)');
     const textFill = isSel
       ? (dm ? '#0c0c10' : '#ffffff')
-      : isHovPrevDim
-        // Bright base colour — CSS opacity animation pulses it 15%→85% of this
-        ? (tc ? tc.text : (dm ? '#ffffff' : '#0a0a0a'))
       : isDim
         ? (dm ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.15)')
       : isHl
@@ -1579,8 +1575,7 @@ export default function App() {
     const strokeW = isSel ? 1.5 : isHl ? 1 : 0.5;
     const hw = bw / 2, hh = bh / 2;
     const bgFill = themeStyle?.nodeBg || (dm ? '#0c0c10' : '#ffffff');
-    const mSelf = dm ? 'rgba(255,255,255,0.7)' : 'rgba(0,0,0,0.6)';
-    const mPrev = dm ? 'rgba(255,255,255,0.45)' : 'rgba(0,0,0,0.38)';
+    const brightText = dm ? 'rgba(255,255,255,0.75)' : 'rgba(0,0,0,0.72)';
 
     // ── Octagon (label): chamfered corners ───────────────────────────────────
     const oc = 4;
@@ -1640,6 +1635,7 @@ export default function App() {
     return (
       <g
         key={n.id}
+        data-nid={n.id}
         className={`nd${isDim ? ' dim' : isHl ? ' lit' : ''} ${isSel ? 'sel' : ''}`}
         transform={`translate(${pos.x},${pos.y})`}
         onClick={(ev) => {
@@ -1652,23 +1648,52 @@ export default function App() {
             positionPanel(n.id, d3.zoomTransform(svgRef.current));
           }
         }}
-        onMouseEnter={ev => { if (!isDim) { setHovNode(n); setHovPos({ x: ev.clientX, y: ev.clientY }); } }}
-        onMouseLeave={() => setHovNode(null)}
+        onMouseEnter={ev => {
+          if (!isDim) {
+            setHovNode(n);
+            setHovPos({ x: ev.clientX, y: ev.clientY });
+            // Apply hover visuals directly — avoids recomputing all 300+ nodes
+            const self = ev.currentTarget;
+            self.classList.add('hov-self');
+            hovPrevRef.current = [{ el: self }];
+            EDGES.forEach(e => {
+              if (e.type === 'aesthetic') return;
+              const nbId = e.from === n.id ? e.to : e.to === n.id ? e.from : null;
+              if (!nbId) return;
+              const nbEl = svgGRef.current?.querySelector(`[data-nid="${nbId}"]`);
+              if (!nbEl) return;
+              nbEl.classList.add('hov-prev');
+              const entry = { el: nbEl };
+              if (nbEl.classList.contains('dim')) {
+                const txt = nbEl.querySelector('text');
+                if (txt) { entry.txt = txt; entry.orig = txt.style.fill; txt.style.fill = brightText; }
+              }
+              hovPrevRef.current.push(entry);
+            });
+          }
+        }}
+        onMouseLeave={() => {
+          setHovNode(null);
+          hovPrevRef.current.forEach(({ el, txt, orig }) => {
+            el.classList.remove('hov-self', 'hov-prev');
+            if (txt) txt.style.fill = orig;
+          });
+          hovPrevRef.current = [];
+        }}
       >
         <g className="nd-inner">
           {renderBg()}
           {renderBorder()}
-          {isHovSelf && renderMarch('nd-self-march', mSelf)}
-          {isHovPrev && renderMarch('nd-march', mPrev)}
+          {renderMarch('nd-self-march', 'var(--march-self)')}
+          {renderMarch('nd-march', 'var(--march-prev)')}
           <text textAnchor="middle" dominantBaseline="middle"
-            className={isHovSelf ? 'nd-self-text' : isHovPrevDim ? 'nd-prev-text' : undefined}
-            style={{ fill: textFill, fontSize: '7.0px', fontWeight: isHl || isSel || isHovSelf ? '600' : '400', opacity: isHovSelf ? 1 : undefined }}>
+            style={{ fill: textFill, fontSize: '7.0px', fontWeight: isHl || isSel ? '600' : '400' }}>
             {n.label}
           </text>
         </g>
       </g>
     );
-  }), [positions, expandedPositions, expanded, filteredIds, hlIds, hovHlIds, hovNode, selected, darkMode, colorTheme]);
+  }), [positions, expandedPositions, expanded, filteredIds, hlIds, selected, darkMode, colorTheme]);
 
   return (
     <div className="app">
@@ -2550,7 +2575,7 @@ export default function App() {
           <div className="paywall-modal">
             <div className="paywall-title">Help keep the Archive alive</div>
             <div className="paywall-body">
-              The Archive is a one-person effort to document the genealogy of electronic music — artists, labels, clubs, and pivotal moments, all connected by verified lines of influence and lineage. It grows continuously, with new nodes and connections added every week. Your support directly funds the research and keeps the Archive growing.
+              The Archive is a passion project documenting the genealogy of electronic music — artists, labels, clubs, and pivotal moments, all connected by verified lines of influence and lineage. It grows continuously, with new nodes and connections added every week. Your support directly helps me keep the Archive growing.
             </div>
             <a
               className="paywall-buy"

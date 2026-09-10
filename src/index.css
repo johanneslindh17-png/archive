@@ -403,11 +403,25 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .hov-flow-in  { animation: hov-dash-in  1s linear infinite; }
 
 /* Marching ants: same dash pattern (2 11) as edge hover dashes, dashoffset -13 = one full cycle */
+/* March stroke colours — dark/light aware */
+:root { --march-self: rgba(0,0,0,0.6); --march-prev: rgba(0,0,0,0.38); }
+.dark { --march-self: rgba(255,255,255,0.7); --march-prev: rgba(255,255,255,0.45); }
+
 @keyframes nd-march-ants { to { stroke-dashoffset: -13; } }
-/* Connected-node preview — matches edge dash speed (1s) */
-.nd-march      { animation: nd-march-ants 1.0s linear infinite; }
-/* Hovered node self-march — slightly faster to feel more "active" */
-.nd-self-march { animation: nd-march-ants 0.7s linear infinite; }
+/* March elements: always in DOM for perf, shown via hover class */
+.nd-march      { display: none; }
+.nd-self-march { display: none; }
+.nd.hov-prev .nd-march      { display: block; animation: nd-march-ants 1.0s linear infinite; }
+.nd.hov-self .nd-self-march { display: block; animation: nd-march-ants 0.7s linear infinite; }
+/* Hide border stroke when self-hovered — march ants replace it */
+.nd.hov-self .nd-border { stroke: none; }
+/* Text animations via hover class (replaces React-managed classNames) */
+.nd.hov-self .nd-inner text {
+  animation: nd-self-text-pulse 2.6s ease-in-out infinite;
+  font-weight: 600 !important;
+  opacity: 1 !important;
+}
+.nd.dim.hov-prev .nd-inner text { animation: nd-prev-text-pulse 5.2s ease-in-out infinite; }
 
 /* Text pulse — dim connected nodes: bright fill set in JS, opacity pulses 15%→68% */
 @keyframes nd-prev-text-pulse {
