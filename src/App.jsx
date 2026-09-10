@@ -413,7 +413,11 @@ export default function App() {
   const [newsItem, setNewsItem] = useState(null);
   const [newsKey, setNewsKey] = useState(0);
   const [newsHovered, setNewsHovered] = useState(false);
-  const newsGapTimerRef = useRef(null);
+  const newsGapTimerRef  = useRef(null);
+  const newsStartRef     = useRef(null);  // Date.now() when current animation began
+  const newsPausedAtRef  = useRef(0);     // ms elapsed when user navigated away
+  const newsItemRef      = useRef(null);  // mirrors newsItem for use inside effects
+  const newsDelayRef     = useRef('0ms'); // animation-delay for resume
   const newsQueueRef = useRef([]);
   function nextNewsItem() {
     if (newsQueueRef.current.length === 0) {
@@ -1093,15 +1097,32 @@ export default function App() {
   useEffect(() => { tfRef.current = tf; }, [tf]);
   useEffect(() => { expandedRef.current = expanded; }, [expanded]);
 
-  // News ticker: cancel gap timer and clear item when navigating to a node,
-  // so returning always advances to the next unseen item in the queue.
+  // Mirror newsItem into a ref so navigation effect can read it without stale closure.
+  useEffect(() => { newsItemRef.current = newsItem; }, [newsItem]);
+
+  // News ticker navigation: pause/resume exactly where it was.
   useEffect(() => {
     if ((selected || pinned) && welcomeDone) {
+      // Navigating to a node — cancel gap timer, record animation progress
       if (newsGapTimerRef.current) { clearTimeout(newsGapTimerRef.current); newsGapTimerRef.current = null; }
-      setNewsItem(null);
-    } else if (!selected && !pinned && welcomeDone && !newsItem) {
-      setNewsItem(nextNewsItem());
-      setNewsKey(k => k + 1);
+      if (newsItemRef.current && newsStartRef.current) {
+        newsPausedAtRef.current = Math.min(Date.now() - newsStartRef.current, 47000);
+      }
+    } else if (!selected && !pinned && welcomeDone) {
+      if (newsPausedAtRef.current > 0) {
+        // Resume animation from where it paused via negative animation-delay
+        const elapsed = newsPausedAtRef.current;
+        newsPausedAtRef.current = 0;
+        newsStartRef.current = Date.now() - elapsed;
+        newsDelayRef.current = '-' + elapsed + 'ms';
+        setNewsKey(k => k + 1); // remount div with the new delay
+      } else if (!newsItemRef.current) {
+        // No animation was running (gap or first time) — load fresh
+        newsStartRef.current = Date.now();
+        newsDelayRef.current = '0ms';
+        setNewsItem(nextNewsItem());
+        setNewsKey(k => k + 1);
+      }
     }
   }, [selected, pinned, welcomeDone]);
 
@@ -2069,6 +2090,9 @@ export default function App() {
         {!selected && !pinned && !welcomeDone && (
           <div className="nbc-welcome" onAnimationEnd={() => {
             setWelcomeDone(true);
+            newsStartRef.current = Date.now();
+            newsPausedAtRef.current = 0;
+            newsDelayRef.current = '0ms';
             setNewsItem(nextNewsItem());
           }}>
             {'› Welcome to ElectronicArchive — Mapping the electronic underground. An interactive resource for discovery and learning about the emergence of electronic music and its culture. If you discover music you love, please follow the link to Bandcamp and support the artists by purchasing their music. Have fun exploring! — TJ'}
@@ -2078,7 +2102,7 @@ export default function App() {
           <div
             key={newsKey}
             className={'nbc-welcome' + (newsItem.nodeId ? ' nbc-welcome--linked' : '')}
-            style={{ animationPlayState: newsHovered ? 'paused' : 'running' }}
+            style={{ animationPlayState: newsHovered ? 'paused' : 'running', animationDelay: newsDelayRef.current }}
             onMouseEnter={() => setNewsHovered(true)}
             onMouseLeave={() => setNewsHovered(false)}
             onClick={() => {
@@ -2090,9 +2114,13 @@ export default function App() {
             onAnimationEnd={() => {
               setNewsHovered(false);
               setNewsItem(null);
+              newsStartRef.current = null;
               if (newsGapTimerRef.current) clearTimeout(newsGapTimerRef.current);
               newsGapTimerRef.current = setTimeout(() => {
                 newsGapTimerRef.current = null;
+                newsStartRef.current = Date.now();
+                newsPausedAtRef.current = 0;
+                newsDelayRef.current = '0ms';
                 setNewsItem(nextNewsItem());
                 setNewsKey(k => k + 1);
               }, 20000);
