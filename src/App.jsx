@@ -1743,6 +1743,7 @@ export default function App() {
           } else {
             selectNode(n.id);
             positionPanel(n.id, d3.zoomTransform(svgRef.current));
+            clearMarchOverlay();
           }
         }}
         onMouseEnter={ev => {
@@ -1768,7 +1769,7 @@ export default function App() {
               hovPrevRef.current.push(entry);
             });
             // March overlay appended after all nodes so nothing can cover it
-            addMarchOverlay(n, positions);
+            if (n.id !== selected) addMarchOverlay(n, positions);
             // Easter egg: shake after 10s, ramp to max over next 10s
             // Modifies the outer <g>'s SVG transform attribute directly —
             // no CSS conflict, scale(1.14) on .nd-inner is unaffected
