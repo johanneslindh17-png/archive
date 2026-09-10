@@ -2003,18 +2003,20 @@ export default function App() {
                   return <line key={key} x1={x} y1={0} x2={x} y2={H} stroke={themeAccent ? themeAccent + '55' : (darkMode ? '#252535' : '#e0e0e0')} strokeWidth={1} />;
                 })}
                 {hlIds ? <>
-                  {/* dim edges → dim nodes → lit edges → hover dashes → hover-preview nodes → highlighted nodes */}
+                  {/* dim edges → dim nodes → lit edges → hover dashes → hover-preview nodes → highlighted nodes → hovered node on top */}
                   <g>{edgeEls.filter(el => el?.props?.className?.includes('dim'))}</g>
-                  <g>{nodeEls.filter((el, i) => el && !hlIds.has(NODES[i].id) && !hovHlIds?.has(NODES[i].id))}</g>
+                  <g>{nodeEls.filter((el, i) => el && !hlIds.has(NODES[i].id) && !hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>
                   <g>{edgeEls.filter(el => el && !el.props?.className?.includes('dim'))}</g>
                   {hovPathEls && <g style={{ pointerEvents:'none' }}>{hovPathEls}</g>}
-                  <g>{nodeEls.filter((el, i) => el && !hlIds.has(NODES[i].id) &&  hovHlIds?.has(NODES[i].id))}</g>
-                  <g>{nodeEls.filter((el, i) => el &&  hlIds.has(NODES[i].id))}</g>
+                  <g>{nodeEls.filter((el, i) => el && !hlIds.has(NODES[i].id) &&  hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>
+                  <g>{nodeEls.filter((el, i) => el &&  hlIds.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>
+                  <g>{nodeEls.filter((el, i) => el && NODES[i].id === hovNode?.id)}</g>
                 </> : <>
-                  {/* no selection: edges → edge dashes → nodes */}
+                  {/* no selection: edges → edge dashes → non-hovered nodes → hovered node on top */}
                   <g>{edgeEls.filter(Boolean)}</g>
                   {hovPathEls && <g style={{ pointerEvents:'none' }}>{hovPathEls}</g>}
-                  <g>{nodeEls.filter(Boolean)}</g>
+                  <g>{nodeEls.filter((el, i) => el && NODES[i].id !== hovNode?.id)}</g>
+                  <g>{nodeEls.filter((el, i) => el && NODES[i].id === hovNode?.id)}</g>
                 </>}
               </g>
             )}
@@ -2035,15 +2037,17 @@ export default function App() {
                   </g>
                   {hlIds ? <>
                     <g>{edgeEls.filter(el => el?.props?.className?.includes('dim'))}</g>
-                    <g>{nodeEls.filter((el, i) => el && !hlIds.has(NODES[i].id) && !hovHlIds?.has(NODES[i].id))}</g>
+                    <g>{nodeEls.filter((el, i) => el && !hlIds.has(NODES[i].id) && !hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>
                     <g>{edgeEls.filter(el => el && !el.props?.className?.includes('dim'))}</g>
                     {hovPathEls && <g style={{ pointerEvents:'none' }}>{hovPathEls}</g>}
-                    <g>{nodeEls.filter((el, i) => el && !hlIds.has(NODES[i].id) &&  hovHlIds?.has(NODES[i].id))}</g>
-                    <g>{nodeEls.filter((el, i) => el &&  hlIds.has(NODES[i].id))}</g>
+                    <g>{nodeEls.filter((el, i) => el && !hlIds.has(NODES[i].id) &&  hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>
+                    <g>{nodeEls.filter((el, i) => el &&  hlIds.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>
+                    <g>{nodeEls.filter((el, i) => el && NODES[i].id === hovNode?.id)}</g>
                   </> : <>
                     <g>{edgeEls.filter(Boolean)}</g>
                     {hovPathEls && <g style={{ pointerEvents:'none' }}>{hovPathEls}</g>}
-                    <g>{nodeEls.filter(Boolean)}</g>
+                    <g>{nodeEls.filter((el, i) => el && NODES[i].id !== hovNode?.id)}</g>
+                    <g>{nodeEls.filter((el, i) => el && NODES[i].id === hovNode?.id)}</g>
                   </>}
                 </>
               );
@@ -2243,7 +2247,6 @@ export default function App() {
         {hovNode && (
           <div className="htip on" style={{ left: hovPos.x + 14, top: hovPos.y + 14 }}>
             <div className="htip-meta">{hovNode.type} · {hovNode.era}</div>
-            <div className="htip-desc">{hovNode.desc?.split(/\.\s+/)[0]}.</div>
           </div>
         )}
       </div>

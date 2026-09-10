@@ -2843,7 +2843,6 @@
   { from:'roni_size',        to:'reprazent',            strength:3, type:'collaboration' },
   { from:'drum_and_bass',    to:'reprazent',             strength:3, type:'lineage' },
   { from:'jungle',           to:'wiley',                strength:2, type:'influence' },
-  { from:'wiley',            to:'dizzee_rascal',        strength:3, type:'collaboration' },
   { from:'wiley',            to:'skepta',               strength:2, type:'influence' },
 
   // -- GOMMA RECORDS -------------------------------------------------------
