@@ -352,6 +352,17 @@ export default function App() {
   const [history, setHistory] = useState([]);
   const tfRafRef    = useRef(null); // RAF handle for throttling setTf
   const hovPrevRef  = useRef([]);   // DOM elements modified on hover — cleaned on mouseleave
+  const shakeTimerRef = useRef(null);
+  const shakeElRef    = useRef(null);
+
+  function clearShake() {
+    if (shakeTimerRef.current) { clearTimeout(shakeTimerRef.current); shakeTimerRef.current = null; }
+    if (shakeElRef.current) {
+      shakeElRef.current.classList.remove('hov-shake');
+      shakeElRef.current.style.removeProperty('--sh');
+      shakeElRef.current = null;
+    }
+  }
   const [welcomeDone, setWelcomeDone] = useState(false);
   const [newsItem, setNewsItem] = useState(null);
   const [newsKey, setNewsKey] = useState(0);
@@ -1631,14 +1642,20 @@ export default function App() {
       : isChan   ? <polygon className="nd-border" points={chanPts} fill={fillColor} stroke={strokeColor} strokeWidth={strokeW} />
       :            <rect className="nd-border" x={-hw} y={-hh} width={bw} height={bh} rx={2} fill={fillColor} stroke={strokeColor} strokeWidth={strokeW} />;
 
+    const mo = 3; // march offset — 3px outside border, clear of any nd-bg overlap
+    const octPtsM  = `${-hw+oc-mo},${-hh-mo} ${hw-oc+mo},${-hh-mo} ${hw+mo},${-hh+oc-mo} ${hw+mo},${hh-oc+mo} ${hw-oc+mo},${hh+mo} ${-hw+oc-mo},${hh+mo} ${-hw-mo},${hh-oc+mo} ${-hw-mo},${-hh+oc-mo}`;
+    const ntchPtsM = `${-hw-mo},${-hh-mo} ${hw+mo},${-hh-mo} ${hw+mo},${-ni-mo} ${hw-nd+mo},0 ${hw+mo},${ni+mo} ${hw+mo},${hh+mo} ${-hw-mo},${hh+mo} ${-hw-mo},${ni+mo} ${-hw+nd-mo},0 ${-hw-mo},${-ni-mo}`;
+    const stylePtsM = `${-hw-mo},${-hh-mo} ${hw-at+mo},${-hh-mo} ${hw+mo},0 ${hw-at+mo},${hh+mo} ${-hw-mo},${hh+mo}`;
+    const cultPtsM  = `${-hw+at-mo},${-hh-mo} ${hw+mo},${-hh-mo} ${hw+mo},${hh+mo} ${-hw+at-mo},${hh+mo} ${-hw-mo},0`;
+    const chanPtsM  = `${-hw-mo},${-hh-mo} ${hw-fc+mo},${-hh-mo} ${hw+mo},${-hh+fc-mo} ${hw+mo},${hh+mo} ${-hw-mo},${hh+mo}`;
     const renderMarch = (cls, stroke) =>
-      isArtist  ? <rect className={cls} x={-hw-1} y={-hh-1} width={bw+2} height={bh+2} rx={9} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="5 8" />
-      : isLabel  ? <polygon className={cls} points={octPtsO} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="5 8" />
-      : isNotch  ? <polygon className={cls} points={ntchPtsO} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="5 8" />
-      : isStyle  ? <polygon className={cls} points={stylePtsO} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="5 8" />
-      : isCulture? <polygon className={cls} points={cultPtsO} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="5 8" />
-      : isChan   ? <polygon className={cls} points={chanPtsO} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="5 8" />
-      :            <rect className={cls} x={-hw-1} y={-hh-1} width={bw+2} height={bh+2} rx={3} fill="none" stroke={stroke} strokeWidth={1} strokeDasharray="5 8" />;
+      isArtist  ? <rect className={cls} x={-hw-mo} y={-hh-mo} width={bw+mo*2} height={bh+mo*2} rx={11} fill="none" stroke={stroke} strokeWidth={1.5} strokeDasharray="5 8" />
+      : isLabel  ? <polygon className={cls} points={octPtsM} fill="none" stroke={stroke} strokeWidth={1.5} strokeDasharray="5 8" />
+      : isNotch  ? <polygon className={cls} points={ntchPtsM} fill="none" stroke={stroke} strokeWidth={1.5} strokeDasharray="5 8" />
+      : isStyle  ? <polygon className={cls} points={stylePtsM} fill="none" stroke={stroke} strokeWidth={1.5} strokeDasharray="5 8" />
+      : isCulture? <polygon className={cls} points={cultPtsM} fill="none" stroke={stroke} strokeWidth={1.5} strokeDasharray="5 8" />
+      : isChan   ? <polygon className={cls} points={chanPtsM} fill="none" stroke={stroke} strokeWidth={1.5} strokeDasharray="5 8" />
+      :            <rect className={cls} x={-hw-mo} y={-hh-mo} width={bw+mo*2} height={bh+mo*2} rx={4} fill="none" stroke={stroke} strokeWidth={1.5} strokeDasharray="5 8" />;
 
     return (
       <g
@@ -1678,9 +1695,27 @@ export default function App() {
               }
               hovPrevRef.current.push(entry);
             });
+            // Easter egg: shake after 10s, ramp to max over next 10s
+            clearShake();
+            shakeElRef.current = self;
+            const startRamp = () => {
+              const t0 = Date.now();
+              const tick = () => {
+                if (!shakeElRef.current) return;
+                const t = Math.min(1, (Date.now() - t0) / 10000);
+                shakeElRef.current.style.setProperty('--sh', (t * 3.5).toFixed(2));
+                if (!shakeElRef.current.classList.contains('hov-shake'))
+                  shakeElRef.current.classList.add('hov-shake');
+                if (t < 1) shakeTimerRef.current = setTimeout(tick, 80);
+                else shakeTimerRef.current = null;
+              };
+              tick();
+            };
+            shakeTimerRef.current = setTimeout(startRamp, 10000);
           }
         }}
         onMouseLeave={() => {
+          clearShake();
           setHovNode(null);
           hovPrevRef.current.forEach(({ el, txt, orig }) => {
             el.classList.remove('hov-self', 'hov-prev');
@@ -1713,7 +1748,7 @@ export default function App() {
           onClick={() => { setExpanded(null); clearAll(); setSearchQ(''); }}
           title="Return to home"
         >
-          ARCHIVE
+          ELECTRONICARCHIVE
           <span className="wordmark-sub">Mapping the electronic underground</span>
         </div>
         <div className="tbsep" />
@@ -1974,7 +2009,7 @@ export default function App() {
             setWelcomeDone(true);
             setNewsItem(nextNewsItem());
           }}>
-            {'› Welcome to Archive — Mapping the electronic underground. An interactive resource for discovery and learning about the emergence of electronic music and its culture. If you discover music you love, please follow the link to Bandcamp and support the artists by purchasing their music. Have fun exploring! — TJ'}
+            {'› Welcome to ElectronicArchive — Mapping the electronic underground. An interactive resource for discovery and learning about the emergence of electronic music and its culture. If you discover music you love, please follow the link to Bandcamp and support the artists by purchasing their music. Have fun exploring! — TJ'}
           </div>
         )}
         {!selected && !pinned && welcomeDone && newsItem && (
@@ -1996,7 +2031,7 @@ export default function App() {
               setTimeout(() => {
                 setNewsItem(nextNewsItem());
                 setNewsKey(k => k + 1);
-              }, 90000);
+              }, 8000);
             }}
           >
             {'› ' + newsItem.text}
@@ -2083,6 +2118,7 @@ export default function App() {
         </div>
 
         <svg ref={svgRef} className="msv" onMouseLeave={() => {
+          clearShake();
           setHovNode(null);
           hovPrevRef.current.forEach(({ el, txt, orig }) => {
             el.classList.remove('hov-self', 'hov-prev');
@@ -2509,7 +2545,7 @@ export default function App() {
             )}
           </div>
           <div className="statusbar-sep" />
-          <div className="statusbar-item">ARCHIVE — Mapping the electronic underground · v0.2</div>
+          <div className="statusbar-item">ELECTRONICARCHIVE — Mapping the electronic underground · v0.2</div>
           <div className="statusbar-sep" />
           <button className="tour-relaunch" onClick={() => setOnboardStep('welcome')} title="Relaunch intro">TOUR</button>
           <span className="archive-credit">DJ TJ</span>
@@ -2520,7 +2556,7 @@ export default function App() {
       {onboardStep === 'welcome' && (
         <div className="onboard-overlay">
           <div className="onboard-modal">
-            <div className="onboard-wordmark">ARCHIVE</div>
+            <div className="onboard-wordmark">ELECTRONICARCHIVE</div>
             <div className="onboard-pitch">
               Welcome to the Archive. This is an ongoing project to map the underground electronic music scene and culture — artists, labels, clubs, and pivotal moments, connected by documented lines of influence and lineage. Starting from the roots of Chicago and Detroit in the late 70s, tracing the threads that run through London, Berlin, Kingston, Tokyo and beyond. It's a living map, and it grows every week.
             </div>

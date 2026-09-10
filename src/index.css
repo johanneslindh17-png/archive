@@ -408,6 +408,14 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .dark { --march-self: rgba(255,255,255,0.7); --march-prev: rgba(255,255,255,0.45); }
 
 @keyframes nd-march-ants { to { stroke-dashoffset: -13; } }
+@keyframes nd-shake {
+  0%,100% { transform: translate(0px, 0px); }
+  20%  { transform: translate(calc(-1 * var(--sh,0) * 1px), calc(0.4 * var(--sh,0) * 1px)); }
+  40%  { transform: translate(calc(var(--sh,0) * 1px), calc(-0.3 * var(--sh,0) * 1px)); }
+  60%  { transform: translate(calc(-0.7 * var(--sh,0) * 1px), calc(0.5 * var(--sh,0) * 1px)); }
+  80%  { transform: translate(calc(0.8 * var(--sh,0) * 1px), calc(-0.2 * var(--sh,0) * 1px)); }
+}
+.nd.hov-shake { animation: nd-shake 0.15s linear infinite; }
 /* March elements: always in DOM for perf, shown via hover class */
 .nd-march      { display: none; }
 .nd-self-march { display: none; }
@@ -476,7 +484,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   font-family:'Syne Mono',monospace;font-size:0.54rem;letter-spacing:0.13em;
   text-transform:uppercase;color:#555;white-space:nowrap;
   position:absolute;left:0;
-  animation: nbc-ticker 60s linear forwards;
+  animation: nbc-ticker 30s linear forwards;
 }
 .nbc-welcome--linked { cursor:pointer; }
 .nbc-welcome--linked:hover { color:#333; }
