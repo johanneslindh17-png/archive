@@ -409,22 +409,25 @@ export default function App() {
       if (!nb) return;
       makeMarchEl(nb, 'var(--march-prev)', 1.0);
       if (hlIds && !hlIds.has(nbId)) {
-        // Node is dim — add a pulsing text overlay directly to the SVG overlay layer.
-        // Cannot add classes to the React-managed element: setHovNode triggers a re-render
-        // that moves neighbor nodes between <g> groups, causing React to remount them and
-        // destroy any DOM mutations we made. Appending to svgGRef (outside React's tree)
-        // is immune to reconciliation.
+        // Node is dim — overlay a pulsing text directly in the SVG overlay layer.
+        // React remounts these nodes when hovHlIds changes (from setHovNode), so any
+        // classList/style mutation on the React element is destroyed. Appending to
+        // svgGRef (outside React's tree) survives reconciliation.
         const p = positions[nbId];
-        if (p) {
+        const srcTxt = nbEl?.querySelector('text');
+        if (p && srcTxt) {
+          const cs = window.getComputedStyle(srcTxt);
           const overlayTxt = document.createElementNS(svgNS, 'text');
           overlayTxt.setAttribute('text-anchor', 'middle');
           overlayTxt.setAttribute('dominant-baseline', 'middle');
           overlayTxt.setAttribute('x', p.x);
           overlayTxt.setAttribute('y', p.y);
-          overlayTxt.setAttribute('font-size', '7px');
-          overlayTxt.setAttribute('font-weight', '400');
-          overlayTxt.setAttribute('fill', darkMode ? 'white' : 'black');
-          overlayTxt.setAttribute('fill-opacity', '0');
+          overlayTxt.style.fontFamily    = cs.fontFamily;
+          overlayTxt.style.fontSize      = cs.fontSize;
+          overlayTxt.style.fontWeight    = cs.fontWeight;
+          overlayTxt.style.letterSpacing = cs.letterSpacing;
+          overlayTxt.style.fill          = darkMode ? 'white' : 'black';
+          overlayTxt.style.fillOpacity   = '0';
           overlayTxt.classList.add('nd-march-pulse-text');
           overlayTxt.style.pointerEvents = 'none';
           overlayTxt.textContent = nb.label;
