@@ -490,19 +490,34 @@ export default function App() {
     scrollToNode(id);
   }
 
-  // Search suggestions — ordered: exact-start matches first, then includes
+  // Match a node against a lowercase query string across all relevant fields
+  function nodeMatchesQuery(n, q) {
+    if (n.label.toLowerCase().includes(q)) return true;
+    if ((n.city || '').toLowerCase().includes(q)) return true;
+    if (n.type.toLowerCase().includes(q)) return true;
+    if (n.genre && n.genre.toLowerCase().includes(q)) return true;
+    if (n.genre && (GENRES[n.genre]?.label || '').toLowerCase().includes(q)) return true;
+    if (n.country && (COUNTRIES[n.country]?.label || '').toLowerCase().includes(q)) return true;
+    const region = COUNTRY_REGION[n.country];
+    if (region && (REGIONS[region]?.label || '').toLowerCase().includes(q)) return true;
+    return false;
+  }
+
+  // Search suggestions — label-starts-with first, then label-includes, then other field matches
   const searchMatches = useMemo(() => {
     if (!searchQ.trim()) return [];
     const q = searchQ.toLowerCase();
     return NODES
-      .filter(n => n.label.toLowerCase().includes(q))
+      .filter(n => nodeMatchesQuery(n, q))
       .sort((a, b) => {
         const al = a.label.toLowerCase(), bl = b.label.toLowerCase();
         const as_ = al.startsWith(q), bs_ = bl.startsWith(q);
         if (as_ !== bs_) return as_ ? -1 : 1;
+        const ai = al.includes(q), bi = bl.includes(q);
+        if (ai !== bi) return ai ? -1 : 1;
         return al.localeCompare(bl);
       })
-      .slice(0, 8);
+      .slice(0, 10);
   }, [searchQ]);
 
   // Smoothly navigate to node `id` — vertical scroll only, no horizontal pan.
@@ -1238,9 +1253,7 @@ export default function App() {
     }
     if (searchQ.trim()) {
       const q = searchQ.toLowerCase();
-      const m = new Set(NODES.filter(n =>
-        n.label.toLowerCase().includes(q) || (n.city || '').toLowerCase().includes(q)
-      ).map(n => n.id));
+      const m = new Set(NODES.filter(n => nodeMatchesQuery(n, q)).map(n => n.id));
       EDGES.forEach(e => { if (m.has(e.from)) m.add(e.to); if (m.has(e.to)) m.add(e.from); });
       ids = new Set([...ids].filter(id => m.has(id)));
     }
@@ -1690,7 +1703,10 @@ export default function App() {
                   onMouseEnter={() => setSearchActiveIdx(i)}
                 >
                   <span className="sdi-label">{n.label}</span>
-                  <span className="sdi-meta">{n.city ? `${n.city} · ` : ''}{n.era}</span>
+                  <span className="sdi-meta">
+                    {n.city ? `${n.city} · ` : ''}{n.era}
+                    {n.genre && GENRES[n.genre] ? ` · ${GENRES[n.genre].label}` : ''}
+                  </span>
                 </div>
               ))}
             </div>
