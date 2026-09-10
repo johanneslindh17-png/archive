@@ -2423,7 +2423,8 @@ export default function App() {
         })()}
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <button className="trial-counter" onClick={() => setPaywallOpen(true)}>support this archive</button>
+          <div className="statusbar-sep" />
+          <button className="trial-counter" onClick={() => setPaywallOpen(true)}>support the archive</button>
           {!unlocked && (
             <span className="trial-counter" onClick={() => setPaywallOpen(true)}>
               {`${Math.max(0, TRIAL_LIMIT - trialCount)} node views`}
