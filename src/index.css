@@ -230,7 +230,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .colorbtn:hover{ color:var(--tb-text); }
 .colorbtn-swatch{
   display:block;width:16px;height:16px;border-radius:2px;
-  background:conic-gradient(red,yellow,lime,cyan,blue,magenta,red);
+  background:conic-gradient(hsl(0,60%,55%),hsl(45,65%,55%),hsl(90,55%,48%),hsl(180,50%,48%),hsl(220,55%,55%),hsl(280,50%,52%),hsl(360,60%,55%));
   opacity:0.7;transition:opacity 0.15s;
 }
 .colorbtn:hover .colorbtn-swatch{ opacity:1; }
@@ -464,7 +464,10 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   position:absolute;left:0;
   animation: nbc-ticker 44s linear forwards;
 }
+.nbc-welcome--linked { cursor:pointer; }
+.nbc-welcome--linked:hover { color:#333; }
 .dark .nbc-welcome { color:#aaa; }
+.dark .nbc-welcome--linked:hover { color:#ddd; }
 .nbc-home{
   font-family:'Syne Mono',monospace;font-size:0.54rem;letter-spacing:0.16em;
   text-transform:uppercase;color:#aaa;cursor:pointer;white-space:nowrap;

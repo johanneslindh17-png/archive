@@ -353,6 +353,7 @@ export default function App() {
   const [welcomeDone, setWelcomeDone] = useState(false);
   const [newsItem, setNewsItem] = useState(null);
   const [newsKey, setNewsKey] = useState(0);
+  const [newsHovered, setNewsHovered] = useState(false);
   const [photoColors, setPhotoColors] = useState(null);
   const [unlocked, setUnlocked] = useState(() => localStorage.getItem('archiveUnlocked') === '1');
   const [trialCount, setTrialCount] = useState(() => parseInt(localStorage.getItem('archiveTrialCount') || '0', 10));
@@ -1916,15 +1917,29 @@ export default function App() {
           </div>
         )}
         {!selected && !pinned && welcomeDone && newsItem && (
-          <div key={newsKey} className="nbc-welcome" onAnimationEnd={() => {
-            setNewsItem(null);
-            setTimeout(() => {
-              const next = NEWS_TICKER[Math.floor(Math.random() * NEWS_TICKER.length)];
-              setNewsItem(next);
-              setNewsKey(k => k + 1);
-            }, 90000); // ~90s gap so total cycle is ~2 min
-          }}>
-            {'› ' + newsItem}
+          <div
+            key={newsKey}
+            className={'nbc-welcome' + (newsItem.nodeId ? ' nbc-welcome--linked' : '')}
+            style={{ animationPlayState: newsHovered ? 'paused' : 'running' }}
+            onMouseEnter={() => setNewsHovered(true)}
+            onMouseLeave={() => setNewsHovered(false)}
+            onClick={() => {
+              if (newsItem.nodeId) {
+                selectNode(newsItem.nodeId);
+                scrollToNode(newsItem.nodeId);
+              }
+            }}
+            onAnimationEnd={() => {
+              setNewsHovered(false);
+              setNewsItem(null);
+              setTimeout(() => {
+                const next = NEWS_TICKER[Math.floor(Math.random() * NEWS_TICKER.length)];
+                setNewsItem(next);
+                setNewsKey(k => k + 1);
+              }, 90000);
+            }}
+          >
+            {'› ' + newsItem.text}
           </div>
         )}
         {(selected || pinned) && <>
