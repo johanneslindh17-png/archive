@@ -870,12 +870,14 @@ path.eg.dim{opacity:0.09}
   letter-spacing:0.1em;text-transform:uppercase;
   color:var(--tb-text);white-space:nowrap;flex-shrink:0;
 }
-.player-ext{
-  font-size:0.58rem;color:var(--tb-text-mid);
-  text-decoration:none;opacity:0.55;flex-shrink:0;
-  transition:opacity 0.15s;
+.player-btn--bandcamp{
+  width:auto;padding:0 9px;
+  font-family:'Syne Mono',monospace;font-size:0.48rem;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:#1da0c3;border-color:#1da0c3;
+  text-decoration:none;white-space:nowrap;flex-shrink:0;
 }
-.player-ext:hover{ opacity:1; }
+.player-btn--bandcamp:hover{ color:#fff;background:#1da0c3;border-color:#1da0c3; }
 .player-iframe-wrap{
   flex:1;min-width:0;height:42px;overflow:hidden;
 }

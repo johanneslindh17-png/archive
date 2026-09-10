@@ -2416,7 +2416,7 @@ export default function App() {
                 </>
               )}
               <button className="player-btn player-btn--show" onClick={() => { selectNode(pNode.id); scrollToNode(pNode.id); }}>show node</button>
-              <a className="player-ext" href={`https://${pNode.bandcamp}.bandcamp.com`} target="_blank" rel="noopener noreferrer" title="Open on Bandcamp">↗</a>
+              <a className="player-btn player-btn--bandcamp" href={`https://${pNode.bandcamp}.bandcamp.com`} target="_blank" rel="noopener noreferrer">bandcamp ↗</a>
             </div>
             <div style={{flex:1}} />
           </>);
