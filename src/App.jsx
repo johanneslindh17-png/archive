@@ -1722,9 +1722,8 @@ export default function App() {
         >
           <button
             className={`colorbtn${colorTheme ? ' on' : ''}`}
-            style={btnGradient ? { background: btnGradient } : undefined}
           >
-            <span>Color?</span>
+            <span className="colorbtn-swatch" style={btnGradient ? { background: btnGradient } : undefined} />
           </button>
           {colorMenuOpen && (
             <div className="colordrop">
@@ -2429,7 +2428,7 @@ export default function App() {
           <div className="statusbar-sep" />
           <div className="statusbar-item">ARCHIVE — Mapping the electronic underground · v0.2</div>
           <div className="statusbar-sep" />
-          <button className="tour-relaunch" onClick={() => setOnboardStep('welcome')} title="Relaunch intro">?</button>
+          <button className="tour-relaunch" onClick={() => setOnboardStep('welcome')} title="Relaunch intro">TOUR</button>
         </div>
       </div>
 
