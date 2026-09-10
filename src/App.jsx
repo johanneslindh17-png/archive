@@ -363,7 +363,7 @@ export default function App() {
   const [verifying, setVerifying] = useState(false);
   const [verifyError, setVerifyError] = useState('');
 
-  const TRIAL_LIMIT = 25;
+  const TRIAL_LIMIT = 9999;
 
   useEffect(() => {
     setPhotoColors(null);
@@ -2417,13 +2417,13 @@ export default function App() {
               )}
               <button className="player-btn player-btn--show" onClick={() => { selectNode(pNode.id); scrollToNode(pNode.id); }}>show node</button>
               <a className="player-btn player-btn--show player-btn--bandcamp" href={`https://${pNode.bandcamp}.bandcamp.com`} target="_blank" rel="noopener noreferrer">bandcamp ↗</a>
+              <div className="statusbar-sep" />
             </div>
             <div style={{flex:1}} />
           </>);
         })()}
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <div className="statusbar-sep" />
           <button className="trial-counter" onClick={() => setPaywallOpen(true)}>support the archive</button>
           {!unlocked && (
             <span className="trial-counter" onClick={() => setPaywallOpen(true)}>
