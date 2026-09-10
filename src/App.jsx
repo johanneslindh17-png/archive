@@ -353,14 +353,19 @@ export default function App() {
   const tfRafRef    = useRef(null); // RAF handle for throttling setTf
   const hovPrevRef  = useRef([]);   // DOM elements modified on hover — cleaned on mouseleave
   const shakeTimerRef   = useRef(null);
-  const shakeElRef      = useRef(null);
-  const shakeInnerRef   = useRef(null);
+  const shakeElRef      = useRef(null);  // outer <g> being shaken
+  const shakeOrigRef    = useRef(null);  // its original transform string
   const marchOverlayRef = useRef([]);
 
   function clearShake() {
     if (shakeTimerRef.current) { clearTimeout(shakeTimerRef.current); shakeTimerRef.current = null; }
-    if (shakeInnerRef.current) { shakeInnerRef.current.style.transform = ''; shakeInnerRef.current.style.transition = ''; shakeInnerRef.current = null; }
-    if (shakeElRef.current) { shakeElRef.current = null; }
+    if (shakeElRef.current) {
+      if (shakeOrigRef.current != null) {
+        shakeElRef.current.setAttribute('transform', shakeOrigRef.current);
+        shakeOrigRef.current = null;
+      }
+      shakeElRef.current = null;
+    }
   }
 
   function clearMarchOverlay() {
@@ -1739,22 +1744,24 @@ export default function App() {
             // March overlay appended after all nodes so nothing can cover it
             addMarchOverlay(n, positions);
             // Easter egg: shake after 10s, ramp to max over next 10s
+            // Modifies the outer <g>'s SVG transform attribute directly —
+            // no CSS conflict, scale(1.14) on .nd-inner is unaffected
             clearShake();
             shakeElRef.current = self;
-            shakeInnerRef.current = self.querySelector('.nd-inner');
+            shakeOrigRef.current = self.getAttribute('transform') || '';
+            const origMatch = shakeOrigRef.current.match(/translate\(([^,]+),\s*([^)]+)\)/);
+            const bx = origMatch ? parseFloat(origMatch[1]) : 0;
+            const by = origMatch ? parseFloat(origMatch[2]) : 0;
             const startRamp = () => {
               const t0 = Date.now();
-              // Disable the CSS hover-scale transition so 50ms ticks are instant
-              if (shakeInnerRef.current) shakeInnerRef.current.style.transition = 'none';
               const tick = () => {
-                if (!shakeInnerRef.current) return;
+                if (!shakeElRef.current) return;
                 const now = Date.now();
                 const t = Math.min(1, (now - t0) / 10000);
                 const sh = t * 3.5;
                 const dx = (Math.sin(now / 47) * 0.8 + Math.sin(now / 31) * 0.2) * sh;
                 const dy = (Math.cos(now / 53) * 0.5 + Math.cos(now / 29) * 0.3) * sh;
-                // Keep the CSS hover scale (1.14) and add the shake offset
-                shakeInnerRef.current.style.transform = `scale(1.14) translate(${dx}px, ${dy}px)`;
+                shakeElRef.current.setAttribute('transform', `translate(${bx + dx}, ${by + dy})`);
                 if (t < 1) shakeTimerRef.current = setTimeout(tick, 50);
                 else shakeTimerRef.current = null;
               };
