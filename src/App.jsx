@@ -1794,8 +1794,8 @@ export default function App() {
           onClick={() => { setExpanded(null); clearAll(); setSearchQ(''); }}
           title="Return to home"
         >
-          ELECTRONICARCHIVE
-          <span className="wordmark-sub">Mapping the electronic underground</span>
+          <span className="wordmark-line1">Electronic</span>
+          <span className="wordmark-line2">Archive</span>
         </div>
         <div className="tbsep" />
         <div className="sw">

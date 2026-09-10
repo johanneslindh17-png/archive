@@ -41,7 +41,6 @@ body.svg-dragging .topbar{pointer-events:none;}
 .dark body{ background:#0c0c10; color:#e0ddd8; }
 .dark .topbar{ background:var(--tb-bg); border-color:var(--tb-border); }
 .dark .wordmark{ color:var(--tb-text); }
-.dark .wordmark-sub{ color:var(--tb-text-mid); }
 .dark .tbsep{ background:var(--tb-border); }
 .dark .sw input{ color:var(--tb-text); border-color:var(--tb-border); }
 .dark .filterbtn{ color:var(--tb-text-mid); border-color:var(--tb-border); }
@@ -105,15 +104,11 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   font-weight:800;font-size:0.62rem;letter-spacing:0.1em;
   text-transform:uppercase;color:var(--tb-text);flex-shrink:0;
   padding:0 20px;height:100%;white-space:nowrap;
-  display:flex;flex-direction:column;align-items:stretch;justify-content:center;
-  border-right:1px solid var(--tb-border);line-height:1;
+  display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
+  border-right:1px solid var(--tb-border);line-height:1.25;
 }
-.wordmark-sub{
-  font-family:'Syne Mono',monospace;font-weight:400;
-  font-size:0.52rem;letter-spacing:0.06em;
-  text-transform:uppercase;color:var(--tb-text-mid);
-  margin-top:5px;text-align:center;
-}
+.wordmark-line1{ display:block; }
+.wordmark-line2{ display:block; margin-left:-4px; }
 .tbsep{width:1px;height:100%;background:var(--tb-border);flex-shrink:0}
 .sw{position:relative;flex:1;height:100%}
 .sw input{
@@ -415,12 +410,11 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   60%  { transform: translate(calc(-0.7 * var(--sh,0) * 1px), calc(0.5 * var(--sh,0) * 1px)); }
   80%  { transform: translate(calc(0.8 * var(--sh,0) * 1px), calc(-0.2 * var(--sh,0) * 1px)); }
 }
-.nd.hov-shake { animation: nd-shake 0.15s linear infinite; }
+.nd.hov-shake .nd-inner { animation: nd-shake 0.15s linear infinite; }
 /* March elements: always in DOM for perf, shown via hover class */
 .nd-march      { display: none; }
 .nd-self-march { display: none; }
-.nd.hov-prev .nd-march      { display: block; animation: nd-march-ants 1.0s linear infinite; }
-.nd.hov-self .nd-self-march { display: block; animation: nd-march-ants 0.7s linear infinite; }
+/* CSS-based march disabled — DOM overlay handles it (always renders on top) */
 /* Hide border stroke when self-hovered — march ants replace it */
 .nd.hov-self .nd-border { stroke: none; }
 /* Text animations via hover class (replaces React-managed classNames) */
@@ -1139,8 +1133,6 @@ path.eg.dim{opacity:0.055}
 
 /* ── Mobile responsive ──────────────────────────────────────────────────── */
 @media(max-width:600px){
-  /* Topbar: hide subtitle to save vertical space */
-  .wordmark-sub{display:none;}
   .wordmark{padding:0 14px;}
 
   /* Column headers: unreadable when compressed, hide them */
