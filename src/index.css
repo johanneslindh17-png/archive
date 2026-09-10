@@ -404,9 +404,10 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 
 @keyframes nd-march-ants { to { stroke-dashoffset: -13; } }
 @keyframes nd-dim-pulse {
-  0%, 100% { opacity: 0; }
-  50%       { opacity: 0.45; }
+  0%, 100% { opacity: 0.15; }
+  50%       { opacity: 0.85; }
 }
+.nd.dim.nd-march-pulse text { animation: nd-dim-pulse 1.5s ease-in-out infinite; }
 @keyframes nd-shake {
   0%,100% { transform: translate(0px, 0px); }
   20%  { transform: translate(calc(-1 * var(--sh,0) * 1px), calc(0.4 * var(--sh,0) * 1px)); }

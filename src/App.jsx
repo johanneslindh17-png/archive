@@ -356,6 +356,7 @@ export default function App() {
   const shakeElRef      = useRef(null);  // outer <g> being shaken
   const shakeOrigRef    = useRef(null);  // its original transform string
   const marchOverlayRef = useRef([]);
+  const marchPulseEls  = useRef([]);
 
   function clearShake() {
     if (shakeTimerRef.current) { clearTimeout(shakeTimerRef.current); shakeTimerRef.current = null; }
@@ -371,6 +372,8 @@ export default function App() {
   function clearMarchOverlay() {
     marchOverlayRef.current.forEach(el => el.parentNode?.removeChild(el));
     marchOverlayRef.current = [];
+    marchPulseEls.current.forEach(el => el.classList.remove('nd-march-pulse'));
+    marchPulseEls.current = [];
   }
 
   function addMarchOverlay(n, positions) {
@@ -411,24 +414,8 @@ export default function App() {
       makeMarchEl(nb, 'var(--march-prev)', 1.0);
       const nbEl = svgGRef.current?.querySelector(`[data-nid="${nbId}"]`);
       if (nbEl?.classList.contains('dim')) {
-        // Add a pulsing glow rect directly into the SVG overlay (CSS filter unreliable on SVG <g>)
-        const p = positions[nbId];
-        if (p) {
-          const bw = nb.label.length * CHAR_W + PAD * 2;
-          const hw = bw / 2, hh = BH / 2;
-          const glow = document.createElementNS(svgNS, 'rect');
-          glow.setAttribute('x', p.x - hw);
-          glow.setAttribute('y', p.y - hh);
-          glow.setAttribute('width', bw);
-          glow.setAttribute('height', BH);
-          glow.setAttribute('rx', '3');
-          glow.setAttribute('fill', 'var(--march-prev)');
-          glow.setAttribute('opacity', '0');
-          glow.style.animation = 'nd-dim-pulse 1s ease-in-out infinite';
-          glow.style.pointerEvents = 'none';
-          svgGRef.current.appendChild(glow);
-          marchOverlayRef.current.push(glow);
-        }
+        nbEl.classList.add('nd-march-pulse');
+        marchPulseEls.current.push(nbEl);
       }
     });
   }
