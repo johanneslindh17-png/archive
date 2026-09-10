@@ -91,7 +91,6 @@ body.svg-dragging .topbar{pointer-events:none;}
 .dark .dp-release{ border-color:#141420; }
 .dark .dp-release-title{ color:#c0c0d8; }
 .dark .dp-release-year{ color:#606080; }
-.dark .htip{ background:#0f0f14; border-color:var(--tb-border); color:#7a7a94; }
 .dark .htip b{ color:var(--tb-text); }
 html,body,#root{width:100%;height:100%;overflow:hidden;overscroll-behavior:none}
 body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webkit-font-smoothing:antialiased}
@@ -701,16 +700,18 @@ path.eg.dim{opacity:0.09}
 .sb-legend-div{width:1px;height:16px;background:var(--tb-border);flex-shrink:0;margin:0 2px;}
 
 .htip{
-  position:fixed;background:var(--surface);border:1px solid var(--border-mid);
-  padding:9px 12px;font-family:'Syne Mono',monospace;
+  position:fixed;background:#f7f7f5;border:1px solid #d4d4cc;
+  padding:7px 10px;font-family:'Syne Mono',monospace;
   pointer-events:none;z-index:300;max-width:220px;
   opacity:0;transition:opacity 0.08s;
 }
 .htip.on{opacity:1}
 .htip-meta{
   font-size:0.52rem;letter-spacing:0.14em;text-transform:uppercase;
-  color:var(--text-mid);
+  color:#444454;
 }
+.dark .htip{ background:#141420; border-color:#2a2a38; }
+.dark .htip-meta{ color:#9898b4; }
 .htip-desc{
   font-size:0.6rem;line-height:1.6;letter-spacing:0.02em;
   color:var(--text-soft);
