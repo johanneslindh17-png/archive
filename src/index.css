@@ -897,6 +897,7 @@ path.eg.dim{opacity:0.09}
   text-transform:uppercase;color:var(--tb-text-mid);cursor:pointer;
   border:1px solid var(--tb-border);padding:3px 8px;border-radius:2px;
   transition:color 0.2s,border-color 0.2s;
+  background:transparent;outline:none;
 }
 .trial-counter:hover{color:var(--tb-text);border-color:var(--tb-text);}
 

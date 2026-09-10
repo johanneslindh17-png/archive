@@ -2380,15 +2380,10 @@ export default function App() {
         })()}
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <a
-            className="support-link"
-            href="https://ko-fi.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >support this archive</a>
+          <button className="trial-counter" onClick={() => setPaywallOpen(true)}>support this archive</button>
           {!unlocked && (
             <span className="trial-counter" onClick={() => setPaywallOpen(true)}>
-              {trialExhausted ? 'Support the archive ↗' : `${Math.max(0, TRIAL_LIMIT - trialCount)} free explores left`}
+              {`${Math.max(0, TRIAL_LIMIT - trialCount)} node views`}
             </span>
           )}
           <div className="statusbar-sep" />
