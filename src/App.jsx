@@ -302,7 +302,7 @@ const TOUR_STEPS = [
   {
     id: 'node',
     title: 'EVERY NODE IS A STORY',
-    body: "We just opened Surgeon's profile — Anthony Child is a Berghain resident from Birmingham who co-founded the Downwards label with Regis. Scroll the panel to see his connections, releases, and full context. Click any highlighted name to follow the thread.",
+    body: "I just opened Surgeon's profile — Anthony Child is a Berghain resident from Birmingham who co-founded the Downwards label with Regis. Scroll the panel to see his connections, releases, and full context. Click any highlighted name to follow the thread.",
     getTarget: () => document.querySelector('.dp.open'),
     cardSide: 'persist',
     onEnter: ctx => {
@@ -2420,7 +2420,7 @@ export default function App() {
             {contactOpen && (
               <div className="contact-dropdown" onClick={e => e.stopPropagation()}>
                 <div className="contact-body">
-                  Do you know an artist that should be part of the archive? Did you spot something that wasn't quite right? Reach out — we read everything and will make sure to fix it.
+                  Do you know an artist that should be part of the archive? Did you spot something that wasn't quite right? Reach out — I read everything and will make sure to fix it.
                 </div>
                 <a className="contact-email" href="mailto:electronicarchive@gmail.com">electronicarchive@gmail.com</a>
               </div>
