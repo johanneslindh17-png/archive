@@ -372,9 +372,8 @@ export default function App() {
   function clearMarchOverlay() {
     marchOverlayRef.current.forEach(el => el.parentNode?.removeChild(el));
     marchOverlayRef.current = [];
-    marchPulseEls.current.forEach(({ txt, origFill, raf }) => {
-      cancelAnimationFrame(raf);
-      if (txt) txt.style.fill = origFill;
+    marchPulseEls.current.forEach(({ txt, origFill }) => {
+      if (txt) { txt.classList.remove('nd-march-pulse-text'); txt.style.fill = origFill; }
     });
     marchPulseEls.current = [];
   }
@@ -420,16 +419,9 @@ export default function App() {
         const txt = nbEl.querySelector('text');
         if (txt) {
           const origFill = txt.style.fill;
-          const t0 = performance.now();
-          let raf;
-          const tick = (now) => {
-            const phase = (Math.sin((now - t0) / 1500 * Math.PI * 2) + 1) / 2;
-            const a = darkMode ? (0.08 + phase * 0.77) : (0.12 + phase * 0.68);
-            txt.style.fill = darkMode ? `rgba(255,255,255,${a.toFixed(3)})` : `rgba(0,0,0,${a.toFixed(3)})`;
-            raf = requestAnimationFrame(tick);
-          };
-          raf = requestAnimationFrame(tick);
-          marchPulseEls.current.push({ txt, origFill, raf });
+          txt.style.removeProperty('fill');     // clear inline fill so CSS animation wins
+          txt.classList.add('nd-march-pulse-text');
+          marchPulseEls.current.push({ txt, origFill });
         }
       }
     });
