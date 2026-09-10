@@ -102,9 +102,9 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   gap:0;flex-shrink:0;z-index:100;position:relative;transition:background 0.2s;
 }
 .wordmark{
-  font-weight:800;font-size:1.25rem;letter-spacing:0.22em;
+  font-weight:800;font-size:0.62rem;letter-spacing:0.1em;
   text-transform:uppercase;color:var(--tb-text);flex-shrink:0;
-  padding:0 28px;height:100%;
+  padding:0 20px;height:100%;white-space:nowrap;
   display:flex;flex-direction:column;align-items:stretch;justify-content:center;
   border-right:1px solid var(--tb-border);line-height:1;
 }
@@ -484,7 +484,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   font-family:'Syne Mono',monospace;font-size:0.54rem;letter-spacing:0.13em;
   text-transform:uppercase;color:#555;white-space:nowrap;
   position:absolute;left:0;
-  animation: nbc-ticker 30s linear forwards;
+  animation: nbc-ticker 48s linear forwards;
 }
 .nbc-welcome--linked { cursor:pointer; }
 .nbc-welcome--linked:hover { color:#333; }

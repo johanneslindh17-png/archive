@@ -352,8 +352,9 @@ export default function App() {
   const [history, setHistory] = useState([]);
   const tfRafRef    = useRef(null); // RAF handle for throttling setTf
   const hovPrevRef  = useRef([]);   // DOM elements modified on hover — cleaned on mouseleave
-  const shakeTimerRef = useRef(null);
-  const shakeElRef    = useRef(null);
+  const shakeTimerRef   = useRef(null);
+  const shakeElRef      = useRef(null);
+  const marchOverlayRef = useRef([]);
 
   function clearShake() {
     if (shakeTimerRef.current) { clearTimeout(shakeTimerRef.current); shakeTimerRef.current = null; }
@@ -362,6 +363,48 @@ export default function App() {
       shakeElRef.current.style.removeProperty('--sh');
       shakeElRef.current = null;
     }
+  }
+
+  function clearMarchOverlay() {
+    marchOverlayRef.current.forEach(el => el.parentNode?.removeChild(el));
+    marchOverlayRef.current = [];
+  }
+
+  function addMarchOverlay(n, positions) {
+    clearMarchOverlay();
+    if (!svgGRef.current) return;
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const CHAR_W = 4.3, PAD = 3, BH = 11, mo = 3;
+
+    const makeMarchEl = (node, stroke, speed) => {
+      const p = positions[node.id];
+      if (!p) return;
+      const bw = node.label.length * CHAR_W + PAD * 2;
+      const hw = bw / 2, hh = BH / 2;
+      const el = document.createElementNS(svgNS, 'rect');
+      el.setAttribute('x', p.x - hw - mo);
+      el.setAttribute('y', p.y - hh - mo);
+      el.setAttribute('width', bw + mo * 2);
+      el.setAttribute('height', BH + mo * 2);
+      el.setAttribute('rx', '4');
+      el.setAttribute('fill', 'none');
+      el.setAttribute('stroke', stroke);
+      el.setAttribute('stroke-width', '1.5');
+      el.setAttribute('stroke-dasharray', '5 8');
+      el.style.animation = `nd-march-ants ${speed}s linear infinite`;
+      el.style.pointerEvents = 'none';
+      svgGRef.current.appendChild(el);
+      marchOverlayRef.current.push(el);
+    };
+
+    makeMarchEl(n, 'var(--march-self)', 0.7);
+    EDGES.forEach(e => {
+      if (e.type === 'aesthetic') return;
+      const nbId = e.from === n.id ? e.to : e.to === n.id ? e.from : null;
+      if (!nbId) return;
+      const nb = NODES.find(nd => nd.id === nbId);
+      if (nb) makeMarchEl(nb, 'var(--march-prev)', 1.0);
+    });
   }
   const [welcomeDone, setWelcomeDone] = useState(false);
   const [newsItem, setNewsItem] = useState(null);
@@ -1695,6 +1738,8 @@ export default function App() {
               }
               hovPrevRef.current.push(entry);
             });
+            // March overlay appended after all nodes so nothing can cover it
+            addMarchOverlay(n, positions);
             // Easter egg: shake after 10s, ramp to max over next 10s
             clearShake();
             shakeElRef.current = self;
@@ -1716,6 +1761,7 @@ export default function App() {
         }}
         onMouseLeave={() => {
           clearShake();
+          clearMarchOverlay();
           setHovNode(null);
           hovPrevRef.current.forEach(({ el, txt, orig }) => {
             el.classList.remove('hov-self', 'hov-prev');
@@ -2031,7 +2077,7 @@ export default function App() {
               setTimeout(() => {
                 setNewsItem(nextNewsItem());
                 setNewsKey(k => k + 1);
-              }, 8000);
+              }, 20000);
             }}
           >
             {'› ' + newsItem.text}
@@ -2119,6 +2165,7 @@ export default function App() {
 
         <svg ref={svgRef} className="msv" onMouseLeave={() => {
           clearShake();
+          clearMarchOverlay();
           setHovNode(null);
           hovPrevRef.current.forEach(({ el, txt, orig }) => {
             el.classList.remove('hov-self', 'hov-prev');
