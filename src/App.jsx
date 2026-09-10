@@ -1518,7 +1518,9 @@ export default function App() {
       ? (tc ? tc.stroke : '#5a5a70')
       : isDim ? (dm ? '#0c0c10' : '#ffffff')
       : tc ? tc.fill : 'transparent';
-    const strokeColor = isSel
+    const strokeColor = isHovSelf
+      ? 'none'
+      : isSel
       ? (dm ? '#e0ddd8' : '#111111')
       : isDim
         ? (tc ? `${tc.stroke}28` : (dm ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.08)'))
