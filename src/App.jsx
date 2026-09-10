@@ -413,6 +413,7 @@ export default function App() {
   const [newsItem, setNewsItem] = useState(null);
   const [newsKey, setNewsKey] = useState(0);
   const [newsHovered, setNewsHovered] = useState(false);
+  const newsGapTimerRef = useRef(null);
   const newsQueueRef = useRef([]);
   function nextNewsItem() {
     if (newsQueueRef.current.length === 0) {
@@ -1092,9 +1093,13 @@ export default function App() {
   useEffect(() => { tfRef.current = tf; }, [tf]);
   useEffect(() => { expandedRef.current = expanded; }, [expanded]);
 
-  // Resume news ticker when returning to the grid — if no item is queued, load one immediately
+  // News ticker: cancel gap timer and clear item when navigating to a node,
+  // so returning always advances to the next unseen item in the queue.
   useEffect(() => {
-    if (!selected && !pinned && welcomeDone && !newsItem) {
+    if ((selected || pinned) && welcomeDone) {
+      if (newsGapTimerRef.current) { clearTimeout(newsGapTimerRef.current); newsGapTimerRef.current = null; }
+      setNewsItem(null);
+    } else if (!selected && !pinned && welcomeDone && !newsItem) {
       setNewsItem(nextNewsItem());
       setNewsKey(k => k + 1);
     }
@@ -2085,7 +2090,9 @@ export default function App() {
             onAnimationEnd={() => {
               setNewsHovered(false);
               setNewsItem(null);
-              setTimeout(() => {
+              if (newsGapTimerRef.current) clearTimeout(newsGapTimerRef.current);
+              newsGapTimerRef.current = setTimeout(() => {
+                newsGapTimerRef.current = null;
                 setNewsItem(nextNewsItem());
                 setNewsKey(k => k + 1);
               }, 20000);
