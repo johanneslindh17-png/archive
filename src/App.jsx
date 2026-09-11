@@ -409,12 +409,9 @@ export default function App() {
       if (!nb) return;
       makeMarchEl(nb, 'var(--march-prev)', 1.0);
       if (hlIds && !hlIds.has(nbId)) {
-        // Node is dim — overlay a pulsing text directly in the SVG overlay layer.
-        // React remounts these nodes when hovHlIds changes (from setHovNode), so any
-        // classList/style mutation on the React element is destroyed. Appending to
-        // svgGRef (outside React's tree) survives reconciliation.
+        const dimEl = svgGRef.current?.querySelector(`[data-nid="${nbId}"]`);
         const p = positions[nbId];
-        const srcTxt = nbEl?.querySelector('text');
+        const srcTxt = dimEl?.querySelector('text');
         if (p && srcTxt) {
           const cs = window.getComputedStyle(srcTxt);
           const overlayTxt = document.createElementNS(svgNS, 'text');
@@ -422,14 +419,14 @@ export default function App() {
           overlayTxt.setAttribute('dominant-baseline', 'middle');
           overlayTxt.setAttribute('x', p.x);
           overlayTxt.setAttribute('y', p.y);
+          overlayTxt.setAttribute('fill-opacity', '0');
           overlayTxt.style.fontFamily    = cs.fontFamily;
           overlayTxt.style.fontSize      = cs.fontSize;
           overlayTxt.style.fontWeight    = cs.fontWeight;
           overlayTxt.style.letterSpacing = cs.letterSpacing;
           overlayTxt.style.fill          = darkMode ? 'white' : 'black';
-          overlayTxt.style.fillOpacity   = '0';
-          overlayTxt.classList.add('nd-march-pulse-text');
           overlayTxt.style.pointerEvents = 'none';
+          overlayTxt.classList.add('nd-march-pulse-text');
           overlayTxt.textContent = nb.label;
           svgGRef.current.appendChild(overlayTxt);
           marchOverlayRef.current.push(overlayTxt);
@@ -1814,12 +1811,7 @@ export default function App() {
               const nbEl = svgGRef.current?.querySelector(`[data-nid="${nbId}"]`);
               if (!nbEl) return;
               nbEl.classList.add('hov-prev');
-              const entry = { el: nbEl };
-              if (nbEl.classList.contains('dim')) {
-                const txt = nbEl.querySelector('text');
-                if (txt) { entry.txt = txt; entry.orig = txt.style.fill; txt.style.fill = brightText; }
-              }
-              hovPrevRef.current.push(entry);
+              hovPrevRef.current.push({ el: nbEl });
             });
             // March overlay appended after all nodes so nothing can cover it
             if (n.id !== selected) addMarchOverlay(n, positions);
