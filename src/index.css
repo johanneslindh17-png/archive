@@ -478,13 +478,13 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 }
 .nbc-welcome {
   font-family:'Syne Mono',monospace;font-size:0.54rem;letter-spacing:0.13em;
-  text-transform:uppercase;color:#555;white-space:nowrap;
+  text-transform:uppercase;color:#333;white-space:nowrap;
   position:absolute;left:0;
   animation: nbc-ticker 48s linear forwards;
 }
 .nbc-welcome--linked { cursor:pointer; }
 .nbc-welcome--linked:hover { color:#333; }
-.dark .nbc-welcome { color:#aaa; }
+.dark .nbc-welcome { color:#ccc; }
 .dark .nbc-welcome--linked:hover { color:#ddd; }
 .nbc-home{
   font-family:'Syne Mono',monospace;font-size:0.54rem;letter-spacing:0.16em;
