@@ -2299,13 +2299,13 @@ export default function App() {
                   return <line key={key} x1={x} y1={0} x2={x} y2={H} stroke={themeAccent ? themeAccent + '55' : (darkMode ? '#252535' : '#e0e0e0')} strokeWidth={1} />;
                 })}
                 <>
+                  {/* dim nodes always before all edges — edges are visually in front of dim nodes */}
+                  {(hlIds || hovHlIds) && <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && !hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>}
                   <g>{edgeEls.filter(el => el?.props?.className?.includes('dim'))}</g>
-                  {/* dim nodes between dim and bright edges so hover lines appear on top of them */}
-                  {hovNode && <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && !hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>}
                   <g>{edgeEls.filter(el => el && !el.props?.className?.includes('dim'))}</g>
                   {hovPathEls && <g style={{ pointerEvents:'none' }}>{hovPathEls}</g>}
-                  {/* normal nodes (no hover) after edges so lines don't bleed through in light mode */}
-                  {!hovNode && <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && !hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>}
+                  {/* normal nodes (nothing focused) after edges — white backgrounds cover lines in light mode */}
+                  {!(hlIds || hovHlIds) && <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && !hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>}
                   <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>
                   <g>{nodeEls.filter((el, i) => el && hlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>
                   <g>{nodeEls.filter((el, i) => el && NODES[i].id === hovNode?.id)}</g>
@@ -2328,11 +2328,11 @@ export default function App() {
                     })}
                   </g>
                   <>
+                    {(hlIds || hovHlIds) && <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && !hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>}
                     <g>{edgeEls.filter(el => el?.props?.className?.includes('dim'))}</g>
-                    {hovNode && <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && !hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>}
                     <g>{edgeEls.filter(el => el && !el.props?.className?.includes('dim'))}</g>
                     {hovPathEls && <g style={{ pointerEvents:'none' }}>{hovPathEls}</g>}
-                    {!hovNode && <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && !hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>}
+                    {!(hlIds || hovHlIds) && <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && !hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>}
                     <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>
                     <g>{nodeEls.filter((el, i) => el && hlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>
                     <g>{nodeEls.filter((el, i) => el && NODES[i].id === hovNode?.id)}</g>
