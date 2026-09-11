@@ -11,6 +11,8 @@ import { EDGES } from './data/edges.js';
 import { PHOTOS } from './data/photos.js';
 import { NEWS_TICKER } from './data/newsTicker.js';
 
+const NODE_BY_ID = new Map(NODES.map(n => [n.id, n]));
+
 // ── Variable-width region layout ─────────────────────────────────────────────
 // Widths are proportional to node count, with a minimum of 50 % of the average.
 // Computed once at module load since NODES / REGIONS are static.
@@ -405,7 +407,7 @@ export default function App() {
       if (e.type === 'aesthetic') return;
       const nbId = e.from === n.id ? e.to : e.to === n.id ? e.from : null;
       if (!nbId || nbId === selected || nbId === pinned) return;
-      const nb = NODES.find(nd => nd.id === nbId);
+      const nb = NODE_BY_ID.get(nbId);
       if (!nb) return;
       makeMarchEl(nb, 'var(--march-prev)', 1.0);
       if (hlIds && !hlIds.has(nbId)) {
@@ -475,7 +477,7 @@ export default function App() {
 
   useEffect(() => {
     setPhotoColors(null);
-    const node = NODES.find(n => n.id === selected);
+    const node = NODE_BY_ID.get(selected);
     if (!node) return;
     const photoUrl = PHOTOS[node.id]?.url || node.releases?.find(r => r.coverUrl)?.coverUrl;
     if (!photoUrl) return;
@@ -1045,7 +1047,7 @@ export default function App() {
         const nw  = n.label.length * CHAR_W + PAD * 2;
         const ri  = rows.length - 1;
         const gap = rowW[ri] > 0 ? X_GAP : 0;
-        if (rowW[ri] + gap + nw <= colW * 1.2 || rows[ri].length === 0) {
+        if (rowW[ri] + gap + nw <= colW || rows[ri].length === 0) {
           rows[ri].push(n); rowW[ri] += gap + nw;
         } else {
           rows.push([n]); rowW.push(nw);
@@ -1063,11 +1065,14 @@ export default function App() {
         // Random X offset within the row's slack → rows are not all centred
         const offset = (hash(`${rk}${era}${ri}`) & 0xff) / 255 * slack;
         let x = rl + 4 + offset;
-        x = Math.max(LEFT + 4, Math.min(W - RIGHT - used - 4, x));
+        // Clamp row start to column bounds so no row spills into an adjacent region
+        x = Math.max(rl + 4, Math.min(rl + rw - used - 4, x));
 
         row.forEach(n => {
           const nw = n.label.length * CHAR_W + PAD * 2;
-          const cx = x + nw / 2;
+          let cx = x + nw / 2;
+          // Hard clamp per-node center — catches single-label wider than column
+          cx = Math.max(rl + nw / 2 + 2, Math.min(rl + rw - nw / 2 - 2, cx));
           pos[n.id] = { x: cx, y };
           flat.push({ id: n.id, x: cx, y, era, hw: nw / 2 + 1, rk });
           x += nw + X_GAP;
@@ -1353,7 +1358,7 @@ export default function App() {
 
   function expandedX(nodeId) {
     if (!expanded) return null;
-    const node = NODES.find(n => n.id === nodeId);
+    const node = NODE_BY_ID.get(nodeId);
     if (!node) return null;
     if ((COUNTRY_REGION[node.country] || 'DE') !== expanded) return null;
     const cities = sortedCities(expanded);
@@ -1405,7 +1410,7 @@ export default function App() {
     ).map(n => n.id));
     if (expanded) {
       ids = new Set([...ids].filter(id => {
-        const n = NODES.find(n => n.id === id);
+        const n = NODE_BY_ID.get(id);
         return n && (COUNTRY_REGION[n.country] || 'DE') === expanded;
       }));
     }
@@ -1444,13 +1449,13 @@ export default function App() {
     return `linear-gradient(135deg, ${sw.join(', ')})`;
   }, [colorTheme]);
 
-  const selNode = NODES.find(n => n.id === selected);
+  const selNode = NODE_BY_ID.get(selected);
   const selConns = useMemo(() => {
     if (!selected) return [];
     const c = [];
     EDGES.forEach(e => {
-      if (e.from === selected) { const t = NODES.find(n => n.id === e.to); if (t) c.push({ node: t, dir: 'out', type: e.type, str: e.strength }); }
-      if (e.to === selected) { const s = NODES.find(n => n.id === e.from); if (s) c.push({ node: s, dir: 'in', type: e.type, str: e.strength }); }
+      if (e.from === selected) { const t = NODE_BY_ID.get(e.to);   if (t) c.push({ node: t, dir: 'out', type: e.type, str: e.strength }); }
+      if (e.to === selected) { const s = NODE_BY_ID.get(e.from); if (s) c.push({ node: s, dir: 'in',  type: e.type, str: e.strength }); }
     });
     return c.sort((a, b) => b.str - a.str);
   }, [selected]);
@@ -1462,8 +1467,8 @@ export default function App() {
     if (!focusId) return null;
     const s = new Set([focusId]);
     visibleEdges.forEach(e => {
-      if (e.from === focusId) { const t = NODES.find(n => n.id === e.to); if (t) s.add(t.id); }
-      if (e.to === focusId)   { const t = NODES.find(n => n.id === e.from); if (t) s.add(t.id); }
+      if (e.from === focusId) { if (NODE_BY_ID.has(e.to))   s.add(e.to); }
+      if (e.to === focusId)   { if (NODE_BY_ID.has(e.from)) s.add(e.from); }
     });
     return s;
   }, [focusId, visibleEdges]);
@@ -2185,7 +2190,7 @@ export default function App() {
           <div className="nbc-home" onClick={() => { clearAll(); flyHome(); }}>← ALL NODES</div>
           <div className="nbc-sep" />
           {history.map((id, i) => {
-            const nd = NODES.find(n => n.id === id);
+            const nd = NODE_BY_ID.get(id);
             if (!nd) return null;
             const col = getThemeColors(nd, colorTheme, darkMode)?.stroke;
             return [
@@ -2195,7 +2200,7 @@ export default function App() {
           })}
           {(() => {
             const curId = selected || pinned;
-            const nd = NODES.find(n => n.id === curId);
+            const nd = NODE_BY_ID.get(curId);
             const col = nd ? getThemeColors(nd, colorTheme, darkMode)?.stroke : null;
             return <div className="nbc-current" style={col ? { color: col } : undefined}>{nd?.label}</div>;
           })()}
@@ -2294,11 +2299,11 @@ export default function App() {
                   return <line key={key} x1={x} y1={0} x2={x} y2={H} stroke={themeAccent ? themeAccent + '55' : (darkMode ? '#252535' : '#e0e0e0')} strokeWidth={1} />;
                 })}
                 <>
-                  {/* dim edges → dim nodes → lit edges → hover dashes → hover-preview nodes → highlighted nodes → hovered node on top */}
+                  {/* all edges first so lines never draw over node backgrounds */}
                   <g>{edgeEls.filter(el => el?.props?.className?.includes('dim'))}</g>
-                  <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && !hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>
                   <g>{edgeEls.filter(el => el && !el.props?.className?.includes('dim'))}</g>
                   {hovPathEls && <g style={{ pointerEvents:'none' }}>{hovPathEls}</g>}
+                  <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && !hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>
                   <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>
                   <g>{nodeEls.filter((el, i) => el && hlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>
                   <g>{nodeEls.filter((el, i) => el && NODES[i].id === hovNode?.id)}</g>
@@ -2322,9 +2327,9 @@ export default function App() {
                   </g>
                   <>
                     <g>{edgeEls.filter(el => el?.props?.className?.includes('dim'))}</g>
-                    <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && !hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>
                     <g>{edgeEls.filter(el => el && !el.props?.className?.includes('dim'))}</g>
                     {hovPathEls && <g style={{ pointerEvents:'none' }}>{hovPathEls}</g>}
+                    <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && !hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>
                     <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>
                     <g>{nodeEls.filter((el, i) => el && hlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>
                     <g>{nodeEls.filter((el, i) => el && NODES[i].id === hovNode?.id)}</g>
