@@ -61,4 +61,74 @@ export const NEWS_TICKER = [
 
   // ── Record stores & spaces ───────────────────────────────────────────────────
   { text: 'Rough Trade opens its Portobello Road shop in London — it became one of the most important independent record stores in the world · 1976', nodeId: 'rough_trade' },
+
+  // ── France ──────────────────────────────────────────────────────────────────
+  { text: 'Laurent Garnier travels to Chicago in the late 1980s and returns with house and techno — his Rex Club residency in Paris makes it one of the most important underground venues in Europe · 1987', nodeId: null },
+  { text: 'Daft Punk form in Paris — Thomas Bangalter and Guy-Manuel de Homem-Christo release Homework in 1997, launching French electronic music as a global force · 1993', nodeId: null },
+  { text: 'The French Touch wave takes shape in Paris — Daft Punk, Cassius, Etienne de Crécy, and Dimitri from Paris build a sound rooted in filtered disco that rewires pop and club music alike · late 1990s', nodeId: null },
+
+  // ── Belgium ──────────────────────────────────────────────────────────────────
+  { text: 'New Beat emerges from Belgian clubs in Ghent and Antwerp — a slowed-down, hypnotic style that becomes the first distinctly Belgian contribution to electronic dance music · 1986–88', nodeId: null },
+  { text: 'Front 242 form in Brussels — their industrial body music, driven by sequencers and drum machines, directly shapes EBM as a genre · 1981', nodeId: null },
+  { text: 'R&S Records is founded in Ghent by Renaat Vandepapeliere and Sabine Maes — it becomes one of Europe\'s most influential techno and trance labels, releasing records by Joey Beltram, Aphex Twin, and Ken Ishii · 1984', nodeId: null },
+
+  // ── Netherlands ──────────────────────────────────────────────────────────────
+  { text: 'Gabber emerges from Rotterdam — a form of hard, pounding techno that becomes the most distinctively Dutch contribution to dance music, with its own fashion, rituals, and identity · early 1990s', nodeId: null },
+  { text: 'Thunderdome launches in Amsterdam — the gabber and hardcore event draws crowds of tens of thousands and establishes the Netherlands as the centre of the harder end of electronic music · 1992', nodeId: null },
+
+  // ── Germany beyond Berlin ─────────────────────────────────────────────────────
+  { text: 'Sven Väth builds his reputation at Omen in Frankfurt — the club becomes a launchpad for a generation of European DJs who blend Detroit techno with their own sensibility · early 1990s', nodeId: null },
+  { text: 'Kompakt launches in Cologne as both a record shop and label — Michael Mayer and Reinhard Voigt\'s minimal sound expands from a small shop into one of the most-imitated aesthetics in European club music · 1993', nodeId: null },
+
+  // ── UK — Manchester ───────────────────────────────────────────────────────────
+  { text: 'The Haçienda opens in Manchester, financed by Factory Records and New Order — it becomes the centre of the UK acid house explosion of 1988–89 · 1982', nodeId: null },
+  { text: 'Madchester: The Haçienda\'s dancefloor meets the indie guitar scene — Happy Mondays, The Stone Roses, and 808 State dissolve the boundary between rock and electronic dance music · 1988–90', nodeId: null },
+  { text: '808 State record "Pacific State" in Manchester — the track becomes one of the most celebrated British electronic records of the era · 1989', nodeId: null },
+
+  // ── UK — Sheffield ────────────────────────────────────────────────────────────
+  { text: 'Cabaret Voltaire form in Sheffield — experimenting with tape machines, synthesisers, and found sound from their earliest rehearsals, they become one of the founding acts of industrial electronica · 1973', nodeId: null },
+  { text: 'The Human League form in Sheffield as a purely synthesiser-based group — their refusal of traditional instruments in 1977 marks Sheffield as a centre for electronic production', nodeId: null },
+  { text: 'Warp Records is founded in Sheffield by Steve Beckett and Rob Mitchell — it goes on to release foundational albums by Aphex Twin, Autechre, LFO, and Boards of Canada · 1989', nodeId: null },
+
+  // ── UK — Bristol ──────────────────────────────────────────────────────────────
+  { text: 'The Wild Bunch sound system collective in Bristol evolves into Massive Attack — their journey from dancefloor system to Mercury Prize winners traces a uniquely British electronic arc · 1983–91', nodeId: null },
+  { text: 'Massive Attack, Portishead, and Tricky emerge from Bristol — the Bristol sound, drawing from hip-hop, dub, and electronics, gives birth to what becomes known internationally as trip-hop · early 1990s', nodeId: null },
+
+  // ── UK — Scotland ─────────────────────────────────────────────────────────────
+  { text: 'Sub Club opens in Glasgow — Scotland\'s most enduring venue for underground electronic music, it has hosted thirty years of techno and house · 1987', nodeId: null },
+  { text: 'Optimo (Espacio) launches at Sub Club, Glasgow — JD Twitch and Jonnie Wilkes\'s Sunday night refuses genre boundaries for over a decade and becomes one of the most celebrated nights in UK club history · 1997', nodeId: null },
+
+  // ── UK — London beyond house and techno ──────────────────────────────────────
+  { text: 'Jungle emerges from London\'s pirate radio stations and warehouse raves — a fusion of breakbeats, bass, and sampled sound that creates a distinctly British electronic form · early 1990s', nodeId: null },
+  { text: 'Metalheadz is founded by Goldie in London — the label defines drum and bass as it moves beyond jungle toward a more cinematic, jazz-inflected sound · 1994', nodeId: null },
+  { text: 'UK Garage takes shape in London clubs — a shuffled, vocal-led evolution of American garage house that becomes the direct ancestor of grime and bass music · mid-1990s', nodeId: null },
+  { text: 'Grime erupts from East London pirate radio — Dizzee Rascal, Wiley, and Skepta develop an electronic form built from 140bpm beats and fast MCs that is entirely British in origin · early 2000s', nodeId: null },
+
+  // ── Japan ────────────────────────────────────────────────────────────────────
+  { text: 'Ken Ishii signs to R&S Records in Ghent — his album Extra makes him one of the first Japanese artists to achieve significant international recognition in techno · 1994', nodeId: null },
+  { text: 'Womb opens in Shibuya, Tokyo — its world-class sound system and international bookings make it one of the most important electronic music clubs in Asia · 1999', nodeId: null },
+
+  // ── Spain ─────────────────────────────────────────────────────────────────────
+  { text: 'Amnesia in Ibiza begins hosting open-air all-night dances — the club with no roof and no walls becomes one of the defining experiences of European rave culture · early 1980s', nodeId: null },
+  { text: 'Space Ibiza opens — its closing parties, running into the following afternoon under the Mediterranean sun, redefine what an electronic music event can be · 1989', nodeId: null },
+  { text: 'Sónar Festival launches in Barcelona as a two-day event — it is among the first festivals to present electronic music as art alongside a club experience · 1994', nodeId: 'sonar_festival' },
+
+  // ── Brazil ───────────────────────────────────────────────────────────────────
+  { text: 'D-Edge opens in São Paulo — it becomes the anchor of Brazil\'s underground electronic scene and one of the most important clubs in South America · 2003', nodeId: null },
+
+  // ── Canada ───────────────────────────────────────────────────────────────────
+  { text: 'Ritchie Hawtin begins DJing in Windsor, Ontario, across the river from Detroit — recording as Plastikman, he becomes one of techno\'s most influential artists and the living bridge between Detroit and Europe · early 1990s', nodeId: null },
+  { text: 'Mutek festival launches in Montreal — an annual gathering at the border of digital art and electronic music that grows into one of the most internationally respected events in the field · 2000', nodeId: null },
+
+  // ── South Africa ─────────────────────────────────────────────────────────────
+  { text: 'Kwaito emerges from Johannesburg\'s townships — an electronic music form built from slowed house beats, local languages, and South African street culture, it becomes the first large-scale African contribution to dance music · early 1990s', nodeId: null },
+
+  // ── Middle East ──────────────────────────────────────────────────────────────
+  { text: 'Haoman 17 opens in Tel Aviv and develops into The Block — the club becomes one of the most celebrated venues outside Western Europe, a centre for underground techno in the Middle East · early 2000s', nodeId: null },
+
+  // ── US — more cities ──────────────────────────────────────────────────────────
+  { text: 'Marshall Jefferson records "Move Your Body" in Chicago — the first house record built around a prominent piano line, it proves the music can carry real emotion · 1986', nodeId: null },
+  { text: 'Trax Records is founded in Chicago by Larry Sherman — the label becomes a foundational archive of early house music, releasing records by Frankie Knuckles, Larry Heard, and Marshall Jefferson · 1984', nodeId: null },
+  { text: 'Underground Resistance is founded in Detroit by Mike Banks and Jeff Mills — releasing records with minimal artwork and refusing all interviews, they establish the political language of techno as a form of resistance · 1989', nodeId: null },
+  { text: 'The Body & Soul Sunday afternoon parties launch in New York — Frankie Knuckles, Joe Claussell, and Danny Krivit create one of the most beloved DJ institutions in the city\'s history · 1996', nodeId: null },
 ];
