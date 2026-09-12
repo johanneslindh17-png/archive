@@ -407,6 +407,7 @@ export default function App() {
       if (e.type === 'aesthetic') return;
       const nbId = e.from === n.id ? e.to : e.to === n.id ? e.from : null;
       if (!nbId || nbId === selected || nbId === pinned) return;
+      if (hlIds?.has(nbId)) return; // don't march on highlighted nodes
       const nb = NODE_BY_ID.get(nbId);
       if (!nb) return;
       makeMarchEl(nb, 'var(--march-prev)', 1.0);
@@ -1690,6 +1691,7 @@ export default function App() {
     const isHl = hlIds ? hlIds.has(n.id) : isFilt;
     const isDim = (hlIds && !hlIds.has(n.id)) || (!hlIds && !isFilt);
     const isSel = n.id === selected || n.id === pinned;
+    const isHovSelf = n.id === hovNode?.id;
     const charW = 4.0, pad = 3;
     const isMoment  = n.type === 'moment';
     const isStyle   = n.type === 'style';
@@ -1718,7 +1720,7 @@ export default function App() {
         ? (tc ? tc.text : (dm ? '#ffffff' : '#0a0a0a'))
       : tc ? tc.text : (dm ? '#d0d0e8' : '#222233');
     const strokeW = isSel ? 1.5 : isHl ? 1 : 0.5;
-    const isMarching = !isSel && hovHlIds?.has(n.id);
+    const isMarching = !isSel && hovHlIds?.has(n.id) && (!isHl || isHovSelf);
     const hw = bw / 2, hh = bh / 2;
     const bgFill = themeStyle?.nodeBg || (dm ? '#0c0c10' : '#ffffff');
     const brightText = dm ? 'rgba(255,255,255,0.75)' : 'rgba(0,0,0,0.72)';
@@ -1871,7 +1873,7 @@ export default function App() {
         </g>
       </g>
     );
-  }), [positions, expandedPositions, expanded, filteredIds, hlIds, hovHlIds, selected, darkMode, colorTheme]);
+  }), [positions, expandedPositions, expanded, filteredIds, hlIds, hovHlIds, hovNode, selected, darkMode, colorTheme]);
 
   return (
     <div className="app">
