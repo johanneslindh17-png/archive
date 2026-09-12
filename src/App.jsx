@@ -358,6 +358,7 @@ export default function App() {
   const shakeElRef      = useRef(null);  // outer <g> being shaken
   const shakeOrigRef    = useRef(null);  // its original transform string
   const marchOverlayRef = useRef([]);
+  const glowLayerRef    = useRef(null);
 
   function clearShake() {
     if (shakeTimerRef.current) { clearTimeout(shakeTimerRef.current); shakeTimerRef.current = null; }
@@ -1847,7 +1848,7 @@ export default function App() {
               selfGlowEl.setAttribute('fill', darkMode ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.35)');
               selfGlowEl.style.pointerEvents = 'none';
               selfGlowEl.classList.add('nd-glow-el', 'nd-glow-self');
-              self.parentElement.insertBefore(selfGlowEl, self);
+              glowLayerRef.current?.appendChild(selfGlowEl);
               marchOverlayRef.current.push(selfGlowEl);
             }
             EDGES.forEach(e => {
@@ -1875,8 +1876,7 @@ export default function App() {
                 glowEl.style.pointerEvents = 'none';
                 const nbIsDim = hlIds ? !hlIds.has(nbId) : false;
                 glowEl.classList.add('nd-glow-el', nbIsDim ? 'nd-glow-pulse' : 'nd-glow-static');
-                // Insert just before the connected node in its parent — glow renders directly behind it
-                nbEl.parentElement.insertBefore(glowEl, nbEl);
+                glowLayerRef.current?.appendChild(glowEl);
                 marchOverlayRef.current.push(glowEl);
                 // Dim neighbors: also add pulsing text overlay
                 if (nbIsDim) {
@@ -2380,6 +2380,8 @@ export default function App() {
                   {(hlIds || hovHlIds) && <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && !hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>}
                   <g>{edgeEls.filter(el => el && !el.props?.className?.includes('dim'))}</g>
                   {hovPathEls && <g style={{ pointerEvents:'none' }}>{hovPathEls}</g>}
+                  {/* glow layer: above dim nodes, below non-dim/highlighted nodes */}
+                  <g ref={glowLayerRef} style={{ pointerEvents: 'none' }} />
                   {/* normal nodes (nothing focused) after edges — white backgrounds cover lines in light mode */}
                   {!(hlIds || hovHlIds) && <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && !hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>}
                   <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>
@@ -2408,6 +2410,7 @@ export default function App() {
                     {(hlIds || hovHlIds) && <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && !hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>}
                     <g>{edgeEls.filter(el => el && !el.props?.className?.includes('dim'))}</g>
                     {hovPathEls && <g style={{ pointerEvents:'none' }}>{hovPathEls}</g>}
+                    <g ref={glowLayerRef} style={{ pointerEvents: 'none' }} />
                     {!(hlIds || hovHlIds) && <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && !hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>}
                     <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>
                     <g>{nodeEls.filter((el, i) => el && hlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>
