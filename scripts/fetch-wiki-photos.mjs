@@ -134,6 +134,9 @@ const WIKI_OVERRIDES = {
   'ki_ki':              null,
   'novah':              null,
   'klofama':            null,
+  'edward':             null,  // pulls King Edward I painting
+  'virginia':           null,  // pulls US state flag
+  'kapote':             null,  // pulls Hasidic garment article
 };
 
 async function main() {

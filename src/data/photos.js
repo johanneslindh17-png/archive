@@ -129,12 +129,6 @@ export const PHOTOS = {
     "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
     "author": "https://www.flickr.com/people/49996757@N00 David Day from Boston"
   },
-  "edward": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Edward_I_-_Westminster_Abbey_Sedilia.jpg/500px-Edward_I_-_Westminster_Abbey_Sedilia.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "license": "Public domain",
-    "licenseUrl": "",
-    "author": "Unknown authorUnknown author"
-  },
   "royksopp": {
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Royksopp_2014-09-29_001_%28cropped%29.jpg/500px-Royksopp_2014-09-29_001_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "license": "CC BY 3.0",
@@ -915,12 +909,6 @@ export const PHOTOS = {
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "author": "PASLBDUB"
   },
-  "virginia": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Flag_of_Virginia.svg/500px-Flag_of_Virginia.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "license": "Public domain",
-    "licenseUrl": "",
-    "author": "LadyofHats with additional editing by 痛 and Patrickneil / Charles Keck"
-  },
   "seth_troxler": {
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Seth_Troxler%2C_Mint.jpg/500px-Seth_Troxler%2C_Mint.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "license": "CC BY-SA 3.0",
@@ -1214,11 +1202,5 @@ export const PHOTOS = {
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "author": "Nehme1499"
-  },
-  "kapote": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Grand_Rebbes.jpg/500px-Grand_Rebbes.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "license": "Public domain",
-    "licenseUrl": "",
-    "author": "JJ211219 at English Wikipedia"
   }
 };
