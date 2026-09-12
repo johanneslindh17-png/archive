@@ -1266,28 +1266,6 @@ export default function App() {
   }, []);
 
 
-  // On window resize, re-fit graph width so nodes stay the same relative size.
-  useEffect(() => {
-    let rafId = null;
-    function handleResize() {
-      cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(() => {
-        if (!zoomRef.current || !svgRef.current) return;
-        const vw = window.innerWidth;
-        const vh = window.innerHeight;
-        const k = vw / W;
-        const live = d3.zoomTransform(svgRef.current);
-        const svgCy = (vh / 2 - live.y) / live.k;
-        const ty = Math.min(0, Math.max(vh - H * k, vh / 2 - svgCy * k));
-        const target = d3.zoomIdentity.translate(0, ty).scale(k);
-        zoomRef.current.scaleExtent([k, 8]);
-        d3.select(svgRef.current).call(zoomRef.current.transform, target);
-      });
-    }
-    window.addEventListener('resize', handleResize);
-    return () => { window.removeEventListener('resize', handleResize); cancelAnimationFrame(rafId); };
-  }, []);
-
   // Row-pack layout for expanded region view — same algorithm as the main page,
   // but columns are cities instead of regions.
   useEffect(() => {
