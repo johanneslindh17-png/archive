@@ -452,17 +452,38 @@ export default function App() {
   const newsPausedAtRef  = useRef(0);     // ms elapsed when user navigated away
   const newsItemRef      = useRef(null);  // mirrors newsItem for use inside effects
   const newsDelayRef     = useRef('0ms'); // animation-delay for resume
-  const newsQueueRef = useRef([]);
+  const newsQueueRef = useRef(() => {
+    try { return JSON.parse(localStorage.getItem('archiveNewsQueue') || '[]'); } catch { return []; }
+  });
+  const newsRecentRef = useRef(() => {
+    try { return JSON.parse(localStorage.getItem('archiveNewsRecent') || '[]'); } catch { return []; }
+  });
   function nextNewsItem() {
+    // Unwrap lazy-init refs on first call
+    if (typeof newsQueueRef.current === 'function') newsQueueRef.current = newsQueueRef.current();
+    if (typeof newsRecentRef.current === 'function') newsRecentRef.current = newsRecentRef.current();
+
     if (newsQueueRef.current.length === 0) {
+      const recent = new Set(newsRecentRef.current);
       const idx = NEWS_TICKER.map((_, i) => i);
       for (let i = idx.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [idx[i], idx[j]] = [idx[j], idx[i]];
       }
-      newsQueueRef.current = idx;
+      // Recently-shown items go to the front so pop() reaches them last
+      const hot = idx.filter(i => recent.has(i));
+      const cold = idx.filter(i => !recent.has(i));
+      newsQueueRef.current = [...hot, ...cold];
+      newsRecentRef.current = [];
     }
-    return NEWS_TICKER[newsQueueRef.current.pop()];
+    const next = newsQueueRef.current.pop();
+    newsRecentRef.current.push(next);
+    if (newsRecentRef.current.length > 20) newsRecentRef.current.shift();
+    try {
+      localStorage.setItem('archiveNewsQueue', JSON.stringify(newsQueueRef.current));
+      localStorage.setItem('archiveNewsRecent', JSON.stringify(newsRecentRef.current));
+    } catch {}
+    return NEWS_TICKER[next];
   }
   const [photoColors, setPhotoColors] = useState(null);
   const [unlocked, setUnlocked] = useState(() => localStorage.getItem('archiveUnlocked') === '1');
