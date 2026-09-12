@@ -402,7 +402,6 @@ export default function App() {
       marchOverlayRef.current.push(el);
     };
 
-    makeMarchEl(n, 'var(--march-self)', 0.7, 1.14);
     EDGES.forEach(e => {
       if (e.type === 'aesthetic') return;
       const nbId = e.from === n.id ? e.to : e.to === n.id ? e.from : null;
@@ -1720,7 +1719,7 @@ export default function App() {
         ? (tc ? tc.text : (dm ? '#ffffff' : '#0a0a0a'))
       : tc ? tc.text : (dm ? '#d0d0e8' : '#222233');
     const strokeW = isSel ? 1.5 : isHl ? 1 : 0.5;
-    const isMarching = !isSel && hovHlIds?.has(n.id) && (!isHl || isHovSelf);
+    const isMarching = !isSel && !isHovSelf && hovHlIds?.has(n.id) && !isHl;
     const hw = bw / 2, hh = bh / 2;
     const bgFill = themeStyle?.nodeBg || (dm ? '#0c0c10' : '#ffffff');
     const brightText = dm ? 'rgba(255,255,255,0.75)' : 'rgba(0,0,0,0.72)';
