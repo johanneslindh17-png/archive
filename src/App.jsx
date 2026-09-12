@@ -1839,13 +1839,29 @@ export default function App() {
               if (!nbEl) return;
               nbEl.classList.add('hov-prev');
               hovPrevRef.current.push({ el: nbEl });
-              // Dim neighbors: append pulsing text overlay so the label brightens
-              const nbIsDim = hlIds ? !hlIds.has(nbId) : false;
-              if (nbIsDim && svgGRef.current) {
-                const p = positions[nbId];
-                const nb = NODE_BY_ID.get(nbId);
-                if (p && nb) {
-                  const txtEl = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+              // Append glow + (for dim) pulsing text overlay on top of all nodes
+              const p = positions[nbId];
+              const nb = NODE_BY_ID.get(nbId);
+              if (p && nb && svgGRef.current) {
+                const svgNS = 'http://www.w3.org/2000/svg';
+                const CHAR_W = 4.0, PAD = 3, BH = 11;
+                const bw = Math.max(28, Math.min(60, nb.label.length * CHAR_W + PAD * 2));
+                const gpad = 7;
+                const glowEl = document.createElementNS(svgNS, 'rect');
+                glowEl.setAttribute('x', p.x - bw / 2 - gpad);
+                glowEl.setAttribute('y', p.y - BH / 2 - gpad);
+                glowEl.setAttribute('width', bw + gpad * 2);
+                glowEl.setAttribute('height', BH + gpad * 2);
+                glowEl.setAttribute('rx', 10);
+                glowEl.setAttribute('fill', darkMode ? 'rgba(255,255,255,0.85)' : 'rgba(0,0,0,0.7)');
+                glowEl.style.pointerEvents = 'none';
+                const nbIsDim = hlIds ? !hlIds.has(nbId) : false;
+                glowEl.classList.add('nd-glow-el', nbIsDim ? 'nd-glow-pulse' : 'nd-glow-static');
+                svgGRef.current.appendChild(glowEl);
+                marchOverlayRef.current.push(glowEl);
+                // Dim neighbors: also add pulsing text overlay
+                if (nbIsDim) {
+                  const txtEl = document.createElementNS(svgNS, 'text');
                   const cs = window.getComputedStyle(nbEl.querySelector('text'));
                   txtEl.setAttribute('x', p.x);
                   txtEl.setAttribute('y', p.y);

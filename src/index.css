@@ -420,37 +420,24 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 /* March elements: always in DOM for perf, shown via hover class */
 .nd-march      { display: none; }
 .nd-self-march { display: none; }
-/* Connected-node glow on hover (no scale — hov-prev added via DOM in mouseenter) */
-.nd.hov-prev .nd-inner {
-  filter: drop-shadow(0 0 3px rgba(0,0,0,0.22));
-  transition: filter 0.15s ease-out;
+/* Glow overlay rects appended on top of all nodes in mouseenter */
+.nd-glow-el {
+  filter: blur(7px);
+  pointer-events: none;
 }
-.dark .nd.hov-prev .nd-inner {
-  filter: drop-shadow(0 0 4px rgba(255,255,255,0.28));
+.nd-glow-static { opacity: 0.28; }
+@keyframes nd-glow-pulse {
+  0%, 100% { opacity: 0.08; }
+  50%       { opacity: 0.52; }
 }
+.nd-glow-pulse { animation: nd-glow-pulse 3s ease-in-out infinite; }
 
-/* Dim connected nodes: pulsing glow + semi-transparent bg so label floats */
-@keyframes nd-dim-hov-glow {
-  0%, 100% { filter: drop-shadow(0 0 2px rgba(0,0,0,0.06)); }
-  50%       { filter: drop-shadow(0 0 10px rgba(0,0,0,0.44)); }
-}
-@keyframes nd-dim-hov-glow-dark {
-  0%, 100% { filter: drop-shadow(0 0 2px rgba(255,255,255,0.04)); }
-  50%       { filter: drop-shadow(0 0 10px rgba(255,255,255,0.40)); }
-}
+/* Dim connected nodes: also fade background so label looks like it floats */
 @keyframes nd-dim-bg-pulse {
   0%, 100% { opacity: 0.18; }
   50%       { opacity: 0.38; }
 }
-.nd.dim.hov-prev .nd-inner {
-  animation: nd-dim-hov-glow 3s ease-in-out infinite;
-}
-.dark .nd.dim.hov-prev .nd-inner {
-  animation: nd-dim-hov-glow-dark 3s ease-in-out infinite;
-}
-.nd.dim.hov-prev .nd-bg {
-  animation: nd-dim-bg-pulse 3s ease-in-out infinite;
-}
+.nd.dim.hov-prev .nd-bg { animation: nd-dim-bg-pulse 3s ease-in-out infinite; }
 
 /* Text animations via hover class (replaces React-managed classNames) */
 .nd.hov-self .nd-inner text {
