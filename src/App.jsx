@@ -1837,13 +1837,13 @@ export default function App() {
               const svgNS = 'http://www.w3.org/2000/svg';
               const CHAR_W = 4.0, PAD = 3, BH = 11;
               const bw = Math.max(28, Math.min(60, n.label.length * CHAR_W + PAD * 2));
-              const selfGpad = 12;
+              const selfGpad = 7;
               const selfGlowEl = document.createElementNS(svgNS, 'rect');
               selfGlowEl.setAttribute('x', selfP.x - bw / 2 - selfGpad);
               selfGlowEl.setAttribute('y', selfP.y - BH / 2 - selfGpad);
               selfGlowEl.setAttribute('width', bw + selfGpad * 2);
               selfGlowEl.setAttribute('height', BH + selfGpad * 2);
-              selfGlowEl.setAttribute('rx', 14);
+              selfGlowEl.setAttribute('rx', 10);
               selfGlowEl.setAttribute('fill', darkMode ? 'rgba(255,255,255,0.85)' : 'rgba(0,0,0,0.7)');
               selfGlowEl.style.pointerEvents = 'none';
               selfGlowEl.classList.add('nd-glow-el', 'nd-glow-self');
