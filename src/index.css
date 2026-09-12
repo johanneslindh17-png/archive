@@ -101,6 +101,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   gap:0;flex-shrink:0;z-index:100;position:relative;transition:background 0.2s;
   overflow-x:auto;flex-wrap:nowrap;
 }
+.topbar > *{flex-shrink:0;}
 .topbar::-webkit-scrollbar{display:none;}
 .topbar{scrollbar-width:none;}
 .wordmark{
@@ -813,6 +814,7 @@ path.eg.dim{opacity:0.055}
   transition:background 0.2s,border-color 0.2s;
   overflow-x:auto;flex-wrap:nowrap;
 }
+.statusbar > *{flex-shrink:0;}
 .statusbar::-webkit-scrollbar{display:none;}
 .statusbar{scrollbar-width:none;}
 /* Node-type filter chips in the status bar */
