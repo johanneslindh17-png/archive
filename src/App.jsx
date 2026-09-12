@@ -1853,8 +1853,8 @@ export default function App() {
               const selfGlowEl = document.createElementNS(svgNS, 'ellipse');
               selfGlowEl.setAttribute('cx', selfP.x);
               selfGlowEl.setAttribute('cy', selfP.y - 1);
-              selfGlowEl.setAttribute('rx', bw / 2 + selfGpad + 3);
-              selfGlowEl.setAttribute('ry', BH / 2 + selfGpad * 1.6);
+              selfGlowEl.setAttribute('rx', bw / 2 + selfGpad);
+              selfGlowEl.setAttribute('ry', BH / 2 + selfGpad);
               selfGlowEl.setAttribute('fill', darkMode ? 'rgba(255,255,255,0.85)' : 'rgba(0,0,0,0.7)');
               selfGlowEl.style.pointerEvents = 'none';
               selfGlowEl.classList.add('nd-glow-el', 'nd-glow-self');
@@ -1879,8 +1879,8 @@ export default function App() {
                 const glowEl = document.createElementNS(svgNS, 'ellipse');
                 glowEl.setAttribute('cx', p.x);
                 glowEl.setAttribute('cy', p.y - 1);
-                glowEl.setAttribute('rx', bw / 2 + gpad + 2);
-                glowEl.setAttribute('ry', BH / 2 + gpad * 1.5);
+                glowEl.setAttribute('rx', bw / 2 + gpad);
+                glowEl.setAttribute('ry', BH / 2 + gpad);
                 glowEl.setAttribute('fill', darkMode ? 'rgba(255,255,255,0.85)' : 'rgba(0,0,0,0.7)');
                 glowEl.style.pointerEvents = 'none';
                 const nbIsDim = hlIds ? !hlIds.has(nbId) : false;
