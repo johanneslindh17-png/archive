@@ -574,7 +574,7 @@ export default function App() {
   function flyHome() {
     if (!zoomRef.current || !svgRef.current) return;
     const vw = window.innerWidth;
-    const k  = Math.min(1, Math.max(vw / W, 600 / W));
+    const k  = vw / W;
     const vh = window.innerHeight;
     const live = d3.zoomTransform(svgRef.current);
     // Which SVG y is currently at the vertical centre of the viewport?
@@ -1218,7 +1218,7 @@ export default function App() {
   useEffect(() => {
     if (!svgRef.current) return;
     const zoom = d3.zoom()
-      .scaleExtent([0.4, 8])
+      .scaleExtent([window.innerWidth / W, 8])
       .translateExtent([[0, 0], [W, H]])  // single copy, bounded
       // Only zoom on ctrl+wheel or pinch — regular scroll pans
       .filter(event => {
@@ -1249,10 +1249,7 @@ export default function App() {
     const svg = d3.select(svgRef.current);
     svg.call(zoom);
     const vw = window.innerWidth;
-    // Use a fixed reference width so nodes are the same pixel size regardless of window size.
-    // On very narrow windows (< 600px) we still scale down a bit to show enough context.
-    const initK = Math.min(1, Math.max(vw / W, 600 / W));
-    svg.call(zoom.transform, d3.zoomIdentity.translate(0, 0).scale(initK));
+    svg.call(zoom.transform, d3.zoomIdentity.translate(0, 0).scale(vw / W));
 
     // Regular scroll wheel → pan vertically
     const handleWheel = event => {
@@ -1268,6 +1265,28 @@ export default function App() {
     };
   }, []);
 
+
+  // On window resize, re-fit graph width so nodes stay the same relative size.
+  useEffect(() => {
+    let rafId = null;
+    function handleResize() {
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        if (!zoomRef.current || !svgRef.current) return;
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+        const k = vw / W;
+        const live = d3.zoomTransform(svgRef.current);
+        const svgCy = (vh / 2 - live.y) / live.k;
+        const ty = Math.min(0, Math.max(vh - H * k, vh / 2 - svgCy * k));
+        const target = d3.zoomIdentity.translate(0, ty).scale(k);
+        zoomRef.current.scaleExtent([k, 8]);
+        d3.select(svgRef.current).call(zoomRef.current.transform, target);
+      });
+    }
+    window.addEventListener('resize', handleResize);
+    return () => { window.removeEventListener('resize', handleResize); cancelAnimationFrame(rafId); };
+  }, []);
 
   // Row-pack layout for expanded region view — same algorithm as the main page,
   // but columns are cities instead of regions.
