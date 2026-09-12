@@ -371,13 +371,7 @@ export default function App() {
   }
 
   function clearMarchOverlay() {
-    marchOverlayRef.current.forEach(item => {
-      if (item.nodeType) {
-        item.parentNode?.removeChild(item); // SVG element to remove
-      } else {
-        item.el.style.stroke = item.orig;   // restore hidden border stroke
-      }
-    });
+    marchOverlayRef.current.forEach(el => el.parentNode?.removeChild(el));
     marchOverlayRef.current = [];
   }
 
@@ -406,14 +400,6 @@ export default function App() {
       el.style.pointerEvents = 'none';
       svgGRef.current.appendChild(el);
       marchOverlayRef.current.push(el);
-      // Hide the node's own border so march ants replace it
-      const ndEl = svgGRef.current.querySelector(`[data-nid="${node.id}"]`);
-      const borderEl = ndEl?.querySelector('.nd-border');
-      if (borderEl) {
-        const orig = borderEl.style.stroke;
-        borderEl.style.stroke = 'none';
-        marchOverlayRef.current.push({ el: borderEl, orig });
-      }
     };
 
     makeMarchEl(n, 'var(--march-self)', 0.7);
@@ -1733,6 +1719,7 @@ export default function App() {
         ? (tc ? tc.text : (dm ? '#ffffff' : '#0a0a0a'))
       : tc ? tc.text : (dm ? '#d0d0e8' : '#222233');
     const strokeW = isSel ? 1.5 : isHl ? 1 : 0.5;
+    const isMarching = !isSel && hovHlIds?.has(n.id);
     const hw = bw / 2, hh = bh / 2;
     const bgFill = themeStyle?.nodeBg || (dm ? '#0c0c10' : '#ffffff');
     const brightText = dm ? 'rgba(255,255,255,0.75)' : 'rgba(0,0,0,0.72)';
@@ -1774,14 +1761,15 @@ export default function App() {
       : isChan   ? <polygon className="nd-bg" points={chanPtsO} fill={bgFill} stroke="none" />
       :            <rect className="nd-bg" x={-hw-1} y={-hh-1} width={bw+2} height={bh+2} rx={3} fill={bgFill} stroke="none" />;
 
+    const sc = isMarching ? 'none' : strokeColor;
     const renderBorder = () =>
-      isArtist  ? <rect className="nd-border" x={-hw} y={-hh} width={bw} height={bh} rx={8} fill={fillColor} stroke={strokeColor} strokeWidth={strokeW} />
-      : isLabel  ? <polygon className="nd-border" points={octPts} fill={fillColor} stroke={strokeColor} strokeWidth={strokeW} />
-      : isNotch  ? <polygon className="nd-border" points={ntchPts} fill={fillColor} stroke={strokeColor} strokeWidth={strokeW} />
-      : isStyle  ? <polygon className="nd-border" points={stylePts} fill={fillColor} stroke={strokeColor} strokeWidth={strokeW} />
-      : isCulture? <polygon className="nd-border" points={cultPts} fill={fillColor} stroke={strokeColor} strokeWidth={strokeW} />
-      : isChan   ? <polygon className="nd-border" points={chanPts} fill={fillColor} stroke={strokeColor} strokeWidth={strokeW} />
-      :            <rect className="nd-border" x={-hw} y={-hh} width={bw} height={bh} rx={2} fill={fillColor} stroke={strokeColor} strokeWidth={strokeW} />;
+      isArtist  ? <rect className="nd-border" x={-hw} y={-hh} width={bw} height={bh} rx={8} fill={fillColor} stroke={sc} strokeWidth={strokeW} />
+      : isLabel  ? <polygon className="nd-border" points={octPts} fill={fillColor} stroke={sc} strokeWidth={strokeW} />
+      : isNotch  ? <polygon className="nd-border" points={ntchPts} fill={fillColor} stroke={sc} strokeWidth={strokeW} />
+      : isStyle  ? <polygon className="nd-border" points={stylePts} fill={fillColor} stroke={sc} strokeWidth={strokeW} />
+      : isCulture? <polygon className="nd-border" points={cultPts} fill={fillColor} stroke={sc} strokeWidth={strokeW} />
+      : isChan   ? <polygon className="nd-border" points={chanPts} fill={fillColor} stroke={sc} strokeWidth={strokeW} />
+      :            <rect className="nd-border" x={-hw} y={-hh} width={bw} height={bh} rx={2} fill={fillColor} stroke={sc} strokeWidth={strokeW} />;
 
     const mo = 0; // march offset — 0 = march dots trace the node outline exactly
     const octPtsM  = `${-hw+oc-mo},${-hh-mo} ${hw-oc+mo},${-hh-mo} ${hw+mo},${-hh+oc-mo} ${hw+mo},${hh-oc+mo} ${hw-oc+mo},${hh+mo} ${-hw+oc-mo},${hh+mo} ${-hw-mo},${hh-oc+mo} ${-hw-mo},${-hh+oc-mo}`;
