@@ -379,7 +379,7 @@ export default function App() {
     clearMarchOverlay();
     if (!svgGRef.current) return;
     const svgNS = 'http://www.w3.org/2000/svg';
-    const CHAR_W = 4.3, PAD = 3, BH = 11, mo = 3;
+    const CHAR_W = 4.3, PAD = 3, BH = 11, mo = 0;
 
     const makeMarchEl = (node, stroke, speed) => {
       const p = positions[node.id];
@@ -391,7 +391,7 @@ export default function App() {
       el.setAttribute('y', p.y - hh - mo);
       el.setAttribute('width', bw + mo * 2);
       el.setAttribute('height', BH + mo * 2);
-      el.setAttribute('rx', '4');
+      el.setAttribute('rx', '2');
       el.setAttribute('fill', 'none');
       el.setAttribute('stroke', stroke);
       el.setAttribute('stroke-width', '1.5');
@@ -1769,20 +1769,20 @@ export default function App() {
       : isChan   ? <polygon className="nd-border" points={chanPts} fill={fillColor} stroke={strokeColor} strokeWidth={strokeW} />
       :            <rect className="nd-border" x={-hw} y={-hh} width={bw} height={bh} rx={2} fill={fillColor} stroke={strokeColor} strokeWidth={strokeW} />;
 
-    const mo = 3; // march offset — 3px outside border, clear of any nd-bg overlap
+    const mo = 0; // march offset — 0 = march dots trace the node outline exactly
     const octPtsM  = `${-hw+oc-mo},${-hh-mo} ${hw-oc+mo},${-hh-mo} ${hw+mo},${-hh+oc-mo} ${hw+mo},${hh-oc+mo} ${hw-oc+mo},${hh+mo} ${-hw+oc-mo},${hh+mo} ${-hw-mo},${hh-oc+mo} ${-hw-mo},${-hh+oc-mo}`;
     const ntchPtsM = `${-hw-mo},${-hh-mo} ${hw+mo},${-hh-mo} ${hw+mo},${-ni-mo} ${hw-nd+mo},0 ${hw+mo},${ni+mo} ${hw+mo},${hh+mo} ${-hw-mo},${hh+mo} ${-hw-mo},${ni+mo} ${-hw+nd-mo},0 ${-hw-mo},${-ni-mo}`;
     const stylePtsM = `${-hw-mo},${-hh-mo} ${hw-at+mo},${-hh-mo} ${hw+mo},0 ${hw-at+mo},${hh+mo} ${-hw-mo},${hh+mo}`;
     const cultPtsM  = `${-hw+at-mo},${-hh-mo} ${hw+mo},${-hh-mo} ${hw+mo},${hh+mo} ${-hw+at-mo},${hh+mo} ${-hw-mo},0`;
     const chanPtsM  = `${-hw-mo},${-hh-mo} ${hw-fc+mo},${-hh-mo} ${hw+mo},${-hh+fc-mo} ${hw+mo},${hh+mo} ${-hw-mo},${hh+mo}`;
     const renderMarch = (cls, stroke) =>
-      isArtist  ? <rect className={cls} x={-hw-mo} y={-hh-mo} width={bw+mo*2} height={bh+mo*2} rx={11} fill="none" stroke={stroke} strokeWidth={1.5} strokeDasharray="5 8" />
+      isArtist  ? <rect className={cls} x={-hw-mo} y={-hh-mo} width={bw+mo*2} height={bh+mo*2} rx={8} fill="none" stroke={stroke} strokeWidth={1.5} strokeDasharray="5 8" />
       : isLabel  ? <polygon className={cls} points={octPtsM} fill="none" stroke={stroke} strokeWidth={1.5} strokeDasharray="5 8" />
       : isNotch  ? <polygon className={cls} points={ntchPtsM} fill="none" stroke={stroke} strokeWidth={1.5} strokeDasharray="5 8" />
       : isStyle  ? <polygon className={cls} points={stylePtsM} fill="none" stroke={stroke} strokeWidth={1.5} strokeDasharray="5 8" />
       : isCulture? <polygon className={cls} points={cultPtsM} fill="none" stroke={stroke} strokeWidth={1.5} strokeDasharray="5 8" />
       : isChan   ? <polygon className={cls} points={chanPtsM} fill="none" stroke={stroke} strokeWidth={1.5} strokeDasharray="5 8" />
-      :            <rect className={cls} x={-hw-mo} y={-hh-mo} width={bw+mo*2} height={bh+mo*2} rx={4} fill="none" stroke={stroke} strokeWidth={1.5} strokeDasharray="5 8" />;
+      :            <rect className={cls} x={-hw-mo} y={-hh-mo} width={bw+mo*2} height={bh+mo*2} rx={2} fill="none" stroke={stroke} strokeWidth={1.5} strokeDasharray="5 8" />;
 
     return (
       <g
