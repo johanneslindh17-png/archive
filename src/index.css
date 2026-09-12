@@ -420,12 +420,13 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 /* March elements: always in DOM for perf, shown via hover class */
 .nd-march      { display: none; }
 .nd-self-march { display: none; }
-/* Glow overlay rects appended on top of all nodes in mouseenter */
+/* Glow overlay rects inserted behind all nodes in mouseenter */
 .nd-glow-el {
   filter: blur(7px);
   pointer-events: none;
 }
-.nd-glow-static { opacity: 0.28; }
+.nd-glow-self   { filter: blur(11px); opacity: 0.5; }
+.nd-glow-static { opacity: 0.22; }
 @keyframes nd-glow-pulse {
   0%, 100% { opacity: 0.08; }
   50%       { opacity: 0.52; }

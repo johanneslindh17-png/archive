@@ -1831,6 +1831,25 @@ export default function App() {
             const self = ev.currentTarget;
             self.classList.add('hov-self');
             hovPrevRef.current = [{ el: self }];
+            // Self-glow (larger, behind all nodes)
+            const selfP = positions[n.id];
+            if (selfP && svgGRef.current) {
+              const svgNS = 'http://www.w3.org/2000/svg';
+              const CHAR_W = 4.0, PAD = 3, BH = 11;
+              const bw = Math.max(28, Math.min(60, n.label.length * CHAR_W + PAD * 2));
+              const selfGpad = 12;
+              const selfGlowEl = document.createElementNS(svgNS, 'rect');
+              selfGlowEl.setAttribute('x', selfP.x - bw / 2 - selfGpad);
+              selfGlowEl.setAttribute('y', selfP.y - BH / 2 - selfGpad);
+              selfGlowEl.setAttribute('width', bw + selfGpad * 2);
+              selfGlowEl.setAttribute('height', BH + selfGpad * 2);
+              selfGlowEl.setAttribute('rx', 14);
+              selfGlowEl.setAttribute('fill', darkMode ? 'rgba(255,255,255,0.85)' : 'rgba(0,0,0,0.7)');
+              selfGlowEl.style.pointerEvents = 'none';
+              selfGlowEl.classList.add('nd-glow-el', 'nd-glow-self');
+              svgGRef.current.insertBefore(selfGlowEl, svgGRef.current.firstChild);
+              marchOverlayRef.current.push(selfGlowEl);
+            }
             EDGES.forEach(e => {
               if (e.type === 'aesthetic') return;
               const nbId = e.from === n.id ? e.to : e.to === n.id ? e.from : null;
@@ -1846,18 +1865,18 @@ export default function App() {
                 const svgNS = 'http://www.w3.org/2000/svg';
                 const CHAR_W = 4.0, PAD = 3, BH = 11;
                 const bw = Math.max(28, Math.min(60, nb.label.length * CHAR_W + PAD * 2));
-                const gpad = 7;
+                const gpad = 4;
                 const glowEl = document.createElementNS(svgNS, 'rect');
                 glowEl.setAttribute('x', p.x - bw / 2 - gpad);
                 glowEl.setAttribute('y', p.y - BH / 2 - gpad);
                 glowEl.setAttribute('width', bw + gpad * 2);
                 glowEl.setAttribute('height', BH + gpad * 2);
-                glowEl.setAttribute('rx', 10);
+                glowEl.setAttribute('rx', 7);
                 glowEl.setAttribute('fill', darkMode ? 'rgba(255,255,255,0.85)' : 'rgba(0,0,0,0.7)');
                 glowEl.style.pointerEvents = 'none';
                 const nbIsDim = hlIds ? !hlIds.has(nbId) : false;
                 glowEl.classList.add('nd-glow-el', nbIsDim ? 'nd-glow-pulse' : 'nd-glow-static');
-                svgGRef.current.appendChild(glowEl);
+                svgGRef.current.insertBefore(glowEl, svgGRef.current.firstChild);
                 marchOverlayRef.current.push(glowEl);
                 // Dim neighbors: also add pulsing text overlay
                 if (nbIsDim) {
