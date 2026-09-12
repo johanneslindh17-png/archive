@@ -406,7 +406,9 @@ export default function App() {
       if (e.type === 'aesthetic') return;
       const nbId = e.from === n.id ? e.to : e.to === n.id ? e.from : null;
       if (!nbId || nbId === selected || nbId === pinned) return;
-      if (hlIds?.has(nbId)) return; // don't march on highlighted nodes
+      // Only march on truly dim nodes (same logic as isDim in nodeEls)
+      const nbIsDim = hlIds ? !hlIds.has(nbId) : !filteredIds.has(nbId);
+      if (!nbIsDim) return;
       const nb = NODE_BY_ID.get(nbId);
       if (!nb) return;
       makeMarchEl(nb, 'var(--march-prev)', 1.0);
