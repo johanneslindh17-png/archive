@@ -429,7 +429,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .nd-glow-static { opacity: 0.50; }
 @keyframes nd-glow-pulse {
   0%, 100% { opacity: 0.10; }
-  50%       { opacity: 0.48; }
+  50%       { opacity: 0.68; }
 }
 /* -2s delay so glow starts at brightest point, in phase with text pulse */
 .nd-glow-pulse { animation: nd-glow-pulse 4s ease-in-out -2s infinite; }
