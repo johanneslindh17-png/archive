@@ -101,7 +101,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   gap:0;flex-shrink:0;z-index:100;position:relative;transition:background 0.2s;
 }
 .wordmark{
-  font-weight:800;font-size:1.02rem;letter-spacing:0.1em;
+  font-weight:800;font-size:1.18rem;letter-spacing:0.1em;
   text-transform:uppercase;color:var(--tb-text);flex-shrink:0;
   padding:0 20px;height:100%;white-space:nowrap;
   display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
