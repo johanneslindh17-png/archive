@@ -574,8 +574,7 @@ export default function App() {
   // Fly back to the overview zoom level, keeping the current vertical era centred
   function flyHome() {
     if (!zoomRef.current || !svgRef.current) return;
-    const vw = window.innerWidth;
-    const k  = vw / W;
+    const k  = screen.width / W;
     const vh = window.innerHeight;
     const live = d3.zoomTransform(svgRef.current);
     // Which SVG y is currently at the vertical centre of the viewport?
@@ -1222,6 +1221,24 @@ export default function App() {
     const svgNS = 'http://www.w3.org/2000/svg';
     const layer = document.createElementNS(svgNS, 'g');
     layer.style.pointerEvents = 'none';
+
+    // Radial gradients for soft light-source glow (opaque center → transparent edge)
+    const defs = document.createElementNS(svgNS, 'defs');
+    const mkGrad = (id, color) => {
+      const g = document.createElementNS(svgNS, 'radialGradient');
+      g.setAttribute('id', id);
+      g.setAttribute('cx', '50%'); g.setAttribute('cy', '50%'); g.setAttribute('r', '50%');
+      const s1 = document.createElementNS(svgNS, 'stop');
+      s1.setAttribute('offset', '0%'); s1.setAttribute('stop-color', color); s1.setAttribute('stop-opacity', '1');
+      const s2 = document.createElementNS(svgNS, 'stop');
+      s2.setAttribute('offset', '100%'); s2.setAttribute('stop-color', color); s2.setAttribute('stop-opacity', '0');
+      g.appendChild(s1); g.appendChild(s2);
+      return g;
+    };
+    defs.appendChild(mkGrad('nd-glow-grad-dk', 'white'));
+    defs.appendChild(mkGrad('nd-glow-grad-lt', 'black'));
+    layer.appendChild(defs);
+
     svgGRef.current.appendChild(layer);
     glowLayerRef.current = layer;
     return () => { layer.remove(); glowLayerRef.current = null; };
@@ -1230,7 +1247,7 @@ export default function App() {
   useEffect(() => {
     if (!svgRef.current) return;
     const zoom = d3.zoom()
-      .scaleExtent([window.innerWidth / W, 8])
+      .scaleExtent([screen.width / W, 8])
       .translateExtent([[0, 0], [W, H]])  // single copy, bounded
       // Only zoom on ctrl+wheel or pinch — regular scroll pans
       .filter(event => {
@@ -1260,8 +1277,7 @@ export default function App() {
     zoomRef.current = zoom;
     const svg = d3.select(svgRef.current);
     svg.call(zoom);
-    const vw = window.innerWidth;
-    svg.call(zoom.transform, d3.zoomIdentity.translate(0, 0).scale(vw / W));
+    svg.call(zoom.transform, d3.zoomIdentity.translate(0, 0).scale(screen.width / W));
 
     // Regular scroll wheel → pan vertically
     const handleWheel = event => {
@@ -1587,7 +1603,7 @@ export default function App() {
   function doExpand(key) {
     setExpanded(key);
     clearAll();
-    setTf({ k: window.innerWidth / W, x: 0, y: 0 });
+    setTf({ k: screen.width / W, x: 0, y: 0 });
   }
 
   const edgeEls = useMemo(() => {
@@ -1855,7 +1871,7 @@ export default function App() {
               selfGlowEl.setAttribute('cy', selfP.y - 1);
               selfGlowEl.setAttribute('rx', bw / 2 + selfGpad);
               selfGlowEl.setAttribute('ry', BH / 2 + selfGpad);
-              selfGlowEl.setAttribute('fill', darkMode ? 'rgba(255,255,255,0.85)' : 'rgba(0,0,0,0.7)');
+              selfGlowEl.setAttribute('fill', `url(#${darkMode ? 'nd-glow-grad-dk' : 'nd-glow-grad-lt'})`);
               selfGlowEl.style.pointerEvents = 'none';
               selfGlowEl.classList.add('nd-glow-el', 'nd-glow-self');
               glowLayerRef.current?.appendChild(selfGlowEl);
@@ -1881,7 +1897,7 @@ export default function App() {
                 glowEl.setAttribute('cy', p.y - 1);
                 glowEl.setAttribute('rx', bw / 2 + gpad);
                 glowEl.setAttribute('ry', BH / 2 + gpad);
-                glowEl.setAttribute('fill', darkMode ? 'rgba(255,255,255,0.85)' : 'rgba(0,0,0,0.7)');
+                glowEl.setAttribute('fill', `url(#${darkMode ? 'nd-glow-grad-dk' : 'nd-glow-grad-lt'})`);
                 glowEl.style.pointerEvents = 'none';
                 const nbIsDim = hlIds ? !hlIds.has(nbId) : false;
                 glowEl.classList.add('nd-glow-el', nbIsDim ? 'nd-glow-pulse' : 'nd-glow-static');

@@ -422,23 +422,24 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .nd-self-march { display: none; }
 /* Glow overlay ellipses — light-source halo on hover */
 .nd-glow-el {
-  filter: blur(7px);
+  filter: blur(12px);
   pointer-events: none;
 }
-.nd-glow-self   { filter: blur(6px); opacity: 0.14; }
-.nd-glow-static { opacity: 0.2; }
+.nd-glow-self   { filter: blur(14px); opacity: 0.45; }
+.nd-glow-static { opacity: 0.36; }
 @keyframes nd-glow-pulse {
-  0%, 100% { opacity: 0.05; }
-  50%       { opacity: 0.22; }
+  0%, 100% { opacity: 0.08; }
+  50%       { opacity: 0.36; }
 }
-.nd-glow-pulse { animation: nd-glow-pulse 4s ease-in-out infinite; }
+/* -2s delay so glow starts at brightest point, in phase with text pulse */
+.nd-glow-pulse { animation: nd-glow-pulse 4s ease-in-out -2s infinite; }
 
-/* Dim connected nodes background — keep static, glow ellipse handles the pulse */
+/* Dim connected nodes background */
 @keyframes nd-dim-bg-pulse {
   0%, 100% { opacity: 0.22; }
   50%       { opacity: 0.38; }
 }
-.nd.dim.hov-prev .nd-bg { animation: nd-dim-bg-pulse 4s ease-in-out infinite; }
+.nd.dim.hov-prev .nd-bg { animation: nd-dim-bg-pulse 4s ease-in-out -2s infinite; }
 
 /* Text animations via hover class (replaces React-managed classNames) */
 .nd.hov-self .nd-inner text {
@@ -446,14 +447,14 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   font-weight: 600 !important;
   opacity: 1 !important;
 }
-.nd.dim.hov-prev .nd-inner text { animation: nd-prev-text-pulse 4s ease-in-out infinite; }
+.nd.dim.hov-prev .nd-inner text { animation: nd-prev-text-pulse 4s ease-in-out -2s infinite; }
 
 /* Text pulse — in sync with glow pulse (both 4s), floor at 30% */
 @keyframes nd-prev-text-pulse {
   0%, 100% { opacity: 0.3; }
   50%       { opacity: 0.72; }
 }
-.nd-prev-text { animation: nd-prev-text-pulse 4s ease-in-out infinite; }
+.nd-prev-text { animation: nd-prev-text-pulse 4s ease-in-out -2s infinite; }
 
 /* Text pulse — hovered node itself (stronger signal) */
 @keyframes nd-self-text-pulse {
@@ -538,7 +539,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .dark .nbc-item:hover{color:#9090a8;}
 .dark .nbc-current{color:#9090a8;}
 
-.canvas{flex:1;position:relative;overflow:hidden;background:var(--canvas-bg);transition:background 0.2s}
+.canvas{flex:1;min-height:0;position:relative;overflow:hidden;background:var(--canvas-bg);transition:background 0.2s}
 .year-strip{
   position:absolute;top:0;left:0;bottom:0;width:54px;z-index:20;
   pointer-events:none;background:var(--tb-bg);
