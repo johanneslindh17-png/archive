@@ -371,7 +371,13 @@ export default function App() {
   }
 
   function clearMarchOverlay() {
-    marchOverlayRef.current.forEach(el => el.parentNode?.removeChild(el));
+    marchOverlayRef.current.forEach(item => {
+      if (item.nodeType) {
+        item.parentNode?.removeChild(item); // SVG element to remove
+      } else {
+        item.el.style.stroke = item.orig;   // restore hidden border stroke
+      }
+    });
     marchOverlayRef.current = [];
   }
 
@@ -400,6 +406,14 @@ export default function App() {
       el.style.pointerEvents = 'none';
       svgGRef.current.appendChild(el);
       marchOverlayRef.current.push(el);
+      // Hide the node's own border so march ants replace it
+      const ndEl = svgGRef.current.querySelector(`[data-nid="${node.id}"]`);
+      const borderEl = ndEl?.querySelector('.nd-border');
+      if (borderEl) {
+        const orig = borderEl.style.stroke;
+        borderEl.style.stroke = 'none';
+        marchOverlayRef.current.push({ el: borderEl, orig });
+      }
     };
 
     makeMarchEl(n, 'var(--march-self)', 0.7);

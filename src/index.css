@@ -417,9 +417,8 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .nd-march      { display: none; }
 .nd-self-march { display: none; }
 /* CSS-based march disabled — DOM overlay handles it (always renders on top) */
-/* Hide border stroke when marching — march ants replace it */
-.nd.hov-self .nd-border,
-.nd.hov-prev .nd-border { stroke: none; }
+/* hov-self border hidden via addMarchOverlay DOM manipulation */
+.nd.hov-self .nd-border { stroke: none; }
 /* Text animations via hover class (replaces React-managed classNames) */
 .nd.hov-self .nd-inner text {
   animation: nd-self-text-pulse 2.6s ease-in-out infinite;
