@@ -1856,7 +1856,7 @@ export default function App() {
               selfGlowEl.setAttribute('width', bw + selfGpad * 2);
               selfGlowEl.setAttribute('height', BH + selfGpad * 2);
               selfGlowEl.setAttribute('rx', 10);
-              selfGlowEl.setAttribute('fill', darkMode ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.35)');
+              selfGlowEl.setAttribute('fill', darkMode ? 'rgba(255,255,255,0.85)' : 'rgba(0,0,0,0.7)');
               selfGlowEl.style.pointerEvents = 'none';
               selfGlowEl.classList.add('nd-glow-el', 'nd-glow-self');
               glowLayerRef.current?.appendChild(selfGlowEl);
@@ -1883,7 +1883,7 @@ export default function App() {
                 glowEl.setAttribute('width', bw + gpad * 2);
                 glowEl.setAttribute('height', BH + gpad * 2);
                 glowEl.setAttribute('rx', 7);
-                glowEl.setAttribute('fill', darkMode ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.35)');
+                glowEl.setAttribute('fill', darkMode ? 'rgba(255,255,255,0.85)' : 'rgba(0,0,0,0.7)');
                 glowEl.style.pointerEvents = 'none';
                 const nbIsDim = hlIds ? !hlIds.has(nbId) : false;
                 glowEl.classList.add('nd-glow-el', nbIsDim ? 'nd-glow-pulse' : 'nd-glow-static');
