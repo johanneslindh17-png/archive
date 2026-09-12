@@ -573,7 +573,8 @@ export default function App() {
   // Fly back to the overview zoom level, keeping the current vertical era centred
   function flyHome() {
     if (!zoomRef.current || !svgRef.current) return;
-    const k  = window.innerWidth / W;
+    const vw = window.innerWidth;
+    const k  = Math.min(1, Math.max(vw / W, 600 / W));
     const vh = window.innerHeight;
     const live = d3.zoomTransform(svgRef.current);
     // Which SVG y is currently at the vertical centre of the viewport?
@@ -1248,7 +1249,10 @@ export default function App() {
     const svg = d3.select(svgRef.current);
     svg.call(zoom);
     const vw = window.innerWidth;
-    svg.call(zoom.transform, d3.zoomIdentity.translate(0, 0).scale(vw / W));
+    // Use a fixed reference width so nodes are the same pixel size regardless of window size.
+    // On very narrow windows (< 600px) we still scale down a bit to show enough context.
+    const initK = Math.min(1, Math.max(vw / W, 600 / W));
+    svg.call(zoom.transform, d3.zoomIdentity.translate(0, 0).scale(initK));
 
     // Regular scroll wheel → pan vertically
     const handleWheel = event => {
@@ -1264,28 +1268,6 @@ export default function App() {
     };
   }, []);
 
-
-  // On window resize, maintain physical node size by adjusting zoom scale/translate.
-  // The graph zooms in (fewer nodes visible) rather than shrinking nodes.
-  useEffect(() => {
-    let prevVw = window.innerWidth;
-    function handleResize() {
-      if (!zoomRef.current || !svgRef.current) return;
-      const newVw = window.innerWidth;
-      if (newVw === prevVw) return;
-      const live = d3.zoomTransform(svgRef.current);
-      const ratio = prevVw / newVw;
-      const newK = Math.max(0.4, live.k * ratio);
-      // Keep horizontal center of the current view fixed in SVG space
-      const svgCx = (prevVw / 2 - live.x) / live.k;
-      const newX = newVw / 2 - svgCx * newK;
-      const target = d3.zoomIdentity.translate(newX, live.y).scale(newK);
-      d3.select(svgRef.current).call(zoomRef.current.transform, target);
-      prevVw = newVw;
-    }
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   // Row-pack layout for expanded region view — same algorithm as the main page,
   // but columns are cities instead of regions.
