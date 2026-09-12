@@ -428,15 +428,15 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .nd-glow-self   { filter: blur(5px); opacity: 0.12; }
 .nd-glow-static { opacity: 0.22; }
 @keyframes nd-glow-pulse {
-  0%, 100% { opacity: 0.04; }
-  50%       { opacity: 0.18; }
+  0%, 100% { opacity: 0.06; }
+  50%       { opacity: 0.28; }
 }
 .nd-glow-pulse { animation: nd-glow-pulse 3s ease-in-out infinite; }
 
 /* Dim connected nodes: fade background so glow behind bleeds through */
 @keyframes nd-dim-bg-pulse {
-  0%, 100% { opacity: 0.08; }
-  50%       { opacity: 0.22; }
+  0%, 100% { opacity: 0.15; }
+  50%       { opacity: 0.35; }
 }
 .nd.dim.hov-prev .nd-bg { animation: nd-dim-bg-pulse 3s ease-in-out infinite; }
 
