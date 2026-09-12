@@ -440,12 +440,16 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 }
 .nd-self-text { animation: nd-self-text-pulse 2.6s ease-in-out infinite; }
 
-/* Node scale-up on hover */
+/* Node scale-up + glow on hover */
 .nd:not(.dim):hover .nd-inner {
   transform: scale(1.14);
   transform-box: fill-box;
   transform-origin: center;
-  transition: transform 0.12s ease-out;
+  filter: drop-shadow(0 0 5px rgba(0,0,0,0.32));
+  transition: transform 0.12s ease-out, filter 0.15s ease-out;
+}
+.dark .nd:not(.dim):hover .nd-inner {
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.5));
 }
 .regionlabel{
   height:28px;border-bottom:1px solid var(--tb-border);
