@@ -1217,7 +1217,7 @@ export default function App() {
   useEffect(() => {
     if (!svgRef.current) return;
     const zoom = d3.zoom()
-      .scaleExtent([window.innerWidth / W, 8])
+      .scaleExtent([0.4, 8])
       .translateExtent([[0, 0], [W, H]])  // single copy, bounded
       // Only zoom on ctrl+wheel or pinch — regular scroll pans
       .filter(event => {
@@ -1264,6 +1264,28 @@ export default function App() {
     };
   }, []);
 
+
+  // On window resize, maintain physical node size by adjusting zoom scale/translate.
+  // The graph zooms in (fewer nodes visible) rather than shrinking nodes.
+  useEffect(() => {
+    let prevVw = window.innerWidth;
+    function handleResize() {
+      if (!zoomRef.current || !svgRef.current) return;
+      const newVw = window.innerWidth;
+      if (newVw === prevVw) return;
+      const live = d3.zoomTransform(svgRef.current);
+      const ratio = prevVw / newVw;
+      const newK = Math.max(0.4, live.k * ratio);
+      // Keep horizontal center of the current view fixed in SVG space
+      const svgCx = (prevVw / 2 - live.x) / live.k;
+      const newX = newVw / 2 - svgCx * newK;
+      const target = d3.zoomIdentity.translate(newX, live.y).scale(newK);
+      d3.select(svgRef.current).call(zoomRef.current.transform, target);
+      prevVw = newVw;
+    }
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Row-pack layout for expanded region view — same algorithm as the main page,
   // but columns are cities instead of regions.
@@ -1740,7 +1762,6 @@ export default function App() {
         ? (tc ? tc.text : (dm ? '#ffffff' : '#0a0a0a'))
       : tc ? tc.text : (dm ? '#d0d0e8' : '#222233');
     const strokeW = isSel ? 1.5 : isHl ? 1 : 0.5;
-    const isMarching = !isSel && !isHovSelf && hovHlIds?.has(n.id) && (!hlIds || !isHl);
     const hw = bw / 2, hh = bh / 2;
     const bgFill = themeStyle?.nodeBg || (dm ? '#0c0c10' : '#ffffff');
     const brightText = dm ? 'rgba(255,255,255,0.75)' : 'rgba(0,0,0,0.72)';
@@ -1782,7 +1803,7 @@ export default function App() {
       : isChan   ? <polygon className="nd-bg" points={chanPtsO} fill={bgFill} stroke="none" />
       :            <rect className="nd-bg" x={-hw-1} y={-hh-1} width={bw+2} height={bh+2} rx={3} fill={bgFill} stroke="none" />;
 
-    const sc = isMarching ? 'none' : strokeColor;
+    const sc = strokeColor;
     const renderBorder = () =>
       isArtist  ? <rect className="nd-border" x={-hw} y={-hh} width={bw} height={bh} rx={8} fill={fillColor} stroke={sc} strokeWidth={strokeW} />
       : isLabel  ? <polygon className="nd-border" points={octPts} fill={fillColor} stroke={sc} strokeWidth={strokeW} />
@@ -1821,7 +1842,6 @@ export default function App() {
           } else {
             selectNode(n.id);
             positionPanel(n.id, d3.zoomTransform(svgRef.current));
-            clearMarchOverlay();
           }
         }}
         onMouseEnter={ev => {
@@ -1841,8 +1861,6 @@ export default function App() {
               nbEl.classList.add('hov-prev');
               hovPrevRef.current.push({ el: nbEl });
             });
-            // March overlay appended after all nodes so nothing can cover it
-            if (n.id !== selected) addMarchOverlay(n, positions);
             // Easter egg: shake after 10s, ramp to max over next 10s
             // Modifies the outer <g>'s SVG transform attribute directly —
             // no CSS conflict, scale(1.14) on .nd-inner is unaffected
@@ -1872,7 +1890,6 @@ export default function App() {
         }}
         onMouseLeave={() => {
           clearShake();
-          clearMarchOverlay();
           setHovNode(null);
           hovPrevRef.current.forEach(({ el, txt, orig }) => {
             el.classList.remove('hov-self', 'hov-prev');
@@ -1884,8 +1901,6 @@ export default function App() {
         <g className="nd-inner">
           {renderBg()}
           {renderBorder()}
-          {renderMarch('nd-self-march', 'var(--march-self)')}
-          {renderMarch('nd-march', 'var(--march-prev)')}
           <text textAnchor="middle" dominantBaseline="middle"
             style={{ fill: textFill, fontSize: '7.0px', fontWeight: isHl || isSel ? '600' : '400' }}>
             {n.label}
@@ -2291,7 +2306,6 @@ export default function App() {
 
         <svg ref={svgRef} className="msv" onMouseLeave={() => {
           clearShake();
-          clearMarchOverlay();
           setHovNode(null);
           hovPrevRef.current.forEach(({ el, txt, orig }) => {
             el.classList.remove('hov-self', 'hov-prev');

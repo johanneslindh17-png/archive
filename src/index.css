@@ -416,8 +416,15 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 /* March elements: always in DOM for perf, shown via hover class */
 .nd-march      { display: none; }
 .nd-self-march { display: none; }
-/* CSS-based march disabled — DOM overlay handles it (always renders on top) */
-/* border stroke hidden via React isMarching prop (hovHlIds.has) */
+/* Connected-node glow on hover (no scale — hov-prev added via DOM in mouseenter) */
+.nd.hov-prev .nd-inner {
+  filter: drop-shadow(0 0 3px rgba(0,0,0,0.22));
+  transition: filter 0.15s ease-out;
+}
+.dark .nd.hov-prev .nd-inner {
+  filter: drop-shadow(0 0 4px rgba(255,255,255,0.28));
+}
+
 /* Text animations via hover class (replaces React-managed classNames) */
 .nd.hov-self .nd-inner text {
   animation: nd-self-text-pulse 2.6s ease-in-out infinite;
