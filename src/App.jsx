@@ -2014,14 +2014,7 @@ export default function App() {
           title={manualDark !== null
             ? (darkMode ? 'Manual: dark — click for light' : 'Manual: light — click for dark')
             : (darkMode ? 'Auto: night — click to override' : 'Auto: day — click to override')}
-        >
-          <svg width={20} height={20} viewBox="0 0 100 100">
-            <circle cx={50} cy={50} r={49} fill={darkMode ? '#ddd' : '#111'} stroke="none" />
-            <path d="M50,1 A49,49,0,0,1,50,99 A24.5,24.5,0,0,1,50,50 A24.5,24.5,0,0,0,50,1 Z" fill={darkMode ? '#111' : '#ddd'} />
-            <circle cx={50} cy={25} r={12} fill={darkMode ? '#111' : '#ddd'} />
-            <circle cx={50} cy={75} r={12} fill={darkMode ? '#ddd' : '#111'} />
-          </svg>
-        </button>
+        />
 
         {/* Color theme picker */}
         <div
@@ -2032,9 +2025,8 @@ export default function App() {
         >
           <button
             className={`colorbtn${colorTheme ? ' on' : ''}`}
-          >
-            <span className="colorbtn-swatch" style={btnGradient ? { background: btnGradient } : undefined} />
-          </button>
+            style={btnGradient ? { background: btnGradient } : undefined}
+          />
           {colorMenuOpen && (
             <div className="colordrop">
               {[
