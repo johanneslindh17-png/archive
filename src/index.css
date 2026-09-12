@@ -429,6 +429,29 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   filter: drop-shadow(0 0 4px rgba(255,255,255,0.28));
 }
 
+/* Dim connected nodes: pulsing glow + semi-transparent bg so label floats */
+@keyframes nd-dim-hov-glow {
+  0%, 100% { filter: drop-shadow(0 0 2px rgba(0,0,0,0.06)); }
+  50%       { filter: drop-shadow(0 0 10px rgba(0,0,0,0.44)); }
+}
+@keyframes nd-dim-hov-glow-dark {
+  0%, 100% { filter: drop-shadow(0 0 2px rgba(255,255,255,0.04)); }
+  50%       { filter: drop-shadow(0 0 10px rgba(255,255,255,0.40)); }
+}
+@keyframes nd-dim-bg-pulse {
+  0%, 100% { opacity: 0.18; }
+  50%       { opacity: 0.38; }
+}
+.nd.dim.hov-prev .nd-inner {
+  animation: nd-dim-hov-glow 3s ease-in-out infinite;
+}
+.dark .nd.dim.hov-prev .nd-inner {
+  animation: nd-dim-hov-glow-dark 3s ease-in-out infinite;
+}
+.nd.dim.hov-prev .nd-bg {
+  animation: nd-dim-bg-pulse 3s ease-in-out infinite;
+}
+
 /* Text animations via hover class (replaces React-managed classNames) */
 .nd.hov-self .nd-inner text {
   animation: nd-self-text-pulse 2.6s ease-in-out infinite;
