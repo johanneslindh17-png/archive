@@ -23,7 +23,7 @@ export const NODES = [
       { title: 'Trans-Europe Express', year: 1977 },
       { title: 'The Man-Machine', year: 1978 },
       { title: 'Computer World', year: 1981 },
-    ]},
+    ], spotify:'0dmPX6ovclgOy8WWJaFEUU', },
 
 
   // ── CULTURAL HERITAGE ───────────────────────────────────────────────────
@@ -81,7 +81,7 @@ export const NODES = [
       { title: '"Baby Wants to Ride" (with Jamie Principle, Trax)', year: 1987 },
       { title: '"The Whistle Song" (Virgin)', year: 1991 },
       { title: '"Too Many Fish" (Virgin)', year: 1995 },
-    ]},
+    ], spotify:'63yl9nDNrHpiAYGlNJxxjc', },
 
   { id:'heard', label:'Larry Heard', type:'artist', genre:'deep', era:1986, city:'Chicago', country:'US',
     desc:'Larry Heard is a Chicago musician who began producing electronic music in the mid-1980s, recording as Mr. Fingers. Working with a Roland drum machine and a Juno-60 synthesizer, he produced a series of records in 1986 that established the vocabulary of deep house: slower tempos, minor chord progressions, and an emotional directness distinct from the harder, more percussive side of Chicago house. He has continued producing and performing for four decades.',
@@ -90,7 +90,7 @@ export const NODES = [
       { title: '"Washing Machine" (as Mr. Fingers)', year: 1986 },
       { title: '"Mystery of Love" (as Mr. Fingers)', year: 1986 },
       { title: '"Bring Down the Walls" (as Mr. Fingers)', year: 1987 },
-    ]},
+    ], spotify:'3j7teie3p6UnbA8nW51Trz', },
 
   { id:'deep_house', label:'Deep House', type:'style', genre:'deep', era:1986, city:'Chicago', country:'US',
     desc:'Deep house is the emotionally introspective branch of Chicago house, characterised by slower tempos, complex chord voicings rooted in gospel and soul, and a focus on mood over percussive impact. Larry Heard\'s 1986 bedroom recordings as Mr. Fingers are its founding documents: produced alone with a Roland TR-909 and a Juno-60, they introduced minor-key progressions and a spaciousness that had no precedent in the harder side of house music. Where acid house moved toward abstraction, deep house retained the warmth of Black American music — the church, the blues, the feeling beneath the beat. Its influence runs from New York (Masters at Work, Kerri Chandler) to Hamburg (Dial, Smallville) to Tokyo (Mule Musiq) and through the entire international network of producers still working in the tradition today.',
@@ -147,7 +147,7 @@ export const NODES = [
       { title: '"Is It All Over My Face" (remix) — Loose Joints', year: 1980 },
       { title: '"Heartbeat" (remix) — Taana Gardner', year: 1981 },
       { title: '"Give Your Body Up to the Music" — Billy Nichols (West End)', year: 1979 },
-    ]},
+    ], spotify:'7wxPD9vDsKD5OuHCeWgXRm', },
 
   { id:'maw', label:'Masters at Work', type:'artist', genre:'soul', era:1990, city:'New York', country:'US',
     desc:'Masters at Work (MAW) is a production partnership between Louie Vega and Kenny "Dope" Gonzalez, formed in New York around 1990. Their productions developed the NuYorican sound — soulful house music built around Latin percussion, gospel-influenced vocal arrangements, and strong melodic content. Their work has been released on their own MAW Records and licensed widely. Both artists also maintain extensive solo and collaborative output beyond the MAW project.',
@@ -156,7 +156,7 @@ export const NODES = [
       { title: 'Nuyorican Soul (album)', year: 1997 },
       { title: '"Ride on the Rhythm" — Little Louie & Marc Anthony', year: 1992 },
       { title: '"The Ha Dance" — Masters At Work', year: 1991 },
-    ]},
+    ], spotify:'5Fkj0k7EPUhIsESSIEA9f1', },
 
   { id:'kerri', label:'Kerri Chandler', type:'artist', genre:'soul', era:1992, city:'New Jersey', country:'US',
     desc:'Kerri Chandler is a New Jersey-born producer and DJ who began releasing music in the early 1990s. His productions are built around complex chord progressions with a strong gospel character, rooted in the Black church music tradition of his upbringing. He founded the Madhouse label in 1996 and later Kaoz Theory. His work has been consistently cited by European deep house producers as a primary influence.',
@@ -165,7 +165,7 @@ export const NODES = [
       { title: '"Rain" (as Kerri Chandler & Jerome Sydenham)', year: 1994 },
       { title: '"Atmosphere" EP', year: 1993 },
       { title: 'Spaces and Places (album)', year: 2012 },
-    ]},
+    ], spotify:'7nqpEU6DCHkNtK1bYsyS3W', },
 
   // ── DETROIT ──────────────────────────────────────────────────────────────
   { id:'detroit_scene', label:'Detroit Techno', type:'style', genre:'detroit', era:1985, city:'Detroit', country:'US',
@@ -183,7 +183,7 @@ export const NODES = [
       { title: '"Strings of Life" — Rhythim Is Rhythim', year: 1987 },
       { title: '"Big Fun" — Inner City', year: 1988 },
       { title: '"Nude Photo" — Rhythim Is Rhythim', year: 1987 },
-    ]},
+    ], spotify:'1qFowsDlqPJBaadLGauQmB', },
 
   { id:'deepchord', label:'DeepChord', type:'artist', genre:'ambient', era:2000, city:'Detroit', country:'US',
     desc:'DeepChord is the primary alias of Rod Modell, a Detroit-based producer who also records as CV313. His work is rooted in the dub techno aesthetic developed by Basic Channel and Chain Reaction in Berlin, emphasising texture, spatial depth, and extended development over rhythmic density. He has released on his own DeepChord imprint and on Soma. His collaborations with Echospace (Steven Hitchell) are among the most substantial bodies of work in the dub techno genre.',
@@ -191,7 +191,7 @@ export const NODES = [
       { title: 'The Coldest Season (as Echospace, Modern Love)', year: 2007 },
       { title: 'Spatialdimension (as Echospace, echospace313)', year: 2007 },
       { title: 'Liumin (as Echospace, Modern Love)', year: 2010 },
-    ]},
+    ], spotify:'45g23Apmqo2x4obM7LjmpW', },
 
   { id:'metroplex', label:'Metroplex', type:'label', genre:'detroit', era:1985, city:'Detroit', country:'US',
     desc:'Metroplex was founded in Detroit in 1985 by Juan Atkins following the dissolution of his Cybotron project. Its first release was Model 500\'s "No UFOs" (1985). The label has operated continuously since its founding and remains owned and run by Atkins, making it the longest-running Detroit techno label. Its catalogue spans Atkins\'s own work across multiple aliases alongside releases by other Detroit producers.',
@@ -243,7 +243,7 @@ export const NODES = [
       { title: '"Aquatic Invasion" EP (Underground Resistance)', year: 1992 },
       { title: 'Neptune\'s Lair (Tresor)', year: 1999 },
       { title: 'Harnessed the Storm (Tresor)', year: 2002 },
-    ]},
+    ], spotify:'3KcV1kKG7Y0Gq7xPAGVjkZ', },
 
   // ── CANADA ───────────────────────────────────────────────────────────────
   { id:'plus8', label:'Plus 8', type:'label', genre:'detroit', era:1990, city:'Windsor', country:'CA',
@@ -393,7 +393,7 @@ export const NODES = [
       { title: '"Edge of Everything" (Noise Manifesto)', year: 2013 },
       { title: '"Decon-Recon" EP (Noise Manifesto)', year: 2016 },
       { title: '"Colonized" (Noise Manifesto)', year: 2018 },
-    ]},
+    ], spotify:'4iy2RFU8gIpXF5yaK0l8ZT', },
 
   { id:'surgeon', label:'Surgeon', type:'artist', genre:'techno', era:1992, city:'Birmingham', country:'UK', bandcamp:'dj-surgeon', bandcamp_album:'931518171',
     desc:'Anthony Child records as Surgeon and has been based in Birmingham throughout his career. He co-developed the Downwards label and sound with Karl O\'Connor from 1993 onward. His productions apply Chicago house rhythms to a colder European electronics aesthetic. He has been a resident at Berghain since the mid-2000s. As British Murder Boys — his duo with Regis (Karl O\'Connor) — he produced a more noise-influenced body of work in the early 2000s.',
@@ -402,7 +402,7 @@ export const NODES = [
       { title: 'Balance 005 (mix compilation)', year: 2003 },
       { title: 'Don\'t Give Way to Fear — British Murder Boys', year: 2003 },
       { title: '"Crash Recoil" (Dynamic Tension)', year: 2010 },
-    ]},
+    ], spotify:'1PSylklb2w06BAAHEtepqM', },
 
   { id:'regis', label:'Regis', type:'artist', genre:'techno', era:1993, city:'Birmingham', country:'UK',
     desc:'Karl O\'Connor records as Regis and co-founded Downwards Records with Female in Birmingham in 1993. Alongside Surgeon, he forms the core of Birmingham\'s industrial techno lineage — music built from EBM, post-industrial noise, and stripped Detroit techno. Together they recorded as British Murder Boys (2001–2006), whose confrontational, uncompromising tracks influenced the harder edges of European techno for a decade. O\'Connor also co-founded Sandwell District and has released on Tresor, making him a key node between Birmingham, Berlin, and Brussels.',
@@ -411,7 +411,7 @@ export const NODES = [
       { title: 'Gymnast (Downwards)', year: 2000 },
       { title: 'Gymnast II (Tresor)', year: 2004 },
       { title: '"Manbitch" (Liberation Technologies)', year: 2019 },
-    ]},
+    ], spotify:'4erwZm1JybuSPTUg5Bu7nT', },
 
   { id:'andy_stott', label:'Andy Stott', type:'artist', genre:'ambient', era:2004, city:'Manchester', country:'UK',
     desc:'Andy Stott is a Manchester-based producer who has released all his music on Modern Love. His early records were in a functional techno mode; from 2011 onward his approach changed substantially, moving toward slower, more heavily processed music that draws on industrial, dub, and post-punk. Luxury Problems (2012) incorporated treated vocals by his former piano teacher, Alison Skidmore. He also records as one half of Demdike Stare with Miles Whittaker.',
@@ -421,7 +421,7 @@ export const NODES = [
       { title: 'Luxury Problems (Modern Love)', year: 2012 },
       { title: 'Faith in Strangers (Modern Love)', year: 2014 },
       { title: 'Too Many Voices (Modern Love)', year: 2016 },
-    ]},
+    ], spotify:'6BuDxEE5rfuYeyhxQsl53K', },
 
   { id:'hessle_audio', label:'Hessle Audio', type:'label', genre:'experimental', era:2007, city:'London', country:'UK',
     desc:'Hessle Audio was founded in 2007 by Ben UFO, Pangaea, and Pearson Sound. Every release requires unanimous approval from all three founders. The label emerged from the post-dubstep environment of London and Leeds, developing an approach that crossed sub-bass music, house, and techno. Its releases have included early work by Objekt and Blawan alongside the founders\' own productions.',
@@ -439,7 +439,7 @@ export const NODES = [
       { title: '"Stepback" (Soma)', year: 1999 },
       { title: '"Utopia" (Soma)', year: 2000 },
       { title: 'Paragraph (Soma)', year: 2015 },
-    ]},
+    ], spotify:'3dNWIpG8C881Qc886culMl', },
 
   // ── UK — GARAGE / GRIME / DUBSTEP ────────────────────────────────────────
   { id:'uk_garage', label:'UK Garage', type:'style', genre:'chicago', era:1993, city:'London', country:'UK',
@@ -485,7 +485,7 @@ export const NODES = [
       { title: '"Anti War Dub"', year: 2005 },
       { title: '"Haunted"', year: 2005 },
       { title: 'Return II Space — Mala', year: 2012 },
-    ]},
+    ], spotify:'4ESIM5V4xT2Ce0ZWPhxIEY', },
 
   { id:'dmz', label:'DMZ', type:'venue', genre:'ambient', era:2004, city:'London', country:'UK',
     desc:'DMZ was a club night held monthly at Mass in Brixton, South London, founded in 2004 by Mala, Coki (together as Digital Mystikz), and Loefah. In its five-year run it became the institutional centre of dubstep\'s original phase — the space where the sound\'s core producers and audiences gathered and where the aesthetic standards of early dubstep were established. The night ran until 2009. Its influence is roughly analogous to the Warehouse in Chicago or Tresor in Berlin: a specific space, in a specific city, during a specific window, where a music found its identity.',
@@ -498,7 +498,7 @@ export const NODES = [
     releases: [
       { title: '"Midnight Request Line"', year: 2005 },
       { title: 'Skream! (album)', year: 2006 },
-    ]},
+    ], spotify:'2jbP92oFLWqPqogflK1wlW', },
 
   { id:'wiley', label:'Wiley', type:'artist', genre:'grime', era:2001, city:'London', country:'UK',
     desc:'Richard Cowie — Wiley — is the artist most responsible for inventing grime as a musical form. His Eskibeat productions — built from icy synthesiser patterns, unconventional scales, and a rhythmic feel derived from UK garage but stripped of its smoothness — defined the sound\'s aesthetic in 2001-2003. Wiley mentored virtually every significant first-wave grime artist including Dizzee Rascal, Skepta, and JME, and his output as a producer and MC spans more than two decades of consistent innovation. He has been simultaneously celebrated as the Godfather of Grime and controversially marginalised by an industry that profited from the form he built.',
@@ -506,7 +506,7 @@ export const NODES = [
       { title: '"Eskimo"', year: 2002 },
       { title: '"Wot Do U Call It?"', year: 2004 },
       { title: 'Godfather (album)', year: 2017 },
-    ]},
+    ], spotify:'7k9T7lZlHjRAM1bb0r9Rm3', },
 
   // ── UK — JUNGLE / DRUM AND BASS ─────────────────────────────────────────
   { id:'white_label', label:'White Label', type:'culture', genre:'techno', era:1990, city:'London', country:'UK',
@@ -540,7 +540,7 @@ export const NODES = [
     releases: [
       { title: 'Parallel Universe (Reinforced)', year: 1994 },
       { title: 'Two Pages (Reinforced)', year: 1998 },
-    ]},
+    ], spotify:'1BlBZ9jQGOjmj6Zykgg43L', },
 
   { id:'moving_shadow', label:'Moving Shadow', type:'label', genre:'techno', era:1990, city:'London', country:'UK',
     desc:'Moving Shadow Records was founded in London in 1990 by Rob Playford and became one of the defining labels of the jungle-to-drum-and-bass transition. It released Goldie\'s early work (as Rufige Kru), Omni Trio\'s foundational atmospheric records, and key tracks by Dillinja, Dom & Roland, and others. Playford\'s approach — meticulous mastering, high-pressure conceptual development, and a preference for emotional complexity over functional simplicity — helped establish drum and bass as a form capable of artistic ambition beyond the dancefloor.',
@@ -555,27 +555,27 @@ export const NODES = [
       { title: '"Terminator" (as Rufige Kru, Reinforced)', year: 1992 },
       { title: '"Inner City Life" (FFRR)', year: 1994 },
       { title: 'Timeless (FFRR)', year: 1995 },
-    ]},
+    ], spotify:'2SYqJ3uDLLXZNyZdLKBy4M', },
 
   { id:'grooverider', label:'Grooverider', type:'artist', genre:'techno', era:1988, city:'London', country:'UK',
     desc:'Raymond Bingham — Grooverider — was alongside Fabio one of the two DJs most responsible for building the early rave scene that would become jungle and drum and bass. His sets at Rage at Heaven in London from 1988 onwards were the incubator for much of the music that followed. As a DJ rather than primarily a producer, his influence was felt through selection and sequencing — he played harder, darker, and more uncompromising than almost any of his contemporaries, and the producers who came after him were in many ways trying to make music that met his standards. He co-founded Prototype Recordings and was a central figure at Metalheadz.',
     releases: [
       { title: 'Mysteries of Funk (Higher Ground)', year: 1998 },
       { title: '"Prototype" (Prototype Recordings)', year: 1996 },
-    ]},
+    ], spotify:'65g8RO3JqCUTigI7YR3dAw', },
 
   { id:'fabio', label:'Fabio', type:'artist', genre:'techno', era:1988, city:'London', country:'UK',
     desc:'Lloyd Psyche — Fabio — partnered with Grooverider at Rage at Heaven from 1988 and became one of the foundational DJs of the jungle and drum and bass world. Where Grooverider tended toward darkness and technical aggression, Fabio cultivated a soulful, melodic approach that influenced the atmospheric and jazz-inflected strands of the genre. His Creative Source label and long-running radio shows on Kiss FM and BBC Radio 1 made him a consistent presence across three decades of British dance music. Fabio and Grooverider together represent the curatorial and DJ tradition that shaped what drum and bass could become, as distinct from the producers who built its recorded catalogue.',
     releases: [
       { title: 'Fabio: Subculture mix (Moving Shadow)', year: 1996 },
-    ]},
+    ], spotify:'74QIWYXbKeKNYmdHB3nRJ7', },
 
   { id:'ltj_bukem', label:'LTJ Bukem', type:'artist', genre:'ambient', era:1993, city:'London', country:'UK',
     desc:'Danny Williamson — LTJ Bukem — was the primary architect of the atmospheric or "intelligent" drum and bass strand, using jazz piano samples, lush string textures, and a more spacious approach to drum programming to create a strain of the music that offered an alternative to the genre\'s harder currents. His label Good Looking Records and its imprints became the primary home for this approach. Bukem\'s DJ sets — often several hours long — were structured like musical journeys, and his Progression Sessions events influenced how drum and bass was presented and experienced as a listening form rather than purely functional dance music.',
     releases: [
       { title: '"Horizons" (Good Looking)', year: 1995 },
       { title: '"Music" (Good Looking)', year: 1993 },
-    ]},
+    ], spotify:'5Wfn5sc1w3DhMTpU7oPJZL', },
 
   { id:'good_looking_records', label:'Good Looking Records', type:'label', genre:'ambient', era:1993, city:'London', country:'UK',
     desc:'Good Looking Records was founded by LTJ Bukem in 1993 as the institutional home for the atmospheric, jazz-influenced strand of drum and bass. Its catalogue — spanning the main label and imprints Earth, Looking Good, and Liquid Funk — documented an approach to the genre that prioritised texture, melody, and emotional weight over rhythmic aggression. Artists including Photek, Peshay, and Intense released early work through the label\'s network. Good Looking\'s approach was influential not only within drum and bass but on the broader culture of ambient electronic music in Britain during the 1990s.',
@@ -588,14 +588,14 @@ export const NODES = [
     releases: [
       { title: 'New Forms (Talkin\' Loud)', year: 1997 },
       { title: 'In the Mode (Talkin\' Loud)', year: 2000 },
-    ]},
+    ], spotify:'5UjqeSp9dX6Nrge7WdDukr', },
 
   { id:'andy_c', label:'Andy C', type:'artist', genre:'techno', era:1992, city:'London', country:'UK',
     desc:'Andrew Clarke — Andy C — is among the most technically accomplished DJs in drum and bass and co-founder of RAM Records, which he launched in 1992 at seventeen. RAM became one of the most commercially successful drum and bass labels, releasing music by Chase & Status, Shy FX, and Camo & Krooked among many others. Andy C\'s DJ style — characterised by rapid mixing, double drops, and a technical precision that became the genre\'s benchmark for live performance — defined what drum and bass DJing looked like at its apex. His large-venue sets established the template for how drum and bass could be performed and experienced at arena scale.',
     releases: [
       { title: 'Andy C: Nightlife series (RAM)', year: 1999 },
       { title: '"Straight Jacket" (RAM)', year: 2012 },
-    ]},
+    ], spotify:'75HK7rgkmDMTnWwwmcN53N', },
 
   { id:'ram_records', label:'RAM Records', type:'label', genre:'techno', era:1992, city:'London', country:'UK',
     desc:'RAM Records was co-founded in London in 1992 by Andy C and Ant Miles and became one of the most commercially and artistically successful drum and bass labels. Its catalogue spans the full development of the genre from early jungle through contemporary neurofunk and liquid drum and bass. RAM\'s commercial success — unusual in a genre that has often existed at the margins of the mainstream — was matched by its artistic credibility through decades of releasing technically and emotionally demanding music. It remains an active and influential label.',
@@ -638,7 +638,7 @@ export const NODES = [
       { title: '"Mentasm" — Second Phase (R&S)', year: 1991 },
       { title: '"Subsonic" — Beltram (Warp)', year: 1992 },
       { title: '"New York City" (R&S)', year: 1992 },
-    ]},
+    ], spotify:'4OW0w5K2UNaWtbpRqzWqI0', },
 
   // ── GERMANY — BERLIN ────────────────────────────────────────────────────
   { id:'hardwax', label:'Hard Wax', type:'venue', genre:'detroit', era:1989, city:'Berlin', country:'DE',
@@ -661,7 +661,7 @@ export const NODES = [
       { title: '"Gobi" (Chain Reaction)', year: 1999 },
       { title: 'Cinemascope (Monolake imprint)', year: 2001 },
       { title: 'Ghosts (Imbalance)', year: 2012 },
-    ]},
+    ], spotify:'4XvKzACpcdk5iiZbWNvfbq', },
 
   { id:'tresor_club', label:'Tresor Club', type:'venue', genre:'techno', era:1991, city:'Berlin', country:'DE',
     desc:'Tresor opened on 18 January 1991 in the vault of the former Wertheim department store on Potsdamer Strasse, in the area between former East and West Berlin. The vault room — accessible through a single doorway, with low ceilings and original lockboxes still in the walls — created a particular acoustic environment. The original Tresor closed in 2005 when the building was demolished. A second location opened in 2007 at Köpenicker Strasse 70, in a former heating plant.' },
@@ -704,7 +704,7 @@ export const NODES = [
       { title: 'Dettmann (Ostgut Ton)', year: 2010 },
       { title: 'Dettmann II (Ostgut Ton)', year: 2013 },
       { title: '"Repulsion" (MOS)', year: 2016 },
-    ]},
+    ], spotify:'1sxHp39RqBEE01pgVqsdyP', },
 
   { id:'function', label:'Function', type:'artist', genre:'techno', era:2010, city:'Berlin', country:'DE', bandcamp:'function-inf-ny', bandcamp_album:'3802197456',
     desc:'Dave Sumner records as Function and has released on Ostgut Ton and Sandwell District, a label he co-founded. He relocated from Birmingham to Berlin. His techno is meditative and architectural in character, with an emphasis on atmosphere and long compositional development. His album Incubation (Ostgut Ton, 2013) is regarded as a significant work in contemporary techno.',
@@ -712,7 +712,7 @@ export const NODES = [
       { title: 'Incubation (Ostgut Ton)', year: 2013 },
       { title: '"Isolation" (Sandwell District)', year: 2010 },
       { title: '"Detached" (Ostgut Ton)', year: 2011 },
-    ]},
+    ], spotify:'6eu3TBnYM3SrkUU59SFhgp', },
 
   { id:'efdemin', label:'Efdemin', type:'artist', genre:'minimal', era:2008, city:'Berlin', country:'DE', bandcamp:'efdemindial', bandcamp_album:'1319483591',
     desc:'Phillip Sollmann records as Efdemin and has released on Dial Records and Ostgut Ton. His productions have an avant-garde quality within the techno context — unusual structures, considered use of silence, and strong conceptual clarity. His album Decay (Ostgut Ton, 2015) is regarded as one of the more distinctive records in contemporary techno.',
@@ -720,7 +720,7 @@ export const NODES = [
       { title: 'Efdemin (Dial)', year: 2008 },
       { title: 'Chicago (Dial)', year: 2011 },
       { title: 'Decay (Ostgut Ton)', year: 2015 },
-    ]},
+    ], spotify:'6hjRjVNLWTCPYci9nxhI1G', },
 
   { id:'panorama_bar', label:'Panorama Bar', type:'venue', genre:'deep', era:2004, city:'Berlin', country:'DE',
     desc:'Panorama Bar is the upper floor of Berghain, operating simultaneously with the main floor on weekends. It presents a programme of house, deep house, and garage music, distinct from the techno of the floor below. Long-term residents have included Cassy, Steffi, Nick Höppner, and Virginia. It functions as a separate cultural space within the same building as Berghain.' },
@@ -737,14 +737,14 @@ export const NODES = [
     releases: [
       { title: 'RA.274 (podcast/mix)', year: 2012 },
       { title: '"Oblong" (Innervisions)', year: 2014 },
-    ]},
+    ], spotify:'2xmmjD4GfeJ5BRueLvPqec', },
 
   { id:'ame', label:'Âme', type:'artist', genre:'melodic', era:2005, city:'Berlin', country:'DE', bandcamp:'ame-engoli', bandcamp_album:'3845194777',
     desc:'Âme is the production duo of Kristian Beyer and Frank Wiedemann, based in Berlin. They co-founded Innervisions in 2005. Their production "Rej" (2005) became one of the most recognised records in European melodic deep house. They also perform live as a duo, combining synthesizer work with DJ mixing.',
     releases: [
       { title: '"Rej" (Innervisions)', year: 2005 },
       { title: '"Live" (Innervisions)', year: 2012 },
-    ]},
+    ], spotify:'35U9lQaRWSQISxQAB94Meo', },
 
   { id:'afterlife', label:'Afterlife', type:'label', genre:'melodic', era:2014, city:'Berlin', country:'DE',
     desc:'Afterlife, founded by Tale of Us in Berlin in 2014, became the defining label of melodic techno\'s commercial ascent — the sound of summit festivals and Cercle performances livestreamed from ancient ruins. Technically polished, emotionally large, deliberately cinematic: the genre at its most accessible without becoming dishonest about what it is. The counterargument, that it domesticated something that once required effort to find, has some truth to it. Both things can be held at once.',
@@ -762,7 +762,7 @@ export const NODES = [
       { title: 'Endless (Deutsche Grammophon)', year: 2017 },
       { title: '"Monument" with Vaal (Afterlife)', year: 2017 },
       { title: '"Opaquer" (Afterlife)', year: 2019 },
-    ]},
+    ], spotify:'1UL813H5aj3e8ekE5RqWqc', },
 
   { id:'dvs1', label:'DVS1', type:'artist', genre:'techno', era:2010, city:'Berlin', country:'DE', bandcamp:'dvs1hush', bandcamp_album:'1840316539',
     desc:'Zak Khutoretsky records as DVS1. He grew up in Minneapolis and has been based in Berlin. He has been a Berghain resident and releases on his HUSH label and Ben Klock\'s Klockworks. He has published writing on DJ practice and produced educational content on techno performance.',
@@ -770,7 +770,7 @@ export const NODES = [
       { title: '"Black Leather" (Klockworks)', year: 2012 },
       { title: '"Falling" (HUSH)', year: 2013 },
       { title: '"Reflections" (HUSH)', year: 2016 },
-    ]},
+    ], spotify:'2xrOogbM0l6NzOSp4zZ3IP', },
 
   { id:'rodhad', label:'Rødhåd', type:'artist', genre:'techno', era:2010, city:'Berlin', country:'DE', bandcamp:'rodhad', bandcamp_album:'1051229826',
     desc:'Rødhåd is a Berlin-based DJ and producer who founded the Dystopian label in 2010. He has performed at Berghain and Panorama Bar and is known for long, slow-building DJ sets in a heavy, hypnotic techno style.',
@@ -778,7 +778,7 @@ export const NODES = [
       { title: '"Wunderblock" EP (Dystopian)', year: 2011 },
       { title: '"Gedankenreise" (Dystopian)', year: 2013 },
       { title: 'Dystopian 10 Years (compilation)', year: 2020 },
-    ]},
+    ], spotify:'2hjOQqLAZDVolzxNhnSK2h', },
 
   { id:'dystopian', label:'Dystopian', type:'label', genre:'techno', era:2010, city:'Berlin', country:'DE',
     desc:'Dystopian occupies the heaviest, most immersive end of the Berghain aesthetic. Founded by Rødhåd in Berlin in 2010, its releases — Rødhåd, Pfirter, Kobosil, Alignment — emphasise sound design over structure: tracks that develop through texture rather than melody, built to maximum effect in rooms with Funktion-One systems. The label name is not ironic. It accurately describes the emotional register of the music.',
@@ -806,7 +806,7 @@ export const NODES = [
       { title: 'Pop (as GAS, Kompakt)', year: 2000 },
       { title: 'Narkopop (as GAS, Kompakt)', year: 2017 },
       { title: 'Rausch (as GAS, Kompakt)', year: 2018 },
-    ]},
+    ], spotify:'3pq8SlVVKJdVO3MHEFSpsw', },
 
   { id:'mmayer', label:'Michael Mayer', type:'artist', genre:'minimal', era:1998, city:'Cologne', country:'DE',
     desc:'Michael Mayer is a Cologne-based DJ and producer who serves as label head of Kompakt. His productions and DJ work have contributed to defining the Cologne minimal sound — precise, groovy, and melodically understated. His Immer mix compilation and his entry in the DJ-Kicks series are regarded as strong documents of the Kompakt aesthetic.',
@@ -814,7 +814,7 @@ export const NODES = [
       { title: 'Immer (Kompakt)', year: 2002 },
       { title: 'DJ-Kicks: Michael Mayer (!K7)', year: 2004 },
       { title: '"Falling" (Kompakt)', year: 2014 },
-    ]},
+    ], spotify:'5R9d1YP5jtBw2IrQItGzQI', },
 
   { id:'gas', label:'GAS', type:'artist', genre:'ambient', era:1995, city:'Cologne', country:'DE',
     desc:'GAS is the ambient alias of Wolfgang Voigt, releasing on Kompakt. The project began in 1995 and has produced six albums to date. All GAS recordings are built from sampled orchestral material processed to the point where the source is no longer audible. The music operates without conventional rhythmic structure, consisting of slowly evolving textural masses.',
@@ -824,7 +824,7 @@ export const NODES = [
       { title: 'Pop (Kompakt)', year: 2000 },
       { title: 'Narkopop (Kompakt)', year: 2017 },
       { title: 'Rausch (Kompakt)', year: 2018 },
-    ]},
+    ], spotify:'0e7UgnX6ObqqX5EcMeuA0E', },
 
   { id:'minimal_house', label:'Minimal House', type:'style', genre:'minimal', era:1994, city:'Cologne', country:'DE',
     desc:'Minimal house and minimal techno emerged in the mid-1990s by stripping electronic music to its smallest functional elements. Robert Hood\'s Minimal Nation EP (1994) established the approach in Detroit: a single kick, a hi-hat, a bassline, no more than the form required. In Germany the influence ran through Cologne — Kompakt developed what became known as "microhouse," in which individual sounds carry high compositional weight and attention is directed toward texture and space rather than melody — and through Frankfurt, where Perlon and Playhouse extended the aesthetic with longer running times and even more reduced harmonic content. The form was a direct reaction against the grandiosity of progressive house and the maximalism of peak-time techno, insisting instead on the dignity of small gestures.',
@@ -851,7 +851,7 @@ export const NODES = [
       { title: '"Fizheuer Zieheuer" (Playhouse)', year: 2006 },
       { title: 'Fabric 36 (mix compilation)', year: 2007 },
       { title: '"Dependent and Happy" (Playhouse)', year: 2003 },
-    ]},
+    ], spotify:'0s2YIpNnjdf0FY4tNrF8Y4', },
 
   { id:'zip', label:'Zip', type:'artist', genre:'minimal', era:1999, city:'Frankfurt', country:'DE',
     desc:'Zip co-founded Perlon with Ricardo Villalobos in Frankfurt in 1999. He is a DJ and producer working in a patient, deeply minimal style. He has been closely associated with the Robert Johnson club in Offenbach and has released music primarily through Perlon.',
@@ -859,7 +859,7 @@ export const NODES = [
       { title: '"Wunsch" (Perlon)', year: 2002 },
       { title: '"Raum" (Perlon)', year: 2005 },
       { title: '"So" (Perlon)', year: 2008 },
-    ]},
+    ], spotify:'4JQhz5ellBUiuDgSc4xcCX', },
 
   { id:'robertjohnson', label:'Robert Johnson', type:'venue', genre:'minimal', era:1999, city:'Frankfurt', country:'DE',
     desc:'Robert Johnson is a club in Offenbach, across the Main river from Frankfurt, open since 1999. It became the central venue for the microhouse and minimal aesthetic associated with Perlon, with Ricardo Villalobos and Zip as regular performers. Its programming has consistently prioritised patience and depth over peak-time spectacle. The club continues to operate.' },
@@ -880,7 +880,7 @@ export const NODES = [
       { title: 'Happiness Is Happening (Running Back)', year: 2013 },
       { title: '"Fantasy Club" (Dial)', year: 2016 },
       { title: '"Rocker" (as Alter Ego, Klang Elektronik)', year: 2001 },
-    ]},
+    ], spotify:'2GvwZbDjH1DbQpodGKENDw', },
 
   // ── GERMANY — HAMBURG ────────────────────────────────────────────────────
   { id:'dial', label:'Dial Records', type:'label', genre:'deep', era:2002, city:'Hamburg', country:'DE',
@@ -907,7 +907,7 @@ export const NODES = [
       { title: '"Yoyogi Park" (Dial)', year: 2005 },
       { title: 'Yoyogi (Dial)', year: 2012 },
       { title: '"Rain" (Smallville)', year: 2016 },
-    ]},
+    ], spotify:'5rwUYLyUq8gBsVaOUcUxpE', },
 
 
   { id:'panthaduprince', label:'Pantha du Prince', type:'artist', genre:'ambient', era:2004, city:'Hamburg', country:'DE', bandcamp:'panthaduprinceofficial', bandcamp_album:'377250429',
@@ -916,7 +916,7 @@ export const NODES = [
       { title: 'This Bliss (Dial)', year: 2007 },
       { title: 'Black Noise (Rough Trade)', year: 2010 },
       { title: 'Elements of Light (with The Bell Laboratory, Rough Trade)', year: 2013 },
-    ]},
+    ], spotify:'7Go2Fj2YWEQkYBqTVQArYi', },
 
   // ── GERMANY — WEIMAR / GIEGLING ─────────────────────────────────────────
   { id:'giegling', label:'Giegling', type:'label', genre:'giegling', era:2009, city:'Weimar', country:'DE',
@@ -933,34 +933,34 @@ export const NODES = [
       { title: 'Mothercave (Giegling)', year: 2013 },
       { title: '"All The Things" (Giegling)', year: 2016 },
       { title: '"Abwesenheit" (as Prince of Denmark, Smallville)', year: 2015 },
-    ]},
+    ], spotify:'7AOdp2CXbaCubZirZQRz6z', },
 
   { id:'djhealer', label:'DJ Healer', type:'artist', genre:'giegling', era:2018, city:'Weimar', country:'DE',
     desc:'DJ Healer is an alias of Traumprinz. The album "Nothing 2 Loose" (2018) was released on All Possible Worlds, his own label, and is characterised by ambient and spoken-word elements with a personal, devotional tone at a considerable remove from functional club music. It became one of the most discussed releases in the European underground.',
     releases: [
       { title: 'Nothing 2 Loose (All Possible Worlds)', year: 2018 },
-    ]},
+    ], spotify:'4pPNd0lTQ2LJdrJvxEktuD', },
 
   { id:'leafar', label:'Leafar Legov', type:'artist', genre:'giegling', era:2010, city:'Weimar', country:'DE',
     desc:'Leafar Legov (Rafael Vogel) is a co-founder of the Giegling collective in Weimar. His solo releases are warm, melodic deep house with a strong harmonic character. With Konstantin, he forms Kettenkarussell — the duo whose debut EP launched the Giegling label. His work has been cited as a direct influence on LB Honne, among others.',
     releases: [
       { title: '"Talk" (Giegling)', year: 2017 },
       { title: '"Family" (Giegling)', year: 2017 },
-    ]},
+    ], spotify:'7LZr03ymcySx6mpJvNhpUA', },
 
   { id:'kettenkarussell', label:'Kettenkarussell', type:'artist', genre:'giegling', era:2009, city:'Weimar', country:'DE',
     desc:'Kettenkarussell is the duo of Konstantin and Leafar Legov, both co-founders of the Giegling collective. Their debut EP I Believe You and Me Make Love Forever (Giegling, 2009) was the label\'s first release. Their productions blend deep house and ambient music with a melodic, introspective character.',
     releases: [
       { title: 'I Believe You and Me Make Love Forever (Giegling)', year: 2009 },
       { title: '"Mahagoni" (Giegling)', year: 2013 },
-    ]},
+    ], spotify:'1UBleLE6efrWQvZlvnsDAl', },
 
   { id:'konstantin', label:'Konstantin', type:'artist', genre:'giegling', era:2009, city:'Weimar', country:'DE',
     desc:'Konstantin is a co-founder of the Giegling collective, established in Weimar following study at the Bauhaus University in the mid-2000s. He DJs under his own name and produces under the alias Herr Koreander. With Leafar Legov, he forms Kettenkarussell — the duo whose debut EP was Giegling\'s first release. He is widely regarded as one of the defining voices of the collective\'s aesthetic.',
     releases: [
       { title: 'Giegling Mix 06: Einsame Inseln (Herr Koreander)', year: 2015 },
       { title: 'Studio R° (Giegling)', year: 2018 },
-    ]},
+    ], spotify:'5YquORfLTx6nWMlBzJstx7', },
 
   { id:'edward', label:'Edward', type:'artist', genre:'giegling', era:2018, city:'Berlin', country:'DE', bandcamp:'edward-music', bandcamp_album:'3879708973',
     desc:'Edward is the alias of Gilles Aiken, a Berlin-based DJ and producer and a core member of the Giegling collective. His productions work in a groove-centred, sample-based aesthetic that moves between house, techno, and psychedelic territory. He also releases on White, the imprint he co-runs with Oskar Offermann. His album Fortune Teller (Giegling, 2018) is his most widely recognised work.',
@@ -968,7 +968,7 @@ export const NODES = [
       { title: 'Fortune Teller (Giegling)', year: 2018 },
       { title: 'Underwater Jams', year: 2019 },
       { title: 'Turning (Giegling)', year: 2021 },
-    ]},
+    ], spotify:'1X5aTyyXc90P2xJXowsW95', },
 
   // ── SWITZERLAND ──────────────────────────────────────────────────────────
   { id:'projectindigo', label:'Project Indigo', type:'label', genre:'giegling', era:2015, city:'Zurich', country:'CH',
@@ -984,7 +984,7 @@ export const NODES = [
   { id:'lbhonne', label:'LB Honne', type:'artist', genre:'giegling', era:2015, city:'Zurich', country:'CH',
     desc:'LB Honne is a Zurich-based producer who began releasing music around 2015 on Project Indigo, subsequently releasing on Smallville and Dial. His work is in a warm, melodic deep house style with ambient character. Critical writing on his music has noted the influence of Leafar Legov (Giegling) as a primary reference.',
     releases: [],
-  },
+   spotify:'2YPdf4qm4mzQQYEjxY1lWo', },
 
   { id:'stolar', label:'Stólar', type:'label', genre:'giegling', era:2017, city:'Berlin', country:'DE',
     desc:'Stólar is a Berlin-based record label run by Philipp Priebe. The label releases ambient-leaning deep house connected to the broader European underground network including Project Indigo and Orion.',
@@ -995,14 +995,14 @@ export const NODES = [
     desc:'Ben Kaczor is a Swiss producer releasing on Dial Records and Orion. His productions work within a precise, warm minimal deep house aesthetic.',
     releases: [
       { title: 'Petrovo Uho (Dial)', year: 2020 },
-    ]},
+    ], spotify:'4F3AofUDB3Vb0dHSSFP4aL', },
 
   { id:'luciano', label:'Luciano', type:'artist', genre:'minimal', era:2002, city:'Geneva', country:'CH',
     desc:'Luciano is the project of Luciano Nicolás García Meléndez, born in Santiago, Chile in 1975, based in Geneva, Switzerland since the mid-1990s. He founded the Cadenza label in 2002. He developed a style of minimal techno and house inflected with Afro-Cuban and Latin percussion — earning descriptions like "Latin minimal" — through residencies at DC10 in Ibiza and appearances at the Panorama Bar. His label and his playing shaped the international minimal-to-house transition of the mid-2000s. He also founded the Vagabundos collective for parties mixing global club sounds.',
     releases: [
       { title: '"Doble Cara" (Cadenza)', year: 2004 },
       { title: 'Fabric 45 (Fabric)', year: 2009 },
-    ]},
+    ], spotify:'3RhiF9RmgXoDzqEOW3dWoP', },
 
   { id:'cadenza', label:'Cadenza', type:'label', genre:'minimal', era:2002, city:'Geneva', country:'CH',
     desc:'Cadenza was founded in Geneva in 2002 by Luciano and has become one of the significant labels of the post-minimal house movement. Its catalogue includes Luciano, Mathew Jonson, Gaiser, Âme, and Cesar Merveille. The label operates between Geneva and Ibiza and is part of the network connecting Latin American artists to the European club circuit.',
@@ -1018,7 +1018,7 @@ export const NODES = [
       { title: 'Melody A.M.', year: 2001 },
       { title: 'The Understanding', year: 2005 },
       { title: 'Senior', year: 2010 },
-    ]},
+    ], spotify:'5nPOO9iTcrs9k6yFffPxjH', },
 
   { id:'the_knife', label:'The Knife', type:'artist', genre:'experimental', era:1999, city:'Gothenburg', country:'SE', bandcamp:'theknife', bandcamp_album:'0085002230',
     desc:'The Knife — Karin Dreijer and Olof Dreijer — formed in Gothenburg in 1999 and became one of the most significant electronic acts to emerge from Scandinavia through a combination of sonic experimentation, visual anonymity, and political commitment unusual in the mainstream of European dance music. Their album "Silent Shout" (2006) — built from processed voices pitch-shifted to the point of species ambiguity, over drum machine patterns and dark synthesiser textures — is one of the most original electronic records of the 2000s. The Knife rejected interviews, refused awards, and used their platform consistently and explicitly for feminist and queer politics. A genuinely oppositional cultural project inside a pop-facing form.',
@@ -1026,7 +1026,7 @@ export const NODES = [
       { title: '"Heartbeats"', year: 2003 },
       { title: 'Silent Shout', year: 2006 },
       { title: 'Shaking the Habitual', year: 2013 },
-    ]},
+    ], spotify:'7eQZTqEMozBcuSubfu52i4', },
 
   { id:'fever_ray', label:'Fever Ray', type:'artist', genre:'experimental', era:2009, city:'Stockholm', country:'SE', bandcamp:'feverray', bandcamp_album:'1277714303',
     desc:'Fever Ray is the solo project of Karin Dreijer, released in 2009 after The Knife\'s extended hiatus, and represents the most extreme expression of the aesthetic she and her brother had developed across a decade. The debut album — processed vocals, cavernous synthesiser textures, tribal drum patterns, and an atmosphere of Nordic winter darkness — was a landmark of experimental electronic music. The project\'s visual world — grotesque masks, forest settings, gender-ambiguous imagery — was as important as the audio, establishing a total artwork that resisted reduction to any single genre or context.',
@@ -1034,7 +1034,7 @@ export const NODES = [
       { title: 'Fever Ray (debut album)', year: 2009 },
       { title: '"If I Had a Heart"', year: 2009 },
       { title: 'Plunge', year: 2017 },
-    ]},
+    ], spotify:'5hE6NCoobhyEu6TRSbjOJY', },
 
   { id:'rune_grammofon', label:'Rune Grammofon', type:'label', genre:'experimental', era:1998, city:'Oslo', country:'NO',
     desc:'Rune Grammofon, founded in Oslo in 1998 by Rune Kristoffersen, became one of the most important European experimental music labels of the 2000s, releasing work at the intersection of jazz, electronic music, and contemporary composition. Its roster — including Biosphere, Supersilent, Nils Petter Molvær, and Jenny Hval — mapped a specifically Nordic approach to experimental music: patient, austere, attentive to space and silence, and rooted in a tradition of post-free-jazz improvisation. The label\'s consistently high-quality physical packaging treated each release as an art object, a stance that influenced how experimental music was presented throughout Europe.',
@@ -1049,12 +1049,12 @@ export const NODES = [
       { title: 'Prins Thomas (debut album)', year: 2004 },
       { title: 'Full Pupp 001', year: 2006 },
       { title: 'Principe del Norte', year: 2012 },
-    ]},
+    ], spotify:'4rsEVNO1tGTY0beCnsnHi6', },
 
   { id:'nocturne', label:'noc:turne', type:'artist', genre:'giegling', era:2018, city:'', country:'',
     desc:'noc:turne is an obscure entity in the European underground house and ambient network whose exact nature, location, and catalogue are not clearly documented.',
     releases: [],
-  },
+   spotify:'30MbBEUSCsD7Na1UHEXTge', },
 
   { id:'studio_barnhus', label:'Studio Barnhus', type:'label', genre:'deep', era:2010, city:'Stockholm', country:'SE',
     desc:'Studio Barnhus was founded in Stockholm in 2010 by Axel Boman, Kornél Kovács, and Pedrodollar. The label takes its name from the street where the founding studio was located (Barnhusgatan). Its catalogue spans house, techno, electro, and ambient music with a melodic, humanist character. It has released over eighty records.',
@@ -1068,7 +1068,7 @@ export const NODES = [
     releases: [
       { title: '"Purple Drank" (Studio Barnhus)', year: 2010 },
       { title: 'Family Vacation (Studio Barnhus)', year: 2013 },
-    ]},
+    ], spotify:'59qo8jHDlC1i30HVjQQW3O', },
 
   // ── NETHERLANDS ──────────────────────────────────────────────────────────
   { id:'clone', label:'Clone Records', type:'label', genre:'experimental', era:1993, city:'Rotterdam', country:'NL',
@@ -1092,7 +1092,7 @@ export const NODES = [
       { title: '"Arp\'s Arp" (Clone)', year: 2001 },
       { title: '"Lumberton City" (Delsin)', year: 2003 },
       { title: 'The Paranormal Soul (Pinkman)', year: 2012 },
-    ]},
+    ], spotify:'0cG9dZ6X8YfLeGe24QWMwM', },
 
 
   { id:'rush_hour', label:'Rush Hour', type:'label', genre:'deep', era:2007, city:'Amsterdam', country:'NL',
@@ -1126,7 +1126,7 @@ export const NODES = [
       { title: 'Moon Safari', year: 1998 },
       { title: 'The Virgin Suicides (OST)', year: 2000 },
       { title: 'Talkie Walkie', year: 2004 },
-    ]},
+    ], spotify:'6urzdpGY5yUimWZsgJUoTb', },
 
   { id:'cassius', label:'Cassius', type:'artist', genre:'deep', era:1996, city:'Paris', country:'FR',
     desc:'Cassius — Philippe Zdar and Hubert Boombass — were among the most technically skilled producers of the French touch generation. Where Daft Punk favoured compressed, maximised productions, Cassius brought a warmth and spaciousness to their filter-disco productions that reflected Zdar\'s background as a recording engineer and mixer. His credits include records for Beastie Boys, Phoenix, and Franz Ferdinand. Their 1999 debut album established the filtered house template; their later work moved toward a more overtly pop sensibility. Philippe Zdar passed away in June 2019; his legacy as a producer and mixer extends well beyond the electronic music world.',
@@ -1134,14 +1134,14 @@ export const NODES = [
       { title: '"Cassius 1999"', year: 1999 },
       { title: '"La Mouche"', year: 1999 },
       { title: 'Ibifornia', year: 2016 },
-    ]},
+    ], spotify:'4sf3QZW8a3xZ14IGsOAzoy', },
 
   { id:'modjo', label:'Modjo', type:'artist', genre:'deep', era:1999, city:'Paris', country:'FR',
     desc:'Modjo — Yann Destagnol and Romain Tranchart — released "Lady (Hear Me Tonight)" in 2000, a filtered disco track built on a sample from Chic\'s "Soup for One" that became one of the best-selling singles in European chart history. It was in many ways the commercial apex of the French touch movement: everything the genre had developed — the filtered bassline, the chopped sample, the anonymous production aesthetic — compressed into three and a half minutes of radio-ready house music. Modjo released one album and then largely disappeared, which gave their contribution an accidental purity.',
     releases: [
       { title: '"Lady (Hear Me Tonight)"', year: 2000 },
       { title: 'Modjo (album)', year: 2001 },
-    ]},
+    ], spotify:'0AkpPlFLnr0VQwZQeMGht0', },
 
   { id:'justice', label:'Justice', type:'artist', genre:'techno', era:2003, city:'Paris', country:'FR',
     desc:'Justice — Xavier de Rosnay and Gaspard Augé — emerged on Ed Banger Records in 2003 and represented a decisive break with the filtered warmth of first-wave French touch. Where Daft Punk had been romantic about disco, Justice was aggressive about rock: their productions processed synthesizers and drum machines through guitar distortion and compression, creating a sound simultaneously electronic and physically abrasive. Their debut album "†" (Cross, 2007) became one of the defining records of the mid-2000s blog house era. The crosses, the leather jackets, the cathedral-scale rave aesthetic — Justice positioned electronic music as heavy metal for the dancefloor, and the influence of that repositioning is audible across a decade of EDM production.',
@@ -1149,7 +1149,7 @@ export const NODES = [
       { title: '"We Are Your Friends"', year: 2006 },
       { title: '† (Cross)', year: 2007 },
       { title: 'Audio, Video, Disco', year: 2011 },
-    ]},
+    ], spotify:'1gR0gsQYfi6joyO1dlp76N', },
 
   { id:'busy_p', label:'Busy P / Ed Banger', type:'label', genre:'techno', era:2003, city:'Paris', country:'FR',
     desc:'Pedro Winter — known as Busy P — managed Daft Punk during the "Discovery" and "Human After All" years before founding Ed Banger Records in 2003. The label became the vehicle for the second wave of French electronic music: harder, rockier, and more confrontational than the filtered house of the 1990s. Justice, SebastiAn, Mr. Oizo, and Uffie defined the Ed Banger sound — a collision of punk energy, hip-hop aesthetics, and electro club music that was deliberately teenage in its attitude. The label\'s visual identity (designed by So Me) was as important as its music, establishing a template for how electronic music could be packaged and branded for a generation raised on skateboarding and streetwear.',
@@ -1200,7 +1200,7 @@ export const NODES = [
       { title: 'Pictures at an Exhibition (RCA Red Seal)', year: 1975 },
       { title: 'The Planets (RCA Red Seal)', year: 1976 },
       { title: 'The Firebird Suite (RCA Red Seal)', year: 1976 },
-    ]},
+    ], spotify:'6wvkwvDNBOQ9FXRQGfBxIv', },
 
   { id:'ymo', label:'Yellow Magic Orchestra', type:'artist', genre:'experimental', era:1978, city:'Tokyo', country:'JP',
     desc:'Yellow Magic Orchestra — Haruomi Hosono, Ryuichi Sakamoto, and Yukihiro Takahashi — formed in Tokyo in 1978 and became one of the most globally influential groups in electronic music. Using synthesizers, Roland MC-8 microcomputer sequencing, and drum machines programmed with a precision that European and American acts had not yet achieved, they established the aesthetics of electropop, techno, and computer music simultaneously. Juan Atkins has directly cited YMO as an influence on the development of Detroit techno; their 1979 track Computer Game was sampled by Afrika Bambaataa for Planet Rock (1982). They sold over five million records in Japan during their 1978–84 run and all three members pursued significant solo electronic careers.',
@@ -1210,7 +1210,7 @@ export const NODES = [
       { title: 'BGM (Alfa)', year: 1981 },
       { title: 'Technodelic (Alfa)', year: 1981 },
       { title: 'Service (Alfa)', year: 1983 },
-    ]},
+    ], spotify:'2JIf5JxI3ypOSfrfNIIMQE', },
 
   { id:'haruomi_hosono', label:'Haruomi Hosono', type:'artist', genre:'ambient', era:1978, city:'Tokyo', country:'JP',
     desc:'Haruomi Hosono (born 1947, Tokyo) is one of Japan\'s most polymorphic musicians, moving through American folk, tropical exotica, electropop, and ambient over five decades. He co-founded Yellow Magic Orchestra in 1978 and subsequently founded the Non-Standard (electronic funk) and Yen (ambient/environmental music) labels. His 1984 cassette Watering a Flower, commissioned by MUJI as in-store background sound, is a landmark of Japanese functional ambient. His 1989 album Omni Sight Seeing merged Algerian raï, Japanese minyo, and house rhythms in a prescient world-music synthesis; he later collaborated with The Orb and Bill Laswell.',
@@ -1219,7 +1219,7 @@ export const NODES = [
       { title: 'Watering a Flower (Non-Standard)', year: 1984 },
       { title: 'Omni Sight Seeing (Epic/Sony)', year: 1989 },
       { title: 'Medicine Compilation (Daisyworld)', year: 1993 },
-    ]},
+    ], spotify:'370nbSkMB9kDWyTypwWYak', },
 
   { id:'ryuichi_sakamoto', label:'Ryuichi Sakamoto', type:'artist', genre:'ambient', era:1978, city:'Tokyo', country:'JP',
     desc:'Ryuichi Sakamoto (1952–2023) was among the most celebrated electronic and contemporary composers of his generation. As a YMO member and solo artist from 1978, he explored harsh digital experimentation (B-2 Unit, 1980), glacial piano-ambient (Beauty, 1989), and film scoring at the highest level, winning an Academy Award for The Last Emperor (1987). He collaborated directly with Brian Eno, David Sylvian, Alva Noto (Raster-Noton), and Fennesz, giving him the broadest verified Western electronic connections of any Japanese artist. His final albums async (2017) and 12 (2023), completed while terminally ill, are considered masterpieces of ambient music.',
@@ -1230,7 +1230,7 @@ export const NODES = [
       { title: 'Beauty (Virgin)', year: 1989 },
       { title: 'async (Milan)', year: 2017 },
       { title: '12 (Milan)', year: 2023 },
-    ]},
+    ], spotify:'1tcgfoMTT1szjUeaikxRjA', },
 
   { id:'hiroshi_yoshimura', label:'Hiroshi Yoshimura', type:'artist', genre:'ambient', era:1982, city:'Tokyo', country:'JP',
     desc:'Hiroshi Yoshimura (1940–2003) was the foundational figure of Japanese kankyō ongaku (environmental music). His 1982 debut Music for Nine Post Cards — originally submitted to the Hara Museum as functional background sound and released on Satoshi Ashikawa\'s Sound Process label — became the cornerstone of the entire tradition. Directly inspired by Brian Eno\'s Ambient series, Yoshimura developed a distinctly Japanese sensibility: spacious, precise, attentive to natural textures, designed to coexist peacefully with everyday life. He subsequently received commissions from hotels, airports, and public institutions across Japan; his work was featured on Light In The Attic\'s Kankyō Ongaku compilation (2019), nominated for a Grammy for Best Historical Album.',
@@ -1240,13 +1240,13 @@ export const NODES = [
       { title: 'WATER COPY (Offshore)', year: 1985 },
       { title: 'Green (Kitty)', year: 1986 },
       { title: 'Wet Land (Offshore)', year: 1993 },
-    ]},
+    ], spotify:'1DGpHnPOpMYY780hcQHmPB', },
 
   { id:'midori_takada', label:'Midori Takada', type:'artist', genre:'experimental', era:1983, city:'Tokyo', country:'JP',
     desc:'Midori Takada (born 1951, Tokyo) is a percussionist and composer who trained at Tokyo University of the Arts before spending time with the Berlin RIAS Symphonie-Orchester, eventually rejecting the Western classical tradition for African drumming, Indonesian gamelan, and the early minimalism of Steve Reich and Terry Riley. Her 1983 solo debut Through the Looking Glass — recorded over three days for solo marimba, gongs, and found objects — is one of the most extraordinary documents of Japanese experimental music: a sustained minimalist meditation that anticipated ambient percussion by decades. The album was reissued by Palto Flats in 2017 following a YouTube algorithm-driven rediscovery that introduced it to a new generation, and she resumed touring internationally into her seventies.',
     releases: [
       { title: 'Through the Looking Glass (RVC)', year: 1983 },
-    ]},
+    ], spotify:'3fuab64Hf1xiRGocX1sT1n', },
 
   // ── JAPAN – CLUB ERA ─────────────────────────────────────────────────────
   { id:'space_lab_yellow', label:'Space Lab Yellow', type:'venue', genre:'deep', era:1992, city:'Tokyo', country:'JP',
@@ -1259,7 +1259,7 @@ export const NODES = [
       { title: 'Far East Recording (Far East Recording)', year: 1992 },
       { title: 'Reach Up EP (Far East Recording)', year: 1994 },
       { title: 'Sounds from the Far East (Rush Hour)', year: 2015 },
-    ]},
+    ], spotify:'7nBJ5F2V7hDZE1hhKgqXM9', },
 
   { id:'shinichiro_yokota', label:'Shinichiro Yokota', type:'artist', genre:'deep', era:1992, city:'Tokyo', country:'JP',
     desc:'Shinichiro Yokota (born 1969) co-founded Far East Recording with Soichi Terada in 1990 after they met at an all-Japan DJ contest in 1987, and together they released New York-style deep house in Tokyo at a time when no audience existed for it. He spent most of the 1990s and 2000s running a custom car parts company after the label\'s debut sold poorly. A 2014 viral YouTube upload of his track Do It Again — mis-credited as Soichi Terada — sparked international attention; he released Do It Again and Again (Rush Hour, 2016), his first full-length in over two decades, mixing new material with unreleased 1990s tracks.',
@@ -1267,7 +1267,7 @@ export const NODES = [
       { title: 'Far East Recording (Far East Recording)', year: 1992 },
       { title: 'Do It Again and Again (Rush Hour)', year: 2016 },
       { title: 'Ultimate Yokota 1991–2019 (Rush Hour)', year: 2019 },
-    ]},
+    ], spotify:'37CyZqs6qCIOn5nj7L04bV', },
 
   { id:'far_east_recording', label:'Far East Recording', type:'label', genre:'deep', era:1992, city:'Tokyo', country:'JP',
     desc:'Far East Recording was founded in Tokyo in 1990 by Soichi Terada and Shinichiro Yokota as a vehicle for self-produced New York-style deep house. Its 1992 debut album sold almost nothing at the time — Terada stored the unsold stock at home for years — but the label\'s philosophy of minimal, joyful deep house made on Japanese terms was simply two decades ahead of its audience. Hhatri (London) provided the first international reissue in 2014; Rush Hour (Amsterdam) compiled Sounds from the Far East in 2015, inverting the label\'s reputation almost overnight and making it the clearest evidence that world-class deep house was being made in Tokyo in the early 1990s entirely outside the Western gaze.',
@@ -1280,7 +1280,7 @@ export const NODES = [
       { title: 'Reference to Difference (Sublime Records)', year: 1994 },
       { title: 'Extra (R&S Records)', year: 1996 },
       { title: 'Sunseeker (R&S Records)', year: 1999 },
-    ]},
+    ], spotify:'0Jb1cpfG4GB6pZfroFhAw0', },
 
   { id:'susumu_yokota', label:'Susumu Yokota', type:'artist', genre:'techno', era:1993, city:'Tokyo', country:'JP', bandcamp:'susumuyokota', bandcamp_album:'3077482968',
     desc:'Susumu Yokota (1960–2015) trained in economics and graphic design, lived in India, and returned to Tokyo to pursue music. His early work on Germany\'s Harthouse label placed him within the Frankfurt hard techno scene; his 1994 Acid Mt. Fuji (Sublime Records) deliberately mapped Japanese nature imagery onto the Detroit/Chicago acid grid and was a watershed for Japanese electronic identity. He quickly pivoted toward a more introspective style on Lo Recordings (London) — Sakura (2000) and Symbol (2005) dissolve orchestral and traditional Japanese textures into electronic washes — while releasing ambient material under the pseudonyms Ebi and Stevia. He passed away in 2015.',
@@ -1290,7 +1290,7 @@ export const NODES = [
       { title: 'Sakura (Lo Recordings)', year: 2000 },
       { title: 'Symbol (Lo Recordings)', year: 2005 },
       { title: 'Dreamer (Lo Recordings)', year: 2013 },
-    ]},
+    ], spotify:'3ND5NWoKzlelYDDyWqSQpQ', },
 
   { id:'fumiya_tanaka', label:'Fumiya Tanaka', type:'artist', genre:'minimal', era:1993, city:'Tokyo', country:'JP',
     desc:'Fumiya Tanaka (born 1972, Kyoto) grew up in punk circles before discovering house and techno in 1990 and grasped immediately the structural affinity between punk\'s anti-commercial rigour and minimal techno\'s reduction. He founded Torema Records in 1993 — widely cited as Japan\'s first dedicated electronic dance label — achieving major Sony distribution by 1995, an unusual achievement for underground techno anywhere. He moved to Berlin around 2009 and collaborated with Ricardo Villalobos on the Fumiyandric 12\" (Perlon, 2009), cementing his connection to the microhouse/minimal scene centred on Berghain and Panorama Bar. His marathon DJ sets, often six hours or more, are known for their disciplined structure and refusal of crowd-pleasing moments.',
@@ -1299,7 +1299,7 @@ export const NODES = [
       { title: 'Unknown Possibility Vol. 2 (Tresor)', year: 2001 },
       { title: 'Fumiyandric (with Ricardo Villalobos, Perlon)', year: 2009 },
       { title: 'You Find the Key (Perlon)', year: 2016 },
-    ]},
+    ], spotify:'6x7CJxVRVtYcTHqui1GDSx', },
 
   { id:'sublime_records_jp', label:'Sublime Records', type:'label', genre:'techno', era:1994, city:'Tokyo', country:'JP',
     desc:'Sublime Records was born on the dancefloor of Tokyo\'s Maniac Love club in 1994, and its founding simultaneous releases — Ken Ishii\'s Reference to Difference and Susumu Yokota\'s Acid Mt. Fuji — gave Japanese-made techno a coherent identity for the first time. Its September 1994 launch event at Shibuya Beam Hall featured Speedy J (Rotterdam) performing alongside Yokota and Ishii, crystallising the Japan–Europe techno axis. Through the late 1990s the label nurtured Rei Harakami\'s idiosyncratic microhouse alongside harder techno, maintaining a philosophical range that prevented it from calcifying into a single style. It is retrospectively cited as one of the most significant Japanese electronic labels.',
@@ -1311,7 +1311,7 @@ export const NODES = [
       { title: 'Unrest (Sublime Records)', year: 1998 },
       { title: 'Red Curb (Sublime Records)', year: 2001 },
       { title: 'Lust (Sublime Records)', year: 2005 },
-    ]},
+    ], spotify:'1orPVlRmIYWQ2KkJcMjjnB', },
 
   { id:'dj_krush', label:'DJ Krush', type:'artist', genre:'experimental', era:1994, city:'Tokyo', country:'JP',
     desc:'DJ Krush (born Hideaki Ishi, 1962, Tokyo) moved from gang life to DJing after seeing the 1983 film Wild Style, developing a sound of instrumental hip-hop at its most atmospheric: extended turntable compositions using jazz and soul samples as textural material, overlaid with heavy processing that blurs the line between hip-hop and ambient music. His 1994 debut Strictly Turntablized on Mo\' Wax (London — the label of DJ Shadow, UNKLE, Tricky) gave him immediate international credibility, and he became one of Japan\'s most internationally recognised electronic artists. He performed at Glastonbury, Sónar, and Coachella, and in over 60 countries.',
@@ -1320,7 +1320,7 @@ export const NODES = [
       { title: 'Meiso (Sony/Mo\' Wax)', year: 1995 },
       { title: 'MiLight (Sony)', year: 1996 },
       { title: 'Zen (Sony)', year: 2001 },
-    ]},
+    ], spotify:'00G1NTDAoU7rBpjG4KoYAM', },
 
   { id:'womb_tokyo', label:'Womb', type:'venue', genre:'techno', era:2000, city:'Tokyo', country:'JP',
     desc:'Womb opened in April 2000 in Shibuya, Tokyo, with a sound system engineered by Steve Dash and one of Asia\'s largest mirror balls. Where Space Lab Yellow specialised in a New York-oriented listening culture, Womb positioned itself as a world-class techno venue at larger scale: Mixmag ranked it No. 2 in the world in 2005 and No. 4 in 2009, placing it alongside Berghain, fabric, and DC10. Its four floors accommodate different sonic registers simultaneously, and its booking policy — Ricardo Villalobos, Fumiya Tanaka, Ken Ishii, Jeff Mills — established Tokyo as a permanent node in the global techno circuit.',
@@ -1333,7 +1333,7 @@ export const NODES = [
       { title: 'Since I Left You (Modular/XL)', year: 2000 },
       { title: 'Wildflower (Modular/Astralwerks)', year: 2016 },
       { title: 'We Will Always Love You (Modular)', year: 2020 },
-    ]},
+    ], spotify:'3C8RpaI3Go0yFF9whvKoED', },
 
   { id:'modular_recordings', label:'Modular Recordings', type:'label', genre:'experimental', era:1998, city:'Sydney', country:'AU',
     desc:'Modular Recordings was founded in 1998 by Steve Pavlovic in Sydney after receiving a demo from the pre-Avalanches group, and grew into the most important Australian electronic label of the 2000s. Its roster — The Avalanches, Cut Copy, The Presets, Bag Raiders, Tame Impala — defined a Modular sound: electronic production fused with indie-rock energy, danceable but not club-pure, synthetic but emotionally warm. Regular Modular parties across Australia in the mid-2000s turned the label into a social movement; it licensed internationally through XL Recordings (UK) and Interscope (US). Pavlovic sold a 50% stake to Universal in 2005 and departed in 2016 following a legal dispute.',
@@ -1346,7 +1346,7 @@ export const NODES = [
       { title: 'In Ghost Colours (Modular/Interscope)', year: 2008 },
       { title: 'Zonoscope (Modular/Interscope)', year: 2011 },
       { title: 'Free Your Mind (Modular/Interscope)', year: 2013 },
-    ]},
+    ], spotify:'4EENT7N7rCBwrddM3s0vFS', },
 
   { id:'future_classic', label:'Future Classic', type:'label', genre:'deep', era:2004, city:'Sydney', country:'AU',
     desc:'Future Classic was co-founded in 2004 by Nathan McLay and Jay Ryves from a Sydney terrace and has become one of the most globally significant Australian electronic labels, operating simultaneously as a record label, management firm, and booking agency. Its aesthetic leans toward warmth, melody, and precision — qualities associated with Kompakt or Dial rather than harder club music — and it discovered Flume through an artist competition, developing him into Australia\'s most internationally prominent electronic act. The label also developed Chet Faker (Nick Murphy), Flight Facilities, and SOPHIE\'s Australian-era releases; it remains independent and artist-led.',
@@ -1365,7 +1365,7 @@ export const NODES = [
       { title: 'Starry Night (Gudu Records)', year: 2019 },
       { title: '(It Goes Like) Nanana (XL Recordings)', year: 2023 },
       { title: 'I Hear You (XL Recordings)', year: 2024 },
-    ]},
+    ], spotify:'2mLA48B366zkELXYx7hcDN', },
 
   // ── JAPAN ────────────────────────────────────────────────────────────────
   { id:'mule_musiq', label:'Mule Musiq', type:'label', genre:'deep', era:2002, city:'Tokyo', country:'JP',
@@ -1408,7 +1408,7 @@ export const NODES = [
       { title: 'We Dance Again (Soulistic Music)', year: 2015 },
       { title: '"Superman" feat. Bucie (Soulistic)', year: 2015 },
       { title: 'Black Coffee (self-titled)', year: 2023 },
-    ]},
+    ], spotify:'6wMr4zKPrrR0UVz08WtUWc', },
 
   { id:'chicago_to_sa', label:'Chicago to Jo\'burg', type:'moment', genre:'deep', era:1994, city:'Johannesburg', country:'ZA',
     desc:'Chicago house arrives in South Africa via cassette tape and pirate radio in the late 1980s — a sound connecting with Black South African communities in the final years of apartheid. DJ culture grows fast around Johannesburg. House Afrika Records (1994) and Soul Candi (2001) document the local response — already something different: slower, more spacious, more vocal. Black Coffee\'s breakthrough completes the transformation into what the world calls Afro house.' },
@@ -1424,13 +1424,13 @@ export const NODES = [
     desc:'Co-founder of House Afrika Records and one of the founding generation of South African house DJs. Da Vinci shaped the infrastructure of the local industry alongside DJ Christos and DJ Fresh at a time when house music in SA was crossing racial divides in defiance of apartheid-era segregation.',
     releases:[
       {title:'House Afrika Sessions (House Afrika)', year:2000},
-    ]},
+    ], spotify:'0r5M9jCT1IXSYq9LJjrnyZ', },
 
   { id:'dj_christos', label:'DJ Christos', type:'artist', genre:'deep', era:1990, city:'Johannesburg', country:'ZA',
     desc:'Christos Katsaitis, known as the Godfather of South African House. Started DJing at 13, playing across racial divides during apartheid at Fourth World and Caesar\'s Palace. Later founded Katsaitis Music (1999), organised the South African Music Conference, and mentored artists including Black Coffee.',
     releases:[
       {title:'House Afrika Sessions Vol. 2 (House Afrika)', year:2000},
-    ]},
+    ], spotify:'5bJaa7iNQsTluIDQ3L6Kj6', },
 
   { id:'soul_candi', label:'Soul Candi Records', type:'label', genre:'deep', era:2001, city:'Johannesburg', country:'ZA',
     desc:'Founded 2001 in a Birnam basement by DJ Mbuso and partners, Soul Candi grew into South Africa\'s largest house distributor and label. Its Soul Candi Sessions compilation series documented the maturing local sound and provided infrastructure for hundreds of SA house artists over two decades.',
@@ -1451,14 +1451,14 @@ export const NODES = [
     releases:[
       {title:'Elevation EP (Soulistic Music)', year:2011},
       {title:'Culoe De Song (K7 Records)', year:2013},
-    ]},
+    ], spotify:'69vFBZxQu4TQ4ZDOI9L6KR', },
 
   { id:'black_motion', label:'Black Motion', type:'artist', genre:'deep', era:2010, city:'Johannesburg', country:'ZA',
     desc:'Duo of Thabo Mabogwane and Bongani Mohosana. Pioneered Afro-percussion house by weaving live hand drums, traditional Zulu vocal elements and South African township rhythms into four-four club structures. Their album The Healers became one of the defining records of the genre.',
     releases:[
       {title:'Talking to the Drums (Family Tree)', year:2011},
       {title:'The Healers: The Last Chapter (Open Mic Productions)', year:2022},
-    ]},
+    ], spotify:'4x6n41nYGT6O61pSfgW4z7', },
 
   { id:'spring_fiesta', label:'Spring Fiesta', type:'moment', genre:'deep', era:2010, city:'Johannesburg', country:'ZA',
     desc:'Africa\'s largest house music festival, established by Soul Candi\'s Ricardo Da Costa. Held annually in Johannesburg, Spring Fiesta became the definitive showcase for the full ecosystem of SA house — from foundational deep house through Afro-tech and amapiano — pulling 20 000+ attendees and anchoring the local calendar.',
@@ -1469,7 +1469,7 @@ export const NODES = [
     releases:[
       {title:'Ice Drop (Goon Club Allstars)', year:2016},
       {title:'Trip to New York EP', year:2018},
-    ]},
+    ], spotify:'1svX5cMlY22N60RxwzeJNO', },
 
   { id:'stay_true_sounds', label:'Stay True Sounds', type:'label', genre:'deep', era:2016, city:'Cape Town', country:'ZA',
     desc:'Founded in Cape Town in 2016 by Kid Fonque and Jullian Gomes. Became the benchmark imprint for quality deep house from South Africa\'s Western Cape, introducing DWSON, China Charmeleon and SIO to international audiences and providing a Cape Town counterpoint to the Johannesburg-centric Afro-house wave.',
@@ -1500,13 +1500,13 @@ export const NODES = [
     releases: [
       { title: 'Funk Brasil (Rob Som)', year: 1989 },
       { title: 'Funk Brasil 2 (Rob Som)', year: 1992 },
-    ]},
+    ], spotify:'2A34a0y7xLXf20pXZpbjCY', },
 
   { id:'suba', label:'Suba', type:'artist', genre:'ambient', era:1997, city:'São Paulo', country:'BR',
     desc:'Mitar Subotić (born 1961, Novi Sad, Yugoslavia) moved to São Paulo in the early 1990s and became one of the most inventive figures in Brazilian electronic music before his passing in November 1999. His posthumously completed album São Paulo Confessions (Ziriguiboom/Six Degrees, 2000) is a landmark of Brazilian electronic music — traditional MPB, bossa nova, and samba filtered through electronic arrangements into something unmistakably new. He produced Bebel Gilberto\'s Tanto Tempo, the best-selling Brazilian album outside Brazil at the time of release. His work continues the Tropicália tradition of radical synthesis.',
     releases: [
       { title: 'São Paulo Confessions (Ziriguiboom/Six Degrees)', year: 2000 },
-    ]},
+    ], spotify:'142j0TpiOwrAEhryG3q5tD', },
 
   // ── BRAZIL ───────────────────────────────────────────────────────────────
   { id:'brazil_scene', label:'São Paulo Underground', type:'label', genre:'techno', era:2000, city:'São Paulo', country:'BR',
@@ -1538,7 +1538,7 @@ export const NODES = [
       { title: 'Ay Ay Ay (Kompakt)', year: 2006 },
       { title: '"El Sucu Tucu" (Cómeme)', year: 2011 },
       { title: 'Ping Pong (Cómeme)', year: 2013 },
-    ]},
+    ], spotify:'7daexEpVdKDbvlUHZ2rWbe', },
 
   { id:'zzk_records', label:'ZZK Records', type:'label', genre:'disco', era:2008, city:'Buenos Aires', country:'AR',
     desc:'ZZK Records was founded in Buenos Aires in 2008 by Grant C. Dull (El Remolon) and Guillermo Canale (DJ Gato). It became the primary label for digital cumbia (cumbia digital) and electrocumbia — a movement that processes traditional cumbia, chicha, and Andean folk through electronic production tools. Key artists include El Remolón, King Coya, Chancha Via Circuito, and Frikstailers. ZZK established Buenos Aires as a world centre for electronic music rooted in Latin American rhythm traditions, with releases distributed through Nacional Records in the US and licensed internationally.',
@@ -1555,14 +1555,14 @@ export const NODES = [
       { title: 'Fuego (Nacional Records)', year: 2012 },
       { title: 'Amanecer (Sony Latin)', year: 2013 },
       { title: 'Ayo (Sony Latin)', year: 2017 },
-    ]},
+    ], spotify:'5n9bMYfz9qss2VOW89EVs2', },
 
   { id:'systema_solar', label:'Systema Solar', type:'artist', genre:'experimental', era:2006, city:'Barranquilla', country:'CO',
     desc:'Systema Solar is a Barranquilla-based collective formed around 2006, drawing members from across Colombia. They make cumbia-derived electronic music that incorporates champeta, porro, vallenato, and Afro-Colombian ritual music. Their productions use both electronic tools and traditional percussion alongside costumes and visual art that draw from Afro-Colombian carnival tradition. Their 2010 self-titled debut (Nacional Records) established them internationally.',
     releases: [
       { title: 'Systema Solar (Nacional Records)', year: 2010 },
       { title: '"El Bombazo" (Nacional)', year: 2013 },
-    ]},
+    ], spotify:'2fsQcmsoEVZD4EHZOzARdx', },
 
   // ── PERU ─────────────────────────────────────────────────────────────────
   { id:'dengue_dengue_dengue', label:'Dengue Dengue Dengue', type:'artist', genre:'experimental', era:2010, city:'Lima', country:'PE',
@@ -1570,7 +1570,7 @@ export const NODES = [
     releases: [
       { title: 'Siete Raíces (ZZK)', year: 2012 },
       { title: 'Zenit (ZZK)', year: 2015 },
-    ]},
+    ], spotify:'4dNjJV9AjGqHzkZualfhnG', },
 
   // ── MEXICO ───────────────────────────────────────────────────────────────
   { id:'nortec_collective', label:'Nortec Collective', type:'label', genre:'experimental', era:1999, city:'Tijuana', country:'MX',
@@ -1586,21 +1586,21 @@ export const NODES = [
       { title: 'Méjico Máxico (Nacional Records)', year: 2006 },
       { title: 'Soy Sauce (Nacional Records)', year: 2008 },
       { title: 'Corridos Prohibidos (Nacional Records)', year: 2011 },
-    ]},
+    ], spotify:'4TPTW3cTwUtiihgOMSQfmy', },
 
   { id:'rebolledo', label:'Rebolledo', type:'artist', genre:'minimal', era:2008, city:'Mexico City', country:'MX',
     desc:'Marco Antonio Reyes Michaus records as Rebolledo and is based in Mexico City. He co-founded Comeme with Matias Aguayo and releases on that label as well as on Beats in Space, ESP Institute, and others. His productions are rooted in minimal techno and house with a loose, groove-oriented character. He is a central figure in a Mexican electronic music scene that connects to the Cómeme and Panorama Bar networks.',
     releases: [
       { title: '"Rollerskate" (Cómeme)', year: 2012 },
       { title: 'Siete (Beats in Space)', year: 2014 },
-    ]},
+    ], spotify:'0gwbJK0gqRlOpIISp7BzJw', },
 
   { id:'pachanga_boys', label:'Pachanga Boys', type:'artist', genre:'minimal', era:2011, city:'Cologne', country:'DE', bandcamp:'pachangaboys', bandcamp_album:'1951222936',
     desc:'Pachanga Boys is the duo of Aksel Schaufler (Superpitcher, Cologne) and Mauricio Rebolledo (Mexico City), who met in Playa del Carmen, Mexico. Schaufler releases on Kompakt-affiliated Hippie Dance; Rebolledo co-founded Cómeme. Together they created an extended, groove-driven melodic house sound with psychedelic reach. Their track "Time" (2011) became one of the defining anthems of the European minimal and melodic house underground.',
     releases: [
       { title: '"Time" (Hippie Dance)', year: 2011 },
       { title: 'We Are Really Sorry (Hippie Dance)', year: 2012 },
-    ]},
+    ], spotify:'7EqE0DBntJS6OUT4gK9W3P', },
 
   // ── RUSSIA ───────────────────────────────────────────────────────────────
   { id:'ninakraviz', label:'Nina Kraviz', type:'artist', genre:'techno', era:2010, city:'Moscow', country:'RU', spotify:'1oZmFNkGAT93yD1xX4vTRE',
@@ -1633,20 +1633,20 @@ export const NODES = [
     releases: [
       { title: 'fabric 72 (Fabric)', year: 2013 },
       { title: 'Sunwaves Mix (Sunwaves)', year: 2010 },
-    ]},
+    ], spotify:'7w06C58Y8rJF6mJNLFrGaS', },
 
   { id:'petre_inspirescu', label:'Petre Inspirescu', type:'artist', genre:'minimal', era:2006, city:'Bucharest', country:'RO',
     desc:'Petre Inspirescu is a Bucharest DJ and producer and co-founder of the [a:rpia:r] label alongside Rhadoo and Raresh. He is one of the three core figures of rominimal — the stripped, patient, deeply hypnotic minimal techno style that emerged from Bucharest in the mid-2000s, developed in dialogue with the Perlon and Robert Johnson aesthetic. His productions and DJ sets share the Romanian style\'s characteristic restraint: tracks that develop slowly, resist resolution, and reward sustained attention.',
     releases: [
       { title: '"Gre" ([a:rpia:r])', year: 2007 },
       { title: '"Mamagubida" ([a:rpia:r])', year: 2011 },
-    ]},
+    ], spotify:'6sOrCZcvu8NHj3bHg2toZm', },
 
   { id:'raresh', label:'Raresh', type:'artist', genre:'minimal', era:2006, city:'Bucharest', country:'RO',
     desc:'Raresh is a Bucharest DJ and producer who co-founded [a:rpia:r] with Rhadoo and Petre Inspirescu. His fabric 78 mix (2014) followed Rhadoo\'s fabric 72 in placing the Romanian scene within the international conversation. As a member of the RPR Soundsystem he has performed extended back-to-back sessions at Sunwaves, Robert Johnson, and at venues across Europe. His individual style tends slightly warmer and more percussive than his labelmates, but shares the same underlying patience and structural rigour.',
     releases: [
       { title: 'fabric 78 (Fabric)', year: 2014 },
-    ]},
+    ], spotify:'4hytCUOCN3uFUJrrCColHs', },
 
   { id:'arpia_r', label:'[a:rpia:r]', type:'label', genre:'minimal', era:2006, city:'Bucharest', country:'RO',
     desc:'[a:rpia:r] is a Bucharest label founded in 2006 by Rhadoo, Petre Inspirescu, and Raresh. Its name is a phonetic rendering of its founders\' initials. The label is the primary document of rominimal — the distinct minimal techno aesthetic that emerged in Bucharest from an encounter with Perlon and Robert Johnson. Releases are almost exclusively by the three founders and are characterised by long, contemplative tracks with highly developed rhythmic detail and near-total avoidance of melodic decoration. The label has released fewer than two dozen records and every one is considered significant within the minimal techno canon.',
@@ -1666,7 +1666,7 @@ export const NODES = [
       { title: '"Ritual" EP (International DeeJay Gigolos)', year: 2005 },
       { title: '"Moon Walk" EP (Drumpoet Community)', year: 2010 },
       { title: '"Raver" (Drumpoet Community)', year: 2014 },
-    ]},
+    ], spotify:'0NkrYKqkzWI0pilb6ko9uM', },
 
   // ── GEORGIA — BASSIANI ────────────────────────────────────────────────────
   { id:'bassiani', label:'Bassiani', type:'venue', genre:'minimal', era:2014, city:'Tbilisi', country:'GE',
@@ -1684,14 +1684,14 @@ export const NODES = [
     desc:'HVL is a Tbilisi-based DJ duo and the resident act most closely associated with Bassiani. They were performing at the club on the night of the May 2018 police raid — their DJ set was interrupted mid-way through — becoming unwilling symbols of the political confrontation between Georgian club culture and state power. Their music operates in a dark, hypnotic minimal techno register consistent with the Bassiani aesthetic: industrial textures, slow builds, and structural patience characteristic of the global post-Perlon underground.',
     releases: [
       { title: 'Bassiani 001 (Bassiani Records)', year: 2016 },
-    ]},
+    ], spotify:'4XW87HXcsYTkdK7IhSy2Kt', },
 
   { id:'irakli', label:'Irakli', type:'artist', genre:'minimal', era:2016, city:'Tbilisi', country:'GE',
     desc:'Irakli is a Tbilisi-born DJ and producer closely associated with Bassiani. His 2021 debut album Major Signals appeared on Dial Records in Hamburg — a direct validation from one of the most respected labels in European deep and minimal music. His 2023 live recording Mechanical Moon at Robert Johnson (the Offenbach club central to rominimal and Perlon) placed him within the same network that shaped Rhadoo and the Romanian scene. His music moves between dark minimal techno and deeper, more introspective territory.',
     releases: [
       { title: 'Major Signals (Dial)', year: 2021 },
       { title: 'Mechanical Moon at Robert Johnson (Robert Johnson)', year: 2023 },
-    ]},
+    ], spotify:'4bu8s4uesZmBltnYfIqzoZ', },
 
   // ── UKRAINE ───────────────────────────────────────────────────────────────
   { id:'nastia', label:'Nastia', type:'artist', genre:'techno', era:2005, city:'Kyiv', country:'UA',
@@ -1699,7 +1699,7 @@ export const NODES = [
     releases: [
       { title: 'Nechto 001 — Nastia (Nechto)', year: 2012 },
       { title: 'Triangular Frequencies — Nastia (Drumma)', year: 2016 },
-    ]},
+    ], spotify:'6w06xBVuiLYDcrjuhQqJ0w', },
 
   { id:'cxema', label:'Cxema', type:'moment', genre:'techno', era:2014, city:'Kyiv', country:'UA',
     desc:'Cxema (from the Ukrainian слово схема, "scheme" or "diagram") is a Kyiv-based party collective founded in 2014 by Slava Lepsheev. It operates in unconventional spaces — galleries, factories, museums — rather than established clubs, positioning its events as artistic experiences as much as parties. Its programming has emphasised contemporary electronic music rooted in minimal, industrial, and dark techno, and it has helped define a visual and social identity for Kyiv\'s underground that resonates internationally. Following Russia\'s full-scale invasion of Ukraine in 2022, Cxema has hosted benefit events and continued operating as a statement of cultural resilience.',
@@ -1712,7 +1712,7 @@ export const NODES = [
       { title: 'Techne (Cocoon Recordings)', year: 2002 },
       { title: '"Prolog" EP (Recognition)', year: 2005 },
       { title: 'Sequence of Changes (Recognition)', year: 2011 },
-    ]},
+    ], spotify:'5rmOkK7yIwlt5NAJDElVgu', },
 
   { id:'smolna', label:'Smolna', type:'venue', genre:'techno', era:2015, city:'Warsaw', country:'PL',
     desc:'Smolna is a Warsaw club that opened in 2015 and became the most internationally recognised venue in the Polish underground techno scene. Located in a basement on Smolna Street in central Warsaw, it programmes dark, minimal, and hard techno alongside deeper house music. It is the primary home of the Warsaw underground and has hosted international artists alongside the scene around Brutaż and the local minimal scene.',
@@ -1748,7 +1748,7 @@ export const NODES = [
       { title: 'Tresor II — Berlin-Detroit (Tresor)', year: 1994 },
       { title: '"The Bells" (Axis)', year: 1996 },
       { title: 'Exhibitionist (Tresor)', year: 2001 },
-    ]},
+    ], spotify:'2eIDAcLKnWc4D350YyzvgS', },
 
   { id:'robert_hood', label:'Robert Hood', type:'artist', genre:'detroit', era:1991, city:'Detroit', country:'US',
     desc:'Robert Hood emerged from the Underground Resistance circle in Detroit and developed minimal techno — stripping techno to its purest structural elements, removing every component not essential to the music\'s hypnotic and physical effect. His Minimal Nation LP (Axis Records, 1994) is the foundational document of the entire minimal techno tradition, preceding the European minimal wave by a decade and directly influencing every producer from Plastikman to the Cologne scene. He also records as Floorplan, a deep gospel-house project with his daughter Lyric Hood; their "Never Grow Old" (2012) reached audiences far beyond the underground. His influence on European producers is enormous and often insufficiently acknowledged.',
@@ -1756,7 +1756,7 @@ export const NODES = [
       { title: 'Minimal Nation (Axis)', year: 1994 },
       { title: '"Moveable Parts" (M-Plant)', year: 1996 },
       { title: '"Never Grow Old" (as Floorplan, Clone)', year: 2012 },
-    ]},
+    ], spotify:'5ipQlfnpRCtyOuhYqvPvQ8', },
 
   { id:'carl_craig', label:'Carl Craig', type:'artist', genre:'detroit', era:1991, city:'Detroit', country:'US',
     desc:'Carl Craig was born in Detroit in 1969 and came to music through Derrick May, who became his mentor and early collaborator. His productions under aliases including Psyche, BFC, and 69 explored the warmer, more melodic, more jazz-inflected dimension of Detroit techno. He founded Planet E Communications in 1991. His Landcruising album (1995) and More Songs About Food and Revolutionary Art (1997) are among the most critically regarded Detroit records. He has collaborated with Moritz von Oswald, Moodymann, Paperclip People, and the Orchestre National de Lyon. Planet E has remained one of Detroit\'s most consistently active labels for over thirty years.',
@@ -1764,7 +1764,7 @@ export const NODES = [
       { title: 'Landcruising (Planet E)', year: 1995 },
       { title: 'More Songs About Food and Revolutionary Art (Planet E)', year: 1997 },
       { title: 'Versus — with Moritz von Oswald (Honestly)', year: 2012 },
-    ]},
+    ], spotify:'17dbJyUCrxh4I7iyUrjaHU', },
 
   { id:'axis_records', label:'Axis Records', type:'label', genre:'detroit', era:1992, city:'Detroit', country:'US',
     desc:'Axis Records was founded in Detroit in 1992 by Jeff Mills following his departure from Underground Resistance. In its first three decades it released over a hundred records — including "The Bells" (1996), one of the most recognised tracks in techno — as well as Robert Hood\'s Minimal Nation (1994) and work by Mills under multiple aliases. The label has operated without commercial compromise throughout its existence.',
@@ -1785,7 +1785,7 @@ export const NODES = [
       { title: '"Crispy Bacon" (F Communications)', year: 1997 },
       { title: 'Unreasonable Behaviour (F Communications)', year: 2000 },
       { title: '"The Man With the Red Face" (F Communications)', year: 2000 },
-    ]},
+    ], spotify:'3y1SoTOdrmRNTBVph5T0VZ', },
 
   { id:'f_communications', label:'F Communications', type:'label', genre:'techno', era:1994, city:'Paris', country:'FR',
     desc:'F Communications was founded in Paris in 1994 by Laurent Garnier. The label became one of the most significant French electronic labels of the 1990s and 2000s, releasing Garnier alongside I:Cube, DJ Deep, Scan X, and Lil Louis — representing a distinctly French approach to techno: more melodic, more open to song structure, and more influenced by American house than the German mainstream. It helped establish France as a serious contributor to the European techno tradition.',
@@ -1810,7 +1810,7 @@ export const NODES = [
     releases: [
       { title: 'Memories of the Future — Kode9 & Spaceape (Hyperdub)', year: 2006 },
       { title: 'Black Sun — Kode9 & Spaceape (Hyperdub)', year: 2012 },
-    ]},
+    ], spotify:'5Z3GyWBvJZgJ35TS0cmXll', },
 
   { id:'planet_mu', label:'Planet Mu', type:'label', genre:'experimental', era:1995, city:'London', country:'UK',
     desc:'Planet Mu was founded in London in 1995 by Mike Paradinas (µ-Ziq). Beginning as a vehicle for Paradinas\'s own releases, it subsequently signed Venetian Snares, Ceephax, and a range of IDM and broken beat artists. In 2013 it released Jlin\'s early tracks and her debut album Dark Energy (2015), becoming the primary international label for footwork outside the US and transforming its own profile in the process. It is one of the most diverse and consistently interesting independent electronic labels in the UK across three decades.',
@@ -1825,7 +1825,7 @@ export const NODES = [
     desc:'Ben Thomson records as Ben UFO and co-founded Hessle Audio in London in 2007 alongside Pangaea and Blawan. Primarily a DJ and selector rather than a producer, he has been consistently rated among the finest DJs in the world. His sets move fluidly across UK bass, techno, house, and experimental club music with a command of the underground that has been widely cited as formative by a generation of younger DJs. His long-running NTS Radio show and Hessle Audio events have been significant platforms for the London underground.',
     releases: [
       { title: 'Hessle Audio Night (live recordings)', year: 2010 },
-    ]},
+    ], spotify:'44j1ebTzFis2TUjf7boDpM', },
 
   { id:'pangaea', label:'Pangaea', type:'artist', genre:'experimental', era:2007, city:'London', country:'UK',
     desc:'Kevin McAulay records as Pangaea and co-founded Hessle Audio in London in 2007. His productions blend bass-heavy structures with industrial textures and broken rhythms. As one of three co-founders of Hessle Audio alongside Ben UFO and Blawan, he helped define one of the most influential UK labels of the 2010s. He has released on Hessle Audio and his own Hadal Zone label.',
@@ -1833,7 +1833,7 @@ export const NODES = [
       { title: '"Hazel" (Hessle Audio)', year: 2011 },
       { title: '"In Colour" (Hessle Audio)', year: 2013 },
       { title: '"Unfold" (Hessle Audio)', year: 2016 },
-    ]},
+    ], spotify:'2qrXG9naQxiKQqjKS0shUn', },
 
   { id:'call_super', label:'Call Super', type:'artist', genre:'experimental', era:2012, city:'London', country:'UK', bandcamp:'callsuper', bandcamp_album:'2315348673',
     desc:'JR Seaton releases as Call Super. His productions sit between techno, electro and post-club abstraction — meticulously detailed and resistant to easy genre placement. A key figure in the Hessle Audio orbit, he has also released on Dekmantel, Optimo Music and his own Phinery imprint, embodying the strand of UK electronic music that refuses to separate the intellectual from the physical.',
@@ -1842,7 +1842,7 @@ export const NODES = [
       {title:'Suzi Ecto (Hessle Audio)', year:2014},
       {title:'Arpo Revisited (Dekmantel)', year:2016},
       {title:'The Present Tense (Phinery)', year:2019},
-    ]},
+    ], spotify:'1FVo44KTXqxo3JxXADWTd9', },
 
   { id:'funktion_one', label:'Funktion-One', type:'label', genre:'experimental', era:1992, city:'London', country:'UK',
     desc:'Sound system company founded by Tony Andrews and John Newsham. Funktion-One speakers became the defining acoustic infrastructure of the global underground — installed in Berghain, fabric, Tresor, Printworks and dozens of the most important clubs. The company\'s obsession with reproducing low frequencies faithfully shaped how DJs and producers think about bass, making it one of the few non-musical entities with genuine influence on the sound and culture of electronic music.',
@@ -1854,7 +1854,7 @@ export const NODES = [
       { title: 'Voices of Dust (Modern Love)', year: 2009 },
       { title: 'Tryptych (Modern Love)', year: 2011 },
       { title: 'Testpressing series (Modern Love)', year: 2012 },
-    ]},
+    ], spotify:'4waYjUUd6ydX8OJwsr54iE', },
 
   { id:'special_request', label:'Special Request', type:'artist', genre:'experimental', era:2014, city:'London', country:'UK', bandcamp:'special-request', bandcamp_album:'4275236258',
     desc:'Paul Woolford records as Special Request and has been active in the UK underground since the late 1990s under various aliases. The Special Request project, launched in 2014, channelled the hardcore continuum — jungle, drum & bass, rave — into a contemporary techno and club music context, producing dense, polyrhythmic music with a distinctive nostalgic charge. His Vortex album (Houndstooth, 2019) received substantial critical attention as a document of the rave revival. He is one of the central figures in the reintegration of UK hardcore into the contemporary underground.',
@@ -1862,7 +1862,7 @@ export const NODES = [
       { title: 'Belief System (Houndstooth)', year: 2017 },
       { title: 'Vortex (Houndstooth)', year: 2019 },
       { title: 'Falling / Burning (Houndstooth)', year: 2021 },
-    ]},
+    ], spotify:'59xdAObFYuaKO2phzzz07H', },
 
   { id:'pinch', label:'Pinch', type:'artist', genre:'experimental', era:2005, city:'Bristol', country:'UK',
     desc:'Tom Sherwood records as Pinch and founded Tectonic Recordings in Bristol in 2005. His productions draw heavily on Jamaican sound system culture, dub reggae, and UK bass music. His collaboration with Shackleton — an eponymous LP on Tectonic (2008) — is one of the key documents of the Bristol underground, fusing Shackleton\'s percussive ritualism with Pinch\'s sub-bass architecture. He has released on Planet Mu and his own Tectonic, and his Tectonic parties have been central to Bristol bass culture for two decades.',
@@ -1870,7 +1870,7 @@ export const NODES = [
       { title: '"Qawwali" (Tectonic)', year: 2007 },
       { title: 'Pinch & Shackleton (Tectonic)', year: 2008 },
       { title: 'Part & Parcel (Tectonic)', year: 2012 },
-    ]},
+    ], spotify:'4KEHIUSoWCcqrk8AddTE1O', },
 
   { id:'tectonic', label:'Tectonic', type:'label', genre:'experimental', era:2005, city:'Bristol', country:'UK',
     desc:'Tectonic Recordings was founded in Bristol in 2005 by Pinch. The label releases music rooted in dub, sub-bass, and UK sound system culture. Its catalogue connects the post-dubstep Bristol underground to the Skull Disco and Livity Sound networks and includes the Pinch & Shackleton collaboration and releases by Mala (Digital Mystikz) and other key bass music figures. It is one of the defining Bristol labels.',
@@ -1886,7 +1886,7 @@ export const NODES = [
       { title: '"Subzero" (Ostgut Ton)', year: 2008 },
       { title: 'One (Ostgut Ton)', year: 2009 },
       { title: 'Fabric 66 (Fabric)', year: 2013 },
-    ]},
+    ], spotify:'1vJHfCreWAS46V8RZ67ojo', },
 
   { id:'klockworks', label:'Klockworks', type:'label', genre:'techno', era:2007, city:'Berlin', country:'DE',
     desc:'Klockworks was founded in Berlin in 2007 by Ben Klock. The label releases dark, atmospheric, industrial-leaning techno in the Berghain aesthetic. Artists include Markus Suckut, Truncate, Norman Nodge, Recondite, and Stef Mendesidis. It is one of the primary documents of the Berghain sound and has maintained consistent quality across nearly two decades.',
@@ -1911,7 +1911,7 @@ export const NODES = [
       { title: '"Shades of Decay" (Figure)', year: 2007 },
       { title: '"Mekong Delta" (Tresor)', year: 2010 },
       { title: '"Square & Circles" (Figure)', year: 2014 },
-    ]},
+    ], spotify:'3fI3Z6NnYoeSQjcqPQDbM4', },
 
   // ── BELGIUM — NEW WAVE ───────────────────────────────────────────────────
   { id:'amelie_lens', label:'Amélie Lens', type:'artist', genre:'techno', era:2017, city:'Antwerp', country:'BE',
@@ -1920,7 +1920,7 @@ export const NODES = [
       { title: '"Forever" (Turbo)', year: 2017 },
       { title: '"Hypnotized" (Exhale)', year: 2018 },
       { title: '"Between" (Exhale)', year: 2019 },
-    ]},
+    ], spotify:'5Ho1vKl1Uz8bJlk4vbmvmf', },
 
   { id:'charlotte_de_witte', label:'Charlotte de Witte', type:'artist', genre:'techno', era:2016, city:'Ghent', country:'BE',
     desc:'Charlotte de Witte is a Ghent DJ and producer who founded the KNTXT label in 2018 after early releases on Turbo Recordings. Her style is dark, minimal, and hypnotic — drawing from the harder end of the Berlin spectrum while retaining melodic sophistication. She has held residencies at major European venues and festivals and has become one of the most globally booked DJs in contemporary techno. Her profile has grown through relentless touring and consistent quality of release.',
@@ -1928,14 +1928,14 @@ export const NODES = [
       { title: '"Doppler" (Turbo)', year: 2017 },
       { title: '"Sgat" (KNTXT)', year: 2019 },
       { title: '"Dopamine" (KNTXT)', year: 2021 },
-    ]},
+    ], spotify:'1lJhME1ZpzsEa5M0wW6Mso', },
 
   // ── BELGIUM — LOLA HARO / SMALL STEPS ───────────────────────────────────
   { id:'lola_haro', label:'Lola Haro', type:'artist', genre:'experimental', era:2018, city:'Brussels', country:'BE',
     desc:'Brussels-based DJ and digger raised near Antwerp, where her parents were regulars at Café d\'Anvers. Haro emerged from the Belgian underground in 2018 with a reputation for emotionally driven, genre-spanning selections threading spectral electro, deep house and leftfield club music. Marcel Dettmann has described her sound as "deep and emotional." She founded the Small Steps label and event series in 2022 and holds a monthly residency at Kiosk Radio.',
     releases:[
       {title:'Small Steps 001 (Small Steps)', year:2022},
-    ]},
+    ], spotify:'29zSTMejPhY0m7kwNQ9SPI', },
 
   { id:'small_steps', label:'Small Steps', type:'label', genre:'experimental', era:2022, city:'Brussels', country:'BE',
     desc:'Record label and recurring club event series founded by Lola Haro in October 2022. Conceived as a platform for dreamy, mood-driven electronic music that resists easy genre placement. Releases span Brussels and Amsterdam-based artists; events run across Brussels, Ghent and Amsterdam. Closely tied to Kiosk Radio\'s programming.',
@@ -1951,7 +1951,7 @@ export const NODES = [
       { title: '"Swarm Intelligence" (Semantica)', year: 2007 },
       { title: '"Sinequanone" (Semantica)', year: 2011 },
       { title: '"Neon Nimbus" (Semantica)', year: 2016 },
-    ]},
+    ], spotify:'69M3zvyUT5ffpKTCFUNFz5', },
 
   { id:'semantica', label:'Semantica', type:'label', genre:'minimal', era:2005, city:'Madrid', country:'ES',
     desc:'Semantica Records was founded in Madrid in 2005 by Svreca. It became Spain\'s most internationally significant underground techno label, releasing music by Svreca alongside Claudio PRC (Sardinia/Berlin), Paula Temple, Varg, Shifted, and others. Its aesthetic is dark, dense, and hypnotic — rooted in Basic Channel and the industrial techno tradition but developing a distinctly Iberian character. It holds a similar position in the Spanish underground to that which Perlon holds in Germany.',
@@ -1976,7 +1976,7 @@ export const NODES = [
       { title: 'Double Cup (Hyperdub)', year: 2013 },
       { title: 'We Beefin?! — with DJ Spinn (Teklife)', year: 2013 },
       { title: 'HEKA (Hyperdub, posthumous)', year: 2016 },
-    ]},
+    ], spotify:'4zGBj9dI63YIWmZkPl3o7V', },
 
   { id:'jlin', label:'Jlin', type:'artist', genre:'experimental', era:2015, city:'Chicago', country:'US', bandcamp:'jlin', bandcamp_album:'1810844722',
     desc:'Jlin (Jerrilynn Patton) is a producer from Gary, Indiana who emerged from the Chicago footwork scene with her debut album Dark Energy (Planet Mu, 2015). Her music departed from standard footwork in its density, structural complexity, and refusal of dancefloor legibility — Dark Energy was immediately recognised as transcending its genre. Black Origami (Planet Mu, 2017) consolidated her position as one of the most significant experimental electronic composers of her generation. She has collaborated with Holly Herndon, produced scores for contemporary dance by William Forsythe, and composed works for the Kronos Quartet. Her influence extends from footwork into contemporary composition globally.',
@@ -1984,7 +1984,7 @@ export const NODES = [
       { title: 'Dark Energy (Planet Mu)', year: 2015 },
       { title: 'Black Origami (Planet Mu)', year: 2017 },
       { title: 'Embryo (Planet Mu)', year: 2019 },
-    ]},
+    ], spotify:'23QKqAkKwti9zBiac6RFBA', },
 
   // ── INSTRUMENTS & MANUFACTURERS ──────────────────────────────────────────
   { id:'roland', label:'Roland', type:'label', genre:'experimental', era:1972, city:'Osaka', country:'JP',
@@ -2029,7 +2029,7 @@ export const NODES = [
       { title: 'Hear Your Beat (NOORDEN)', year: 2012 },
       { title: 'Under Waveform (NOORDEN)', year: 2013 },
       { title: 'Be There (Detroit Underground)', year: 2017 },
-    ]},
+    ], spotify:'3MKXsDpkmczEw4gV0DfdtQ', },
 
   { id:'ableton', label:'Ableton', type:'label', genre:'experimental', era:2001, city:'Berlin', country:'DE',
     desc:'Ableton was founded in Berlin in 1999 by Gerhard Behles and Robert Henke (Monolake). Ableton Live, released in 2001, introduced a session view enabling non-linear arrangement and real-time looping that transformed live electronic performance. Its adoption by Richie Hawtin in the early 2000s was widely reported and the software subsequently became the primary production and performance environment across electronic music. Behles and Henke had developed early prototypes while working on the Monolake project at Chain Reaction.',
@@ -2043,7 +2043,7 @@ export const NODES = [
       { title: 'Geogaddi (Warp)', year: 2002 },
       { title: 'The Campfire Headphase (Warp)', year: 2005 },
       { title: 'Tomorrow\'s Harvest (Warp)', year: 2013 },
-    ]},
+    ], spotify:'2VAvhf61GgLYmC6C8anyX1', },
 
   { id:'four_tet', label:'Four Tet', type:'artist', genre:'experimental', era:1999, city:'London', country:'UK', bandcamp:'fourtet', bandcamp_album:'1714700601',
     desc:'Kieran Hebden records as Four Tet and has been based in London throughout his career. He began releasing on Domino Records in 1999 and has subsequently released on his own Text label. His early records combined sampled acoustic jazz and folk with IDM production; later work moved toward house and club music while retaining a strong melodic identity. He has collaborated extensively with Burial and Floating Points.',
@@ -2052,7 +2052,7 @@ export const NODES = [
       { title: 'There Is Love in You (Domino)', year: 2010 },
       { title: 'Pink (Text)', year: 2012 },
       { title: 'New Energy (Text)', year: 2017 },
-    ]},
+    ], spotify:'7Eu1txygG6nJttLHbZdQOh', },
 
   { id:'actress', label:'Actress', type:'artist', genre:'experimental', era:2008, city:'London', country:'UK', bandcamp:'actress', bandcamp_album:'0035817025',
     desc:'Darren Cunningham records as Actress and was born in Wolverhampton, later based in London. He founded the Werkdiscs label as the home for his releases. His music works across a range of tempos and textures — from near-ambient to club-functional — with a deliberately degraded, grainy production aesthetic. Hazyville (2008), R.I.P. (2012), and Ghettoville (2014) are his principal albums.',
@@ -2061,7 +2061,7 @@ export const NODES = [
       { title: 'Splazsh (Werkdiscs/Ninja Tune)', year: 2010 },
       { title: 'R.I.P. (Werkdiscs/Ninja Tune)', year: 2012 },
       { title: 'Ghettoville (Werkdiscs/Ninja Tune)', year: 2014 },
-    ]},
+    ], spotify:'3bg5rmICvmA8dmYVAdKGYH', },
 
   { id:'weatherall', label:'Andrew Weatherall', type:'artist', genre:'experimental', era:1990, city:'London', country:'UK',
     desc:'Andrew Weatherall was a London DJ, producer, and label founder. His 1990 remix of Primal Scream\'s "Loaded" and production of Screamadelica (1991) placed him at the centre of the UK acid house-into-rock crossover. He subsequently founded the Sabres of Paradise project and label and later recorded as Two Lone Swordsmen with Keith Tenniswood. His influence extended across house, techno, post-punk, and dub. He passed away in London in February 2020.',
@@ -2070,7 +2070,7 @@ export const NODES = [
       { title: 'Haunted Dancehall — Sabres of Paradise (Sabres of Paradise)', year: 1994 },
       { title: 'From the Double Gone Chapel — Two Lone Swordsmen (Warp)', year: 2004 },
       { title: 'A Pox on the Pioneers (Rotters Golf Club)', year: 2009 },
-    ]},
+    ], spotify:'5J85JTgIYIUP276hmuIozn', },
 
   { id:'djrum', label:'DJrum', type:'artist', genre:'experimental', era:2012, city:'London', country:'UK', bandcamp:'djrum', bandcamp_album:'1924727225',
     desc:'Felix Manuel records as DJrum and is based in London. His productions span a wide range of tempos and moods, from ambient to hard percussive techno, and resist easy genre categorisation. He has released on Hessle Audio and his own labels. His Portrait With Firewood album (2018) is regarded as a strong document of his range.',
@@ -2078,7 +2078,7 @@ export const NODES = [
       { title: '"Seven Lies" (Hessle Audio)', year: 2013 },
       { title: 'Portrait With Firewood (R&S)', year: 2018 },
       { title: '"Jig Inna Jungle" (Dolly)', year: 2020 },
-    ]},
+    ], spotify:'4HwlolvniI44ETSg5tajeZ', },
 
   { id:'blawan', label:'Blawan', type:'artist', genre:'techno', era:2011, city:'London', country:'UK',
     desc:'Jamie Roberts records as Blawan and grew up in Yorkshire before relocating to London. His early releases on Hessle Audio combined sub-bass house with industrial noise. His subsequent work moved toward harder industrial techno. He co-founded Ternesc with Pariah and has released on his own Raw Torque label. His productions are characterised by extreme dynamic range and a confrontational aesthetic.',
@@ -2087,7 +2087,7 @@ export const NODES = [
       { title: '"Why They Hide Their Bodies Under My Garage?" (Hessle Audio)', year: 2012 },
       { title: 'Wet Will Always Dry (Hessle Audio)', year: 2013 },
       { title: 'Wet My Plants (Ternesc)', year: 2016 },
-    ]},
+    ], spotify:'64kN9EkSTHYhda2FupL0KI', },
 
   { id:'leon_vynehall', label:'Leon Vynehall', type:'artist', genre:'deep', era:2013, city:'London', country:'UK', bandcamp:'leonvynehall', bandcamp_album:'4071241862',
     desc:'Leon Vynehall is a London-based producer whose work develops a deep house aesthetic with strong melodic and cinematic qualities. He began releasing on Wolf Music in 2013 and subsequently on Ninja Tune. His album Nothing Is Still (2018) incorporated personal family history into an ambient-leaning deep house framework. He has been widely cited as a significant figure in contemporary British deep house.',
@@ -2095,7 +2095,7 @@ export const NODES = [
       { title: '"Butterflies" (Wolf Music)', year: 2013 },
       { title: 'Rojus (Brainfeeder)', year: 2016 },
       { title: 'Nothing Is Still (Ninja Tune)', year: 2018 },
-    ]},
+    ], spotify:'2o7L9DNcmzocYll1o0GGTU', },
 
   { id:'lone', label:'Lone', type:'artist', genre:'experimental', era:2008, city:'Nottingham', country:'UK',
     desc:'Matt Cutler records as Lone and is based in Nottingham. He began releasing on Dealmaker before moving to R&S and Greco-Roman. His music draws on early 1990s rave and IDM aesthetics — colourful, sample-dense, with a strong sense of euphoria — as well as Detroit electronic and Chicago house. He has released consistently since the late 2000s with a broad stylistic range.',
@@ -2104,28 +2104,28 @@ export const NODES = [
       { title: 'Galaxy Garden (R&S)', year: 2012 },
       { title: 'Reality Testing (R&S)', year: 2014 },
       { title: 'Levitate (Greco-Roman)', year: 2016 },
-    ]},
+    ], spotify:'1f5GqyOPo0CkotzzRwviBu', },
 
   { id:'ross_from_friends', label:'Ross from Friends', type:'artist', genre:'deep', era:2017, city:'London', country:'UK', bandcamp:'rossfromfriends', bandcamp_album:'2290899204',
     desc:'Felix Clary Weatherall records as Ross from Friends. Growing up in Suffolk and moving to London, he began releasing online in the mid-2010s — bedroom productions combining lo-fi sensibility with deep house, UK rave and broken beat influences. His EP A Heartwarming Selection (2018) brought wider attention, followed by Tread (Brainfeeder, 2021), which expanded into live instrumentation and modular synthesis while retaining his signature hazy intimacy. His music sits in a lineage with Four Tet\'s blurring of electronic and live-recorded texture, filtered through the aesthetics of London\'s post-club underground.',
     releases: [
       { title: 'A Heartwarming Selection EP (Lobster Theremin)', year: 2018 },
       { title: 'Tread (Brainfeeder)', year: 2021 },
-    ]},
+    ], spotify:'1Ma3pJzPIrAyYPNRkp3SUF', },
 
   { id:'ejeca', label:'Ejeca', type:'artist', genre:'deep', era:2016, city:'London', country:'UK', bandcamp:'ejeca', bandcamp_album:'1071678593',
     desc:'EJECA is a UK-based electronic producer known for warmly nostalgic, sample-rooted house music. Drawing from French touch, Chicago house and disco, his productions loop and recontextualise classic electronic references — Daft Punk, Stardust, classic soul — into new arrangements with a distinctly feel-good energy. He works across original productions and remix projects, releasing independently and via UK labels.',
     releases: [
       { title: 'Keep Climbing EP', year: 2022 },
       { title: 'Daft Essentials (self-released)', year: 2026 },
-    ]},
+    ], spotify:'0tSC9Vot7WlR1MsLBqQ9HX', },
 
   { id:'last_pines', label:'Last Pines', type:'artist', genre:'deep', era:2024, city:'London', country:'UK', bandcamp:'lastpines', bandcamp_album:'0685012952',
     desc:'Last Pines is a London-based producer working in minimal deep tech and minimal house. Their releases blend the textural density of minimal techno with deep house groove — long-form tracks where subtle percussive shifts and low-end pressure accumulate slowly. Terminal Swiv (2026) is their debut release.',
     releases: [
       { title: 'The Gathering EP', year: 2024 },
       { title: 'Terminal Swiv', year: 2026 },
-    ]},
+    ], spotify:'0b2FF16V23PHdpOAEGQPHV', },
 
   { id:'sasha', label:'Sasha', type:'artist', genre:'melodic', era:1991, city:'Manchester', country:'UK',
     desc:'Alexander Coe, performing as Sasha, is a Welsh-born DJ who rose to prominence in Manchester in the early 1990s. He was central to the progressive house movement of the mid-1990s, playing long warmup sets and developing a mixing style built around extended builds and tonal blending. He has released on deConstruction, Eye Q, and his own label Emfire. His 1994 Essential Mix and his collaborations with John Digweed were defining documents of the progressive house era.',
@@ -2133,7 +2133,7 @@ export const NODES = [
       { title: 'Airdrawndagger (BMG/MCA)', year: 2002 },
       { title: '"Xpander" EP (deConstruction)', year: 1999 },
       { title: 'Involver (Global Underground)', year: 2004 },
-    ]},
+    ], spotify:'1VP5hxNzge9bfbtDvCJwFG', },
 
   // ── UK — SANDWELL DISTRICT ────────────────────────────────────────────────
   { id:'sandwell_district', label:'Sandwell District', type:'label', genre:'techno', era:2006, city:'Birmingham', country:'UK',
@@ -2151,7 +2151,7 @@ export const NODES = [
       { title: 'Dispatches (Geophone)', year: 2001 },
       { title: '"GPH14" (Geophone)', year: 2014 },
       { title: 'Voiceprint (Geophone)', year: 2015 },
-    ]},
+    ], spotify:'09CEhdsMmOdtetLfiqxFlh', },
 
   // ── INTERNATIONAL — VARIOUS ───────────────────────────────────────────────
   { id:'floating_points', label:'Floating Points', type:'artist', genre:'experimental', era:2009, city:'London', country:'UK', bandcamp:'floatingpoints', bandcamp_album:'2214058814',
@@ -2161,7 +2161,7 @@ export const NODES = [
       { title: 'Crush (Pluto)', year: 2019 },
       { title: 'Promises — with Pharoah Sanders & LSO (Luaka Bop)', year: 2021 },
       { title: 'Cascade (Pluto)', year: 2024 },
-    ]},
+    ], spotify:'2AR42Ur9PcchQDtEdwkv4L', },
 
   { id:'matthew_jonson', label:'Matthew Jonson', type:'artist', genre:'minimal', era:2003, city:'Toronto', country:'CA',
     desc:'Matthew Jonson is a Toronto-born producer and live performer who has been based in Berlin for much of his career. He releases on Wagon Repair (a label he co-founded), Circus Company, and Crosstown Rebels. His live sets combine hardware synthesizers with sequenced patterns in extended performances. His track "Typerope" is among the most recognized records in melodic minimal techno.',
@@ -2169,7 +2169,7 @@ export const NODES = [
       { title: '"Typerope" (Wagon Repair)', year: 2004 },
       { title: '"The Motivator" (Wagon Repair)', year: 2006 },
       { title: 'Modern Love Story (Wagon Repair)', year: 2011 },
-    ]},
+    ], spotify:'6PTy8QkZxHr7Thp8SPYE71', },
 
   { id:'kiasmos', label:'Kiasmos', type:'artist', genre:'ambient', era:2014, city:'Reykjavik', country:'IS', bandcamp:'kiasmos', bandcamp_album:'3693906721',
     desc:'Kiasmos is the collaboration between Ólafur Arnalds and Janus Rasmussen, both Icelandic musicians based between Reykjavik and Berlin. The project combines Arnalds\'s background in neo-classical composition with Rasmussen\'s electronic production. Their self-titled debut album (2014) on Erased Tapes established an aesthetic of processed piano, pulsing electronic rhythm, and slow harmonic movement that has been widely influential within modern ambient and melodic techno.',
@@ -2177,7 +2177,7 @@ export const NODES = [
       { title: 'Kiasmos (Erased Tapes)', year: 2014 },
       { title: '"Blurred" EP (Erased Tapes)', year: 2014 },
       { title: 'Swept (Erased Tapes)', year: 2023 },
-    ]},
+    ], spotify:'6X8lhZ7YaRUBlOsOYimlyD', },
 
   { id:'lies_records', label:'L.I.E.S. Records', type:'label', genre:'experimental', era:2010, city:'New York', country:'US',
     desc:'Long Island Electrical Systems, founded by Ron Morelli in New York in 2010. L.I.E.S. became the defining label of a raw, lo-fi strain of American house and techno — deliberately rough-textured, anti-glossy, rooted in the grit of the city rather than European club perfectionism. Its catalogue spans mutant house, industrial techno and tape-damaged electronics, with key releases from Prostitutes, Gunnar Haslam, Beau Wanzer and Bookworms. It shaped a global aesthetic that pushed back against the over-produced mainstream of the early 2010s.',
@@ -2193,7 +2193,7 @@ export const NODES = [
     releases: [
       { title: 'Midtown 120 Blues (Comatonse)', year: 2009 },
       { title: 'Soulnessless (Comatonse)', year: 2012 },
-    ]},
+    ], spotify:'6gIziDS7BnUum54F30BcHN', },
 
   { id:'skee_mask', label:'Skee Mask', type:'artist', genre:'techno', era:2016, city:'Munich', country:'DE',
     desc:'Skee Mask remains anonymous, Munich-based, and entirely oriented toward the music rather than the profile. His debut Shred (Ilian Tape, 2016) combined breakbeats, dub techno, and ambient passages in a way that sounded fully formed rather than exploratory. Compro (2018) pushed the breakbeat architecture deeper and achieved wide critical recognition; Pool (2021) moved into slower, more textural territory. His body of work demonstrates what Ilian Tape at its best is for: records made without reference to trend.',
@@ -2201,7 +2201,7 @@ export const NODES = [
       { title: 'Shred (Ilian Tape)', year: 2016 },
       { title: 'Compro (Ilian Tape)', year: 2018 },
       { title: 'Pool (Ilian Tape)', year: 2021 },
-    ]},
+    ], spotify:'2qwi0hBvI2GrbkurOnw3hZ', },
 
   // ── GERMANY / SWEDEN — MISC ───────────────────────────────────────────────
   { id:'the_field', label:'The Field', type:'artist', genre:'minimal', era:2007, city:'Stockholm', country:'SE', bandcamp:'thefield', bandcamp_album:'2286154674',
@@ -2211,7 +2211,7 @@ export const NODES = [
       { title: 'Yesterday & Today (Kompakt)', year: 2009 },
       { title: 'Looping State of Mind (Kompakt)', year: 2011 },
       { title: 'The Follower (Kompakt)', year: 2016 },
-    ]},
+    ], spotify:'23MIhFHpoOuhtEHZDrrnCS', },
 
   { id:'minilogue', label:'Minilogue', type:'artist', genre:'minimal', era:2006, city:'Gothenburg', country:'SE',
     desc:'Minilogue is the project of Marcus Henriksson and Sebastian Mullaert, based between Gothenburg and Malmö. Their productions are warm and melodic within minimal techno structures, with a strong sense of organic development. They have released on Cocoon, Crosstown Rebels, and other labels. Mullaert has also recorded extensively as Corners and under his own name in a more electronic-acoustic direction.',
@@ -2219,7 +2219,7 @@ export const NODES = [
       { title: '"Hitchhiking" (Cocoon)', year: 2006 },
       { title: 'Animals (Cocoon)', year: 2009 },
       { title: '"The Leopard" (Crosstown Rebels)', year: 2011 },
-    ]},
+    ], spotify:'3q7XOzzlff7iCLz2JNalDV', },
 
   { id:'sebastian_mullaert', label:'Sebastian Mullaert', type:'artist', genre:'melodic', era:2014, city:'Malmö', country:'SE',
     desc:'Sebastian Mullaert (based in southern Sweden) began as a classical musician — organ and violin — before discovering house and techno in the mid-1990s. He co-founded the duo Minilogue with Marcus Henriksson, releasing two albums on Sven Väth\'s Cocoon label: Animals (2008) and Blomma (2013). After Minilogue wound down in 2014 he developed a solo practice rooted in improvisation, ambient techno, and the meeting point of acoustic and electronic sound. His album A Place Called Inkonst (Kontra Musik, 2019) is a key document of this direction. He also records as Wa Wu We — a project exploring meditation and free improvisation — and in 2018 founded Circle of Live, an event series and label centred on real-time collaborative performance. He has released on Mule Musiq, Mule Electronic, Kontra Musik, Hypercolour, and Traum.',
@@ -2227,21 +2227,21 @@ export const NODES = [
       { title: 'Voices Around The Fire (Mule Electronic)', year: 2010 },
       { title: 'Windmaker EP (Hypercolour)', year: 2016 },
       { title: 'A Place Called Inkonst (Kontra Musik)', year: 2019 },
-    ]},
+    ], spotify:'5cKPK8DCxX1R5PwQOU1huv', },
 
   { id:'carsten_jost', label:'Carsten Jost', type:'artist', genre:'deep', era:2004, city:'Hamburg', country:'DE',
     desc:'Carsten Jost co-founded Dial Records in Hamburg in 2002 with Lawrence. He releases minimal, deep house under his own name on Dial and has been a core figure in the Hamburg deep house network. His productions are patient and harmonically developed, working within the same aesthetic territory as Lawrence but with a slightly more minimal quality.',
     releases: [
       { title: '"Lautsprecherbox" (Dial)', year: 2004 },
       { title: '"Andenken" (Dial)', year: 2009 },
-    ]},
+    ], spotify:'44A3e7VYa7sXhYYgJK8E7y', },
 
   { id:'dwig', label:'Dwig', type:'artist', genre:'giegling', era:2013, city:'Weimar', country:'DE',
     desc:'Dwig is a Giegling member whose releases work in a slow, ambient-influenced deep house style. Their debut album Forget the Pink Elephant (Giegling, 2014) is a significant work within the Giegling catalogue, developing the collective\'s characteristic introspective aesthetic across a full-length format.',
     releases: [
       { title: 'Fettwanzenblues (Giegling)', year: 2013 },
       { title: 'Forget the Pink Elephant (Giegling)', year: 2014 },
-    ]},
+    ], spotify:'2sxmKe3CUrWnx7eoXMhOlW', },
 
   // ── NORTH EUROPE — NORTHERN ELECTRONICS ───────────────────────────────────
   { id:'northern_electronics', label:'Northern Electronics', type:'label', genre:'ambient', era:2012, city:'Stockholm', country:'SE',
@@ -2267,14 +2267,14 @@ export const NODES = [
       { title: 'Bubble World (Mood Hut)', year: 2014 },
       { title: '"The Glass City / Golden Garden" (Mood Hut)', year: 2015 },
       { title: '"Our Time" (Mood Hut)', year: 2019 },
-    ]},
+    ], spotify:'02V0FAoWiTFWMT36s1Yt1a', },
 
   { id:'jack_j', label:'Jack J', type:'artist', genre:'deep', era:2013, city:'Vancouver', country:'CA',
     desc:'Jack Jutson records as Jack J and is a co-founder of Mood Hut in Vancouver. His solo productions are introspective deep house with a strong connection to the New York and Chicago garage traditions. He has released on Mood Hut and on Cocktail d\'Amore Music. As one half of Pender Street Steppers he helped define the label\'s communal aesthetic.',
     releases: [
       { title: '"Holding Your Hand" (Mood Hut)', year: 2013 },
       { title: '"Slow Swerve" (Cocktail d\'Amore)', year: 2016 },
-    ]},
+    ], spotify:'3GBPw9NK25X1Wt2OUvOwY3', },
 
   // ── NETHERLANDS — ROTTERDAM ───────────────────────────────────────────────
   { id:'perron', label:'Perron', type:'venue', genre:'techno', era:1992, city:'Rotterdam', country:'NL',
@@ -2302,7 +2302,7 @@ export const NODES = [
       { title: '"Happiness" (Lobster Theremin)', year: 2012 },
       { title: '"Can\'t Stop the Rhythm" (Lobster Theremin)', year: 2014 },
       { title: '"Daydreaming" (Lobster Theremin)', year: 2016 },
-    ]},
+    ], spotify:'6gkHVRYMMXviNI4DglaLrr', },
 
   { id:'interplanetary_criminal', label:'Interplanetary Criminal', type:'artist', genre:'techhouse', era:2019, city:'Manchester', country:'UK',
     desc:'Interplanetary Criminal is a Manchester DJ and producer whose breakthrough came through releases on Lobster Theremin from 2019 onward. His music is energetic and rhythmically forceful — jacking, rave-influenced house with strong roots in Chicago and UK rave culture — and his DJ sets became known for an infectious physicality that built rapid word-of-mouth. His Boiler Room appearances and festival bookings at Parklife and Printworks accelerated his profile significantly. He represents a new generation of UK selectors who developed through internet culture and club residencies simultaneously, reaching international audiences without the gradual trajectory of an earlier era.',
@@ -2310,7 +2310,7 @@ export const NODES = [
       { title: '"Freaky Dancing" (Lobster Theremin)', year: 2019 },
       { title: '"Acid Melt" (Lobster Theremin)', year: 2020 },
       { title: '"Emergency Room" (own)', year: 2022 },
-    ]},
+    ], spotify:'6uJ51uV5rYzu1MJkC4CceI', },
 
   { id:'farbwechsel', label:'Farbwechsel', type:'label', genre:'deep', era:2012, city:'Budapest', country:'HU',
     desc:'Farbwechsel is a Budapest label and collective founded in 2012, closely associated with Route 8 (Bálint Cseke). It is the primary home for the Budapest deep house scene that Route 8 helped develop, and maintains an aesthetic rooted in lo-fi electronics, warm synthesizer textures, and a distinctly Eastern European emotional register. Farbwechsel connects to the Lobster Theremin network and represents Budapest as a node in the European underground house circuit that extends from London through Hamburg.',
@@ -2335,7 +2335,7 @@ export const NODES = [
       { title: '"Polywhirl" (Wisdom Teeth)', year: 2014 },
       { title: 'Blush (Wisdom Teeth)', year: 2019 },
       { title: 'To Illustrate (with K-LONE, Wisdom Teeth)', year: 2022 },
-    ]},
+    ], spotify:'5qdAJ2QyXRasXUmyesONEn', },
 
   { id:'k_lone', label:'K-LONE', type:'artist', genre:'ambient', era:2014, city:'London', country:'UK', bandcamp:'k-lone', bandcamp_album:'0341866469',
     desc:'Joe Gladwell records as K-LONE and co-founded Wisdom Teeth in London in 2014. While his club productions work in the same experimental bass music territory as his labelmates, his 2020 solo album Cape Cira (Wisdom Teeth) is a sustained ambient work — slow, spatial, and deeply considered — that stands apart from the functional club context and has been praised as one of the strongest ambient records of its era. This dual capacity — club tools and ambient listening — is characteristic of the Wisdom Teeth aesthetic at its most developed.',
@@ -2343,14 +2343,14 @@ export const NODES = [
       { title: '"Late Night" (Wisdom Teeth)', year: 2014 },
       { title: 'Cape Cira (Wisdom Teeth)', year: 2020 },
       { title: 'To Illustrate (with Facta, Wisdom Teeth)', year: 2022 },
-    ]},
+    ], spotify:'6VC4hWnnMMmOxpH6KsAXBU', },
 
   { id:'sherelle', label:'Sherelle', type:'artist', genre:'experimental', era:2019, city:'London', country:'UK',
     desc:'London DJ who broke through via a 2019 fabric mix and a reputation for playing breakbeat, jungle and drum & bass at speeds and in contexts that had been colonised by techno — an act of genre recontextualisation that influenced a generation of selectors. Her Fabric x Sherelle compilation (2021) was widely cited as one of the best DJ mixes of that year, and her Radio 1 residency brought jungle-speed electronics to a mass audience without softening the edges.',
     releases:[
       {title:'fabriclive 93 (fabric)', year:2019},
       {title:'Fabric x Sherelle (fabric)', year:2021},
-    ]},
+    ], spotify:'2TFDQkQ7LahhuwL9p7R6MO', },
 
   { id:'nia_archives', label:'Nia Archives', type:'artist', genre:'experimental', era:2021, city:'London', country:'UK',
     desc:'Nia Archives (Nia Sheron Doreen Thomas) fuses jungle\'s chopped breaks and bass with introspective songwriting and a distinctly Gen Z sensibility — producing records that work as both club tools and bedroom listening. Her debut album Silence Is Loud (2024) entered the UK albums chart and earned BRIT Award nominations. She founded Up Ya Archives in 2025 to platform new-generation jungle producers, extending the genre\'s lineage into the next cycle.',
@@ -2358,7 +2358,7 @@ export const NODES = [
       {title:'"Forbidden Feelingz" (Hijinx)', year:2022},
       {title:'Headz Gone West EP (Hijinx)', year:2023},
       {title:'Silence Is Loud (Island)', year:2024},
-    ]},
+    ], spotify:'7BMR0fwtEvzGtK4rNGdoiQ', },
 
   // ── UK/BERLIN — OBJEKT ───────────────────────────────────────────────────
   { id:'objekt', label:'Objekt', type:'artist', genre:'techno', era:2011, city:'Berlin', country:'DE', bandcamp:'objekt', bandcamp_album:'3840456850',
@@ -2367,7 +2367,7 @@ export const NODES = [
       { title: 'Cactus / Porcupine (Hessle Audio)', year: 2012 },
       { title: 'Flatland (PAN)', year: 2014 },
       { title: 'Cocoon Crush (PAN)', year: 2018 },
-    ]},
+    ], spotify:'44z1nVVXZE8d4njcQmQLWc', },
 
   // ── FRANCE — CRYSTALLMESS ────────────────────────────────────────────────
   { id:'crystallmess', label:'Crystallmess', type:'artist', genre:'experimental', era:2022, city:'Paris', country:'FR',
@@ -2375,7 +2375,7 @@ export const NODES = [
     releases: [
       { title: 'Timedance release (Timedance)', year: 2023 },
       { title: 'Pattern Gardening contribution (Wisdom Teeth)', year: 2024 },
-    ]},
+    ], spotify:'5b4g39OmFtyQcwYLSHCvsC', },
 
   // ── UK — BRISTOL (SKULL DISCO / LIVITY SOUND / TIMEDANCE) ────────────────
   { id:'skull_disco', label:'Skull Disco', type:'label', genre:'experimental', era:2005, city:'Bristol', country:'UK',
@@ -2391,7 +2391,7 @@ export const NODES = [
       { title: 'Soundboy Punishments (Skull Disco)', year: 2007 },
       { title: 'Music for the Quiet Hour / The Drawbar Organ EPs (Woe to the Septic Heart)', year: 2012 },
       { title: 'Devotional Songs (Woe to the Septic Heart)', year: 2016 },
-    ]},
+    ], spotify:'5Mq3CTRRgLcPkMnUue75a3', },
 
   { id:'livity_sound', label:'Livity Sound', type:'label', genre:'experimental', era:2011, city:'Bristol', country:'UK',
     desc:'Livity Sound was founded in Bristol in 2011 by Tom Ford (Peverelist). A collaborative imprint shared with Kowton and Asusu, it became the primary document of the "Bristol techno" sound — a hybrid of UK bass culture (dubstep, UK funky, grime) with four-to-the-floor techno and sound system dub processing. Their 2013 Livity Sound compilation is a definitive document of the approach. The label subsequently expanded to include Batu, Simo Cell, Forest Drive West, Hodge, and Laurel Halo, making it one of the most globally connected experimental club labels in the UK. Its founding aesthetic of drums-and-bass spaciousness as a compositional value — directly descending from Basic Channel and Skull Disco — has influenced a generation of European producers.',
@@ -2407,7 +2407,7 @@ export const NODES = [
       { title: '"Roll With the Punches" (Punch Drunk)', year: 2007 },
       { title: '"Jarvik Mindstate" (Livity Sound)', year: 2012 },
       { title: '"Between the Beats" (Livity Sound)', year: 2015 },
-    ]},
+    ], spotify:'0UrA452V5vJpCW5ezx0YMP', },
 
   { id:'timedance', label:'Timedance', type:'label', genre:'experimental', era:2016, city:'Bristol', country:'UK',
     desc:'Timedance was founded in Bristol in 2016 by Batu (Amos Childs). Beginning directly from the Livity Sound lineage, it developed a sound that extended the Bristol experimental techno approach into deeper engagements with global club music — singeli, footwork, Jersey club — without losing the sound system weight of its roots. Rated in Resident Advisor\'s top labels of 2016 in its debut year, it has grown into one of the most internationally respected UK labels of the 2020s. Artists include Batu, object blue, Hodge, Folamour, and Crystallmess. Its 2025 Beatportal "Label of the Month" feature confirmed its sustained relevance a decade after founding.',
@@ -2424,7 +2424,7 @@ export const NODES = [
       { title: '"Aquatactics" (Frustrated Funk)', year: 2003 },
       { title: '"Pressure" (Membrain)', year: 2010 },
       { title: '"Interstellar Fugue" (Ilian Tape)', year: 2019 },
-    ]},
+    ], spotify:'7vZgYqMEApgWpMpXMSJj1o', },
 
   // ── EVENTS & PLATFORMS ────────────────────────────────────────────────────
   { id:'love_parade', label:'Love Parade', type:'moment', genre:'techno', era:1989, city:'Berlin', country:'DE',
@@ -2446,7 +2446,7 @@ export const NODES = [
     releases: [
       { title: 'Murasaki (own)', year: 2015 },
       { title: 'Shōwa (own)', year: 2017 },
-    ]},
+    ], spotify:'69cjjIQEN8M6heOBT2SqZE', },
 
   // ── BERLIN — CHAIN REACTION ───────────────────────────────────────────────
   { id:'chain_reaction', label:'Chain Reaction', type:'label', genre:'ambient', era:1995, city:'Berlin', country:'DE',
@@ -2463,7 +2463,7 @@ export const NODES = [
     releases: [
       { title: 'Vibrant Forms (Chain Reaction)', year: 1999 },
       { title: 'Vibrant Forms II (Chain Reaction)', year: 2000 },
-    ]},
+    ], spotify:'5Y3oDPCnbx1hf4MWLvK2Tf', },
 
   // ── BERLIN — MINIMAL / DARK TECHNO ────────────────────────────────────────
   { id:'claudio_prc', label:'Claudio PRC', type:'artist', genre:'techno', era:2009, city:'Berlin', country:'DE',
@@ -2472,7 +2472,7 @@ export const NODES = [
       { title: 'Clear Depths EP (Prologue)', year: 2010 },
       { title: 'Vacuum Substance EP (Prologue)', year: 2010 },
       { title: 'Inner State (Prologue)', year: 2012 },
-    ]},
+    ], spotify:'5qbXOiqkhAk2GEvpkma7xj', },
 
   // ── GERMANY — HEIDELBERG / AMBIENT HOUSE ──────────────────────────────────
   { id:'move_d', label:'Move D', type:'artist', genre:'deep', era:1992, city:'Heidelberg', country:'DE',
@@ -2480,7 +2480,7 @@ export const NODES = [
     releases: [
       { title: 'Kunststoff (Source Records)', year: 1994 },
       { title: 'fabric 74', year: 2014 },
-    ]},
+    ], spotify:'3hwmrS8MSceZwnZYvZFf97', },
 
   // ── SWEDEN — SEWER SENDER ─────────────────────────────────────────────────
   { id:'sewer_sender', label:'Sewer Sender', type:'label', genre:'experimental', era:2014, city:'', country:'SE',
@@ -2502,13 +2502,13 @@ export const NODES = [
     releases: [
       { title: '"Gratitude" (Help Recordings)', year: 2014 },
       { title: '"Om Dans" (Help Recordings)', year: 2016 },
-    ]},
+    ], spotify:'2yhGuo2tPZ8gS879fhzioq', },
 
   { id:'dj_sports', label:'DJ Sports', type:'artist', genre:'deep', era:2013, city:'Aarhus', country:'DK',
     desc:'DJ Sports is the alias of Milan Zaks, a Danish producer from Aarhus and co-founder of Help Recordings. His music draws on house and garage traditions with a lo-fi, spontaneous quality. He has released on Help Recordings and on Firecracker Recordings, where his debut album Modern Species appeared in 2018. He records as Sportscentral alongside his brother Natal Zaks (DJ Central / Central).',
     releases: [
       { title: 'Modern Species (Firecracker Recordings)', year: 2018 },
-    ]},
+    ], spotify:'7EJ8xVXZJezYW7Y1xvJ2Yb', },
 
   // ── EVENTS — INNERVISIONS / AMSTERDAM ────────────────────────────────────
   { id:'lost_in_a_moment', label:'Lost in a Moment', type:'moment', genre:'melodic', era:2014, city:'Amsterdam', country:'NL',
@@ -2522,7 +2522,7 @@ export const NODES = [
       { title: 'Amygdala (Pampa Records)', year: 2013 },
       { title: 'Knock Knock (Pampa Records)', year: 2018 },
       { title: '"Pick Up" feat. José González (Pampa)', year: 2018 },
-    ]},
+    ], spotify:'1kR99O4MgSTasyeJh8UFCg', },
 
   // ── HAMBURG — GOLDEN PUDEL / HELENA HAUFF ────────────────────────────────
   { id:'golden_pudel', label:'Golden Pudel', type:'venue', genre:'experimental', era:1992, city:'Hamburg', country:'DE',
@@ -2535,7 +2535,7 @@ export const NODES = [
       { title: 'Discreet Desires (Werkdiscs/Ninja Tune)', year: 2015 },
       { title: 'Qualm (Werkdiscs/Ninja Tune)', year: 2018 },
       { title: '"Actio Reactio" (Return to Disorder)', year: 2014 },
-    ]},
+    ], spotify:'1JcefSOP7bcWEluL0iEIaN', },
 
   // ── BERLIN — VRIL ────────────────────────────────────────────────────────
   { id:'vril', label:'Vril', type:'artist', genre:'techno', era:2013, city:'Berlin', country:'DE',
@@ -2544,7 +2544,7 @@ export const NODES = [
       { title: 'Torus (Delsin)', year: 2013 },
       { title: '"Cue" (Tresor)', year: 2016 },
       { title: '"Interceptor" (Vril Music)', year: 2018 },
-    ]},
+    ], spotify:'0p4nmQO2msCgU4IF37Wi3j', },
 
   // ── LONDON — BONOBO / BURIAL / CORSICA STUDIOS ───────────────────────────
   { id:'bonobo', label:'Bonobo', type:'artist', genre:'deep', era:2000, city:'London', country:'UK', bandcamp:'bonobomusic', bandcamp_album:'589833369',
@@ -2554,7 +2554,7 @@ export const NODES = [
       { title: 'Black Sands (Ninja Tune)', year: 2010 },
       { title: 'The North Borders (Ninja Tune)', year: 2013 },
       { title: 'Migration (Ninja Tune)', year: 2017 },
-    ]},
+    ], spotify:'0cmWgDlu9CwTgxPhf403hb', },
 
   { id:'burial', label:'Burial', type:'artist', genre:'experimental', era:2006, city:'London', country:'UK', bandcamp:'burial', bandcamp_album:'4015966257',
     desc:'Burial is an anonymous producer from South London. His debut album Burial (Hyperdub, 2006) and its follow-up Untrue (Hyperdub, 2007) placed him at the centre of a significant shift in British electronic music — combining UK garage rhythms with a heavily processed, melancholic atmospherics. His identity remained unknown until 2008. He has collaborated extensively with Four Tet and Massive Attack, and his records continue to appear sporadically on Hyperdub. His influence on atmospheric electronic music and what became known as post-dubstep is difficult to overstate.',
@@ -2563,7 +2563,7 @@ export const NODES = [
       { title: 'Untrue (Hyperdub)', year: 2007 },
       { title: '"Moth / Wolf Cub" with Four Tet (Text)', year: 2009 },
       { title: 'Ego Death with Four Tet (Hyperdub)', year: 2023 },
-    ]},
+    ], spotify:'0uCCBpmg6MrPb1KY2msceF', },
 
   { id:'corsica_studios', label:'Corsica Studios', type:'venue', genre:'techno', era:2006, city:'London', country:'UK',
     desc:'Corsica Studios is a south London club in Elephant and Castle, operating since the mid-2000s. It is known for adventurous programming across techno, experimental electronic music, and club-adjacent genres, operating two rooms with a sound system calibrated for listening. It has hosted events by Hessle Audio, Blawan, Actress, and visiting international artists. Its booking philosophy prioritises artists and sounds that sit outside the mainstream of London nightlife, and it has remained independent through a period when most comparable venues have closed.',
@@ -2581,7 +2581,7 @@ export const NODES = [
       { title: '"Isobar" (Life and Death)', year: 2012 },
       { title: '"L\'Età Dell\'Oro" (Life and Death)', year: 2014 },
       { title: '"Stay True" (Crosstown Rebels)', year: 2017 },
-    ]},
+    ], spotify:'6vJvFV1A2CpT8s5B1oUN6t', },
 
   { id:'maceo_plex', label:'Maceo Plex', type:'artist', genre:'melodic', era:2012, city:'Barcelona', country:'ES',
     desc:'Eric Estornel was born in Miami to Cuban parents and is based in Barcelona. He releases as Maceo Plex and as Maetrik, a harder techno alias. He founded Ellum Audio in 2013. His productions combine cinematic melodic textures with peak-time techno structures and have brought him to residencies at DC10 in Ibiza and major festival bookings. He has also released on Afterlife, where his track "Solar" became one of the label\'s most-played records.',
@@ -2589,7 +2589,7 @@ export const NODES = [
       { title: '"Astronaut" (Crosstown Rebels)', year: 2012 },
       { title: '"Solar" (Afterlife)', year: 2018 },
       { title: '"Conjure" (Ellum Audio)', year: 2019 },
-    ]},
+    ], spotify:'3TXQ1ddouwQAI78hV4hXDj', },
 
   { id:'mind_against', label:'Mind Against', type:'artist', genre:'melodic', era:2013, city:'Berlin', country:'DE',
     desc:'Mind Against is the project of Italian brothers Alessandro and Federico Fognini, based in Berlin. They are among the core artists of the Afterlife label — founded by Tale of Us — and their productions share its cinematic, slowly evolving character. Their records move through deep house and melodic techno with a strong emphasis on atmosphere over percussive energy. Their track "Anfisa" became one of the early defining Afterlife releases.',
@@ -2597,7 +2597,7 @@ export const NODES = [
       { title: '"Anfisa" (Afterlife)', year: 2016 },
       { title: '"Redruth" (Afterlife)', year: 2018 },
       { title: '"XIII" (Life and Death)', year: 2020 },
-    ]},
+    ], spotify:'48LWLoeY0dhwaiX1FRsn72', },
 
   { id:'francois_k', label:'François K', type:'artist', genre:'deep', era:1985, city:'New York', country:'US',
     desc:'François Kevorkian was born in Lyon, France, and moved to New York in the late 1970s. He became a pivotal figure in the NYC house and garage scene as a DJ, remixer, and producer. He played at the Paradise Garage alongside Larry Levan and was a central presence at the Body & SOUL party from its founding in 1996 through 2004. He founded Wave Music in 1994. His remixes — spanning soul, jazz, house, and techno — are regarded as benchmark works of the form.',
@@ -2605,7 +2605,7 @@ export const NODES = [
       { title: 'FK Presents Choice: A Collection of Classics (Wave Music)', year: 2000 },
       { title: '"Underwater Dancehall" (Wave Music)', year: 2002 },
       { title: 'Deep Space NYC (mix)', year: 2006 },
-    ]},
+    ], spotify:'2Y9THkKdfe8FfoHAyOY4Tv', },
 
   { id:'kuniyuki', label:'Kuniyuki', type:'artist', genre:'deep', era:2006, city:'Tokyo', country:'JP',
     desc:'Kuniyuki Takahashi is a Japanese producer from Sapporo who releases primarily on Mule Musiq in Tokyo. His productions blend deep house with jazz harmony, acoustic instrumentation, and ambient texture in a way that connects the Chicago and New York deep house traditions to a Japanese sensibility rooted in attentiveness and craft. He is among the most internationally recognised Japanese producers in underground deep house.',
@@ -2613,7 +2613,7 @@ export const NODES = [
       { title: '"Kaze / Earth" (Mule Musiq)', year: 2008 },
       { title: 'Circles (Mule Musiq)', year: 2012 },
       { title: '"Feather" (Mule Musiq)', year: 2015 },
-    ]},
+    ], spotify:'53JsFUDYcN2jw6v1nF7Z82', },
 
   { id:'hate', label:'HATE', type:'label', genre:'techno', era:2001, city:'Madrid', country:'ES',
     desc:'HATE is a Spanish techno label founded in Madrid by Oscar Mulero around 2001. It releases hard, functional techno with roots in the Detroit and industrial traditions, prioritising rhythmic precision and sound design over melodic content. The label is one of the most internationally recognised Spanish contributions to European underground techno, and Oscar Mulero himself has been a significant figure in Spanish techno since the early 1990s.',
@@ -2627,7 +2627,7 @@ export const NODES = [
     desc:'Martinou is a Swedish producer releasing on the Sewer Sender label. His debut album Deep Sea Seated Concrete Solid (Sewer Sender, 2016) is a work of textural ambient and experimental electronics with a slow, submerged quality. He is part of a small Scandinavian network of producers engaged with ambient and deep house at a considerable remove from club contexts, connected loosely to the Dial and northern European underground orbit.',
     releases: [
       { title: 'Deep Sea Seated Concrete Solid (Sewer Sender)', year: 2016 },
-    ]},
+    ], spotify:'5mxwKKP9qnvmfpuAgoI7kp', },
 
   { id:'northern_electronics_artists', label:'Abdulla Rashim', type:'artist', genre:'ambient', era:2012, city:'Stockholm', country:'SE',
     desc:'Anthony Linell records as Abdulla Rashim and founded Northern Electronics in Stockholm. His productions are dark, slowly evolving ambient and industrial-influenced electronic music. He has released exclusively on Northern Electronics and his own imprints, maintaining a deliberately opaque public profile consistent with the label\'s minimal approach.',
@@ -2635,7 +2635,7 @@ export const NODES = [
       { title: 'Unanimity (Northern Electronics)', year: 2014 },
       { title: 'For Those Who Strive (Northern Electronics)', year: 2015 },
       { title: 'Eget Rum (Northern Electronics)', year: 2018 },
-    ]},
+    ], spotify:'4g5SU1fg3hsPo4TYJ3UEl2', },
 
   // ── AMBIENT PIONEERS ──────────────────────────────────────────────────────
   { id:'ambient', label:'Ambient', type:'style', genre:'ambient', era:1978, city:'London', country:'UK',
@@ -2652,7 +2652,7 @@ export const NODES = [
       { title: 'Discreet Music (Obscure)', year: 1975 },
       { title: 'Ambient 1: Music for Airports (EG)', year: 1978 },
       { title: 'Ambient 4: On Land (EG)', year: 1982 },
-    ]},
+    ], spotify:'7MSUfLeTdDEoZiJPDSBXgi', },
 
   { id:'aphex_twin', label:'Aphex Twin', type:'artist', genre:'ambient', era:1991, city:'London', country:'UK', bandcamp:'aphextwin', bandcamp_album:'964967358',
     desc:'Richard D. James (born 1971, Limerick, Ireland; raised in Lanner, Cornwall) began on self-built and modified hardware as a teenager. His Analogue Bubblebath EP (Mighty Force, 1991) attracted immediate attention; Selected Ambient Works 85-92 (R&S, 1992) established him centrally in the nascent IDM scene. Selected Ambient Works Volume II (Warp, 1994) — dark, beatless, entirely its own thing — became one of the most influential electronic records ever made. He co-founded Rephlex Records (1991, Cornwall/London) with Grant Wilson-Claridge as a home for braindance and left-field electronic music.',
@@ -2661,7 +2661,7 @@ export const NODES = [
       { title: 'Selected Ambient Works Volume II (Warp)', year: 1994 },
       { title: 'Richard D. James Album (Warp)', year: 1996 },
       { title: 'Drukqs (Warp)', year: 2001 },
-    ]},
+    ], spotify:'6kBDZFXuLrZgHnvmPu9NsG', },
 
   { id:'autechre', label:'Autechre', type:'artist', genre:'experimental', era:1992, city:'Manchester', country:'UK', bandcamp:'autechre', bandcamp_album:'3645815932',
     desc:'Rob Brown and Sean Booth, both from Rochdale, Greater Manchester, formed Autechre in 1987 and became a defining presence on Warp Records after appearing on the Artificial Intelligence compilation (1992). Their debut Incunabula (1993) combined hip-hop rhythmic logic with abstract electronic texture. Through the following decades they progressively dismantled groove in favour of increasingly complex rhythmic structures and machine-like sound design, creating one of the most technically radical and aesthetically consistent bodies of work in electronic music.',
@@ -2670,7 +2670,7 @@ export const NODES = [
       { title: 'Amber (Warp)', year: 1994 },
       { title: 'Tri Repetae (Warp)', year: 1995 },
       { title: 'Confield (Warp)', year: 2001 },
-    ]},
+    ], spotify:'6WH1V41LwGDGmlPUhSZLHO', },
 
   // ── RASTER-NOTON / ALVA NOTO ──────────────────────────────────────────────
   { id:'raster_noton', label:'Raster-Noton', type:'label', genre:'experimental', era:1999, city:'Chemnitz', country:'DE',
@@ -2687,7 +2687,7 @@ export const NODES = [
       { title: 'Transvray (Raster-Noton)', year: 2000 },
       { title: 'Vrioon (with Ryuichi Sakamoto, Raster-Noton)', year: 2002 },
       { title: 'Unitxt (Raster-Noton)', year: 2008 },
-    ]},
+    ], spotify:'1zrqDVuh55auIRthalFdXp', },
 
   // ── DETROIT — MOODYMANN ───────────────────────────────────────────────────
   { id:'moodymann', label:'Moodymann', type:'artist', genre:'deep', era:1994, city:'Detroit', country:'US',
@@ -2696,7 +2696,7 @@ export const NODES = [
       { title: 'Silent Introduction (KDJ)', year: 1997 },
       { title: 'Forevernevermore (KDJ)', year: 2000 },
       { title: 'Mahogani Music (KDJ)', year: 2004 },
-    ]},
+    ], spotify:'6pohviZSNRueSX7uNu63ZX', },
 
   // ── SCANDINAVIA — AMBIENT / EXPERIMENTAL ─────────────────────────────────
   { id:'biosphere', label:'Biosphere', type:'artist', genre:'ambient', era:1991, city:'Tromsø', country:'NO', bandcamp:'biosphere', bandcamp_album:'616828950',
@@ -2705,7 +2705,7 @@ export const NODES = [
       { title: 'Microgravity (Apollo/R&S)', year: 1992 },
       { title: 'Patashnik (Apollo/R&S)', year: 1994 },
       { title: 'Substrata (All Saints)', year: 1997 },
-    ]},
+    ], spotify:'2rcnAZ6DvORQ365X3zVYpr', },
 
   { id:'pan_sonic', label:'Pan Sonic', type:'artist', genre:'experimental', era:1993, city:'Turku', country:'FI',
     desc:'Mika Vainio (1963–2017) and Ilpo Väisänen formed Pan Sonic (originally Panasonic, renamed 1999 after a trademark dispute) in Turku, Finland in 1993. Releasing on the Finnish Sähkö Recordings and the UK\'s Blast First label, they built an aesthetic from the hardest, most reduced sounds achievable with analogue synthesizers and self-built electronics — a noise minimalism that influenced Alva Noto and the Raster-Noton circle, Puce Mary, and the broader post-industrial underground. Mika Vainio\'s subsequent solo work extended these methods until his passing in 2017.',
@@ -2713,7 +2713,7 @@ export const NODES = [
       { title: 'Vakio (Sähkö)', year: 1995 },
       { title: 'Kulma (Blast First)', year: 1997 },
       { title: 'A (Blast First)', year: 1999 },
-    ]},
+    ], spotify:'7qk18OMPkaekOJt2QUva9G', },
 
   { id:'vladislav_delay', label:'Vladislav Delay', type:'artist', genre:'ambient', era:1999, city:'Helsinki', country:'FI', bandcamp:'vladislavdelay', bandcamp_album:'2559861354',
     desc:'Sasu Ripatti (born 1976, Oulu, Finland) records as Vladislav Delay and also as Luomo and Uusitalo. His debut material appeared on Chain Reaction — Basic Channel\'s Berlin sublabel — in 1999–2000, making him one of the few Finnish artists to penetrate the inner circle of dub techno. His album Multila (Chain Reaction, 2000) applies dub processing to a stripped, abstract framework closer to concrete music than to dance music. He released further material on Raster-Noton and founded his own Huume Recordings label.',
@@ -2721,14 +2721,14 @@ export const NODES = [
       { title: 'Ele (Chain Reaction)', year: 1999 },
       { title: 'Multila (Chain Reaction)', year: 2000 },
       { title: 'Whistleblower (Huume)', year: 2012 },
-    ]},
+    ], spotify:'5E3H2KyR31E2Dj3K6vIUe9', },
 
   { id:'todd_terje', label:'Todd Terje', type:'artist', genre:'disco', era:2006, city:'Oslo', country:'NO',
     desc:'Terje Olsen (born 1975, Mjøndalen, Norway) records as Todd Terje and releases on his own Olsen Records label (Oslo). A central figure in the Norwegian cosmic house revival alongside Lindstrøm and Prins Thomas, he constructs extended space disco and nu-disco tracks referencing Italo disco, Giorgio Moroder, and late-1970s synthesizer aesthetics. His debut album It\'s Album Time (2014) achieved genuine crossover success. His remixes of Roxy Music and Bryan Ferry connect him to a broader culture of disco consciousness.',
     releases: [
       { title: '"Inspector Norse" (Olsen)', year: 2012 },
       { title: 'It\'s Album Time (Olsen)', year: 2014 },
-    ]},
+    ], spotify:'49gaZqfow2v8EEQmjGyEIw', },
 
   { id:'posh_isolation', label:'Posh Isolation', type:'label', genre:'experimental', era:2009, city:'Copenhagen', country:'DK', bandcamp:'poshisolation', bandcamp_album:'2637325331',
     desc:'Founded in Copenhagen in 2009 by Loke Rahbek and Christian Stadsgaard, Posh Isolation operates at the intersection of industrial music, EBM, dark ambient, and experimental electronics. Its roster — Frederikke Hoffmeier (Puce Mary), Loke Rahbek (Lust for Youth), Damien Dubrovnik — represents the most sustained experimental electronic label practice to emerge from Scandinavia in the 2010s. The label has released over 100 records, maintaining a consistent aesthetic identity across cassette, vinyl, and digital formats.',
@@ -2743,14 +2743,14 @@ export const NODES = [
       { title: 'The Spiral (Posh Isolation)', year: 2014 },
       { title: 'The Drought (PAN)', year: 2018 },
       { title: 'Persona (Posh Isolation)', year: 2020 },
-    ]},
+    ], spotify:'2ctwc8mjxxPLK9dbn6jjp6', },
 
   { id:'kornel_kovacs', label:'Kornél Kovács', type:'artist', genre:'deep', era:2012, city:'Stockholm', country:'SE', bandcamp:'kornelkovacs', bandcamp_album:'3992184321',
     desc:'Kornél Kovács (born in Sweden of Hungarian heritage) is a co-founder of Studio Barnhus alongside Axel Boman and Petter Nordkvist. His productions are eclectic house music combining melodic energy with rhythmic sophistication. As part of the Studio Barnhus trio he has helped define Stockholm\'s contemporary house identity through releases, residencies, and the label\'s internationally distributed catalogue. His record The Guide (Studio Barnhus, 2016) was widely praised.',
     releases: [
       { title: 'The Guide (Studio Barnhus)', year: 2016 },
       { title: 'Beni Udjin EP (Studio Barnhus)', year: 2014 },
-    ]},
+    ], spotify:'0Ij7th9uWcDVYNAIOn5W22', },
 
   // ── GERMANY — NEW VOICES ──────────────────────────────────────────────────
   { id:'robag_wruhme', label:'Robag Wruhme', type:'artist', genre:'deep', era:2006, city:'Weimar', country:'DE', bandcamp:'robagwruhme', bandcamp_album:'1221722553',
@@ -2758,14 +2758,14 @@ export const NODES = [
     releases: [
       { title: 'Thora Vukk (Kompakt)', year: 2011 },
       { title: 'Wuzzelbud KK (Smallville)', year: 2009 },
-    ]},
+    ], spotify:'47UDvjDVedKddLfGWk3keI', },
 
   { id:'lena_willikens', label:'Lena Willikens', type:'artist', genre:'experimental', era:2010, city:'Düsseldorf', country:'DE',
     desc:'Based in Cologne and identified with her long residency at Salon des Amateurs in Düsseldorf, Lena Willikens is one of the most distinctive DJs to emerge from Germany in the 2010s. Her sets draw from industrial, EBM, new wave, no wave, tribal, and dark electronics in ways that resist easy category. She has released on Cómeme Records (Buenos Aires/Cologne) and Dekmantel. She represents a strand of the Düsseldorf/Cologne axis that inherits both the industrial and the Kraftwerk-rooted electronic avant-garde.',
     releases: [
       { title: 'Phantom Delia (Cómeme)', year: 2016 },
       { title: 'VVVV (with Sarah Farina, Rush Hour)', year: 2019 },
-    ]},
+    ], spotify:'6ut6UGbmxITsrTO3byNE2E', },
 
   { id:'salon_des_amateurs', label:'Salon des Amateurs', type:'venue', genre:'experimental', era:2006, city:'Düsseldorf', country:'DE',
     desc:'Salon des Amateurs is a club and event series in Düsseldorf that opened around 2006. It became a defining context for a generation of German DJs working outside conventional techno and house categories — industrial, no wave, EBM, and abstract electronics all found a platform here. Lena Willikens held a long residency; other associated figures included Gerd Janson, Vladimir Ivkovic, and Move D. The salon\'s programming approach shaped a distinct strand of German club culture that valued curation and eclecticism over genre orthodoxy.',
@@ -2777,7 +2777,7 @@ export const NODES = [
     releases: [
       { title: 'Danza Macabra EP (Clone)', year: 2013 },
       { title: 'Into the Echo (Dekmantel)', year: 2018 },
-    ]},
+    ], spotify:'33DoW58zhBjyyeCdscBybf', },
 
   // ── SPAIN — REGAL ─────────────────────────────────────────────────────────
   { id:'regal', label:'Regal', type:'artist', genre:'techno', era:2012, city:'Madrid', country:'ES',
@@ -2785,7 +2785,7 @@ export const NODES = [
     releases: [
       { title: 'Exo EP (Involve)', year: 2012 },
       { title: 'Negative Feedback Resistor (Semantica)', year: 2015 },
-    ]},
+    ], spotify:'3vDYGs9p4Y6GpfvxJDDhjx', },
 
   // ── FRANCE — DAFT PUNK / FRENCH TOUCH ────────────────────────────────────
   { id:'daft_punk', label:'Daft Punk', type:'artist', genre:'disco', era:1994, city:'Paris', country:'FR',
@@ -2794,7 +2794,7 @@ export const NODES = [
       { title: '"Da Funk" / "Alive" (Soma/Virgin)', year: 1995 },
       { title: 'Homework (Virgin/Daft Life)', year: 1997 },
       { title: 'Discovery (Virgin/Daft Life)', year: 2001 },
-    ]},
+    ], spotify:'4tZwfgrHOc3mvqYlEYSvVi', },
 
   { id:'etienne_de_crecy', label:'Étienne de Crécy', type:'artist', genre:'disco', era:1996, city:'Paris', country:'FR', bandcamp:'etiennedecrecy', bandcamp_album:'2671923751',
     desc:'Étienne de Crécy (born 1969, Paris) recorded as half of Motorbass alongside Philippe Zdar. Their album Pansoul (1996) is considered the first full statement of French Touch — disco samples processed through house production into something simultaneously nostalgic and new. De Crécy\'s solo Super Discount series (1997 onward) extended this approach commercially. He is among the direct progenitors of the Parisian filtered house style that Daft Punk would take to a global audience.',
@@ -2802,7 +2802,7 @@ export const NODES = [
       { title: 'Pansoul — Motorbass (Source)', year: 1996 },
       { title: 'Super Discount (Source/Solid)', year: 1997 },
       { title: 'Super Discount 2 (Different)', year: 2004 },
-    ]},
+    ], spotify:'78YRbJhMi5kXKruiQGCJo7', },
 
   { id:'ed_banger', label:'Ed Banger Records', type:'label', genre:'techhouse', era:2003, city:'Paris', country:'FR',
     desc:'Founded in Paris in 2003 by Pedro Winter (Busy P), previously Daft Punk\'s manager. Ed Banger\'s initial releases — Justice, Mr. Oizo, SebastiAn — defined a second wave of French electronic music characterised by compressed, distorted, arena-scaled sound, departing from the filtered disco warmth of French Touch into something harder. Justice\'s Cross (2007) became one of the defining electronic albums of the decade. The label remains active and continues to release from its Paris base.',
@@ -2840,13 +2840,13 @@ export const NODES = [
       { title: 'L\'Esperanza (Eye Q)', year: 1993 },
       { title: 'The Beauty and the Beast (Eye Q)', year: 1994 },
       { title: 'Contact (Cocoon)', year: 2000 },
-    ]},
+    ], spotify:'5TQaBSTOSypp7S4jfSnN3F', },
 
   { id:'sven_marquardt', label:'Sven Marquardt', type:'artist', genre:'techno', era:2004, city:'Berlin', country:'DE',
     desc:'Sven Marquardt grew up in East Berlin\'s punk and art underground and spent the 1980s photographing it. Since Berghain opened in 2004 he has been the face of its door — and the door is his most significant cultural contribution. An entrance that refuses celebrity logic and holds the club as a genuinely subcultural rather than promotional space. His autobiography Die Nacht ist Leben (2014) traces the line from GDR punk to that doorframe: a line that only Berlin could produce.',
     releases: [
       { title: 'Die Nacht ist Leben (autobiography)', year: 2014 },
-    ]},
+    ], spotify:'1nYKikHu8WWMKYVTcNyyzs', },
 
   { id:'ellen_allien', label:'Ellen Allien', type:'artist', genre:'techno', era:1999, city:'Berlin', country:'DE', bandcamp:'ellenallien', bandcamp_album:'55410409',
     desc:'Born in East Berlin in 1969, Ellen Allien founded BPitch Control in 1999 and spent the following decade making Berlin techno with a pop sensibility that never became commercial — hypnotic rhythms alongside melodic, emotional textures. Her collaborative album with Apparat, Orchestra of Bubbles (2006), expanded the emotional range of what Berlin electronics could encompass. Alongside Berghain\'s Ostgut Ton, BPitch was the other lens through which the world understood Berlin techno in the 2000s. She remains one of the city\'s most internationally active DJs.',
@@ -2854,7 +2854,7 @@ export const NODES = [
       { title: 'Berlinette (BPitch Control)', year: 2003 },
       { title: 'Thrills (BPitch Control)', year: 2005 },
       { title: 'Orchestra of Bubbles — w/ Apparat (BPitch Control)', year: 2006 },
-    ]},
+    ], spotify:'5lsC3H1vh9YSRQckyGv0Up', },
 
   { id:'a_guy_called_gerald', label:'A Guy Called Gerald', type:'artist', genre:'chicago', era:1988, city:'Manchester', country:'UK',
     desc:'"Voodoo Ray" (1988) was made on a cheap sampler with limited programming and became one of the most loved records of the rave era — a Haçienda staple that defined the Manchester acid house moment as completely as any single release could. What Gerald Simpson did next was equally significant: he moved into jungle and drum and bass, releasing Black Secret Technology (1995), a landmark of the form. His career traces the full arc from the Second Summer of Love to the mid-1990s underground, almost without a gap.',
@@ -2862,7 +2862,7 @@ export const NODES = [
       { title: '"Voodoo Ray" (Rham!)', year: 1988 },
       { title: 'Hot Lemonade (Columbia)', year: 1989 },
       { title: 'Black Secret Technology (Juice Box)', year: 1995 },
-    ]},
+    ], spotify:'1TV0WTE9ukywcLGMh4j4iU', },
 
   { id:'james_holden', label:'James Holden', type:'artist', genre:'melodic', era:2002, city:'London', country:'UK', bandcamp:'jamesholden', bandcamp_album:'1481898548',
     desc:'James Holden founded Border Community in 2002, but the label was always a vehicle for something more restless than its melodic techno reputation suggested. He has cited Aphex Twin\'s analogue synthesis work as a formative influence on his approach to texture — and that restlessness culminated in The Inheritors (2013), a landmark of analogue synthesis and polyrhythmic complexity that broke clean from his earlier trance-adjacent idiom. His later work with The Animal Spirits band dissolves genre distinctions entirely.',
@@ -2870,7 +2870,7 @@ export const NODES = [
       { title: 'The Idiots Are Winning (Border Community)', year: 2006 },
       { title: 'The Inheritors (Border Community)', year: 2013 },
       { title: 'Lifer — James Holden & The Animal Spirits (Border Community)', year: 2017 },
-    ]},
+    ], spotify:'15e0X6NuMsVuHi7AZhcfyI', },
 
   { id:'theo_parrish', label:'Theo Parrish', type:'artist', genre:'deep', era:1997, city:'Detroit', country:'US',
     desc:'Theo Parrish makes house music that doesn\'t accommodate easy listening. His productions — dense, raw, rhythmically complex — draw from jazz, soul, and Larry Heard\'s deep house lineage, which he has explicitly named as foundational to how he approaches feeling in music. Based in Ypsilanti, Michigan, he founded Sound Signature Records in 1997 and has since built one of the most uncompromising bodies of work in the music. His DJ sets are notoriously long: physically transformative experiences that require and reward committed attention.',
@@ -2878,14 +2878,14 @@ export const NODES = [
       { title: 'Ugly Edits (Sound Signature)', year: 1997 },
       { title: 'American Intelligence (Sound Signature)', year: 2003 },
       { title: 'Parallel Dimensions (Sound Signature)', year: 2014 },
-    ]},
+    ], spotify:'3qMRvSHJpaRjGDkIeNMoGz', },
 
   { id:'stephan_bodzin', label:'Stephan Bodzin', type:'artist', genre:'melodic', era:2007, city:'Berlin', country:'DE',
     desc:'Stephan Bodzin builds everything on analogue synthesisers — no samples, no shortcuts — and the scale his productions achieve with those constraints is the point. His 2012 album Powers of Ten established him among the defining melodic techno producers of the decade. His live shows carry an additional argument: extended immersive sets built from hardware rather than files, which helped define a hybrid live performance format at a time when laptop performance was becoming the norm.',
     releases: [
       { title: 'Powers of Ten (Herzblut/Mote Evolver)', year: 2012 },
       { title: 'Sungam (Afterlife)', year: 2020 },
-    ]},
+    ], spotify:'2nq2BeSbzExGAv3Y4HgUf7', },
 
   { id:'caribou', label:'Caribou', type:'artist', genre:'experimental', era:2003, city:'London', country:'UK', bandcamp:'caribouband', bandcamp_album:'2088310273',
     desc:'Dan Snaith holds a PhD in mathematics from Imperial College and records as Caribou. The two facts are not unrelated: his music has the patience of someone who knows how long precision takes. Across albums from the krautrock-influenced Manitoba records through the swimming, layered textures of Swim (2010) to the pop-adjacent Suddenly (2020), he has drawn freely from psychedelic rock, jazz, and electronic production without the restlessness of an artist chasing trends. Swim is widely considered a landmark of electronic music in the 2010s.',
@@ -2893,21 +2893,21 @@ export const NODES = [
       { title: 'Up in Flames (Manitoba/Caribou) (Domino)', year: 2003 },
       { title: 'Swim (Merge)', year: 2010 },
       { title: 'Our Love (Merge)', year: 2014 },
-    ]},
+    ], spotify:'4aEnNH9PuU1HF3TsZTru54', },
 
   { id:'daphni', label:'Daphni', type:'artist', genre:'techno', era:2012, city:'London', country:'UK',
     desc:'Daphni is Dan Snaith stripped to function. Where Caribou layers and elaborates, Daphni removes: rolling drums, minimal structure, movement as the primary goal. The album Jiaolong (2012) on Merge compiled tracks from his DJ sets and revealed an entirely different range — the same production intelligence operating in a different emotional register. He has continued to release material on Haunt and Jiaolong, maintaining the two projects as genuinely distinct rather than as a brand exercise.',
     releases: [
       { title: 'Jiaolong (Merge)', year: 2012 },
       { title: 'JIAOLONG (repress + bonus) (Merge)', year: 2019 },
-    ]},
+    ], spotify:'4nhvb6x9ZhPiYCzrHDNia9', },
 
   { id:'deetron', label:'Deetron', type:'artist', genre:'techno', era:2003, city:'Zurich', country:'CH',
     desc:'Something in Samuel Moser\'s productions resists the Germanic industrial template — the jazz-informed chord structures, the warmth that holds even at high tempos. His Fabric 72 mix (2013) is a sustained argument that techno can be emotionally generous rather than merely physical. Releasing on Music Man, Cocoon, and Kompakt across two decades, he has made a distinctly Swiss contribution to European underground techno: technically precise, but never cold.',
     releases: [
       { title: 'Communicate (Music Man)', year: 2009 },
       { title: 'Fabric 72 (Fabric)', year: 2013 },
-    ]},
+    ], spotify:'0d4nL4lAEkHJIqLZSHBuav', },
 
   { id:'illian_tape', label:'Illian Tape', type:'label', genre:'techno', era:2010, city:'Munich', country:'DE',
     desc:'Munich, not Berlin — that displacement matters. Illian Tape, run by the Zenker Brothers, drew from the deep, patient side of Detroit: Carl Craig and Drexciya rather than industrial wall-of-sound. The result was records of unusual textural richness for a small techno imprint. Skee Mask arrived in 2016; his Compro (2018) is the most complete statement of what the label sounds like when everything is working.',
@@ -2928,27 +2928,27 @@ export const NODES = [
     releases: [
       { title: 'Families EP (Hivern Discs)', year: 2009 },
       { title: '∞ (Fin) (Permanent Vacation / Young Turks)', year: 2012 },
-    ]},
+    ], spotify:'1YvN5uOGQkHVUUlZUcnotD', },
 
   { id:'jamie_xx', label:'Jamie xx', type:'artist', genre:'disco', era:2011, city:'London', country:'UK', bandcamp:'jamiexx', bandcamp_album:'150871303',
     desc:'Jamie Smith records as Jamie xx and is a member of The xx. What his solo work did — on In Colour (Young Turks, 2015) — was compress London\'s underground history into something pop-scaled: UK garage, house, and grime folded into tracks that felt simultaneously intimate and enormous. The album became one of the most critically celebrated British electronic records of the decade, making the case that club-adjacent music could be emotionally coherent pop. He has also produced for Rihanna and Gil Scott-Heron.',
     releases: [
       { title: 'In Colour (Young Turks)', year: 2015 },
       { title: '"Far Nearer" (Young Turks)', year: 2011 },
-    ]},
+    ], spotify:'7A0awCXkE1FtSU8B0qwOJQ', },
 
   { id:'nicolas_jaar', label:'Nicolas Jaar', type:'artist', genre:'experimental', era:2011, city:'New York', country:'US', bandcamp:'nicolasjaar', bandcamp_album:'2134150780',
     desc:'Space Is Only Noise (2011) arrived when Nicolas Jaar was twenty. Released on Wolf + Lamb and his own Clown & Sunset label, the album — minimal, patient, drawing on dub, jazz, and ambient as freely as on house — established him immediately as one of the most artistically ambitious producers in electronic music. He has since moved into film and conceptual music contexts under various aliases, and Clown & Sunset continues to release material that refuses genre classification.',
     releases: [
       { title: 'Space Is Only Noise (Wolf + Lamb / Clown & Sunset)', year: 2011 },
       { title: 'Sirens (Other People)', year: 2016 },
-    ]},
+    ], spotify:'5a0etAzO5V26gvlbmHzT9W', },
 
   { id:'melchior_productions', label:'Melchior Productions Ltd', type:'artist', genre:'minimal', era:2009, city:'Amsterdam', country:'NL',
     desc:'Melchior Sultana releases as Melchior Productions Ltd, primarily on Clone Records in Rotterdam, and his music makes no move toward spectacle. Minimal, functional, quietly precise — these are records built for the middle sections of long sets, not for peak moments. That anti-spectacularity is a philosophy in itself, one that sits squarely within the Amsterdam and Rotterdam tradition of music that serves the floor rather than the DJ\'s ego.',
     releases: [
       { title: 'Melchior Productions Vol. 1 (Clone)', year: 2009 },
-    ]},
+    ], spotify:'5U4tB4bjuiSVd1StrbFZSa', },
 
   { id:'kalahari_oyster_cult', label:'Kalahari Oyster Cult', type:'label', genre:'deep', era:2015, city:'Berlin', country:'DE',
     desc:'Where much of Berlin club culture looks inward, Kalahari Oyster Cult turns to face South African house, West African rhythms, and global club forms. Founded in the mid-2010s, it operates with a consistent mission: to make the African lineages of electronic music audible within a city that has too often overlooked them. The result connects Berlin to the global house network as it actually exists — not just the lineage that runs through Detroit.',
@@ -2962,27 +2962,27 @@ export const NODES = [
     releases: [
       { title: 'Galaxy 2 Galaxy — Underground Resistance (UR)', year: 1993 },
       { title: 'Interstellar Fugitives — Underground Resistance (UR)', year: 1998 },
-    ]},
+    ], spotify:'1My0fhNlM6ZmerbOOMCI64', },
 
   { id:'dj_rolando', label:'DJ Rolando', type:'artist', genre:'detroit', era:1999, city:'Detroit', country:'US',
     desc:'Rolando Rocha released "Jaguar" on Underground Resistance in 1999 — one of the most celebrated and widely bootlegged records in Detroit techno. The track\'s arpeggiated acid line and cinematic sweep made it an immediate classic, heard in every major European club within months of release. Like much UR output it was credited only to an alias (The Aztec Mystic) and appeared in an unmarked sleeve. Rolando subsequently released material on his own label and on labels outside the UR family, but Jaguar remains the defining statement.',
     releases: [
       { title: '"Jaguar" as Aztec Mystic (Underground Resistance)', year: 1999 },
       { title: '"Knights of the Jaguar" (remixes)', year: 2000 },
-    ]},
+    ], spotify:'0s1ELavwiZMFYDL31VDJpx', },
 
   { id:'blake_baxter', label:'Blake Baxter', type:'artist', genre:'detroit', era:1987, city:'Detroit', country:'US',
     desc:'Blake Baxter was one of the earliest Detroit techno producers, releasing on Transmat (Derrick May\'s label) in the late 1980s. His records drew more explicitly on the sexual and physical energy of classic soul and funk than the more cerebral futurism of the Belleville Three — tracks like "When We Used to Play" (1987) carry a raw, insistent quality that distinguishes his work within the Detroit canon. He later released on Belgian label R&S, part of the wave of Detroit artists who found their primary audience in Europe.',
     releases: [
       { title: '"When We Used to Play" (Transmat)', year: 1987 },
       { title: '"Prince of Techno" (KMS)', year: 1989 },
-    ]},
+    ], spotify:'3ZKUeqiV2UX5sKhOipqw1h', },
 
   { id:'santonio_echols', label:'Santonio Echols', type:'artist', genre:'detroit', era:1988, city:'Detroit', country:'US',
     desc:'Santonio Echols is one of the less documented figures of the early Detroit scene — a DJ and producer active in the formative years who represents the breadth of talent that existed beyond the Belleville Three circle. His productions appeared on early Detroit and Chicago imprints and he played the city\'s clubs throughout the late 1980s and into the 1990s. Like several Detroit contemporaries, his work was valued more readily by European DJs and collectors than by the city\'s mainstream at the time.',
     releases: [
       { title: '"You Used to Hold Me" (KMS)', year: 1988 },
-    ]},
+    ], spotify:'3CWJ4x6097KUMwHfZwVKdF', },
 
   // ── AMBIENT / EXPERIMENTAL — ADDITIONAL ───────────────────────────────────
   { id:'harold_budd', label:'Harold Budd', type:'artist', genre:'ambient', era:1978, city:'Los Angeles', country:'US',
@@ -2991,7 +2991,7 @@ export const NODES = [
       { title: 'The Plateaux of Mirror (with Brian Eno, EG)', year: 1980 },
       { title: 'The Pearl (with Brian Eno, EG)', year: 1984 },
       { title: 'Lovely Thunder (EG)', year: 1986 },
-    ]},
+    ], spotify:'3uOCouLFR4bVx0XeiQJSbl', },
 
   { id:'william_basinski', label:'William Basinski', type:'artist', genre:'ambient', era:2002, city:'New York', country:'US', bandcamp:'williambasinski', bandcamp_album:'1686158765',
     desc:'William Basinski (born 1958, Houston, Texas; based in New York and Los Angeles) created The Disintegration Loops (2002–2003) by playing deteriorating magnetic tape and recording the decay in real time — documenting the physical dissolution of the medium. The series was completed on 11 September 2001; Basinski watched the World Trade Center collapse while finishing the final transfer, and the recordings became an accidental elegy. The Disintegration Loops are among the most emotionally and conceptually substantial works in recorded music of the 2000s.',
@@ -2999,14 +2999,14 @@ export const NODES = [
       { title: 'The Disintegration Loops I–IV (2062)', year: 2002 },
       { title: 'Melancholia (2062)', year: 2003 },
       { title: 'On Time Out of Time (Temporary Residence)', year: 2019 },
-    ]},
+    ], spotify:'6u5axd0rpDsWSmzhFfb2VB', },
 
   { id:'stars_of_the_lid', label:'Stars of the Lid', type:'artist', genre:'ambient', era:1995, city:'Austin', country:'US', bandcamp:'starsofthelid', bandcamp_album:'605498052',
     desc:'Brian McBride and Adam Wiltzie formed Stars of the Lid in Austin, Texas in 1992. Their music — primarily orchestral strings, processed guitars, and sustained tones — produces a kind of slow-motion grandeur that earned the description "symphonic ambient." And Their Refinement of the Decline (2007, Kranky) is the defining statement, a two-disc work of overwhelming scale and patience. Wiltzie has extended the same approach as A Winged Victory for the Sullen (with Dustin O\'Halloran). Their influence runs through neo-classical composition and post-rock as well as ambient.',
     releases: [
       { title: 'The Tired Sounds of Stars of the Lid (Kranky)', year: 2001 },
       { title: 'And Their Refinement of the Decline (Kranky)', year: 2007 },
-    ]},
+    ], spotify:'36pCa1JHc6hlGbfEmLzJQc', },
 
   { id:'tim_hecker', label:'Tim Hecker', type:'artist', genre:'ambient', era:2001, city:'Montreal', country:'CA', bandcamp:'timhecker', bandcamp_album:'568592522',
     desc:'Tim Hecker (born 1974, Vancouver) is among the most critically recognised ambient composers of his generation. Working primarily with synthesizers, organs, and digital processing, he builds music from dense, dissonant layers — harmonic clouds that shift slowly across long durations. Harmony in Ultraviolet (2006, Alien8) and Ravedeath, 1972 (2011, Kranky) are his most celebrated records; the latter, recorded in a Reykjavik church, brought organ and feedback processing into a new synthesis. Hecker consistently works at the edge of what \'ambient\' can mean, incorporating noise, distortion, and structural dissonance.',
@@ -3015,7 +3015,7 @@ export const NODES = [
       { title: 'An Imaginary Country (Kranky)', year: 2009 },
       { title: 'Ravedeath, 1972 (Kranky)', year: 2011 },
       { title: 'Virgins (Kranky)', year: 2013 },
-    ]},
+    ], spotify:'1qiwaJwjKod5WhcYZ76O1B', },
 
   { id:'merzbow', label:'Merzbow', type:'artist', genre:'experimental', era:1980, city:'Tokyo', country:'JP', bandcamp:'merzbow', bandcamp_album:'130191376',
     desc:'Masami Akita (born 1956, Tokyo) has recorded as Merzbow since 1979, producing one of the largest and most uncompromising bodies of work in noise music. Named after Kurt Schwitters\' Merzbau installation, his recordings — often walls of processed feedback, circuit-bent electronics, and extreme volume — define the genre of harsh noise. He has released hundreds of records across every format. His influence on experimental electronic music is indirect but pervasive: the logic of noise as material (rather than as failure) runs through industrial, power electronics, and the harder fringes of ambient.',
@@ -3023,7 +3023,7 @@ export const NODES = [
       { title: 'Venereology (Release Entertainment)', year: 1994 },
       { title: '1930 (Extreme)', year: 2002 },
       { title: 'Takahe Collage (Bandcamp)', year: 2020 },
-    ]},
+    ], spotify:'5UezsklPScipW64XJm7qql', },
 
   // ── CHICAGO — ADDITIONAL ─────────────────────────────────────────────────
   { id:'dj_rush', label:'DJ Rush', type:'artist', genre:'techno', era:1992, city:'Chicago', country:'US',
@@ -3031,21 +3031,21 @@ export const NODES = [
     releases: [
       { title: '"Get on Up" (Muzik Included)', year: 1996 },
       { title: '"Gotta Have It" (Muzik Included)', year: 1999 },
-    ]},
+    ], spotify:'6gBmUpKvNYtnQTSLK5vwS5', },
 
   { id:'paul_johnson', label:'Paul Johnson', type:'artist', genre:'chicago', era:1992, city:'Chicago', country:'US',
     desc:'Paul Johnson is a Chicago house producer whose career spans the full history of the genre. His track "Get Get Down" (Trax Records, 1999) became one of the most recognisable Chicago house records internationally, used as a reference point for the sound worldwide. Johnson emerged from the same Trax Records environment as Larry Heard and DJ Pierre, and his productions maintain the stripped-back, groove-centred approach of deep Chicago house while carrying it into the late 1990s and beyond.',
     releases: [
       { title: '"Get Get Down" (Trax)', year: 1999 },
       { title: '"Do It Anyway" (Trax)', year: 1997 },
-    ]},
+    ], spotify:'4BqZuFqHJ8CLn3ig0f1m0G', },
 
   { id:'dj_sneak', label:'DJ Sneak', type:'artist', genre:'chicago', era:1994, city:'Chicago', country:'US',
     desc:'Carlos Sosa (born 1969, Puerto Rico; raised in Chicago) records as DJ Sneak. A resident at Chicago\'s Smartbar, he developed a funky, percussion-heavy approach to house music rooted in the Latin and Puerto Rican communities of Chicago\'s West Side. Releasing on Cajual Records (Derrick Carter and Mark Grant\'s label) and internationally on Nervous Records and Distance, he brought a distinctly Chicago funk sensibility to European house audiences in the late 1990s. He was among the DJs who helped define the "Chicago style" heard in Ibiza and UK clubs.',
     releases: [
       { title: '"You Can\'t Hide from Your Bud" (Cajual)', year: 1996 },
       { title: '"I Can\'t Make Up My Mind" (Sneak Trax)', year: 2000 },
-    ]},
+    ], spotify:'5He9yPmPv0Du9hASUlTUjr', },
 
   // ── BIRMINGHAM — BRITISH MURDER BOYS ─────────────────────────────────────
   { id:'british_murder_boys', label:'British Murder Boys', type:'artist', genre:'techno', era:2001, city:'Birmingham', country:'UK',
@@ -3053,7 +3053,7 @@ export const NODES = [
     releases: [
       { title: 'Fucking Hell (Downwards)', year: 2001 },
       { title: 'I\'ve Only Just Begun (Downwards)', year: 2003 },
-    ]},
+    ], spotify:'2GHvHovCwFqoSUmIR8l16q', },
 
   // ── GLASGOW — OPTIMO ──────────────────────────────────────────────────────
   { id:'optimo', label:'Optimo', type:'venue', genre:'experimental', era:1997, city:'Glasgow', country:'UK',
@@ -3074,14 +3074,14 @@ export const NODES = [
     releases: [
       { title: '7 Directions (UIQ)', year: 2019 },
       { title: 'Vormzeep (Entr\'acte)', year: 2016 },
-    ]},
+    ], spotify:'06egMm0xwc1DYUaApCCKiH', },
 
   { id:'lotic', label:'Lotic', type:'artist', genre:'experimental', era:2014, city:'Berlin', country:'US', bandcamp:'loticmusic', bandcamp_album:'2761587382',
     desc:'J\'Kerian Morgan (born in Houston, Texas; based in Berlin) records as Lotic. Beginning with dark, abrasive club edits released on Tri Angle and Janus, their work evolved into something more emotionally exposed — Power (Tri Angle, 2018) combined deconstructed club structures with operatic vocal processing in ways that felt genuinely new. Lotic was a resident at Janus, the Berlin club night that prefigured the deconstructed club movement. Their work draws explicitly on Black American music and queer experience, situated within experimental European club culture.',
     releases: [
       { title: 'Heterocetera (Janus)', year: 2015 },
       { title: 'Power (Tri Angle)', year: 2018 },
-    ]},
+    ], spotify:'7o2Y6TQr9B0ynZGhUDAkyj', },
 
   { id:'eartheater', label:'Eartheater', type:'artist', genre:'experimental', era:2015, city:'New York', country:'US', bandcamp:'eartheater', bandcamp_album:'730776323',
     desc:'Alexandra Drewchin records as Eartheater and releases on PAN (Berlin). Her music is difficult to locate in any existing genre: harp, voice, beats, and synthesis combine in ways that resist both the club and the concert hall. Trinity (PAN, 2019) was broadly acclaimed; Powders (PAN, 2023) extended the approach further into maximalist classical-electronic territory. She represents a current of experimental music that takes femininity seriously as a compositional force rather than as a subject position.',
@@ -3089,7 +3089,7 @@ export const NODES = [
       { title: 'RIP Chrysalis (PAN)', year: 2018 },
       { title: 'Trinity (PAN)', year: 2019 },
       { title: 'Powders (PAN)', year: 2023 },
-    ]},
+    ], spotify:'18ca9d5EU5R1AhVKPR1cm0', },
 
   // ── PC MUSIC / HYPERPOP ───────────────────────────────────────────────────
   { id:'sophie', label:'SOPHIE', type:'artist', genre:'experimental', era:2013, city:'London', country:'UK',
@@ -3098,7 +3098,7 @@ export const NODES = [
       { title: '"BIPP" (Numbers)', year: 2013 },
       { title: '"Lemonade" / "Hard" (Numbers)', year: 2014 },
       { title: 'OIL OF EVERY PEARL\'S UN-INSIDES (MSMSMSM)', year: 2018 },
-    ]},
+    ], spotify:'5a2w2tgpLwv26BYJf2qYwu', },
 
   { id:'pc_music', label:'PC Music', type:'label', genre:'experimental', era:2013, city:'London', country:'UK', bandcamp:'pcmusic', bandcamp_album:'885919557',
     desc:'PC Music was founded in London in 2013 by A.G. Cook as a vehicle for his own music and that of collaborators including Hannah Diamond, QT, Danny L Harle, and Coucou Chloe. The label\'s aesthetic — hyper-compressed production, deliberately artificial vocals, references to advertising and consumer culture — was initially read as ironic but proved to be entirely sincere. It anticipated the hyperpop genre by several years and influenced the production style of Charli XCX, 100 gecs, and much of the experimental pop landscape of the late 2010s and 2020s.',
@@ -3113,7 +3113,7 @@ export const NODES = [
     releases: [
       { title: 'Apple (PC Music)', year: 2020 },
       { title: '7G (PC Music)', year: 2020 },
-    ]},
+    ], spotify:'335TWGWGFan4vaacJzSiU8', },
 
   // ── ARCA ─────────────────────────────────────────────────────────────────
   { id:'arca', label:'Arca', type:'artist', genre:'experimental', era:2012, city:'London', country:'UK', bandcamp:'arca1000000', bandcamp_album:'661734388',
@@ -3123,14 +3123,14 @@ export const NODES = [
       { title: 'Mutant (Mute)', year: 2015 },
       { title: 'Arca (XL)', year: 2017 },
       { title: 'KiCk i (XL)', year: 2020 },
-    ]},
+    ], spotify:'4SQdUpG4f7UbkJG3cJ2Iyj', },
 
   // ── CHICAGO — RON HARDY / PHUTURE ────────────────────────────────────────
   { id:'ron_hardy', label:'Ron Hardy', type:'artist', genre:'chicago', era:1982, city:'Chicago', country:'US',
     desc:'Ron Hardy (1958–1992) ran the Music Box on South Michigan Avenue from 1983 to 1987, alongside Frankie Knuckles at the Warehouse and Paradise Garage as one of the three defining DJ environments of early house music. His approach was rawer and more confrontational than Knuckles — he played at higher tempos, mixed in industrial and experimental records alongside house and disco, and built sets of sustained physical intensity. He was the first DJ to play Phuture\'s "Acid Tracks" (1985), playing an acetate of the track repeatedly before its official release on Trax in 1987. He passed away in 1992.',
     releases: [
       { title: 'Music Box (recorded sets, various)', year: 1984 },
-    ]},
+    ], spotify:'4E0iBKQ8E2IYxzf5oLYkHB', },
 
 
   { id:'phuture', label:'Phuture', type:'artist', genre:'chicago', era:1985, city:'Chicago', country:'US',
@@ -3138,7 +3138,7 @@ export const NODES = [
     releases: [
       { title: '"Acid Tracks" (Trax)', year: 1987 },
       { title: '"Your Only Friend" (Trax)', year: 1989 },
-    ]},
+    ], spotify:'7AGSJihqYPhYy5QzMcwcQT', },
 
   { id:'movement_festival', label:'Movement Festival', type:'moment', genre:'detroit', era:2000, city:'Detroit', country:'US',
     desc:'Movement Electronic Music Festival has been held annually in Detroit\'s Hart Plaza on Memorial Day weekend since 2000 (originally as the Detroit Electronic Music Festival, organised by Paxahau from 2006 onward). It is the largest gathering of the global techno community held in the city where techno originated, and consistently books the Detroit originators — Juan Atkins, Derrick May, Kevin Saunderson, Underground Resistance — alongside international artists. The festival\'s location in Hart Plaza, on the Detroit River, is inseparable from its symbolic weight.',
@@ -3151,7 +3151,7 @@ export const NODES = [
       { title: '"Chime" (FFRR)', year: 1990 },
       { title: 'Orbital (FFRR)', year: 1991 },
       { title: 'In Sides (Internal)', year: 1996 },
-    ]},
+    ], spotify:'3csPCeXsj2wezyvkRFzvmV', },
 
   { id:'leftfield', label:'Leftfield', type:'artist', genre:'experimental', era:1990, city:'London', country:'UK',
     desc:'Neil Barnes and Paul Daley formed Leftfield in London in 1989–90. Their debut single "Not Forgotten" (Outer Rhythm, 1990) was an immediate underground house classic. They established their own Hard Hands label and built an aesthetic that connected Chicago house bass to dub influence and live instrumentation — album Leftism (Hard Hands, 1995) was one of the most critically acclaimed electronic albums of the decade. "Open Up" (featuring John Lydon, 1993) demonstrated the breadth of their connections. They were a significant thread in the transformation of underground house into a broader electronic music culture in the UK.',
@@ -3159,14 +3159,14 @@ export const NODES = [
       { title: '"Not Forgotten" (Outer Rhythm)', year: 1990 },
       { title: 'Leftism (Hard Hands)', year: 1995 },
       { title: 'Rhythm and Stealth (Hard Hands)', year: 1999 },
-    ]},
+    ], spotify:'72hqBMsw7x5jnfxxwkii8L', },
 
   { id:'carl_cox', label:'Carl Cox', type:'artist', genre:'techno', era:1988, city:'London', country:'UK',
     desc:'Carl Cox (born 1962, Oldham; raised in Carshalton, Surrey) was one of the defining DJs of the UK rave era and its aftermath. Known for three-deck mixing at the original Sunrise and Biology illegal parties in 1988–89, he became synonymous with the Orbit club in Morley, Yorkshire, and subsequently with the Underground and Space in Ibiza. His sets synthesised Chicago house and Detroit techno with the high-BPM energy of UK rave, and his ability to read and sustain a crowd across extended sets established standards for techno DJing that remain influential.',
     releases: [
       { title: 'F.A.C.T. (Worldwide DJ)', year: 1995 },
       { title: 'At the End of the Cliché (Intec)', year: 2005 },
-    ]},
+    ], spotify:'19SmlbABtI4bXz864MLqOS', },
 
   // ── BRAZIL — BAILE FUNK ───────────────────────────────────────────────────
   { id:'baile_funk', label:'Baile Funk', type:'style', genre:'experimental', era:1989, city:'Rio de Janeiro', country:'BR',
@@ -3180,20 +3180,20 @@ export const NODES = [
     desc:'Mobilegirl (based in Berlin) releases on Ilian Tape and operates at the intersection of ambient and club music — precise drum programming, melodic synthesis, and a sense of space that distinguishes her productions within the harder techno context of the Ilian Tape catalogue. Her work represents the expansion of the Munich label\'s sound toward more textural and atmospheric territory. She is one of the contemporary artists who connects the Ilian Tape aesthetic to the broader German electronic lineage.',
     releases: [
       { title: 'Swim (Ilian Tape)', year: 2019 },
-    ]},
+    ], spotify:'0DnalEFwTAqJ4SX5egc0zG', },
 
   { id:'perko', label:'Perko', type:'artist', genre:'experimental', era:2013, city:'London', country:'UK',
     desc:'Perko (based in London) releases on Lobster Theremin and is part of the London scene that connects warehouse techno, ambient, and broken electronics. His productions are textural and abstract, avoiding genre landmarks in favour of mood and density. As a DJ he moves between tempos and styles in ways that reflect the eclecticism of Lobster Theremin\'s catalogue — connecting UK dance music heritage to contemporary European club practices.',
     releases: [
       { title: 'Sonder Somatic (Lobster Theremin)', year: 2015 },
-    ]},
+    ], spotify:'5kA5yw8TqGXqQ9Lk7fFYhb', },
 
   { id:'coucou_chloe', label:'Coucou Chloé', type:'artist', genre:'experimental', era:2015, city:'London', country:'UK',
     desc:'Chloé Raunet releases as Coucou Chloé on PC Music and has collaborated with A.G. Cook and SOPHIE. Her productions are maximalist club music — compressed, visceral, fluorescent — that take the PC Music aesthetic into harder, more physically extreme territory. Tracks like "Crump" (PC Music, 2017) were immediate touchstones for a generation of producers working in the space between club and experimental pop.',
     releases: [
       { title: '"Crump" (PC Music)', year: 2017 },
       { title: '"Anarchy" (PC Music)', year: 2019 },
-    ]},
+    ], spotify:'5xmw3tD4MbvhA1ay1U0HEC', },
 
   // ── POST-CLUB AMBIENT ─────────────────────────────────────────────────────
   { id:'the_caretaker', label:'The Caretaker', type:'artist', genre:'ambient', era:1999, city:'Berlin', country:'UK', bandcamp:'thecaretaker', bandcamp_album:'2425378851',
@@ -3202,14 +3202,14 @@ export const NODES = [
       { title: 'Selected Memories from the Haunted Ballroom (V/VM Test)', year: 1999 },
       { title: 'Theoretically Pure Anterograde Amnesia (History Always Favours the Winners)', year: 2005 },
       { title: 'Everywhere at the End of Time (History Always Favours the Winners)', year: 2016 },
-    ]},
+    ], spotify:'2uQn9OFibYuvEMqMuH1zaP', },
 
   { id:'mount_kimbie', label:'Mount Kimbie', type:'artist', genre:'experimental', era:2009, city:'London', country:'UK', bandcamp:'mountkimbie', bandcamp_album:'4118666776',
     desc:'Dominic Maker and Kai Campos formed Mount Kimbie in London in 2008, releasing on Hotflush Recordings. Their debut Crooks & Lovers (2010) was a defining document of the post-dubstep moment — fragmented beats, treated vocals, bass that suggested rather than dominated, melodic material that arrived and dissolved. It influenced a wide range of producers working in the space between electronic music and song. Later albums on Warp moved toward more conventional song structures while retaining the textural sensibility.',
     releases: [
       { title: 'Crooks & Lovers (Hotflush)', year: 2010 },
       { title: 'Cold Spring Fault Less Youth (Warp)', year: 2013 },
-    ]},
+    ], spotify:'3NUtpWpGDoffm3RCGhSHtl', },
 
   // ── QUEER UNDERGROUND — T4T LUV NRG ─────────────────────────────────────
   { id:'octo_octa', label:'Octo Octa', type:'artist', genre:'deep', era:2012, city:'New York', country:'US', bandcamp:'octoocta', bandcamp_album:'481660896',
@@ -3218,14 +3218,14 @@ export const NODES = [
       { title: 'Between Two Selves (Honey Soundsystem)', year: 2017 },
       { title: 'Resonant Body (T4T LUV NRG)', year: 2018 },
       { title: 'For All The Love — with Eris Drew (T4T LUV NRG)', year: 2022 },
-    ]},
+    ], spotify:'2GH8Mzo3Ur1AdOnGUUpt17', },
 
   { id:'eris_drew', label:'Eris Drew', type:'artist', genre:'deep', era:2015, city:'New York', country:'US', bandcamp:'erisdrew', bandcamp_album:'3018135629',
     desc:'Eris Drew is a DJ and producer whose sets and records draw together Chicago house, early rave, and ecstatic dance tradition. Deeply versed in Chicago house history, her DJ practice connects the emotional architecture of the Paradise Garage and the Music Box to contemporary club floors. She co-founded T4T LUV NRG with Octo Octa and released Quivering in Time (T4T LUV NRG, 2019), a debut album rooted in deep house and rave textures. Her sets are known for their emotional arc and historical range.',
     releases: [
       { title: 'Quivering in Time (T4T LUV NRG)', year: 2019 },
       { title: 'For All The Love — with Octo Octa (T4T LUV NRG)', year: 2022 },
-    ]},
+    ], spotify:'4VKbZ8lm0Bm1AbtzAbBdpO', },
 
   { id:'t4t_luv_nrg', label:'T4T LUV NRG', type:'label', genre:'deep', era:2018, city:'New York', country:'US',
     desc:'T4T LUV NRG is a record label and collective founded by Octo Octa and Eris Drew in 2018, centred on trans and queer dance culture. The name stands for Trans 4 Trans Love Energy. The label has released albums and EPs by its founders alongside a growing roster from the queer underground, positioning itself within the deep house tradition while building an explicitly political and community-oriented identity.',
@@ -3256,70 +3256,70 @@ export const NODES = [
     releases:[
       { title:'Dance Baby (Diynamic)', year:2010 },
       { title:'+1 (Diynamic)', year:2014 },
-    ]},
+    ], spotify:'5wJK4kQAkVGjqM9x46KQOC', },
 
   { id:'stimming', label:'Stimming', type:'artist', genre:'melodic', era:2007, city:'Hamburg', country:'DE',
     desc:'Martin Stimming is a Hamburg-based producer whose music sits in the overlap between organic house, melodic techno, and ambient. A core Diynamic artist, he is known for intricate percussion and a fluid, emotionally warm sound. His album Alp is a pastoral peak of the Diynamic aesthetic — live instruments, breathing arrangements, and deep groove coexisting in long-form tracks.',
     releases:[
       { title:'Alp (Diynamic)', year:2014 },
       { title:'Matador (Diynamic)', year:2018 },
-    ]},
+    ], spotify:'2yPveJtn9DpeN0CgNJHvAQ', },
 
   { id:'henrik_schwarz', label:'Henrik Schwarz', type:'artist', genre:'deep', era:2001, city:'Berlin', country:'DE',
     desc:'Henrik Schwarz is a Berlin-based producer and live performer equally at home in deep house, techno, classical arrangement, and experimental electronics. His Innervisions releases helped define the label\'s direction in its early years. He is also known for genre-defying collaborations including work with the Metropole Orkest and extended improvisational live sets.',
     releases:[
       { title:'Wonderful World (Innervisions)', year:2006 },
       { title:'Instruments (Innervisions)', year:2009 },
-    ]},
+    ], spotify:'1ooAqaFu4Ac3BO2HpL4V2R', },
 
   { id:'marcus_worgull', label:'Marcus Worgull', type:'artist', genre:'deep', era:2005, city:'Berlin', country:'DE',
     desc:'Marcus Worgull is a Berlin-based producer and DJ — one of the key artists on Innervisions alongside Dixon and Âme. His productions blend deep house warmth with techno momentum. His DJ sets are known for long, exploratory arcs and he has contributed significantly to the Innervisions sound through both original productions and remixes.',
     releases:[
       { title:'Babel (Innervisions)', year:2011 },
       { title:'In Between (Innervisions)', year:2018 },
-    ]},
+    ], spotify:'4N2PiVgTuh2rxhc3HGVKAG', },
 
   { id:'paul_kalkbrenner', label:'Paul Kalkbrenner', type:'artist', genre:'techno', era:2001, city:'Berlin', country:'DE',
     desc:'Paul Kalkbrenner grew up in East Berlin and began releasing on BPitch Control in the early 2000s. His music is hard-edged Berlin techno with melodic elements. His breakthrough came with the film Berlin Calling (2008), in which he starred and provided the soundtrack — making him one of the few electronic artists to cross into mainstream cultural visibility through cinema. Sky and Sand became a European hit.',
     releases:[
       { title:'Berlin Calling OST (BPitch Control)', year:2008 },
       { title:'Icke Wieder (BPitch Control)', year:2011 },
-    ]},
+    ], spotify:'0rasA5Z5h1ITtHelCpfu9R', },
 
   { id:'modeselektor', label:'Modeselektor', type:'artist', genre:'experimental', era:2002, city:'Berlin', country:'DE',
     desc:'Modeselektor is the Berlin duo of Gernot Bronsert and Sebastian Szary. Their music fuses techno, hip-hop, dubstep, IDM, and bass music into a high-energy hybrid sound. Long associated with BPitch Control and later their own Monkeytown label, they are one half of Moderat — their celebrated collaboration with Apparat — and are known for one of the most physically intense live shows in Berlin electronic music.',
     releases:[
       { title:'Hello Mom! (BPitch Control)', year:2005 },
       { title:'Happy Birthday! (BPitch Control)', year:2007 },
-    ]},
+    ], spotify:'2jYMYP2SVifgmzNRQJx3SJ', },
 
   { id:'fjaak', label:'FJAAK', type:'artist', genre:'techno', era:2012, city:'Berlin', country:'DE', bandcamp:'fjaak', bandcamp_album:'1074359548',
     desc:'FJAAK is the Berlin duo of Felix Wagner and Aaron Röbig, who grew up together in Spandau and began making music as teenagers. Their productions are built entirely on analogue equipment and span driving warehouse techno, slower textural work, and influences from UK garage and breakbeat. They released on Klasse Recordings before signing to Modeselektor\'s 50 Weapons imprint in 2014, then moving to Monkeytown. In 2019 they founded their own SPANDAU20 label.',
     releases:[
       { title:'Remember Me (Klasse Recordings)', year:2013 },
       { title:'FJAAK (Monkeytown)', year:2017 },
-    ]},
+    ], spotify:'4qG1qjeHfkASTdyRGbLWbV', },
 
   { id:'apparat', label:'Apparat', type:'artist', genre:'experimental', era:2001, city:'Berlin', country:'DE',
     desc:'Sascha Ring produces as Apparat, making electronic music between post-rock, ambient, and techno. His albums on Shitkatapult and Mute Records blended live instrumentation with dense electronic processing and atmospheric melancholy. He is one half of Moderat alongside Modeselektor — a project that generated three albums reaching audiences well beyond club culture. His solo work increasingly explores orchestral and cinematic directions.',
     releases:[
       { title:'Walls (Mute)', year:2009 },
       { title:'The Devil\'s Walk (Mute)', year:2011 },
-    ]},
+    ], spotify:'40Ojab0UtVQFjA76qXr8Ot', },
 
   { id:'recondite', label:'Recondite', type:'artist', genre:'ambient', era:2008, city:'Munich', country:'DE',
     desc:'Lorenz Brunner produces as Recondite, making dub techno and ambient music of unusual harmonic depth. His work on Innervisions and Hotflush Recordings is defined by long, breathable tracks built from decaying chords, muffled percussion, and a muted tonal palette — the quieter, more introverted face of the Innervisions sound.',
     releases:[
       { title:'Hinterland (Innervisions)', year:2013 },
       { title:'Pulsing (Hotflush)', year:2015 },
-    ]},
+    ], spotify:'1doQgXssRfKnLx70adszbK', },
 
   { id:'kobosil', label:'Kobosil', type:'artist', genre:'techno', era:2012, city:'Berlin', country:'DE',
     desc:'Kobosil is a key figure of the post-Berghain Berlin techno generation. His releases on Ostgut Ton have pushed the label\'s sound in a harder, more industrial direction — pounding kick drums, metallic percussion, and a confrontational energy. His live sets at Berghain are known for their physicality and resistance to easy melodic resolution.',
     releases:[
       { title:'RB1 (Ostgut Ton)', year:2015 },
       { title:'M (Ostgut Ton)', year:2019 },
-    ]},
+    ], spotify:'2ZvIFwl0BuQgHqWvDE80hC', },
 
   { id:'get_physical', label:'Get Physical Music', type:'label', genre:'minimal', era:2002, city:'Berlin', country:'DE',
     desc:'Get Physical was founded in Berlin in 2002 by M.A.N.D.Y. and DJ T. with Booka Shade as an early central figure. It occupied the space between the deep minimal sound of Kompakt and Perlon and a warmer, groovier house aesthetic. Its releases helped define the Berlin sound of the mid-2000s and the Body Language compilation series became an influential document of the era.',
@@ -3337,20 +3337,20 @@ export const NODES = [
     releases:[
       { title:'Hyph Mngo (Hotflush)', year:2009 },
       { title:'Still Slipping Vol. 1 (XL)', year:2021 },
-    ]},
+    ], spotify:'0aIpJqqTLf683ojWREc5lg', },
 
   { id:'pearson_sound', label:'Pearson Sound', type:'artist', genre:'deep', era:2008, city:'London', country:'UK',
     desc:'David Kennedy began releasing as Ramadanman in 2008, quickly becoming a central figure of the UK bass and post-dubstep scene through Hessle Audio. He later shifted to the name Pearson Sound, releasing harder, more techno-adjacent material while maintaining the percussive complexity of his earlier work. A member of the Hessle Audio trio with Ben UFO and Pangaea.',
     releases:[
       { title:'Pearson Sound (Hessle Audio)', year:2012 },
       { title:'Alien Mode (Hessle Audio)', year:2018 },
-    ]},
+    ], spotify:'3lN70MoiO9u6b95CsTeB1J', },
 
   { id:'jackmaster', label:'Jackmaster', type:'artist', genre:'house', era:2007, city:'Glasgow', country:'UK',
     desc:'Jack Revill (1983–2023) was one of Glasgow\'s most celebrated DJs and co-founder of Numbers. His DJ sets fused house, techno, electro, and bass music in ways that reflected Glasgow\'s unusually eclectic dance culture. Through Numbers he championed music from Rustie, Girl Unit, and Actress, helping define a distinctly British club music that owed as much to Chicago house as to grime.',
     releases:[
       { title:'Live at Robert Johnson Vol. 14 (Playhouse)', year:2012 },
-    ]},
+    ], spotify:'1VQgvnkH9rOB2YkNr1ovuB', },
 
   { id:'numbers', label:'Numbers', type:'label', genre:'experimental', era:2006, city:'Glasgow', country:'UK',
     desc:'Numbers is a Glasgow label co-founded by Jackmaster and Spencer Grady. It occupies a unique position in UK club music — releasing music from house and techno to grime and experimental bass, unified by a design sensibility and Glasgow\'s hybrid, all-inclusive club culture. Key releases from Rustie, Girl Unit, Actress, and S-Type made it one of the most important UK labels of the 2010s.',
@@ -3363,28 +3363,28 @@ export const NODES = [
     releases:[
       { title:'Not for Threes (Warp)', year:1997 },
       { title:'Spokes (Warp)', year:2003 },
-    ]},
+    ], spotify:'5akVqMzdZOdbMYbE4vNZWD', },
 
   { id:'nightmares_on_wax', label:'Nightmares on Wax', type:'artist', genre:'deep', era:1989, city:'Leeds', country:'UK',
     desc:'George Evelyn records as Nightmares on Wax from Leeds. His music sits in the overlap between hip-hop beats, soul samples, and deep house atmosphere — warm, unhurried, and rooted in West Yorkshire sound systems and record shops. Smokers Delight (1995) defines a strain of blissed-out sample-based house that has remained influential across two generations.',
     releases:[
       { title:'A Word of Science (Warp)', year:1992 },
       { title:'Smokers Delight (Warp)', year:1995 },
-    ]},
+    ], spotify:'4tNxq9NGKTKaX8OkZBLgf0', },
 
   { id:'skepta', label:'Skepta', type:'artist', genre:'grime', era:2003, city:'London', country:'UK',
     desc:'Joseph Adenuga Jr., known as Skepta, is from Tottenham and is one of the defining figures of grime. After years of mixtapes and Boy Better Know imprint releases, Konnichiwa (2016) brought him mainstream recognition and the Mercury Prize. His production is spare and confrontational — flat 8-bar structures, clashing synths, and a delivery that emphasises rhythm over melody.',
     releases:[
       { title:'Doin\' It Again (BBK)', year:2009 },
       { title:'Konnichiwa (Boy Better Know)', year:2016 },
-    ]},
+    ], spotify:'2p1fiYHYiXz9qi0JJyxBzN', },
 
   { id:'dizzee_rascal', label:'Dizzee Rascal', type:'artist', genre:'grime', era:2003, city:'London', country:'UK',
     desc:'Dylan Mills, born in Bow, East London, released Boy in da Corner in 2003 at age 18 — winning the Mercury Prize and defining what grime could be at its most raw. Produced on Fruity Loops, the album\'s claustrophobic sonics and hyper-speed lyrical delivery were unlike anything in British music. Dizzee bridged grime\'s origins in pirate radio with wider pop success throughout the 2000s.',
     releases:[
       { title:'Boy in da Corner (XL)', year:2003 },
       { title:'Showtime (XL)', year:2004 },
-    ]},
+    ], spotify:'0gusqTJKxtU1UTmNRMHZcv', },
 
   { id:'ninja_tune', label:'Ninja Tune', type:'label', genre:'experimental', era:1990, city:'London', country:'UK',
     desc:'Ninja Tune was founded in London in 1990 by Coldcut (Matt Black and Jonathan More) as an alternative to major label structures. It became one of the most important British independents, releasing music from Bonobo, Amon Tobin, Roots Manuva, Cinematic Orchestra, and many others. Ninja Tune\'s aesthetic sits between electronic, hip-hop, and jazz — consistently rooted in rhythm and sample culture.',
@@ -3397,7 +3397,7 @@ export const NODES = [
     releases:[
       { title:'Take Time (Tectonic)', year:2013 },
       { title:'Fabric 98 (Fabric)', year:2018 },
-    ]},
+    ], spotify:'7AqtQ161yX7B1509Pq0F6V', },
 
   // ── ITALIAN SCENE ────────────────────────────────────────────────────────
   { id:'giorgio_moroder', label:'Giorgio Moroder', type:'artist', genre:'disco', era:1969, city:'Munich', country:'IT',
@@ -3405,13 +3405,13 @@ export const NODES = [
     releases:[
       { title:'Donna Summer — I Feel Love (Casablanca)', year:1977 },
       { title:'From Here to Eternity (Casablanca)', year:1977 },
-    ]},
+    ], spotify:'6jU2Tt13MmXYk0ZBv1KmfO', },
 
   { id:'daniele_baldelli', label:'Daniele Baldelli', type:'artist', genre:'disco', era:1977, city:'Brescia', country:'IT',
     desc:'Daniele Baldelli was a resident DJ at Cosmic in Lazise from 1979 to 1984, where he pioneered a style known as Cosmic or Afro — blending African rhythms, electro, synth pop, and early electronic music at unusually slow tempos. This approach prefigured house music and ambient techno. The Cosmic scene he helped create was one of the most distinctive European dance cultures of the early 1980s, largely unknown internationally until its reappraisal decades later.',
     releases:[
       { title:'Cosmic — The Original Cosmic DJ (Irma)', year:2001 },
-    ]},
+    ], spotify:'3NZuWa2TqpeGPWGISzX8E7', },
 
   { id:'cosmic_venue', label:'Cosmic', type:'venue', genre:'disco', era:1979, city:'Lazise', country:'IT',
     desc:'Cosmic was an open-air venue in Lazise on the shore of Lake Garda, active from 1979 to 1984. Under the residency of Daniele Baldelli and Don Luca, it became the epicentre of the Afro/Cosmic sound — a slow, psychedelic DJing style blending African percussion, electronic music, and space-age synth records. The sound anticipated both ambient techno and the slower forms of house, and Cosmic remains a touchstone of alternative Italian club history.',
@@ -3422,42 +3422,42 @@ export const NODES = [
     releases:[
       { title:'Play It Loud (Music Man)', year:1998 },
       { title:'Sola (Minus)', year:2005 },
-    ]},
+    ], spotify:'2p8O7NCyfWf1sIZamrU9N1', },
 
   { id:'joseph_capriati', label:'Joseph Capriati', type:'artist', genre:'techno', era:2007, city:'Naples', country:'IT',
     desc:'Joseph Capriati emerged from the Naples underground as a teenager and rose rapidly into the front rank of European techno. His releases on Drumcode and his own Redimension label are high-energy and densely percussive, rooted in a Neapolitan tradition of intense, physically aggressive electronic music. His marathon sets at Fabric and DC10 Ibiza have built a devoted international following.',
     releases:[
       { title:'Heartbeat (Drumcode)', year:2012 },
       { title:'Metamorphosis (Redimension)', year:2019 },
-    ]},
+    ], spotify:'7onsqSWPufMm5ZnUCECDpf', },
 
   { id:'agents_of_time', label:'Agents of Time', type:'artist', genre:'melodic', era:2015, city:'Rome', country:'IT',
     desc:'Agents of Time are a Rome-based duo who emerged through the Afterlife label. Their music sits in the melodic techno register established by Tale of Us — long-form, atmospheric, emotionally elevated — but with a notably darker and more cinematic quality. Their appearances at Fabric and major European festivals have made them among the most prominent Italian electronic exports of the 2020s.',
     releases:[
       { title:'Agents of Time (Afterlife)', year:2018 },
       { title:'The Fable (Afterlife)', year:2021 },
-    ]},
+    ], spotify:'6Jbyd4qzEtbFtswZP1o6Ht', },
 
   { id:'anyma', label:'Anyma', type:'artist', genre:'melodic', era:2020, city:'Milan', country:'IT',
     desc:'Anyma is the solo project of Matteo Milleri, one half of Tale of Us. Where Tale of Us operates as a DJ-led project, Anyma explores the boundary between melodic techno, ambient, and audiovisual live performance. His debut release Genesys on Afterlife quickly became one of the label\'s most streamed records, and his live show — a sophisticated AV production — embodies the theatrical maximalism of the Afterlife aesthetic.',
     releases:[
       { title:'Genesys (Afterlife)', year:2022 },
       { title:'Eternity (Afterlife)', year:2023 },
-    ]},
+    ], spotify:'4iBwchw0U0GZv5RfVYSMxN', },
 
   { id:'black_loops', label:'Black Loops', type:'artist', genre:'deep', era:2015, city:'Arezzo', country:'IT', bandcamp:'blackloops', bandcamp_album:'2762269107',
     desc:'Riccardo Paffetti records as Black Loops and is based in Italy. His productions are rooted in deep house and the 1990s UK and New York house traditions, combining live drums, analogue synthesizers, and sample-based layering. He was named Traxsource #1 Deep House Artist of 2017 and has released on Toy Tonics, Freerange, Classic, and Shall Not Fade.',
     releases:[
       { title:'Early EPs (Toy Tonics)', year:2016 },
       { title:'Always Moving (Freerange)', year:2025 },
-    ]},
+    ], spotify:'6AwGe2F49hD3ANXvmOwqQB', },
 
   { id:'enrico_sangiuliano', label:'Enrico Sangiuliano', type:'artist', genre:'techno', era:2010, city:'Turin', country:'IT',
     desc:'Enrico Sangiuliano is a Turin-based producer and DJ who has become one of Italy\'s most internationally recognised techno artists. His releases on Drumcode, Hotflush, and his own NYX imprint blend driving techno with hypnotic, evolving arrangements. He represents a harder-edged strain of Italian techno drawing on the country\'s deep rave history while engaging with contemporary club aesthetics.',
     releases:[
       { title:'Biomorph (Drumcode)', year:2018 },
       { title:'Physical Moments (NYX)', year:2020 },
-    ]},
+    ], spotify:'1u7DsNFbakULvxnDGtMm90', },
 
   { id:'tenax', label:'Tenax', type:'venue', genre:'techno', era:1981, city:'Florence', country:'IT',
     desc:'Tenax is a Florence club running since 1981, making it one of the longest-standing techno and electronic music venues in Italy. Passing through disco, new wave, and eventually techno, it became internationally known from the 1990s as a destination for serious electronic music. A living link in the chain connecting the Italian tradition — from Cosmic through Italo Disco — to contemporary club culture.',
@@ -3469,7 +3469,7 @@ export const NODES = [
     releases:[
       { title:'Thank U 4 Letting Me Be Myself (FXHE)', year:2009 },
       { title:'It Can Be Done But Only I Can Do It (FXHE)', year:2011 },
-    ]},
+    ], spotify:'11dMqVZY4PHgVL80tejvHK', },
 
   { id:'fxhe', label:'FXHE Records', type:'label', genre:'detroit', era:2004, city:'Detroit', country:'US',
     desc:'FXHE Records (For Exact Information) is Omar S\'s personal Detroit label operating entirely outside the conventional music industry — irregular schedules, limited pressings, deliberately lo-fi presentation. FXHE releases are valued precisely for their resistance to polish and marketing: raw Detroit house and techno issued with handwritten labels and unconventional catalogue logic.',
@@ -3480,7 +3480,7 @@ export const NODES = [
     releases:[
       { title:'The Boat Party EP (Wild Oats)', year:2011 },
       { title:'From the Ground Up (Wild Oats)', year:2015 },
-    ]},
+    ], spotify:'41OIv2uCiP3bPfbFYbnWSy', },
 
   // ── SWEDISH ADDITIONS ────────────────────────────────────────────────────
   { id:'drumcode', label:'Drumcode', type:'label', genre:'techno', era:1996, city:'Stockholm', country:'SE',
@@ -3491,7 +3491,7 @@ export const NODES = [
     desc:'Adam Beyer is the Stockholm-born founder of Drumcode Records. Beginning in the mid-1990s Swedish rave scene, he developed a precise, driving techno sound that became the Drumcode template — functional, high-energy, finely engineered. He has been one of the most consistent touring techno DJs for three decades, and Drumcode has grown under his stewardship into a global brand with a roster of international artists.',
     releases:[
       { title:'Drumcode A Sides Vol. 1 (Drumcode)', year:2009 },
-    ]},
+    ], spotify:'1btv9qmIpbp7q1ixCYNdHu', },
 
   // ── NEW STYLES ────────────────────────────────────────────────────────────
   { id:'cosmic_disco_style', label:'Cosmic / Afro', type:'style', genre:'disco', era:1979, city:'Lazise', country:'IT',
@@ -3549,7 +3549,7 @@ export const NODES = [
       { title: 'Rubycon (Virgin)', year: 1975 },
       { title: 'Stratosfear (Virgin)', year: 1976 },
       { title: 'Ricochet (live, Virgin)', year: 1975 },
-    ]},
+    ], spotify:'1BGN1IdyiSR0ZYrkoKNchl', },
 
   { id:'cluster', label:'Cluster', type:'artist', genre:'experimental', era:1969, city:'Düsseldorf', country:'DE',
     desc:'Cluster — Hans-Joachim Roedelius and Dieter Moebius — formed in the late 1960s and became one of the foundational groups of Kosmische Musik. Their approach was noisier and more organic than Kraftwerk, built on improvisation and unconventional timbres. Collaborations with Brian Eno in 1977 and 1978 (Cluster & Eno; After the Heat, with Roedelius) were seminal for ambient music — Eno credited the partnership as a direct influence on his Ambient series. Their influence runs through industrial music, dub techno, and the wider culture of European experimental electronics.',
@@ -3558,7 +3558,7 @@ export const NODES = [
       { title: 'Zuckerzeit (Brain)', year: 1974 },
       { title: 'Cluster & Eno (Sky)', year: 1977 },
       { title: 'After the Heat — Eno Moebius Roedelius (Sky)', year: 1978 },
-    ]},
+    ], spotify:'5mNY0NPszdalbrb4ITO3M8', },
 
   // ── BERLIN — MODERAT / BOYS NOIZE ───────────────────────────────────────
   { id:'moderat', label:'Moderat', type:'artist', genre:'experimental', era:2009, city:'Berlin', country:'DE',
@@ -3569,14 +3569,14 @@ export const NODES = [
       { title: 'II (BPitch Control)', year: 2013 },
       { title: 'III (BPitch Control)', year: 2016 },
       { title: 'MORE D4TA (Mute)', year: 2022 },
-    ]},
+    ], spotify:'2exkZbmNqMKnT8LRWuxWgy', },
 
   { id:'boys_noize', label:'Boys Noize', type:'artist', genre:'techno', era:2004, city:'Berlin', country:'DE',
     desc:'Alex Ridha — Boys Noize — is a Hamburg-born, Berlin-based producer and DJ who founded Boys Noize Records in 2004. His productions combine electro and techno influences with an aggressive energy that became part of Berlin\'s mid-2000s electro and hard techno moment. Boys Noize Records has released music by Gesaffelstein, Erol Alkan, and others. Ridha has collaborated with Daft Punk\'s Guy-Manuel de Homem-Christo as Crydamoure and worked extensively in film and commercial music without abandoning his underground roots.',
     releases: [
       { title: 'Oi Oi Oi (Boys Noize Records)', year: 2007 },
       { title: '"Power" (Boys Noize Records)', year: 2009 },
-    ]},
+    ], spotify:'62k5LKMhymqlDNo2DWOvvv', },
 
   // ── MUNICH — PERMANENT VACATION ─────────────────────────────────────────
   { id:'permanent_vacation', label:'Permanent Vacation', type:'label', genre:'disco', era:2007, city:'Munich', country:'DE',
@@ -3592,7 +3592,7 @@ export const NODES = [
     releases: [
       { title: '"Equations" EP (Dekmantel)', year: 2016 },
       { title: '"At Swim" (Lobster Theremin)', year: 2018 },
-    ]},
+    ], spotify:'52XSRQqTAfZ8ZrIqkQvQyA', },
 
   { id:'emotional_rescue', label:'Emotional Rescue', type:'label', genre:'disco', era:2008, city:'London', country:'UK',
     desc:'Emotional Rescue is a London label founded in 2008 by Nick Woolfson. It occupies an idiosyncratic position in contemporary electronic music, releasing records across disco, Balearic, cosmic, and deep house genres with an emphasis on warmth and historical depth. Palms Trax, John Talabot, and various rediscovered archive recordings have appeared on the label alongside contemporary artists working in related territory. Its approach — careful curation, cross-genre reach, and a refusal to restrict itself to any single sound — has made it a model for independent labels operating outside genre boundaries.',
@@ -3605,14 +3605,14 @@ export const NODES = [
     desc:'Arkajo is the project of Anders Karlsson, a Gothenburg-based producer associated with the Studio Barnhus circle. His work sits between the melodic house tradition of Studio Barnhus and more abstract experimental music — long-form structures, processed textures, and a compositional patience that owes as much to contemporary classical music as to club contexts.',
     releases: [
       { title: 'Sunbloom (Studio Barnhus)', year: 2019 },
-    ]},
+    ], spotify:'48LueEh5dkeoyRiqH6krhh', },
 
   { id:'dorisburg', label:'Dorisburg', type:'artist', genre:'experimental', era:2008, city:'Stockholm', country:'SE',
     desc:'Dorisburg is the project of Marcus Joons, a Stockholm-based producer who founded the Kontra-Musik label in 2010. His music is characterised by dense, layered textures, hypnotic rhythmic structures, and a spatial depth rooted in dub techno and experimental club music. His approach treats the club as a site for meditative experience, and his DJ sets reflect an omnivorous engagement with electronic music history. His 2017 Fabric mix was widely cited as one of the best in the series.',
     releases: [
       { title: 'Transience (Kontra-Musik)', year: 2015 },
       { title: 'Fabric 87 (mix CD)', year: 2017 },
-    ]},
+    ], spotify:'0OZ1LUrTGxwx0dr71DL7D6', },
 
   { id:'kontra_musik', label:'Kontra-Musik', type:'label', genre:'experimental', era:2010, city:'Stockholm', country:'SE',
     desc:'Kontra-Musik was founded in Stockholm in 2010 by Marcus Joons (Dorisburg). It has become one of Sweden\'s most internationally respected electronic labels, releasing music at the intersection of dub techno, minimal club music, noise, and experimental composition. Artists including Dorisburg, Puce Mary, and Varg have released on the label. Its aesthetic resists genre classification while maintaining a consistent commitment to depth, spatial sound design, and conceptual rigour.',
@@ -3633,7 +3633,7 @@ export const NODES = [
       { title: '"Yashar" (Some Bizzare)', year: 1983 },
       { title: 'The Crackdown (Some Bizzare)', year: 1983 },
       { title: 'Code (EMI)', year: 1987 },
-    ]},
+    ], spotify:'2kS4yz85MaZlxp2VaS3BEe', },
 
   { id:'lfo', label:'LFO', type:'artist', genre:'experimental', era:1988, city:'Leeds', country:'UK',
     desc:'LFO — Mark Bell and Gez Varley — were among the founding artists of Warp Records. Their 1990 twelve-inch "LFO" defined bleep techno: a Leeds-Sheffield hybrid sound built from heavily filtered sub-bass, stark Roland drum machine patterns, and melodic synthesiser blips drawn from Detroit and Chicago but inflected with something distinctly Northern English. The record spent fourteen weeks on the UK singles chart, an unprecedented achievement for underground electronic music. Mark Bell subsequently became a principal collaborator with Björk, co-producing Post, Homogenic, and Vespertine. Varley departed after the first album; Bell continued LFO until his death in 2014.',
@@ -3641,13 +3641,13 @@ export const NODES = [
       { title: '"LFO" (Warp)', year: 1990 },
       { title: 'Frequencies (Warp)', year: 1991 },
       { title: 'Advance (Warp)', year: 1996 },
-    ]},
+    ], spotify:'2M0T4a1pkOC5nifN9W6e9e', },
 
   { id:'forgemasters', label:'Forgemasters', type:'artist', genre:'experimental', era:1989, city:'Sheffield', country:'UK',
     desc:'Forgemasters — Robert Gordon, Sean Maher, and Winston Hazel — released "Track with No Name" as Warp Records\' second release (WAP 2) in 1989. The track was one of the first documents of bleep techno: a Sheffield mutation of Detroit and Chicago electronic music filtered through the city\'s industrial heritage and sound system culture. Gordon subsequently co-founded FON Records with Mark Brydon (later of Moloko). Hazel continued as a DJ and became a central figure in Sheffield\'s long-running electronic music culture.',
     releases: [
       { title: '"Track With No Name" (Warp WAP 2)', year: 1989 },
-    ]},
+    ], spotify:'0GLKatNNJCQ2w6Yb3yVT9d', },
 
   { id:'the_black_dog', label:'The Black Dog', type:'artist', genre:'experimental', era:1989, city:'Sheffield', country:'UK',
     desc:'The Black Dog formed in Sheffield in 1989 with Ken Downie, Ed Handley, and Andy Turner. They were among the first artists on Warp Records, releasing a series of twelve-inches and the landmark album "Bytes" (1993) — credited to Black Dog Productions and featuring Plaid — that helped define the IDM aesthetic. Handley and Turner left to form Plaid; Downie continued as The Black Dog, maintaining a prolific output across subsequent decades. The group is a direct lineage node between Sheffield\'s industrial heritage, Warp\'s early bleep sound, and the fully formed IDM tradition.',
@@ -3655,7 +3655,7 @@ export const NODES = [
       { title: 'Bytes — Black Dog Productions (Warp)', year: 1993, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/d/d8/Blackdog_bytes_cover.jpg' },
       { title: 'Spanners (Warp)', year: 1995 },
       { title: 'Further Vexations (Dust Science)', year: 2008 },
-    ]},
+    ], spotify:'7qdsk0UXx2jCX7jbp6rxeq', },
 
   { id:'808_state', label:'808 State', type:'artist', genre:'experimental', era:1988, city:'Manchester', country:'UK',
     desc:'808 State formed in Manchester in 1988 around Graham Massey, Gerald Simpson (A Guy Called Gerald), Darren Partridge, and Andrew Barker. Their early releases on Creed Records were among the first British techno records; their album Ninety (1989) and its follow-up 90 (1989) defined the Manchester variant of bleep and bass. They were closely associated with the Haçienda and the Summer of Love and produced a body of work that connects Manchester\'s rave culture to Sheffield\'s electronic lineage. Massey later collaborated extensively with Björk. Despite being based in Manchester, their sonic aesthetic is inseparable from the Sheffield/Warp bleep tradition.',
@@ -3663,7 +3663,7 @@ export const NODES = [
       { title: 'Newbuild (Creed)', year: 1988 },
       { title: '90 (ZTT)', year: 1989 },
       { title: 'ex:el (ZTT)', year: 1991 },
-    ]},
+    ], spotify:'7hFdUW64G4iU1tz46ITRfN', },
 
   { id:'squarepusher', label:'Squarepusher', type:'artist', genre:'experimental', era:1994, city:'London', country:'UK',
     desc:'Tom Jenkinson — Squarepusher — has released on Warp since 1996 and represents the most technically demanding intersection of IDM, jazz, and drum and bass within the label\'s catalogue. His early records combined hyperactive breakbeats derived from jungle with live bass guitar playing of extraordinary complexity, creating music that operated simultaneously in club and concert contexts. Albums including Hard Normal Daddy (1997) and Music Is Rotted One Note (1998) established templates for technically ambitious electronic music that subsequent generations continued to develop. His approach to live performance — often solo with bass guitar and live electronics — is unique in the Warp roster.',
@@ -3671,7 +3671,7 @@ export const NODES = [
       { title: 'Feed Me Weird Things (Warp)', year: 1996 },
       { title: 'Hard Normal Daddy (Warp)', year: 1997 },
       { title: 'Go Plastic (Warp)', year: 2001 },
-    ]},
+    ], spotify:'4mtHSXwIHihO6MWNq5Qoko', },
 
   { id:'mu_ziq', label:'µ-Ziq', type:'artist', genre:'experimental', era:1992, city:'London', country:'UK',
     desc:'Mike Paradinas — µ-Ziq — released his first records on Rephlex (Aphex Twin\'s label) in the early 1990s and went on to found Planet Mu in 1995. His productions blend melodic IDM, breakbeat, and abstract electronics into a warmly idiosyncratic body of work. Planet Mu became one of the most important labels in experimental electronic music, releasing early footwork and juke records by DJ Rashad and Jlin alongside Venetian Snares, Burial-adjacent artists, and an enormous range of experimental club music. Paradinas has continued releasing as µ-Ziq alongside running the label.',
@@ -3679,14 +3679,14 @@ export const NODES = [
       { title: 'Tango N\'Vectif (Virgin/Astralwerks)', year: 1993 },
       { title: 'In Pine Effect (Planet Mu)', year: 1995 },
       { title: 'Bilious Paths (Planet Mu)', year: 2003 },
-    ]},
+    ], spotify:'7AiamoV760pPGGM5PbOC6X', },
 
   { id:'global_communication', label:'Global Communication', type:'artist', genre:'ambient', era:1992, city:'Bath', country:'UK',
     desc:'Global Communication was the project of Tom Middleton and Mark Pritchard, formed in Bath in the early 1990s. Their album 76:14 (1994), released on Dedicated and licensed to R&S\'s Apollo sub-label, is one of the definitive ambient electronic records — a sequence of beatless, slow-moving pieces named after their running times, drawing on Detroit ambient techno, Basic Channel, and the atmospheric currents of early rave. Middleton and Pritchard also recorded as Reload, Jedi Knights, and other aliases across multiple labels and styles. 76:14 has been continuously cited as an influence on ambient electronic music for three decades.',
     releases: [
       { title: '76:14 (Dedicated / Apollo)', year: 1994 },
       { title: 'Maiden Voyage — Reload (Evolution)', year: 1993 },
-    ]},
+    ], spotify:'6YktolrgGPFMwWrmAgf4hu', },
 
   { id:'venetian_snares', label:'Venetian Snares', type:'artist', genre:'experimental', era:1999, city:'Winnipeg', country:'CA',
     desc:'Aaron Funk — Venetian Snares — is a Winnipeg-based producer who has released the majority of his work on Planet Mu. His productions are characterised by extremely fast breakbeats (often at 180-300bpm), complex polyrhythmic programming, and emotional contrasts between brutal percussion and melodic or orchestral elements. Albums including Rossz Csillag Alatt Született (2005) — built around Hungarian classical music samples — and Cavalcade of Glee and Dadaist Happy Hardcore Pom Poms (2003) demonstrate both his technical ambition and his refusal to operate within any single genre. He is the central figure of breakcore as a practice if not a scene.',
@@ -3694,7 +3694,7 @@ export const NODES = [
       { title: 'Winnipeg Is a Frozen Shithole (Planet Mu)', year: 2001 },
       { title: 'Rossz Csillag Alatt Született (Planet Mu)', year: 2005 },
       { title: 'Detrimentalist (Planet Mu)', year: 2008 },
-    ]},
+    ], spotify:'7eKIP3IoPoUAZgZuvMM6hf', },
 
   { id:'amon_tobin', label:'Amon Tobin', type:'artist', genre:'experimental', era:1996, city:'London', country:'UK',
     desc:'Amon Tobin — born in Brazil, based in London for much of his career — has released on Ninja Tune since the late 1990s. His productions layer dense textures from jazz, film music, and electronic sources into precisely constructed tracks that resist easy genre placement. Albums including Bricolage (1997), Permutation (1998), and Foley Room (2005) — the latter built entirely from recorded sound effects — demonstrate a compositional approach more in common with electroacoustic music than with club traditions. His live show "ISAM" (2011), featuring elaborate 3D projection mapping, was among the most ambitious audiovisual productions in electronic music.',
@@ -3702,35 +3702,35 @@ export const NODES = [
       { title: 'Bricolage (Ninja Tune)', year: 1997 },
       { title: 'Permutation (Ninja Tune)', year: 1998 },
       { title: 'Foley Room (Ninja Tune)', year: 2005 },
-    ]},
+    ], spotify:'3mvkWMe6swnknwscwvGCHO', },
 
   // ── CURRENT AMERICA ─────────────────────────────────────────────────────
   { id:'jay_daniel', label:'Jay Daniel', type:'artist', genre:'deep', era:2012, city:'Detroit', country:'US',
     desc:'Jay Daniel is a Detroit-based producer and DJ who represents a younger generation of artists carrying forward the city\'s deep house and techno traditions. His releases on Technicolour, Lobster Theremin, and other labels blend Detroit\'s deep house warmth with a contemporary production sensibility. He has been championed by figures including Omar S and Moodymann, situating him firmly within the Detroit continuum while reflecting the influences of London and European underground club music.',
     releases: [
       { title: '"Talk to Me" (Technicolour)', year: 2015 },
-    ]},
+    ], spotify:'2xchSUK5lpbZck9zxSQTys', },
 
   { id:'the_black_madonna', label:'The Black Madonna', type:'artist', genre:'house', era:2013, city:'Chicago', country:'US',
     desc:'Marea Stamper — The Black Madonna — is a Chicago-born DJ and producer who became one of the most politically engaged and technically accomplished DJs of her generation. Rooted in Chicago house and the queer dancefloor tradition, her sets and productions combine the emotional directness of Larry Heard with harder-edged influences from Belgian and British techno. She founded We Still Believe in 2015, a label and platform centred on inclusivity in electronic music. She has since performed under the name Marea, reflecting a shift in her artistic identity while maintaining her connection to the Chicago deep house lineage.',
     releases: [
       { title: '"He Is the Voice I Hear" (Running Back)', year: 2014 },
       { title: '"He Is the Voice I Hear (Remixes)"', year: 2015 },
-    ]},
+    ], spotify:'2nNEvsyPzLwKVZrfkwLpNK', },
 
   { id:'honey_dijon', label:'Honey Dijon', type:'artist', genre:'house', era:2000, city:'Chicago', country:'US',
     desc:'Honey Dijon is a Chicago-born, New York-based DJ and producer who has been a central figure in queer house music for two decades. Her approach is rooted directly in the Chicago house tradition — she grew up attending the Music Box and the Warehouse\'s successor nights — and her DJ sets are built around deep house, disco, and club music with a consistent political and cultural perspective around Black and trans identity. Her production work has appeared on Classic Music Company, djkoze\'s Pampa Records, and her own label, and she has become one of the most booked DJs in the world while remaining tightly connected to her Chicago roots.',
     releases: [
       { title: '"The Best of Me" ft. Josh Caffe (Classic)', year: 2021 },
       { title: 'Black Girl Magic (Classic)', year: 2022 },
-    ]},
+    ], spotify:'0XfQBWgzisaS9ltDV9bXAS', },
 
   { id:'hieroglyphic_being', label:'Hieroglyphic Being', type:'artist', genre:'experimental', era:2000, city:'Chicago', country:'US',
     desc:'Jamal Moss — Hieroglyphic Being — is a Chicago producer and DJ who has operated in the underground since the early 2000s, releasing a vast catalogue of abrasive, lo-fi electronic music that connects Chicago\'s house tradition to industrial, noise, and free jazz. His releases on Mathematics Recordings (his own label) number in the dozens and cover territory from rough, functional club music to abstract sound experiments. He has also released on RVNG Intl. and ESP-Disk, situating him at the intersection of electronic music and the American experimental music tradition. His approach maintains a direct connection to the spiritual and political dimensions of Chicago\'s original house scene.',
     releases: [
       { title: 'Tetrachromacy (RVNG Intl.)', year: 2014 },
       { title: 'The Acid Documents (Mathematics)', year: 2015 },
-    ]},
+    ], spotify:'6zh25V1pQ8IQpxDYVmFSrT', },
 
   { id:'avalon_emerson', label:'Avalon Emerson', type:'artist', genre:'house', era:2015, city:'San Francisco', country:'US',
     desc:'Avalon Emerson is a San Francisco-born, Berlin-based DJ and producer who emerged in 2015 with releases on Whities and Thisisnotanexit and quickly became one of the most acclaimed DJs in contemporary electronic music. Her productions draw on Chicago house, electro, and trance while resisting easy categorisation, and her DJ sets are known for their range and intelligence. She has released on her own label &&& (Ampersand) and on Ghostly International, and her debut album "& (Ampersand)" (2023) demonstrated a capacity for pop songwriting alongside her club work.',
@@ -3738,13 +3738,13 @@ export const NODES = [
       { title: '"The Frontier" (Whities)', year: 2016 },
       { title: '"Whities 009" EP', year: 2016 },
       { title: '& (Ampersand) (Ghostly)', year: 2023 },
-    ]},
+    ], spotify:'4yrO1N273PlTaixa4BNwBz', },
 
   { id:'umfang', label:'Umfang', type:'artist', genre:'techno', era:2013, city:'New York', country:'US',
     desc:'Emma Olson — Umfang — is a New York-based DJ and producer and co-founder of Technofeminism, a collective and zine addressing gender politics in club culture. Her productions and DJ sets operate in the territory between Chicago house, New York club music, and European techno, reflecting an approach shaped by the intersection of underground club culture and political organising. She has released on L.I.E.S. Records and associated labels, and Technofeminism has been influential in articulating a feminist practice within techno culture.',
     releases: [
       { title: 'Symptoms (Technicolour)', year: 2018 },
-    ]},
+    ], spotify:'1Tf0PpDLg4A8m7aidHGRG3', },
 
   { id:'flying_lotus', label:'Flying Lotus', type:'artist', genre:'experimental', era:2006, city:'Los Angeles', country:'US',
     desc:'Steven Ellison — Flying Lotus — is a Los Angeles-based producer and the founder of Brainfeeder Records. His great-aunt was Alice Coltrane, and his music reflects both that jazz heritage and a deep engagement with hip-hop, footwork, and electronic music. Cosmogramma (2010) and You\'re Dead! (2014) are among the most significant crossover records between jazz tradition and contemporary electronic production. Brainfeeder has become one of the most important independent labels in the US, releasing Thundercat, Kamasi Washington, and others at the intersection of jazz and club music.',
@@ -3753,7 +3753,7 @@ export const NODES = [
       { title: 'Los Angeles (Warp)', year: 2008 },
       { title: 'Cosmogramma (Warp)', year: 2010 },
       { title: "You're Dead! (Warp)", year: 2014 },
-    ]},
+    ], spotify:'29XOeO6KIWxGthejQqn793', },
 
   { id:'brainfeeder', label:'Brainfeeder', type:'label', genre:'experimental', era:2008, city:'Los Angeles', country:'US',
     desc:'Brainfeeder was founded in Los Angeles in 2008 by Flying Lotus and has become one of the defining labels at the intersection of jazz, hip-hop, and electronic music. Its roster — Thundercat, Kamasi Washington, Lapalux, Mono/Poly — represents a specific LA aesthetic rooted in the Low End Theory club night, which brought together beat producers, jazz musicians, and MCs in a shared space. Brainfeeder positioned Los Angeles, previously less visible in electronic music discourse than Chicago, Detroit, or New York, as a city with its own distinct and historically rooted electronic culture.',
@@ -3768,7 +3768,7 @@ export const NODES = [
     releases: [
       { title: 'Nord (Northern Electronics)', year: 2013 },
       { title: 'Misantropen (Posh Isolation)', year: 2015 },
-    ]},
+    ], spotify:'4g2EfgpanE2Z9LG1nQ9zNy', },
 
   { id:'shxcxchcxsh', label:'Shxcxchcxsh', type:'artist', genre:'techno', era:2012, city:'Stockholm', country:'SE',
     desc:'Shxcxchcxsh is a Stockholm-based duo — Lars Hammar and Shanna Jones — whose releases on Surgeon\'s Avian label have been among the most critically admired techno records of the 2010s. Their music is built from modular synthesis, with dense, constantly evolving textures and a rhythmic approach that is simultaneously complex and physically compelling. The Skrika EP (2013) and SummArpDa (2015) are landmark records in contemporary techno. Their approach resists both the minimal clarity of Berlin techno and the brutalism of industrial — it is intricate, warm at its edges, and highly distinctive.',
@@ -3776,7 +3776,7 @@ export const NODES = [
       { title: 'Skrika (Avian)', year: 2013 },
       { title: 'SummArpDa (Avian)', year: 2015 },
       { title: 'STRGTHS (Avian)', year: 2018 },
-    ]},
+    ], spotify:'6s1SjCXRjeNAa3aRNiYROK', },
 
   { id:'avian', label:'Avian', type:'label', genre:'techno', era:2010, city:'Birmingham', country:'UK',
     desc:'Avian was founded by Surgeon (Anthony Child) in Birmingham around 2010. It became one of the most respected techno labels of the decade, releasing records by Surgeon, Shxcxchcxsh, Skee Mask, and British Murder Boys among others. The label\'s aesthetic is built from a shared commitment to technical precision, physical intensity, and an approach to production that resists both minimalism and maximalism in favour of density and detail. Its Swedish and German roster alongside its Birmingham roots reflect how international contemporary techno\'s geography has become.',
@@ -3789,14 +3789,14 @@ export const NODES = [
     desc:'Courtesy is a Copenhagen-based DJ and producer whose work sits between industrial techno and more abstract club forms. She has played at Berghain, Fabric, and other major European venues, and her sets are characterised by a rigorous approach to energy management and a wide range of references. She is part of the broader Copenhagen underground connected to Posh Isolation and the Nordic experimental scene, while maintaining relationships with Glasgow\'s Numbers label and other UK-based networks.',
     releases: [
       { title: '"PLEX" (Local Action)', year: 2021 },
-    ]},
+    ], spotify:'0osYTSrOpW6YESEC1lClwN', },
 
   { id:'par_grindvik', label:'Pär Grindvik', type:'artist', genre:'techno', era:2002, city:'Stockholm', country:'SE',
     desc:'Pär Grindvik is a Stockholm-based DJ and producer who has released on Drumcode and founded Infrastructure New York alongside other Stockholm-based artists. His techno is precise and driving, sitting within the harder current of Swedish techno represented by Drumcode while incorporating deeper and more atmospheric elements. He has been a consistent presence at Berghain and the major European techno clubs for over two decades, and his label work has helped define a Stockholm–New York techno axis.',
     releases: [
       { title: '"Sugarcoated Poison Pill" (Drumcode)', year: 2009 },
       { title: 'Infrastructure Series (Infrastructure NY)', year: 2010 },
-    ]},
+    ], spotify:'2lLqHBjAnD1QyH24pOPoH6', },
 
   // ── SERBIA ───────────────────────────────────────────────────────────────
   { id:'drugstore', label:'Drugstore', type:'venue', genre:'techno', era:2002, city:'Belgrade', country:'RS',
@@ -3807,7 +3807,7 @@ export const NODES = [
     desc:'Tijana Todorović — Tijana T — is a Belgrade-born DJ and producer who became one of the most internationally recognised artists from the Serbian underground. Her sets blend industrial techno with deeper house influences, and she has played at Berghain, fabric, and Panorama Bar while maintaining her connection to the Belgrade scene. She has released on Ostgut Ton and Optimo Music, and her profile represents the integration of Eastern European underground club culture into the broader international techno circuit.',
     releases: [
       { title: '"Untitled" (Ostgut Ton)', year: 2016 },
-    ]},
+    ], spotify:'3aU9a4BXHN5YpXwxzzxT1V', },
 
   { id:'exit_festival', label:'Exit Festival', type:'moment', genre:'techno', era:2000, city:'Novi Sad', country:'RS',
     desc:'Exit Festival began in 2000 as a student protest movement against the Milošević regime, held in the streets of Novi Sad. After Milošević\'s fall it became a music festival and moved to the Petrovaradin Fortress. It is one of Europe\'s largest and most geographically distinctive festivals — the fortress setting and the political origins give it a character unlike any other European event. Its electronic programme has included Berghain residents, major international techno and house acts, and regional artists, making it a key platform for the integration of Balkan club culture into the European mainstream.',
@@ -3830,7 +3830,7 @@ export const NODES = [
     releases: [
       { title: 'Tsunami (Príncipe)', year: 2013 },
       { title: 'Afro Zone (Príncipe)', year: 2016 },
-    ]},
+    ], spotify:'4XG3TgASrkAnYdp58tWvLb', },
 
   // ── FRANCE EXPANDED ──────────────────────────────────────────────────────
   { id:'concrete_paris', label:'Concrete', type:'venue', genre:'techno', era:2011, city:'Paris', country:'FR',
@@ -3868,28 +3868,28 @@ export const NODES = [
       { title: 'Bicep (Ninja Tune)', year: 2017 },
       { title: 'Isles (Ninja Tune)', year: 2021 },
       { title: '"Glue" (Ninja Tune)', year: 2017 },
-    ]},
+    ], spotify:'73A3bLnfnz5BoQjb4gNCga', },
 
   { id:'overmono', label:'Overmono', type:'artist', genre:'techno', era:2020, city:'London', country:'UK',
     desc:'Overmono is the collaborative project of brothers Ed Russell (also known as Truss) and Tom Russell (also known as Tessela). Both had established solo careers in UK techno and club music before beginning to release together. Their music combines elements of UK rave, grime, and techno with a warmth and emotional directness that gave them a significantly wider audience than either had reached separately. Good Lies (2023) on XL Recordings demonstrated that technically demanding electronic music could find mainstream audiences without compromising its roots.',
     releases: [
       { title: '"So U Kno" (XL)', year: 2021 },
       { title: 'Good Lies (XL)', year: 2023 },
-    ]},
+    ], spotify:'01PnN11ovfen6xUOHfNpn3', },
 
   { id:'batu', label:'Batu', type:'artist', genre:'techno', era:2017, city:'Bristol', country:'UK',
     desc:'Jack Byers — Batu — is a Bristol-based producer and DJ who emerged through Timedance, the label co-founded with Peverelist, and has released on Hessle Audio, ILIAN TAPE, and his own Timedance imprint. His productions occupy a space between Bristol\'s physical, system-music tradition and the more abstract approaches of Hessle Audio and Munich\'s ILIAN TAPE. His DJ sets are technically demanding and intellectually serious, building long arcs across extended sets. He is one of the most critically respected producers of his generation.',
     releases: [
       { title: 'Burden of Patience (Timedance)', year: 2020 },
       { title: 'Opal Tapes appearances', year: 2017 },
-    ]},
+    ], spotify:'15AZJFNrXtIN4Nk8BIOnS2', },
 
   { id:'haai', label:'HAAi', type:'artist', genre:'techno', era:2018, city:'London', country:'UK',
     desc:'Teneil Throssell — HAAi — is a Sydney-born, London-based DJ and producer who became one of the most respected selectors in international techno and club music from 2018 onward. Her sets blend techno, acid, and more experimental electronic music with an emotional intelligence and technical command that led to residencies at fabric and invitations to Berghain, Panorama Bar, and Concrete. She has released on her own BOHica label and on respected underground labels, and her BBC Radio 6 Music show has been a platform for new and archival electronic music.',
     releases: [
       { title: '"Motorik Romantic" (BOHica)', year: 2020 },
       { title: 'Baby, We\'re Ascending (Mute)', year: 2022 },
-    ]},
+    ], spotify:'0pkLgeB9j465x1QB2kRoy4', },
 
   // ── 2020s — ILIAN TAPE ────────────────────────────────────────────────────
   { id:'ilian_tape', label:'ILIAN TAPE', type:'label', genre:'techno', era:2012, city:'Munich', country:'DE',
@@ -3906,14 +3906,14 @@ export const NODES = [
       { title: 'Opaquer (Bandcamp)', year: 2019 },
       { title: 'Peel (Warp)', year: 2020 },
       { title: 'Temporary Suspension (Editions Mego)', year: 2021 },
-    ]},
+    ], spotify:'5blZUSGq0z7HhuSldSXV3a', },
 
   { id:'slikback', label:'Slikback', type:'artist', genre:'techno', era:2018, city:'Nairobi', country:'KE',
     desc:'Slikback is a Nairobi-based producer whose music sits at the intersection of club music, gqom, footwork, and experimental electronics. His productions are physically intense — fast, percussive, and heavily textured — while drawing from a range of African musical traditions that his European contemporaries do not share. Releases on Nyege Nyege Tapes (Uganda), PAN, and other labels have positioned him within the global underground of club and experimental music, while his identity as a Kenyan artist challenges the European-centrism that has historically dominated that world.',
     releases: [
       { title: 'TOMO (Nyege Nyege Tapes)', year: 2019 },
       { title: 'LIMEN (PAN)', year: 2020 },
-    ]},
+    ], spotify:'0NwRAG9DawUqqgur9925fA', },
 
   // ── NETHERLANDS — SPEEDY J ───────────────────────────────────────────────
   { id:'speedy_j', label:'Speedy J', type:'artist', genre:'techno', era:1992, city:'Rotterdam', country:'NL',
@@ -3923,7 +3923,7 @@ export const NODES = [
       { title: 'Ginger (Warp)', year: 1993 },
       { title: 'Public Energy No. 1 (Tresor)', year: 1997 },
       { title: 'A Shocking Hobby (Electric Deluxe)', year: 2010 },
-    ]},
+    ], spotify:'4zOEbGsiNi7qGWdyDv43gx', },
 
   // ── BELGIUM — SPFDJ ──────────────────────────────────────────────────────
   { id:'spfdj', label:'SPFDJ', type:'artist', genre:'techno', era:2018, city:'Brussels', country:'BE',
@@ -3931,7 +3931,7 @@ export const NODES = [
     releases: [
       { title: '"Protocol" (SPFDJ)', year: 2020 },
       { title: '"Acid Rain" (SPFDJ)', year: 2021 },
-    ]},
+    ], spotify:'3d66toSZgUD2vnELFDoYzz', },
 
   // ── BELFAST — STOOR ──────────────────────────────────────────────────────
   // ── ROTTERDAM — STOOR (Speedy J live event) ──────────────────────────────
@@ -3944,7 +3944,7 @@ export const NODES = [
     desc:'Nadia Struiwigh is a Rotterdam-based live electronic producer known for her modular synthesis and hardware-based performances. A regular presence at STOOR — Speedy J\'s Rotterdam live event series — and on the broader European live electronics circuit, her performances are built entirely in real time from modular and semi-modular synthesisers, without pre-recorded elements. Her approach places her within a tradition of Dutch live electronic performance that runs through Speedy J and the Electric Deluxe network, and her work has drawn attention from Berghain, Boiler Room, and the international festival circuit.',
     releases: [
       { title: 'Live at STOOR (Rotterdam)', year: 2018 },
-    ]},
+    ], spotify:'4iQwTFjXjNOKncBABz0FAQ', },
 
   // ── NEW ARTISTS ──────────────────────────────────────────────────────────
   { id:'mira_schwarzwalder', label:'Mira Schwarzwälder', type:'artist', genre:'deep', era:2013, city:'Zurich', country:'CH',
@@ -3952,7 +3952,7 @@ export const NODES = [
     releases: [
       { title: '"Weit" EP (Correspondant)', year: 2017 },
       { title: '"Orbit" EP (Rekids)', year: 2019 },
-    ]},
+    ], spotify:'07OubYo3iuCBD0oyl9SH4h', },
 
   { id:'chaos_in_the_cbd', label:'Chaos in the CBD', type:'artist', genre:'deep', era:2014, city:'London', country:'NZ',
     desc:'Chaos in the CBD is the project of Auckland-born duo Jonti Searll and Sam Hughes, based in London. Their music draws on jazz harmony, Chicago deep house, and the ambient electronic traditions of FXHE and Smallville. Releases on Young Art Records, Rush Hour, and Correspondant brought their warm, melodic approach to an international audience. Their sound — sophisticated chord voicings, soft percussion, digital synthesis — owes as much to ECM Records and Larry Heard as to contemporary club music, and positions them within a generation of producers who treat deep house as a compositional form.',
@@ -3960,14 +3960,14 @@ export const NODES = [
       { title: '"Midnight In Peckham" (Midnight Shift)', year: 2014 },
       { title: 'Midnight in Peckham EP (Young Art)', year: 2014 },
       { title: '"Lenz" (Correspondant)', year: 2018 },
-    ]},
+    ], spotify:'0QOQc6jEsPX5Y45TV0hXQy', },
 
   { id:'anja_schneider', label:'Anja Schneider', type:'artist', genre:'minimal', era:2003, city:'Berlin', country:'DE',
     desc:'Anja Schneider is a Berlin-based DJ, producer, and the founder of Mobilee Records, which she launched in 2006. Previously associated with BPitch Control, she became one of the most internationally active German DJs of the 2000s and 2010s, resident at Watergate and a frequent presence at Berghain and Fabric. Her productions balance the functional precision of Berlin minimal with a warmth and directness distinguishing her from harder German techno, and Mobilee has documented a similar aesthetic through releases by Rodriguez Jr., Sebo K., and others.',
     releases: [
       { title: '"Skunk" (Mobilee)', year: 2008 },
       { title: '"Stranded" (Mobilee)', year: 2014 },
-    ]},
+    ], spotify:'0f14r70OISSfJoyqYaHbgV', },
 
   { id:'mobilee', label:'Mobilee Records', type:'label', genre:'minimal', era:2006, city:'Berlin', country:'DE',
     desc:'Mobilee Records was founded in Berlin in 2006 by Anja Schneider. It became one of the primary platforms for Berlin minimal house and the transitional sounds between deep house and melodic techno, releasing music by Rodriguez Jr., Sebo K., Reboot, and Anja Schneider herself. The label\'s aesthetic is characterised by warmth, rhythmic sophistication, and musicality — a middle ground between the precision of Kompakt and the emotional directness of Innervisions.',
@@ -3979,27 +3979,27 @@ export const NODES = [
     desc:'Harrison BDP is a London-based DJ and producer working at the intersection of deep house, minimal techno, and the UK underground. His releases reflect a sound built on hypnotic grooves, careful low-end construction, and an approach shaped by both Chicago deep house and the UK post-dubstep tradition. He operates within the network of London labels and nights that connects Lobster Theremin, Hessle Audio, and the broader UK underground circuit.',
     releases: [
       { title: 'Various underground releases', year: 2016 },
-    ]},
+    ], spotify:'4i3y3MC57rWYNAdYlE6HM3', },
 
   { id:'lee_burridge', label:'Lee Burridge', type:'artist', genre:'deep', era:1995, city:'London', country:'UK',
     desc:'Lee Burridge is a British DJ and the founder of All Day I Dream, a label and event series dedicated to melodic, emotive electronic music. One of the first generation of international DJs to build a recognisable identity around Balearic and deep house sounds, he has played for three decades at clubs including Fabric and at festivals and open-air settings worldwide. All Day I Dream — known for daytime outdoor events with a dream-like aesthetic — has been enormously influential on the contemporary melodic house and organic house scene, codifying a sensibility around emotional warmth and natural settings.',
     releases: [
       { title: 'All Day I Dream compilations series', year: 2013 },
-    ]},
+    ], spotify:'0334oJHhRSKJRHKpE9i62h', },
 
   { id:'mano_le_tough', label:'Mano Le Tough', type:'artist', genre:'melodic', era:2010, city:'Dublin', country:'IE',
     desc:'Niall Mannion — Mano Le Tough — is a Dublin-born, Berlin-based producer and DJ who has become one of the central artists in melodic house. His releases on Permanent Vacation, Wild Oats, Internasjonal, and his own Maeve label are built from a consistent aesthetic: emotional melodic lines, deep house rhythms, and an organic warmth that draws from house music\'s Chicago origins while inhabiting a contemporary European production style. His track "Primrose" (2013) is widely cited as a distillation of the melodic house aesthetic at its most effective.',
     releases: [
       { title: '"Primrose" (Permanent Vacation)', year: 2013 },
       { title: '"Nagisa" (Permanent Vacation)', year: 2014 },
-    ]},
+    ], spotify:'04KmByEP6icXVY0PvJaMMp', },
 
   { id:'midland', label:'Midland', type:'artist', genre:'deep', era:2012, city:'Birmingham', country:'UK',
     desc:'Matt Sherwood — Midland — is a Birmingham-born, London-based producer and DJ who emerged in the early 2010s with releases on Graded, Delsin, and Mr. Saturday Night. His productions fuse Chicago deep house, UK rave heritage, and introspective techno in a way that bridges several traditions without belonging fully to any of them. He has become one of the most in-demand DJs on the international underground circuit, and his DJ sets — characterised by broad range and technical precision — have helped revive interest in the deeper, house-inflected end of the UK electronic tradition.',
     releases: [
       { title: '"Final Credits" (Graded)', year: 2013 },
       { title: '"Bring It Around" (Hypercolour)', year: 2014 },
-    ]},
+    ], spotify:'1DTZRmlVZBxx2wRQBtx6yi', },
 
   { id:'moloko', label:'Moloko', type:'artist', genre:'experimental', era:1995, city:'Sheffield', country:'UK',
     desc:'Moloko was the project of Roisin Murphy (from Arklow, Ireland) and Mark Brydon (from Sheffield). Brydon co-founded FON Records in Sheffield — the label that gave the early Warp scene its infrastructure — and brought deep knowledge of Sheffield\'s electronic culture to the partnership. Moloko developed a house-rooted electronic pop that resisted easy categorisation: funkier than trip-hop, more melodic than house, more politically aware than pop. "Sing It Back" (1999) in the Boris Dlugosch remix became a global house music hit. Murphy\'s subsequent solo career — particularly the albums Overpowered (2007) and Róisín Machine (2020) — extended the Moloko aesthetic in directions that confirmed her as one of the most significant voices in European dance music.',
@@ -4007,21 +4007,21 @@ export const NODES = [
       { title: 'Do You Like My Tight Sweater? (Echo)', year: 1995 },
       { title: '"Sing It Back" (Echo)', year: 1999 },
       { title: 'Things to Make and Do (Echo)', year: 2000 },
-    ]},
+    ], spotify:'4aaBjq7VqqQvpSF69GglvO', },
 
   { id:'oxia', label:'Oxia', type:'artist', genre:'minimal', era:2003, city:'Lyon', country:'FR',
     desc:'Xavier Thomas — Oxia — is a Lyon-born, Berlin-based producer and DJ who became one of the defining artists of European minimal techno through releases on Systematic Recordings. His track "Whole" (Systematic, 2004) is considered a classic of the genre — a deep, hypnotic composition that demonstrated how minimal techno could sustain emotional depth without sacrificing rhythmic function. Releases on Diversions Music (his own label) and others have maintained a consistent approach: dense layering, careful timbral development, and a patience that rewards attentive listening as much as dancing.',
     releases: [
       { title: '"Whole" (Systematic Recordings)', year: 2004 },
       { title: '"Introspection" (Diversions Music)', year: 2008 },
-    ]},
+    ], spotify:'2zgFYHwSEYOc1KnldGsBXK', },
 
   { id:'pavel_petrov', label:'Pavel Petrov', type:'artist', genre:'deep', era:2005, city:'Prague', country:'CZ',
     desc:'Pavel Petrov is a Prague-based DJ and producer who has built an international reputation for deep, melodic techno with a distinctly Eastern European character. Releases on Kompakt, Innervisions, and his own Areal label reflect a consistent aesthetic built from hypnotic rhythms, melodic synthesiser work, and a sense of space and patience connecting Prague\'s underground to the broader European minimal tradition. His long DJ sets — often four to six hours — are central to his reputation, and his presence at Sónar, fabric, and Berghain has confirmed him as a significant figure in contemporary electronic music.',
     releases: [
       { title: '"We Are" (Kompakt)', year: 2015 },
       { title: 'Areal series (Areal Records)', year: 2010 },
-    ]},
+    ], spotify:'21km6OSJbAfL6Erx6xbsQW', },
 
   { id:'robert_owens', label:'Robert Owens', type:'artist', genre:'chicago', era:1986, city:'Chicago', country:'US',
     desc:'Robert Owens is a Chicago vocalist and DJ whose voice is one of the defining sounds of deep house. His collaborations with Larry Heard — particularly "Bring Down the Walls" and "Mysteries of Love" released under the Mr. Fingers name in the late 1980s — established a template for gospel-inflected, emotionally direct house music that has influenced every subsequent generation of deep house producers. His solo recordings and ongoing DJ career have maintained that emotional directness across four decades, and his voice remains immediately recognisable as a document of Chicago house at its most spiritually profound.',
@@ -4029,7 +4029,7 @@ export const NODES = [
       { title: '"Bring Down the Walls" — Mr. Fingers ft. Robert Owens (Trax)', year: 1987 },
       { title: '"I\'ll Be Your Friend" (Fourth & Broadway)', year: 1992 },
       { title: '"Mine to Give" ft. Robbie Rivera', year: 2001 },
-    ]},
+    ], spotify:'407nV5hO7mZap3UJdpTr4t', },
 
   { id:'floorplan', label:'Floorplan', type:'artist', genre:'deep', era:2008, city:'Detroit', country:'US',
     desc:'Floorplan is Robert Hood\'s house and gospel-influenced project, operating alongside his minimal techno work as Robert Hood. Where Hood\'s techno productions are austere and functionalist, Floorplan explores the emotional and spiritual connections between house music and Black American church traditions — gospel, soul, and the sanctified sound that runs from Chicago\'s Black church culture directly into the Warehouse and Music Box. The track "Never Grow Old" (2013, Innervisions) became one of the most-played records of its era, a synthesis of Hood\'s technical minimalism and deep house\'s spiritual depth that demonstrated how completely the two traditions belong together.',
@@ -4037,14 +4037,14 @@ export const NODES = [
       { title: '"Tell You No Lie" (M-Plant)', year: 2008 },
       { title: '"Never Grow Old" (Innervisions)', year: 2013 },
       { title: 'Paradise (M-Plant)', year: 2013 },
-    ]},
+    ], spotify:'0RBnTX5xoVa1bDYt9Qbies', },
 
   { id:'sebo_k', label:'Sebo K', type:'artist', genre:'deep', era:2005, city:'Berlin', country:'DE',
     desc:'Sebo K is a Berlin-based DJ and producer whose warm, deeply musical approach to house has made him a fixture of the city\'s underground since the mid-2000s. His releases on Mobilee Records, Werkstatt Recordings, and Running Back reflect an aesthetic rooted in Chicago deep house and soul, filtered through the sensibilities of the Berlin scene. His DJ sets — long, unhurried, and emotionally generous — have earned him residencies at Watergate and consistent bookings at the major European clubs. He is one of the clearest examples of a producer who takes the spiritual content of early house music seriously.',
     releases: [
       { title: '"On My Own" (Mobilee)', year: 2008 },
       { title: '"Take It Easy" (Mobilee)', year: 2011 },
-    ]},
+    ], spotify:'0C12lVN0om5RjpgjboPnf3', },
 
   // ── CHICAGO DEEP ─────────────────────────────────────────────────────────
   { id:'derrick_carter', label:'Derrick Carter', type:'artist', genre:'chicago', era:1992, city:'Chicago', country:'US',
@@ -4052,21 +4052,21 @@ export const NODES = [
     releases: [
       { title: 'Future Disco (Skint)', year: 1998 },
       { title: '"Let It" (Classic Music Company)', year: 2001 },
-    ]},
+    ], spotify:'3XwBizyFmbCCUFcdcsvMmm', },
 
   { id:'boo_williams', label:'Boo Williams', type:'artist', genre:'deep', era:1994, city:'Chicago', country:'US',
     desc:'Boo Williams is a Chicago deep house producer and DJ whose work documents the continuation of Larry Heard\'s deep house tradition into the mid-1990s and beyond. His releases on Trax, Peacefrog, and Smallville reflect a production approach built on slowly evolving chord progressions, restrained percussion, and an emotional patience that connects directly to "Can You Feel It" and "Mystery of Love." He is one of the artists most responsible for maintaining the spiritual and emotional depth of Chicago deep house as a living practice rather than a historical artefact.',
     releases: [
       { title: '"Spirit of Trax" (Trax)', year: 1995 },
       { title: 'Home Boy (Peacefrog)', year: 1999 },
-    ]},
+    ], spotify:'1VuBGdfqq86BQyiDactQAC', },
 
   { id:'glenn_underground', label:'Glenn Underground', type:'artist', genre:'deep', era:1993, city:'Chicago', country:'US',
     desc:'Glenn Underground — Glenn Cooper — is a Chicago producer and DJ whose work represents the deepest, most extended end of the Chicago house tradition. His productions on Cajual, Sello Muzik (his own label), and other outlets are built from long, slowly evolving structures, complex chord voicings, and a trance-like patience that owes as much to jazz and gospel as to club music. He is one of the purest expressions of what deep house means when it is taken seriously as a compositional form rather than a functional dance genre.',
     releases: [
       { title: 'Atmosphere (Peacefrog)', year: 1996 },
       { title: 'C.V.O. (Sello Muzik)', year: 1998 },
-    ]},
+    ], spotify:'1ZdinLDX0e8r5dIlWLpmAc', },
 
   // ── NYC HOUSE ─────────────────────────────────────────────────────────────
   { id:'todd_terry', label:'Todd Terry', type:'artist', genre:'chicago', era:1988, city:'New York', country:'US',
@@ -4075,21 +4075,21 @@ export const NODES = [
       { title: '"Can You Party" (Freeze)', year: 1988 },
       { title: '"Bango (To the Batmobile)" (Freeze)', year: 1990 },
       { title: '"Keep On Jumpin\'" (Manifesto)', year: 1996 },
-    ]},
+    ], spotify:'3dE92yGWcrboP1kC5SWyqu', },
 
   { id:'mood_ii_swing', label:'Mood II Swing', type:'artist', genre:'deep', era:1990, city:'New York', country:'US',
     desc:'Mood II Swing — Lem Springsteen and John Ciafone — are a New York production duo who became central figures in the NYC garage and deep house scene of the 1990s. Their productions for Shelter Records and Strictly Rhythm brought a gospel-influenced warmth and orchestral sophistication to New York house, drawing directly on the Paradise Garage and Larry Levan\'s legacy. They produced for Byron Stingily, Inaya Day, and many others, and their remixes — for Everything But the Girl, Janet Jackson, and dozens of underground artists — helped define how deep house and garage sounded in the mid-1990s.',
     releases: [
       { title: '"Do It" (Vibe)', year: 1991 },
       { title: '"I See A New Day" (Strictly Rhythm)', year: 1993 },
-    ]},
+    ], spotify:'1ioarahrQVnmKor7JmN5Av', },
 
   { id:'danny_tenaglia', label:'Danny Tenaglia', type:'artist', genre:'deep', era:1990, city:'New York', country:'US',
     desc:'Danny Tenaglia is a Brooklyn-born DJ who became one of the defining figures of New York underground house music in the 1990s. A protégé of Frankie Knuckles who refined his approach at Miami clubs before returning to New York, Tenaglia developed a residency at Twilo in Manhattan that became one of the most celebrated in the city\'s dance music history. His marathon DJ sets — often running six to twelve hours — and his productions for Twisted America and other labels positioned him at the centre of a NYC underground that connected the Paradise Garage legacy to the international club circuit. His influence on European DJs who came to New York to experience his sets is significant.',
     releases: [
       { title: '"Bottom Feeder" (Twisted America)', year: 1996 },
       { title: 'Global Underground 007: Athens (Boxset)', year: 1998 },
-    ]},
+    ], spotify:'2tG935baRE4mH8B3saiwbm', },
 
   // ── MIAMI — MURK ──────────────────────────────────────────────────────────
   { id:'murk', label:'Murk', type:'artist', genre:'deep', era:1991, city:'Miami', country:'US',
@@ -4098,14 +4098,14 @@ export const NODES = [
       { title: '"Reach Up" (Murk)', year: 1992 },
       { title: '"Fired Up" (Murk)', year: 1992 },
       { title: '"Dark Beat" (Murk)', year: 1993 },
-    ]},
+    ], spotify:'0lUG08STxvLC1GGX8Y1PNK', },
 
   // ── FRANKFURT — RUNNING BACK / GERD JANSON ────────────────────────────────
   { id:'gerd_janson', label:'Gerd Janson', type:'artist', genre:'deep', era:2003, city:'Frankfurt', country:'DE',
     desc:'Gerd Janson is a Frankfurt-based DJ and the founder of Running Back Records. His DJ sets are among the most eclectic and knowledgeable in house music — ranging across disco, deep house, Italo, Balearic, and experimental electronics in ways that refuse genre boundaries while maintaining an unwavering commitment to quality and feeling. Running Back has become one of the most consistently respected labels in house music, and Janson\'s taste-making has been influential across the European and American underground. He is one of the clearest examples of a DJ who is also a musical scholar — his sets are an education.',
     releases: [
       { title: 'Running Back label releases', year: 2007 },
-    ]},
+    ], spotify:'4jLpm91Tyk2TRgv43bMfZO', },
 
   { id:'running_back', label:'Running Back', type:'label', genre:'deep', era:2007, city:'Frankfurt', country:'DE',
     desc:'Running Back was founded in Frankfurt in 2007 by Gerd Janson. It has become one of the most respected house and electronic labels, releasing music by Isolée, Dennis Ferrer, Anthony Shake Shakir, Move D, Tornado Wallace, and many others. The label\'s aesthetic is defined by Janson\'s omnivorous taste — it encompasses disco, deep house, minimal, Balearic, and experimental electronic music while maintaining a consistent commitment to quality over genre. Running Back is one of the labels that has best demonstrated how the entire tradition of dance music can be treated as a unified field rather than a set of separate genres.',
@@ -4124,13 +4124,13 @@ export const NODES = [
     releases: [
       { title: '"Neon" (Mobilee)', year: 2010 },
       { title: '"Fleurs" (Mobilee)', year: 2014 },
-    ]},
+    ], spotify:'6Th7POyVfZgiHJQ64ddV5Y', },
 
   { id:'mor_elian', label:'Mor Elian', type:'artist', genre:'experimental', era:2017, city:'Berlin', country:'DE',
     desc:'Mor Elian is an Israeli-born, Berlin-based producer and DJ whose releases on Pentatone (her own label) have established her as one of the most distinctive voices in contemporary experimental club music. Her productions draw on dub, techno, and abstract electronics with a physicality and textural richness that owes something to the Basic Channel tradition while remaining entirely contemporary. She plays regularly at Berghain and Concrete, and her label has developed a consistent aesthetic around deep, rhythmically complex music that rewards patient listening.',
     releases: [
       { title: 'Pentatone series (Pentatone)', year: 2017 },
-    ]},
+    ], spotify:'4nLavg4nn48n7wwx2AIklZ', },
 
   // ── UK — DANIEL AVERY / PHANTASY SOUND ────────────────────────────────────
   { id:'phantasy_sound', label:'Phantasy Sound', type:'label', genre:'experimental', era:2008, city:'London', country:'UK',
@@ -4145,7 +4145,7 @@ export const NODES = [
       { title: 'Drone Logic (Phantasy)', year: 2013 },
       { title: 'Song For Alpha (Phantasy)', year: 2018 },
       { title: 'Love + Light (Phantasy)', year: 2020 },
-    ]},
+    ], spotify:'1EULJuDFWpZ9xg4YwtUGGt', },
 
   // ── GERMANY — ISOLÉE ──────────────────────────────────────────────────────
   { id:'isolee', label:'Isolée', type:'artist', genre:'minimal', era:1999, city:'Heidelberg', country:'DE',
@@ -4154,7 +4154,7 @@ export const NODES = [
       { title: 'Rest (Playhouse)', year: 2000 },
       { title: '"Beau Mot Plage" (Playhouse)', year: 2001 },
       { title: '"Schrapnell" (Running Back)', year: 2012 },
-    ]},
+    ], spotify:'6FfTOJJ5iO4tRG80MG5Ovj', },
 
   // ── AUSTRALIA — TORNADO WALLACE / EFFICIENT SPACE ────────────────────────
   { id:'efficient_space', label:'Efficient Space', type:'label', genre:'disco', era:2015, city:'Melbourne', country:'AU',
@@ -4168,13 +4168,13 @@ export const NODES = [
     releases: [
       { title: 'Lonely Planet (Efficient Space)', year: 2017 },
       { title: 'Presence (Beats in Space)', year: 2020 },
-    ]},
+    ], spotify:'6GNWPphcJ5CtIwCJVV1lLT', },
 
   { id:'s_a_m', label:'S.A.M', type:'artist', genre:'deep', era:2012, city:'Amsterdam', country:'NL',
     desc:'S.A.M is a Danish-born producer and DJ based in the Netherlands. His releases on Delaphine Records and other labels work at the intersection of deep house, minimal techno, and experimental club music.',
     releases: [
       { title: 'Delaphine releases', year: 2014 },
-    ]},
+    ], spotify:'5E4zYTze1AUn7eavstowmB', },
 
   { id:'delaphine', label:'Delaphine Records', type:'label', genre:'deep', era:2013, city:'Amsterdam', country:'NL',
     desc:'Delaphine Records is an Amsterdam-based label releasing deep, hypnotic electronic music at the intersection of house and minimal techno. It is part of the Dutch underground network centred on Amsterdam — a small but internationally respected scene operating quietly outside the major metropolitan hubs. The label\'s releases reflect a curatorial sensibility that prioritises depth, patience, and musical substance over trend or volume.',
@@ -4217,7 +4217,7 @@ export const NODES = [
       { title: 'Power, Corruption & Lies (Factory)', year: 1983 },
       { title: 'Low-life (Factory)', year: 1985 },
       { title: 'Technique (Factory)', year: 1989 },
-    ]},
+    ], spotify:'0yNLKJebCb8Aueb54LYya3', },
 
   { id:'underworld', label:'Underworld', type:'artist', genre:'experimental', era:1980, city:'London', country:'UK',
     bandcamp:'underworld', bandcamp_album:'3531217747',
@@ -4226,7 +4226,7 @@ export const NODES = [
       { title: 'Dubnobasswithmyheadman (Junior Boy\'s Own)', year: 1994 },
       { title: 'Second Toughest in the Infants (Junior Boy\'s Own)', year: 1996 },
       { title: '"Born Slippy .NUXX" (Junior Boy\'s Own)', year: 1995 },
-    ]},
+    ], spotify:'1PXHzxRDiLnjqNrRn2Xbsa', },
 
   { id:'chemical_brothers', label:'Chemical Brothers', type:'artist', genre:'experimental', era:1991, city:'Manchester', country:'UK',
     desc:'Tom Rowlands and Ed Simons — The Chemical Brothers — met at Manchester University in 1989 and became one of the defining acts of British big beat and electronic music during the 1990s. Beginning as DJs at The Naked Eye, their early productions combined sampled breakbeats with acid house textures and psychedelic elements into a viscerally physical club music. Albums including Exit Planet Dust (1995), Dig Your Own Hole (1997), and Surrender (1999) brought electronic music to arena audiences without sacrificing rhythmic and sonic integrity. Their influence on the generation of electronic producers who followed is pervasive and difficult to overstate.',
@@ -4235,7 +4235,7 @@ export const NODES = [
       { title: 'Dig Your Own Hole (Freestyle Dust)', year: 1997 },
       { title: 'Surrender (Freestyle Dust)', year: 1999 },
       { title: 'Come with Us (Freestyle Dust)', year: 2002 },
-    ]},
+    ], spotify:'1GhPHrq36VKCY3ucVaZCfo', },
 
   // ── DETROIT EXPANDED ──────────────────────────────────────────────────────
   { id:'dopplereffekt', label:'Dopplereffekt', type:'artist', genre:'experimental', era:1992, city:'Detroit', country:'US',
@@ -4244,14 +4244,14 @@ export const NODES = [
       { title: 'Infophysix (Dataphysix)', year: 1996 },
       { title: 'Gesamtkunstwerk (Dataphysix)', year: 1999 },
       { title: 'Calabi Yau Space (Leisure System)', year: 2007 },
-    ]},
+    ], spotify:'2w3mvReNNIQ7S44MAr89zu', },
 
   { id:'adult_dot', label:'Adult.', type:'artist', genre:'experimental', era:1998, city:'Detroit', country:'US',
     desc:'Adult. — Nicola Kuperus and Adam Lee Miller — formed in Detroit in 1998 and developed a minimalist synth-punk and electropunk practice that sat at the intersection of dance music, noise, and post-punk. Their releases on Ersatz Audio (their own label) and Thrill Jockey fused the rawness of industrial music with functional dance rhythms and confrontational vocals. As Detroit artists working in the late 1990s and 2000s, they represent a different facet of the city\'s electronic tradition — its connection to the American underground, industrial music, and the no-wave lineage — than the more globally celebrated techno narrative.',
     releases: [
       { title: 'Resuscitation (Ersatz Audio)', year: 2001 },
       { title: 'Anxiety Always (Thrill Jockey)', year: 2003 },
-    ]},
+    ], spotify:'4U1Ntfqa08zV3Ue5O963o8', },
 
   { id:'green_velvet', label:'Green Velvet', type:'artist', genre:'house', era:1992, city:'Chicago', country:'US',
     desc:'Curtis Alan Jones — Green Velvet, also known as Cajmere — is a Chicago producer and DJ who has been a consistent and influential voice in Chicago house since the early 1990s. His label Relief Records, founded in 1992, was a platform for rough, functional house music in the tradition of Dance Mania while drawing on acid and harder techno elements. Green Velvet\'s productions — particularly "Answering Machine" (1995) and "Flash" (2012) — balance absurdist humour with serious rhythmic construction. His DJ sets are technically accomplished and reflect an encyclopaedic knowledge of house music\'s history.',
@@ -4259,14 +4259,14 @@ export const NODES = [
       { title: '"Answering Machine" (Relief)', year: 1995 },
       { title: '"La La Land" (Relief)', year: 1997 },
       { title: '"Flash" (Green Velvet)', year: 2012 },
-    ]},
+    ], spotify:'3ABaec4jjl95VqmG1iD4k2', },
 
   { id:'daniel_bell', label:'Daniel Bell', type:'artist', genre:'minimal', era:1993, city:'Detroit', country:'US',
     desc:'Daniel Bell is a Detroit-born producer whose early releases under the DBX alias in the 1990s were foundational for minimal tech-house. His stripped, hypnotic productions — released on Tresor, Harmonie Park, and his own Accelerate label — applied Detroit\'s rhythmic discipline to the minimal aesthetics developing simultaneously in Chicago and Europe. Bell was an early proponent of the looped, detail-focused approach to techno that would come to define the Cologne minimal scene, and his influence on producers including Ricardo Villalobos and Marco Carola is well documented.',
     releases: [
       { title: '"Losing Control" — DBX (Tresor)', year: 1994 },
       { title: '"You" — DBX (Harmonie Park)', year: 1996 },
-    ]},
+    ], spotify:'6xtK8iJS59y80uh95EFAlR', },
 
   // ── GERMANY EXPANDED ─────────────────────────────────────────────────────
   { id:'pole', label:'Pole', type:'artist', genre:'ambient', era:1998, city:'Berlin', country:'DE',
@@ -4275,7 +4275,7 @@ export const NODES = [
       { title: 'Pole 1 (Kiff SM)', year: 1998 },
       { title: 'Pole 2 (Kiff SM)', year: 1999 },
       { title: 'Pole 3 (Kiff SM)', year: 2000 },
-    ]},
+    ], spotify:'054fVwphDX8QB8Pm7IjRcL', },
 
   { id:'mouse_on_mars', label:'Mouse on Mars', type:'artist', genre:'experimental', era:1993, city:'Cologne', country:'DE',
     desc:'Mouse on Mars — Jan St. Werner and Andi Toma — formed in Cologne in 1993 and have released on Thrill Jockey and Sonig across a thirty-year career that has consistently resisted genre classification. Their music combines the machine aesthetics of Cologne\'s electronic tradition with a playfulness, formal experimentation, and engagement with jazz and improvised music that is unique in the German scene. Albums including Iaora Tahiti (1995), Glam (1998), and Idiology (2001) are touchstones of Cologne experimental electronic music. Werner has also collaborated extensively with Markus Popp (Oval) and others at the intersection of digital audio and conceptual art.',
@@ -4283,7 +4283,7 @@ export const NODES = [
       { title: 'Vulvaland (Too Pure)', year: 1994 },
       { title: 'Iaora Tahiti (Thrill Jockey)', year: 1995 },
       { title: 'Glam (Thrill Jockey)', year: 1998 },
-    ]},
+    ], spotify:'4ZgIWfyg9BkcqnJJ2xVR3f', },
 
   { id:'dj_hell', label:'DJ Hell', type:'artist', genre:'experimental', era:1991, city:'Munich', country:'DE',
     desc:'Helmut Josef Geier — DJ Hell — is a Munich-born DJ and producer who founded International Deejay Gigolos Records in Munich in 1997. The label became one of the primary platforms for electropunk, electroclash, and the 2000s revival of electro and new wave aesthetics in a club context, releasing music by Miss Kittin, The Hacker, Dopplereffekt, and others. Hell\'s DJ sets and recordings positioned him at the intersection of the German club tradition, new wave nostalgia, and the New York and Paris underground scenes that coalesced around electroclash in the early 2000s.',
@@ -4291,7 +4291,7 @@ export const NODES = [
       { title: 'Electronicbody/Housemusic (Gigolo)', year: 1999 },
       { title: 'Teufelswerk (Gigolo)', year: 2000 },
       { title: 'Zukunftsmusik (Gigolo)', year: 2013 },
-    ]},
+    ], spotify:'65uIRTMznTeapqZ6SBy52z', },
 
   // ── NETHERLANDS — HARD ELECTRO ────────────────────────────────────────────
   { id:'i_f', label:'I-F', type:'artist', genre:'experimental', era:1993, city:'Den Haag', country:'NL',
@@ -4299,7 +4299,7 @@ export const NODES = [
     releases: [
       { title: '"Space Invaders Are Smoking Grass" (Viewlexx)', year: 1997 },
       { title: 'Mixed Up in the Hague (Viewlexx)', year: 1997 },
-    ]},
+    ], spotify:'4JEj4gtpwF2dnnBZuNwpwT', },
 
   { id:'bunker_records', label:'Bunker Records', type:'label', genre:'experimental', era:1997, city:'Den Haag', country:'NL',
     desc:'Bunker Records was founded in Den Haag in 1997 and became one of the defining labels for hard, primitive electro and techno in Europe. Its releases — by I-F, Legowelt, Colder, and others — applied a stripped, lo-fi production aesthetic and an obsessive focus on rhythm and texture that contrasted sharply with the polished minimal techno developing simultaneously in Cologne and Berlin. Bunker\'s influence on subsequent generations of raw, DIY electronic music — from Creme Organization to the contemporary dark electro scene — is significant and largely uncelebrated in mainstream electronic music history.',
@@ -4315,14 +4315,14 @@ export const NODES = [
       { title: '"Frank Sinatra" — Miss Kittin & The Hacker (Gigolo)', year: 1999 },
       { title: 'First Album — Miss Kittin & The Hacker (Gigolo)', year: 2001 },
       { title: 'I Com (Kitty-Yo)', year: 2004 },
-    ]},
+    ], spotify:'3QhNv79NoIvarU6N57GBzL', },
 
   { id:'the_hacker', label:'The Hacker', type:'artist', genre:'experimental', era:1997, city:'Grenoble', country:'FR',
     desc:'Michel Amato — The Hacker — is a French producer and DJ from Grenoble who formed the defining electroclash partnership with Miss Kittin. His productions draw directly from EBM, industrial, and electro, applying a harder, more abrasive approach to club music than the French touch contemporaries working in Paris. Releases on International Deejay Gigolos and his own label Broque reflect a consistent commitment to machine music\'s harsher ends. The Hacker\'s DJ sets — typically harder and more aggressive than Kittin\'s — were a significant influence on the European electro-techno scene of the 2000s.',
     releases: [
       { title: 'First Album — Miss Kittin & The Hacker (Gigolo)', year: 2001 },
       { title: '做噪音 (Making Noise) (Gigolo)', year: 2006 },
-    ]},
+    ], spotify:'763V8ZisRsw5kCoquzKTUp', },
 
   // ── CANADA — MONTREAL ─────────────────────────────────────────────────────
   { id:'turbo_recordings', label:'Turbo Recordings', type:'label', genre:'techno', era:2001, city:'Montreal', country:'CA',
@@ -4337,7 +4337,7 @@ export const NODES = [
     releases: [
       { title: 'Sexor (Turbo)', year: 2006 },
       { title: '"You Gonna Want Me" (Turbo)', year: 2001 },
-    ]},
+    ], spotify:'5l9wiTZVfqQTfMDOt0HtwC', },
 
   // ── USA — PHILADELPHIA / MIDWEST ──────────────────────────────────────────
   { id:'josh_wink', label:'Josh Wink', type:'artist', genre:'house', era:1991, city:'Philadelphia', country:'US',
@@ -4345,7 +4345,7 @@ export const NODES = [
     releases: [
       { title: '"Higher State of Consciousness" (Strictly Rhythm)', year: 1995 },
       { title: '"Don\'t Laugh" (Ovum)', year: 1994 },
-    ]},
+    ], spotify:'6DQLkRykAsF6paJnlIMX4H', },
 
   // ── AUSTRIA — VIENNA ──────────────────────────────────────────────────────
   { id:'elektro_guzzi', label:'Elektro Guzzi', type:'artist', genre:'techno', era:2007, city:'Vienna', country:'AT',
@@ -4354,7 +4354,7 @@ export const NODES = [
       { title: 'Elektro Guzzi (Macro)', year: 2009 },
       { title: 'Parquet (Macro)', year: 2012 },
       { title: 'Polyester (Macro)', year: 2015 },
-    ]},
+    ], spotify:'7k5umNvyeiiTV0xxw5Qr8s', },
 
   // ── SOUTH KOREA EXPANDED ─────────────────────────────────────────────────
   { id:'yaeji', label:'Yaeji', type:'artist', genre:'house', era:2017, city:'New York', country:'KR',
@@ -4363,14 +4363,14 @@ export const NODES = [
       { title: 'Yaeji EP (Godmode)', year: 2017 },
       { title: 'EP2 (Godmode)', year: 2017 },
       { title: 'What We Drew (Godmode)', year: 2020 },
-    ]},
+    ], spotify:'2RqrWplViWHSGLzlhmDcbt', },
 
   { id:'park_hye_jin', label:'Park Hye Jin', type:'artist', genre:'house', era:2018, city:'Seoul', country:'KR',
     desc:'Park Hye Jin is a Seoul-born, Los Angeles-based DJ and producer who emerged from the Seoul club scene and quickly achieved international recognition. Her productions combine Chicago-rooted house rhythms with Korean lyrics and a stripped, lo-fi production sensibility. She has released on Ninja Tune and played at Boiler Room, Fabric, and other major international platforms. Park Hye Jin represents a generation of Korean artists who have absorbed the deep house tradition and transformed it through a specifically Korean cultural perspective, creating music that is both globally literate and distinctly positioned.',
     releases: [
       { title: 'How can I (Ninja Tune)', year: 2020 },
       { title: 'Before I Die (Ninja Tune)', year: 2021 },
-    ]},
+    ], spotify:'0tBYMeHDDJCzRuREuCTWi7', },
 
   // ── UK TECH HOUSE — WIGGLE / PURE SCIENCE ────────────────────────────────
   { id:'pure_science', label:'Pure Science', type:'artist', genre:'techhouse', era:1990, city:'London', country:'UK',
@@ -4381,7 +4381,7 @@ export const NODES = [
       { title: 'The Red One EP (P.S. Communications)', year: 1998 },
       { title: 'Balanced EP (P.S. Communications)', year: 1999 },
       { title: 'Fabric 05 (Fabric)', year: 2002 },
-    ]},
+    ], spotify:'266Q6HAGGIPOOVEBYtMSuK', },
 
   { id:'wiggle', label:'Wiggle', type:'venue', genre:'techhouse', era:1994, city:'London', country:'UK',
     desc:'Wiggle was a London party series co-founded in 1994 by Nathan Coles and Terry Francis, with Eddie Richards as the third resident. Beginning as a series of warehouse parties, it synthesised the toughness of techno with the swing of house and is widely credited with incubating tech house as a genre — the term itself reportedly coming from a Mr. C mixtape labelled "Tech" on one side and "House" on the other. Wiggle later held a long residency at Fabric. Its three residents — Coles, Francis, and Richards — became Fabric residents for over a decade, making Wiggle the main through-line connecting London\'s early 1990s warehouse rave scene with its 2000s club infrastructure.',
@@ -4391,33 +4391,33 @@ export const NODES = [
     desc:'Eddie Richards — also known as Evil Eddie Richards and Jolly Roger — is regarded as the "Godfather of Tech House." He was among the first DJs to champion house music in the UK, holding a residency at Camden Palace in the mid-1980s and later at Clink Street alongside Mr. C, where he helped introduce house to British club culture. His 1988 production "Acidman" (as Jolly Roger) reached the UK National Top 20. As a founding Wiggle resident from 1994 and a Fabric resident for over a decade, he was one of the central architects of the UK tech house scene, and his influence on producers and DJs who followed is difficult to overstate.',
     releases: [
       { title: '"Acidman" as Jolly Roger (10 Records)', year: 1988 },
-    ]},
+    ], spotify:'5tHxPklMwMV5JZcSuOoNLM', },
 
   { id:'terry_francis', label:'Terry Francis', type:'artist', genre:'techhouse', era:1994, city:'London', country:'UK',
     desc:'Terry Francis is a London DJ and producer who co-founded the Wiggle party series in 1994 alongside Nathan Coles and Eddie Richards. Wiggle was the crucible of UK tech house, synthesising Detroit techno and Chicago house in a raw, warehouse setting. Francis won Muzik Magazine\'s Best New DJ award in 1997 and subsequently became a Fabric resident for over a decade. His sets are noted for their consistency and structural integrity — a long-form, patient approach to the dancefloor that avoids peaks-and-valleys programming in favour of sustained groove.',
     releases: [
       { title: 'Fabric 36 (Fabric)', year: 2007 },
-    ]},
+    ], spotify:'3nQ54DU81YK9Km3HpasdH6', },
 
   { id:'nathan_coles', label:'Nathan Coles', type:'artist', genre:'techhouse', era:1994, city:'London', country:'UK',
     desc:'Nathan Coles (1970–2023) was a London DJ described as an originator and towering figure of the UK tech house scene. He co-founded Wiggle in 1994 with Terry Francis and Eddie Richards, and was a Fabric resident for over a decade. Before Wiggle he organised the Release parties, one of London\'s important early 1990s underground events. His sets were known for their musical breadth and emotional depth, and his death in February 2023 prompted widespread tributes from the international electronic music community. He is remembered as one of the central figures in shaping the sound of London\'s underground across three decades.',
-    },
+     spotify:'3elvqJwCi7gKIbXv4WOyCr', },
 
   { id:'mr_c', label:'Mr. C', type:'artist', genre:'techhouse', era:1988, city:'London', country:'UK',
     desc:'Richard West — Mr. C — was a key figure in the origins of UK tech house. His mixtape with one side labelled "Tech" and the other "House" reportedly gave the genre its name. He held a residency at the Clink Street club with Eddie Richards from the late 1980s and ran The Drop parties, which were instrumental in incubating the sound alongside Wiggle. He co-founded The End nightclub in London in 1995 and ran the Phuture Trax label. Earlier, he was the MC and vocalist for The Shamen, whose "Move Any Mountain" reached No. 4 in the UK Singles Chart in 1991, giving him a visibility that bridged the acid house underground and pop mainstream.',
     releases: [
       { title: '"Move Any Mountain" — The Shamen (One Little Indian)', year: 1991 },
-    ]},
+    ], spotify:'4gKuYBmauk2YYkD3l4lDhb', },
 
   // ── GERMANY — RYAN ELLIOTT / PARAMIDA / LOVE ON THE ROCKS ───────────────
   { id:'ryan_elliott', label:'Ryan Elliott', type:'artist', genre:'techhouse', era:2005, city:'Detroit', country:'US',
     desc:'Ryan Elliott is a Detroit-born DJ and producer based in Berlin. After building a reputation in Detroit\'s club scene, he moved to Berlin in 2009 and became one of the few artists to hold a residency playing both Berghain\'s main floor and Panorama Bar regularly. He has released on Ostgut Ton and founded his own label Faith Beat in 2019.',
-    releases: [] },
+    releases: [] , spotify:'3SZBUeVJfGLUpAPNEQbBKk', },
 
   // ── FRANCE — DJ GREGORY ───────────────────────────────────────────────────
   { id:'dj_gregory', label:'DJ Gregory', type:'artist', genre:'deep', era:1994, city:'Paris', country:'FR',
     desc:'DJ Gregory is the alias of Grégory Darsa, a Paris-based DJ and producer active in French house since the early 1990s. In the mid-1990s he co-hosted a radio show on Paris station FG alongside DJ Deep and Alex from Tokyo dedicated to house and electronic music. His productions draw on Afro-Latin rhythms and deep house, and he has released on Faya Combo, Yellow Productions, Defected, and Basic.',
-    releases: [] },
+    releases: [] , spotify:'08P7D5oQ3HUmQ0Gjbw6nzR', },
 
   // ── UK — DEFECTED / MALA / SIR SPYRO / JYOTY / SKRILLEX ─────────────────
   { id:'defected', label:'Defected Records', type:'label', genre:'deep', era:1999, city:'London', country:'UK',
@@ -4426,27 +4426,27 @@ export const NODES = [
 
   { id:'mala', label:'Mala', type:'artist', genre:'ambient', era:2002, city:'London', country:'UK',
     desc:'Mala (Mark Lawrence) is a South London producer and DJ who, as one half of Digital Mystikz alongside Coki, was a founding figure of dubstep. He co-founded the DMZ club night in Brixton in 2005 with Loefah and Coki — a bimonthly event at the Mass complex that became central to the development of the sound. In 2006 he founded the label Deep Medi Musik for his solo work rooted in dub, reggae, and bass music.',
-    releases: [] },
+    releases: [] , spotify:'3fknxSm9gKHsiN2C6lcRme', },
 
   { id:'sir_spyro', label:'Sir Spyro', type:'artist', genre:'chicago', era:2005, city:'London', country:'UK',
     desc:'Sir Spyro (Karl Joseph) is an East London DJ, producer, and MC from a Saint Lucian and Jamaican background whose career has been rooted in grime since the mid-2000s. He held a residency on Rinse FM from 2005 to 2017 and has hosted BBC Radio 1Xtra\'s Grime Show since then. He produced Stormzy\'s 2017 single "Big for Your Boots", which reached number six on the UK Singles Chart.',
-    releases: [] },
+    releases: [] , spotify:'620OB54yrIruI9dcHX41zT', },
 
   { id:'jyoty', label:'Jyoty', type:'artist', genre:'deep', era:2017, city:'London', country:'UK',
     desc:'Jyoty (Jyoty Singh) is an Indian-Dutch DJ and broadcaster born in Amsterdam in 1990 and based in London. She began DJing in 2017 and her 2019 Boiler Room performance accumulated over five million plays across YouTube and TikTok. Her sets move across baile funk, amapiano, afrobeats, dancehall, jungle, garage, and grime. She has held a regular slot on Rinse FM.',
-    releases: [] },
+    releases: [] , spotify:'5wQDQFm7Ku8WWGi5xqJ9lp', },
 
   // ── US — SKRILLEX ─────────────────────────────────────────────────────────
   { id:'skrillex', label:'Skrillex', type:'artist', genre:'experimental', era:2010, city:'Los Angeles', country:'US',
     desc:'Skrillex is the alias of Sonny Moore (born 1988, Los Angeles), who began as vocalist of post-hardcore band From First to Last before turning to electronic music production in 2008. His 2010 EP Scary Monsters and Nice Sprites brought a maximalist, bass-heavy take on dubstep to mainstream audiences and won the Grammy for Best Dance/Electronica Album. He founded the label OWSLA in 2011.',
     releases: [
       { title: 'Scary Monsters and Nice Sprites EP (mau5trap / Big Beat)', year: 2010 },
-    ]},
+    ], spotify:'5he5w2lnU9x7JFhnwcekXX', },
 
   // ── ITALY — PANCRATIO ─────────────────────────────────────────────────────
   { id:'pancratio', label:'Pancratio', type:'artist', genre:'deep', era:2017, city:'Rome', country:'IT',
     desc:'Pancratio (Gian Luigi Mendozza) is a producer and composer from Rome. He founded the Onetriptoavyon label as a vehicle for his own productions spanning deep house, ambient, and experimental club music. His Love Letters EP (2025) appeared on PARAMIDA\'s Berlin label Love on the Rocks.',
-    releases: [] },
+    releases: [] , spotify:'5Z38oNR1CHNo2ToSEgHNNJ', },
 
   // ── MEDIA — RESIDENT ADVISOR ──────────────────────────────────────────────
   { id:'resident_advisor', label:'Resident Advisor', type:'channel', genre:'experimental', era:2001, city:'London', country:'UK',
@@ -4456,7 +4456,7 @@ export const NODES = [
   // ── GERMANY — PARAMIDA / LOVE ON THE ROCKS ───────────────────────────────
   { id:'paramida', label:'PARAMIDA', type:'artist', genre:'deep', era:2015, city:'Berlin', country:'DE',
     desc:'PARAMIDA is a Berlin-based DJ and producer with German and Persian heritage. She first performed at Berghain\'s Panorama Bar in 2015 and became a resident DJ there in 2020. In 2014 she founded Love on the Rocks, a label releasing deep house, nu-disco, trance, and acid from producers across different countries. She received a BBC Radio 1 Essential Mix commission in 2024 and was named one of BBC\'s 100 Women in 2023.',
-    releases: [] },
+    releases: [] , spotify:'3bFxfwnZ1vmvzoNYz8z2vh', },
 
   { id:'love_on_the_rocks', label:'Love on the Rocks', type:'label', genre:'deep', era:2014, city:'Berlin', country:'DE',
     desc:'Love on the Rocks is a Berlin-based label founded in 2014 by PARAMIDA. Its catalogue spans deep house, nu-disco, trance, acid, and ambient music, with a focus on outsider dance culture from producers across multiple countries.',
@@ -4467,22 +4467,22 @@ export const NODES = [
     desc:'Logic1000 is the alias of Samantha Poulter, a producer and DJ born in Sydney, Australia. She released her first EP in 2018, and her profile grew after Four Tet played her music in his Coachella DJ set. She moved from Sydney to London and then to Berlin. Her debut album Mother was released on Because Music in 2024 and received broad critical attention. She released a DJ-Kicks compilation in 2025.',
     releases: [
       { title: 'Mother (Because Music)', year: 2024 },
-    ]},
+    ], spotify:'2EFsfh1zewsSWhDINv7j1I', },
 
   // ── SWEDEN — LA FLEUR / MATTHIAS EL MANSOURI / DJ SEINFELD ──────────────
   { id:'dj_seinfeld', label:'DJ Seinfeld', type:'artist', genre:'deep', era:2016, city:'Malmö', country:'SE',
     desc:'DJ Seinfeld is the alias of Armand Jakobsson, born in Malmö in 1991. He emerged in 2016 as part of a lo-fi house movement alongside artists including Ross From Friends and released his debut on Lobster Theremin. His album Mirrors (2021) and subsequent releases on Ninja Tune brought his melancholic, hazy house productions to a wider international audience.',
     releases: [
       { title: 'Mirrors (Ninja Tune)', year: 2021 },
-    ]},
+    ], spotify:'37YzpfBeFju8QRZ3g0Ha1Q', },
 
   { id:'la_fleur', label:'La Fleur', type:'artist', genre:'melodic', era:2016, city:'Stockholm', country:'SE',
     desc:'La Fleur is a Stockholm-based producer and DJ who releases on Pampa Records, the Hamburg label founded by DJ Koze. Her productions work in a melodic, emotionally direct deep house style. She is among the Swedish artists who have developed an international profile through connections to the Hamburg and Berlin underground networks.',
-    releases: [] },
+    releases: [] , spotify:'5bt7DkWw4iHzjzRF2d9scU', },
 
   { id:'matthias_el_mansouri', label:'Matthias El Mansouri', type:'artist', genre:'deep', era:2015, city:'', country:'SE',
     desc:'Matthias El Mansouri is a Swedish producer who has performed at Panorama Bar in Berlin. Further details are limited in documented sources.',
-    releases: [] },
+    releases: [] , spotify:'6pNtdoHIGx5LR9iNY2XRxx', },
 
   // ── LABELS: TRIP / MDR / TERMINAL M ──────────────────────────────────────
   { id:'trip', label:'Trip', type:'label', genre:'techno', era:2014, city:'Berlin', country:'DE',
@@ -4503,46 +4503,46 @@ export const NODES = [
   // ── US — SARA LANDRY ─────────────────────────────────────────────────────
   { id:'sara_landry', label:'Sara Landry', type:'artist', genre:'techno', era:2018, city:'Various', country:'US',
     desc:'Sara Landry is an American DJ and producer born in Sausalito, California in 1993. She was based in Austin, Texas before relocating to Amsterdam. She is known for high-energy industrial techno sets and founded Hekate Records in 2021.',
-    releases: [] },
+    releases: [] , spotify:'7eILArMiTFTQf8SEh5fFHK', },
 
   // ── UK — PARIAH ──────────────────────────────────────────────────────────
   { id:'pariah', label:'Pariah', type:'artist', genre:'experimental', era:2012, city:'London', country:'UK',
     desc:'Pariah is the alias of Robin Stewart, a UK electronic music producer. He is affiliated with the Hessle Audio label and has released on R&S Records and Houndstooth. Together with Blawan he forms the industrial techno duo Karenn.',
     releases: [
       { title: 'Here From Where We Are (R&S Records)', year: 2012 },
-    ]},
+    ], spotify:'3PP5mEG3X0CjthaqiEXqJU', },
 
   // ── UK — DJ EZ ───────────────────────────────────────────────────────────
   { id:'dj_ez', label:'DJ EZ', type:'artist', genre:'chicago', era:1994, city:'London', country:'UK',
     desc:'DJ EZ (born Paul Newman) is a London DJ from Tottenham who became a central figure in UK garage through his residency at the Club UK nights and his weekly show on Kiss 100. He compiled the Pure Garage series and has maintained a show on Rinse FM. He is widely regarded as one of the most skilled mixers in UK garage history.',
     releases: [
       { title: 'Pure Garage (compilation, Warner/WEA)', year: 2001 },
-    ]},
+    ], spotify:'1RyvyyTE3xzB2ZywiAwp0i', },
 
   // ── NL — JOB JOBSE ───────────────────────────────────────────────────────
   { id:'job_jobse', label:'Job Jobse', type:'artist', genre:'deep', era:2010, city:'Amsterdam', country:'NL',
     desc:'Job Jobse is an Amsterdam DJ who co-ran the booking operation at Trouw and has delivered extended Sunday closing sets at Panorama Bar in Berlin. He runs the De Vlieger and Planet Strangelove labels and plays a broad, genre-agnostic range of dance music.',
-    releases: [] },
+    releases: [] , spotify:'42OtrLDsfIE3pD915uvaju', },
 
   // ── GERMANY — CCL ────────────────────────────────────────────────────────
   { id:'ccl', label:'CCL', type:'artist', genre:'experimental', era:2019, city:'Berlin', country:'DE',
     desc:'CCL is a Berlin-based DJ originally from Seattle. She holds a residency at OHM, the club within the Berghain complex, and organises the queer-focused subglow party. Her sets draw on bass music, footwork, and club-oriented experimental electronic music.',
-    releases: [] },
+    releases: [] , spotify:'66ObTqdwYFgl6u7V3puSbb', },
 
   // ── COLOMBIA — VERRACO ───────────────────────────────────────────────────
   { id:'verraco', label:'Verraco', type:'artist', genre:'experimental', era:2021, city:'Medellín', country:'CO',
     desc:'Verraco is a Colombian DJ and producer from Medellín. He co-runs the TraTraTrax label with Shackleton and has released music on Timedance and XL Recordings. His music is rooted in cumbia and Caribbean percussion filtered through club-oriented production.',
-    releases: [] },
+    releases: [] , spotify:'4GfEnw0dFSSzB9M65k0dA1', },
 
   // ── NL — HUNEE ───────────────────────────────────────────────────────────
   { id:'hunee', label:'HUNEE', type:'artist', genre:'deep', era:2012, city:'Amsterdam', country:'NL',
     desc:'HUNEE (Hun Choi) is an Amsterdam DJ of South Korean descent who grew up in Bochum, Germany. He is closely associated with the Rush Hour label and store in Amsterdam and plays a wide-ranging selection spanning house, techno, and global club music.',
-    releases: [] },
+    releases: [] , spotify:'6uElH4moADg7AGB3DCGOwy', },
 
   // ── UK — SAMMY VIRJI ─────────────────────────────────────────────────────
   { id:'sammy_virji', label:'Sammy Virji', type:'artist', genre:'chicago', era:2018, city:'London', country:'UK',
     desc:'Sammy Virji is a London DJ and producer working in UK garage and bassline. He founded Kiwi Records and has released on Defected and other labels. His productions update the UK garage sound for contemporary dancefloors.',
-    releases: [] },
+    releases: [] , spotify:'1GuqTQbuixFHD6eBkFwVcb', },
 
   // ── RICARDO VILLALOBOS (exists as id:'villalobos') ───────────────────────
   // ── RICHIE HAWTIN (exists as id:'hawtin') ────────────────────────────────
@@ -4552,111 +4552,111 @@ export const NODES = [
     desc:'dBridge (Darren White) is a UK drum and bass producer and DJ. He was a member of drum and bass group Bad Company in the late 1990s and went on to release on Metalheadz. He founded Exit Records in 2007 as a vehicle for drum and bass with experimental and techno influences.',
     releases: [
       { title: 'Exit Records inaugural releases', year: 2007 },
-    ]},
+    ], spotify:'4G1BTcGLvvsItegHSvBH0y', },
 
   // ── UK — SHANTI CELESTE ──────────────────────────────────────────────────
   { id:'shanti_celeste', label:'Shanti Celeste', type:'artist', genre:'deep', era:2017, city:'Bristol', country:'UK',
     desc:'Shanti Celeste is a DJ and producer born in Temuco, Chile, who moved to the UK as a child and is based in Bristol. She founded the Peach Discs label in 2017 and is associated with the Bristol electronic music community around labels including Timedance. She has released on Apron Records and Idle Hands.',
-    releases: [] },
+    releases: [] , spotify:'3CkM2290WOa2ESzhlu5mzM', },
 
   // ── GERMANY — BORIS BREJCHA ──────────────────────────────────────────────
   { id:'boris_brejcha', label:'Boris Brejcha', type:'artist', genre:'minimal', era:2006, city:'Frankfurt', country:'DE',
     desc:'Boris Brejcha is a German DJ and producer born in 1981 near Ludwigshafen. He developed a style he calls "high-tech minimal", blending minimal techno with trance-influenced melodic elements. He founded Fckng Serious Records in 2015 and has become one of the most-streamed artists in German techno.',
-    releases: [] },
+    releases: [] , spotify:'6caPJFLv1wesmM7gwK1ACy', },
 
   // ── SPAIN — INDIRA PAGANOTTO ─────────────────────────────────────────────
   { id:'indira_paganotto', label:'Indira Paganotto', type:'artist', genre:'techno', era:2018, city:'Barcelona', country:'ES',
     desc:'Indira Paganotto is a Spanish DJ and producer born in Las Palmas, Canary Islands in 1992. She has released on KNTXT (Charlotte de Witte\'s label), Trip (Nina Kraviz\'s label), and her own Artcore label (founded 2022). She is known for hard, functional techno and has built an international touring profile since 2018.',
-    releases: [] },
+    releases: [] , spotify:'0JXc5G7ZImFTwPg3y8MTfR', },
 
   // ── NL — KI/KI ───────────────────────────────────────────────────────────
   { id:'ki_ki', label:'KI/KI', type:'artist', genre:'techno', era:2020, city:'Amsterdam', country:'NL',
     desc:'KI/KI is an Amsterdam DJ who co-runs the Spielraum party and record shop. She works across acid techno and trance and was the first woman to win the Dutch Edison Award in electronic music. She has 1.3 million monthly Spotify listeners as of 2025.',
-    releases: [] },
+    releases: [] , spotify:'0UMs6dTf23FC2fHc40fXNS', },
 
   // ── NL — JORIS VOORN ─────────────────────────────────────────────────────
   { id:'joris_voorn', label:'Joris Voorn', type:'artist', genre:'deep', era:2002, city:'Amsterdam', country:'NL',
     desc:'Joris Voorn is a Dutch DJ and producer born in 1977. He founded the Green label in 2002 and Rejected in 2015. His early career received support from Carl Craig and Derrick May. He plays across techno, house, and ambient, and has performed at festivals and clubs internationally for over two decades.',
     releases: [
       { title: 'Future History (Green)', year: 2006 },
-    ]},
+    ], spotify:'4jGpKAmwvU263l0tUh4xKU', },
 
   // ── GERMANY — POLYGONIA ──────────────────────────────────────────────────
   { id:'polygonia', label:'Polygonia', type:'artist', genre:'techno', era:2019, city:'Munich', country:'DE',
     desc:'Polygonia (Lindsey Wang) is a Munich-based DJ and producer. She co-founded the IO collective and label in 2018 and the QEONE label in 2022. She holds a residency at BLITZ Munich and has performed at Berghain. Her sets range across psychedelic techno and experimental club music.',
-    releases: [] },
+    releases: [] , spotify:'1bvMkEwyURFPl2eDGZieUm', },
 
   // ── ITALY — ALARICO ──────────────────────────────────────────────────────
   { id:'alarico', label:'Alarico', type:'artist', genre:'techno', era:2019, city:'Milan', country:'IT',
     desc:'Alarico (Alarico Zucchi) is a Milan-based DJ and producer who began performing under that alias in 2019. He founded Katana Records and is one half of the Funk Assault duo alongside German producer Chlär. His music occupies a functional, hard-edged corner of contemporary European techno.',
-    releases: [] },
+    releases: [] , spotify:'3160Uht6QdGT17EECSPWAO', },
 
   // ── NL — IGNEZ ───────────────────────────────────────────────────────────
   { id:'ignez', label:'Ignez', type:'artist', genre:'techno', era:2018, city:'Amsterdam', country:'NL',
     desc:'Ignez is a Dutch techno producer who has released on Token Records and the SK_eleven imprint, and runs Somov Records. They have collaborated with Rødhåd and operate in the harder, industrial end of contemporary European techno.',
-    releases: [] },
+    releases: [] , spotify:'35vEDafV45d7QN0D5rRwYV', },
 
   // ── PALESTINE — SAMA ABDULHADI ───────────────────────────────────────────
   { id:'sama_abdulhadi', label:'Sama Abdulhadi', type:'artist', genre:'techno', era:2018, city:'Ramallah', country:'PS',
     desc:'Sama Abdulhadi is a Palestinian DJ and producer born in Amman in 1990 to a family that returned to Ramallah in 1993. Her Boiler Room set filmed in Ramallah in 2018 accumulated over three million views and brought her international attention. She co-founded the Union Collective to support DJs in Palestine and the Resilience platform for artists in conflict zones.',
-    releases: [] },
+    releases: [] , spotify:'52qyXsgOeHZZxHRRxyO8xm', },
 
   // ── GERMANY — MONIKA KRUSE ───────────────────────────────────────────────
   { id:'monika_kruse', label:'Monika Kruse', type:'artist', genre:'techno', era:1997, city:'Berlin', country:'DE',
     desc:'Monika Kruse is a German DJ and producer born in West Berlin in 1971 who grew up in Munich. She founded the Terminal M label in 2000. She played Tresor Club extensively during the 1990s Berlin techno scene and has remained a regular presence at Berghain.',
-    releases: [] },
+    releases: [] , spotify:'2xeHjPrS4EnEUIXHV9pkeg', },
 
   // ── BELGIUM — NOVAH ──────────────────────────────────────────────────────
   { id:'novah', label:'NOVAH', type:'artist', genre:'techno', era:2023, city:'Antwerp', country:'BE',
     desc:'NOVAH is an Antwerp-based DJ and producer working in hard techno. She has released on Taapion, the label run by producer Shlømo, and has performed at Fabric and other European clubs.',
-    releases: [] },
+    releases: [] , spotify:'7qvjUtp2ccRD9AiDnukyFF', },
 
   // ── GERMANY — PURPLE DISCO MACHINE ──────────────────────────────────────
   { id:'purple_disco_machine', label:'Purple Disco Machine', type:'artist', genre:'disco', era:2012, city:'Dresden', country:'DE',
     desc:'Purple Disco Machine is the alias of Tino Piontek, born in Dresden in 1980. He began releasing under this name in 2012, developing a nu-disco and house sound influenced by 1970s funk and French Touch. His track My House appeared on OFF Recordings in 2013 and established his international profile.',
     releases: [
       { title: 'My House (OFF Recordings)', year: 2013 },
-    ]},
+    ], spotify:'2WBJQGf1bT1kxuoqziH5g4', },
 
   // ── BERGHAIN RESIDENTS ─────────────────────────────────────────────────────
   { id:'tama_sumo', label:'Tama Sumo', type:'artist', genre:'deep', era:1993, city:'Berlin', country:'DE',
     desc:'Tama Sumo (Kerstin Egert) is a Berlin-based DJ born in Bavaria who began DJing in 1993 at Drama bar in Kreuzberg. She became a Tresor resident in 1994, remaining for a decade. When Ostgut became Berghain and Panorama Bar, she transitioned to become one of its central long-running residents. Her sets are known for traversing house, jazz, disco, broken beat, soul, funk, and Afrobeat — a deeply eclectic approach built over decades of careful listening.',
-    releases: [] },
+    releases: [] , spotify:'26G7zoNzNy3rDIep6FAhDP', },
 
   { id:'luke_slater', label:'Luke Slater', type:'artist', genre:'techno', era:1993, city:'London', country:'UK',
     desc:'Luke Slater is a British DJ and producer who has been one of Berghain\'s longest-serving residents and one of the architects of psychedelic, polyrhythmic British techno. Recording as Planetary Assault Systems, his productions are muscular, purposeful, and built for the Berghain main floor — bleepy, multi-layered loops that develop slowly and with great physical force. He has released on Ostgut Ton, Peacefrog, and his own Mote-Evolver imprint.',
     releases: [
       { title: 'Plantae (Ostgut Ton)', year: 2019 },
-    ] },
+    ] , spotify:'5BJa6TIqtoWm8QRRbfRmyt', },
 
   { id:'nd_baumecker', label:'nd_baumecker', type:'artist', genre:'deep', era:2004, city:'Berlin', country:'DE',
     desc:'Andreas Baumecker began his DJ career in Frankfurt in 1991 before moving to Berlin in 2004. As a Berghain and Panorama Bar resident, his sets are known as deep, unpredictable, funky, and melodic — flowing between rhythms and genres with seamless craft. Since 2010 he has produced with Sam Barker as Barker & Baumecker, releasing on Ostgut Ton.',
     releases: [
       { title: 'Turns (Ostgut Ton)', year: 2013 },
-    ] },
+    ] , spotify:'4GqeiRfI2MHbRISpk0dX0z', },
 
   { id:'steffi', label:'Steffi', type:'artist', genre:'deep', era:2008, city:'Berlin', country:'NL',
     desc:'Steffi is a Dutch-born DJ and producer who grew up in the Netherlands and moved to Berlin in 2007, becoming a resident at Panorama Bar. She releases on Ostgut Ton — her debut album Yours & Mine appeared in 2011 — and her sound has evolved across warm reflective techno and intricate electro. She has collaborated extensively with Virginia, with whom she shares both a residency and a musical sensibility.',
     releases: [
       { title: 'Yours & Mine (Ostgut Ton)', year: 2011 },
       { title: 'Power of Anonymity (Ostgut Ton)', year: 2014 },
-    ] },
+    ] , spotify:'1nEW30wWMOHtMNN7Qh7M86', },
 
   { id:'virginia', label:'Virginia', type:'artist', genre:'deep', era:2012, city:'Berlin', country:'DE',
     desc:'Virginia is a Berlin-based DJ and vocalist who grew up in Munich and holds a long-standing residency at Panorama Bar since 2012. Her sets fuse warm analogue house and electro with live vocals. She has collaborated with Steffi on the 2019 album Work A Change, exploring electro terrain together, and released her own album Fierce For The Night on Berghain\'s label in 2016.',
     releases: [
       { title: 'Fierce For The Night (Berghain)', year: 2016 },
-    ] },
+    ] , spotify:'6btpL5HqrzIAseFL23YOk1', },
 
   { id:'norman_nodge', label:'Norman Nodge', type:'artist', genre:'techno', era:2005, city:'Berlin', country:'DE',
     desc:'Norman Nodge was born in Leipzig and raised in Brandenburg, beginning to promote techno parties after the wall came down. He mentored Marcel Dettmann in techno during the 1990s before stepping back from DJing for a decade. In 2005 Marcel Dettmann brought him to Berghain management, where he became a resident. A lawyer by profession, he plays Berghain monthly and is known as a master of the warm-up, with a sound that is forceful, dubby, and hypnotic. He has released on MDR and Ostgut Ton.',
     releases: [
       { title: 'Berghain 06 (Ostgut Ton)', year: 2012 },
-    ] },
+    ] , spotify:'3XsZjgYO83dSNppZzXlzFB', },
 
   { id:'jane_fitz', label:'Jane Fitz', type:'artist', genre:'deep', era:2000, city:'London', country:'UK',
     desc:'Jane Fitz is a London-based DJ with over two decades of experience, known for an eclectic approach spanning UK acid, deep and spacey house, psychedelic techno, and ambient. A resident at the non-profit festival Freerotation and The Pickle Factory in London, she has played at Tresor, Panorama Bar, and Concrete. She produces under the Invisible Menders alias with Dom Ahtuam, releasing on Porn Wax and related labels, and holds a regular slot on Rinse FM.',
-    releases: [] },
+    releases: [] , spotify:'5fO3cjaQXn3DpDsxlJbmQJ', },
 
   // ── DC-10 / CIRCOLOCO ─────────────────────────────────────────────────────
   { id:'dc10', label:'DC-10', type:'venue', genre:'techhouse', era:1999, city:'Ibiza', country:'ES',
@@ -4667,45 +4667,45 @@ export const NODES = [
 
   // ── SETH TROXLER ──────────────────────────────────────────────────────────
   { id:'seth_troxler', label:'Seth Troxler', type:'artist', genre:'deep', era:2008, city:'Detroit', country:'US',
-    desc:'Seth Troxler was born in 1984 in South Lyon, Michigan. He became one of the most prominent DJs of his generation, building a reputation for deep, hypnotic house and techno distinguished by an improvisational quality and a refusal of formulaic programming. He co-founded the Wolf + Lamb label and collective in Brooklyn with Gadi Mizrahi and released on Crosstown Rebels and Skint. A long-running resident at DC-10\'s Circoloco parties in Ibiza, he held one of the most documented DJ-to-club relationships in the contemporary scene. Now based in Berlin, he has played extensively at Panorama Bar, fabric, and clubs across Europe, the US, and beyond.' },
+    desc:'Seth Troxler was born in 1984 in South Lyon, Michigan. He became one of the most prominent DJs of his generation, building a reputation for deep, hypnotic house and techno distinguished by an improvisational quality and a refusal of formulaic programming. He co-founded the Wolf + Lamb label and collective in Brooklyn with Gadi Mizrahi and released on Crosstown Rebels and Skint. A long-running resident at DC-10\'s Circoloco parties in Ibiza, he held one of the most documented DJ-to-club relationships in the contemporary scene. Now based in Berlin, he has played extensively at Panorama Bar, fabric, and clubs across Europe, the US, and beyond.' , spotify:'3JkLFcTej6tdwZoQT6Nx4B', },
 
   // ── TANIA VULCANO ─────────────────────────────────────────────────────────
   { id:'tania_vulcano', label:'Tania Vulcano', type:'artist', genre:'deep', era:1999, city:'Ibiza', country:'ES',
-    desc:'Tania Vulcano was born in Ibiza and is one of the foundational residents of Circoloco at DC-10, holding a weekly slot from the party\'s first season in 1999. Known for an eclectic, instinctive approach that moves between house, techno, and harder-to-define territory, she is among the small number of DJs whose sustained presence shaped the identity of a specific club night over more than two decades. Her sets are characterised by long arcs, unusual selections, and an emotional directness that has made her one of the most respected selectors in the Ibiza circuit.' },
+    desc:'Tania Vulcano was born in Ibiza and is one of the foundational residents of Circoloco at DC-10, holding a weekly slot from the party\'s first season in 1999. Known for an eclectic, instinctive approach that moves between house, techno, and harder-to-define territory, she is among the small number of DJs whose sustained presence shaped the identity of a specific club night over more than two decades. Her sets are characterised by long arcs, unusual selections, and an emotional directness that has made her one of the most respected selectors in the Ibiza circuit.' , spotify:'2NuxIEdD6vIDfaNXYShL1H', },
 
   // ── LOCO DICE ─────────────────────────────────────────────────────────────
   { id:'loco_dice', label:'Loco Dice', type:'artist', genre:'techno', era:2000, city:'Düsseldorf', country:'DE',
     desc:'Loco Dice was born in Hameln, Germany of Tunisian heritage and raised in Düsseldorf, where he began as a hip-hop DJ before moving into techno and house in the late 1990s. A long-running resident at DC-10\'s Circoloco and a close associate of Ricardo Villalobos, he founded the Desolat label in 2008 and built it into one of the most consistently-released minimal/techno imprints of the following decade. Known for a fluid, hypnotic style at the intersection of techno and deep house, he has been a regular at Berghain, fabric, and the leading underground clubs worldwide.',
     releases: [
       { title: 'Serengeti Calling (Desolat)', year: 2010 },
-    ] },
+    ] , spotify:'4rbw4Z9Hjn6n9x5oYzZe7P', },
 
   // ── MATADOR ───────────────────────────────────────────────────────────────
   { id:'matador', label:'Matador', type:'artist', genre:'techno', era:2006, city:'Cork', country:'IE',
     desc:'Matador is the alias of Gavin Lynch, a DJ and producer from Cork, Ireland. Known for a dark, industrial-influenced techno aesthetic, he built early connections through Richie Hawtin\'s Minus circle and has released on Blueprint, Cocoon, and related labels. A long-running resident at DC-10\'s Circoloco and a regular at Berghain and fabric, he is one of the few Irish artists to have become a central figure in the European techno circuit. His productions favour tension and precision over melody, drawing on industrial and EBM influences filtered through the minimal techno tradition.',
     releases: [
       { title: 'Matador 01 EP (Minus)', year: 2010 },
-    ] },
+    ] , spotify:'6rYEqmajzlhGVaayOJ2bpJ', },
 
   // ── CRAIG RICHARDS ────────────────────────────────────────────────────────
   { id:'craig_richards', label:'Craig Richards', type:'artist', genre:'deep', era:1999, city:'London', country:'UK',
     desc:'Craig Richards is the co-founder and artistic director of fabric in London, where he has held a resident DJ position since the club opened in 1999. His influence on fabric\'s identity — the aesthetic of room 1, the booking policy, the long-form approach to a night — is inseparable from the club\'s reputation. As a DJ he is known for deep, exploratory sets that move fluidly between house, techno, and ambient over extended durations. He has released mixes on the fabric mix series and runs his own label.',
     releases: [
       { title: 'Fabric 24 (mix compilation)', year: 2005 },
-    ] },
+    ] , spotify:'6EVc5gJQXiUl586m1NFCNH', },
 
   // ── ANCIENT METHODS ───────────────────────────────────────────────────────
   { id:'ancient_methods', label:'Ancient Methods', type:'artist', genre:'techno', era:2011, city:'Berlin', country:'DE',
-    desc:'Ancient Methods is an anonymous Berlin-based producer and DJ operating at the intersection of techno, industrial, and EBM. Active since around 2011 on the Methkin label, the project produces dense, aggressive music drawing on industrial textures and the functional minimalism of peak-hour techno. A regular at Berghain and representative of the harder end of the Berlin underground, Ancient Methods has maintained total anonymity while building a significant following through recorded output and club appearances.' },
+    desc:'Ancient Methods is an anonymous Berlin-based producer and DJ operating at the intersection of techno, industrial, and EBM. Active since around 2011 on the Methkin label, the project produces dense, aggressive music drawing on industrial textures and the functional minimalism of peak-hour techno. A regular at Berghain and representative of the harder end of the Berlin underground, Ancient Methods has maintained total anonymity while building a significant following through recorded output and club appearances.' , spotify:'2kWRgcJHbgSEAIgewkJ1g2', },
 
   // ── CINTHIE ───────────────────────────────────────────────────────────────
   { id:'cinthie', label:'Cinthie', type:'artist', genre:'deep', era:2012, city:'Berlin', country:'DE',
     desc:'Cinthie was born and raised in East Berlin. A Panorama Bar resident, she is known for a deep, warm sound drawing on house, disco, and soul rather than peak-hour techno. She runs the 803 Crystal Grooves, Beste Modus, and Aethon labels, with productions that share the unhurried, groove-centred quality of her DJ sets. She is the partner of Lawrence, the Hamburg-based producer whose work for Dial and Mule Musiq has defined a strand of the German deep house tradition.',
-    releases: [] },
+    releases: [] , spotify:'764H8zG8sTf5FPHWHW5bvh', },
 
   // ── PAULA TEMPLE ──────────────────────────────────────────────────────────
   { id:'paula_temple', label:'Paula Temple', type:'artist', genre:'techno', era:2013, city:'London', country:'UK',
-    desc:'Paula Temple is a British DJ and producer known for industrial and noise-influenced techno. She runs the Noise Manifesto label and has produced work that draws on the harder end of the techno canon while incorporating industrial music and noise aesthetics. A regular at Berghain and an internationally active artist, she has been an outspoken advocate for trans rights and LGBTQ+ inclusion in club culture. Her sets are physically demanding and technically precise, operating at the boundary between techno and experimental noise.' },
+    desc:'Paula Temple is a British DJ and producer known for industrial and noise-influenced techno. She runs the Noise Manifesto label and has produced work that draws on the harder end of the techno canon while incorporating industrial music and noise aesthetics. A regular at Berghain and an internationally active artist, she has been an outspoken advocate for trans rights and LGBTQ+ inclusion in club culture. Her sets are physically demanding and technically precise, operating at the boundary between techno and experimental noise.' , spotify:'4iy2RFU8gIpXF5yaK0l8ZT', },
 
   // ── THE PRODIGY ───────────────────────────────────────────────────────────
   { id:'the_prodigy', label:'The Prodigy', type:'artist', genre:'techno', era:1990, city:'Braintree', country:'UK',
@@ -4714,7 +4714,7 @@ export const NODES = [
       { title: 'Experience', year: 1992 },
       { title: 'Music for the Jilted Generation', year: 1994 },
       { title: 'The Fat of the Land', year: 1997 },
-    ]},
+    ], spotify:'4k1ELeJKT1ISyDv8JivPpB', },
 
   // ── JUAN ATKINS ───────────────────────────────────────────────────────────
   { id:'juan_atkins', label:'Juan Atkins', type:'artist', genre:'detroit', era:1981, city:'Belleville', country:'US',
@@ -4723,7 +4723,7 @@ export const NODES = [
       { title: '"Clear" — Cybotron', year: 1983 },
       { title: '"No UFOs" — Model 500', year: 1985 },
       { title: '"Classics" — Model 500', year: 1995 },
-    ]},
+    ], spotify:'208EQzx7RmoE2Ng9gF2edh', },
 
   // ── MARSHALL JEFFERSON ────────────────────────────────────────────────────
   { id:'marshall_jefferson', label:'Marshall Jefferson', type:'artist', genre:'chicago', era:1984, city:'Chicago', country:'US',
@@ -4731,7 +4731,7 @@ export const NODES = [
     releases: [
       { title: '"Move Your Body"', year: 1986 },
       { title: '"Open Our Eyes" — Jungle Wonz', year: 1988 },
-    ]},
+    ], spotify:'2Di8r9df6xjyj6CVOqbGVz', },
 
   // ── THE ORB ───────────────────────────────────────────────────────────────
   { id:'the_orb', label:'The Orb', type:'artist', genre:'ambient', era:1988, city:'London', country:'UK',
@@ -4740,7 +4740,7 @@ export const NODES = [
       { title: 'Adventures Beyond the Ultraworld', year: 1991 },
       { title: 'U.F.Orb', year: 1992 },
       { title: 'Orbus Terrarum', year: 1995 },
-    ]},
+    ], spotify:'5HAtRoEPUvGSA7ziTGB1cF', },
 
   // ── JOHN DIGWEED ──────────────────────────────────────────────────────────
   { id:'john_digweed', label:'John Digweed', type:'artist', genre:'deep', era:1992, city:'Hastings', country:'UK',
@@ -4749,7 +4749,7 @@ export const NODES = [
       { title: 'Renaissance: The Mix Collection (with Sasha)', year: 1994 },
       { title: 'Northern Exposure (with Sasha)', year: 1996 },
       { title: 'Bedrock', year: 1999 },
-    ]},
+    ], spotify:'3xnDktxhudJR2Wv3HZDQ9W', },
 
   // ── SPIRAL TRIBE ──────────────────────────────────────────────────────────
   { id:'spiral_tribe', label:'Spiral Tribe', type:'culture', genre:'techno', era:1990, city:'London', country:'UK',
@@ -4759,7 +4759,7 @@ export const NODES = [
   // ── TONY HUMPHRIES ────────────────────────────────────────────────────────
   { id:'tony_humphries', label:'Tony Humphries', type:'artist', genre:'deep', era:1981, city:'Newark', country:'US',
     desc:'Tony Humphries served as the resident DJ at Club Zanzibar in Newark, New Jersey from the early 1980s through the 1990s, establishing it as one of the defining spaces of the New York metropolitan deep house and garage scene. Alongside Larry Levan at the Paradise Garage, Humphries developed a DJing approach that prioritised emotional depth and long-arc sets over purely functional dancefloor programming. His weekly show on KISS FM (92.7) in New York brought this aesthetic to a radio audience. As a remixer he worked extensively across house, pop, and R&B, consistently finding the deep house core within commercial material.',
-    releases: [] },
+    releases: [] , spotify:'3H8qk6ngZWWvpFBDiYJiFw', },
 
   // ── DJ INTERNATIONAL RECORDS ──────────────────────────────────────────────
   { id:'dj_international', label:'DJ International Records', type:'label', genre:'chicago', era:1985, city:'Chicago', country:'US',
@@ -4791,7 +4791,7 @@ export const NODES = [
       { title: '"Nude Photo" — Rhythim Is Rhythim', year: 1987 },
       { title: '"Strings of Life" — Rhythim Is Rhythim', year: 1987 },
       { title: '"It Is What It Is" — Rhythim Is Rhythim', year: 1990 },
-    ]},
+    ], spotify:'0v6N0xV7AfHHKVcgUOjC51', },
 
   // ── KEVIN SAUNDERSON ──────────────────────────────────────────────────────
   { id:'kevin_saunderson', label:'Kevin Saunderson', type:'artist', genre:'detroit', era:1986, city:'Belleville', country:'US',
@@ -4800,7 +4800,7 @@ export const NODES = [
       { title: '"Big Fun" — Inner City', year: 1988 },
       { title: '"Good Life" — Inner City', year: 1988 },
       { title: '"Heavenly" — E-Dancer', year: 1998 },
-    ]},
+    ], spotify:'0jS6VTFGujWxinY5TSQwOG', },
 
   // ── THE KLF ───────────────────────────────────────────────────────────────
   { id:'the_klf', label:'The KLF', type:'artist', genre:'techno', era:1987, city:'London', country:'UK',
@@ -4809,7 +4809,7 @@ export const NODES = [
       { title: 'Chill Out', year: 1990 },
       { title: '"3 A.M. Eternal"', year: 1991 },
       { title: '"Justified and Ancient"', year: 1991 },
-    ]},
+    ], spotify:'6dYrdRlNZSKaVxYg5IrvCH', },
 
   // ── AFRIKA BAMBAATAA ──────────────────────────────────────────────────────
   { id:'afrika_bambaataa', label:'Afrika Bambaataa', type:'artist', genre:'detroit', era:1982, city:'Bronx', country:'US',
@@ -4818,12 +4818,12 @@ export const NODES = [
       { title: '"Planet Rock" — Afrika Bambaataa & the Soulsonic Force', year: 1982 },
       { title: '"Looking for the Perfect Beat"', year: 1983 },
       { title: '"Renegades of Funk"', year: 1983 },
-    ]},
+    ], spotify:'7cg61q8kK8jlFi8TKKw70p', },
 
   // ── DAVID MANCUSO ─────────────────────────────────────────────────────────
   { id:'david_mancuso', label:'David Mancuso', type:'artist', genre:'disco', era:1970, city:'New York', country:'US',
     desc:'David Mancuso opened The Loft in his home at 647 Broadway, New York, in February 1970, inviting guests by word of mouth to what he described as rent parties. The Loft was not a commercial club — there was no liquor licence, guests brought their own food and drink, and there was no DJ booth in the conventional sense. Mancuso played records on a high-fidelity sound system of his own specification, prioritising audio quality above all. His focus on community, sound quality, and the creation of a safe space for Black and gay New Yorkers directly shaped the generation of DJs who followed him — Larry Levan and Frankie Knuckles danced at The Loft before beginning their own careers. Every principle of the DJ as curator, and of the club as sanctuary rather than business, traces back to Mancuso and The Loft.',
-    releases: [] },
+    releases: [] , spotify:'0fwFzTYm2zsxfYhaGtOFq8', },
 
   // ── SUN RA ────────────────────────────────────────────────────────────────
   { id:'sun_ra', label:'Sun Ra', type:'artist', genre:'experimental', era:1956, city:'Chicago', country:'US',
@@ -4832,7 +4832,7 @@ export const NODES = [
       { title: 'Jazz in Silhouette', year: 1959 },
       { title: 'The Heliocentric Worlds of Sun Ra', year: 1965 },
       { title: 'Space Is the Place', year: 1973 },
-    ]},
+    ], spotify:'0tIODqvzGUoEaK26rK4pvX', },
 
   // ── PAUL OAKENFOLD ────────────────────────────────────────────────────────
   { id:'paul_oakenfold', label:'Paul Oakenfold', type:'artist', genre:'deep', era:1987, city:'London', country:'UK',
@@ -4840,12 +4840,12 @@ export const NODES = [
     releases: [
       { title: 'Tranceport', year: 1998 },
       { title: 'Bunkka', year: 2002 },
-    ]},
+    ], spotify:'5MO2kbaGGA2a8kL4c9qqHq', },
 
   // ── DANNY RAMPLING ────────────────────────────────────────────────────────
   { id:'danny_rampling', label:'Danny Rampling', type:'artist', genre:'chicago', era:1987, city:'London', country:'UK',
     desc:'Danny Rampling was one of the four British DJs present at Ibiza\'s Amnesia club in the summer of 1987, alongside Paul Oakenfold, Nicky Holloway, and Johnny Walker. On returning to London, Rampling opened Shoom in December 1987 — a small club in a Southwark fitness centre that became the epicentre of UK acid house. The smiley face logo Rampling adopted for Shoom became the defining symbol of the acid house era. Shoom was a genuinely underground space, with a capacity of around 300, strict door policies, and a culture built around community and the new music rather than celebrity. Rampling subsequently held a long-running show on BBC Radio 1 and remained a key figure in the development of UK dance music culture.',
-    releases: [] },
+    releases: [] , spotify:'2OHxo9ZFo7UuSCNgtC1qlO', },
 
   // ── SHOOM ─────────────────────────────────────────────────────────────────
   { id:'shoom', label:'Shoom', type:'venue', genre:'chicago', era:1987, city:'London', country:'UK',
@@ -4858,14 +4858,14 @@ export const NODES = [
     releases: [
       { title: '"Loaded"', year: 1990 },
       { title: 'Screamadelica', year: 1991 },
-    ]},
+    ], spotify:'3wury2nd8idV4GecUg5xze', },
 
   // ── JESSE SAUNDERS ────────────────────────────────────────────────────────
   { id:'jesse_saunders', label:'Jesse Saunders', type:'artist', genre:'chicago', era:1984, city:'Chicago', country:'US',
     desc:'Jesse Saunders is a Chicago DJ and producer whose 1984 recording "On and On" — co-written with Vince Lawrence and recorded with vocalist Paris Brightledge — is among the earliest commercially pressed house records. Released on Saunders\'s own Jes Say label and later distributed more broadly, the record documented the Chicago house sound at its very inception and demonstrated that the music being made in the city\'s clubs could sustain commercial release. Saunders was resident at the Music Box alongside Ron Hardy and played a formative role in the Chicago scene\'s early development. He subsequently founded the On Trax distribution company, which helped channel independent Chicago house recordings to wider audiences.',
     releases: [
       { title: '"On and On"', year: 1984 },
-    ]},
+    ], spotify:'6ZYa9hYoOGVzvQa2vmiVhi', },
 
   // ── SUBURBAN KNIGHT ───────────────────────────────────────────────────────
   { id:'suburban_knight', label:'Suburban Knight', type:'artist', genre:'detroit', era:1989, city:'Detroit', country:'US',
@@ -4873,7 +4873,7 @@ export const NODES = [
     releases: [
       { title: '"The Art of Stalking"', year: 1990 },
       { title: '"Hi-Tech Jazz"', year: 1990 },
-    ]},
+    ], spotify:'30RMkmcPNAZPYj3XUSrLh4', },
 
   // ── STEVE "SILK" HURLEY ───────────────────────────────────────────────────
   { id:'steve_silk_hurley', label:'Steve "Silk" Hurley', type:'artist', genre:'chicago', era:1985, city:'Chicago', country:'US',
@@ -4881,7 +4881,7 @@ export const NODES = [
     releases: [
       { title: '"I Can\'t Turn Around" — JM Silk', year: 1985 },
       { title: '"Jack Your Body"', year: 1986 },
-    ]},
+    ], spotify:'2TzZ6XTFG1p1PAfhl0crDP', },
 
   // ── FARLEY "JACKMASTER" FUNK ──────────────────────────────────────────────
   { id:'farley_jackmaster_funk', label:'Farley "Jackmaster" Funk', type:'artist', genre:'chicago', era:1982, city:'Chicago', country:'US',
@@ -4889,7 +4889,7 @@ export const NODES = [
     releases: [
       { title: '"Love Can\'t Turn Around" feat. Darryl Pandy', year: 1986 },
       { title: '"Farley Knows House"', year: 1987 },
-    ]},
+    ], spotify:'0B9P7RXrukgIdmutz9XMVN', },
 
   // ── LIL LOUIS ─────────────────────────────────────────────────────────────
   { id:'lil_louis', label:'Lil Louis', type:'artist', genre:'chicago', era:1987, city:'Chicago', country:'US',
@@ -4897,7 +4897,7 @@ export const NODES = [
     releases: [
       { title: '"French Kiss"', year: 1989 },
       { title: '"I Called U"', year: 1989 },
-    ]},
+    ], spotify:'5A16TE7083RJq3yzpdsQWs', },
 
   // ── THE LOFT ──────────────────────────────────────────────────────────────
   { id:'the_loft', label:'The Loft', type:'venue', genre:'disco', era:1970, city:'New York', country:'US',
@@ -4911,7 +4911,7 @@ export const NODES = [
       { title: '"Mystery of Love"', year: 1985 },
       { title: '"Bring Down the Walls"', year: 1986 },
       { title: 'Another Side (album)', year: 1988 },
-    ]},
+    ], spotify:'7DbXdVqrretuCKPkTeX8Kk', },
 
   // ── TEN CITY ──────────────────────────────────────────────────────────────
   { id:'ten_city', label:'Ten City', type:'artist', genre:'chicago', era:1987, city:'Chicago', country:'US',
@@ -4920,7 +4920,7 @@ export const NODES = [
       { title: '"That\'s the Way Love Is"', year: 1987 },
       { title: 'Foundation (album)', year: 1989 },
       { title: 'State of Mind (album)', year: 1990 },
-    ]},
+    ], spotify:'3DIaOWIVFxJdTYyEb9mXzi', },
 
   // ── MODEL 500 ─────────────────────────────────────────────────────────────
   { id:'model_500', label:'Model 500', type:'artist', genre:'detroit', era:1985, city:'Detroit', country:'US',
@@ -4929,7 +4929,7 @@ export const NODES = [
       { title: '"No UFO\'s"', year: 1985 },
       { title: '"Night Drive (Thru-Babylon)"', year: 1985 },
       { title: '"The Chase"', year: 1989 },
-    ]},
+    ], spotify:'2Djz8cbEv5rtrYrJYdzQ20', },
 
   // ── PHOTEK ────────────────────────────────────────────────────────────────
   { id:'photek', label:'Photek', type:'artist', genre:'techno', era:1994, city:'London', country:'UK',
@@ -4938,7 +4938,7 @@ export const NODES = [
       { title: '"Ni Ten Ichi Ryu (Two Swords Technique)"', year: 1995 },
       { title: '"The Hidden Camera"', year: 1996 },
       { title: 'Modus Operandi (album)', year: 1997 },
-    ]},
+    ], spotify:'3hXDMlrPegHRO0zUvBsRSI', },
 
   // ── LARRY HEARD (MR. FINGERS) ─────────────────────────────────────────────
   { id:'larry_heard', label:'Larry Heard', type:'artist', genre:'chicago', era:1985, city:'Chicago', country:'US',
@@ -4947,7 +4947,7 @@ export const NODES = [
       { title: '"Can You Feel It" — Mr. Fingers', year: 1986 },
       { title: '"Washing Machine" — Mr. Fingers', year: 1986 },
       { title: '"Mystery of Love" — Fingers Inc.', year: 1985 },
-    ]},
+    ], spotify:'3j7teie3p6UnbA8nW51Trz', },
 
   // ── BASIC CHANNEL ─────────────────────────────────────────────────────────
   { id:'basic_channel', label:'Basic Channel', type:'label', genre:'techno', era:1993, city:'Berlin', country:'DE',
@@ -4963,7 +4963,7 @@ export const NODES = [
     desc:'Masters at Work is the New York production partnership of Louie Vega (born 1965, Bronx) and Kenny "Dope" Gonzalez (born 1970, Brooklyn), formed around 1990. Working from the tradition of the Paradise Garage and the deeper end of the New York club continuum, they built a body of work that bridged deep house, garage house, and Latin-influenced soul — a sound rooted in the New York borough experience rather than European minimalism. They produced records under multiple aliases and released on their MAW Records label, and their Nuyorican Soul project (1997, recorded with Jorge Morales and featuring vocalists including India, George Benson, and Jocelyn Brown) represented an attempt to document the Latin soul and house continuum through a full album. Their remixes and productions for other artists — including Diane Ross, Roy Ayers, and countless club records — made them among the most prolific and influential production teams of the 1990s.',
     releases: [
       { title: 'Nuyorican Soul (album)', year: 1997 },
-    ]},
+    ], spotify:'5Fkj0k7EPUhIsESSIEA9f1', },
 
   // ── KERRI CHANDLER ────────────────────────────────────────────────────────
   { id:'kerri_chandler', label:'Kerri Chandler', type:'artist', genre:'deep', era:1993, city:'Newark', country:'US',
@@ -4971,7 +4971,7 @@ export const NODES = [
     releases: [
       { title: '"Bar A Thym"', year: 1994 },
       { title: '"Rain"', year: 1994 },
-    ]},
+    ], spotify:'7nqpEU6DCHkNtK1bYsyS3W', },
 
   // ── CYBOTRON ──────────────────────────────────────────────────────────────
   { id:'cybotron', label:'Cybotron', type:'artist', genre:'detroit', era:1981, city:'Detroit', country:'US',
@@ -4980,7 +4980,7 @@ export const NODES = [
       { title: '"Alleys of Your Mind"', year: 1981 },
       { title: '"Clear"', year: 1983 },
       { title: '"Techno City"', year: 1984 },
-    ]},
+    ], spotify:'5Mr6zawZ90BzjY14EROmSm', },
 
   // ── INNER CITY ────────────────────────────────────────────────────────────
   { id:'inner_city', label:'Inner City', type:'artist', genre:'detroit', era:1988, city:'Detroit', country:'US',
@@ -4989,21 +4989,21 @@ export const NODES = [
       { title: '"Big Fun"', year: 1988 },
       { title: '"Good Life"', year: 1988 },
       { title: '"Pennies from Heaven"', year: 1992 },
-    ]},
+    ], spotify:'0vUJ3QLN3MlRfjOc2LjGWp', },
 
   // ── FRANKIE BONES ─────────────────────────────────────────────────────────
   { id:'frankie_bones', label:'Frankie Bones', type:'artist', genre:'techno', era:1989, city:'New York', country:'US',
     desc:'Frankie Bones is a Brooklyn-born DJ who played a documented role in the transmission of UK rave culture to the United States. After travelling to the UK in 1989 and experiencing the acid house and rave scene firsthand — including performing at events alongside the UK\'s leading DJs — he returned to New York and began organising Storm Rave events in Brooklyn from 1990 onward, adapting the energy and format of the UK warehouse party to the American context. He is frequently cited as the person who coined the phrase PLUR — Peace, Love, Unity, Respect — as a guiding ethos for the rave community. His role was logistical and cultural as much as musical: he built the infrastructure of the US east coast rave scene at a point when there was none.',
     releases: [
       { title: 'Storm Rave series (events)', year: 1990 },
-    ]},
+    ], spotify:'2Host7cq2V5Xf3bkzYW06Z', },
 
   // ── BLAZE ─────────────────────────────────────────────────────────────────
   { id:'blaze', label:'Blaze', type:'artist', genre:'deep', era:1990, city:'Newark', country:'US',
     desc:'Blaze is the Newark, New Jersey duo of Josh Milan and Kevin Hedge, whose records from the early 1990s brought a gospel-saturated warmth to deep house that set them apart from the more austere end of the genre. Their signature track "Lovelee Dae" (1990) — built on piano chords, a spoken vocal, and a rhythm that breathes rather than drives — became one of the most sampled and re-released tracks in the deep house tradition, demonstrating a staying power rooted in emotional directness rather than formal complexity. Milan and Hedge grew up in church communities in New Jersey and made no attempt to separate that musical inheritance from their club output. Blaze represented the gospel-house axis of the NYC/NJ scene with a consistency matched by few of their contemporaries.',
     releases: [
       { title: '"Lovelee Dae"', year: 1990 },
-    ]},
+    ], spotify:'1Dt1UKLtrJIW1xxRBejjos', },
 
   // ── STUDIO 54 ─────────────────────────────────────────────────────────────
   { id:'studio_54', label:'Studio 54', type:'venue', genre:'disco', era:1977, city:'New York', country:'US',
@@ -5016,7 +5016,7 @@ export const NODES = [
     releases: [
       { title: '"Street Tuff" — Rebel MC & Double Trouble', year: 1989 },
       { title: '"Junglist"', year: 1994 },
-    ]},
+    ], spotify:'1NngQUSMHaauD7UjKuaH2W', },
 
   // ── HOSPITAL RECORDS ──────────────────────────────────────────────────────
   { id:'hospital_records', label:'Hospital Records', type:'label', genre:'techno', era:1996, city:'London', country:'UK',
@@ -5029,7 +5029,7 @@ export const NODES = [
     releases: [
       { title: '"Acperience 1"', year: 1992 },
       { title: '"Hardfloor EP"', year: 1992 },
-    ]},
+    ], spotify:'6z9JhbmcTrVKITp9ah4mJk', },
 
   // ── SALSOUL RECORDS ───────────────────────────────────────────────────────
   { id:'salsoul', label:'Salsoul Records', type:'label', genre:'disco', era:1974, city:'New York', country:'US',
@@ -5039,7 +5039,7 @@ export const NODES = [
   // ── NICKY SIANO ───────────────────────────────────────────────────────────
   { id:'nicky_siano', label:'Nicky Siano', type:'artist', genre:'disco', era:1973, city:'New York', country:'US',
     desc:'Nicky Siano founded The Gallery, a New York DJ club that opened in 1973 at 172 Mercer Street in SoHo — preceding the Paradise Garage and running parallel to The Loft as one of the defining spaces of the pre-house New York club scene. Siano was among the earliest DJs to use a three-channel mixer to blend records in real time, developing a seamless, continuous style of mixing that became standard practice. Larry Levan and Frankie Knuckles both worked at The Gallery before their own careers began — Levan initially as a lighting operator — and both credited its atmosphere and Siano\'s approach as formative. The Gallery\'s emphasis on a community of Black and Latino gay dancers, sophisticated sound, and emotional arc over the course of a night established norms that the Paradise Garage and the Warehouse would later carry forward.',
-    releases: [] },
+    releases: [] , spotify:'6VrmManm5VWx3465a4TKsD', },
 
   // ── WEST END RECORDS ──────────────────────────────────────────────────────
   { id:'west_end_records', label:'West End Records', type:'label', genre:'disco', era:1976, city:'New York', country:'US',
@@ -5052,7 +5052,7 @@ export const NODES = [
     releases: [
       { title: '"Is It All Over My Face?" — Loose Joints', year: 1980 },
       { title: 'World of Echo (album)', year: 1986 },
-    ]},
+    ], spotify:'3iJJD5v7oIFUevW4N5w5cj', },
 
   // ── PATRICK COWLEY ────────────────────────────────────────────────────────
   { id:'patrick_cowley', label:'Patrick Cowley', type:'artist', genre:'disco', era:1979, city:'San Francisco', country:'US',
@@ -5061,7 +5061,7 @@ export const NODES = [
       { title: '"Menergy"', year: 1981 },
       { title: '"Do You Wanna Funk" — Sylvester feat. Patrick Cowley', year: 1982 },
       { title: '"I Feel Love" (extended version)', year: 1982 },
-    ]},
+    ], spotify:'1pggi3bfbAPkwrylE63MEO', },
 
   // ── THROBBING GRISTLE ─────────────────────────────────────────────────────
   { id:'throbbing_gristle', label:'Throbbing Gristle', type:'artist', genre:'experimental', era:1975, city:'London', country:'UK',
@@ -5070,7 +5070,7 @@ export const NODES = [
       { title: 'Second Annual Report (album)', year: 1977 },
       { title: '20 Jazz Funk Greats (album)', year: 1979 },
       { title: 'Heathen Earth (album)', year: 1980 },
-    ]},
+    ], spotify:'1UYhxPY1oqFUg1HfF8nV3k', },
 
   // ── FRONT 242 ─────────────────────────────────────────────────────────────
   { id:'front_242', label:'Front 242', type:'artist', genre:'experimental', era:1981, city:'Brussels', country:'BE',
@@ -5079,7 +5079,7 @@ export const NODES = [
       { title: '"Headhunter"', year: 1988 },
       { title: 'Official Version (album)', year: 1987 },
       { title: 'Front by Front (album)', year: 1988 },
-    ]},
+    ], spotify:'2tyMOS8xKREgpEwHnLc6EX', },
 
   // ── NITZER EBB ────────────────────────────────────────────────────────────
   { id:'nitzer_ebb', label:'Nitzer Ebb', type:'artist', genre:'experimental', era:1982, city:'Chelmsford', country:'UK',
@@ -5088,7 +5088,7 @@ export const NODES = [
       { title: '"Join in the Chant"', year: 1987 },
       { title: 'That Total Age (album)', year: 1987 },
       { title: 'Belief (album)', year: 1989 },
-    ]},
+    ], spotify:'7EnAgffrVyerTWH628TJ6f', },
 
   // ── D.A.F. ────────────────────────────────────────────────────────────────
   { id:'daf', label:'D.A.F.', type:'artist', genre:'experimental', era:1978, city:'Düsseldorf', country:'DE',
@@ -5097,7 +5097,7 @@ export const NODES = [
       { title: '"Der Mussolini"', year: 1981 },
       { title: 'Alles Ist Gut (album)', year: 1981 },
       { title: 'Gold und Liebe (album)', year: 1981 },
-    ]},
+    ], spotify:'5AxO81KZweoM7MGu1zM3Eq', },
 
   // ── LIAISONS DANGEREUSES ──────────────────────────────────────────────────
   { id:'liaisons_dangereuses', label:'Liaisons Dangereuses', type:'artist', genre:'experimental', era:1981, city:'Düsseldorf', country:'DE',
@@ -5105,7 +5105,7 @@ export const NODES = [
     releases: [
       { title: 'Liaisons Dangereuses (album)', year: 1981 },
       { title: '"Los Niños del Parque"', year: 1981 },
-    ]},
+    ], spotify:'67Ae8At3iU8xCN9nw5ozwN', },
 
   // ── AMNESIA IBIZA ─────────────────────────────────────────────────────────
   { id:'amnesia_ibiza', label:'Amnesia', type:'venue', genre:'disco', era:1976, city:'Ibiza', country:'ES',
@@ -5115,7 +5115,7 @@ export const NODES = [
   // ── LOEFAH ────────────────────────────────────────────────────────────────
   { id:'loefah', label:'Loefah', type:'artist', genre:'ambient', era:2004, city:'London', country:'UK',
     desc:'Loefah — born Joseph McNulty in South London — co-founded the DMZ club night at Mass in Brixton alongside Mala and Coki, helping establish that venue as the central institution of the early dubstep scene. His own productions took the genre\'s bass-weight and minimalism to an extreme: sparse percussion, long periods of near-silence, sub-bass frequencies used as the primary compositional material. He founded the Swamp81 label in 2009, which released work by artists including Bok Bok and Dark0, and maintained a curatorial commitment to deep, functional, aesthetically uncompromising club music. Where some dubstep producers moved toward heavier or more melodic forms, Loefah consistently pursued reduction — treating removal as the primary creative gesture.',
-    releases: [] },
+    releases: [] , spotify:'1ICQEDALtLouPV8yEaJXVb', },
 
   // ── JAMAICAN DUB & ROOTS ──────────────────────────────────────────────────
 
@@ -5127,14 +5127,14 @@ export const NODES = [
     desc:'King Tubby — born Osbourne Ruddock on 28 January 1941 in Kingston, Jamaica — invented dub music by treating the recording studio\'s mixing desk as a compositional instrument. Working at his studio in Waterhouse, Kingston, he developed a practice of stripping tracks back to their rhythmic foundations and reintroducing elements — bass, drums, vocal fragments — through echo, reverb, and fader manipulation, creating new versions of existing recordings that foregrounded process and texture over song. His work with Augustus Pablo, Lee "Scratch" Perry, and many others produced hundreds of dub recordings through the 1970s. "King Tubby Meets the Rockers Uptown" (1976, Clocktower Records) is among the most celebrated. He was shot and killed in Kingston on 6 February 1989. The influence of his studio methodology on all subsequent forms of remix culture — from house to techno to hip hop — is structural and continuous.',
     releases: [
       { title: 'King Tubby Meets the Rockers Uptown', year: 1976, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/c/c7/AugustusPablo-KingTubbyMeetsRockersUptown.jpg' },
-    ]},
+    ], spotify:'1AMMMSq3rJdZtFGnBXEkz7', },
 
   { id:'lee_scratch_perry', label:'Lee "Scratch" Perry', type:'artist', genre:'experimental', era:1966, city:'Kingston', country:'JM',
     desc:'Lee "Scratch" Perry — born Rainford Hugh Perry on 20 March 1936 in Kendal, Jamaica, died 29 August 2021 — was a producer, songwriter, and conceptual artist whose work at his Black Ark studio in Washington Gardens, Kingston, from 1974 to 1979 produced some of the most influential recordings in the history of recorded music. He worked with The Wailers before their Island Records period, and produced records for Max Romeo, Junior Murvin, the Congos, and many others, developing a studio aesthetic built on dense layering, found sounds, and effects processing that anticipated much of what would later be called experimental production. When he burned down the Black Ark in 1979 he effectively ended one of music\'s most productive studios. He continued working and performing until shortly before his death at 85.',
     releases: [
       { title: 'Super Ape (album)', year: 1976, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/4/46/TheUpsetters-SuperApe.jpg' },
       { title: '"Police and Thieves" — Junior Murvin', year: 1976 },
-    ]},
+    ], spotify:'1TsG4AumsMt1Tcq2nHpov9', },
 
   // ── AFROBEAT ──────────────────────────────────────────────────────────────
 
@@ -5143,14 +5143,14 @@ export const NODES = [
     releases: [
       { title: 'Expensive Shit (album)', year: 1975 },
       { title: 'Zombie (album)', year: 1977, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/f/f5/FelaZombie.jpg' },
-    ]},
+    ], spotify:'5CG9X521RDFWCuAhlo6QoR', },
 
   { id:'tony_allen', label:'Tony Allen', type:'artist', genre:'experimental', era:1969, city:'Lagos', country:'NG',
     desc:'Tony Allen — born Anthony Oladipo Allen on 12 July 1940 in Lagos, Nigeria, died 30 April 2020 in Paris — was the drummer and musical director of Fela Kuti\'s Africa 70 band and the primary architect of the Afrobeat rhythmic style. His polyrhythmic approach — maintaining independent patterns across kick, snare, hi-hat, and percussion simultaneously, creating an interlocking groove that could sustain extended improvisation — became the template for the genre and for much of the African popular music that followed. After leaving Fela\'s band in 1978 he pursued a long solo career, collaborating with artists including Damon Albarn (in The Good, the Bad & the Queen), Hugh Masekela, and Charlotte Gainsbourg. His final album "Rejoice" (with Hugh Masekela) was completed posthumously.',
     releases: [
       { title: 'No Accommodation for Lagos (album)', year: 1979 },
       { title: 'Black Voices (album)', year: 1999 },
-    ]},
+    ], spotify:'6JpZEemWmunccsrHXFUOgi', },
 
   // ── DETROIT EXTRA ─────────────────────────────────────────────────────────
 
@@ -5158,13 +5158,13 @@ export const NODES = [
     desc:'Galaxy 2 Galaxy is an Underground Resistance project whose 1993 recording "Hi-Tech Jazz" became one of the most celebrated releases in Detroit techno. Released on the Underground Resistance label, it proposed a synthesis of jazz harmony and machine rhythm that directly continued the speculative futurism of Detroit\'s earlier techno — the sense that electronic music could carry the emotional weight and improvisatory freedom of jazz while remaining rooted in the dancefloor. The record\'s combination of warm piano chords, filtered bass lines, and live-feeling rhythm programming gave Detroit techno a new point of reference and inspired a generation of producers interested in softening the genre\'s harder edges without losing its structural discipline.',
     releases: [
       { title: '"Hi-Tech Jazz"', year: 1993 },
-    ]},
+    ], spotify:'2JW9UTb6ViFLYf7VQxBJqD', },
 
   { id:'eddie_fowlkes', label:'Eddie Fowlkes', type:'artist', genre:'detroit', era:1986, city:'Detroit', country:'US',
     desc:'Eddie Fowlkes is one of the original Detroit techno DJs, active in the city\'s scene from the early 1980s alongside Juan Atkins, Derrick May, and Kevin Saunderson. His "Goodbye Kiss" (1986, Metroplex Records) was among the earliest Metroplex releases and one of the first commercially distributed Detroit techno records. Fowlkes\'s approach was warmer and more house-influenced than some of his contemporaries, retaining a connection to the vocal and soulful end of the Chicago scene while working within the machine-driven aesthetic of Detroit. He continued DJing and producing through subsequent decades, remaining active in the Detroit underground and building connections between the original techno scene and younger generations of producers.',
     releases: [
       { title: '"Goodbye Kiss"', year: 1986 },
-    ]},
+    ], spotify:'5s52J0wTa9B4YFG39iqXny', },
 
   { id:'the_music_institute', label:'The Music Institute', type:'venue', genre:'detroit', era:1988, city:'Detroit', country:'US',
     desc:'The Music Institute was a Detroit nightclub that opened in 1988, operating on Congress Street near the city centre. It became the central physical space of the early Detroit techno scene — the venue where Juan Atkins, Derrick May, Kevin Saunderson, and their extended circle performed for local audiences at a point when the music they were making was better known in the UK and Europe than at home. The club operated for approximately four years before closing in 1992. In its brief existence it provided Detroit techno with a local institution and a community: a space where the music was not an export but a living practice. Its closure coincided with the Detroit scene\'s shift toward international recognition and the loss of some of the original scene\'s intimacy.',
@@ -5174,7 +5174,7 @@ export const NODES = [
     desc:'Aux 88 is the Detroit electro group of Tommy Hamilton and Keith Tucker, active from the early 1990s. Their music extends Detroit\'s lineage of machine-funk and electro — the style associated with early Drexciya, Model 500, and the 313 area code — into a harder, more bass-driven direction that anticipated the ghettotech sound while retaining the genre\'s roots in synthesiser programming and drum machine rhythm. They have released on Detroit\'s Direct Beat label and on other platforms, maintaining a consistent body of work that is less widely discussed than the canonical Detroit techno figures but no less disciplined in its formal concerns.',
     releases: [
       { title: '"Is It Man or Machine?"', year: 1995 },
-    ]},
+    ], spotify:'3UYegZ6o9aaL2UCOQeoAgI', },
 
   // ── HIP HOP / BEAT SCENE ──────────────────────────────────────────────────
 
@@ -5184,14 +5184,14 @@ export const NODES = [
       { title: 'Fantastic Vol. 2 — Slum Village', year: 2000 },
       { title: 'Ruff Draft (album)', year: 2003 },
       { title: 'Donuts (album)', year: 2006, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/1/14/Dilladonutscover.jpg' },
-    ]},
+    ], spotify:'0IVcLMMbm05VIjnzPkGCyp', },
 
   { id:'slum_village', label:'Slum Village', type:'artist', genre:'experimental', era:1996, city:'Detroit', country:'US',
     desc:'Slum Village is the Detroit hip hop group formed by J Dilla (James Yancey), T3 (Dion Griffin), and Baatin (Jason Holder). Their early recordings — circulated as the "Fan-Tas-Tic" cassette series from 1996 before official release — established a sound in which J Dilla\'s production style and the group\'s understated vocal delivery created a template for Detroit hip hop that was influential on the wider neo-soul and alternative hip hop movements of the late 1990s and 2000s. The official release of "Fantastic Vol. 2" (2000, Barak Records) brought the group wider recognition. Baatin died in 2009. Slum Village represents the point where Detroit\'s creative community — primarily associated with techno — produced a parallel hip hop lineage of equal sophistication.',
     releases: [
       { title: 'Fantastic Vol. 2 (album)', year: 2000, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/SV_fantastic.jpg/330px-SV_fantastic.jpg' },
       { title: 'Trinity (album)', year: 2002 },
-    ]},
+    ], spotify:'1020a42xVklY6c56imNcaa', },
 
   { id:'stones_throw', label:'Stones Throw Records', type:'label', genre:'experimental', era:1996, city:'Los Angeles', country:'US',
     desc:'Stones Throw Records was founded in Los Angeles in 1996 by Chris Manak (Peanut Butter Wolf). The label became one of the defining institutions of the hip hop underground — releasing records by Madlib, J Dilla, MF DOOM, Guilty Simpson, and many others — while maintaining curatorial independence from major label commercial pressures. Its catalogue is unified by an interest in jazz, soul, and funk as source material and by a production aesthetic that values texture, restraint, and rhythmic complexity over polish or accessibility. Stones Throw demonstrated that a small independent label could sustain a genuine artistic identity across a large body of work over decades, and its model influenced many subsequent independent labels in hip hop and beyond.',
@@ -5202,7 +5202,7 @@ export const NODES = [
     releases: [
       { title: 'The Unseen — Quasimoto (album)', year: 2000 },
       { title: 'Madvillainy — Madvillain (album)', year: 2004, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/5/5e/Madvillainy_cover.png' },
-    ]},
+    ], spotify:'5LhTec3c7dcqBvpLRWbMcf', },
 
   { id:'mf_doom', label:'MF DOOM', type:'artist', genre:'experimental', era:1999, city:'New York', country:'US',
     desc:'MF DOOM — born Daniel Dumile on 9 January 1971 in London, raised on Long Island, died 31 December 2020 — was a rapper, producer, and conceptual artist who operated through a series of masked personas and aliases across a career that began in the early 1990s with the group KMD. After the shelving of KMD\'s second album "Black Bastards" (1993) and a period of homelessness, he returned to recording in 1999 with "Operation Doomsday" (Fondle \'Em Records), wearing a metal mask modelled on Marvel\'s Doctor Doom and developing a lyrical approach in which internal rhyme schemes, obscure cultural references, and self-referential loops created a distinctive density. His collaboration with Madlib, "Madvillainy" (2004, Stones Throw), is widely considered among the finest hip hop albums. He continued releasing music under multiple aliases until his death.',
@@ -5210,14 +5210,14 @@ export const NODES = [
       { title: 'Operation Doomsday (album)', year: 1999, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/0/03/MF-DOOM-Operation.jpeg' },
       { title: 'Madvillainy — Madvillain (album)', year: 2004 },
       { title: 'Mm.. Food (album)', year: 2004 },
-    ]},
+    ], spotify:'2pAWfrd7WFF3XhVt9GooDL', },
 
   { id:'nujabes', label:'Nujabes', type:'artist', genre:'experimental', era:2001, city:'Tokyo', country:'JP',
     desc:'Nujabes — born Jun Seba on 7 February 1974 in Tokyo, died 26 February 2010 in a traffic accident — was a Japanese producer whose work synthesised jazz harmony, soul sampling, and hip hop rhythm into a sound that became the reference point for an entire strain of introspective, melodically rich beat music. His two main albums, "Metaphorical Music" (2003) and "Modal Soul" (2005), both released on his own Hydeout Productions label, established an aesthetic that proved remarkably durable — spreading through the internet in the years after his death into a global audience far larger than the one he had in his lifetime. His music for the anime "Samurai Champloo" (2004, with Fat Jon) brought his sound to a wider audience. He and J Dilla shared a birthday — 7 February 1974 — a coincidence that has become part of both artists\' mythology.',
     releases: [
       { title: 'Metaphorical Music (album)', year: 2003 },
       { title: 'Modal Soul (album)', year: 2005, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/5/56/ModalMusic.jpg' },
-    ]},
+    ], spotify:'3Rq3YOF9YG9YfCWD4D56RZ', },
 
   // ── UK ELECTRONIC / BIG BEAT ──────────────────────────────────────────────
 
@@ -5227,7 +5227,7 @@ export const NODES = [
       { title: '"Say Kids (What Time Is It?)"', year: 1987 },
       { title: '"Timber"', year: 1987 },
       { title: 'Some Like It Cold (album)', year: 1990 },
-    ]},
+    ], spotify:'5wnhqlZzXIq8aO9awQO2ND', },
 
   { id:'basement_jaxx', label:'Basement Jaxx', type:'artist', genre:'deep', era:1994, city:'London', country:'UK',
     desc:'Basement Jaxx — Simon Ratcliffe and Felix Buxton — formed in Brixton, South London in the early 1990s, initially running a club night in Brixton and releasing records on their own Atlantic Jaxx label before signing to XL Recordings. Their debut album "Remedy" (1999, XL Recordings) arrived as one of the most joyful and genre-agnostic records in British electronic music: house, garage, R&B, samba, bhangra, and rave all appeared within it without apology or forced coherence, unified by a shared energy and a genuine commitment to dancefloor function. Subsequent albums including "Rooty" (2001) and "Kish Kash" (2003) maintained this eclecticism. Basement Jaxx represent the point where UK house music abandoned genre purity in favour of an inclusive, maximalist approach.',
@@ -5235,21 +5235,21 @@ export const NODES = [
       { title: 'Remedy (album)', year: 1999, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/4/4c/Basement_Jaxx_-_Remedy_album_cover.jpeg' },
       { title: 'Rooty (album)', year: 2001 },
       { title: 'Kish Kash (album)', year: 2003 },
-    ]},
+    ], spotify:'4YrKBkKSVeqDamzBPWVnSJ', },
 
   { id:'fatboy_slim', label:'Fatboy Slim', type:'artist', genre:'experimental', era:1996, city:'Brighton', country:'UK',
     desc:'Fatboy Slim is the principal alias of Norman Cook, born in 1963 and based in Brighton. Cook had worked in earlier groups — The Housemartins, Beats International, Freak Power — before developing the Fatboy Slim persona as a vehicle for a harder, sample-based big beat sound. "Better Living Through Chemistry" (1996, Skint Records) established the template; "You\'ve Come a Long Way, Baby" (1998, Skint) was the commercial breakthrough, containing "Rockafeller Skank", "Praise You", and "Right Here, Right Now". His large-scale open-air events at Brighton Beach in 2002 and 2008 demonstrated that DJ-led events could sustain festival-scale audiences. Fatboy Slim mainstreamed a version of rave culture\'s sensibility without losing the form\'s commitment to dancefloor physicality.',
     releases: [
       { title: 'Better Living Through Chemistry (album)', year: 1996 },
       { title: 'You\'ve Come a Long Way, Baby (album)', year: 1998, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/f/f8/YouveComeALongWayBaby2.jpg' },
-    ]},
+    ], spotify:'4Y7tXHSEejGu1vQ9bwDdXW', },
 
   { id:'mr_scruff', label:'Mr. Scruff', type:'artist', genre:'experimental', era:1996, city:'Manchester', country:'UK',
     desc:'Mr. Scruff — Andy Carthy, born in Macclesfield and based in Manchester — is a DJ and producer whose records on Ninja Tune, including "Keep It Unreal" (1999) and "Trouser Jazz" (2002), synthesise hip hop, jazz, funk, and electronic music through a distinctly English sensibility rooted in crate-digging and a non-hierarchical approach to genre. His long-form DJ sets — often lasting six or eight hours — and their associated tea-van stalls became a fixture of UK festival and club culture. Scruff\'s work represents the eclectic, non-confrontational end of British underground club culture: curious, good-humoured, and precise in its musical knowledge.',
     releases: [
       { title: 'Keep It Unreal (album)', year: 1999 },
       { title: 'Trouser Jazz (album)', year: 2002 },
-    ]},
+    ], spotify:'2B0PgHZi2zaDqjKe86Gaip', },
 
   { id:'moby', label:'Moby', type:'artist', genre:'experimental', era:1991, city:'New York', country:'US',
     desc:'Moby — Richard Melville Hall, born 1965 in New York — was one of the most commercially successful electronic musicians of the late 1990s and early 2000s. His early records, including "Go" (1991), connected him to the rave and techno underground; subsequent work on Ambient (1993) and Animal Rights (1996) moved through different registers. "Play" (1999, V2 Records) became one of the best-selling albums of the era, in part through an unprecedented strategy of licensing every track to film, television, and advertising — a move that simultaneously broadened the reach of electronic music and accelerated the commercialisation of its aesthetic. Moby\'s career is instructive for the tension between underground credibility and mainstream visibility that runs through the history of electronic music.',
@@ -5257,14 +5257,14 @@ export const NODES = [
       { title: '"Go"', year: 1991 },
       { title: 'Ambient (album)', year: 1993 },
       { title: 'Play (album)', year: 1999 },
-    ]},
+    ], spotify:'3OsRAKCvk37zwYcnzRf5XF', },
 
   { id:'death_in_vegas', label:'Death in Vegas', type:'artist', genre:'experimental', era:1994, city:'London', country:'UK',
     desc:'Death in Vegas — primarily the project of Richard Fearless, based in London — emerged in the mid-1990s as part of the UK\'s big beat and alternative electronic scene. "Dead Elvis" (1997, Concrete Records) introduced a sound combining drum machine aggression, rock guitar textures, and psychedelic samples that positioned Death in Vegas between the Chemical Brothers\' breakbeat approach and a darker, more confrontational aesthetic. "The Contino Sessions" (1999) featured vocal collaborations with Iggy Pop, Bobby Gillespie, and others, extending the project into a kind of electronic rock that used studio production as its primary instrument. Fearless has continued under the Death in Vegas name, exploring noise, psychedelia, and dark electronic music.',
     releases: [
       { title: 'Dead Elvis (album)', year: 1997 },
       { title: 'The Contino Sessions (album)', year: 1999, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/1/1c/The_Contino_Sessions.jpg' },
-    ]},
+    ], spotify:'5aj3LEYRbuaabjjHkj5oE1', },
 
   // ── UK GARAGE / GRIME ─────────────────────────────────────────────────────
 
@@ -5272,21 +5272,21 @@ export const NODES = [
     desc:'Todd Edwards is a New Jersey-born producer and singer who pioneered a distinctive style of cut-up, chopped vocal house in the early 1990s that became one of the primary influences on UK garage and, through it, on Daft Punk. His technique — taking vocal fragments, looping them into interlocking patterns, and placing them over deep house rhythms — created a distinctive texture that was simultaneously soulful and machine-made. His records circulated through UK clubs in the mid-1990s and directly shaped the vocal-splicing approach of British garage producers. Daft Punk cited his influence repeatedly and he appeared on the track "Face to Face" from their "Human After All" album (2005). He has continued releasing music, primarily for niche club audiences, without seeking mainstream visibility.',
     releases: [
       { title: '"Saved My Life"', year: 1995 },
-    ]},
+    ], spotify:'6MFopqejpmTUUZlcRmGzgg', },
 
   { id:'artful_dodger', label:'Artful Dodger', type:'artist', genre:'experimental', era:1997, city:'Southampton', country:'UK',
     desc:'Artful Dodger — primarily Mark Hill, from Southampton — were the producers who brought UK garage to a mass audience. Their recording "Re-Rewind (Find Out)" featuring Craig David, released in 1999 on Public Demand Records, reached number two on the UK Singles Chart and established both Craig David as a vocalist and UK garage as a genre with commercial potential beyond the underground. The record\'s combination of rolling two-step rhythms, pitched-up vocal samples, and David\'s smooth vocal performance defined the sound that UK garage would become known for in the mainstream. Hill continued producing hits in the same vein but Artful Dodger\'s cultural impact was concentrated in this single defining moment.',
     releases: [
       { title: '"Re-Rewind (Find Out)" feat. Craig David', year: 1999 },
       { title: '"Woman Trouble" feat. Robbie Craig', year: 2000 },
-    ]},
+    ], spotify:'4L8MIM7AXmq6jb0tRix4JT', },
 
   { id:'so_solid_crew', label:'So Solid Crew', type:'artist', genre:'experimental', era:1999, city:'London', country:'UK',
     desc:'So Solid Crew are a South London collective whose "21 Seconds" (2001, Relentless Records) reached number one on the UK Singles Chart — becoming the first garage track to top the chart and introducing a harder, faster, and more confrontational sound that would become grime. The track\'s structure — each of the collective\'s many MCs rapping for 21 seconds — demonstrated the possibility of collective ownership within the genre and placed urban South London creativity into the mainstream conversation. The group faced persistent tabloid moral panic around gun crime, which limited their commercial longevity but did not reduce their cultural significance. Their trajectory — from pirate radio to chart success to cultural controversy — was a model that subsequent grime artists would follow.',
     releases: [
       { title: '"21 Seconds"', year: 2001 },
       { title: 'They Don\'t Know (album)', year: 2001 },
-    ]},
+    ], spotify:'5Wri8vAevy1yYWqN8oGGpH', },
 
   // ── FRENCH HOUSE ──────────────────────────────────────────────────────────
 
@@ -5294,20 +5294,20 @@ export const NODES = [
     desc:'Motorbass was the Paris duo of Étienne de Crécy and Philippe Zdar. Their 1996 album "Pansoul" (Solid Records) is one of the key documents of the French touch movement — the specific strain of sample-based, filtered house music that emerged from Paris in the mid-1990s and influenced Daft Punk, Cassius, and the broader French house scene. "Pansoul" synthesised Chicago house rhythms, funk and disco samples, and a production aesthetic rooted in warmth and groove rather than formal experimentation. Zdar became one of the most in-demand studio producers of his era, working with Phoenix, Cassius, and The Beastie Boys; he died in 2019. The album\'s influence on French and European dance music was considerable.',
     releases: [
       { title: 'Pansoul (album)', year: 1996, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/c/c0/Pansoul_cover.png' },
-    ]},
+    ], spotify:'620NgrnXtV5QKM1wvbX2K6', },
 
   { id:'bob_sinclar', label:'Bob Sinclar', type:'artist', genre:'deep', era:1995, city:'Paris', country:'FR',
     desc:'Bob Sinclar — born Chris le Friant in Paris in 1968 — is a French DJ and producer who worked at the intersection of house music and nu-disco. He founded Yellow Productions, a Paris label that released his own work and that of a wider community of French house producers. His production "Gym Tonic" (1998), built on a sample of Jane Fonda\'s exercise audio, became one of the most circulated and imitated tracks of the French touch era before legal pressure forced its withdrawal. He continued releasing music through the 2000s, achieving mainstream success with "World, Hold On" (2006, Defected Records). His career traces an arc from underground club culture through pop crossover that mirrors the trajectory of several French house artists.',
     releases: [
       { title: '"Gym Tonic"', year: 1998 },
       { title: '"World, Hold On"', year: 2006 },
-    ]},
+    ], spotify:'5YFS41yoX0YuFY39fq21oN', },
 
   { id:'dimitri_from_paris', label:'Dimitri from Paris', type:'artist', genre:'deep', era:1994, city:'Paris', country:'FR',
     desc:'Dimitri from Paris — born Dimitri Yerasimos in Istanbul, raised and based in Paris — is a DJ and producer associated with the French house and nu-disco scenes of the 1990s. His debut album "Sacrebleu" (1996) presented a sound that referenced 1970s disco production with affection and precision, filtering it through a contemporary electronic sensibility. He compiled and produced for the Defected Records network and other labels, developing a reputation as a meticulous curator of dance music history across a long career. Where many of his French contemporaries were interested in distorting or ironising their disco influences, Dimitri approached them with relatively straight-faced admiration, maintaining a commitment to warmth and dancefloor functionality.',
     releases: [
       { title: 'Sacrebleu (album)', year: 1996, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/9/98/Dimitri_from_Paris-Sacrebleu_Original_French_Cover.jpg' },
-    ]},
+    ], spotify:'5Il27M5JXuQLgwDgVrQMgo', },
 
   // ── KEY LABELS ────────────────────────────────────────────────────────────
 
@@ -5339,14 +5339,14 @@ export const NODES = [
       { title: 'Some Great Reward (album)', year: 1984, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/2/2a/Depeche_Mode_-_Some_Great_Reward.png' },
       { title: 'Music for the Masses (album)', year: 1987 },
       { title: 'Violator (album)', year: 1990, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/9/92/Depeche_Mode_-_Violator.png' },
-    ]},
+    ], spotify:'762310PdDnwsDxAQxzQkfX', },
 
   { id:'suicide_band', label:'Suicide', type:'artist', genre:'experimental', era:1970, city:'New York', country:'US',
     desc:'Suicide — Alan Vega (vocals) and Martin Rev (keyboards/electronics) — formed in New York in 1970 and began performing in the mid-1970s as part of the city\'s punk and no wave underground. Their 1977 self-titled debut album (Red Star Records) is one of the most extreme and influential records of its era: drum machine patterns, distorted electronics, and Vega\'s anguished vocal delivery produced a sound that was simultaneously terrifying and formally rigorous, with almost nothing unnecessary in it. Suicide\'s confrontational performances and their insistence on electronic instrumentation in the context of rock performance made them a direct precedent for industrial, EBM, and the more aggressive ends of electronic music. Alan Vega died in July 2016.',
     releases: [
       { title: 'Suicide (album)', year: 1977, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/2/26/Suicide1977.jpg' },
       { title: '"Dream Baby Dream"', year: 1979 },
-    ]},
+    ], spotify:'1VPmR4DJC1PlOtd0IADAO0', },
 
   { id:'new_beat', label:'New Beat', type:'style', genre:'experimental', era:1987, city:'Brussels', country:'BE',
     desc:'New Beat is a Belgian electronic style that emerged in Brussels and Antwerp around 1987, combining elements of EBM, acid house, and Hi-NRG into something slower, heavier, and more hypnotic than any of its sources. The style was largely created by accident — DJs playing EBM records at slower speeds — and its characteristic tempo (around 100 BPM, slower than the EBM records it descended from) gave it a distinctly drugged quality. A Split-Second\'s "Flesh" (1987), Confetti\'s "The Sound of C" (1988), and many records on the Antler-Subway label defined the genre. New Beat is a precursor to the Belgian techno and trance scenes of the early 1990s and a demonstration of how tempo manipulation alone can create a new genre.',
@@ -5356,11 +5356,11 @@ export const NODES = [
     desc:'Global Communications is the project of Tom Middleton and Mark Pritchard, who also recorded as Reload, Jedi Knights, and other aliases. Their album "76:14" (1994, Dedicated Records) is one of the landmark documents of ambient electronic music — a record built on long-form development, delicate synthesis, and an emotional directness unusual in ambient music. Pritchard subsequently became one of the most versatile producers in UK electronic music, working across ambient, techno, and bass music. Middleton continued developing the Global Communications material in live and recorded contexts. "76:14" remains the project\'s central document and is frequently cited alongside Aphex Twin\'s "Selected Ambient Works Volume II" as a defining work of ambient electronic music.',
     releases: [
       { title: '76:14 (album)', year: 1994, coverUrl: 'https://upload.wikimedia.org/wikipedia/en/0/0d/GC_7614.jpg' },
-    ]},
+    ], spotify:'6YktolrgGPFMwWrmAgf4hu', },
 
   { id:'gilles_peterson', label:'Gilles Peterson', type:'artist', genre:'experimental', era:1987, city:'London', country:'UK',
     desc:'Gilles Peterson — born 28 September 1964 in Paris, raised in Epsom, Surrey — is a DJ, broadcaster, and record label founder who has operated at the intersection of jazz, soul, broken beat, world music, and electronic music for four decades. He founded Talkin\' Loud Records in 1990 and Brownswood Recordings in 2006, using both as platforms for music that does not fit neatly into existing commercial categories. His radio programmes — on pirate stations, then BBC Radio 1, then BBC Radio 6 Music, and latterly on his own Worldwide FM — have introduced generations of listeners to music they would not otherwise have encountered. Peterson\'s career demonstrates the possibility of a taste-making role that operates independently of industry structures.',
-    releases: [] },
+    releases: [] , spotify:'4fH73bVIwM24QrBqjTrhAA', },
 
   { id:'talkin_loud', label:'Talkin\' Loud', type:'label', genre:'experimental', era:1990, city:'London', country:'UK',
     desc:'Talkin\' Loud Records was founded in London in 1990 by Gilles Peterson, distributed through Phonogram/Mercury Records. The label released music at the intersection of jazz, soul, funk, and dance — including Galliano, The Young Disciples, Omar, Incognito, and Courtney Pine — during a period when the UK was developing its own version of jazz-influenced club music. Talkin\' Loud operated as a conduit between the American acid jazz tradition and the UK club scene, establishing a template for jazz-influenced labels that Brownswood Recordings would later extend into a broader international repertoire.',
@@ -5372,7 +5372,7 @@ export const NODES = [
 
   { id:'reprazent', label:'Reprazent', type:'artist', genre:'experimental', era:1994, city:'Bristol', country:'UK',
     desc:'Reprazent is the Bristol-based drum and bass collective fronted by Roni Size, whose debut album "New Forms" (Talkin\' Loud, 1997) won the Mercury Music Prize and brought the genre into mainstream critical recognition. The collective combined drum and bass programming with live drums, double bass, keyboards, and vocalists in a format that challenged the distinction between electronic music production and live band performance. Reprazent drew on a deep pool of Bristol musicians and MCs, operating as a collective creative entity rather than a conventional group. Their work extended Bristol\'s established identity — built through the Wild Bunch, Massive Attack, Portishead, and Tricky — into drum and bass.',
-    releases: [] },
+    releases: [] , spotify:'17Ytfl1DntgvVdragJEqx8', },
 
   // ─── Toy Tonics cluster ───────────────────────────────────────────────────
 
@@ -5384,7 +5384,7 @@ export const NODES = [
 
   { id:'pete_tong', label:'Pete Tong', type:'artist', genre:'deep', era:1991, city:'London', country:'UK',
     desc:'Pete Tong — born Peter Michael Tong on 30 July 1960 in Dartford, Kent — is a DJ, broadcaster, and label executive who became one of the most significant gatekeepers of electronic music in the 1990s and 2000s. He founded FFRR Records as an imprint of London Records in the late 1980s, releasing early acid house and rave records including M/A/R/R/S, S\'Express, and Beats International. In 1991 he became the first BBC Radio 1 presenter to host a dedicated club music show, the Essential Selection, broadcast every Friday night, which became the primary tastemaking platform for dance music in the UK. On 30 October 1993 he launched the Essential Mix, a weekly two-hour mix show that became one of the most prestigious broadcast slots in electronic music and ran for over three decades. Through these programmes, Tong introduced the global vocabulary of house, techno, and trance to mainstream British radio audiences.',
-    releases: [] },
+    releases: [] , spotify:'6n1t55WMsSIUFHrAL4mUsB', },
 
   { id:'ffrr', label:'FFRR', type:'label', genre:'deep', era:1987, city:'London', country:'UK',
     desc:'FFRR (Full Frequency Range Recordings) was founded in 1987 as an imprint of London Records, with Pete Tong as its principal A&R architect. The label released early British acid house and rave records — including M/A/R/R/S\' "Pump Up the Volume" (1987), S\'Express\' "Theme from S-Express" (1988), and Beats International\'s "Dub Be Good to Me" (1990) — and went on to become one of the most commercially successful house and dance labels in the UK throughout the 1990s. FFRR occupied the space between underground credibility and pop chart success, consistently breaking club records to a mass audience while remaining engaged with underground developments in house, techno, and trance.',
@@ -5392,7 +5392,7 @@ export const NODES = [
 
   { id:'ben_watt', label:'Ben Watt', type:'artist', genre:'deep', era:2003, city:'London', country:'UK',
     desc:'Ben Watt — born 6 December 1962 in Marylebone, London — is a musician, DJ, and label founder best known as one half of Everything But the Girl alongside Tracey Thorn. Everything But the Girl began in 1982 as an alt-folk duo and evolved through nine studio albums (1984–1999), moving into electronic music after Watt heard early house music and Todd Terry\'s remix of their track "Missing" (1995) became an international hit. After the duo stopped in 2000, Watt moved into DJing and production, spending five years running Lazy Dog — a popular Sunday deep house party in west London — with DJ partner Jay Hannan. In 2003 he founded Buzzin\' Fly Records, which for a decade released some of the most respected deep house and electronic music to come out of the UK, winning Best Breakthrough Label at the House Music Awards 2004.',
-    releases: [] },
+    releases: [] , spotify:'4RIOH6XCUt1Xr8NLUj2u66', },
 
   { id:'buzzin_fly', label:'Buzzin\' Fly', type:'label', genre:'deep', era:2003, city:'London', country:'UK',
     desc:'Buzzin\' Fly Records was founded in 2003 by Ben Watt — one half of Everything But the Girl — as an independent outlet for deep house and underground electronic music. Over ten years of operation (2003–2013) the label became synonymous with a considered, sophisticated approach to house music: long on texture, mood, and dancefloor intelligence. Buzzin\' Fly won Best Breakthrough Label at the House Music Awards 2004 in its debut year. The label released records by Henry Binns, Jimpster, and numerous others who defined the understated end of UK deep house during that period.',
@@ -5400,11 +5400,11 @@ export const NODES = [
 
   { id:'david_morales', label:'David Morales', type:'artist', genre:'deep', era:1986, city:'New York', country:'US',
     desc:'David Morales — born 21 August 1961 in Brooklyn, New York to Puerto Rican immigrant parents — is a DJ, producer, and remixer who came up through the New York disco scene after discovering the Loft and Paradise Garage as a teenager. He began DJing after dropping out of high school, building a reputation at New York clubs through the late 1970s and early 1980s. In the mid-1980s he began a remixing career and co-founded Def Mix Productions alongside Frankie Knuckles and Judy Weinstein, forming one of the most powerful DJ management and production operations of the era. Morales went on to remix over 500 records for artists including Mariah Carey, U2, Michael Jackson, Aretha Franklin, Madonna, and Whitney Houston, making him one of the most commercially and critically important remix artists in the history of recorded popular music.',
-    releases: [] },
+    releases: [] , spotify:'6CwQfN34JdGHfo0A752Lts', },
 
   { id:'joe_claussell', label:'Joe Claussell', type:'artist', genre:'deep', era:1996, city:'New York', country:'US',
     desc:'Joaquin "Joe" Claussell — born 1971 in Brooklyn, New York — is a DJ, producer, remixer, and label founder who became one of New York City\'s central dance music figures through the 1990s and 2000s. He is one third of the Body & Soul party alongside François K and Danny Krivit, which launched in 1996 at Club Vinyl in Manhattan\'s Tribeca district and ran weekly until 2002, becoming one of the most revered club nights in New York history. Claussell runs Spiritual Life Music, Sacred Rhythm Music, and its sublabel Circuit T Promo, and operated the Dance Tracks record shop before opening Cosmic Arts — a record store and community centre in Bushwick, Brooklyn — in 2010. His remixes for Femi Kuti, Beth Orton, and Herbie Hancock brought his approach — percussive, spiritual, and deeply indebted to Afrobeat and Brazilian music — to a wider audience.',
-    releases: [] },
+    releases: [] , spotify:'3VMySRm8fO4XQIDfEnVlro', },
 
   { id:'body_and_soul', label:'Body & Soul', type:'venue', genre:'deep', era:1996, city:'New York', country:'US',
     desc:'Body & Soul was a weekly Sunday afternoon party held at Club Vinyl in Manhattan\'s Tribeca district, launched in 1996 by François K and John Davis, with Joe Claussell and Danny Krivit completing the core DJ trio. The party became one of New York City\'s most revered dance music institutions — a long-running Sunday session that prioritised deep, soulful, jazz-inflected house, and drew a devoted community of dancers that returned week after week for six years. Body & Soul ended in 2002 when Club Vinyl was sold. The party\'s ethos — an emphasis on musicality, diversity, and the collective experience of a long Sunday dance — influenced the international deep house scene and is frequently cited as a model for how a club night can function as a genuine community institution.',
@@ -5416,15 +5416,15 @@ export const NODES = [
 
   { id:'terry_farley', label:'Terry Farley', type:'artist', genre:'deep', era:1991, city:'London', country:'UK',
     desc:'Terry Farley is a London-based DJ and label founder who was part of the original Boy\'s Own crew — a group of clubbers, DJs, and writers including Andrew Weatherall, Cymon Eckel, and Steven Mayes — who documented the early UK acid house and rave scene through their Boy\'s Own fanzine from 1986. The crew formed Boy\'s Own Recordings in 1990 and Farley co-founded Junior Boy\'s Own with Steve Hall in 1992, which became one of the most respected UK house labels of the decade. As a DJ Farley worked across the UK club scene through the 1990s and remains a key witness and participant in the British acid house generation. His partnership with Andrew Weatherall as part of the Boy\'s Own collective represents one of the key cultural nodes connecting the first wave of UK acid house with what followed.',
-    releases: [] },
+    releases: [] , spotify:'2UAG5mYlpXcDsj3sLUk3ty', },
 
   { id:'graeme_park', label:'Graeme Park', type:'artist', genre:'chicago', era:1988, city:'Manchester', country:'UK',
     desc:'Graeme Park — born 4 August 1963 in Aberdeen, Scotland — is one of the foundational figures of the UK house scene, credited as a Haçienda resident DJ alongside Mike Pickering from 1988 at the peak of the club\'s influence. Park moved to Nottingham in his late teens and worked at Selectadisc record shop, where the first house records from Chicago, Detroit, and New York arrived in the early 1980s. When Selectadisc\'s owner opened The Garage (later The Kool Kat) in Nottingham, Park became the resident DJ. His reputation reached The Haçienda, and from 1988 his residency — playing alongside Mike Pickering on Friday nights — was central to establishing the club as the epicentre of UK house music. Haçienda\'s Friday night Nude nights with Pickering and Park are among the most historically significant club nights in British electronic music history.',
-    releases: [] },
+    releases: [] , spotify:'4jAzD7q9emMPB7jUdnhlzk', },
 
   { id:'junior_vasquez', label:'Junior Vasquez', type:'artist', genre:'deep', era:1989, city:'New York', country:'US',
     desc:'Junior Vasquez — born Donald Gregory Mattern on 24 August 1946 in Lancaster, Pennsylvania — is a DJ who co-founded and served as the resident at the Sound Factory in Chelsea, New York from 1989 to 1995, becoming one of the most famous DJs in America during that period. He moved to New York City in 1971 with ambitions to study fashion, but fell in love with the Paradise Garage and devoted himself to DJing. At the Sound Factory — which catered to an ethnically diverse, primarily gay crowd — Vasquez developed his trademark style: bass-heavy house beats fused with obscure samples, innovative remix techniques, and marathon sets that could run from midnight past noon the following day. Through the 1990s he became the first DJ widely known by mainstream music writers outside the specialist dance world.',
-    releases: [] },
+    releases: [] , spotify:'6X4LvL2xVwf3B6WuQ0YAhm', },
 
   { id:'sound_factory', label:'Sound Factory', type:'venue', genre:'deep', era:1989, city:'New York', country:'US',
     desc:'The Sound Factory was a nightclub in the Chelsea district of Manhattan, co-founded by Junior Vasquez and Richard Grant in 1989 and operating until 1995. The club catered to an ethnically diverse, predominantly gay crowd and became one of New York\'s most celebrated nightspots of the early 1990s, built around Vasquez\'s marathon DJ sets that could run from midnight past noon on Sunday. The Sound Factory occupied a critical position in the post-Paradise Garage landscape: drawing the downtown New York dance community into a new space and new decade while maintaining the sexual, racial, and sonic freedom of its predecessor. The club\'s closure in 1995 — and its successor club STW, also known as Sound Factory Bar — marked the end of one of the defining chapters in New York nightlife.',
@@ -5432,11 +5432,11 @@ export const NODES = [
 
   { id:'ron_trent', label:'Ron Trent', type:'artist', genre:'deep', era:1990, city:'Chicago', country:'US',
     desc:'Ron Trent — born 23 May 1973 in Chicago, Illinois — is a DJ and producer whose career began while still in high school when he recorded "Altered States" and released it on Armando\'s Warehouse Records in 1990, becoming a club hit among techno devotees despite Trent\'s roots in Chicago house. His father ran a record pool in the late 1970s, giving Trent early exposure to an exceptionally wide range of music. He began collaborating with Detroit-based producer Chez Damier, co-founding Prescription Records in Chicago in 1993. Prescription became one of the most influential deep house imprints of the decade, combining Trent\'s dub percussion and keyboard skills with Damier\'s Detroit sensibility and their shared admiration for New York soundsystem culture. Trent\'s productions are characterised by a spaciousness and harmonic depth that placed him at the contemplative extreme of the Chicago house tradition.',
-    releases: [] },
+    releases: [] , spotify:'0TOZ0i0BHZJYKK2rvoRD2d', },
 
   { id:'chez_damier', label:'Chez Damier', type:'artist', genre:'deep', era:1988, city:'Detroit', country:'US',
     desc:'Chez Damier is a Detroit-based DJ and producer who was a co-founder of the Music Institute — Detroit\'s landmark techno club, opened in 1988 with Derrick May and Kevin Saunderson — and served as label manager at Kevin Saunderson\'s KMS Records. His direct experience of both Detroit\'s techno scene and New York\'s soundsystem culture shaped a production sensibility that valued space, emotional depth, and slow harmonic development. In 1993 he co-founded Prescription Records in Chicago with Ron Trent, and the label became one of the most revered deep house imprints of the decade: applying a New York-influenced soulfulness to the Chicago house template. Damier\'s releases on Prescription and his solo work on other labels built a devoted following among deep house listeners globally, and his career has continued through to the present day.',
-    releases: [] },
+    releases: [] , spotify:'6ElgoHFh30ap09Koe8jf7C', },
 
   { id:'prescription_records', label:'Prescription Records', type:'label', genre:'deep', era:1993, city:'Chicago', country:'US',
     desc:'Prescription Records was founded in Chicago in 1993 by Ron Trent and Chez Damier, two producers in their early twenties who were already veterans of the Chicago and Detroit scenes. The label combined Trent\'s deep Chicago house sensibility with Damier\'s Detroit techno experience and their mutual admiration for the New York soundsystem tradition, producing a deep house sound characterised by space, spiritual weight, and harmonic complexity. Prescription is widely regarded as one of the most influential deep house imprints of the 1990s, releasing records that defined a mood — slow, contemplative, rooted in jazz and gospel as much as dance music — that stands distinct from both the harder Chicago styles and the atmospheric DnB of the same period.',
@@ -5450,60 +5450,60 @@ export const NODES = [
 
   { id:'kapote', label:'Kapote', type:'artist', genre:'disco', era:2012, city:'Berlin', country:'DE',
     desc:'Kapote is the stage name of Mathias Modica, born 18 March 1977 in Rome, Italy, and based in Berlin. Under his earlier alias Munk, Modica co-founded Gomma Records in Munich in 2000 with Jonas Imbery, releasing records that combined indie disco, funk, and experimental electronics, and collaborating with Peaches, James Murphy and Nancy Whang of LCD Soundsystem, and Franz Ferdinand. He founded Toy Tonics in 2012 as an outlet for house and disco music built around live instrumentation and vinyl-only releases. As Kapote he produces and DJs, running the Toy Tonics label alongside his own recorded output. The Gomma and Toy Tonics catalogs represent two decades of label work connecting European club culture with American house and disco traditions.',
-    releases: [] },
+    releases: [] , spotify:'3sySIHNL0hqR7eOlm3LNTH', },
 
   { id:'coeo', label:'COEO', type:'artist', genre:'disco', era:2013, city:'Munich', country:'DE',
     desc:'COEO is the Munich-based duo of Florian Vietz and Andreas Höpfl, producing a blend of disco-house built from chopped samples, programmed rhythm, and a melodic sensibility rooted in vintage American and European disco. The duo became one of the core acts of the Toy Tonics label alongside Rhode + Brown and Cody Currie, and have also released on Razor-N-Tape and Let\'s Play House. Their "Tonic Edits" series on Toy Tonics — sample-based reworkings of obscure funk and disco records — became some of the label\'s most in-demand releases, reaching multiple represses. COEO sits within a broader wave of European producers revisiting the dancefloor language of late-1970s disco through contemporary production techniques.',
-    releases: [] },
+    releases: [] , spotify:'1SwDFc5jX708XR3XtzLrRs', },
 
   { id:'cody_currie', label:'Cody Currie', type:'artist', genre:'deep', era:2015, city:'London', country:'UK',
     desc:'Cody Currie was born and raised in Leytonstone, East London, to a fashion designer father and a Spanish music writer mother, and studied music at Camberwell Art School before moving to Berlin. His music combines jazz-funk, broken beat, and deep house — shaped by an ear for retro disco licks, chopped keys, and live instrumentation. After meeting Toy Tonics founder Mathias Modica, Currie joined the label and released a sequence of EPs, culminating in his debut album "Lucas" (Toy Tonics, 2022). He has also released on Razor-N-Tape and Dan Shake\'s Shake Records. Currie belongs to a generation of UK-born producers who moved to Berlin and connected with the city\'s growing jazz-oriented club scene.',
     releases: [
       { title: 'Lucas (album)', year: 2022 },
-    ]},
+    ], spotify:'0ymdoOsfzRbCoAMfJPpsEx', },
 
   { id:'felipe_gordon', label:'Felipe Gordon', type:'artist', genre:'deep', era:2014, city:'Bogotá', country:'CO',
     desc:'Felipe Gordon is a producer, multi-instrumentalist, and DJ born and raised in Bogotá, Colombia. As a teenager he played drums and guitar in punk bands before discovering electronic music through artists like Cassius, which led to a lifelong interest in vintage synthesizers. Around 2014 he began self-releasing music on his own Nómada Records imprint, developing a style that fuses jazz samples, flowing pianos, and acid bass lines into house records that also draw on hip-hop and broken beat influences. He later founded Wide Awake Records as a second label outlet. Gordon has released on Toy Tonics, Clone Records, Local Talk, Shall Not Fade, and Razor-N-Tape, and is one of a growing number of Bogotá-based producers building an international profile from South America\'s emerging house music scene.',
-    releases: [] },
+    releases: [] , spotify:'7rQKvsWUOJgXmInx2JuaXj', },
 
   { id:'luke_solomon', label:'Luke Solomon', type:'artist', genre:'deep', era:1993, city:'London', country:'UK',
     desc:'Luke Solomon is a London-based DJ, producer, and label founder who has operated in house music since the early 1990s. He began DJing while a student at Middlesex University in the early \'90s, and after meeting Derrick Carter, the two co-founded Classic Music Company in London in 1995. Classic released seminal records by Herbert, DJ Sneak, and Gemini and established itself as one of the key deep house labels of the late 1990s. In 1999 Solomon co-founded Music for Freaks with Justin Harris, and the two formed the production duo Freaks, whose records connected deep house with post-punk and jazz influences. Solomon also served as A&R director at Defected Records, and later released on Toy Tonics as part of that label\'s extended international network.',
-    releases: [] },
+    releases: [] , spotify:'25CzLz5CINIKfN2r2bcl11', },
 
   { id:'phenomenal_handclap_band', label:'Phenomenal Handclap Band', type:'artist', genre:'disco', era:2008, city:'New York', country:'US',
     desc:'The Phenomenal Handclap Band is a New York collective formed in the East Village by producer Daniel Collás and DJ Sean Marquand, who had previously produced tracks for veteran soul musicians Joe Bataan and União Black under the name Embassy Sound Productions. Collás assembled a rotating group of musicians — including Patrick Wood, Luke O\'Malley, Laura Marin, Bing Ji Ling, and Pier Pappalardo — to record the band\'s first recordings, which were leaked online before their debut album. The self-titled debut (Friendly Fire, 2009; reissued Tummy Touch, 2010) brought together cosmic disco, funk, and orchestrated pop across a large ensemble format. The band toured the US and UK with Bryan Ferry in 2011. They have released on both Gomma Records and Toy Tonics, positioning them at the intersection of the New York disco revival and the European house scene.',
     releases: [
       { title: 'The Phenomenal Handclap Band (album)', year: 2009 },
-    ]},
+    ], spotify:'4S8UOAApPhwz9WcVOj13VO', },
 
   // ── NL — TOM TRAGO ──────────────────────────────────────────────────────
   { id:'tom_trago', label:'Tom Trago', type:'artist', genre:'deep', era:2008, city:'Amsterdam', country:'NL',
     desc:'Tom Trago is an Amsterdam-born DJ and producer. His debut album Voyage Direct appeared on Clone Records (Rotterdam) in 2008, establishing him as one of the more distinctive voices in Dutch electronic music. He founded the Voyage Direct imprint and has released on Rush Hour (Amsterdam). His productions combine deep house, disco, and a Dutch aesthetic rooted in the Amsterdam underground.',
     releases: [
       { title: 'Voyage Direct (Clone)', year: 2008 },
-    ]},
+    ], spotify:'2vUpX2Zq1DBdCHuoEnmzkK', },
 
   // ── NL — YOUNG MARCO ────────────────────────────────────────────────────
   { id:'young_marco', label:'Young Marco', type:'artist', genre:'deep', era:2011, city:'Amsterdam', country:'NL',
     desc:'Young Marco is a Dutch DJ and producer based in Amsterdam. He has released on Delsin Records (Amsterdam) and is closely associated with the Rush Hour network. His sets range widely — spanning cosmic disco, deep house, library music, and experimental electronic — and he is part of the generation of Amsterdam artists who built the city\'s reputation for eclectic, genre-crossing underground club music.',
-    releases: [] },
+    releases: [] , spotify:'7zpN81tVvPwlHcJSkSCyRa', },
 
   // ── NL — SAN PROPER ─────────────────────────────────────────────────────
   { id:'san_proper', label:'San Proper', type:'artist', genre:'deep', era:2010, city:'Amsterdam', country:'NL',
     desc:'San Proper is an Amsterdam-based DJ and musician known for deep, hypnotic house music and live performances that blur the line between DJ set and live act. He has released on Clone Records (Rotterdam) and is part of the Amsterdam underground that surrounds the Clone and Rush Hour networks.',
-    releases: [] },
+    releases: [] , spotify:'3hciB8bkQeECakkTWmrPEH', },
 
   // ── UK — MAYA JANE COLES ────────────────────────────────────────────────
   { id:'maya_jane_coles', label:'Maya Jane Coles', type:'artist', genre:'deep', era:2012, city:'London', country:'UK',
     desc:'Maya Jane Coles is a British DJ and producer born in London in 1989, of Japanese and British heritage. "What They Say", released in 2012 on her What We Play imprint, became one of the most widely played underground house tracks of that year and established her international profile. She plays across deep house and techno and has performed at Berghain, fabric, and major festivals globally.',
     releases: [
       { title: '"What They Say" (What We Play)', year: 2012 },
-    ]},
+    ], spotify:'6TshTCYwh9ySzOO6Jy4Ux2', },
 
   // ── DE — MARLON HOFFSTADT ───────────────────────────────────────────────
   { id:'marlon_hoffstadt', label:'Marlon Hoffstadt', type:'artist', genre:'deep', era:2015, city:'Berlin', country:'DE',
     desc:'Marlon Hoffstadt is a German DJ and producer based in Berlin who works across house music with influences from disco and Chicago house. He has performed at major European clubs and festivals and is part of the contemporary German house scene that bridges the Berlin club world with the broader European underground.',
-    releases: [] },
+    releases: [] , spotify:'0HHa7ZJZxUQlg5l2mB0N0f', },
 
   // ── DE — MOTOR CITY DRUM ENSEMBLE ──────────────────────────────────────
   { id:'mcde', label:'Motor City Drum Ensemble', type:'artist', genre:'deep', era:2007, city:'Stuttgart', country:'DE',
@@ -5511,7 +5511,7 @@ export const NODES = [
     releases: [
       { title: '"Raw Cuts #1–8" (Ilian Tape)', year: 2007 },
       { title: '"Danube" (Running Back)', year: 2012 },
-    ]},
+    ], spotify:'4TlzX7s6kuZDtiBpsopcBf', },
 
   // ── UK — JAMIE JONES ────────────────────────────────────────────────────
   { id:'jamie_jones', label:'Jamie Jones', type:'artist', genre:'house', era:2008, city:'London', country:'UK',
@@ -5519,7 +5519,7 @@ export const NODES = [
     releases: [
       { title: '"Don\'t You Remember the Future" (Hot Creations)', year: 2011 },
       { title: '"Bounce to the Ounce" (Hot Creations)', year: 2011 },
-    ]},
+    ], spotify:'4admDxmnri5Zco0xYrJ0ji', },
 
   // ── UK — PATRICK TOPPING ────────────────────────────────────────────────
   { id:'patrick_topping', label:'Patrick Topping', type:'artist', genre:'house', era:2012, city:'Newcastle', country:'UK',
@@ -5527,21 +5527,21 @@ export const NODES = [
     releases: [
       { title: '"Forget" (Hot Creations)', year: 2014 },
       { title: '"Be Sharp Say Nowt" (Hot Creations)', year: 2015 },
-    ]},
+    ], spotify:'7yRimuQSC5Ks3T2Ts0iyZa', },
 
   // ── US — THE MARTINEZ BROTHERS ──────────────────────────────────────────
   { id:'martinez_brothers', label:'The Martinez Brothers', type:'artist', genre:'house', era:2010, city:'New York', country:'US',
     desc:'Steve and Chris Martinez grew up in the South Bronx and began DJ-ing as teenagers. They became Circoloco residents at DC-10 in Ibiza and built a reputation as versatile selectors commanding deep house, Chicago jacking rhythms, and Afro-Latin percussion. Their Carvd in Stone label and residencies across Europe and the US made them central to the house revival of the 2010s.',
     releases: [
       { title: '"Rude Boy" (Carvd in Stone)', year: 2014 },
-    ]},
+    ], spotify:'7B1LLuCQk13H4Mb6CFBftU', },
 
   // ── FR — APOLLONIA ──────────────────────────────────────────────────────
   { id:'apollonia', label:'Apollonia', type:'artist', genre:'house', era:2007, city:'Paris', country:'FR',
     desc:'Apollonia is a collective of three French DJs: Dan Ghenacia, Shonky, and Dyed Soundorom. Formed in Paris, they built their reputation through long, exploratory b2b2b sets at clubs including Rex Club and Concrete, and on the Ibiza circuit. Their label Apollonia Records documents a sound rooted in Chicago and Detroit, filtered through deep French house tradition.',
     releases: [
       { title: 'Apollonia 001 (Apollonia Records)', year: 2012 },
-    ]},
+    ], spotify:'3anL0yEu608Dg2YcVFLUZn', },
 
   // ── UK — EATS EVERYTHING ────────────────────────────────────────────────
   { id:'eats_everything', label:'Eats Everything', type:'artist', genre:'house', era:2011, city:'Bristol', country:'UK',
@@ -5549,14 +5549,14 @@ export const NODES = [
     releases: [
       { title: '"Entrance Song" (Swamp 81)', year: 2011 },
       { title: '"Jagged" (Of Unsound Mind)', year: 2012 },
-    ]},
+    ], spotify:'4W991QdgKWX4TO864ypInA', },
 
   // ── UK — ALAN FITZPATRICK ───────────────────────────────────────────────
   { id:'alan_fitzpatrick', label:'Alan Fitzpatrick', type:'artist', genre:'techno', era:2010, city:'Manchester', country:'UK',
     desc:'Alan Fitzpatrick is a Manchester-based techno DJ and producer who rose through the fabric and Drumcode circuits. He founded We Are the Brave in 2016 as an outlet for his productions, which sit between functional dancefloor techno and more textured electronic work. He has released on Cocoon, Bedrock, and 8Sided.',
     releases: [
       { title: '"Machine" (We Are the Brave)', year: 2017 },
-    ]},
+    ], spotify:'40JyDxGqtYSowWYT2jaive', },
 
   // ── IT — DONATO DOZZY ───────────────────────────────────────────────────
   { id:'donato_dozzy', label:'Donato Dozzy', type:'artist', genre:'techno', era:2006, city:'Rome', country:'IT', bandcamp:'donatodozzy',
@@ -5564,28 +5564,28 @@ export const NODES = [
     releases: [
       { title: 'Voices from the Lake (with Neel)', year: 2012 },
       { title: '"Quando" (Aquaplano)', year: 2009 },
-    ]},
+    ], spotify:'2LmP2eHIAmprDBQfi4jiBC', },
 
   // ── DE — CHRIS LIEBING ──────────────────────────────────────────────────
   { id:'chris_liebing', label:'Chris Liebing', type:'artist', genre:'techno', era:1997, city:'Frankfurt', country:'DE',
     desc:'Chris Liebing is a Frankfurt-based DJ and producer who has been central to the hard techno and industrial techno underground since the mid-1990s. He founded AM-PM Records and has held long residencies at clubs including Tresor and CLR (Club Life Radio), his long-running podcast series. His sets are characterised by driving, relentless energy and precise technical execution.',
     releases: [
       { title: 'Burn Slow (with Speedy J)', year: 2017 },
-    ]},
+    ], spotify:'21444lX8gpmOX36icLmbFI', },
 
   // ── UK — DJ HARVEY ──────────────────────────────────────────────────────
   { id:'dj_harvey', label:'DJ Harvey', type:'artist', genre:'house', era:1990, city:'London', country:'UK',
     desc:'DJ Harvey (Harvey Bassett) is a British DJ who built his reputation in the London underground in the early 1990s before relocating to Los Angeles. He is known for eclectic, marathon sets drawing on disco, Italo, cosmic, and deep house, and for his Sarcastic Records imprint. His influence on UK nightlife culture is substantial and he is widely cited as one of the great selectors.',
     releases: [
       { title: 'The Rinse (Sarcastic Records)', year: 2008 },
-    ]},
+    ], spotify:'4LSAINMy65w69vnT4xUq1b', },
 
   // ── US — DUBFIRE ────────────────────────────────────────────────────────
   { id:'dubfire', label:'Dubfire', type:'artist', genre:'techno', era:2007, city:'Washington DC', country:'US',
     desc:'Dubfire (Ali Shirazinia) is an Iranian-American DJ and producer who first gained international recognition as half of Deep Dish, the progressive house act he formed with Sharam Tayebi. After Deep Dish went on hiatus he pivoted to a harder, minimal techno sound, founding SCI+TEC Records. His solo career in the late 2000s–2010s made him one of the most booked techno DJs globally.',
     releases: [
       { title: '"Evolve or Exceed" (SCI+TEC)', year: 2012 },
-    ]},
+    ], spotify:'3bVYqr2NfmwmL4YJisWhJI', },
 
   // ── UK — SCUBA ──────────────────────────────────────────────────────────
   { id:'scuba', label:'Scuba', type:'artist', genre:'techno', era:2006, city:'London', country:'UK', bandcamp:'scubaofficial',
@@ -5593,7 +5593,7 @@ export const NODES = [
     releases: [
       { title: 'Triangulation (Hotflush)', year: 2010 },
       { title: 'Personality (Hotflush)', year: 2012 },
-    ]},
+    ], spotify:'48hZklIMPklae2Mssfp8Cx', },
 
   // ── DE — PAN-POT ────────────────────────────────────────────────────────
   { id:'pan_pot', label:'Pan-Pot', type:'artist', genre:'techno', era:2007, city:'Berlin', country:'DE',
@@ -5601,49 +5601,49 @@ export const NODES = [
     releases: [
       { title: '"The Other Village" (Mobilee)', year: 2010 },
       { title: 'THE Other SIDE OF MIDNIGHT (Second State)', year: 2016 },
-    ]},
+    ], spotify:'6OQOvP7RAdmAKVXXQqD0Se', },
 
   // ── CH — ADRIATIQUE ─────────────────────────────────────────────────────
   { id:'adriatique', label:'Adriatique', type:'artist', genre:'house', era:2012, city:'Zurich', country:'CH',
     desc:'Adriatique is the duo of Adrian Shala and Adrian Schweizer from Zurich. They rose through the Watergate and Afterlife circuits, developing a sound that blends melodic house and atmospheric techno. Their releases on Siamese and Afterlife and residencies at Zurich\'s clubs placed them at the centre of the Swiss and broader European house/techno scene in the 2010s.',
     releases: [
       { title: '"Breathe" (Siamese)', year: 2016 },
-    ]},
+    ], spotify:'02DWGcShQivFepRvGJ7xhB', },
 
   // ── UK — RICHY AHMED ────────────────────────────────────────────────────
   { id:'richy_ahmed', label:'Richy Ahmed', type:'artist', genre:'house', era:2012, city:'London', country:'UK',
     desc:'Richy Ahmed is a London-based DJ and producer who came up through the fabric and Hot Creations networks. Known for precise, technical mixing and a sound that traverses deep and tech house, he co-founded the 100% Silk-affiliated Apron Records and has released on Rejected and Hot Creations.',
     releases: [
       { title: '"Taapion" (Hot Creations)', year: 2014 },
-    ]},
+    ], spotify:'1ac5NUFh98sMs0DGX4xlSt', },
 
   // ── DE — TINI ───────────────────────────────────────────────────────────
   { id:'tini', label:'tINI', type:'artist', genre:'house', era:2010, city:'Stuttgart', country:'DE',
     desc:'tINI (Martina Dillmann) is a Stuttgart-born DJ and vocalist who emerged from the Stuttgart underground and built an international profile through Cadenza, Defected, and Ibiza residencies. Her warm, groove-oriented sets draw on deep house, minimal, and funk, and her vocal work has appeared on releases alongside Luciano and other Cadenza artists.',
     releases: [
       { title: '"The Gift" (Cadenza)', year: 2011 },
-    ]},
+    ], spotify:'7vXDAI8JwjW531ouMGbfcp', },
 
   // ── UK — NICOLE MOUDABER ────────────────────────────────────────────────
   { id:'nicole_moudaber', label:'Nicole Moudaber', type:'artist', genre:'techno', era:2012, city:'London', country:'UK',
     desc:'Nicole Moudaber is a British-Lebanese DJ and producer who built her career in London before becoming a leading figure in the global techno circuit. She founded MOOD Records and is a regular at Berghain, fabric, and major festivals. Her sound spans driving, hypnotic techno with occasional dark ambient inflections.',
     releases: [
       { title: '"Vibe" (MOOD)', year: 2014 },
-    ]},
+    ], spotify:'7ixDtqtITfqx5lZQGh5gKe', },
 
   // ── UK — HOT SINCE 82 ───────────────────────────────────────────────────
   { id:'hot_since_82', label:'Hot Since 82', type:'artist', genre:'house', era:2012, city:'Leeds', country:'UK',
     desc:'Hot Since 82 (Daley Padley) is a Leeds-based DJ and producer who became one of the most recognised names in the tech-house and deep house circuit in the early 2010s. He founded Knee Deep in Sound in 2013, which has been a consistent home for his productions and releases from international artists.',
     releases: [
       { title: '"Buggin" (Pets Recordings)', year: 2013 },
-    ]},
+    ], spotify:'1tRBmMtER4fGrzrt8O9VpS', },
 
   // ── FR — JEREMY UNDERGROUND ─────────────────────────────────────────────
   { id:'jeremy_underground', label:'Jeremy Underground', type:'artist', genre:'house', era:2011, city:'Paris', country:'FR',
     desc:'Jeremy Underground (Jérémy Guindo) is a Paris-based DJ and selector known for deep, soulful sets that synthesise Chicago house, boogie, and deep disco. He runs the My Love Is Underground label and record store and is part of a Parisian lineage that includes Apollonia and the Rex Club scene. His curation prioritises emotional depth and soul over technical dance floor mechanics.',
     releases: [
       { title: 'My Love Is Underground Vol. 1', year: 2013 },
-    ]},
+    ], spotify:'77yY2QmM6bYvjJ3y5L2R0v', },
 
   // ── DK — KÖLSCH ─────────────────────────────────────────────────────────
   { id:'kolsch', label:'Kölsch', type:'artist', genre:'house', era:2012, city:'Copenhagen', country:'DK',
@@ -5651,50 +5651,50 @@ export const NODES = [
     releases: [
       { title: '1977 (Fabric)', year: 2013 },
       { title: '"Grey" (Kompakt)', year: 2015 },
-    ]},
+    ], spotify:'2D9Oe8R9UhbMvFAsMJpXj0', },
 
   // ── UK — ENZO SIRAGUSA ──────────────────────────────────────────────────
   { id:'enzo_siragusa', label:'Enzo Siragusa', type:'artist', genre:'house', era:2010, city:'London', country:'UK',
     desc:'Enzo Siragusa is a Sicilian-born, London-based DJ and producer who co-founded Fuse London, the East London club and label that became one of the defining spaces for UK underground house in the 2010s. His productions appear on Fuse, Hot Creations, and Crosstown Rebels, and his DJ sets are known for a deep, hypnotic quality.',
     releases: [
       { title: '"Roar" (Fuse)', year: 2014 },
-    ]},
+    ], spotify:'3tXRNjxWCFyWyJdjMwtaSX', },
 
   // ── US — CLAUDE VONSTROKE ───────────────────────────────────────────────
   { id:'claude_vonstroke', label:'Claude VonStroke', type:'artist', genre:'house', era:2007, city:'San Francisco', country:'US',
     desc:'Claude VonStroke (Barclay Cummings) founded Dirtybird Records in San Francisco in 2005, which became one of the most successful US house labels of the 2010s. Dirtybird\'s sound — funky, irreverent, bass-heavy house with humour — spawned the annual Dirtybird Campout festival and a roster including Justin Martin and Ardalan.',
     releases: [
       { title: '"Who\'s Afraid of Detroit?" (Dirtybird)', year: 2006 },
-    ]},
+    ], spotify:'5CYAFhywQTXdZmppCp0ukd', },
 
   // ── UK — WAFF ───────────────────────────────────────────────────────────
   { id:'waff', label:'wAFF', type:'artist', genre:'house', era:2013, city:'London', country:'UK',
     desc:'wAFF is a London-based DJ and producer known for abstract, minimal house with techno edge. He has released on Hot Creations, Crosstown Rebels, and his own TED Communications imprint, and built his profile through fabric and DC-10 in Ibiza. His approach to rhythm is percussive and hypnotic, influenced by African and Chicago house traditions.',
     releases: [
       { title: '"Wasted Youth" (Hot Creations)', year: 2014 },
-    ]},
+    ], spotify:'7DFq1SXXYOrkUzx1eZtOPb', },
 
   // ── UK — JASPER JAMES ───────────────────────────────────────────────────
   { id:'jasper_james', label:'Jasper James', type:'artist', genre:'house', era:2012, city:'Glasgow', country:'UK', bandcamp:'jasper-james',
     desc:'Jasper James is a Scottish DJ and producer based in Glasgow who emerged from the Scottish underground, releasing on Monique Musique and Optimo Music. His deep, patient sets draw on vintage house, boogie, and disco, and he is part of a Glasgow lineage that includes Jackmaster and the Numbers/Rubadub ecosystem.',
     releases: [
       { title: '"Keep the Secret" (Monique Musique)', year: 2014 },
-    ]},
+    ], spotify:'0bOR78IANHTrHwd0kezriG', },
 
   // ── CH — SONJA MOONEAR ──────────────────────────────────────────────────
   { id:'sonja_moonear', label:'Sonja Moonear', type:'artist', genre:'techno', era:2010, city:'Zurich', country:'CH',
     desc:'Sonja Moonear is a Geneva-born, Zurich-based DJ who built her reputation through Berghain/Panorama Bar and Geneva\'s intimate club scene. Her sets bridge minimal house and deep techno with a precise, hypnotic quality. She runs Noises from the Underground with her partner More Rice and is one of the most respected DJs in the European underground.',
-    releases: [] },
+    releases: [] , spotify:'51LkkgmLryX5VSMNhVALeJ', },
 
   // ── US — MIKE SERVITO ───────────────────────────────────────────────────
   { id:'mike_servito', label:'Mike Servito', type:'artist', genre:'house', era:2005, city:'Detroit', country:'US',
     desc:'Mike Servito is a Detroit-born DJ and producer who has been based in New York for much of his career. His selections span Chicago house, New York disco, Detroit techno, and electronic body music, and he is known for thoughtful, emotionally charged long-form sets. He has released on Life and Death and his own Family Affair imprint.',
-    releases: [] },
+    releases: [] , spotify:'05TQmeCxjfNBf1ZRDOMHq8', },
 
   // ── RO — BARAC ──────────────────────────────────────────────────────────
   { id:'barac', label:'Barac', type:'artist', genre:'techno', era:2010, city:'Bucharest', country:'RO',
     desc:'Barac (Baraka Iancu) is a Bucharest-based DJ and producer at the centre of the Romanian minimal scene. A member of [a:rpia:r] alongside Rhadoo, Petre Inspirescu, and Raresh, he brings a distinctly melodic and emotional quality to the micro-minimal sound. He has released on Raresh\'s MNSDI label and played at Sunwaves Festival consistently since the early 2010s.',
-    releases: [] },
+    releases: [] , spotify:'6FiIQsdqT4qT0BJtYi189J', },
 
   // ── US — LEVON VINCENT ──────────────────────────────────────────────────
   { id:'levon_vincent', label:'Levon Vincent', type:'artist', genre:'house', era:2008, city:'New York', country:'US', bandcamp:'levonvincent',
@@ -5702,21 +5702,21 @@ export const NODES = [
     releases: [
       { title: '"Heart Broke" (Novel Sound)', year: 2010 },
       { title: '"Prostitute" (Novel Sound)', year: 2013 },
-    ]},
+    ], spotify:'5NvCz2qTmLDV9I5J8szc6r', },
 
   // ── UK — STEVE LAWLER ───────────────────────────────────────────────────
   { id:'steve_lawler', label:'Steve Lawler', type:'artist', genre:'techno', era:1996, city:'Birmingham', country:'UK',
     desc:'Steve Lawler is a Birmingham-born DJ who rose through the UK rave circuit and became one of Ibiza\'s most influential long-form DJs, with a long residency at clubs including Space and DC-10. He founded VIVa Music in 2007, which has documented a sound crossing minimal techno with dark, driving house. His marathon sets at DC-10 helped define the Ibiza underground of the 2000s.',
     releases: [
       { title: 'Lights Out Vol. 1 (fabric)', year: 2003 },
-    ]},
+    ], spotify:'0NDuRCSLSH0Ii5An4U6HME', },
 
   // ── ES — FUR COAT ───────────────────────────────────────────────────────
   { id:'fur_coat', label:'Fur Coat', type:'artist', genre:'techno', era:2012, city:'Madrid', country:'ES',
     desc:'Fur Coat is the duo of Venezuelan producers Gonzalo Andrés and Sergio Munoz, based in Madrid. They have released on Innervisions, Crosstown Rebels, and Noir Music, and their sound blends driving techno with deeper melodic elements. They are known for high-energy sets that work across both the Ibiza and Berlin techno circuits.',
     releases: [
       { title: '"Obscura" (Innervisions)', year: 2013 },
-    ]},
+    ], spotify:'26J5ZprV3p7jv4fHTmpXsB', },
 
   // ── UK — GEORGE FITZGERALD ──────────────────────────────────────────────
   { id:'george_fitzgerald', label:'George FitzGerald', type:'artist', genre:'house', era:2012, city:'Edinburgh', country:'UK',
@@ -5724,14 +5724,14 @@ export const NODES = [
     releases: [
       { title: 'Fading Love (Double Six)', year: 2015 },
       { title: '"Full Circle" (Hotflush)', year: 2013 },
-    ]},
+    ], spotify:'3KOHpygRuo1ruQAbEneR3t', },
 
   // ── AR — HERNAN CATTANEO ────────────────────────────────────────────────
   { id:'hernan_cattaneo', label:'Hernan Cattaneo', type:'artist', genre:'house', era:1999, city:'Buenos Aires', country:'AR',
     desc:'Hernan Cattaneo is an Argentine DJ who became one of the most prominent figures in progressive house globally. A longtime resident of Sudbeat Music and collaborator of Nick Warren, he has been one of South America\'s most internationally recognised electronic music exports since the late 1990s. His residency at Creamfields Argentina and prolific compilations defined the sound of the genre for a generation.',
     releases: [
       { title: 'Renaissance: The Masters Series Part 5', year: 2000 },
-    ]},
+    ], spotify:'4mpJaw5y17CIN08qqe8EfB', },
 
   // ── UK — DUSKY ──────────────────────────────────────────────────────────
   { id:'dusky', label:'Dusky', type:'artist', genre:'house', era:2012, city:'London', country:'UK',
@@ -5739,7 +5739,7 @@ export const NODES = [
     releases: [
       { title: '"Yoohoo" (17 Steps)', year: 2012 },
       { title: '"Ackee 123" (17 Steps)', year: 2013 },
-    ]},
+    ], spotify:'5gqoUf9vKKv96b1c0GBKwu', },
 
   // ── IL — GUY GERBER ─────────────────────────────────────────────────────
   { id:'guy_gerber', label:'Guy Gerber', type:'artist', genre:'house', era:2006, city:'Tel Aviv', country:'IL', bandcamp:'guygerber',
@@ -5747,61 +5747,61 @@ export const NODES = [
     releases: [
       { title: 'Intention (Cocoon)', year: 2007 },
       { title: '"Lovefingers" (Circus Company)', year: 2009 },
-    ]},
+    ], spotify:'3bqBkAzdPwEDe1JUvb7ZeC', },
 
   // ── DE — BUTCH ──────────────────────────────────────────────────────────
   { id:'butch', label:'Butch', type:'artist', genre:'techno', era:2010, city:'Frankfurt', country:'DE',
     desc:'Butch (Marco Asburger) is a Frankfurt-based DJ and producer whose sound sits between house and techno with a dark, industrial edge. He has released on Desolat, Cocoon, and his own Otherside imprint, and is a regular at Ibiza\'s underground clubs. His productions are functional, groove-oriented, and technically precise.',
     releases: [
       { title: '"Space Hopper" (Desolat)', year: 2012 },
-    ]},
+    ], spotify:'6FcvjJzvxgybo7Ywsj0hRj', },
 
   // ── CA — ART DEPARTMENT ─────────────────────────────────────────────────
   { id:'art_department', label:'Art Department', type:'artist', genre:'house', era:2010, city:'Toronto', country:'CA',
     desc:'Art Department is the project of Kenny Glasgow and Jonny White, Toronto-based DJs and producers who built their profile through No. 19 Music and the Ibiza underground. They are known for slow, deep, hypnotic sets and productions that draw on minimal house, dub, and experimental electronics. Their debut album The Drawing Board (2011) on No. 19 Music was widely acclaimed.',
     releases: [
       { title: 'The Drawing Board (No. 19 Music)', year: 2011 },
-    ]},
+    ], spotify:'7Gsu15RkjjdKhMecdRpk9x', },
 
   // ── US — FRED P ─────────────────────────────────────────────────────────
   { id:'fred_p', label:'Fred P', type:'artist', genre:'house', era:2005, city:'New York', country:'US',
     desc:'Fred P (Frederick Crooke) is a Brooklyn-based DJ and producer whose music blends deep house, soul, and jazz in a distinctly New York idiom. He runs Black Jazz Consortium and Soul People Music, and has released on L.I.E.S. and Rush Hour. His work sits in a tradition of spiritually oriented dance music with roots in New York\'s underground dance floor culture.',
     releases: [
       { title: 'Strength & Power (Soul People Music)', year: 2010 },
-    ]},
+    ], spotify:'66se5dgU4TBgWvHtXrYrz0', },
 
   // ── UK — DAMIAN LAZARUS ─────────────────────────────────────────────────
   { id:'damian_lazarus', label:'Damian Lazarus', type:'artist', genre:'house', era:2005, city:'London', country:'UK',
     desc:'Damian Lazarus is a London-based DJ and producer who founded Crosstown Rebels in 2003, one of the most internationally distributed underground house and techno labels of the 2000s–2010s. He also created the Day Zero festival in Mexico and Rebel Rave. His label has released artists including Art Department, Rebolledo, and Jamie Jones.',
     releases: [
       { title: '"Changes" (Crosstown Rebels)', year: 2007 },
-    ]},
+    ], spotify:'3EIJ8wiUHbgkRCt5cpRrQv', },
 
   // ── UK — JAMES ZABIELA ──────────────────────────────────────────────────
   { id:'james_zabiela', label:'James Zabiela', type:'artist', genre:'house', era:2003, city:'Southampton', country:'UK',
     desc:'James Zabiela is a Southampton-born DJ who built a reputation in the early 2000s for technically advanced, multi-deck DJ performances. He was an early adopter of digital DJing and became known for adventurous sets crossing progressive house, techno, and breaks. He has released on Bedrock, Renaissance, and his own Born Electric imprint.',
-    releases: [] },
+    releases: [] , spotify:'15mGoF7xgIMiIasAgrrQPs', },
 
   // ── UK — EROL ALKAN ─────────────────────────────────────────────────────
   { id:'erol_alkan', label:'Erol Alkan', type:'artist', genre:'house', era:2001, city:'London', country:'UK',
     desc:'Erol Alkan is a Turkish-British DJ who ran the legendary Trash night at The End in London from 1997 to 2008, one of the UK\'s most influential alternative dance nights mixing indie, electro, and house. He founded Phantasy Sound, which releases artists including Daniel Avery and Crocodiles. His production work includes remixes for Daft Punk and Chemical Brothers.',
     releases: [
       { title: 'Another Too Late Night (fabric)', year: 2010 },
-    ]},
+    ], spotify:'3jQ8hpdQo3TCEnb5gmOtH5', },
 
   // ── DE — BARNT ──────────────────────────────────────────────────────────
   { id:'barnt', label:'Barnt', type:'artist', genre:'techno', era:2008, city:'Cologne', country:'DE',
     desc:'Barnt is a Cologne-based producer and DJ whose music operates on the edge of minimal techno, noise, and experimental electronics. He releases on Cologne Tape and Magazine, and is known for sets that challenge dancefloor convention. Cologne Tape, co-founded with Magazine, has been an important platform for unconventional German electronic music.',
     releases: [
       { title: '"Trancegott" (Cologne Tape)', year: 2010 },
-    ]},
+    ], spotify:'0bRd9iYrw43QHxo2j9Zy0h', },
 
   // ── PL — MARGARET DYGAS ─────────────────────────────────────────────────
   { id:'margaret_dygas', label:'Margaret Dygas', type:'artist', genre:'techno', era:2006, city:'Warsaw', country:'PL',
     desc:'Margaret Dygas is a Warsaw-born, Berlin-based DJ and producer who has released on Perlon, the label founded by Zip in Frankfurt. Her micro-minimal productions and DJ sets sit within the Perlon/Robert Johnson aesthetic — patient, hypnotic, and stripped-back. She is one of the most respected artists to have emerged from the Polish underground.',
     releases: [
       { title: '"Lola" (Perlon)', year: 2010 },
-    ]},
+    ], spotify:'6GnLE3Ncm59wsLSqF9divg', },
 
   // ── DE — ANSWER CODE REQUEST ────────────────────────────────────────────
   { id:'answer_code_request', label:'Answer Code Request', type:'artist', genre:'techno', era:2014, city:'Berlin', country:'DE', bandcamp:'answercoderequest',
@@ -5809,54 +5809,54 @@ export const NODES = [
     releases: [
       { title: 'Fabric 75 (fabric)', year: 2014 },
       { title: 'Code (Ostgut Ton)', year: 2015 },
-    ]},
+    ], spotify:'52NOZYgYNsmv3nS0me6cqO', },
 
   // ── UK — DENIS SULTA ────────────────────────────────────────────────────
   { id:'denis_sulta', label:'Denis Sulta', type:'artist', genre:'house', era:2016, city:'Glasgow', country:'UK',
     desc:'Denis Sulta is a Glasgow-based DJ and producer who emerged from the Numbers and LuckyMe ecosystems. His productions fuse UK rave energy with house and techno grooves and a strong melodic sensibility. He rose very quickly in the mid-2010s and is considered one of the defining figures of the contemporary Glasgow underground scene.',
     releases: [
       { title: '"Sultans of Swing" (Numbers)', year: 2016 },
-    ]},
+    ], spotify:'7cDu9zG1gVQrMdSGBAhzvn', },
 
   // ── UK — SOLARDO ────────────────────────────────────────────────────────
   { id:'solardo', label:'Solardo', type:'artist', genre:'house', era:2016, city:'Manchester', country:'UK',
     desc:'Solardo is the Manchester duo of James Sherwood and Mark Richards. They rose quickly in the mid-2010s through Sola Records and Hot Creations, developing a sound rooted in Chicago jacking house and UK rave culture. Their energetic, crowd-driven DJ sets made them mainstays at Ibiza and UK festival circuits.',
     releases: [
       { title: '"Work It" (Sola)', year: 2017 },
-    ]},
+    ], spotify:'0oO1IaDOBSeI96HbnCa5pZ', },
 
   // ── UK — DAX J ──────────────────────────────────────────────────────────
   { id:'dax_j', label:'Dax J', type:'artist', genre:'techno', era:2013, city:'London', country:'UK',
     desc:'Dax J is a London-based DJ and producer whose music is rooted in dark, industrial techno. He founded Mosaic Records and has played Berghain, fabric, and Tresor. His productions are influenced by EBM and British acid house and have a relentless, physical quality. He is one of the most consistently booked UK techno DJs internationally.',
     releases: [
       { title: '"Asylum" (Mosaic)', year: 2014 },
-    ]},
+    ], spotify:'2zJJIWKT0LiwdxcwW9RajQ', },
 
   // ── ZA — ARCHIE HAMILTON ────────────────────────────────────────────────
   { id:'archie_hamilton', label:'Archie Hamilton', type:'artist', genre:'techno', era:2012, city:'Cape Town', country:'ZA',
     desc:'Archie Hamilton is a South African DJ and producer based between Cape Town and London. He founded Moscow Records and has released on Bedrock and 1605. His deep, atmospheric techno sets draw on Berlin minimalism and the expansive South African landscape. He is one of the most internationally recognised artists to emerge from South Africa\'s electronic scene.',
-    releases: [] },
+    releases: [] , spotify:'0DfYCARYRJ4vlSWlief3jv', },
 
   // ── UK — ARTWORK ────────────────────────────────────────────────────────
   { id:'artwork', label:'Artwork', type:'artist', genre:'house', era:2008, city:'London', country:'UK',
     desc:'Artwork (Neil Cunningham) is a London-based DJ and producer known for his deep, soulful house sets and releases on Toolroom and his own De Soi imprint. He is also half of the duo Magnetic Man alongside Skream and Benga, which produced a crossover dubstep/pop album in 2010. His solo work leans towards deep house and UK garage-inflected club music.',
     releases: [
       { title: 'Magnetic Man (Columbia)', year: 2010 },
-    ]},
+    ], spotify:'0OxQiJ0uuDuuQ3dqkIbjwR', },
 
   // ── AU — MALL GRAB ──────────────────────────────────────────────────────
   { id:'mall_grab', label:'Mall Grab', type:'artist', genre:'house', era:2016, city:'Brisbane', country:'AU',
     desc:'Mall Grab (Jordan Alexander) is an Australian DJ and producer who emerged in 2016 with a lo-fi, sample-heavy approach to house music that drew comparisons to DJ Stingray and L.I.E.S. He founded Steel City Dance Discs in Sheffield (UK) and became known for energetic, rowdy DJ sets at Fabric and Boiler Room. His self-released cassette tapes built an initial cult following.',
     releases: [
       { title: '"Do It Again" (Steel City Dance Discs)', year: 2016 },
-    ]},
+    ], spotify:'7yF6JnFPDzgml2Ytkyl5D7', },
 
   // ── JP — DJ NOBU ────────────────────────────────────────────────────────
   { id:'dj_nobu', label:'DJ Nobu', type:'artist', genre:'techno', era:2010, city:'Tokyo', country:'JP',
     desc:'DJ Nobu is a Tokyo-based DJ who co-runs Future Terror, a long-running party series that has been one of Japan\'s most important underground club nights since the 2000s. He is known for exploratory, psychedelic techno sets that push into experimental and noise territory. He has released on Bitta and Transmat and played Berghain, Tresor, and major European festivals.',
     releases: [
       { title: 'Fabric 85 (fabric)', year: 2016 },
-    ]},
+    ], spotify:'0FjzWRwRfEzCndGjColUy9', },
 
   // ── UK — HOTFLUSH RECORDINGS ─────────────────────────────────────────────
   { id:'hotflush', label:'Hotflush Recordings', type:'label', genre:'house', era:2006, city:'London', country:'UK', bandcamp:'hotflush',
