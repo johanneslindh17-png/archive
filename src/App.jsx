@@ -1839,6 +1839,29 @@ export default function App() {
               if (!nbEl) return;
               nbEl.classList.add('hov-prev');
               hovPrevRef.current.push({ el: nbEl });
+              // Dim neighbors: append pulsing text overlay so the label brightens
+              const nbIsDim = hlIds ? !hlIds.has(nbId) : false;
+              if (nbIsDim && svgGRef.current) {
+                const p = positions[nbId];
+                const nb = NODE_BY_ID.get(nbId);
+                if (p && nb) {
+                  const txtEl = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                  const cs = window.getComputedStyle(nbEl.querySelector('text'));
+                  txtEl.setAttribute('x', p.x);
+                  txtEl.setAttribute('y', p.y);
+                  txtEl.setAttribute('text-anchor', 'middle');
+                  txtEl.setAttribute('dominant-baseline', 'middle');
+                  txtEl.style.fontSize = cs.fontSize;
+                  txtEl.style.letterSpacing = cs.letterSpacing;
+                  txtEl.style.fontFamily = cs.fontFamily;
+                  txtEl.style.fill = darkMode ? 'white' : 'black';
+                  txtEl.style.pointerEvents = 'none';
+                  txtEl.classList.add('nd-march-pulse-text');
+                  txtEl.textContent = nb.label;
+                  svgGRef.current.appendChild(txtEl);
+                  marchOverlayRef.current.push(txtEl);
+                }
+              }
             });
             // Easter egg: shake after 10s, ramp to max over next 10s
             // Modifies the outer <g>'s SVG transform attribute directly —
@@ -1869,6 +1892,7 @@ export default function App() {
         }}
         onMouseLeave={() => {
           clearShake();
+          clearMarchOverlay();
           setHovNode(null);
           hovPrevRef.current.forEach(({ el, txt, orig }) => {
             el.classList.remove('hov-self', 'hov-prev');
@@ -2285,6 +2309,7 @@ export default function App() {
 
         <svg ref={svgRef} className="msv" onMouseLeave={() => {
           clearShake();
+          clearMarchOverlay();
           setHovNode(null);
           hovPrevRef.current.forEach(({ el, txt, orig }) => {
             el.classList.remove('hov-self', 'hov-prev');
