@@ -1230,7 +1230,7 @@ export default function App() {
       g.setAttribute('id', id);
       g.setAttribute('x1', '0%'); g.setAttribute('y1', '0%');
       g.setAttribute('x2', '100%'); g.setAttribute('y2', '0%');
-      [['0%','0'],['28%','0.5'],['50%','0.55'],['72%','0.5'],['100%','0']].forEach(([offset, op]) => {
+      [['0%','0'],['28%','0.38'],['50%','0.42'],['72%','0.38'],['100%','0']].forEach(([offset, op]) => {
         const s = document.createElementNS(svgNS, 'stop');
         s.setAttribute('offset', offset); s.setAttribute('stop-color', color); s.setAttribute('stop-opacity', op);
         g.appendChild(s);
@@ -1870,8 +1870,8 @@ export default function App() {
               const selfGlowEl = document.createElementNS(svgNS, 'ellipse');
               selfGlowEl.setAttribute('cx', selfP.x);
               selfGlowEl.setAttribute('cy', selfP.y - 1);
-              selfGlowEl.setAttribute('rx', bw / 2 + 11);
-              selfGlowEl.setAttribute('ry', BH / 2 + 4);
+              selfGlowEl.setAttribute('rx', bw / 2 + 9);
+              selfGlowEl.setAttribute('ry', BH / 2 + 3);
               selfGlowEl.setAttribute('fill', `url(#${darkMode ? 'nd-glow-grad-dk' : 'nd-glow-grad-lt'})`);
               selfGlowEl.style.pointerEvents = 'none';
               selfGlowEl.classList.add('nd-glow-el', 'nd-glow-self');
@@ -1895,8 +1895,8 @@ export default function App() {
                 const glowEl = document.createElementNS(svgNS, 'ellipse');
                 glowEl.setAttribute('cx', p.x);
                 glowEl.setAttribute('cy', p.y - 1);
-                glowEl.setAttribute('rx', bw / 2 + 8);
-                glowEl.setAttribute('ry', BH / 2 + 3);
+                glowEl.setAttribute('rx', bw / 2 + 6);
+                glowEl.setAttribute('ry', BH / 2 + 2);
                 glowEl.setAttribute('fill', `url(#${darkMode ? 'nd-glow-grad-dk' : 'nd-glow-grad-lt'})`);
                 glowEl.style.pointerEvents = 'none';
                 const nbIsDim = hlIds ? !hlIds.has(nbId) : false;
