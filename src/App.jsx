@@ -1831,7 +1831,7 @@ export default function App() {
             const self = ev.currentTarget;
             self.classList.add('hov-self');
             hovPrevRef.current = [{ el: self }];
-            // Self-glow (larger, behind all nodes)
+            // Self-glow (behind the hovered node itself)
             const selfP = positions[n.id];
             if (selfP && svgGRef.current) {
               const svgNS = 'http://www.w3.org/2000/svg';
@@ -1844,11 +1844,16 @@ export default function App() {
               selfGlowEl.setAttribute('width', bw + selfGpad * 2);
               selfGlowEl.setAttribute('height', BH + selfGpad * 2);
               selfGlowEl.setAttribute('rx', 10);
-              selfGlowEl.setAttribute('fill', darkMode ? 'rgba(255,255,255,0.85)' : 'rgba(0,0,0,0.7)');
+              selfGlowEl.setAttribute('fill', darkMode ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.35)');
               selfGlowEl.style.pointerEvents = 'none';
               selfGlowEl.classList.add('nd-glow-el', 'nd-glow-self');
-              svgGRef.current.insertBefore(selfGlowEl, svgGRef.current.firstChild);
+              svgGRef.current.insertBefore(selfGlowEl, self);
               marchOverlayRef.current.push(selfGlowEl);
+            }
+            // Find first non-dim node — glows for non-dim connected nodes go just before it
+            let firstNonDimNd = null;
+            for (const el of svgGRef.current.querySelectorAll('.nd')) {
+              if (!el.classList.contains('dim')) { firstNonDimNd = el; break; }
             }
             EDGES.forEach(e => {
               if (e.type === 'aesthetic') return;
@@ -1858,7 +1863,6 @@ export default function App() {
               if (!nbEl) return;
               nbEl.classList.add('hov-prev');
               hovPrevRef.current.push({ el: nbEl });
-              // Append glow + (for dim) pulsing text overlay on top of all nodes
               const p = positions[nbId];
               const nb = NODE_BY_ID.get(nbId);
               if (p && nb && svgGRef.current) {
@@ -1872,11 +1876,14 @@ export default function App() {
                 glowEl.setAttribute('width', bw + gpad * 2);
                 glowEl.setAttribute('height', BH + gpad * 2);
                 glowEl.setAttribute('rx', 7);
-                glowEl.setAttribute('fill', darkMode ? 'rgba(255,255,255,0.85)' : 'rgba(0,0,0,0.7)');
+                glowEl.setAttribute('fill', darkMode ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.35)');
                 glowEl.style.pointerEvents = 'none';
                 const nbIsDim = hlIds ? !hlIds.has(nbId) : false;
                 glowEl.classList.add('nd-glow-el', nbIsDim ? 'nd-glow-pulse' : 'nd-glow-static');
-                svgGRef.current.insertBefore(glowEl, svgGRef.current.firstChild);
+                // Dim connected nodes: glow goes behind that node so it bleeds through
+                // Non-dim connected nodes: glow goes in front of all dim nodes
+                const insertPt = nbIsDim ? nbEl : firstNonDimNd;
+                svgGRef.current.insertBefore(glowEl, insertPt);
                 marchOverlayRef.current.push(glowEl);
                 // Dim neighbors: also add pulsing text overlay
                 if (nbIsDim) {
