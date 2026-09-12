@@ -2642,6 +2642,7 @@ export default function App() {
 
       {/* Status bar */}
       <div className="statusbar" style={themeStyle ? { background: themeStyle.surface, borderTopColor: themeStyle.border } : undefined}>
+        <div className="statusbar-scroll">
         <div className="statusbar-item">
           <strong>{NODES.filter(n => filteredIds.has(n.id)).length}</strong> nodes
         </div>
@@ -2769,11 +2770,12 @@ export default function App() {
           </>);
         })()}
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <button className="trial-counter" onClick={() => setPaywallOpen(true)}>support the archive</button>
+        </div>{/* end statusbar-scroll */}
+        <div className="statusbar-end">
+          <button className="trial-counter" onClick={() => setPaywallOpen(true)}>support</button>
           {!unlocked && (
             <span className="trial-counter" onClick={() => setPaywallOpen(true)}>
-              {`${Math.max(0, TRIAL_LIMIT - trialCount)} node views`}
+              {`${Math.max(0, TRIAL_LIMIT - trialCount)} views`}
             </span>
           )}
           <div style={{ position: 'relative' }}>
@@ -2787,8 +2789,6 @@ export default function App() {
               </div>
             )}
           </div>
-          <div className="statusbar-sep" />
-          <div className="statusbar-item">ELECTRONICARCHIVE — Mapping the electronic underground · v0.2</div>
           <div className="statusbar-sep" />
           <button className="tour-relaunch" onClick={() => setOnboardStep('welcome')} title="Relaunch intro">TOUR</button>
           <span className="archive-credit">DJ TJ</span>

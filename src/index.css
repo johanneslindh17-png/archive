@@ -408,7 +408,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 
 @keyframes nd-march-ants { to { stroke-dashoffset: -13; } }
 @keyframes nd-dim-pulse { 0%,100%{fill-opacity:0.05} 50%{fill-opacity:0.85} }
-.nd-march-pulse-text { animation: nd-dim-pulse 3s ease-in-out infinite; }
+.nd-march-pulse-text { animation: nd-prev-text-pulse 4s ease-in-out -2s infinite; }
 @keyframes nd-shake {
   0%,100% { transform: translate(0px, 0px); }
   20%  { transform: translate(calc(-1 * var(--sh,0) * 1px), calc(0.4 * var(--sh,0) * 1px)); }
@@ -426,10 +426,10 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   pointer-events: none;
 }
 .nd-glow-self   { filter: blur(14px); opacity: 0.45; }
-.nd-glow-static { opacity: 0.36; }
+.nd-glow-static { opacity: 0.50; }
 @keyframes nd-glow-pulse {
-  0%, 100% { opacity: 0.08; }
-  50%       { opacity: 0.36; }
+  0%, 100% { opacity: 0.10; }
+  50%       { opacity: 0.48; }
 }
 /* -2s delay so glow starts at brightest point, in phase with text pulse */
 .nd-glow-pulse { animation: nd-glow-pulse 4s ease-in-out -2s infinite; }
@@ -821,14 +821,22 @@ path.eg.dim{opacity:0.055}
 
 .statusbar{
   min-height:54px;border-top:1px solid var(--tb-border);background:var(--tb-bg);
-  display:flex;align-items:center;padding:0 20px;gap:14px;flex-shrink:0;
+  display:flex;align-items:center;padding:0 20px;gap:0;flex-shrink:0;
   font-family:'Syne Mono',monospace;font-size:0.54rem;letter-spacing:0.1em;color:var(--tb-text-mid);
   transition:background 0.2s,border-color 0.2s;
-  overflow-x:auto;flex-wrap:nowrap;
+  overflow:visible;flex-wrap:nowrap;
 }
-.statusbar > *{flex-shrink:0;}
-.statusbar::-webkit-scrollbar{display:none;}
-.statusbar{scrollbar-width:none;}
+.statusbar-scroll{
+  flex:1;min-width:0;display:flex;align-items:center;gap:14px;
+  overflow-x:auto;scrollbar-width:none;
+}
+.statusbar-scroll::-webkit-scrollbar{display:none;}
+.statusbar-scroll > *{flex-shrink:0;}
+.statusbar-end{
+  flex-shrink:0;display:flex;align-items:center;gap:10px;
+  padding-left:14px;margin-left:8px;
+  border-left:1px solid var(--tb-border);
+}
 /* Node-type filter chips in the status bar */
 .sb-type-filter{display:flex;align-items:center;gap:8px;}
 .sb-type-label{
