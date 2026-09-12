@@ -428,7 +428,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .nd-glow-self   { filter: blur(13px); opacity: 0.45; }
 .nd-glow-static { opacity: 0.50; }
 @keyframes nd-glow-pulse {
-  0%, 100% { opacity: 0.10; }
+  0%, 100% { opacity: 0.30; }
   50%       { opacity: 0.68; }
 }
 /* -2s delay so glow starts at brightest point, in phase with text pulse */
