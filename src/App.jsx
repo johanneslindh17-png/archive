@@ -1674,14 +1674,13 @@ export default function App() {
   // Which nodes would light up on click — drives the marching-ants preview
   const hovHlIds = useMemo(() => {
     if (!hovNode) return null;
-    const s = new Set();
+    const s = new Set([hovNode.id]);
     visibleEdges.forEach(e => {
       if (e.type === 'aesthetic') return;
       if (e.from === hovNode.id) s.add(e.to);
       if (e.to === hovNode.id) s.add(e.from);
     });
-    s.delete(hovNode.id);
-    return s.size > 0 ? s : null;
+    return s;
   }, [hovNode, visibleEdges]);
 
   const nodeEls = useMemo(() => NODES.map(n => {
