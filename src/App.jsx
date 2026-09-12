@@ -1872,7 +1872,7 @@ export default function App() {
         </g>
       </g>
     );
-  }), [positions, expandedPositions, expanded, filteredIds, hlIds, selected, darkMode, colorTheme]);
+  }), [positions, expandedPositions, expanded, filteredIds, hlIds, hovHlIds, selected, darkMode, colorTheme]);
 
   return (
     <div className="app">
