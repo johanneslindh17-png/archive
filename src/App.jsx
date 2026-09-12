@@ -1870,8 +1870,8 @@ export default function App() {
               const selfGlowEl = document.createElementNS(svgNS, 'ellipse');
               selfGlowEl.setAttribute('cx', selfP.x);
               selfGlowEl.setAttribute('cy', selfP.y - 1);
-              selfGlowEl.setAttribute('rx', bw / 2 + 9);
-              selfGlowEl.setAttribute('ry', BH / 2 + 3);
+              selfGlowEl.setAttribute('rx', bw / 2 + 12);
+              selfGlowEl.setAttribute('ry', BH / 2 + 4);
               selfGlowEl.setAttribute('fill', `url(#${darkMode ? 'nd-glow-grad-dk' : 'nd-glow-grad-lt'})`);
               selfGlowEl.style.pointerEvents = 'none';
               selfGlowEl.classList.add('nd-glow-el', 'nd-glow-self');
@@ -1895,8 +1895,8 @@ export default function App() {
                 const glowEl = document.createElementNS(svgNS, 'ellipse');
                 glowEl.setAttribute('cx', p.x);
                 glowEl.setAttribute('cy', p.y - 1);
-                glowEl.setAttribute('rx', bw / 2 + 6);
-                glowEl.setAttribute('ry', BH / 2 + 2);
+                glowEl.setAttribute('rx', bw / 2 + 9);
+                glowEl.setAttribute('ry', BH / 2 + 3);
                 glowEl.setAttribute('fill', `url(#${darkMode ? 'nd-glow-grad-dk' : 'nd-glow-grad-lt'})`);
                 glowEl.style.pointerEvents = 'none';
                 const nbIsDim = hlIds ? !hlIds.has(nbId) : false;

@@ -422,10 +422,10 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .nd-self-march { display: none; }
 /* Glow overlay ellipses — light-source halo on hover */
 .nd-glow-el {
-  filter: blur(8px);
+  filter: blur(11px);
   pointer-events: none;
 }
-.nd-glow-self   { filter: blur(10px); opacity: 0.45; }
+.nd-glow-self   { filter: blur(13px); opacity: 0.45; }
 .nd-glow-static { opacity: 0.50; }
 @keyframes nd-glow-pulse {
   0%, 100% { opacity: 0.10; }
