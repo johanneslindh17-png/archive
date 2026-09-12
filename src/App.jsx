@@ -1222,17 +1222,19 @@ export default function App() {
     const layer = document.createElementNS(svgNS, 'g');
     layer.style.pointerEvents = 'none';
 
-    // Radial gradients for soft light-source glow (opaque center → transparent edge)
+    // Horizontal linear gradients — opaque across full text width, fading only at ends
+    // CSS blur handles vertical softness; this ensures glow emanates from whole label
     const defs = document.createElementNS(svgNS, 'defs');
     const mkGrad = (id, color) => {
-      const g = document.createElementNS(svgNS, 'radialGradient');
+      const g = document.createElementNS(svgNS, 'linearGradient');
       g.setAttribute('id', id);
-      g.setAttribute('cx', '50%'); g.setAttribute('cy', '50%'); g.setAttribute('r', '50%');
-      const s1 = document.createElementNS(svgNS, 'stop');
-      s1.setAttribute('offset', '0%'); s1.setAttribute('stop-color', color); s1.setAttribute('stop-opacity', '1');
-      const s2 = document.createElementNS(svgNS, 'stop');
-      s2.setAttribute('offset', '100%'); s2.setAttribute('stop-color', color); s2.setAttribute('stop-opacity', '0');
-      g.appendChild(s1); g.appendChild(s2);
+      g.setAttribute('x1', '0%'); g.setAttribute('y1', '0%');
+      g.setAttribute('x2', '100%'); g.setAttribute('y2', '0%');
+      [['0%','0'],['16%','1'],['84%','1'],['100%','0']].forEach(([offset, op]) => {
+        const s = document.createElementNS(svgNS, 'stop');
+        s.setAttribute('offset', offset); s.setAttribute('stop-color', color); s.setAttribute('stop-opacity', op);
+        g.appendChild(s);
+      });
       return g;
     };
     defs.appendChild(mkGrad('nd-glow-grad-dk', 'white'));
@@ -1865,12 +1867,11 @@ export default function App() {
               const svgNS = 'http://www.w3.org/2000/svg';
               const CHAR_W = 4.0, PAD = 3, BH = 11;
               const bw = Math.max(28, Math.min(60, n.label.length * CHAR_W + PAD * 2));
-              const selfGpad = 7;
               const selfGlowEl = document.createElementNS(svgNS, 'ellipse');
               selfGlowEl.setAttribute('cx', selfP.x);
               selfGlowEl.setAttribute('cy', selfP.y - 1);
-              selfGlowEl.setAttribute('rx', bw / 2 + selfGpad);
-              selfGlowEl.setAttribute('ry', BH / 2 + selfGpad);
+              selfGlowEl.setAttribute('rx', bw / 2 + 10);
+              selfGlowEl.setAttribute('ry', BH / 2 + 3);
               selfGlowEl.setAttribute('fill', `url(#${darkMode ? 'nd-glow-grad-dk' : 'nd-glow-grad-lt'})`);
               selfGlowEl.style.pointerEvents = 'none';
               selfGlowEl.classList.add('nd-glow-el', 'nd-glow-self');
@@ -1891,12 +1892,11 @@ export default function App() {
                 const svgNS = 'http://www.w3.org/2000/svg';
                 const CHAR_W = 4.0, PAD = 3, BH = 11;
                 const bw = Math.max(28, Math.min(60, nb.label.length * CHAR_W + PAD * 2));
-                const gpad = 4;
                 const glowEl = document.createElementNS(svgNS, 'ellipse');
                 glowEl.setAttribute('cx', p.x);
                 glowEl.setAttribute('cy', p.y - 1);
-                glowEl.setAttribute('rx', bw / 2 + gpad);
-                glowEl.setAttribute('ry', BH / 2 + gpad);
+                glowEl.setAttribute('rx', bw / 2 + 8);
+                glowEl.setAttribute('ry', BH / 2 + 2);
                 glowEl.setAttribute('fill', `url(#${darkMode ? 'nd-glow-grad-dk' : 'nd-glow-grad-lt'})`);
                 glowEl.style.pointerEvents = 'none';
                 const nbIsDim = hlIds ? !hlIds.has(nbId) : false;
