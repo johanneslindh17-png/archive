@@ -1847,7 +1847,7 @@ export default function App() {
               selfGlowEl.setAttribute('fill', darkMode ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.35)');
               selfGlowEl.style.pointerEvents = 'none';
               selfGlowEl.classList.add('nd-glow-el', 'nd-glow-self');
-              svgGRef.current.insertBefore(selfGlowEl, self);
+              self.parentElement.insertBefore(selfGlowEl, self);
               marchOverlayRef.current.push(selfGlowEl);
             }
             EDGES.forEach(e => {
@@ -1875,8 +1875,8 @@ export default function App() {
                 glowEl.style.pointerEvents = 'none';
                 const nbIsDim = hlIds ? !hlIds.has(nbId) : false;
                 glowEl.classList.add('nd-glow-el', nbIsDim ? 'nd-glow-pulse' : 'nd-glow-static');
-                // Insert just before the connected node — glow renders directly behind it
-                svgGRef.current.insertBefore(glowEl, nbEl);
+                // Insert just before the connected node in its parent — glow renders directly behind it
+                nbEl.parentElement.insertBefore(glowEl, nbEl);
                 marchOverlayRef.current.push(glowEl);
                 // Dim neighbors: also add pulsing text overlay
                 if (nbIsDim) {
