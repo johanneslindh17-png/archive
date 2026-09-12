@@ -1967,7 +1967,7 @@ export default function App() {
         <div className="sw">
           <span className="si">⌕</span>
           <input
-            placeholder="Search…" value={searchQ}
+            placeholder="Search artist, label, club, city, style…" value={searchQ}
             onChange={e => { setSearchQ(e.target.value); setSearchActiveIdx(-1); clearAll(); }}
             onFocus={() => setSearchFocus(true)}
             onBlur={() => setTimeout(() => setSearchFocus(false), 150)}
