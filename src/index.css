@@ -503,7 +503,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   to   { transform: translateX(-100%); }
 }
 .nbc-welcome {
-  font-family:'Syne Mono',monospace;font-size:0.54rem;letter-spacing:0.13em;
+  font-family:'Syne Mono',monospace;font-size:0.64rem;letter-spacing:0.11em;
   text-transform:uppercase;color:#333;white-space:nowrap;
   position:absolute;left:0;
   animation: nbc-ticker 48s linear forwards;
