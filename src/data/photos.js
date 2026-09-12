@@ -1160,5 +1160,89 @@ export const PHOTOS = {
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "author": "Nehme1499"
-  }
+  },
+  "patrick_topping": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Patrick_Topping_DJ.jpg/500px-Patrick_Topping_DJ.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Wkathomson"
+  },
+  "martinez_brothers": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Martinez_Brothers_on_the_decks.jpg/500px-Martinez_Brothers_on_the_decks.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "author": "Amnesia Ibiza from Ibiza, Spain"
+  },
+  "eats_everything": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Eats_Everything.jpg/500px-Eats_Everything.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "Ben Price"
+  },
+  "chris_liebing": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Chris_Liebing_at_his_best.jpg/500px-Chris_Liebing_at_his_best.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "author": "Amnesia Ibiza from Ibiza, Spain"
+  },
+  "dj_harvey": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Harvey_at_Townhouse_%26_The_Del_Monte.jpg/500px-Harvey_at_Townhouse_%26_The_Del_Monte.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Saltyrobot"
+  },
+  "dubfire": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Hands_Dubfire_Photo.jpg/500px-Hands_Dubfire_Photo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Nate_Dubfire"
+  },
+  "pan_pot": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/2015-07-19_6705_Pan-Pot_%28Sea_You%29.jpg/500px-2015-07-19_6705_Pan-Pot_%28Sea_You%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Robin Krahl"
+  },
+  "richy_ahmed": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Richy_Ahmed.jpg/500px-Richy_Ahmed.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Wkathomson"
+  },
+  "nicole_moudaber": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Nicole_Moudaber_03.jpg/500px-Nicole_Moudaber_03.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "Krd"
+  },
+  "kolsch": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/2015-07-19_6748_K%C3%B6lsch_%28Sea_You%29.jpg/500px-2015-07-19_6748_K%C3%B6lsch_%28Sea_You%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Robin Krahl"
+  },
+  "claude_vonstroke": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Claude_VonStroke_Miami_2015.png/500px-Claude_VonStroke_Miami_2015.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Blaynebot"
+  },
+  "hernan_cattaneo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Viva_Hernan.jpg/500px-Viva_Hernan.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Hamiltoc"
+  },
+  "james_zabiela": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/James_Zabiela_%28crop%29.JPG/500px-James_Zabiela_%28crop%29.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "author": "James Yeo from Toledo, USA"
+  },
+  "erol_alkan": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/ErolAlkan.jpg/500px-ErolAlkan.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "author": "yapsnaps"
+  },
 };

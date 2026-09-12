@@ -425,8 +425,8 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   filter: blur(11px);
   pointer-events: none;
 }
-.nd-glow-self   { filter: blur(13px); opacity: 0.45; }
-.nd-glow-static { opacity: 0.50; }
+.nd-glow-self   { filter: blur(13px); opacity: 0.40; }
+.nd-glow-static { opacity: 0.65; }
 @keyframes nd-glow-pulse {
   0%, 100% { opacity: 0.30; }
   50%       { opacity: 0.68; }
@@ -709,6 +709,10 @@ path.eg.dim{opacity:0.055}
 .dp-bc-link:hover{ background:#1da0c312;color:#0f7a99; }
 .dark .dp-bc-link{ color:#5bc8e0;border-color:#5bc8e040; }
 .dark .dp-bc-link:hover{ background:#5bc8e012; }
+.dp-spotify-link{ color:#1db954;border-color:#1db95440; }
+.dp-spotify-link:hover{ background:#1db95412;color:#17a349; }
+.dark .dp-spotify-link{ color:#1db954;border-color:#1db95440; }
+.dark .dp-spotify-link:hover{ background:#1db95412; }
 .dp-conns-wrap{display:flex;flex-direction:column;gap:4px;}
 .dp-sec{
   font-family:'Syne Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;

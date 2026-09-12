@@ -144,6 +144,45 @@ const WIKI_OVERRIDES = {
   'matador':            null,  // pulls bullfighting photo
   'nujabes':            null,  // pulls signature graphic not a photo
   'digital_mystikz':    null,  // pulls DMZ record label logo
+
+  // ── RA Top 100 additions ──────────────────────────────────────────────
+  'jamie_jones':        'Jamie Jones (DJ)',
+  'apollonia':          'Apollonia (DJs)',
+  'alan_fitzpatrick':   'Alan Fitzpatrick (musician)',
+  'dj_harvey':          'DJ Harvey',
+  'scuba':              'Scuba (musician)',
+  'tini':               'TINí',
+  'kolsch':             'Kölsch (musician)',
+  'steve_lawler':       'Steve Lawler (DJ)',
+  'george_fitzgerald':  'George FitzGerald (musician)',
+  'dusky':              'Dusky (duo)',
+  'artwork':            null,  // Magnetic_Man_2.jpg is a group shot of the trio, not solo
+  'hernan_cattaneo':    'Hernán Cattaneo',
+  'erol_alkan':         'Erol Alkan',
+  'damian_lazarus':     'Damian Lazarus',
+  'james_zabiela':      'James Zabiela',
+  'dubfire':            'Dubfire',
+
+  // No article or too ambiguous
+  'jeremy_underground': null,  // no Wikipedia article
+  'enzo_siragusa':      null,  // no Wikipedia article
+  'waff':               null,  // generic search term
+  'sonja_moonear':      null,  // no Wikipedia article
+  'mike_servito':       null,  // no Wikipedia article
+  'barac':              null,  // pulls Romanian word
+  'fred_p':             null,  // no Wikipedia article
+  'barnt':              null,  // pulls a surname/other meanings
+  'margaret_dygas':     null,  // no Wikipedia article
+  'answer_code_request': null, // no Wikipedia article
+  'fur_coat':           null,  // pulls clothing article
+  'levon_vincent':      null,  // no Wikipedia article
+  'jasper_james':       null,  // no Wikipedia article
+  'dj_nobu':            null,  // no English Wikipedia article
+  'art_department':     null,  // no dedicated article
+  'archie_hamilton':    null,  // no Wikipedia article
+  'butch':              null,  // common name, pulls wrong person
+  'denis_sulta':        null,  // no Wikipedia article
+  'guy_gerber':         'Guy Gerber',
 };
 
 async function main() {

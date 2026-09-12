@@ -354,22 +354,10 @@ export default function App() {
   const [history, setHistory] = useState([]);
   const tfRafRef    = useRef(null); // RAF handle for throttling setTf
   const hovPrevRef  = useRef([]);   // DOM elements modified on hover — cleaned on mouseleave
-  const shakeTimerRef   = useRef(null);
-  const shakeElRef      = useRef(null);  // outer <g> being shaken
-  const shakeOrigRef    = useRef(null);  // its original transform string
+  const leaveTimerRef   = useRef(null);  // debounce hover cleanup
   const marchOverlayRef = useRef([]);
   const glowLayerRef    = useRef(null);
 
-  function clearShake() {
-    if (shakeTimerRef.current) { clearTimeout(shakeTimerRef.current); shakeTimerRef.current = null; }
-    if (shakeElRef.current) {
-      if (shakeOrigRef.current != null) {
-        shakeElRef.current.setAttribute('transform', shakeOrigRef.current);
-        shakeOrigRef.current = null;
-      }
-      shakeElRef.current = null;
-    }
-  }
 
   function clearMarchOverlay() {
     marchOverlayRef.current.forEach(el => el.parentNode?.removeChild(el));
@@ -1241,7 +1229,8 @@ export default function App() {
     defs.appendChild(mkGrad('nd-glow-grad-lt', 'black'));
     layer.appendChild(defs);
 
-    svgGRef.current.appendChild(layer);
+    // Insert before first child so glows render behind nodes, not over them
+    svgGRef.current.insertBefore(layer, svgGRef.current.firstChild);
     glowLayerRef.current = layer;
     return () => { layer.remove(); glowLayerRef.current = null; };
   }, []);
@@ -1854,9 +1843,19 @@ export default function App() {
           }
         }}
         onMouseEnter={ev => {
+          // Cancel any pending leave-cleanup so there's no blank frame between nodes
+          clearTimeout(leaveTimerRef.current);
           if (!isDim) {
-            setHovNode(n);
-            setHovPos({ x: ev.clientX, y: ev.clientY });
+            // Low-priority: tooltip state doesn't need to block the glow DOM update
+            React.startTransition(() => {
+              setHovNode(n);
+              setHovPos({ x: ev.clientX, y: ev.clientY });
+            });
+            // Snapshot old overlays — remove them AFTER new ones are in place (no blank frame)
+            const oldOverlays = marchOverlayRef.current;
+            const oldHovPrev = hovPrevRef.current;
+            marchOverlayRef.current = [];
+            hovPrevRef.current = [];
             // Apply hover visuals directly — avoids recomputing all 300+ nodes
             const self = ev.currentTarget;
             self.classList.add('hov-self');
@@ -1906,14 +1905,13 @@ export default function App() {
                 // Dim neighbors: also add pulsing text overlay
                 if (nbIsDim) {
                   const txtEl = document.createElementNS(svgNS, 'text');
-                  const cs = window.getComputedStyle(nbEl.querySelector('text'));
                   txtEl.setAttribute('x', p.x);
                   txtEl.setAttribute('y', p.y);
                   txtEl.setAttribute('text-anchor', 'middle');
                   txtEl.setAttribute('dominant-baseline', 'middle');
-                  txtEl.style.fontSize = cs.fontSize;
-                  txtEl.style.letterSpacing = cs.letterSpacing;
-                  txtEl.style.fontFamily = cs.fontFamily;
+                  txtEl.style.fontSize = '5px';
+                  txtEl.style.letterSpacing = '0.04em';
+                  txtEl.style.fontFamily = 'inherit';
                   txtEl.style.fill = darkMode ? 'white' : 'black';
                   txtEl.style.pointerEvents = 'none';
                   txtEl.classList.add('nd-march-pulse-text');
@@ -1923,42 +1921,21 @@ export default function App() {
                 }
               }
             });
-            // Easter egg: shake after 10s, ramp to max over next 10s
-            // Modifies the outer <g>'s SVG transform attribute directly —
-            // no CSS conflict, scale(1.14) on .nd-inner is unaffected
-            clearShake();
-            shakeElRef.current = self;
-            shakeOrigRef.current = self.getAttribute('transform') || '';
-            const origMatch = shakeOrigRef.current.match(/translate\(([^,]+),\s*([^)]+)\)/);
-            const bx = origMatch ? parseFloat(origMatch[1]) : 0;
-            const by = origMatch ? parseFloat(origMatch[2]) : 0;
-            const startRamp = () => {
-              const t0 = Date.now();
-              const tick = () => {
-                if (!shakeElRef.current) return;
-                const now = Date.now();
-                const t = Math.min(1, (now - t0) / 10000);
-                const sh = t * 3.5;
-                const dx = (Math.sin(now / 47) * 0.8 + Math.sin(now / 31) * 0.2) * sh;
-                const dy = (Math.cos(now / 53) * 0.5 + Math.cos(now / 29) * 0.3) * sh;
-                shakeElRef.current.setAttribute('transform', `translate(${bx + dx}, ${by + dy})`);
-                if (t < 1) shakeTimerRef.current = setTimeout(tick, 50);
-                else shakeTimerRef.current = null;
-              };
-              tick();
-            };
-            shakeTimerRef.current = setTimeout(startRamp, 10000);
+            // Remove old overlays now that new ones are already in the DOM
+            oldOverlays.forEach(el => el.parentNode?.removeChild(el));
+            oldHovPrev.forEach(({ el }) => el.classList.remove('hov-self', 'hov-prev'));
           }
         }}
         onMouseLeave={() => {
-          clearShake();
-          clearMarchOverlay();
-          setHovNode(null);
-          hovPrevRef.current.forEach(({ el, txt, orig }) => {
-            el.classList.remove('hov-self', 'hov-prev');
-            if (txt) txt.style.fill = orig;
-          });
-          hovPrevRef.current = [];
+          // Defer cleanup — onMouseEnter of the next node will cancel this timer,
+          // so hovering between adjacent nodes never produces a blank frame
+          clearTimeout(leaveTimerRef.current);
+          leaveTimerRef.current = setTimeout(() => {
+            clearMarchOverlay();
+            hovPrevRef.current.forEach(({ el }) => el.classList.remove('hov-self', 'hov-prev'));
+            hovPrevRef.current = [];
+            React.startTransition(() => setHovNode(null));
+          }, 20);
         }}
       >
         <g className="nd-inner">
@@ -2368,14 +2345,14 @@ export default function App() {
         </div>
 
         <svg ref={svgRef} className="msv" onMouseLeave={() => {
-          clearShake();
+          clearTimeout(leaveTimerRef.current);
           clearMarchOverlay();
-          setHovNode(null);
           hovPrevRef.current.forEach(({ el, txt, orig }) => {
             el.classList.remove('hov-self', 'hov-prev');
             if (txt) txt.style.fill = orig;
           });
           hovPrevRef.current = [];
+          React.startTransition(() => setHovNode(null));
         }}>
           <rect x={0} y={0} width="100%" height="100%" fill={themeStyle?.bg || (darkMode ? '#0c0c10' : '#ffffff')} onClick={() => { clearAll(); flyHome(); }} />
           <g ref={svgGRef} style={{ transformOrigin: '0 0', willChange: 'transform' }}>
@@ -2563,8 +2540,8 @@ export default function App() {
               {/* Description */}
               <div className="dp-desc">{renderDesc(selNode.desc, selNode.id, id => { selectNode(id); scrollToNode(id); })}</div>
 
-              {/* Bandcamp */}
-              {selNode.bandcamp && (
+              {/* Bandcamp + Spotify */}
+              {(selNode.bandcamp || selNode.spotify) && (
                 <div className="dp-bandcamp">
                   {selNode.bandcamp_album && (
                     <button
@@ -2574,9 +2551,16 @@ export default function App() {
                       {playingNodeId === selNode.id ? '♪ now playing' : '▶ listen'}
                     </button>
                   )}
-                  <a className="dp-bc-link" href={`https://${selNode.bandcamp}.bandcamp.com`} target="_blank" rel="noopener noreferrer">
-                    Bandcamp ↗
-                  </a>
+                  {selNode.bandcamp && (
+                    <a className="dp-bc-link" href={`https://${selNode.bandcamp}.bandcamp.com`} target="_blank" rel="noopener noreferrer">
+                      Bandcamp ↗
+                    </a>
+                  )}
+                  {selNode.spotify && (
+                    <a className="dp-bc-link dp-spotify-link" href={`https://open.spotify.com/artist/${selNode.spotify}`} target="_blank" rel="noopener noreferrer">
+                      Spotify ↗
+                    </a>
+                  )}
                 </div>
               )}
 

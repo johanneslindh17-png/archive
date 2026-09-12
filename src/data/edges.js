@@ -2898,4 +2898,268 @@
   // -- MARLON HOFFSTADT ----------------------------------------------------
   { from:'deep_house',      to:'marlon_hoffstadt',      strength:2, type:'influence' },
   { from:'toy_tonics',      to:'marlon_hoffstadt',      strength:1, type:'aesthetic' },
+
+  // ── RA TOP 100 ADDITIONS (2014–2016) ────────────────────────────────────
+
+  // -- MCDE ------------------------------------------------------------------
+  { from:'running_back',    to:'mcde',                  strength:3, type:'roster'    },
+  { from:'deep_house',      to:'mcde',                  strength:2, type:'influence' },
+  { from:'disco',           to:'mcde',                  strength:1, type:'influence' },
+
+  // -- JAMIE JONES -----------------------------------------------------------
+  { from:'dc10',            to:'jamie_jones',           strength:3, type:'aesthetic' },
+  { from:'ibiza',           to:'jamie_jones',           strength:3, type:'influence' },
+  { from:'deep_house',      to:'jamie_jones',           strength:2, type:'influence' },
+  { from:'jamie_jones',     to:'hot_creations',         strength:3, type:'roster'    },
+  { from:'jamie_jones',     to:'patrick_topping',       strength:3, type:'lineage'   },
+  { from:'jamie_jones',     to:'eats_everything',       strength:2, type:'collaboration' },
+  { from:'jamie_jones',     to:'richy_ahmed',           strength:2, type:'lineage'   },
+
+  // -- PATRICK TOPPING -------------------------------------------------------
+  { from:'hot_creations',   to:'patrick_topping',       strength:3, type:'roster'    },
+  { from:'dc10',            to:'patrick_topping',       strength:2, type:'aesthetic' },
+  { from:'tech_house',      to:'patrick_topping',       strength:2, type:'influence' },
+
+  // -- MARTINEZ BROTHERS -----------------------------------------------------
+  { from:'chicago_scene',   to:'martinez_brothers',     strength:3, type:'lineage'   },
+  { from:'dc10',            to:'martinez_brothers',     strength:3, type:'aesthetic' },
+  { from:'circoloco',       to:'martinez_brothers',     strength:3, type:'roster'    },
+
+  // -- APOLLONIA -------------------------------------------------------------
+  { from:'rex_club',        to:'apollonia',             strength:3, type:'aesthetic' },
+  { from:'deep_house',      to:'apollonia',             strength:3, type:'influence' },
+  { from:'apollonia',       to:'jeremy_underground',    strength:2, type:'aesthetic' },
+
+  // -- EATS EVERYTHING -------------------------------------------------------
+  { from:'hot_creations',   to:'eats_everything',       strength:3, type:'roster'    },
+  { from:'deep_house',      to:'eats_everything',       strength:2, type:'influence' },
+  { from:'fabric',          to:'eats_everything',       strength:2, type:'aesthetic' },
+
+  // -- ALAN FITZPATRICK ------------------------------------------------------
+  { from:'drumcode',        to:'alan_fitzpatrick',      strength:3, type:'roster'    },
+  { from:'hard_techno',     to:'alan_fitzpatrick',      strength:2, type:'influence' },
+
+  // -- DONATO DOZZY ----------------------------------------------------------
+  { from:'ambient_techno',  to:'donato_dozzy',          strength:2, type:'influence' },
+  { from:'berghain',        to:'donato_dozzy',          strength:2, type:'aesthetic' },
+  { from:'perlon',          to:'donato_dozzy',          strength:1, type:'aesthetic' },
+
+  // -- CHRIS LIEBING ---------------------------------------------------------
+  { from:'tresor_club',     to:'chris_liebing',         strength:3, type:'aesthetic' },
+  { from:'tresor_records',  to:'chris_liebing',         strength:2, type:'roster'    },
+  { from:'hard_techno',     to:'chris_liebing',         strength:3, type:'lineage'   },
+  { from:'hawtin',          to:'chris_liebing',         strength:2, type:'collaboration' },
+
+  // -- DJ HARVEY -------------------------------------------------------------
+  { from:'disco',           to:'dj_harvey',             strength:3, type:'influence' },
+  { from:'deep_house',      to:'dj_harvey',             strength:2, type:'influence' },
+  { from:'fabric',          to:'dj_harvey',             strength:1, type:'aesthetic' },
+
+  // -- DUBFIRE ---------------------------------------------------------------
+  { from:'progressive_house', to:'dubfire',             strength:3, type:'lineage'   },
+  { from:'berghain',        to:'dubfire',               strength:2, type:'aesthetic' },
+
+  // -- SCUBA -----------------------------------------------------------------
+  { from:'hotflush',        to:'scuba',                 strength:3, type:'roster'    },
+  { from:'dubstep',         to:'scuba',                 strength:2, type:'lineage'   },
+  { from:'berghain',        to:'scuba',                 strength:3, type:'aesthetic' },
+  { from:'scuba',           to:'george_fitzgerald',     strength:3, type:'lineage'   },
+  { from:'scuba',           to:'hotflush',              strength:3, type:'roster'    },
+
+  // -- PAN-POT ---------------------------------------------------------------
+  { from:'berghain',        to:'pan_pot',               strength:2, type:'aesthetic' },
+  { from:'ostgut_ton',      to:'pan_pot',               strength:1, type:'aesthetic' },
+  { from:'hard_techno',     to:'pan_pot',               strength:2, type:'influence' },
+
+  // -- ADRIATIQUE ------------------------------------------------------------
+  { from:'afterlife',       to:'adriatique',            strength:3, type:'roster'    },
+  { from:'watergate',       to:'adriatique',            strength:2, type:'aesthetic' },
+  { from:'melodic_techno',  to:'adriatique',            strength:2, type:'influence' },
+
+  // -- RICHY AHMED -----------------------------------------------------------
+  { from:'hot_creations',   to:'richy_ahmed',           strength:3, type:'roster'    },
+  { from:'fabric',          to:'richy_ahmed',           strength:2, type:'aesthetic' },
+
+  // -- TINI ------------------------------------------------------------------
+  { from:'cadenza',         to:'tini',                  strength:3, type:'roster'    },
+  { from:'deep_house',      to:'tini',                  strength:2, type:'influence' },
+  { from:'ibiza',           to:'tini',                  strength:2, type:'aesthetic' },
+
+  // -- NICOLE MOUDABER -------------------------------------------------------
+  { from:'berghain',        to:'nicole_moudaber',       strength:2, type:'aesthetic' },
+  { from:'fabric',          to:'nicole_moudaber',       strength:2, type:'aesthetic' },
+  { from:'deep_house',      to:'nicole_moudaber',       strength:2, type:'influence' },
+
+  // -- HOT SINCE 82 ----------------------------------------------------------
+  { from:'deep_house',      to:'hot_since_82',          strength:3, type:'influence' },
+  { from:'tech_house',      to:'hot_since_82',          strength:2, type:'influence' },
+  { from:'fabric',          to:'hot_since_82',          strength:2, type:'aesthetic' },
+
+  // -- JEREMY UNDERGROUND ----------------------------------------------------
+  { from:'deep_house',      to:'jeremy_underground',    strength:3, type:'influence' },
+  { from:'rex_club',        to:'jeremy_underground',    strength:2, type:'aesthetic' },
+  { from:'chicago_scene',   to:'jeremy_underground',    strength:2, type:'influence' },
+
+  // -- KÖLSCH ----------------------------------------------------------------
+  { from:'kompakt',         to:'kolsch',                strength:2, type:'roster'    },
+  { from:'fabric',          to:'kolsch',                strength:2, type:'roster'    },
+  { from:'melodic_techno',  to:'kolsch',                strength:2, type:'influence' },
+
+  // -- ENZO SIRAGUSA ---------------------------------------------------------
+  { from:'fuse_london',     to:'enzo_siragusa',         strength:3, type:'roster'    },
+  { from:'enzo_siragusa',   to:'fuse_london',           strength:3, type:'roster'    },
+  { from:'deep_house',      to:'enzo_siragusa',         strength:2, type:'influence' },
+  { from:'hot_creations',   to:'enzo_siragusa',         strength:1, type:'aesthetic' },
+
+  // -- CLAUDE VONSTROKE ------------------------------------------------------
+  { from:'dirtybird',       to:'claude_vonstroke',      strength:3, type:'roster'    },
+  { from:'claude_vonstroke', to:'dirtybird',            strength:3, type:'roster'    },
+  { from:'chicago_scene',   to:'claude_vonstroke',      strength:2, type:'influence' },
+  { from:'tech_house',      to:'claude_vonstroke',      strength:2, type:'influence' },
+
+  // -- WAFF ------------------------------------------------------------------
+  { from:'hot_creations',   to:'waff',                  strength:3, type:'roster'    },
+  { from:'dc10',            to:'waff',                  strength:2, type:'aesthetic' },
+  { from:'fuse_london',     to:'waff',                  strength:1, type:'aesthetic' },
+
+  // -- JASPER JAMES ----------------------------------------------------------
+  { from:'numbers',         to:'jasper_james',          strength:2, type:'aesthetic' },
+  { from:'jackmaster',      to:'jasper_james',          strength:2, type:'aesthetic' },
+  { from:'deep_house',      to:'jasper_james',          strength:2, type:'influence' },
+
+  // -- SONJA MOONEAR ---------------------------------------------------------
+  { from:'berghain',        to:'sonja_moonear',         strength:3, type:'aesthetic' },
+  { from:'panorama_bar',    to:'sonja_moonear',         strength:3, type:'aesthetic' },
+  { from:'deep_house',      to:'sonja_moonear',         strength:2, type:'influence' },
+
+  // -- MIKE SERVITO ----------------------------------------------------------
+  { from:'detroit_scene',   to:'mike_servito',          strength:3, type:'lineage'   },
+  { from:'chicago_scene',   to:'mike_servito',          strength:2, type:'influence' },
+  { from:'deep_house',      to:'mike_servito',          strength:2, type:'influence' },
+
+  // -- BARAC -----------------------------------------------------------------
+  { from:'arpia_r',         to:'barac',                 strength:3, type:'roster'    },
+  { from:'rhadoo',          to:'barac',                 strength:2, type:'collaboration' },
+  { from:'raresh',          to:'barac',                 strength:2, type:'collaboration' },
+  { from:'petre_inspirescu', to:'barac',                strength:2, type:'collaboration' },
+
+  // -- LEVON VINCENT ---------------------------------------------------------
+  { from:'deep_house',      to:'levon_vincent',         strength:3, type:'influence' },
+  { from:'berghain',        to:'levon_vincent',         strength:2, type:'aesthetic' },
+  { from:'rex_club',        to:'levon_vincent',         strength:2, type:'aesthetic' },
+  { from:'chicago_scene',   to:'levon_vincent',         strength:2, type:'influence' },
+
+  // -- STEVE LAWLER ----------------------------------------------------------
+  { from:'dc10',            to:'steve_lawler',          strength:3, type:'aesthetic' },
+  { from:'ibiza',           to:'steve_lawler',          strength:3, type:'aesthetic' },
+  { from:'fabric',          to:'steve_lawler',          strength:2, type:'aesthetic' },
+  { from:'deep_house',      to:'steve_lawler',          strength:2, type:'influence' },
+
+  // -- FUR COAT --------------------------------------------------------------
+  { from:'innervisions',    to:'fur_coat',              strength:3, type:'roster'    },
+  { from:'ibiza',           to:'fur_coat',              strength:2, type:'aesthetic' },
+  { from:'deep_house',      to:'fur_coat',              strength:2, type:'influence' },
+
+  // -- GEORGE FITZGERALD -----------------------------------------------------
+  { from:'hotflush',        to:'george_fitzgerald',     strength:3, type:'roster'    },
+  { from:'dubstep',         to:'george_fitzgerald',     strength:2, type:'influence' },
+  { from:'melodic_techno',  to:'george_fitzgerald',     strength:2, type:'influence' },
+
+  // -- HERNAN CATTANEO -------------------------------------------------------
+  { from:'progressive_house', to:'hernan_cattaneo',     strength:3, type:'lineage'   },
+  { from:'ibiza',           to:'hernan_cattaneo',       strength:2, type:'aesthetic' },
+
+  // -- DUSKY -----------------------------------------------------------------
+  { from:'fabric',          to:'dusky',                 strength:2, type:'aesthetic' },
+  { from:'dc10',            to:'dusky',                 strength:2, type:'aesthetic' },
+  { from:'deep_house',      to:'dusky',                 strength:2, type:'influence' },
+  { from:'hotflush',        to:'dusky',                 strength:1, type:'aesthetic' },
+
+  // -- GUY GERBER ------------------------------------------------------------
+  { from:'cocoon',          to:'guy_gerber',            strength:2, type:'roster'    },
+  { from:'deep_house',      to:'guy_gerber',            strength:2, type:'influence' },
+  { from:'ibiza',           to:'guy_gerber',            strength:2, type:'aesthetic' },
+
+  // -- BUTCH -----------------------------------------------------------------
+  { from:'ibiza',           to:'butch',                 strength:2, type:'aesthetic' },
+  { from:'tech_house',      to:'butch',                 strength:2, type:'influence' },
+  { from:'cocoon',          to:'butch',                 strength:2, type:'roster'    },
+
+  // -- ART DEPARTMENT --------------------------------------------------------
+  { from:'deep_house',      to:'art_department',        strength:3, type:'influence' },
+  { from:'ibiza',           to:'art_department',        strength:2, type:'aesthetic' },
+  { from:'crosstown_rebels', to:'art_department',       strength:2, type:'roster'    },
+  { from:'damian_lazarus',  to:'art_department',        strength:2, type:'collaboration' },
+
+  // -- FRED P ----------------------------------------------------------------
+  { from:'deep_house',      to:'fred_p',                strength:3, type:'influence' },
+  { from:'chicago_scene',   to:'fred_p',                strength:2, type:'influence' },
+  { from:'lies_records',    to:'fred_p',                strength:2, type:'aesthetic' },
+  { from:'nyc_scene',       to:'fred_p',                strength:2, type:'lineage'   },
+
+  // -- DAMIAN LAZARUS --------------------------------------------------------
+  { from:'crosstown_rebels', to:'damian_lazarus',       strength:3, type:'roster'    },
+  { from:'damian_lazarus',  to:'crosstown_rebels',      strength:3, type:'roster'    },
+  { from:'deep_house',      to:'damian_lazarus',        strength:2, type:'influence' },
+  { from:'ibiza',           to:'damian_lazarus',        strength:2, type:'aesthetic' },
+
+  // -- JAMES ZABIELA ---------------------------------------------------------
+  { from:'progressive_house', to:'james_zabiela',       strength:3, type:'influence' },
+  { from:'fabric',          to:'james_zabiela',         strength:2, type:'aesthetic' },
+  { from:'deep_house',      to:'james_zabiela',         strength:2, type:'influence' },
+
+  // -- EROL ALKAN ------------------------------------------------------------
+  { from:'electro',         to:'erol_alkan',            strength:2, type:'influence' },
+  { from:'acid_house',      to:'erol_alkan',            strength:2, type:'influence' },
+  { from:'fabric',          to:'erol_alkan',            strength:2, type:'aesthetic' },
+
+  // -- BARNT -----------------------------------------------------------------
+  { from:'perlon',          to:'barnt',                 strength:2, type:'aesthetic' },
+  { from:'kompakt',         to:'barnt',                 strength:1, type:'aesthetic' },
+  { from:'deep_house',      to:'barnt',                 strength:1, type:'influence' },
+
+  // -- MARGARET DYGAS --------------------------------------------------------
+  { from:'perlon',          to:'margaret_dygas',        strength:3, type:'roster'    },
+  { from:'robertjohnson',   to:'margaret_dygas',        strength:2, type:'aesthetic' },
+  { from:'deep_house',      to:'margaret_dygas',        strength:2, type:'influence' },
+
+  // -- ANSWER CODE REQUEST ---------------------------------------------------
+  { from:'ostgut_ton',      to:'answer_code_request',   strength:3, type:'roster'    },
+  { from:'berghain',        to:'answer_code_request',   strength:3, type:'aesthetic' },
+  { from:'dettmann',        to:'answer_code_request',   strength:2, type:'aesthetic' },
+
+  // -- DENIS SULTA -----------------------------------------------------------
+  { from:'numbers',         to:'denis_sulta',           strength:3, type:'roster'    },
+  { from:'jackmaster',      to:'denis_sulta',           strength:2, type:'aesthetic' },
+  { from:'deep_house',      to:'denis_sulta',           strength:2, type:'influence' },
+
+  // -- SOLARDO ---------------------------------------------------------------
+  { from:'hot_creations',   to:'solardo',               strength:3, type:'roster'    },
+  { from:'jamie_jones',     to:'solardo',               strength:2, type:'influence' },
+  { from:'ibiza',           to:'solardo',               strength:2, type:'aesthetic' },
+
+  // -- DAX J -----------------------------------------------------------------
+  { from:'berghain',        to:'dax_j',                 strength:2, type:'aesthetic' },
+  { from:'tresor_club',     to:'dax_j',                 strength:2, type:'aesthetic' },
+  { from:'fabric',          to:'dax_j',                 strength:2, type:'aesthetic' },
+  { from:'hard_techno',     to:'dax_j',                 strength:2, type:'influence' },
+
+  // -- ARCHIE HAMILTON -------------------------------------------------------
+  { from:'berghain',        to:'archie_hamilton',       strength:2, type:'aesthetic' },
+  { from:'deep_house',      to:'archie_hamilton',       strength:2, type:'influence' },
+
+  // -- ARTWORK ---------------------------------------------------------------
+  { from:'dubstep',         to:'artwork',               strength:2, type:'lineage'   },
+  { from:'uk_garage',       to:'artwork',               strength:2, type:'influence' },
+  { from:'deep_house',      to:'artwork',               strength:2, type:'influence' },
+
+  // -- MALL GRAB -------------------------------------------------------------
+  { from:'deep_house',      to:'mall_grab',             strength:2, type:'influence' },
+  { from:'lies_records',    to:'mall_grab',             strength:2, type:'aesthetic' },
+  { from:'fabric',          to:'mall_grab',             strength:2, type:'aesthetic' },
+
+  // -- DJ NOBU ---------------------------------------------------------------
+  { from:'berghain',        to:'dj_nobu',               strength:2, type:'aesthetic' },
+  { from:'tresor_club',     to:'dj_nobu',               strength:1, type:'aesthetic' },
+  { from:'ambient_techno',  to:'dj_nobu',               strength:1, type:'influence' },
 ];
