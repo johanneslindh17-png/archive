@@ -406,9 +406,7 @@ export default function App() {
       if (e.type === 'aesthetic') return;
       const nbId = e.from === n.id ? e.to : e.to === n.id ? e.from : null;
       if (!nbId || nbId === selected || nbId === pinned) return;
-      // Only march on truly dim nodes (same logic as isDim in nodeEls)
-      const nbIsDim = hlIds ? !hlIds.has(nbId) : !filteredIds.has(nbId);
-      if (!nbIsDim) return;
+      if (hlIds?.has(nbId)) return; // skip already-highlighted nodes in a selection web
       const nb = NODE_BY_ID.get(nbId);
       if (!nb) return;
       makeMarchEl(nb, 'var(--march-prev)', 1.0);
@@ -1721,7 +1719,7 @@ export default function App() {
         ? (tc ? tc.text : (dm ? '#ffffff' : '#0a0a0a'))
       : tc ? tc.text : (dm ? '#d0d0e8' : '#222233');
     const strokeW = isSel ? 1.5 : isHl ? 1 : 0.5;
-    const isMarching = !isSel && !isHovSelf && hovHlIds?.has(n.id) && !isHl;
+    const isMarching = !isSel && !isHovSelf && hovHlIds?.has(n.id) && (!hlIds || !isHl);
     const hw = bw / 2, hh = bh / 2;
     const bgFill = themeStyle?.nodeBg || (dm ? '#0c0c10' : '#ffffff');
     const brightText = dm ? 'rgba(255,255,255,0.75)' : 'rgba(0,0,0,0.72)';
