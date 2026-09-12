@@ -1859,7 +1859,7 @@ export default function App() {
           hovPrevRef.current = [];
         }}
       >
-        <g className="nd-inner">
+        <g className="nd-inner" style={isMarching ? { transform: 'none', transition: 'none' } : undefined}>
           {renderBg()}
           {renderBorder()}
           {renderMarch('nd-self-march', 'var(--march-self)')}
