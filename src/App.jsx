@@ -1216,6 +1216,17 @@ export default function App() {
   const zoomRef = useRef(null);
   const svgGRef = useRef(null);       // ref to the main <g> — d3 owns its transform directly
   const animatingRef = useRef(false); // true during flyHome — suppresses per-frame setTf
+  // Create glow layer as a non-React DOM element so React's reconciler never touches it
+  useEffect(() => {
+    if (!svgGRef.current) return;
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const layer = document.createElementNS(svgNS, 'g');
+    layer.style.pointerEvents = 'none';
+    svgGRef.current.appendChild(layer);
+    glowLayerRef.current = layer;
+    return () => { layer.remove(); glowLayerRef.current = null; };
+  }, []);
+
   useEffect(() => {
     if (!svgRef.current) return;
     const zoom = d3.zoom()
@@ -2380,8 +2391,6 @@ export default function App() {
                   {(hlIds || hovHlIds) && <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && !hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>}
                   <g>{edgeEls.filter(el => el && !el.props?.className?.includes('dim'))}</g>
                   {hovPathEls && <g style={{ pointerEvents:'none' }}>{hovPathEls}</g>}
-                  {/* glow layer: above dim nodes, below non-dim/highlighted nodes */}
-                  <g ref={glowLayerRef} style={{ pointerEvents: 'none' }} />
                   {/* normal nodes (nothing focused) after edges — white backgrounds cover lines in light mode */}
                   {!(hlIds || hovHlIds) && <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && !hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>}
                   <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>
@@ -2410,7 +2419,6 @@ export default function App() {
                     {(hlIds || hovHlIds) && <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && !hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>}
                     <g>{edgeEls.filter(el => el && !el.props?.className?.includes('dim'))}</g>
                     {hovPathEls && <g style={{ pointerEvents:'none' }}>{hovPathEls}</g>}
-                    <g ref={glowLayerRef} style={{ pointerEvents: 'none' }} />
                     {!(hlIds || hovHlIds) && <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && !hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>}
                     <g>{nodeEls.filter((el, i) => el && !hlIds?.has(NODES[i].id) && hovHlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>
                     <g>{nodeEls.filter((el, i) => el && hlIds?.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>
