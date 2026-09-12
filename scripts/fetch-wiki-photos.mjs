@@ -137,6 +137,13 @@ const WIKI_OVERRIDES = {
   'edward':             null,  // pulls King Edward I painting
   'virginia':           null,  // pulls US state flag
   'kapote':             null,  // pulls Hasidic garment article
+  'fumiya_tanaka':      null,  // pulls Tresor club logo
+  'the_avalanches':     null,  // pulls Strokes photo
+  'underworld':         null,  // pulls Brueghel painting "Juno in the Underworld"
+  'suicide_band':       null,  // pulls Manet's "Le Suicidé" painting
+  'matador':            null,  // pulls bullfighting photo
+  'nujabes':            null,  // pulls signature graphic not a photo
+  'digital_mystikz':    null,  // pulls DMZ record label logo
 };
 
 async function main() {

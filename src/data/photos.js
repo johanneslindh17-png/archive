@@ -57,12 +57,6 @@ export const PHOTOS = {
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "author": "Tkiehne"
   },
-  "digital_mystikz": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/DMZ_%28Record_Label%29_Logo.svg/500px-DMZ_%28Record_Label%29_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "license": "Public domain",
-    "licenseUrl": "",
-    "author": "DMZ UK"
-  },
   "skream": {
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Skream_at_Metropolis_Leeds.jpg/500px-Skream_at_Metropolis_Leeds.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "license": "CC BY-SA 2.0",
@@ -207,23 +201,11 @@ export const PHOTOS = {
     "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
     "author": "MIXTRIBE"
   },
-  "fumiya_tanaka": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Tresor_logo.png/500px-Tresor_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "author": "Hubble84"
-  },
   "dj_krush": {
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Djkrush_headshot.jpg/500px-Djkrush_headshot.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "author": "GX1000"
-  },
-  "the_avalanches": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/StrokesRosendal080622-2_%2852144817677%29.jpg/500px-StrokesRosendal080622-2_%2852144817677%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "license": "CC BY 2.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "author": "Raph_PH"
   },
   "cut_copy": {
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Cut_Copy_%2845668059095%29.jpg/500px-Cut_Copy_%2845668059095%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -789,12 +771,6 @@ export const PHOTOS = {
     "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
     "author": ""
   },
-  "underworld": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Jan_Brueghel_the_Younger_-_Juno_in_the_Underworld%2C_1626-1630.jpg/500px-Jan_Brueghel_the_Younger_-_Juno_in_the_Underworld%2C_1626-1630.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "license": "Public domain",
-    "licenseUrl": "",
-    "author": "Jan Brueghel the Younger"
-  },
   "chemical_brothers": {
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/The_Chemical_Brothers_performing_in_Barcelona%2C_Spain_%282007%29.jpg/500px-The_Chemical_Brothers_performing_in_Barcelona%2C_Spain_%282007%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "license": "CC BY 2.0",
@@ -920,12 +896,6 @@ export const PHOTOS = {
     "license": "CC BY 2.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
     "author": "Amnesia Ibiza from Ibiza, Spain"
-  },
-  "matador": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Corrida%2C_Rio_Lagartos%2C_Yucatan.jpg/500px-Corrida%2C_Rio_Lagartos%2C_Yucatan.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "license": "CC BY-SA 2.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-    "author": "Pavel Kirillov"
   },
   "the_prodigy": {
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/The_Prodigy_IMG_2972_%285353883317%29_%28cropped%29.jpg/500px-The_Prodigy_IMG_2972_%285353883317%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
@@ -1095,12 +1065,6 @@ export const PHOTOS = {
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "author": "Possan"
   },
-  "nujabes": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Nujabes_sig.svg/500px-Nujabes_sig.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "license": "Public domain",
-    "licenseUrl": "",
-    "author": "Nujabes"
-  },
   "coldcut": {
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Matt_Black_-_Coldcut_%28Vienna_2006%29.jpg/500px-Matt_Black_-_Coldcut_%28Vienna_2006%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "license": "CC BY 2.0",
@@ -1160,12 +1124,6 @@ export const PHOTOS = {
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "author": "Brianhphoto"
-  },
-  "suicide_band": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/%C3%89douard_Manet_-_Le_Suicid%C3%A9_%28ca._1877%29.jpg/500px-%C3%89douard_Manet_-_Le_Suicid%C3%A9_%28ca._1877%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "license": "Public domain",
-    "licenseUrl": "",
-    "author": "Édouard Manet"
   },
   "gilles_peterson": {
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Gilles_Peterson_2019_DF1_2181_%2849029291892%29_%28cropped%29.jpg/500px-Gilles_Peterson_2019_DF1_2181_%2849029291892%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
