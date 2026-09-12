@@ -381,16 +381,16 @@ export default function App() {
     const svgNS = 'http://www.w3.org/2000/svg';
     const CHAR_W = 4.3, PAD = 3, BH = 11, mo = 0;
 
-    const makeMarchEl = (node, stroke, speed) => {
+    const makeMarchEl = (node, stroke, speed, scale = 1) => {
       const p = positions[node.id];
       if (!p) return;
       const bw = node.label.length * CHAR_W + PAD * 2;
-      const hw = bw / 2, hh = BH / 2;
+      const hw = bw * scale / 2, hh = BH * scale / 2;
       const el = document.createElementNS(svgNS, 'rect');
       el.setAttribute('x', p.x - hw - mo);
       el.setAttribute('y', p.y - hh - mo);
-      el.setAttribute('width', bw + mo * 2);
-      el.setAttribute('height', BH + mo * 2);
+      el.setAttribute('width', bw * scale + mo * 2);
+      el.setAttribute('height', BH * scale + mo * 2);
       el.setAttribute('rx', '2');
       el.setAttribute('fill', 'none');
       el.setAttribute('stroke', stroke);
@@ -402,7 +402,7 @@ export default function App() {
       marchOverlayRef.current.push(el);
     };
 
-    makeMarchEl(n, 'var(--march-self)', 0.7);
+    makeMarchEl(n, 'var(--march-self)', 0.7, 1.14);
     EDGES.forEach(e => {
       if (e.type === 'aesthetic') return;
       const nbId = e.from === n.id ? e.to : e.to === n.id ? e.from : null;
@@ -1861,7 +1861,7 @@ export default function App() {
           hovPrevRef.current = [];
         }}
       >
-        <g className="nd-inner" style={isMarching ? { transform: 'none', transition: 'none' } : undefined}>
+        <g className="nd-inner">
           {renderBg()}
           {renderBorder()}
           {renderMarch('nd-self-march', 'var(--march-self)')}
