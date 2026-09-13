@@ -13,6 +13,40 @@ import { NEWS_TICKER } from './data/newsTicker.js';
 
 const NODE_BY_ID = new Map(NODES.map(n => [n.id, n]));
 
+// ── Path finder BFS ──────────────────────────────────────────────────────────
+const EDGE_ADJ = (() => {
+  const m = new Map();
+  EDGES.forEach(e => {
+    if (!m.has(e.from)) m.set(e.from, []);
+    if (!m.has(e.to))   m.set(e.to,   []);
+    m.get(e.from).push(e.to);
+    m.get(e.to).push(e.from);
+  });
+  return m;
+})();
+
+function bfsPath(fromId, toId) {
+  if (fromId === toId) return [fromId];
+  const visited = new Map([[fromId, null]]);
+  const queue = [fromId];
+  while (queue.length) {
+    const cur = queue.shift();
+    for (const nb of (EDGE_ADJ.get(cur) || [])) {
+      if (!visited.has(nb)) {
+        visited.set(nb, cur);
+        if (nb === toId) {
+          const path = [];
+          let n = toId;
+          while (n !== null) { path.unshift(n); n = visited.get(n); }
+          return path;
+        }
+        queue.push(nb);
+      }
+    }
+  }
+  return null;
+}
+
 // ── Variable-width region layout ─────────────────────────────────────────────
 // Widths are proportional to node count, with a minimum of 50 % of the average.
 // Computed once at module load since NODES / REGIONS are static.
@@ -487,6 +521,9 @@ export default function App() {
   const [licenseKey, setLicenseKey] = useState('');
   const [verifying, setVerifying] = useState(false);
   const [verifyError, setVerifyError] = useState('');
+  const [pathMode, setPathMode] = useState(false);
+  const [pathNodes, setPathNodes] = useState([]);
+  const deepLinkNodeRef = useRef(null);
 
   const TRIAL_LIMIT = 9999;
 
@@ -505,6 +542,7 @@ export default function App() {
 
   function selectNode(id) {
     if (id === null) {
+      window.history.replaceState(null, '', location.pathname + location.search);
       setSelected(null);
       setHistory([]);
     } else {
@@ -518,6 +556,7 @@ export default function App() {
       setHistory(prev => (selected || pinned) ? [...prev, (selected || pinned)] : prev);
       setSelected(id);
       setPinned(null);
+      window.history.replaceState(null, '', '#node=' + id);
     }
   }
 
@@ -557,11 +596,14 @@ export default function App() {
 
   // Clear everything — selection, pin, history
   function clearAll() {
+    window.history.replaceState(null, '', location.pathname + location.search);
     setSelected(null);
     setPinned(null);
     setHistory([]);
     setPanelOnLeft(false);
     setPanelX(null);
+    setPathMode(false);
+    setPathNodes([]);
   }
 
   // Fly back to the overview zoom level, keeping the current vertical era centred
@@ -1180,7 +1222,22 @@ export default function App() {
   // Refresh the last-visit timestamp when welcome is skipped (returning within an hour)
   useEffect(() => {
     if (welcomeDone) localStorage.setItem('archiveLastVisit', Date.now().toString());
+    // Parse deep-link hash on first load
+    const hash = window.location.hash;
+    if (hash.startsWith('#node=')) {
+      const id = hash.slice(6);
+      if (NODE_BY_ID.has(id)) deepLinkNodeRef.current = id;
+    }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Apply deep link once positions are ready
+  useEffect(() => {
+    if (!deepLinkNodeRef.current || !Object.keys(positions).length) return;
+    const id = deepLinkNodeRef.current;
+    deepLinkNodeRef.current = null;
+    selectNode(id);
+    scrollToNode(id);
+  }, [positions]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Mirror newsItem into a ref so navigation effect can read it without stale closure.
   useEffect(() => { newsItemRef.current = newsItem; }, [newsItem]);
@@ -1540,7 +1597,31 @@ export default function App() {
 
   const focusId = selected || pinned;
 
+  const pathResult = useMemo(() => {
+    if (!pathMode || pathNodes.length !== 2) return null;
+    return bfsPath(pathNodes[0], pathNodes[1]);
+  }, [pathMode, pathNodes]);
+
+  const pathHlIds = useMemo(() => {
+    if (!pathMode || pathNodes.length === 0) return null;
+    if (pathNodes.length === 1) return new Set(pathNodes);
+    if (pathResult) return new Set(pathResult);
+    return new Set(pathNodes);
+  }, [pathMode, pathNodes, pathResult]);
+
+  const pathHlEdges = useMemo(() => {
+    if (!pathResult || pathResult.length < 2) return null;
+    const s = new Set();
+    for (let i = 0; i < pathResult.length - 1; i++) {
+      const a = pathResult[i], b = pathResult[i + 1];
+      s.add(`${a}|${b}`);
+      s.add(`${b}|${a}`);
+    }
+    return s;
+  }, [pathResult]);
+
   const hlIds = useMemo(() => {
+    if (pathHlIds) return pathHlIds;
     if (!focusId) return null;
     const s = new Set([focusId]);
     visibleEdges.forEach(e => {
@@ -1548,12 +1629,13 @@ export default function App() {
       if (e.to === focusId)   { if (NODE_BY_ID.has(e.from)) s.add(e.from); }
     });
     return s;
-  }, [focusId, visibleEdges]);
+  }, [pathHlIds, focusId, visibleEdges]);
 
   const hlEdges = useMemo(() => {
+    if (pathHlEdges) return pathHlEdges;
     if (!focusId) return null;
     return new Set(visibleEdges.filter(e => e.from === focusId || e.to === focusId).map(e => `${e.from}|${e.to}`));
-  }, [focusId, visibleEdges]);
+  }, [pathHlEdges, focusId, visibleEdges]);
 
   function handlePanelDragStart(e) {
     // Don't initiate drag from interactive elements
@@ -1834,6 +1916,14 @@ export default function App() {
         className={`nd${isDim ? ' dim' : isHl ? ' lit' : ''} ${isSel ? 'sel' : ''}`}
         transform={`translate(${pos.x},${pos.y})`}
         onClick={(ev) => {
+          if (pathMode) {
+            setPathNodes(prev => {
+              if (prev.length === 0) return [n.id];
+              if (prev.length === 1) return prev[0] === n.id ? [] : [prev[0], n.id];
+              return [n.id];
+            });
+            return;
+          }
           if (isSel) {
             selectNode(null);
             setPanelOnLeft(false);
@@ -1960,7 +2050,7 @@ export default function App() {
         </g>
       </g>
     );
-  }), [positions, expandedPositions, expanded, filteredIds, hlIds, selected, darkMode, colorTheme]);
+  }), [positions, expandedPositions, expanded, filteredIds, hlIds, selected, darkMode, colorTheme, pathMode, setPathNodes]);
 
   return (
     <div className="app">
@@ -2018,6 +2108,39 @@ export default function App() {
           )}
         </div>
         <div className="tbsep" />
+
+        {/* Path finder button */}
+        <button
+          className={`pathbtn${pathMode ? ' active' : ''}`}
+          onClick={() => { setPathMode(v => !v); setPathNodes([]); }}
+          title="Find shortest path between two nodes"
+        >
+          <span className="pathbtn-icon">⇢</span>
+        </button>
+        {pathMode && (
+          <div className="pathbar">
+            {pathNodes.length === 0 && <span className="pathbar-hint">Click a start node</span>}
+            {pathNodes.length === 1 && (
+              <span className="pathbar-hint">
+                <span className="pathbar-node">{NODE_BY_ID.get(pathNodes[0])?.label}</span>
+                <span className="pathbar-arrow"> → </span>
+                <span className="pathbar-pick">click end node</span>
+              </span>
+            )}
+            {pathNodes.length === 2 && pathResult && (
+              <span className="pathbar-hint">
+                <span className="pathbar-node">{NODE_BY_ID.get(pathNodes[0])?.label}</span>
+                <span className="pathbar-arrow"> → </span>
+                <span className="pathbar-node">{NODE_BY_ID.get(pathNodes[1])?.label}</span>
+                <span className="pathbar-hops"> · {pathResult.length - 1} hop{pathResult.length !== 2 ? 's' : ''}</span>
+              </span>
+            )}
+            {pathNodes.length === 2 && !pathResult && (
+              <span className="pathbar-hint pathbar-none">No path found</span>
+            )}
+            <button className="pathbar-clear" onClick={() => setPathNodes([])}>✕</button>
+          </div>
+        )}
 
         {/* Dark mode toggle — auto follows sun, click to override */}
         <button
