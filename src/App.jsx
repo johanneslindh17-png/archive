@@ -1692,6 +1692,9 @@ export default function App() {
   const hovPathEls = useMemo(() => {
     if (!hovNode || trialExhausted) return null;
     const stroke = darkMode ? 'rgba(255,255,255,0.45)' : 'rgba(0,0,0,0.38)';
+    // Sync all paths to the global 1s animation clock so switching nodes
+    // never causes a visible phase jump — dots continue from where they were.
+    const animDelay = `${-((Date.now() % 1000) / 1000).toFixed(3)}s`;
     const els = [];
     for (const e of visibleEdges) {
       if (e.type === 'aesthetic') continue;
@@ -1703,7 +1706,7 @@ export default function App() {
       els.push(
         <path key={key} d={d} fill="none" strokeWidth={1} strokeDasharray="2 11"
           className={e.from === hovNode.id ? 'hov-flow-out' : 'hov-flow-in'}
-          stroke={stroke} />
+          stroke={stroke} style={{ animationDelay: animDelay }} />
       );
     }
     return els.length ? els : null;
