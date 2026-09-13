@@ -674,7 +674,7 @@ export default function App() {
     const x0 = live.x, y0 = live.y, k0 = live.k;
     animatingRef.current = true;
     d3.select(svgRef.current)
-      .transition().duration(220).ease(d3.easeCubicOut)
+      .transition().duration(480).ease(d3.easeCubicOut)
       .tween('scroll-to-node', () => t => {
         const y  = y0 + (y1 - y0) * t;
         svgRef.current.__zoom = d3.zoomIdentity.translate(x1, y).scale(k1);
