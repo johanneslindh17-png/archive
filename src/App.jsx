@@ -1603,8 +1603,7 @@ export default function App() {
   }, [pathMode, pathNodes]);
 
   const pathHlIds = useMemo(() => {
-    if (!pathMode || pathNodes.length === 0) return null;
-    if (pathNodes.length === 1) return new Set(pathNodes);
+    if (!pathMode || pathNodes.length < 2) return null;
     if (pathResult) return new Set(pathResult);
     return new Set(pathNodes);
   }, [pathMode, pathNodes, pathResult]);
