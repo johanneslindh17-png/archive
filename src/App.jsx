@@ -1901,7 +1901,7 @@ export default function App() {
               selfGlowEl.setAttribute('fill', `url(#${darkMode ? 'nd-glow-grad-dk' : 'nd-glow-grad-lt'})`);
               selfGlowEl.style.pointerEvents = 'none';
               selfGlowEl.classList.add('nd-glow-el', 'nd-glow-self');
-              glowLayerRef.current?.appendChild(selfGlowEl);
+              svgGRef.current?.appendChild(selfGlowEl);
               marchOverlayRef.current.push(selfGlowEl);
             }
             EDGES.forEach(e => {
@@ -1927,7 +1927,7 @@ export default function App() {
                 glowEl.style.pointerEvents = 'none';
                 const nbIsDim = hlIds ? !hlIds.has(nbId) : false;
                 glowEl.classList.add('nd-glow-el', nbIsDim ? 'nd-glow-pulse' : 'nd-glow-static');
-                glowLayerRef.current?.appendChild(glowEl);
+                svgGRef.current?.appendChild(glowEl);
                 marchOverlayRef.current.push(glowEl);
                 // Dim neighbors: also add pulsing text overlay
                 if (nbIsDim) {
