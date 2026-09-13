@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
+import { useState, useEffect, useRef, useCallback, useMemo, startTransition } from 'react';
 import { useSunMode } from './hooks/useSunMode.js';
 import * as d3 from 'd3';
 import {
@@ -563,7 +563,7 @@ export default function App() {
   // Fly back to the overview zoom level, keeping the current vertical era centred
   function flyHome() {
     if (!zoomRef.current || !svgRef.current) return;
-    const k  = screen.width / W;
+    const k  = (window.innerWidth || screen.width) / W;
     const vh = window.innerHeight;
     const live = d3.zoomTransform(svgRef.current);
     // Which SVG y is currently at the vertical centre of the viewport?
@@ -1265,7 +1265,7 @@ export default function App() {
   useEffect(() => {
     if (!svgRef.current) return;
     const zoom = d3.zoom()
-      .scaleExtent([screen.width / W, 8])
+      .scaleExtent([(window.innerWidth || screen.width) / W, 8])
       .translateExtent([[0, 0], [W, H]])  // single copy, bounded
       // Only zoom on ctrl+wheel or pinch — regular scroll pans
       .filter(event => {
@@ -1295,7 +1295,7 @@ export default function App() {
     zoomRef.current = zoom;
     const svg = d3.select(svgRef.current);
     svg.call(zoom);
-    svg.call(zoom.transform, d3.zoomIdentity.translate(0, 0).scale(screen.width / W));
+    svg.call(zoom.transform, d3.zoomIdentity.translate(0, 0).scale((window.innerWidth || screen.width) / W));
 
     // Regular scroll wheel → pan vertically
     const handleWheel = event => {
@@ -1621,7 +1621,7 @@ export default function App() {
   function doExpand(key) {
     setExpanded(key);
     clearAll();
-    setTf({ k: screen.width / W, x: 0, y: 0 });
+    setTf({ k: (window.innerWidth || screen.width) / W, x: 0, y: 0 });
   }
 
   const edgeEls = useMemo(() => {
@@ -1874,7 +1874,7 @@ export default function App() {
           clearTimeout(leaveTimerRef.current);
           if (!isDim) {
             // Low-priority: tooltip state doesn't need to block the glow DOM update
-            React.startTransition(() => {
+            startTransition(() => {
               setHovNode(n);
               setHovPos({ x: ev.clientX, y: ev.clientY });
             });
@@ -1961,7 +1961,7 @@ export default function App() {
             clearMarchOverlay();
             hovPrevRef.current.forEach(({ el }) => el.classList.remove('hov-self', 'hov-prev'));
             hovPrevRef.current = [];
-            React.startTransition(() => setHovNode(null));
+            startTransition(() => setHovNode(null));
           }, 20);
         }}
       >
@@ -2371,7 +2371,7 @@ export default function App() {
             if (txt) txt.style.fill = orig;
           });
           hovPrevRef.current = [];
-          React.startTransition(() => setHovNode(null));
+          startTransition(() => setHovNode(null));
         }}>
           <rect x={0} y={0} width="100%" height="100%" fill={themeStyle?.bg || (darkMode ? '#0c0c10' : '#ffffff')} onClick={() => { clearAll(); flyHome(); }} />
           <g ref={svgGRef} style={{ transformOrigin: '0 0', willChange: 'transform' }}>
