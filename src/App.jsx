@@ -65,11 +65,11 @@ const EDGE_TYPE_COLORS = {
 
 // Swatches used to fill the colorbtn background when a theme is active
 const THEME_SWATCHES = {
-  type:  ['#4a7fc1','#c87828','#3a9a50','#8844cc'],
-  genre: ['hsl(45,72%,55%)','hsl(205,62%,52%)','hsl(155,58%,44%)','hsl(270,55%,52%)','hsl(12,72%,48%)'],
-  void:  ['#0cc8c0','#44a8b8','#061416','#0a2828'],
-  acid:  ['#aadd00','#80aa00','#0b1400','#1a2800'],
-  rust:  ['#dd5500','#cc7744','#1c0900','#3a1800'],
+  type:  ['#7a9fd4', '#1e3a6a'],   // blue — most common node type
+  genre: ['#d4a040', '#5a2a08'],   // warm amber
+  void:  ['#18c8d0', '#021820'],   // electric cyan
+  acid:  ['#a8e000', '#162400'],   // acid lime
+  rust:  ['#e05828', '#1a0600'],   // rust orange
 };
 
 const GENRE_COLORS = {
@@ -1521,9 +1521,9 @@ export default function App() {
     if (!colorTheme) return null;
     const sw = THEME_SWATCHES[colorTheme];
     if (!sw) return null;
-    // Start from same neutral as yybtn right edge, hold it briefly, then ease into colors
+    // Long neutral lead-in so color arrives as a soft wash, not a hard band
     const neutral = darkMode ? '#181818' : '#e6e6e6';
-    return `linear-gradient(to right, ${neutral} 0%, ${neutral} 25%, ${sw.join(', ')})`;
+    return `linear-gradient(to right, ${neutral} 0%, ${neutral} 20%, ${sw[0]} 70%, ${sw[1]} 100%)`;
   }, [colorTheme, darkMode]);
 
   const selNode = NODE_BY_ID.get(selected);
