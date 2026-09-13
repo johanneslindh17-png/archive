@@ -1521,9 +1521,9 @@ export default function App() {
     if (!colorTheme) return null;
     const sw = THEME_SWATCHES[colorTheme];
     if (!sw) return null;
-    // Start from same neutral as yybtn right edge so both buttons read as one gradient
+    // Start from same neutral as yybtn right edge, hold it briefly, then ease into colors
     const neutral = darkMode ? '#181818' : '#e6e6e6';
-    return `linear-gradient(to right, ${neutral}, ${sw.join(', ')})`;
+    return `linear-gradient(to right, ${neutral} 0%, ${neutral} 25%, ${sw.join(', ')})`;
   }, [colorTheme, darkMode]);
 
   const selNode = NODE_BY_ID.get(selected);

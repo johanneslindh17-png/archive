@@ -225,7 +225,6 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 /* â”€â”€ Color theme picker â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .colorwrap{
   flex:0 0 auto;display:flex;align-items:stretch;align-self:stretch;
-  border-left:1px solid var(--tb-border);
   position:relative;
 }
 .colorbtn{
