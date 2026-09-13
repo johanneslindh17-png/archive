@@ -412,12 +412,8 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 /* Dash flow: dashes scroll outward along connected edges */
 @keyframes hov-dash-out { from { stroke-dashoffset: 13; } to { stroke-dashoffset:  0; } }
 @keyframes hov-dash-in  { from { stroke-dashoffset:  0; } to { stroke-dashoffset: 13; } }
-.hov-flow-out { animation: hov-dash-out 1s linear infinite; filter: drop-shadow(0 0 1.5px rgba(255,255,255,0.55)); }
-.hov-flow-in  { animation: hov-dash-in  1s linear infinite; filter: drop-shadow(0 0 1.5px rgba(255,255,255,0.55)); }
-:root:not(.dark) .hov-flow-out,
-:root:not(.dark) .hov-flow-in  { filter: drop-shadow(0 0 1.5px rgba(0,0,0,0.40)); }
-.dark .hov-flow-accent { filter: drop-shadow(0 0 3px rgba(255,255,255,0.85)); }
-:root:not(.dark) .hov-flow-accent { filter: drop-shadow(0 0 3px rgba(0,0,0,0.65)); }
+.hov-flow-out { animation: hov-dash-out 1s linear infinite; }
+.hov-flow-in  { animation: hov-dash-in  1s linear infinite; }
 
 /* Marching ants: same dash pattern (2 11) as edge hover dashes, dashoffset -13 = one full cycle */
 /* March stroke colours — dark/light aware */

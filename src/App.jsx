@@ -1254,6 +1254,19 @@ export default function App() {
     };
     defs.appendChild(mkGrad('nd-glow-grad-dk', 'white'));
     defs.appendChild(mkGrad('nd-glow-grad-lt', 'black'));
+
+    // SVG blur filters for hover edge dot glows
+    const mkBlur = (id, stdDev) => {
+      const f = document.createElementNS(svgNS, 'filter');
+      f.setAttribute('id', id);
+      f.setAttribute('x', '-50%'); f.setAttribute('y', '-50%');
+      f.setAttribute('width', '200%'); f.setAttribute('height', '200%');
+      const b = document.createElementNS(svgNS, 'feGaussianBlur');
+      b.setAttribute('in', 'SourceGraphic'); b.setAttribute('stdDeviation', stdDev);
+      f.appendChild(b); return f;
+    };
+    defs.appendChild(mkBlur('hov-dot-glow', '1.2'));
+    defs.appendChild(mkBlur('hov-dot-glow-accent', '2.5'));
     layer.appendChild(defs);
 
     // Insert before first child so glows render behind nodes, not over them
@@ -1737,10 +1750,10 @@ export default function App() {
       return [
         <path key={`${e.from}|${e.to}`}
           d={d} fill="none" strokeWidth={1} strokeDasharray="2 11" className={cls}
-          stroke={stroke} />,
+          stroke={stroke} style={{ filter: 'url(#hov-dot-glow)' }} />,
         <path key={`${e.from}|${e.to}|a`}
-          d={d} fill="none" strokeWidth={1.5} strokeDasharray="2 37" className={`${cls} hov-flow-accent`}
-          stroke={stroke} />,
+          d={d} fill="none" strokeWidth={1.5} strokeDasharray="2 37" className={cls}
+          stroke={stroke} style={{ filter: 'url(#hov-dot-glow-accent)' }} />,
       ];
     }).flat().filter(Boolean);
   }, [hovNode, visibleEdges, positions, expandedPositions, expanded, hlEdges, darkMode, trialExhausted]);
