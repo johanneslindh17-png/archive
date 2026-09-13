@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback, useMemo, startTransition } from 'react';
 import { useSunMode } from './hooks/useSunMode.js';
+import { Groovebox } from './Groovebox.jsx';
 import * as d3 from 'd3';
 import {
   COUNTRIES, GENRES, REGIONS, REGION_COUNT, COUNTRY_REGION,
@@ -524,6 +525,7 @@ export default function App() {
   const [verifying, setVerifying] = useState(false);
   const [verifyError, setVerifyError] = useState('');
   const [pathMode, setPathMode] = useState(false);
+  const [grooveOpen, setGrooveOpen] = useState(false);
   const [pathNodes, setPathNodes] = useState([]);
   const [pathStep, setPathStep] = useState(null);
   const deepLinkNodeRef = useRef(null);
@@ -3119,6 +3121,17 @@ export default function App() {
           </div>
         </div>
       )}
+
+      {/* Groovebox trigger */}
+      <button
+        className={`groove-trigger${grooveOpen ? ' open' : ''}`}
+        onClick={() => setGrooveOpen(v => !v)}
+        title="Groovebox"
+      >
+        <span className="groove-trigger-icon">▨</span>
+      </button>
+
+      <Groovebox open={grooveOpen} onClose={() => setGrooveOpen(false)} darkMode={darkMode} />
     </div>
   );
 }
