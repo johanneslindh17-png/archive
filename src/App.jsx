@@ -1901,13 +1901,8 @@ export default function App() {
               selfGlowEl.setAttribute('fill', `url(#${darkMode ? 'nd-glow-grad-dk' : 'nd-glow-grad-lt'})`);
               selfGlowEl.style.pointerEvents = 'none';
               selfGlowEl.classList.add('nd-glow-el', 'nd-glow-self');
-              svgGRef.current.insertBefore(selfGlowEl, self);
+              svgGRef.current.appendChild(selfGlowEl);
               marchOverlayRef.current.push(selfGlowEl);
-            }
-            // Neighbor glows go just before the first non-dim node — in front of all dim nodes
-            let firstNonDimNd = null;
-            for (const el of svgGRef.current.querySelectorAll('.nd')) {
-              if (!el.classList.contains('dim')) { firstNonDimNd = el; break; }
             }
             EDGES.forEach(e => {
               if (e.type === 'aesthetic') return;
@@ -1932,7 +1927,7 @@ export default function App() {
                 glowEl.style.pointerEvents = 'none';
                 const nbIsDim = hlIds ? !hlIds.has(nbId) : false;
                 glowEl.classList.add('nd-glow-el', nbIsDim ? 'nd-glow-pulse' : 'nd-glow-static');
-                svgGRef.current.insertBefore(glowEl, firstNonDimNd);
+                svgGRef.current.appendChild(glowEl);
                 marchOverlayRef.current.push(glowEl);
                 // Dim neighbors: also add pulsing text overlay
                 if (nbIsDim) {
