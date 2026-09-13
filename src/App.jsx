@@ -1732,11 +1732,17 @@ export default function App() {
       const mx = (sp.x + tp.x) / 2 + curveX + px * (spread + bidiOffset);
       const my = (sp.y + tp.y) / 2 + curveY + py * (spread + bidiOffset);
       const cls = e.from === hovNode.id ? 'hov-flow-out' : 'hov-flow-in';
-      return <path key={`${e.from}|${e.to}`}
-        d={`M${sp.x},${sp.y} Q${mx},${my} ${tp.x},${tp.y}`}
-        fill="none" strokeWidth={1} strokeDasharray="2 11" className={cls}
-        stroke={darkMode ? 'rgba(255,255,255,0.45)' : 'rgba(0,0,0,0.38)'} />;
-    }).filter(Boolean);
+      const d = `M${sp.x},${sp.y} Q${mx},${my} ${tp.x},${tp.y}`;
+      const stroke = darkMode ? 'rgba(255,255,255,0.45)' : 'rgba(0,0,0,0.38)';
+      return [
+        <path key={`${e.from}|${e.to}`}
+          d={d} fill="none" strokeWidth={1} strokeDasharray="2 11" className={cls}
+          stroke={stroke} />,
+        <path key={`${e.from}|${e.to}|a`}
+          d={d} fill="none" strokeWidth={1.5} strokeDasharray="2 37" className={`${cls} hov-flow-accent`}
+          stroke={stroke} />,
+      ];
+    }).flat().filter(Boolean);
   }, [hovNode, visibleEdges, positions, expandedPositions, expanded, hlEdges, darkMode, trialExhausted]);
 
   // Which nodes would light up on click — drives the marching-ants preview
