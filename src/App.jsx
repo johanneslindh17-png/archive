@@ -1621,6 +1621,7 @@ export default function App() {
 
   const hlIds = useMemo(() => {
     if (pathHlIds) return pathHlIds;
+    if (pathMode) return null;
     if (!focusId) return null;
     const s = new Set([focusId]);
     visibleEdges.forEach(e => {
@@ -1628,13 +1629,14 @@ export default function App() {
       if (e.to === focusId)   { if (NODE_BY_ID.has(e.from)) s.add(e.from); }
     });
     return s;
-  }, [pathHlIds, focusId, visibleEdges]);
+  }, [pathHlIds, pathMode, focusId, visibleEdges]);
 
   const hlEdges = useMemo(() => {
     if (pathHlEdges) return pathHlEdges;
+    if (pathMode) return null;
     if (!focusId) return null;
     return new Set(visibleEdges.filter(e => e.from === focusId || e.to === focusId).map(e => `${e.from}|${e.to}`));
-  }, [pathHlEdges, focusId, visibleEdges]);
+  }, [pathHlEdges, pathMode, focusId, visibleEdges]);
 
   function handlePanelDragStart(e) {
     // Don't initiate drag from interactive elements
