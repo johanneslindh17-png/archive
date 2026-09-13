@@ -1932,13 +1932,15 @@ export default function App() {
                 // Dim neighbors: also add pulsing text overlay
                 if (nbIsDim) {
                   const txtEl = document.createElementNS(svgNS, 'text');
+                  const cs = window.getComputedStyle(nbEl.querySelector('text'));
                   txtEl.setAttribute('x', p.x);
                   txtEl.setAttribute('y', p.y);
                   txtEl.setAttribute('text-anchor', 'middle');
                   txtEl.setAttribute('dominant-baseline', 'middle');
-                  txtEl.style.fontSize = '5px';
-                  txtEl.style.letterSpacing = '0.04em';
-                  txtEl.style.fontFamily = 'inherit';
+                  txtEl.style.fontSize = cs.fontSize;
+                  txtEl.style.letterSpacing = cs.letterSpacing;
+                  txtEl.style.fontFamily = cs.fontFamily;
+                  txtEl.style.fontWeight = cs.fontWeight;
                   txtEl.style.fill = darkMode ? 'white' : 'black';
                   txtEl.style.pointerEvents = 'none';
                   txtEl.classList.add('nd-march-pulse-text');
