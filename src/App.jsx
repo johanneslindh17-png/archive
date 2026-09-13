@@ -2110,9 +2110,14 @@ export default function App() {
               }
             });
             svgGRef.current.appendChild(frag);
-            // Remove old overlays now that new ones are already in the DOM
+            // Remove old overlays now that new ones are already in the DOM.
+            // Skip the current self node — if it was a neighbor of the previous
+            // hovered node (hov-prev), removing hov-self here would cause a flash.
             oldOverlays.forEach(el => el.parentNode?.removeChild(el));
-            oldHovPrev.forEach(({ el }) => el.classList.remove('hov-self', 'hov-prev'));
+            oldHovPrev.forEach(({ el }) => {
+              if (el === self) return;
+              el.classList.remove('hov-self', 'hov-prev');
+            });
           }
         }}
         onMouseLeave={() => {
