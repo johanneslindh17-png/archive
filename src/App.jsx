@@ -1255,23 +1255,6 @@ export default function App() {
     defs.appendChild(mkGrad('nd-glow-grad-dk', 'white'));
     defs.appendChild(mkGrad('nd-glow-grad-lt', 'black'));
 
-    // Glow filters: blur a copy, merge original on top so dots stay crisp
-    const mkGlow = (id, stdDev) => {
-      const f = document.createElementNS(svgNS, 'filter');
-      f.setAttribute('id', id);
-      f.setAttribute('x', '-80%'); f.setAttribute('y', '-80%');
-      f.setAttribute('width', '360%'); f.setAttribute('height', '360%');
-      const b = document.createElementNS(svgNS, 'feGaussianBlur');
-      b.setAttribute('in', 'SourceGraphic'); b.setAttribute('stdDeviation', stdDev); b.setAttribute('result', 'blur');
-      const m = document.createElementNS(svgNS, 'feMerge');
-      ['blur', 'SourceGraphic'].forEach(src => {
-        const n = document.createElementNS(svgNS, 'feMergeNode');
-        n.setAttribute('in', src); m.appendChild(n);
-      });
-      f.appendChild(b); f.appendChild(m); return f;
-    };
-    defs.appendChild(mkGlow('hov-dot-glow', '0.6'));
-    defs.appendChild(mkGlow('hov-dot-glow-accent', '1.2'));
     layer.appendChild(defs);
 
     // Insert before first child so glows render behind nodes, not over them
@@ -1750,17 +1733,11 @@ export default function App() {
       const mx = (sp.x + tp.x) / 2 + curveX + px * (spread + bidiOffset);
       const my = (sp.y + tp.y) / 2 + curveY + py * (spread + bidiOffset);
       const cls = e.from === hovNode.id ? 'hov-flow-out' : 'hov-flow-in';
-      const d = `M${sp.x},${sp.y} Q${mx},${my} ${tp.x},${tp.y}`;
-      const stroke = darkMode ? 'rgba(255,255,255,0.45)' : 'rgba(0,0,0,0.38)';
-      return [
-        <path key={`${e.from}|${e.to}`}
-          d={d} fill="none" strokeWidth={1} strokeDasharray="2 11" className={cls}
-          stroke={stroke} style={{ filter: 'url(#hov-dot-glow)' }} />,
-        <path key={`${e.from}|${e.to}|a`}
-          d={d} fill="none" strokeWidth={1.5} strokeDasharray="2 37" className={cls}
-          stroke={stroke} style={{ filter: 'url(#hov-dot-glow-accent)' }} />,
-      ];
-    }).flat().filter(Boolean);
+      return <path key={`${e.from}|${e.to}`}
+        d={`M${sp.x},${sp.y} Q${mx},${my} ${tp.x},${tp.y}`}
+        fill="none" strokeWidth={1} strokeDasharray="2 11" className={cls}
+        stroke={darkMode ? 'rgba(255,255,255,0.45)' : 'rgba(0,0,0,0.38)'} />;
+    }).filter(Boolean);
   }, [hovNode, visibleEdges, positions, expandedPositions, expanded, hlEdges, darkMode, trialExhausted]);
 
   // Which nodes would light up on click — drives the marching-ants preview
