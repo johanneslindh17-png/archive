@@ -446,14 +446,14 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   50%       { opacity: 0.78; }
 }
 /* -2s delay so glow starts at brightest point, in phase with text pulse */
-.nd-glow-pulse { animation: nd-glow-pulse 4s ease-in-out -2s infinite; }
+.nd-glow-pulse { animation: nd-glow-pulse 4s ease-in-out -2s infinite; will-change: opacity; }
 
 /* Dim connected nodes background */
 @keyframes nd-dim-bg-pulse {
   0%, 100% { opacity: 0.22; }
   50%       { opacity: 0.38; }
 }
-.nd.dim.hov-prev .nd-bg { animation: nd-dim-bg-pulse 4s ease-in-out -2s infinite; }
+.nd.dim.hov-prev .nd-bg { animation: nd-dim-bg-pulse 4s ease-in-out -2s infinite; will-change: opacity; }
 
 /* Text animations via hover class (replaces React-managed classNames) */
 .nd.hov-self .nd-inner text {
@@ -574,7 +574,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   color:var(--tb-text);transform:translateY(-50%);
   transition:color 0.2s;white-space:nowrap;
 }
-svg.msv{width:100%;height:100%;cursor:grab;background:var(--canvas-bg);transition:background 0.2s}
+svg.msv{width:100%;height:100%;cursor:grab;background:var(--canvas-bg);transition:background 0.2s;contain:layout style;will-change:transform}
 svg.msv:active{cursor:grabbing}
 .nd{cursor:pointer}
 .nd rect{transition:opacity 0.2s}

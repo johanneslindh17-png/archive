@@ -38,6 +38,9 @@ const REGION_LEFTS = {};
 let _cx = LEFT;
 _regionKeys.forEach(k => { REGION_LEFTS[k] = _cx; _cx += REGION_WIDTHS[k]; });
 
+// Precomputed set of region keys that actually contain at least one node
+const REGIONS_WITH_NODES = new Set(NODES.map(n => COUNTRY_REGION[n.country] || 'DE'));
+
 // Tile width for the infinite horizontal wrap.
 // Must be W - LEFT so that the next copy's leftmost content (LATAM divider
 // at SVG x = LEFT + TILE_W = W) lands exactly at the right edge of the screen
@@ -1759,7 +1762,6 @@ export default function App() {
     const isHl = hlIds ? hlIds.has(n.id) : isFilt;
     const isDim = (hlIds && !hlIds.has(n.id)) || (!hlIds && !isFilt);
     const isSel = n.id === selected || n.id === pinned;
-    const isHovSelf = n.id === hovNode?.id;
     const charW = 4.0, pad = 3;
     const isMoment  = n.type === 'moment';
     const isStyle   = n.type === 'style';
@@ -1978,7 +1980,7 @@ export default function App() {
         </g>
       </g>
     );
-  }), [positions, expandedPositions, expanded, filteredIds, hlIds, hovHlIds, hovNode, selected, darkMode, colorTheme]);
+  }), [positions, expandedPositions, expanded, filteredIds, hlIds, selected, darkMode, colorTheme]);
 
   return (
     <div className="app">
@@ -2339,7 +2341,7 @@ export default function App() {
         <div className="column-header-strip" style={themeStyle ? { background: themeStyle.surface, borderBottomColor: themeStyle.border } : undefined}>
           {!expanded && Object.entries(REGIONS).map(([key, r]) => {
             const svgCenterX = (REGION_LEFTS[key] || LEFT) + (REGION_WIDTHS[key] || 0) / 2;
-            const hasNodes = NODES.some(n => (COUNTRY_REGION[n.country] || 'DE') === key);
+            const hasNodes = REGIONS_WITH_NODES.has(key);
             if (!hasNodes) return null;
             const screenX = svgCenterX * tf.k + tf.x;
             if (screenX < -300 || screenX > window.innerWidth + 300) return null;
