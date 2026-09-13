@@ -239,40 +239,10 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   border:none;padding:0;width:46px;height:100%;align-self:stretch;
   cursor:pointer;user-select:none;flex-shrink:0;
   transition:opacity 0.15s;position:relative;overflow:hidden;
-  /* Brutalist B&W: hard-edged strata, top=dark → bottom=light */
-  background-image:
-    repeating-linear-gradient(90deg,rgba(0,0,0,0.08) 0px,rgba(0,0,0,0.08) 1px,transparent 1px,transparent 4px),
-    repeating-linear-gradient(0deg, rgba(0,0,0,0.08) 0px,rgba(0,0,0,0.08) 1px,transparent 1px,transparent 4px),
-    linear-gradient(to bottom,
-      #080808 0%,#080808 17%,
-      #363636 17%,#363636 33%,
-      #6e6e6e 33%,#6e6e6e 50%,
-      #a8a8a8 50%,#a8a8a8 67%,
-      #d4d4d4 67%,#d4d4d4 83%,
-      #f5f5f5 83%);
-  background-size:4px 4px,4px 4px,100% 100%;
-  image-rendering:pixelated;
+  background:linear-gradient(160deg,#080808 0%,#444 38%,#909090 62%,#e0e0e0 84%,#f8f8f8 100%);
 }
 .dark .colorbtn{
-  background-image:
-    repeating-linear-gradient(90deg,rgba(255,255,255,0.06) 0px,rgba(255,255,255,0.06) 1px,transparent 1px,transparent 4px),
-    repeating-linear-gradient(0deg, rgba(255,255,255,0.06) 0px,rgba(255,255,255,0.06) 1px,transparent 1px,transparent 4px),
-    linear-gradient(to bottom,
-      #f2f2f2 0%,#f2f2f2 17%,
-      #b0b0b0 17%,#b0b0b0 33%,
-      #686868 33%,#686868 50%,
-      #303030 50%,#303030 67%,
-      #101010 67%,#101010 83%,
-      #030303 83%);
-  background-size:4px 4px,4px 4px,100% 100%;
-}
-/* Pixel grid texture on top of inline color gradient (set via JS style.background) */
-.colorbtn::before{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background-image:
-    repeating-linear-gradient(90deg,rgba(0,0,0,0.11) 0px,rgba(0,0,0,0.11) 1px,transparent 1px,transparent 4px),
-    repeating-linear-gradient(0deg, rgba(0,0,0,0.11) 0px,rgba(0,0,0,0.11) 1px,transparent 1px,transparent 4px);
-  background-size:4px 4px;image-rendering:pixelated;
+  background:linear-gradient(160deg,#f6f6f6 0%,#aaa 35%,#585858 60%,#181818 82%,#040404 100%);
 }
 .colorbtn:hover{ opacity:0.82; }
 .colorbtn.on{ opacity:1; }

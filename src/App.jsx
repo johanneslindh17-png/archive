@@ -1521,10 +1521,7 @@ export default function App() {
     if (!colorTheme) return null;
     const sw = THEME_SWATCHES[colorTheme];
     if (!sw) return null;
-    // Hard-edged horizontal bands — matches B&W brutalist style
-    const pct = 100 / sw.length;
-    const stops = sw.map((c, i) => `${c} ${(i * pct).toFixed(1)}% ${((i + 1) * pct).toFixed(1)}%`).join(', ');
-    return `linear-gradient(to bottom, ${stops})`;
+    return `linear-gradient(160deg, ${sw.join(', ')})`;
   }, [colorTheme]);
 
   const selNode = NODE_BY_ID.get(selected);
