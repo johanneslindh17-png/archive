@@ -396,6 +396,8 @@ export default function App() {
   const marchOverlayRef = useRef([]);
   const glowLayerRef    = useRef(null);
   const nodeFontCacheRef = useRef(null); // cached once — all nodes share the same font
+  const searchInputRef = useRef(null);
+  const pathResultRef = useRef(null);
 
 
   function clearMarchOverlay() {
@@ -1603,8 +1605,75 @@ export default function App() {
     return bfsPath(pathNodes[0], pathNodes[1]);
   }, [pathMode, pathNodes]);
 
+  pathResultRef.current = pathResult;
+
   // Reset step index whenever a new path is computed
   useEffect(() => { setPathStep(null); }, [pathResult]);
+
+  // Global keyboard controls
+  useEffect(() => {
+    function onKey(e) {
+      const tag = document.activeElement?.tagName;
+      const inInput = tag === 'INPUT' || tag === 'TEXTAREA' || document.activeElement?.isContentEditable;
+
+      // Escape always works: exit path → close panel → clear all
+      if (e.key === 'Escape') {
+        if (inInput) { searchInputRef.current?.blur(); return; }
+        if (pathMode) { setPathMode(false); setPathNodes([]); setPathStep(null); return; }
+        if (selected) { closePanel(); return; }
+        clearAll();
+        return;
+      }
+
+      // All other shortcuts skip when an input is focused
+      if (inInput) return;
+
+      if (e.key === 'Backspace') {
+        e.preventDefault();
+        if (history.length > 0) goBack();
+        else clearAll();
+        return;
+      }
+
+      // Focus search
+      if (e.key === '/' || e.key === 'f') {
+        e.preventDefault();
+        searchInputRef.current?.focus();
+        return;
+      }
+
+      // Fly home
+      if (e.key === 'h') { flyHome(); return; }
+
+      // Path step navigation (← →)
+      if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight') && pathMode && pathResultRef.current) {
+        e.preventDefault();
+        const pr = pathResultRef.current;
+        const i = e.key === 'ArrowLeft'
+          ? (pathStep === null ? null : pathStep - 1)
+          : (pathStep === null ? 0 : pathStep + 1);
+        if (i !== null && i >= 0 && i < pr.length) { setPathStep(i); selectNode(pr[i]); scrollToNode(pr[i], 0.2); }
+        return;
+      }
+
+      // Map pan — arrow keys
+      if ((e.key === 'ArrowUp' || e.key === 'ArrowDown') && zoomRef.current && svgRef.current) {
+        e.preventDefault();
+        const dy = e.key === 'ArrowUp' ? 120 : -120;
+        d3.select(svgRef.current).call(zoomRef.current.translateBy, 0, dy);
+        return;
+      }
+      if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight') && !pathMode && zoomRef.current && svgRef.current) {
+        e.preventDefault();
+        const dx = e.key === 'ArrowLeft' ? 80 : -80;
+        d3.select(svgRef.current).call(zoomRef.current.translateBy, dx, 0);
+        return;
+      }
+    }
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathMode, pathStep, selected, history]);
 
   const pathHlIds = useMemo(() => {
     if (!pathMode || pathNodes.length < 2) return null;
@@ -1922,8 +1991,9 @@ export default function App() {
         transform={`translate(${pos.x},${pos.y})`}
         onClick={(ev) => {
           if (pathMode) {
-            if (pathResult) {
-              const idx = pathResult.indexOf(n.id);
+            const pr = pathResultRef.current;
+            if (pr) {
+              const idx = pr.indexOf(n.id);
               if (idx !== -1) {
                 setPathStep(idx);
                 selectNode(n.id);
@@ -2065,7 +2135,7 @@ export default function App() {
         </g>
       </g>
     );
-  }), [positions, expandedPositions, expanded, filteredIds, hlIds, selected, darkMode, colorTheme, pathMode, pathResult, setPathNodes, setPathStep, selectNode, scrollToNode]);
+  }), [positions, expandedPositions, expanded, filteredIds, hlIds, selected, darkMode, colorTheme, pathMode, setPathNodes, setPathStep, selectNode, scrollToNode]);
 
   return (
     <div className="app">
@@ -2084,6 +2154,7 @@ export default function App() {
         <div className="sw">
           <span className="si">⌕</span>
           <input
+            ref={searchInputRef}
             placeholder="Search artist, label, club, city, style…" value={searchQ}
             onChange={e => { setSearchQ(e.target.value); setSearchActiveIdx(-1); clearAll(); }}
             onFocus={() => setSearchFocus(true)}
