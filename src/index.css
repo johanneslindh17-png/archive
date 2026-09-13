@@ -414,6 +414,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 @keyframes hov-dash-in  { from { stroke-dashoffset:  0; } to { stroke-dashoffset: 13; } }
 .hov-flow-out { animation: hov-dash-out 1s linear infinite; }
 .hov-flow-in  { animation: hov-dash-in  1s linear infinite; }
+svg.msv.edges-animating .eg.lit { opacity: 0 !important; }
 
 /* Marching ants: same dash pattern (2 11) as edge hover dashes, dashoffset -13 = one full cycle */
 /* March stroke colours — dark/light aware */

@@ -1870,20 +1870,21 @@ export default function App() {
             setPanelOnLeft(false);
             setPanelX(null);
           } else {
-            // If this node is currently hovered, animate the edges drawing on before selecting
             const wasHovered = hovNodeRef.current?.id === n.id;
             if (wasHovered && svgGRef.current) {
               const svgNS = 'http://www.w3.org/2000/svg';
-              const DRAW_DURATION = 420;
+              const DRAW_DURATION = 280;
               const stroke = darkMode ? 'rgba(255,255,255,0.55)' : 'rgba(0,0,0,0.48)';
-              // Fade out the marching dots
-              svgGRef.current.querySelectorAll('.hov-flow-out,.hov-flow-in').forEach(p => {
-                p.style.transition = `opacity ${DRAW_DURATION * 0.5}ms ease-out`;
-                p.style.opacity = '0';
-              });
-              // Create draw-on overlay paths for each connected edge
+              // 1. Snap nodes immediately — dim others, highlight clicked node + neighbours
+              selectNode(n.id);
+              positionPanel(n.id, d3.zoomTransform(svgRef.current));
+              // 2. Hide the highlighted edges while the draw-on plays
+              svgRef.current?.classList.add('edges-animating');
+              // 3. Fade out marching dots and build draw-on overlay paths in one pass
               const overlays = [];
               svgGRef.current.querySelectorAll('.hov-flow-out,.hov-flow-in').forEach(p => {
+                p.style.transition = `opacity ${DRAW_DURATION * 0.4}ms ease-out`;
+                p.style.opacity = '0';
                 const d = p.getAttribute('d');
                 if (!d) return;
                 const ol = document.createElementNS(svgNS, 'path');
@@ -1898,17 +1899,17 @@ export default function App() {
                 ol.style.strokeDashoffset = `${len}`;
                 overlays.push(ol);
               });
-              // Double rAF so initial dashoffset is committed before transition fires
+              // 4. Double rAF so initial dashoffset renders before transition fires
               requestAnimationFrame(() => requestAnimationFrame(() => {
                 overlays.forEach(ol => {
                   ol.style.transition = `stroke-dashoffset ${DRAW_DURATION}ms ease-out`;
                   ol.style.strokeDashoffset = '0';
                 });
               }));
+              // 5. Reveal the real highlighted edges once lines are fully drawn
               setTimeout(() => {
                 overlays.forEach(ol => ol.parentNode?.removeChild(ol));
-                selectNode(n.id);
-                positionPanel(n.id, d3.zoomTransform(svgRef.current));
+                svgRef.current?.classList.remove('edges-animating');
               }, DRAW_DURATION + 20);
             } else {
               selectNode(n.id);
