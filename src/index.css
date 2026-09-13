@@ -1421,21 +1421,22 @@ path.eg.dim{opacity:0.055}
   background: rgba(224, 72, 72, 0.1);
 }
 
-/* ── Perkons voice-column panel ── */
+/* ── Perkons voice-column panel — always dark hardware ── */
 .gv-panel {
   display: flex;
   align-items: stretch;
   padding: 8px 10px 7px;
-  border-bottom: 1px solid var(--tb-border);
+  border-bottom: 1px solid #1c1c26;
   gap: 0;
   min-height: 126px;
+  background: #0a0a10;
 }
 
 .gv-divider-v {
   width: 1px;
-  background: var(--tb-border);
+  background: #1e1e2c;
   align-self: stretch;
-  margin: 0 6px;
+  margin: 0 4px;
   flex-shrink: 0;
 }
 
@@ -1444,52 +1445,41 @@ path.eg.dim{opacity:0.055}
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  padding: 0 4px;
+  gap: 2px;
+  padding: 0 3px;
   transition: opacity 0.15s;
 }
-.gv-col--muted { opacity: 0.35; }
+.gv-col--muted { opacity: 0.30; }
 
 .gv-col-label {
-  font-size: 0.45rem;
-  letter-spacing: 0.12em;
-  color: var(--tb-text);
+  font-size: 0.42rem;
+  letter-spacing: 0.1em;
+  color: #8888a8;
   font-weight: 600;
   text-align: center;
-  margin-bottom: 1px;
+  margin-bottom: 2px;
 }
 
 .gv-param {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1px;
 }
 
 .gv-param-lbl {
-  font-size: 0.36rem;
-  letter-spacing: 0.07em;
-  color: var(--tb-text-dim);
+  font-size: 0.34rem;
+  letter-spacing: 0.06em;
+  color: #4a4a60;
+  text-align: center;
 }
 
-.gv-param-sl {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100%;
-  height: 2px;
-  background: var(--tb-border);
-  outline: none;
-  cursor: pointer;
-  display: block;
-}
-.gv-param-sl::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 7px;
-  height: 7px;
-  background: var(--tb-text-mid);
-  border-radius: 50%;
-  cursor: pointer;
-}
-.gv-param-sl:hover::-webkit-slider-thumb { background: var(--tb-text); }
+/* Rotary knob */
+.gv-knob { display: block; cursor: ns-resize; flex-shrink: 0; }
+.gv-knob-body { fill: #16161e; stroke: #353548; stroke-width: 1.5; }
+.gv-knob-line { stroke: #d8d4c8; stroke-width: 1.5; stroke-linecap: round; }
+.gv-knob:hover .gv-knob-body { stroke: #5a5a7a; }
+.gv-knob:hover .gv-knob-line { stroke: #f0ece0; }
 
 .gv-send-row {
   display: flex;
@@ -1499,9 +1489,9 @@ path.eg.dim{opacity:0.055}
 
 .gv-send-btn {
   flex: 1;
-  border: 1px solid var(--tb-border);
-  background: transparent;
-  color: var(--tb-text-dim);
+  border: 1px solid #252530;
+  background: #0e0e18;
+  color: #383848;
   font-family: 'Syne Mono', monospace;
   font-size: 0.34rem;
   letter-spacing: 0.04em;
@@ -1512,9 +1502,9 @@ path.eg.dim{opacity:0.055}
   text-align: center;
   white-space: nowrap;
 }
-.gv-send-btn:hover { color: var(--tb-text); }
-.gv-send-btn.on.lv1 { color: var(--tb-text-mid); border-color: var(--tb-text-mid); }
-.gv-send-btn.on.lv2 { color: var(--tb-text); border-color: var(--tb-text); }
+.gv-send-btn:hover { color: #7070a0; border-color: #353550; }
+.gv-send-btn.on.lv1 { color: #6060c0; border-color: #4040a0; background: #14141e; }
+.gv-send-btn.on.lv2 { color: #a0a0f0; border-color: #7070c8; background: #16162a; }
 
 /* ── Sequencer rows ── */
 .groove-seq {
@@ -1567,10 +1557,10 @@ path.eg.dim{opacity:0.055}
 .groove-step.on.cur { outline-color: var(--tb-bg); }
 .groove-step.muted { opacity: 0.28; }
 
-/* Synth steps */
+/* Synth steps — same width as drum steps so all rows align */
 .groove-step--synth {
-  width: 24px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   position: relative;
   display: flex;
   align-items: center;

@@ -1,5 +1,34 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 
+// ── Rotary knob ──────────────────────────────────────────────────────────────
+
+function Knob({ value, onChange, size = 26 }) {
+  const angle = -135 + value * 270;
+  const rad   = (angle * Math.PI) / 180;
+  const cx = size / 2, cy = size / 2;
+  const r  = size / 2 - 2.5;
+  const len = r - 3;
+  const lx = cx + Math.sin(rad) * len;
+  const ly = cy - Math.cos(rad) * len;
+
+  function onMouseDown(e) {
+    e.preventDefault();
+    const startY   = e.clientY;
+    const startVal = value;
+    const onMove = ev => onChange(Math.max(0, Math.min(1, startVal + (startY - ev.clientY) / 80)));
+    const onUp   = () => { document.removeEventListener('mousemove', onMove); document.removeEventListener('mouseup', onUp); };
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onUp);
+  }
+
+  return (
+    <svg width={size} height={size} className="gv-knob" onMouseDown={onMouseDown}>
+      <circle cx={cx} cy={cy} r={r} className="gv-knob-body" />
+      <line   x1={cx} y1={cy} x2={lx} y2={ly} className="gv-knob-line" />
+    </svg>
+  );
+}
+
 // ── Voice definitions ────────────────────────────────────────────────────────
 
 const DRUM_TRACKS = [
@@ -386,23 +415,20 @@ export function Groovebox({ open, onClose, darkMode }) {
         <div className="gv-col-label">{label}</div>
         {params.map(({ key, label: lbl }) => (
           <div key={key} className="gv-param">
+            <Knob value={vparams[id][key] ?? 0.5}
+              onChange={v => setVparams(p => ({ ...p, [id]: { ...p[id], [key]: v } }))} />
             <span className="gv-param-lbl">{lbl}</span>
-            <input type="range" className="gv-param-sl" min="0" max="1" step="0.01"
-              value={vparams[id][key] ?? 0.5}
-              onChange={e => setVparams(p => ({ ...p, [id]: { ...p[id], [key]: +e.target.value } }))} />
           </div>
         ))}
         <div className="gv-param">
-          <span className="gv-param-lbl">FILTER</span>
-          <input type="range" className="gv-param-sl" min="0" max="1" step="0.01"
-            value={trackFilter[id]}
-            onChange={e => setWithAuto(setTrackFilter, id, +e.target.value, 'filter')} />
+          <Knob value={trackFilter[id]}
+            onChange={v => setWithAuto(setTrackFilter, id, v, 'filter')} />
+          <span className="gv-param-lbl">FILT</span>
         </div>
         <div className="gv-param">
+          <Knob value={trackVol[id]}
+            onChange={v => setWithAuto(setTrackVol, id, v, 'vol')} />
           <span className="gv-param-lbl">VOL</span>
-          <input type="range" className="gv-param-sl" min="0" max="1" step="0.01"
-            value={trackVol[id]}
-            onChange={e => setWithAuto(setTrackVol, id, +e.target.value, 'vol')} />
         </div>
         <div className="gv-send-row">
           <button
