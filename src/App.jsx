@@ -523,6 +523,7 @@ export default function App() {
   const [verifyError, setVerifyError] = useState('');
   const [pathMode, setPathMode] = useState(false);
   const [pathNodes, setPathNodes] = useState([]);
+  const [pathStep, setPathStep] = useState(null);
   const deepLinkNodeRef = useRef(null);
 
   const TRIAL_LIMIT = 9999;
@@ -1602,6 +1603,9 @@ export default function App() {
     return bfsPath(pathNodes[0], pathNodes[1]);
   }, [pathMode, pathNodes]);
 
+  // Reset step index whenever a new path is computed
+  useEffect(() => { setPathStep(null); }, [pathResult]);
+
   const pathHlIds = useMemo(() => {
     if (!pathMode || pathNodes.length < 2) return null;
     if (pathResult) return new Set(pathResult);
@@ -1918,11 +1922,21 @@ export default function App() {
         transform={`translate(${pos.x},${pos.y})`}
         onClick={(ev) => {
           if (pathMode) {
+            if (pathResult) {
+              const idx = pathResult.indexOf(n.id);
+              if (idx !== -1) {
+                setPathStep(idx);
+                selectNode(n.id);
+                scrollToNode(n.id, 0.2);
+                return;
+              }
+            }
             setPathNodes(prev => {
               if (prev.length === 0) return [n.id];
               if (prev.length === 1) return prev[0] === n.id ? [] : [prev[0], n.id];
               return [n.id];
             });
+            setPathStep(null);
             return;
           }
           if (isSel) {
@@ -2051,7 +2065,7 @@ export default function App() {
         </g>
       </g>
     );
-  }), [positions, expandedPositions, expanded, filteredIds, hlIds, selected, darkMode, colorTheme, pathMode, setPathNodes]);
+  }), [positions, expandedPositions, expanded, filteredIds, hlIds, selected, darkMode, colorTheme, pathMode, pathResult, setPathNodes, setPathStep, selectNode, scrollToNode]);
 
   return (
     <div className="app">
@@ -2134,6 +2148,25 @@ export default function App() {
                 <span className="pathbar-arrow"> → </span>
                 <span className="pathbar-node">{NODE_BY_ID.get(pathNodes[1])?.label}</span>
                 <span className="pathbar-hops"> · {pathResult.length - 1} hop{pathResult.length !== 2 ? 's' : ''}</span>
+                <span className="pathbar-steps">
+                  <button className="pathbar-step" disabled={pathStep === null || pathStep === 0}
+                    onClick={() => {
+                      const i = (pathStep ?? 0) - 1;
+                      setPathStep(i);
+                      const id = pathResult[i];
+                      selectNode(id); scrollToNode(id, 0.2);
+                    }}>←</button>
+                  <span className="pathbar-stepnum">
+                    {pathStep !== null ? `${pathStep + 1}/${pathResult.length}` : 'step'}
+                  </span>
+                  <button className="pathbar-step" disabled={pathStep === pathResult.length - 1}
+                    onClick={() => {
+                      const i = pathStep === null ? 0 : pathStep + 1;
+                      setPathStep(i);
+                      const id = pathResult[i];
+                      selectNode(id); scrollToNode(id, 0.2);
+                    }}>→</button>
+                </span>
               </span>
             )}
             {pathNodes.length === 2 && !pathResult && (
