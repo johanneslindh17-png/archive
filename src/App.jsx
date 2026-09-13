@@ -991,6 +991,7 @@ export default function App() {
   const animFrameRef = useRef(null);    // ongoing momentum rAF handle
   const tfRef = useRef({ k: 1, x: 0, y: 0 }); // always-current transform for click handlers
   const expandedRef = useRef(null);     // always-current expanded key for zoom end handler
+  const hovNodeRef = useRef(null);      // always-current hovNode for click handlers (avoids nodeEls dep)
 
   const [searchFocus, setSearchFocus] = useState(false);
   const [searchActiveIdx, setSearchActiveIdx] = useState(-1);
@@ -1172,6 +1173,7 @@ export default function App() {
 
   // Keep refs in sync so zoom event handlers always see current values
   useEffect(() => { tfRef.current = tf; }, [tf]);
+  useEffect(() => { hovNodeRef.current = hovNode; }, [hovNode]);
   useEffect(() => { expandedRef.current = expanded; }, [expanded]);
 
   // Refresh the last-visit timestamp when welcome is skipped (returning within an hour)
@@ -1868,8 +1870,50 @@ export default function App() {
             setPanelOnLeft(false);
             setPanelX(null);
           } else {
-            selectNode(n.id);
-            positionPanel(n.id, d3.zoomTransform(svgRef.current));
+            // If this node is currently hovered, animate the edges drawing on before selecting
+            const wasHovered = hovNodeRef.current?.id === n.id;
+            if (wasHovered && svgGRef.current) {
+              const svgNS = 'http://www.w3.org/2000/svg';
+              const DRAW_DURATION = 420;
+              const stroke = darkMode ? 'rgba(255,255,255,0.55)' : 'rgba(0,0,0,0.48)';
+              // Fade out the marching dots
+              svgGRef.current.querySelectorAll('.hov-flow-out,.hov-flow-in').forEach(p => {
+                p.style.transition = `opacity ${DRAW_DURATION * 0.5}ms ease-out`;
+                p.style.opacity = '0';
+              });
+              // Create draw-on overlay paths for each connected edge
+              const overlays = [];
+              svgGRef.current.querySelectorAll('.hov-flow-out,.hov-flow-in').forEach(p => {
+                const d = p.getAttribute('d');
+                if (!d) return;
+                const ol = document.createElementNS(svgNS, 'path');
+                ol.setAttribute('d', d);
+                ol.setAttribute('fill', 'none');
+                ol.setAttribute('stroke-width', '1');
+                ol.setAttribute('stroke', stroke);
+                ol.style.pointerEvents = 'none';
+                svgGRef.current.appendChild(ol);
+                const len = ol.getTotalLength();
+                ol.style.strokeDasharray = `${len} ${len}`;
+                ol.style.strokeDashoffset = `${len}`;
+                overlays.push(ol);
+              });
+              // Double rAF so initial dashoffset is committed before transition fires
+              requestAnimationFrame(() => requestAnimationFrame(() => {
+                overlays.forEach(ol => {
+                  ol.style.transition = `stroke-dashoffset ${DRAW_DURATION}ms ease-out`;
+                  ol.style.strokeDashoffset = '0';
+                });
+              }));
+              setTimeout(() => {
+                overlays.forEach(ol => ol.parentNode?.removeChild(ol));
+                selectNode(n.id);
+                positionPanel(n.id, d3.zoomTransform(svgRef.current));
+              }, DRAW_DURATION + 20);
+            } else {
+              selectNode(n.id);
+              positionPanel(n.id, d3.zoomTransform(svgRef.current));
+            }
           }
         }}
         onMouseEnter={ev => {
