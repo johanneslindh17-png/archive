@@ -3162,4 +3162,38 @@
   { from:'berghain',        to:'dj_nobu',               strength:2, type:'aesthetic' },
   { from:'tresor_club',     to:'dj_nobu',               strength:1, type:'aesthetic' },
   { from:'ambient_techno',  to:'dj_nobu',               strength:1, type:'influence' },
+
+  // -- ANNA ------------------------------------------------------------------
+  { from:'brazil_scene',    to:'anna',                  strength:2, type:'roster' },
+
+  // -- RED AXES --------------------------------------------------------------
+  { from:'hivern_discs',    to:'red_axes',              strength:2, type:'roster' },
+
+  // -- JOHANNES HEIL ---------------------------------------------------------
+  { from:'drumcode',        to:'johannes_heil',         strength:2, type:'roster' },
+
+  // -- OLIVER LIEB -----------------------------------------------------------
+  { from:'sven_vath',       to:'oliver_lieb',           strength:3, type:'collab' },
+  { from:'hardfloor',       to:'oliver_lieb',           strength:1, type:'aesthetic' },
+
+  // -- FATIMA YAMAHA ---------------------------------------------------------
+  { from:'rush_hour',       to:'fatima_yamaha',         strength:3, type:'roster' },
+
+  // -- AURORA HALAL ----------------------------------------------------------
+  { from:'nyc_scene',       to:'aurora_halal',          strength:2, type:'roster' },
+  { from:'lies_records',    to:'aurora_halal',          strength:2, type:'roster' },
+
+  // -- LUOMO -----------------------------------------------------------------
+  { from:'vladislav_delay', to:'luomo',                 strength:3, type:'lineage' },
+  { from:'perlon',          to:'luomo',                 strength:1, type:'aesthetic' },
+
+  // -- CALIBRE ---------------------------------------------------------------
+  { from:'metalheadz',      to:'calibre',               strength:3, type:'roster' },
+  { from:'drum_and_bass',   to:'calibre',               strength:2, type:'lineage' },
+
+  // -- VITALIC ---------------------------------------------------------------
+  { from:'french_touch',    to:'vitalic',               strength:1, type:'influence' },
+
+  // -- CATERINA BARBIERI -----------------------------------------------------
+  { from:'raster_noton',    to:'caterina_barbieri',     strength:1, type:'aesthetic' },
 ];

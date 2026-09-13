@@ -5886,4 +5886,75 @@ export const NODES = [
     releases: [
       { title: '"Who\'s Afraid of Detroit?" — Claude VonStroke', year: 2006 },
     ]},
+
+  // ── NEWLY ADDED ─────────────────────────────────────────────────────────────
+
+  { id:'anna', label:'ANNA', type:'artist', genre:'techno', era:2010, city:'São Paulo', country:'BR',
+    desc:'Anna Camacho is a São Paulo-born DJ and producer who became one of Brazil\'s most internationally recognised figures in techno. She founded the Chaos & Order imprint and has been a regular presence at Berghain, Fabric, and Time Warp. Her sound spans driving, melodic techno with a strong sense of space and dynamics.',
+    releases: [
+      { title: '\'Synapse\' EP (Chaos & Order)', year: 2014 },
+      { title: '\'Thrive\' LP (Chaos & Order)', year: 2022 },
+    ]},
+
+  { id:'red_axes', label:'Red Axes', type:'artist', genre:'house', era:2012, city:'Tel Aviv', country:'IL',
+    desc:'Red Axes is the Tel Aviv duo of Dori Sadovnik and Niv Arzi. Their music dissolves the boundary between electronic club music, post-punk, and psychedelia — mixing drum machines with guitars and world-music textures. Known for playful, genre-defying DJ sets and releases on Hivern Discs, they are among the most eclectic voices in contemporary electronic music.',
+    releases: [
+      { title: '\'Red Axes\' LP (Dark Entries)', year: 2017 },
+      { title: '\'Out of Focus\' (Hivern Discs)', year: 2020 },
+    ]},
+
+  { id:'johannes_heil', label:'Johannes Heil', type:'artist', genre:'techno', era:1993, city:'Frankfurt', country:'DE',
+    desc:'Johannes Heil is a German producer who emerged from the Frankfurt underground in the early 1990s and has built a body of work that moves between brutal industrial techno and atmospheric electronic music. He has released on Disko B and Drumcode, and his uncompromising, hypnotic productions were an important influence on the harder strands of Berlin techno.',
+    releases: [
+      { title: '\'Wir Sind Eins\' (Disko B)', year: 2004 },
+      { title: '\'Love & Other Disasters\' LP', year: 2014 },
+    ]},
+
+  { id:'oliver_lieb', label:'Oliver Lieb', type:'artist', genre:'techno', era:1991, city:'Frankfurt', country:'DE',
+    desc:'Oliver Lieb is a Frankfurt-based producer who was a central figure in the early 1990s German trance and techno explosion. He co-founded Eye Q Records alongside Sven Väth and Rolf Ellmer, and records under aliases including Spicelab and L.S.G. His work helped shape the euphoric, driving sound of early European trance before that style diverged sharply from techno.',
+    releases: [
+      { title: '\'Compuphonic\' as Spicelab (Harthouse)', year: 1993 },
+      { title: '\'Loverboy\' as L.S.G. (Superstition)', year: 1996 },
+    ]},
+
+  { id:'fatima_yamaha', label:'Fatima Yamaha', type:'artist', genre:'house', era:2004, city:'Amsterdam', country:'NL',
+    desc:'Fatima Yamaha is the alias of Dutch producer Bas Bron. His track "What\'s a Girl to Do?" was released in 2004 on Rush Hour\'s Magnetron Music sublabel before going viral when reissued in 2014 — becoming one of the decade\'s most shared electronic records. The track\'s yearning, stripped-back electro-disco style introduced an entire generation to his emotionally direct, lo-fi approach.',
+    releases: [
+      { title: '\'What\'s a Girl to Do?\' (Magnetron Music)', year: 2004 },
+      { title: '\'Spontaneous Order\' LP (Magnetron)', year: 2019 },
+    ]},
+
+  { id:'aurora_halal', label:'Aurora Halal', type:'artist', genre:'techno', era:2012, city:'New York', country:'US',
+    desc:'Aurora Halal is a New York-based DJ, producer, and visual artist embedded in the city\'s experimental underground. She co-founded the Sustain-Release festival in upstate New York, which became a key gathering point for the US underground techno community. Her DJ sets and productions explore industrial, noise, and club music at their furthest edges, and she has released on LIES Records.',
+    releases: [
+      { title: '\'Blur\' EP (LIES Records)', year: 2016 },
+    ]},
+
+  { id:'luomo', label:'Luomo', type:'artist', genre:'house', era:2000, city:'Helsinki', country:'FI',
+    desc:'Luomo is the house alias of Finnish artist Sasu Ripatti, who also records as Vladislav Delay and Uusitalo. Under this name he produced microhouse built around voice recordings and organic textures. His debut album "Vocalcity" (2000, Force Tracks) became a defining document of the early 2000s microhouse movement, influencing producers across Europe who were seeking a more human-sounding approach to minimal club music.',
+    releases: [
+      { title: '\'Vocalcity\' LP (Force Tracks)', year: 2000 },
+      { title: '\'The Present Lover\' LP (Force Tracks)', year: 2003 },
+    ]},
+
+  { id:'calibre', label:'Calibre', type:'artist', genre:'techno', era:2002, city:'Belfast', country:'UK',
+    desc:'Calibre is the alias of Northern Irish producer Dominick Martin, one of drum and bass\'s most distinctive and melodically-minded voices. His music moves away from the genre\'s harder neurofunk directions toward deep, soulful textures often compared to late-night jazz or soul music. He has released extensively on Metalheadz and runs his own Signature Records imprint.',
+    releases: [
+      { title: '\'Even If\' EP (Metalheadz)', year: 2001 },
+      { title: '\'Shelflife 2\' LP (Signature)', year: 2009 },
+    ]},
+
+  { id:'vitalic', label:'Vitalic', type:'artist', genre:'techno', era:2001, city:'Bordeaux', country:'FR',
+    desc:'Vitalic is the alias of French producer Pascal Arbez, from Dordogne in southwest France. He emerged on DJ Hell\'s Gigolo Records with "My Friend Dario" in 2001 — a track that became one of the decade\'s most celebrated pieces of hard electronic music — and his debut album "OK Cowboy" (2005) cemented his reputation for music that fuses electro, techno, and rave energy into a distinctly sardonic French form.',
+    releases: [
+      { title: '\'My Friend Dario\' (Gigolo Records)', year: 2001 },
+      { title: '\'OK Cowboy\' LP (Different)', year: 2005 },
+    ]},
+
+  { id:'caterina_barbieri', label:'Caterina Barbieri', type:'artist', genre:'experimental', era:2017, city:'Bologna', country:'IT',
+    desc:'Caterina Barbieri is an Italian composer and electronic musician, based in Berlin, whose work explores the perceptual and meditative possibilities of modular synthesis. She uses extended sequencing patterns to produce music that unfolds in slow transformations, blurring the line between spectral composition and trance-inducing repetition. Her albums "Patterns of Consciousness" (2017) and "Ecstatic Computation" (2019) established her as one of the most significant voices in contemporary electronic composition.',
+    releases: [
+      { title: '\'Patterns of Consciousness\' LP (Important)', year: 2017 },
+      { title: '\'Ecstatic Computation\' LP (light-years)', year: 2019 },
+    ]},
 ];

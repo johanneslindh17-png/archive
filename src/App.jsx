@@ -318,8 +318,9 @@ const TOUR_STEPS = [
   {
     id: 'player',
     title: 'HEAR THE HISTORY',
-    body: "When an artist has music on Bandcamp, the player is built right in. It keeps playing as you explore — the whole history, with a soundtrack.",
+    body: "When an artist has music on Bandcamp, the player is built right in. It keeps playing as you explore — the whole history, with a soundtrack. Or follow the link to their Spotify page.",
     getTarget: () => document.querySelector('.player-inline'),
+    getSecondTarget: () => document.querySelector('.dp-spotify-link'),
     cardSide: 'persist',
     onEnter: ctx => { ctx.setPlayingNodeId('surgeon'); },
     delay: 200,
@@ -813,7 +814,7 @@ export default function App() {
         persistCardRef.current = null;
         const centerLeft = Math.round(vw / 2 - CARD_W / 2);
         const centerTop  = Math.round(vh / 2 - CARD_H / 2);
-        setTourHL({ side: 'center', cardStyle: { left: centerLeft, top: centerTop, width: CARD_W }, tx: 0, ty: 0, tw: 0, th: 0, lineStart: null, lineEnd: null, ready: true });
+        setTourHL({ side: 'center', cardStyle: { left: centerLeft, top: centerTop, width: CARD_W }, tx: 0, ty: 0, tw: 0, th: 0, lineStart: null, lineEnd: null, secondLineStart: null, secondLineEnd: null, ready: true });
         return;
       }
 
@@ -832,12 +833,12 @@ export default function App() {
 
       const el = step.getTarget?.();
       if (!el) {
-        setTourHL({ side: 'persist', cardStyle: cp, tx: 0, ty: 0, tw: 0, th: 0, lineStart: null, lineEnd: null, ready: true });
+        setTourHL({ side: 'persist', cardStyle: cp, tx: 0, ty: 0, tw: 0, th: 0, lineStart: null, lineEnd: null, secondLineStart: null, secondLineEnd: null, ready: true });
         return;
       }
       const r = el.getBoundingClientRect();
       if (!r.width && !r.height) {
-        setTourHL({ side: 'persist', cardStyle: cp, tx: 0, ty: 0, tw: 0, th: 0, lineStart: null, lineEnd: null, ready: true });
+        setTourHL({ side: 'persist', cardStyle: cp, tx: 0, ty: 0, tw: 0, th: 0, lineStart: null, lineEnd: null, secondLineStart: null, secondLineEnd: null, ready: true });
         return;
       }
 
@@ -870,7 +871,33 @@ export default function App() {
         tx - 6, ty - 6, tx + tw + 6, ty + th + 6, 8
       );
 
-      setTourHL({ tx, ty, tw, th, cardStyle: cp, lineStart, lineEnd, side: 'persist', ready: true });
+      // Optional second arrow for steps that have a secondary target element.
+      let secondLineStart = null, secondLineEnd = null;
+      if (step.getSecondTarget) {
+        const el2 = step.getSecondTarget();
+        if (el2) {
+          const r2 = el2.getBoundingClientRect();
+          if (r2.width || r2.height) {
+            const t2cx = r2.left + r2.width / 2;
+            const t2cy = r2.top + r2.height / 2;
+            if (t2cy < cp.top) {
+              secondLineStart = { x: cp.left + CARD_W / 2, y: cp.top };
+            } else if (t2cy > cp.top + CARD_H) {
+              secondLineStart = { x: cp.left + CARD_W / 2, y: cp.top + CARD_H };
+            } else if (t2cx > cp.left + CARD_W) {
+              secondLineStart = { x: cp.left + CARD_W, y: cardCy };
+            } else {
+              secondLineStart = { x: cp.left, y: cardCy };
+            }
+            secondLineEnd = lineRectEntry(
+              secondLineStart.x, secondLineStart.y, t2cx, t2cy,
+              r2.left - 6, r2.top - 6, r2.left + r2.width + 6, r2.top + r2.height + 6, 8
+            );
+          }
+        }
+      }
+
+      setTourHL({ tx, ty, tw, th, cardStyle: cp, lineStart, lineEnd, secondLineStart, secondLineEnd, side: 'persist', ready: true });
     }, ms);
     return () => {
       clearTimeout(t0);
@@ -2811,6 +2838,14 @@ export default function App() {
               stroke="currentColor" strokeWidth="1.5" strokeDasharray="6 4" opacity="0.75"
               markerEnd="url(#tour-ah)"
             />
+            {tourHL.secondLineStart && (
+              <line
+                x1={tourHL.secondLineStart.x} y1={tourHL.secondLineStart.y}
+                x2={tourHL.secondLineEnd.x}   y2={tourHL.secondLineEnd.y}
+                stroke="currentColor" strokeWidth="1.5" strokeDasharray="6 4" opacity="0.75"
+                markerEnd="url(#tour-ah)"
+              />
+            )}
           </svg>
         )}
 
