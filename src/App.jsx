@@ -1255,18 +1255,23 @@ export default function App() {
     defs.appendChild(mkGrad('nd-glow-grad-dk', 'white'));
     defs.appendChild(mkGrad('nd-glow-grad-lt', 'black'));
 
-    // SVG blur filters for hover edge dot glows
-    const mkBlur = (id, stdDev) => {
+    // Glow filters: blur a copy, merge original on top so dots stay crisp
+    const mkGlow = (id, stdDev) => {
       const f = document.createElementNS(svgNS, 'filter');
       f.setAttribute('id', id);
-      f.setAttribute('x', '-50%'); f.setAttribute('y', '-50%');
-      f.setAttribute('width', '200%'); f.setAttribute('height', '200%');
+      f.setAttribute('x', '-80%'); f.setAttribute('y', '-80%');
+      f.setAttribute('width', '360%'); f.setAttribute('height', '360%');
       const b = document.createElementNS(svgNS, 'feGaussianBlur');
-      b.setAttribute('in', 'SourceGraphic'); b.setAttribute('stdDeviation', stdDev);
-      f.appendChild(b); return f;
+      b.setAttribute('in', 'SourceGraphic'); b.setAttribute('stdDeviation', stdDev); b.setAttribute('result', 'blur');
+      const m = document.createElementNS(svgNS, 'feMerge');
+      ['blur', 'SourceGraphic'].forEach(src => {
+        const n = document.createElementNS(svgNS, 'feMergeNode');
+        n.setAttribute('in', src); m.appendChild(n);
+      });
+      f.appendChild(b); f.appendChild(m); return f;
     };
-    defs.appendChild(mkBlur('hov-dot-glow', '1.2'));
-    defs.appendChild(mkBlur('hov-dot-glow-accent', '2.5'));
+    defs.appendChild(mkGlow('hov-dot-glow', '0.6'));
+    defs.appendChild(mkGlow('hov-dot-glow-accent', '1.2'));
     layer.appendChild(defs);
 
     // Insert before first child so glows render behind nodes, not over them
