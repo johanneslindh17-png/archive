@@ -361,6 +361,7 @@ export default function App() {
   const leaveTimerRef   = useRef(null);  // debounce hover cleanup
   const marchOverlayRef = useRef([]);
   const glowLayerRef    = useRef(null);
+  const nodeFontCacheRef = useRef(null); // cached once — all nodes share the same font
 
 
   function clearMarchOverlay() {
@@ -1630,120 +1631,83 @@ export default function App() {
     setTf({ k: (window.innerWidth || screen.width) / W, x: 0, y: 0 });
   }
 
-  const edgeEls = useMemo(() => {
-    // Index edges by source AND by target so we can fan at whichever end is busier
+  // Precompute all edge bezier paths once — shared by edgeEls and hovPathEls so neither
+  // recomputes 1687 curves independently.
+  const edgeGeom = useMemo(() => {
     const fromIdx = {}, toIdx = {};
     visibleEdges.forEach((e, i) => {
       (fromIdx[e.from] ??= []).push(i);
       (toIdx[e.to]   ??= []).push(i);
     });
-
-    // Build a set of all existing directed edges so we can detect bidirectional pairs
     const edgeSet = new Set(visibleEdges.map(e => `${e.from}|${e.to}`));
-
-    return visibleEdges.map((e, i) => {
+    const paths = new Map();
+    visibleEdges.forEach((e, i) => {
       const sp = getPos(e.from), tp = getPos(e.to);
-      if (!sp || !tp) return null;
+      if (!sp || !tp) return;
+      const dx = tp.x - sp.x, dy = tp.y - sp.y;
+      const len = Math.sqrt(dx * dx + dy * dy) || 1;
+      const px = -dy / len, py = dx / len;
+      const fg = fromIdx[e.from] || [i];
+      const tg = toIdx[e.to]   || [i];
+      const group = fg.length >= tg.length ? fg : tg;
+      const cnt = group.length, rank = group.indexOf(i);
+      const spread = cnt > 1 ? (rank - (cnt - 1) / 2) * 11 : 0;
+      const bidiOffset = edgeSet.has(`${e.to}|${e.from}`) ? 5 : 0;
+      const MAX_CURVE = 30;
+      const curveX = Math.sign(dy) * Math.min(Math.abs(dy * 0.07), MAX_CURVE);
+      const curveY = Math.sign(dx) * Math.min(Math.abs(dx * 0.07), MAX_CURVE) * -1;
+      const mx = (sp.x + tp.x) / 2 + curveX + px * (spread + bidiOffset);
+      const my = (sp.y + tp.y) / 2 + curveY + py * (spread + bidiOffset);
+      paths.set(`${e.from}|${e.to}`, `M${sp.x},${sp.y} Q${mx},${my} ${tp.x},${tp.y}`);
+    });
+    return { paths };
+  }, [visibleEdges, positions, expandedPositions, expanded]);
 
+  const edgeEls = useMemo(() => {
+    return visibleEdges.map(e => {
       const key = `${e.from}|${e.to}`;
+      const d = edgeGeom.paths.get(key);
+      if (!d) return null;
       const isHl  = hlEdges?.has(key);
       const isDim = hlEdges && !isHl;
-
       const baseOp = e.type === 'lineage' ? 0.16 : e.type === 'roster' ? 0.12 : e.type === 'influence' ? 0.08 : 0.05;
       const opacity = isDim ? 0.02 : isHl ? 0.60 : baseOp;
       const baseSw  = e.type === 'lineage' ? 0.5 : e.type === 'roster' ? 0.4 : e.type === 'influence' ? 0.35 : 0.28;
       const sw   = isHl ? baseSw * 3 : baseSw;
       const dash = e.type === 'influence' ? '6 3' : e.type === 'aesthetic' ? '2 4' : undefined;
-
-      const dx = tp.x - sp.x, dy = tp.y - sp.y;
-      const len = Math.sqrt(dx * dx + dy * dy) || 1;
-      const px = -dy / len, py = dx / len; // perpendicular unit vector
-
-      // Fan spread: use whichever end (source or target) has more siblings —
-      // edges piling into a busy node now spread just as much as edges leaving one.
-      // Step of 11 px, no hard cap so the spread grows naturally with crowd size.
-      const fromGroup = fromIdx[e.from] || [i];
-      const toGroup   = toIdx[e.to]   || [i];
-      const group = fromGroup.length >= toGroup.length ? fromGroup : toGroup;
-      const n    = group.length;
-      const rank = group.indexOf(i);
-      const spread = n > 1 ? (rank - (n - 1) / 2) * 11 : 0;
-
-      // Bidirectional offset: if the reverse edge also exists, nudge each
-      // to opposite sides so they don't ride exactly on top of each other.
-      const hasBidi    = edgeSet.has(`${e.to}|${e.from}`);
-      const bidiOffset = hasBidi ? 5 : 0;
-
-      // Base curve: capped so long cross-region edges don't arc wildly off-grid.
-      // Max deviation from the midpoint is 30 SVG units in either axis.
-      const MAX_CURVE = 30;
-      const curveX = Math.sign(dy) * Math.min(Math.abs(dy * 0.07), MAX_CURVE);
-      const curveY = Math.sign(dx) * Math.min(Math.abs(dx * 0.07), MAX_CURVE) * -1;
-
-      const mx = (sp.x + tp.x) / 2 + curveX + px * (spread + bidiOffset);
-      const my = (sp.y + tp.y) / 2 + curveY + py * (spread + bidiOffset);
-
       return (
         <path
-          key={key} fill="none"
-          d={`M${sp.x},${sp.y} Q${mx},${my} ${tp.x},${tp.y}`}
+          key={key} fill="none" d={d}
           stroke={colorTheme ? EDGE_TYPE_COLORS[e.type] : (darkMode ? 'rgba(255,255,255,0.9)' : '#000000')}
           strokeWidth={sw} strokeDasharray={dash} opacity={opacity}
           className={`eg${isDim ? ' dim' : isHl ? ' lit' : ''}`}
         />
       );
     });
-  }, [visibleEdges, positions, expandedPositions, expanded, hlEdges, darkMode, colorTheme]);
+  }, [edgeGeom, hlEdges, darkMode, colorTheme]);
 
   // Hover dash FX — dashes flow along connected edge paths outward from hovered node
   // Hidden when the free trial is exhausted — connections are a paid feature
   const trialExhausted = !unlocked && trialCount >= TRIAL_LIMIT;
   const hovPathEls = useMemo(() => {
-    if (!hovNode) return null;
-    if (!getPos(hovNode.id)) return null;
-    if (trialExhausted) return null;
-
-    const fromIdx = {}, toIdx = {};
-    visibleEdges.forEach((e, i) => {
-      (fromIdx[e.from] ??= []).push(i);
-      (toIdx[e.to]   ??= []).push(i);
-    });
-    const edgeSet = new Set(visibleEdges.map(e => `${e.from}|${e.to}`));
-
-    const connEdges = visibleEdges
-      .map((e, i) => ({ e, i }))
-      .filter(({ e }) =>
-        e.type !== 'aesthetic' &&
-        (e.from === hovNode.id || e.to === hovNode.id) &&
-        !hlEdges?.has(`${e.from}|${e.to}`)
+    if (!hovNode || trialExhausted) return null;
+    const stroke = darkMode ? 'rgba(255,255,255,0.45)' : 'rgba(0,0,0,0.38)';
+    const els = [];
+    for (const e of visibleEdges) {
+      if (e.type === 'aesthetic') continue;
+      if (e.from !== hovNode.id && e.to !== hovNode.id) continue;
+      const key = `${e.from}|${e.to}`;
+      if (hlEdges?.has(key)) continue;
+      const d = edgeGeom.paths.get(key);
+      if (!d) continue;
+      els.push(
+        <path key={key} d={d} fill="none" strokeWidth={1} strokeDasharray="2 11"
+          className={e.from === hovNode.id ? 'hov-flow-out' : 'hov-flow-in'}
+          stroke={stroke} />
       );
-    if (!connEdges.length) return null;
-
-    return connEdges.map(({ e, i }) => {
-      const sp = getPos(e.from), tp = getPos(e.to);
-      if (!sp || !tp) return null;
-      const dx = tp.x - sp.x, dy = tp.y - sp.y;
-      const len = Math.sqrt(dx * dx + dy * dy) || 1;
-      const px = -dy / len, py = dx / len;
-      const fromGroup = fromIdx[e.from] || [i];
-      const toGroup   = toIdx[e.to]   || [i];
-      const group  = fromGroup.length >= toGroup.length ? fromGroup : toGroup;
-      const n      = group.length, rank = group.indexOf(i);
-      const spread = n > 1 ? (rank - (n - 1) / 2) * 11 : 0;
-      const hasBidi    = edgeSet.has(`${e.to}|${e.from}`);
-      const bidiOffset = hasBidi ? 5 : 0;
-      const MAX_CURVE = 30;
-      const curveX = Math.sign(dy) * Math.min(Math.abs(dy * 0.07), MAX_CURVE);
-      const curveY = Math.sign(dx) * Math.min(Math.abs(dx * 0.07), MAX_CURVE) * -1;
-      const mx = (sp.x + tp.x) / 2 + curveX + px * (spread + bidiOffset);
-      const my = (sp.y + tp.y) / 2 + curveY + py * (spread + bidiOffset);
-      const cls = e.from === hovNode.id ? 'hov-flow-out' : 'hov-flow-in';
-      return <path key={`${e.from}|${e.to}`}
-        d={`M${sp.x},${sp.y} Q${mx},${my} ${tp.x},${tp.y}`}
-        fill="none" strokeWidth={1} strokeDasharray="2 11" className={cls}
-        stroke={darkMode ? 'rgba(255,255,255,0.45)' : 'rgba(0,0,0,0.38)'} />;
-    }).filter(Boolean);
-  }, [hovNode, visibleEdges, positions, expandedPositions, expanded, hlEdges, darkMode, trialExhausted]);
+    }
+    return els.length ? els : null;
+  }, [hovNode, edgeGeom, hlEdges, darkMode, trialExhausted, visibleEdges]);
 
   // Which nodes would light up on click — drives the marching-ants preview
   const hovHlIds = useMemo(() => {
@@ -1892,23 +1856,36 @@ export default function App() {
             const self = ev.currentTarget;
             self.classList.add('hov-self');
             hovPrevRef.current = [{ el: self }];
+            const svgNS = 'http://www.w3.org/2000/svg';
+            const CHAR_W = 4.0, PAD = 3, BH = 11;
+            const gradId = darkMode ? 'nd-glow-grad-dk' : 'nd-glow-grad-lt';
+            // Cache font once — all node texts share the same CSS font
+            if (!nodeFontCacheRef.current) {
+              const anyTxt = svgGRef.current?.querySelector('.nd text');
+              if (anyTxt) {
+                const cs = window.getComputedStyle(anyTxt);
+                nodeFontCacheRef.current = { fontSize: cs.fontSize, letterSpacing: cs.letterSpacing, fontFamily: cs.fontFamily, fontWeight: cs.fontWeight };
+              }
+            }
+            const fc = nodeFontCacheRef.current;
             // Self-glow (behind the hovered node itself)
             const selfP = positions[n.id];
             if (selfP && svgGRef.current) {
-              const svgNS = 'http://www.w3.org/2000/svg';
-              const CHAR_W = 4.0, PAD = 3, BH = 11;
               const bw = Math.max(28, Math.min(60, n.label.length * CHAR_W + PAD * 2));
               const selfGlowEl = document.createElementNS(svgNS, 'ellipse');
               selfGlowEl.setAttribute('cx', selfP.x);
               selfGlowEl.setAttribute('cy', selfP.y - 1);
               selfGlowEl.setAttribute('rx', bw / 2 + 12);
               selfGlowEl.setAttribute('ry', BH / 2 + 4);
-              selfGlowEl.setAttribute('fill', `url(#${darkMode ? 'nd-glow-grad-dk' : 'nd-glow-grad-lt'})`);
+              selfGlowEl.setAttribute('fill', `url(#${gradId})`);
               selfGlowEl.style.pointerEvents = 'none';
               selfGlowEl.classList.add('nd-glow-el', 'nd-glow-self');
               svgGRef.current.appendChild(selfGlowEl);
               marchOverlayRef.current.push(selfGlowEl);
             }
+            const textFill = darkMode ? 'white' : 'black';
+            // Batch all new glow/text elements into a fragment — one DOM mutation
+            const frag = document.createDocumentFragment();
             EDGES.forEach(e => {
               if (e.type === 'aesthetic') return;
               const nbId = e.from === n.id ? e.to : e.to === n.id ? e.from : null;
@@ -1919,42 +1896,38 @@ export default function App() {
               hovPrevRef.current.push({ el: nbEl });
               const p = positions[nbId];
               const nb = NODE_BY_ID.get(nbId);
-              if (p && nb && svgGRef.current) {
-                const svgNS = 'http://www.w3.org/2000/svg';
-                const CHAR_W = 4.0, PAD = 3, BH = 11;
-                const bw = Math.max(28, Math.min(60, nb.label.length * CHAR_W + PAD * 2));
-                const glowEl = document.createElementNS(svgNS, 'ellipse');
-                glowEl.setAttribute('cx', p.x);
-                glowEl.setAttribute('cy', p.y - 1);
-                glowEl.setAttribute('rx', bw / 2 + 9);
-                glowEl.setAttribute('ry', BH / 2 + 3);
-                glowEl.setAttribute('fill', `url(#${darkMode ? 'nd-glow-grad-dk' : 'nd-glow-grad-lt'})`);
-                glowEl.style.pointerEvents = 'none';
-                const nbIsDim = hlIds ? !hlIds.has(nbId) : false;
-                glowEl.classList.add('nd-glow-el', nbIsDim ? 'nd-glow-pulse' : 'nd-glow-static');
-                svgGRef.current.appendChild(glowEl);
-                marchOverlayRef.current.push(glowEl);
-                // Dim neighbors: also add pulsing text overlay
-                if (nbIsDim) {
-                  const txtEl = document.createElementNS(svgNS, 'text');
-                  const cs = window.getComputedStyle(nbEl.querySelector('text'));
-                  txtEl.setAttribute('x', p.x);
-                  txtEl.setAttribute('y', p.y);
-                  txtEl.setAttribute('text-anchor', 'middle');
-                  txtEl.setAttribute('dominant-baseline', 'middle');
-                  txtEl.style.fontSize = cs.fontSize;
-                  txtEl.style.letterSpacing = cs.letterSpacing;
-                  txtEl.style.fontFamily = cs.fontFamily;
-                  txtEl.style.fontWeight = cs.fontWeight;
-                  txtEl.style.fill = darkMode ? 'white' : 'black';
-                  txtEl.style.pointerEvents = 'none';
-                  txtEl.classList.add('nd-march-pulse-text');
-                  txtEl.textContent = nb.label;
-                  svgGRef.current.appendChild(txtEl);
-                  marchOverlayRef.current.push(txtEl);
-                }
+              if (!p || !nb) return;
+              const bw = Math.max(28, Math.min(60, nb.label.length * CHAR_W + PAD * 2));
+              const glowEl = document.createElementNS(svgNS, 'ellipse');
+              glowEl.setAttribute('cx', p.x);
+              glowEl.setAttribute('cy', p.y - 1);
+              glowEl.setAttribute('rx', bw / 2 + 9);
+              glowEl.setAttribute('ry', BH / 2 + 3);
+              glowEl.setAttribute('fill', `url(#${gradId})`);
+              glowEl.style.pointerEvents = 'none';
+              const nbIsDim = hlIds ? !hlIds.has(nbId) : false;
+              glowEl.classList.add('nd-glow-el', nbIsDim ? 'nd-glow-pulse' : 'nd-glow-static');
+              frag.appendChild(glowEl);
+              marchOverlayRef.current.push(glowEl);
+              if (nbIsDim && fc) {
+                const txtEl = document.createElementNS(svgNS, 'text');
+                txtEl.setAttribute('x', p.x);
+                txtEl.setAttribute('y', p.y);
+                txtEl.setAttribute('text-anchor', 'middle');
+                txtEl.setAttribute('dominant-baseline', 'middle');
+                txtEl.style.fontSize = fc.fontSize;
+                txtEl.style.letterSpacing = fc.letterSpacing;
+                txtEl.style.fontFamily = fc.fontFamily;
+                txtEl.style.fontWeight = fc.fontWeight;
+                txtEl.style.fill = textFill;
+                txtEl.style.pointerEvents = 'none';
+                txtEl.classList.add('nd-march-pulse-text');
+                txtEl.textContent = nb.label;
+                frag.appendChild(txtEl);
+                marchOverlayRef.current.push(txtEl);
               }
             });
+            svgGRef.current.appendChild(frag);
             // Remove old overlays now that new ones are already in the DOM
             oldOverlays.forEach(el => el.parentNode?.removeChild(el));
             oldHovPrev.forEach(({ el }) => el.classList.remove('hov-self', 'hov-prev'));
