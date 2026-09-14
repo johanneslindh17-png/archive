@@ -502,11 +502,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
    transition, so any spurious transform recalc is invisible. */
 .nd.hov-self .nd-inner,
 .nd.sel .nd-inner {
-  transform: scale(1.14);
-  transform-box: fill-box;
-  transform-origin: center;
   filter: drop-shadow(0 0 5px rgba(0,0,0,0.32));
-  transition: transform 0.12s ease-out, filter 0.15s ease-out;
 }
 .dark .nd.hov-self .nd-inner,
 .dark .nd.sel .nd-inner {
