@@ -897,18 +897,6 @@ path.eg.dim{opacity:0.055}
 
 /* Node log — click-triggered popup */
 .statusbar-item--log { position: relative; }
-.node-log-btn {
-  background: transparent;
-  border: none;
-  font-family: 'Syne Mono', monospace;
-  font-size: 0.54rem;
-  letter-spacing: 0.1em;
-  color: var(--tb-text-dim);
-  cursor: pointer;
-  padding: 0;
-  transition: color 0.12s;
-}
-.node-log-btn:hover, .node-log-btn.open { color: var(--tb-text); }
 .node-log-popup {
   position: absolute;
   bottom: calc(100% + 8px);

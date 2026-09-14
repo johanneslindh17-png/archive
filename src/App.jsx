@@ -2951,12 +2951,9 @@ export default function App() {
 
       {/* Status bar */}
       <div className="statusbar" style={themeStyle ? { background: themeStyle.surface, borderTopColor: themeStyle.border } : undefined}>
-        <div className="statusbar-item">
-          <strong>{NODES.filter(n => filteredIds.has(n.id)).length}</strong> nodes
-        </div>
-        <div className="statusbar-sep" />
         <div className="statusbar-item--log">
-          <button className={`node-log-btn${logOpen ? ' open' : ''}`} onClick={() => setLogOpen(v => !v)}>
+          <button className={`groove-ctrl-btn${logOpen ? ' open' : ''}`} onClick={() => setLogOpen(v => !v)}
+            style={{ fontSize: '0.54rem', letterSpacing: '0.1em', padding: '0 10px', fontFamily: 'inherit' }}>
             NODE LOG
           </button>
           {logOpen && (
@@ -2990,6 +2987,10 @@ export default function App() {
           )}
         </div>
         <div className="statusbar-scroll">
+        <div className="statusbar-sep" />
+        <div className="statusbar-item">
+          <strong>{NODES.filter(n => filteredIds.has(n.id)).length}</strong> nodes
+        </div>
         <div className="statusbar-sep" />
         <div className="statusbar-item">
           <strong>{visibleEdges.length}</strong> connections
