@@ -624,7 +624,7 @@ export function Groovebox({ open, onClose, darkMode }) {
     setIsCapturing(false);
 
     const chunks = recChunksRef.current;
-    if (!chunks.length) return;
+    if (!chunks.length) { setMp3Url('empty'); return; }
     const totalSamples = chunks.reduce((s, c) => s + c[0].length, 0);
     const leftAll  = new Float32Array(totalSamples);
     const rightAll = new Float32Array(totalSamples);
@@ -652,7 +652,11 @@ export function Groovebox({ open, onClose, darkMode }) {
     const end = encoder.flush();
     if (end.length > 0) mp3Parts.push(new Uint8Array(end));
     const blob = new Blob(mp3Parts, { type: 'audio/mpeg' });
-    setMp3Url(URL.createObjectURL(blob));
+    const url = URL.createObjectURL(blob);
+    setMp3Url(url);
+    // Also trigger auto-download as fallback
+    const a = document.createElement('a');
+    a.href = url; a.download = 'groovebox.mp3'; a.click();
   }, []);
 
   const toggleSeqLen = useCallback(() => {
@@ -829,7 +833,7 @@ export function Groovebox({ open, onClose, darkMode }) {
         {isCapturing && (
           <canvas ref={waveCanvasRef} className="groove-waveform" width={80} height={22} />
         )}
-        {mp3Url && !isCapturing && (
+        {mp3Url && !isCapturing && mp3Url !== 'empty' && (
           <a
             className="groove-mono-btn groove-dl-btn"
             href={mp3Url}
@@ -837,6 +841,9 @@ export function Groovebox({ open, onClose, darkMode }) {
           >
             ↓ DOWNLOAD MP3
           </a>
+        )}
+        {mp3Url === 'empty' && !isCapturing && (
+          <span className="groove-rec-empty">no audio captured — press play first</span>
         )}
         <button className="groove-close" onClick={() => { stop(); onClose(); }}>✕</button>
       </div>
