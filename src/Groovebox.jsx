@@ -712,7 +712,7 @@ export function Groovebox({ open, onClose, darkMode }) {
         <button className="groove-mono-btn" onClick={clearPattern}>CLR STEPS</button>
         <div className="groove-header-sep" />
         <button className={`groove-rec-btn${isRec ? ' active' : ''}`} onClick={() => setIsRec(v => !v)}>
-          <span className="groove-rec-dot" />AUTO REC
+          <span className="groove-rec-dot" />RECORD AUTOMATION
         </button>
         <button className="groove-mono-btn" onClick={clearAuto}>CLR AUTO</button>
         <button className="groove-close" onClick={() => { stop(); onClose(); }}>✕</button>
