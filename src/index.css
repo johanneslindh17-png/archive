@@ -1431,10 +1431,10 @@ path.eg.dim{opacity:0.055}
 .gv-panel {
   display: flex;
   align-items: stretch;
-  padding: 10px 41px 10px 55px;
+  padding: 10px 18px 10px 24px;
   border-bottom: 1px solid #1c1c26;
   gap: 0;
-  min-height: 220px;
+  min-height: 250px;
   background: #0a0a10;
 }
 
@@ -1530,6 +1530,7 @@ path.eg.dim{opacity:0.055}
 }
 .gv-vslider-track {
   width: 4px;
+  height: 54px;
   background: #161622;
   border-radius: 2px;
   position: relative;
@@ -1559,6 +1560,7 @@ path.eg.dim{opacity:0.055}
 }
 .gv-fader-track {
   width: 6px;
+  height: 64px;
   background: #0e0e1a;
   border-radius: 3px;
   position: relative;
@@ -1616,8 +1618,7 @@ path.eg.dim{opacity:0.055}
   white-space: nowrap;
 }
 .gv-send-btn:hover { color: #8080c0; border-color: #3e3e70; }
-.gv-send-btn.on.lv1 { color: #5050c0; border-color: #3a3a98; background: #121224; }
-.gv-send-btn.on.lv2 { color: #9090f0; border-color: #6060c0; background: #14142a; }
+.gv-send-btn.on { color: #7878e8; border-color: #4848a8; background: #13132a; }
 
 /* ── Sequencer rows ── */
 .groove-seq {
@@ -1763,6 +1764,14 @@ path.eg.dim{opacity:0.055}
   letter-spacing: 0.06em;
   color: var(--tb-text-mid);
   text-align: center;
+}
+
+.groove-pick-hint {
+  font-size: 0.38rem;
+  letter-spacing: 0.05em;
+  color: var(--tb-text-dim);
+  opacity: 0.6;
+  white-space: nowrap;
 }
 
 .groove-del-step {
