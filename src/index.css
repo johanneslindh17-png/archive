@@ -1639,16 +1639,20 @@ path.eg.dim{opacity:0.055}
 .gv-knob:hover .gv-knob-line { stroke: #e8e4d8; }
 /* Light mode: retro hardware gray chassis */
 .groove-panel:not(.dark) {
-  background: #ccc9c0;
-  border-color: #b4b1a8;
+  background: #dcdcda;
+  border-color: #b8b8b6;
+  /* override global text vars so mid/dim text reads on gray */
+  --tb-text-mid: #444;
+  --tb-text-dim: #666;
+  --tb-border: #c0c0be;
 }
-.groove-panel:not(.dark) .gv-panel { background: #c0bdb4; }
-.groove-panel:not(.dark) .groove-header { border-bottom-color: #b4b1a8; }
-.groove-panel:not(.dark) .groove-seq-divider { background: #b8b5ac; }
-.groove-panel:not(.dark) .groove-step { border-color: #a8a59c; }
+.groove-panel:not(.dark) .gv-panel { background: #d0d0ce; }
+.groove-panel:not(.dark) .groove-header { border-bottom-color: #c0c0be; }
+.groove-panel:not(.dark) .groove-seq-divider { background: #c0c0be; }
+.groove-panel:not(.dark) .groove-step { border-color: #b4b4b2; }
 .groove-panel:not(.dark) .groove-step:hover { background: rgba(0,0,0,0.08); }
-.groove-panel:not(.dark) .groove-step.on { background: #4a4845; border-color: #4a4845; }
-.groove-panel:not(.dark) .groove-label { color: #6a6860; }
+.groove-panel:not(.dark) .groove-step.on { background: #4a4848; border-color: #4a4848; }
+.groove-panel:not(.dark) .groove-label { color: #333; }
 
 /* Light mode: softer dark-gray knobs instead of near-black */
 .groove-panel:not(.dark) .gv-knob-body { fill: #2d2b3e; stroke: #4a4866; }
