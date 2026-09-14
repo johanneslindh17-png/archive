@@ -2060,7 +2060,8 @@ export default function App() {
               miniSvg.setAttribute('viewBox', `${-svgW/2-PAD_SVG} ${-svgH/2-PAD_SVG} ${svgW+PAD_SVG*2} ${svgH+PAD_SVG*2}`);
               miniSvg.style.cssText = `width:${nr.width+PAD_SVG*k*2}px;height:${nr.height+PAD_SVG*k*2}px;position:absolute;left:${-PAD_SVG*k}px;top:${-PAD_SVG*k}px;overflow:visible;pointer-events:none;`;
               const wG = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-              wG.classList.add('nd', darkMode ? 'dark' : '', 'hov-self');
+              wG.classList.add('nd', 'hov-self');
+              if (darkMode) wG.classList.add('dark');
               wG.appendChild(selfInnerEl.cloneNode(true));
               miniSvg.appendChild(wG);
               ov.appendChild(miniSvg);
