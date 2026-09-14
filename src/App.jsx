@@ -2038,39 +2038,6 @@ export default function App() {
             // Apply hover visuals directly — avoids recomputing all 300+ nodes
             const self = ev.currentTarget;
             self.classList.add('hov-self');
-            const selfInner = self.querySelector('.nd-inner');
-            // Scale the outer .nd group using SVG viewport coordinates as origin.
-            // Scale overlay: clone the node's inner <g> into a SEPARATE <svg>
-            // appended to document.body. This SVG is completely outside the main
-            // SVG canvas, so the CSS scale transition never triggers a repaint of
-            // other nodes. The main SVG element is never touched.
-            if (selfInner && svgRef.current) {
-              const ctm = self.getCTM();
-              if (ctm) {
-                const svgRect = svgRef.current.getBoundingClientRect();
-                const k = ctm.a; // current pan/zoom scale
-                const screenCX = svgRect.left + ctm.e;
-                const screenCY = svgRect.top + ctm.f;
-                const nodeRect = self.getBoundingClientRect();
-                const EXTRA = 14; // extra px padding (SVG units) for glow
-                const svgW = nodeRect.width / k;
-                const svgH = nodeRect.height / k;
-                const overlayW = nodeRect.width + EXTRA * k * 2;
-                const overlayH = nodeRect.height + EXTRA * k * 2;
-
-                const ov = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-                ov.setAttribute('viewBox', `${-svgW/2-EXTRA} ${-svgH/2-EXTRA} ${svgW+EXTRA*2} ${svgH+EXTRA*2}`);
-                ov.style.cssText = `position:fixed;left:${screenCX-overlayW/2}px;top:${screenCY-overlayH/2}px;width:${overlayW}px;height:${overlayH}px;pointer-events:none;z-index:1000;overflow:visible;transform-origin:${overlayW/2}px ${overlayH/2}px;will-change:transform;transform:scale(1);transition:transform 0.12s ease-out;`;
-                const wrapG = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-                wrapG.classList.add('nd', 'hov-self');
-                wrapG.appendChild(selfInner.cloneNode(true));
-                ov.appendChild(wrapG);
-                document.body.appendChild(ov);
-                // Trigger transition on next frame (start → target)
-                requestAnimationFrame(() => { ov.style.transform = 'scale(1.14)'; });
-                marchOverlayRef.current.push(ov);
-              }
-            }
             hovPrevRef.current = [{ el: self }];
             const svgNS = 'http://www.w3.org/2000/svg';
             const CHAR_W = 4.0, PAD = 3, BH = 11;

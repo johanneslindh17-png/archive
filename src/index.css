@@ -497,8 +497,6 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 }
 .nd-self-text { animation: nd-self-text-pulse 2.6s ease-in-out infinite; }
 
-/* Scale is applied via CSS inline styles (will-change:transform, transform-origin:0 0)
-   so the animation runs on the GPU compositor layer, isolated from other nodes. */
 .nd.hov-self .nd-inner,
 .nd.sel .nd-inner {
   filter: drop-shadow(0 0 5px rgba(0,0,0,0.32));
