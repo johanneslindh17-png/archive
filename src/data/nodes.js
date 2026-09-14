@@ -2944,6 +2944,28 @@ export const NODES = [
       { title: 'Sirens (Other People)', year: 2016 },
     ], spotify:'5a0etAzO5V26gvlbmHzT9W', },
 
+  { id:'thomas_melchior', label:'Thomas Melchior', type:'artist', genre:'minimal', era:1994, city:'Amsterdam', country:'NL',
+    desc:'Thomas Melchior is a Swiss-born producer and DJ based in Amsterdam whose work spans two decades and multiple projects. His earliest recordings appeared under Yoni in 1994 — a duo with Tim Hutton operating in the experimental space between techno and sound art. In 1999 he co-founded Soul Capsule with Baby Ford and Tim Hutton, producing some of the most regarded deep house records of that era on the UK\'s Trelik label. His solo alias Melchior Productions Ltd releases on Clone Records in Rotterdam. The through-line is restraint: across every project, the music refuses spectacle in favour of function.',
+    releases: [
+      { title: 'My Little Yoni (Yoni)', year: 1994 },
+      { title: 'Las Ramblas (Soul Capsule / Trelik)', year: 1999 },
+      { title: 'Solomon\'s Prayer (Thomas Melchior)', year: 2006 },
+    ] },
+
+  { id:'soul_capsule', label:'Soul Capsule', type:'artist', genre:'deep', era:1999, city:'London', country:'GB',
+    desc:'Soul Capsule was a group formed by Thomas Melchior, Baby Ford (Peter Adshead), and Tim Hutton, releasing on the Trelik label in the UK from 1999. Their records occupy a particular place in late-1990s deep house: long-form and patient, shaped equally by Chicago and Detroit but never reducible to either. Las Ramblas (1999) was lacquer cut by Moritz von Oswald at Dubplates & Mastering, a detail that places the record precisely within the European underground at the end of the decade. Overcome (1999) and Law Of Grace (2001) followed on the same label.',
+    releases: [
+      { title: 'Las Ramblas (Trelik)', year: 1999 },
+      { title: 'Overcome (Trelik)', year: 1999 },
+      { title: 'Law Of Grace / Meltdown (Trelik)', year: 2001 },
+    ] },
+
+  { id:'yoni', label:'Yoni', type:'artist', genre:'experimental', era:1994, city:'Berlin', country:'DE',
+    desc:'Yoni was a project formed by Thomas Melchior and Tim Hutton, active in Germany in the mid-1990s. Their album My Little Yoni (1994) predates Melchior\'s later deep house and minimal techno work, operating in a rawer experimental register closer to the industrial edge of early European techno. The group also released as Deepah and Vulva.',
+    releases: [
+      { title: 'My Little Yoni', year: 1994 },
+    ] },
+
   { id:'melchior_productions', label:'Melchior Productions Ltd', type:'artist', genre:'minimal', era:2009, city:'Amsterdam', country:'NL',
     desc:'Thomas Melchior releases as Melchior Productions Ltd, one of several aliases alongside Melchior Communications Ltd and Cinderfella LTD. His music makes no move toward spectacle — minimal, functional, quietly precise. These are records built for the middle sections of long sets, not for peak moments. That anti-spectacularity is a philosophy in itself, one that sits squarely within the Amsterdam and Rotterdam tradition of music that serves the floor rather than the DJ\'s ego.',
     releases: [

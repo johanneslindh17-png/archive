@@ -1201,8 +1201,12 @@
   // Jamie xx
   { from:'john_talabot',       to:'jamie_xx',           strength:2, type:'aesthetic' },   // jamie_xx desc: "Young Turks connection puts him in proximity to John Talabot"
 
-  // Melchior Productions Ltd
-  { from:'clone',              to:'melchior_productions', strength:3, type:'roster' },    // desc: "Releases on Clone Records (Rotterdam)"
+  // Thomas Melchior + aliases + projects
+  { from:'thomas_melchior',   to:'melchior_productions', strength:3, type:'lineage'  },  // Melchior Productions Ltd is his Clone alias
+  { from:'thomas_melchior',   to:'soul_capsule',         strength:3, type:'collab'   },  // co-founder of Soul Capsule (with Baby Ford + Tim Hutton)
+  { from:'thomas_melchior',   to:'yoni',                 strength:3, type:'lineage'  },  // Yoni is earlier duo (with Tim Hutton)
+  { from:'clone',              to:'melchior_productions', strength:3, type:'roster'   },  // Releases on Clone Records (Rotterdam)
+  { from:'clone',              to:'thomas_melchior',      strength:2, type:'roster'   },  // Thomas Melchior broadly associated with Clone
 
   // Kalahari Oyster Cult
   { from:'blackcoffee',        to:'kalahari_oyster_cult', strength:2, type:'influence' }, // desc: "draws from South African house — the tradition that includes artists like Black Coffee"
