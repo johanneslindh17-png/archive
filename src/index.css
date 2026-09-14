@@ -857,6 +857,7 @@ path.eg.dim{opacity:0.055}
 .statusbar{
   min-height:54px;border-top:1px solid var(--tb-border);background:var(--tb-bg);
   display:flex;align-items:center;padding:0 20px;gap:0;flex-shrink:0;
+  position:relative;z-index:20;
   font-family:'Syne Mono',monospace;font-size:0.54rem;letter-spacing:0.1em;color:var(--tb-text-mid);
   transition:background 0.2s,border-color 0.2s;
   overflow:visible;flex-wrap:nowrap;
@@ -1264,7 +1265,7 @@ path.eg.dim{opacity:0.055}
 .groove-trigger.open { color: var(--tb-text); background: var(--tb-hover); }
 .groove-trigger-icon { font-size: 0.95rem; line-height: 1; }
 
-/* Panel slides up from above the statusbar */
+/* Panel slides up from behind the statusbar into the grid area */
 .groove-panel {
   position: fixed;
   bottom: 54px;
@@ -1274,12 +1275,12 @@ path.eg.dim{opacity:0.055}
   max-height: calc(100vh - 60px);
   overflow-y: auto;
   scrollbar-width: none;
-  z-index: 890;
+  z-index: 10;
   background: var(--tb-bg);
   border: 1px solid var(--tb-border);
   border-bottom: none;
-  transform: translateX(-50%) translateY(calc(100% + 60px));
-  transition: transform 0.26s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(-50%) translateY(100%);
+  transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
   font-family: 'Syne Mono', monospace;
   user-select: none;
   border-radius: 3px 3px 0 0;
@@ -1982,7 +1983,7 @@ path.eg.dim{opacity:0.055}
 }
 
 @media (max-width: 660px) {
-  .groove-panel { width: 100%; left: 0; transform: translateY(calc(100% + 60px)); border-radius: 0; }
+  .groove-panel { width: 100%; left: 0; transform: translateY(100%); border-radius: 0; }
   .groove-panel.open { transform: translateY(0); }
   .groove-step { width: 18px; height: 18px; }
   .groove-step--synth { width: 18px; height: 18px; }

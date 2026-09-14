@@ -128,9 +128,15 @@ function makeEmptyAuto() {
   return Object.fromEntries(ALL_IDS.map(id => [id, {
     vol:    new Array(STEPS).fill(null),
     filter: new Array(STEPS).fill(null),
+    pan:    new Array(STEPS).fill(null),
     pitch:  new Array(STEPS).fill(null),
     decay:  new Array(STEPS).fill(null),
     tone:   new Array(STEPS).fill(null),
+    att:    new Array(STEPS).fill(null),
+    dec:    new Array(STEPS).fill(null),
+    sus:    new Array(STEPS).fill(null),
+    rel:    new Array(STEPS).fill(null),
+    res:    new Array(STEPS).fill(null),
   }]));
 }
 
@@ -307,21 +313,27 @@ function doHH(ctx, t, dest, p, isOpen) {
 }
 
 function doPerc(ctx, t, dest, p) {
-  // Conga-style: sine with quick pitch drop, short attack noise burst
-  const base = 120 + (p.pitch ?? 0.5) * 380; // 120-500 Hz conga range
-  const dec  = 0.04 + (p.decay ?? 0.4) * 0.55;
-  const osc  = ctx.createOscillator();
-  osc.type = 'sine';
-  osc.frequency.setValueAtTime(base * 1.9, t);
-  osc.frequency.exponentialRampToValueAtTime(Math.max(0.001, base), t + 0.014);
-  osc.frequency.exponentialRampToValueAtTime(Math.max(0.001, base * 0.72), t + dec);
-  const g = ctx.createGain(); g.gain.setValueAtTime(1.3, t); g.gain.exponentialRampToValueAtTime(0.001, t + dec);
-  osc.connect(g); g.connect(dest); osc.start(t); osc.stop(t + dec + 0.02);
-  // Attack transient
-  const ns = ctx.createBufferSource(); ns.buffer = noiseBuf(ctx, 0.018);
-  const nf = ctx.createBiquadFilter(); nf.type = 'bandpass'; nf.frequency.value = base * 2.5; nf.Q.value = 2.2;
-  const ng = ctx.createGain(); ng.gain.setValueAtTime(0.35, t); ng.gain.exponentialRampToValueAtTime(0.001, t + 0.016);
-  ns.connect(nf); nf.connect(ng); ng.connect(dest); ns.start(t);
+  // Conga membrane model: two decaying modes + very brief impact click
+  const base = 200 + (p.pitch ?? 0.5) * 250; // 200–450 Hz (conga body range)
+  const dec  = 0.18 + (p.decay ?? 0.4) * 0.72;
+  // Primary mode (fundamental) — barely any pitch movement
+  const o1 = ctx.createOscillator(); o1.type = 'sine';
+  o1.frequency.setValueAtTime(base * 1.05, t);
+  o1.frequency.exponentialRampToValueAtTime(Math.max(1, base), t + 0.007);
+  const g1 = ctx.createGain();
+  g1.gain.setValueAtTime(1.1, t); g1.gain.exponentialRampToValueAtTime(0.001, t + dec);
+  o1.connect(g1); g1.connect(dest); o1.start(t); o1.stop(t + dec + 0.02);
+  // Upper partial (decays faster) — gives the membrane character
+  const o2 = ctx.createOscillator(); o2.type = 'sine';
+  o2.frequency.value = base * 1.77;
+  const g2 = ctx.createGain();
+  g2.gain.setValueAtTime(0.5, t); g2.gain.exponentialRampToValueAtTime(0.001, t + dec * 0.32);
+  o2.connect(g2); g2.connect(dest); o2.start(t); o2.stop(t + dec * 0.32 + 0.02);
+  // Very short impact click (broadband, no filter)
+  const ns = ctx.createBufferSource(); ns.buffer = noiseBuf(ctx, 0.009);
+  const ng = ctx.createGain();
+  ng.gain.setValueAtTime(0.55, t); ng.gain.exponentialRampToValueAtTime(0.001, t + 0.009);
+  ns.connect(ng); ng.connect(dest); ns.start(t);
 }
 
 // ── Main component ────────────────────────────────────────────────────────────
@@ -378,6 +390,7 @@ export function Groovebox({ open, onClose, darkMode }) {
   const autoR       = useRef(automation);  autoR.current       = automation;
   const setTvolR    = useRef(setTrackVol);
   const setTfltR    = useRef(setTrackFilter);
+  const setTpanR    = useRef(setTrackPan);
   const setVparR    = useRef(setVparams);
   const setStepR    = useRef(setCurrentStep);
 
@@ -410,7 +423,7 @@ export function Groovebox({ open, onClose, darkMode }) {
   }, []); // eslint-disable-line
   const onFilter      = useCallback((id, val) => setWithAuto(setTrackFilter, id, val, 'filter'), [setWithAuto]);
   const onVol         = useCallback((id, val) => setWithAuto(setTrackVol, id, val, 'vol'), [setWithAuto]);
-  const onPan         = useCallback((id, val) => setTrackPan(p => ({ ...p, [id]: val })), []);
+  const onPan         = useCallback((id, val) => setWithAuto(setTrackPan, id, val, 'pan'), [setWithAuto]);
   const onDly         = useCallback((id) => setDlyLvl(p => ({ ...p, [id]: !p[id] })), []);
   const onRvb         = useCallback((id) => setRvbLvl(p => ({ ...p, [id]: !p[id] })), []);
   const onToggleMute  = useCallback((id) => setMuted(p => ({ ...p, [id]: !p[id] })), []);
@@ -440,25 +453,26 @@ export function Groovebox({ open, onClose, darkMode }) {
 
       const rv = (id, param, base) => au[id]?.[param]?.[s] ?? base;
 
-      const newVol = {}, newFlt = {};
-      let hasAV = false, hasAF = false;
+      const newVol = {}, newFlt = {}, newPan = {};
+      let hasAV = false, hasAF = false, hasAP = false;
       ALL_IDS.forEach(id => {
-        const av = au[id]?.vol?.[s]; const af = au[id]?.filter?.[s];
+        const av = au[id]?.vol?.[s]; const af = au[id]?.filter?.[s]; const ap = au[id]?.pan?.[s];
         if (av != null) { newVol[id] = av; hasAV = true; }
         if (af != null) { newFlt[id] = af; hasAF = true; }
+        if (ap != null) { newPan[id] = ap; hasAP = true; }
       });
       if (hasAV) setTvolR.current(p => ({ ...p, ...newVol }));
       if (hasAF) setTfltR.current(p => ({ ...p, ...newFlt }));
+      if (hasAP) setTpanR.current(p => ({ ...p, ...newPan }));
 
-      // Apply drum param automation (pitch/decay/tone) for UI knobs + sound
+      // Apply vparams automation for ALL voices (drums: pitch/decay/tone; synths: att/dec/sus/rel/res)
       const newVp = {};
       let hasVP = false;
-      DRUM_TRACKS.forEach(({ id }) => {
+      ALL_IDS.forEach(id => {
         const track = au[id]; if (!track) return;
         const ups = {};
-        if (track.pitch?.[s] != null) ups.pitch = track.pitch[s];
-        if (track.decay?.[s] != null) ups.decay = track.decay[s];
-        if (track.tone?.[s]  != null) ups.tone  = track.tone[s];
+        const keys = ['pitch','decay','tone','att','dec','sus','rel','res'];
+        keys.forEach(k => { if (track[k]?.[s] != null) ups[k] = track[k][s]; });
         if (Object.keys(ups).length > 0) { newVp[id] = ups; hasVP = true; }
       });
       if (hasVP) setVparR.current(p => {
@@ -471,7 +485,7 @@ export function Groovebox({ open, onClose, darkMode }) {
       DRUM_TRACKS.forEach(({ id }) => {
         if (!drs[id][s] || mut[id]) return;
         if (prb[id] < 1 && Math.random() > prb[id]) return;
-        const dest = makeChain(ctx, t, vol * rv(id, 'vol', tvol[id]), rv(id, 'filter', tflt[id]), tpan[id], dn, rn, dly[id], rvb[id]);
+        const dest = makeChain(ctx, t, vol * rv(id, 'vol', tvol[id]), rv(id, 'filter', tflt[id]), rv(id, 'pan', tpan[id]), dn, rn, dly[id], rvb[id]);
         const dvp = getVp(id);
         if (id === 'kick')  doKick(ctx, t, dest, dvp);
         if (id === 'snare') doSnare(ctx, t, dest, dvp);
@@ -484,12 +498,12 @@ export function Groovebox({ open, onClose, darkMode }) {
       if (!mut.bass && sth.bass[s] && (prb.bass >= 1 || Math.random() <= prb.bass)) {
         const notes = sth.bass[s];
         const nv = vol * rv('bass', 'vol', tvol.bass) * 0.8 / notes.length;
-        notes.forEach(midi => makeSynthVoice(ctx, midi, 'sawtooth', t, bpm, nv, vp.bass, rv('bass', 'filter', tflt.bass), tpan.bass, dn, rn, dly.bass, rvb.bass));
+        notes.forEach(midi => makeSynthVoice(ctx, midi, 'sawtooth', t, bpm, nv, getVp('bass'), rv('bass', 'filter', tflt.bass), rv('bass', 'pan', tpan.bass), dn, rn, dly.bass, rvb.bass));
       }
       if (!mut.lead && sth.lead[s] && (prb.lead >= 1 || Math.random() <= prb.lead)) {
         const notes = sth.lead[s];
         const nv = vol * rv('lead', 'vol', tvol.lead) * 0.6 / notes.length;
-        notes.forEach(midi => makeSynthVoice(ctx, midi, 'square', t, bpm, nv, vp.lead, rv('lead', 'filter', tflt.lead), tpan.lead, dn, rn, dly.lead, rvb.lead));
+        notes.forEach(midi => makeSynthVoice(ctx, midi, 'square', t, bpm, nv, getVp('lead'), rv('lead', 'filter', tflt.lead), rv('lead', 'pan', tpan.lead), dn, rn, dly.lead, rvb.lead));
       }
 
       playingStepRef.current = s;
@@ -692,7 +706,7 @@ export function Groovebox({ open, onClose, darkMode }) {
             muted={muted[t.id]} vp={vparams[t.id]} params={VOICE_PARAMS[t.id]}
             filter={trackFilter[t.id]} vol={trackVol[t.id]} pan={trackPan[t.id]}
             dly={dlyLvl[t.id]} rvb={rvbLvl[t.id]}
-            onVParam={onVParam} onFilter={onFilter} onVol={onVol} onPan={onPan}
+            onVParam={onVParamAuto} onFilter={onFilter} onVol={onVol} onPan={onPan}
             onDly={onDly} onRvb={onRvb} onToggleMute={onToggleMute}
           />
         ))}
