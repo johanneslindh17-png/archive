@@ -362,6 +362,7 @@ export function Groovebox({ open, onClose, darkMode }) {
   const [automation,  setAutomation]  = useState(makeEmptyAuto);
   const [isRec,       setIsRec]       = useState(false);
   const [isCapturing, setIsCapturing] = useState(false);
+  const [mp3Url,      setMp3Url]      = useState(null);
   const [seqLen,      setSeqLen]      = useState(16);
   const [noteOct,     setNoteOct]     = useState(3);
   const [currentStep, setCurrentStep] = useState(-1);
@@ -378,6 +379,9 @@ export function Groovebox({ open, onClose, darkMode }) {
   const schedRef       = useRef(null);
   const recProcRef     = useRef(null);
   const recChunksRef   = useRef([]);
+  const analyserRef    = useRef(null);
+  const waveCanvasRef  = useRef(null);
+  const animFrameRef   = useRef(null);
   const nextTRef       = useRef(0);
   const stepRef        = useRef(0);
   const playingStepRef = useRef(-1);
@@ -567,6 +571,7 @@ export function Groovebox({ open, onClose, darkMode }) {
     const ctx = ctxRef.current;
     const master = masterGainRef.current;
     if (!ctx || !master) return;
+    if (mp3Url) { URL.revokeObjectURL(mp3Url); setMp3Url(null); }
     recChunksRef.current = [];
     const proc = ctx.createScriptProcessor(4096, 2, 2);
     proc.onaudioprocess = (e) => {
@@ -578,14 +583,40 @@ export function Groovebox({ open, onClose, darkMode }) {
     master.connect(proc);
     proc.connect(ctx.destination);
     recProcRef.current = proc;
+    const analyser = ctx.createAnalyser();
+    analyser.fftSize = 512;
+    master.connect(analyser);
+    analyserRef.current = analyser;
+    const drawWave = () => {
+      animFrameRef.current = requestAnimationFrame(drawWave);
+      const canvas = waveCanvasRef.current;
+      if (!canvas) return;
+      const buf = new Uint8Array(analyser.frequencyBinCount);
+      analyser.getByteTimeDomainData(buf);
+      const c = canvas.getContext('2d');
+      c.clearRect(0, 0, canvas.width, canvas.height);
+      c.strokeStyle = '#e04848';
+      c.lineWidth = 1.5;
+      c.beginPath();
+      const sw = canvas.width / buf.length;
+      buf.forEach((v, i) => {
+        const y = (v / 128) * (canvas.height / 2);
+        i === 0 ? c.moveTo(0, y) : c.lineTo(i * sw, y);
+      });
+      c.stroke();
+    };
+    drawWave();
     setIsCapturing(true);
-  }, []);
+  }, [mp3Url]);
 
   const stopCapture = useCallback(() => {
     const ctx = ctxRef.current;
     const master = masterGainRef.current;
     const proc = recProcRef.current;
     if (!proc || !ctx || !master) return;
+    cancelAnimationFrame(animFrameRef.current);
+    animFrameRef.current = null;
+    if (analyserRef.current) { master.disconnect(analyserRef.current); analyserRef.current = null; }
     master.disconnect(proc);
     proc.disconnect();
     proc.onaudioprocess = null;
@@ -621,12 +652,7 @@ export function Groovebox({ open, onClose, darkMode }) {
     const end = encoder.flush();
     if (end.length > 0) mp3Parts.push(new Uint8Array(end));
     const blob = new Blob(mp3Parts, { type: 'audio/mpeg' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'groovebox.mp3';
-    a.click();
-    setTimeout(() => URL.revokeObjectURL(url), 10000);
+    setMp3Url(URL.createObjectURL(blob));
   }, []);
 
   const toggleSeqLen = useCallback(() => {
@@ -796,10 +822,22 @@ export function Groovebox({ open, onClose, darkMode }) {
         <button
           className={`groove-mono-btn groove-rec-capture${isCapturing ? ' active' : ''}`}
           onClick={isCapturing ? stopCapture : startCapture}
-          title={isCapturing ? 'Stop recording and download MP3' : 'Record to MP3'}
+          title={isCapturing ? 'Stop recording' : 'Record to MP3'}
         >
-          {isCapturing ? '⏹ STOP & SAVE' : '⏺ REC MP3'}
+          {isCapturing ? '⏹ STOP' : '⏺ REC'}
         </button>
+        {isCapturing && (
+          <canvas ref={waveCanvasRef} className="groove-waveform" width={80} height={22} />
+        )}
+        {mp3Url && !isCapturing && (
+          <a
+            className="groove-mono-btn groove-dl-btn"
+            href={mp3Url}
+            download="groovebox.mp3"
+          >
+            ↓ DOWNLOAD MP3
+          </a>
+        )}
         <button className="groove-close" onClick={() => { stop(); onClose(); }}>✕</button>
       </div>
 

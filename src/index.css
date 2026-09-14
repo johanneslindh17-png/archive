@@ -1487,6 +1487,8 @@ path.eg.dim{opacity:0.055}
 }
 .groove-mono-btn:hover { color: var(--tb-text); }
 .groove-rec-capture.active { color: #e04848; border-color: #e04848; animation: rec-pulse 1s ease-in-out infinite; }
+.groove-waveform { border: 1px solid rgba(224,72,72,0.35); border-radius: 2px; background: transparent; flex-shrink: 0; }
+.groove-dl-btn { text-decoration: none; color: var(--tb-text); }
 
 .groove-close {
   margin-left: auto;
