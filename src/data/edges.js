@@ -1492,8 +1492,10 @@
   { from:'chicago_scene',       to:'angels_of_love',      strength:2, type:'influence' },
   { from:'acid',                to:'angels_of_love',      strength:2, type:'influence' },
   { from:'italo_disco',         to:'angels_of_love',      strength:2, type:'influence' },
+  { from:'angels_of_love',      to:'ricky_montanari',     strength:3, type:'roster'    },
   { from:'angels_of_love',      to:'marco_carola',        strength:3, type:'roster'    },
   { from:'angels_of_love',      to:'joseph_capriati',     strength:2, type:'roster'    },
+  { from:'ricky_montanari',     to:'angels_of_love',      strength:3, type:'lineage'   },
 
   // ── ITALY — TENAX / MARCO CAROLA / JOSEPH CAPRIATI ───────────────────────
   { from:'tenax',               to:'marco_carola',        strength:3, type:'roster'    },
