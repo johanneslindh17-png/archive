@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback, useEffect, memo } from 'react';
+import { Mp3Encoder } from 'lamejs';
 
 // ── Rotary knob ──────────────────────────────────────────────────────────────
 
@@ -229,18 +230,19 @@ function makeImpulse(ctx) {
   return buf;
 }
 
-function makeChain(ctx, t, vol, filterVal, panVal, dn, rn, dlyOn, rvbOn) {
+function makeChain(ctx, t, vol, filterVal, panVal, dn, rn, dlyOn, rvbOn, masterDest) {
   const hz   = filterVal >= 0.99 ? 20000 : 80 + Math.pow(filterVal, 2) * 19200;
   const filt = ctx.createBiquadFilter(); filt.type = 'lowpass'; filt.frequency.setValueAtTime(hz, t);
   const panner = ctx.createStereoPanner(); panner.pan.setValueAtTime((panVal ?? 0.5) * 2 - 1, t);
   const gain = ctx.createGain(); gain.gain.setValueAtTime(Math.max(0.0001, vol), t);
-  filt.connect(panner); panner.connect(gain); gain.connect(ctx.destination);
+  const out = masterDest || ctx.destination;
+  filt.connect(panner); panner.connect(gain); gain.connect(out);
   if (dlyOn && dn) { const sg = ctx.createGain(); sg.gain.value = 0.50; gain.connect(sg); sg.connect(dn); }
   if (rvbOn && rn) { const rg = ctx.createGain(); rg.gain.value = 0.45; gain.connect(rg); rg.connect(rn); }
   return filt;
 }
 
-function makeSynthVoice(ctx, midi, type, t, bpm, vol, vp, filterCutoff, panVal, dn, rn, dlyOn, rvbOn) {
+function makeSynthVoice(ctx, midi, type, t, bpm, vol, vp, filterCutoff, panVal, dn, rn, dlyOn, rvbOn, masterDest) {
   const freq     = 440 * Math.pow(2, (midi - 69) / 12);
   const osc      = ctx.createOscillator(); osc.type = type; osc.frequency.setValueAtTime(freq, t);
   const cutoffHz = filterCutoff >= 0.99 ? 18000 : 60 + Math.pow(filterCutoff, 2) * 14000;
@@ -259,7 +261,8 @@ function makeSynthVoice(ctx, midi, type, t, bpm, vol, vp, filterCutoff, panVal, 
   vca.gain.linearRampToValueAtTime(0.0001, t + Math.max(noteLen, att + dec) + rel);
   const panner = ctx.createStereoPanner(); panner.pan.setValueAtTime((panVal ?? 0.5) * 2 - 1, t);
   const out = ctx.createGain(); out.gain.value = 1;
-  osc.connect(vcf); vcf.connect(vca); vca.connect(panner); panner.connect(out); out.connect(ctx.destination);
+  const synthOut = masterDest || ctx.destination;
+  osc.connect(vcf); vcf.connect(vca); vca.connect(panner); panner.connect(out); out.connect(synthOut);
   if (dlyOn && dn) { const sg = ctx.createGain(); sg.gain.value = 0.50; out.connect(sg); sg.connect(dn); }
   if (rvbOn && rn) { const rg = ctx.createGain(); rg.gain.value = 0.45; out.connect(rg); rg.connect(rn); }
   osc.start(t); osc.stop(t + Math.max(noteLen, att + dec) + rel + 0.05);
@@ -358,6 +361,7 @@ export function Groovebox({ open, onClose, darkMode }) {
   );
   const [automation,  setAutomation]  = useState(makeEmptyAuto);
   const [isRec,       setIsRec]       = useState(false);
+  const [isCapturing, setIsCapturing] = useState(false);
   const [seqLen,      setSeqLen]      = useState(16);
   const [noteOct,     setNoteOct]     = useState(3);
   const [currentStep, setCurrentStep] = useState(-1);
@@ -368,9 +372,12 @@ export function Groovebox({ open, onClose, darkMode }) {
   // ── Refs ───────────────────────────────────────────────────────────────────
 
   const ctxRef         = useRef(null);
+  const masterGainRef  = useRef(null);
   const dlyNodeRef     = useRef(null);
   const rvbNodeRef     = useRef(null);
   const schedRef       = useRef(null);
+  const recProcRef     = useRef(null);
+  const recChunksRef   = useRef([]);
   const nextTRef       = useRef(0);
   const stepRef        = useRef(0);
   const playingStepRef = useRef(-1);
@@ -454,6 +461,7 @@ export function Groovebox({ open, onClose, darkMode }) {
       const au   = autoR.current;
       const dn   = dlyNodeRef.current;
       const rn   = rvbNodeRef.current;
+      const mg   = masterGainRef.current;
 
       const rv = (id, param, base) => au[id]?.[param]?.[s] ?? base;
 
@@ -489,7 +497,7 @@ export function Groovebox({ open, onClose, darkMode }) {
       DRUM_TRACKS.forEach(({ id }) => {
         if (!drs[id][s] || mut[id]) return;
         if (prb[id] < 1 && Math.random() > prb[id]) return;
-        const dest = makeChain(ctx, t, vol * rv(id, 'vol', tvol[id]), rv(id, 'filter', tflt[id]), rv(id, 'pan', tpan[id]), dn, rn, dly[id], rvb[id]);
+        const dest = makeChain(ctx, t, vol * rv(id, 'vol', tvol[id]), rv(id, 'filter', tflt[id]), rv(id, 'pan', tpan[id]), dn, rn, dly[id], rvb[id], mg);
         const dvp = getVp(id);
         if (id === 'kick')  doKick(ctx, t, dest, dvp);
         if (id === 'snare') doSnare(ctx, t, dest, dvp);
@@ -502,12 +510,12 @@ export function Groovebox({ open, onClose, darkMode }) {
       if (!mut.bass && sth.bass[s] && (prb.bass >= 1 || Math.random() <= prb.bass)) {
         const notes = sth.bass[s];
         const nv = vol * rv('bass', 'vol', tvol.bass) * 0.8 / notes.length;
-        notes.forEach(midi => makeSynthVoice(ctx, midi, 'sawtooth', t, bpm, nv, getVp('bass'), rv('bass', 'filter', tflt.bass), rv('bass', 'pan', tpan.bass), dn, rn, dly.bass, rvb.bass));
+        notes.forEach(midi => makeSynthVoice(ctx, midi, 'sawtooth', t, bpm, nv, getVp('bass'), rv('bass', 'filter', tflt.bass), rv('bass', 'pan', tpan.bass), dn, rn, dly.bass, rvb.bass, mg));
       }
       if (!mut.lead && sth.lead[s] && (prb.lead >= 1 || Math.random() <= prb.lead)) {
         const notes = sth.lead[s];
         const nv = vol * rv('lead', 'vol', tvol.lead) * 0.6 / notes.length;
-        notes.forEach(midi => makeSynthVoice(ctx, midi, 'square', t, bpm, nv, getVp('lead'), rv('lead', 'filter', tflt.lead), rv('lead', 'pan', tpan.lead), dn, rn, dly.lead, rvb.lead));
+        notes.forEach(midi => makeSynthVoice(ctx, midi, 'square', t, bpm, nv, getVp('lead'), rv('lead', 'filter', tflt.lead), rv('lead', 'pan', tpan.lead), dn, rn, dly.lead, rvb.lead, mg));
       }
 
       playingStepRef.current = s;
@@ -522,14 +530,17 @@ export function Groovebox({ open, onClose, darkMode }) {
     if (!ctxRef.current) {
       const ctx = new (window.AudioContext || window.webkitAudioContext)();
       ctxRef.current = ctx;
+      const master = ctx.createGain(); master.gain.value = 1;
+      master.connect(ctx.destination);
+      masterGainRef.current = master;
       const dly = ctx.createDelay(2.5); dly.delayTime.value = (60 / bpmR.current) / 4;
       const fb = ctx.createGain(); fb.gain.value = 0.55;
       const wet = ctx.createGain(); wet.gain.value = 0.55;
-      dly.connect(fb); fb.connect(dly); dly.connect(wet); wet.connect(ctx.destination);
+      dly.connect(fb); fb.connect(dly); dly.connect(wet); wet.connect(master);
       dlyNodeRef.current = dly;
       const conv = ctx.createConvolver(); conv.buffer = makeImpulse(ctx);
       const rg = ctx.createGain(); rg.gain.value = 0.85;
-      conv.connect(rg); rg.connect(ctx.destination);
+      conv.connect(rg); rg.connect(master);
       rvbNodeRef.current = conv;
     }
     const ctx = ctxRef.current;
@@ -551,6 +562,72 @@ export function Groovebox({ open, onClose, darkMode }) {
     setSynth(makeEmptySynth(seqLenRef.current));
   }, []);
   const clearAuto = useCallback(() => setAutomation(makeEmptyAuto(seqLenRef.current)), []);
+
+  const startCapture = useCallback(() => {
+    const ctx = ctxRef.current;
+    const master = masterGainRef.current;
+    if (!ctx || !master) return;
+    recChunksRef.current = [];
+    const proc = ctx.createScriptProcessor(4096, 2, 2);
+    proc.onaudioprocess = (e) => {
+      recChunksRef.current.push([
+        new Float32Array(e.inputBuffer.getChannelData(0)),
+        new Float32Array(e.inputBuffer.getChannelData(1)),
+      ]);
+    };
+    master.connect(proc);
+    proc.connect(ctx.destination);
+    recProcRef.current = proc;
+    setIsCapturing(true);
+  }, []);
+
+  const stopCapture = useCallback(() => {
+    const ctx = ctxRef.current;
+    const master = masterGainRef.current;
+    const proc = recProcRef.current;
+    if (!proc || !ctx || !master) return;
+    master.disconnect(proc);
+    proc.disconnect();
+    proc.onaudioprocess = null;
+    recProcRef.current = null;
+    setIsCapturing(false);
+
+    const chunks = recChunksRef.current;
+    if (!chunks.length) return;
+    const totalSamples = chunks.reduce((s, c) => s + c[0].length, 0);
+    const leftAll  = new Float32Array(totalSamples);
+    const rightAll = new Float32Array(totalSamples);
+    let offset = 0;
+    for (const [L, R] of chunks) {
+      leftAll.set(L, offset);
+      rightAll.set(R, offset);
+      offset += L.length;
+    }
+    const toInt16 = (f32) => {
+      const i16 = new Int16Array(f32.length);
+      for (let i = 0; i < f32.length; i++)
+        i16[i] = Math.max(-32768, Math.min(32767, f32[i] * 32767));
+      return i16;
+    };
+    const encoder = new Mp3Encoder(2, ctx.sampleRate, 192);
+    const mp3Parts = [];
+    const blockSize = 1152;
+    for (let i = 0; i < totalSamples; i += blockSize) {
+      const L = toInt16(leftAll.subarray(i, i + blockSize));
+      const R = toInt16(rightAll.subarray(i, i + blockSize));
+      const buf = encoder.encodeBuffer(L, R);
+      if (buf.length > 0) mp3Parts.push(new Uint8Array(buf));
+    }
+    const end = encoder.flush();
+    if (end.length > 0) mp3Parts.push(new Uint8Array(end));
+    const blob = new Blob(mp3Parts, { type: 'audio/mpeg' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'groovebox.mp3';
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 10000);
+  }, []);
 
   const toggleSeqLen = useCallback(() => {
     if (seqLenRef.current === 16) {
@@ -715,6 +792,14 @@ export function Groovebox({ open, onClose, darkMode }) {
           <span className="groove-rec-dot" />RECORD AUTOMATION
         </button>
         <button className="groove-mono-btn" onClick={clearAuto}>CLR AUTO</button>
+        <div className="groove-header-sep" />
+        <button
+          className={`groove-mono-btn groove-rec-capture${isCapturing ? ' active' : ''}`}
+          onClick={isCapturing ? stopCapture : startCapture}
+          title={isCapturing ? 'Stop recording and download MP3' : 'Record to MP3'}
+        >
+          {isCapturing ? '⏹ STOP & SAVE' : '⏺ REC MP3'}
+        </button>
         <button className="groove-close" onClick={() => { stop(); onClose(); }}>✕</button>
       </div>
 

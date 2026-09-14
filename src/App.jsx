@@ -2970,8 +2970,8 @@ export default function App() {
                       groups.push({ date: e.date, items: [] });
                     groups[groups.length - 1].items.push(e);
                   });
-                  return groups.map(g => (
-                    <div key={g.date} className="node-log-group">
+                  return groups.map((g, gi) => (
+                    <div key={gi} className="node-log-group">
                       <button
                         className={`node-log-date${logHlDate === g.date ? ' active' : ''}`}
                         onClick={() => setLogHlDate(d => d === g.date ? null : g.date)}
