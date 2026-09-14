@@ -2,18 +2,12 @@ import { useState, useEffect, useRef, useCallback, useMemo, startTransition } fr
 import { useSunMode } from './hooks/useSunMode.js';
 import { Groovebox } from './Groovebox.jsx';
 
-// Reset a .nd-inner's CSS scale back to 1, then clean up the inline styles
-// after the transition so there's no stale will-change on idle nodes.
-function resetInnerScale(inner) {
-  if (!inner) return;
-  clearTimeout(inner._scaleOff);
-  inner.style.transform = 'scale(1)';
-  inner._scaleOff = setTimeout(() => {
-    inner.style.transform = '';
-    inner.style.willChange = '';
-    inner.style.transition = '';
-    inner.style.transformOrigin = '';
-  }, 150);
+// Reset a .nd group's CSS scale and clean up inline styles immediately.
+function resetOuterScale(el) {
+  if (!el) return;
+  clearTimeout(el._scaleOff);
+  el.style.transform = '';
+  el.style.transformOrigin = '';
 }
 import * as d3 from 'd3';
 import {
@@ -2052,15 +2046,13 @@ export default function App() {
             const self = ev.currentTarget;
             self.classList.add('hov-self');
             const selfInner = self.querySelector('.nd-inner');
-            if (selfInner) {
-              // Promote to own compositor layer so the scale runs on GPU,
-              // never touching the SVG paint surface of other nodes.
-              // transform-origin 0 0 = node center (content is centered at local origin).
-              clearTimeout(selfInner._scaleOff);
-              selfInner.style.willChange = 'transform';
-              selfInner.style.transformOrigin = '0 0';
-              selfInner.style.transition = 'transform 0.1s ease-out';
-              selfInner.style.transform = 'scale(1.14)';
+            // Scale the outer .nd group using SVG viewport coordinates as origin.
+            // No transition yet — testing if even instant scale causes shaking.
+            const p = positions[n.id];
+            if (p) {
+              clearTimeout(self._scaleOff);
+              self.style.transformOrigin = `${p.x}px ${p.y}px`;
+              self.style.transform = 'scale(1.14)';
             }
             hovPrevRef.current = [{ el: self, inner: selfInner }];
             const svgNS = 'http://www.w3.org/2000/svg';
@@ -2142,7 +2134,7 @@ export default function App() {
             oldHovPrev.forEach(({ el, inner }) => {
               if (el === self) return;
               el.classList.remove('hov-self', 'hov-prev');
-              if (inner) resetInnerScale(inner);
+              resetOuterScale(el);
             });
           }
         }}
@@ -2154,7 +2146,7 @@ export default function App() {
             clearMarchOverlay();
             hovPrevRef.current.forEach(({ el, inner }) => {
               el.classList.remove('hov-self', 'hov-prev');
-              if (inner) resetInnerScale(inner);
+              resetOuterScale(el);
             });
             hovPrevRef.current = [];
             startTransition(() => setHovNode(null));
@@ -2617,7 +2609,7 @@ export default function App() {
           clearMarchOverlay();
           hovPrevRef.current.forEach(({ el, inner, txt, orig }) => {
             el.classList.remove('hov-self', 'hov-prev');
-            if (inner) resetInnerScale(inner);
+            resetOuterScale(el);
             if (txt) txt.style.fill = orig;
           });
           hovPrevRef.current = [];
