@@ -3417,6 +3417,9 @@ export const NODES = [
     desc:'Cosmic was an open-air venue in Lazise on the shore of Lake Garda, active from 1979 to 1984. Under the residency of Daniele Baldelli and Don Luca, it became the epicentre of the Afro/Cosmic sound — a slow, psychedelic DJing style blending African percussion, electronic music, and space-age synth records. The sound anticipated both ambient techno and the slower forms of house, and Cosmic remains a touchstone of alternative Italian club history.',
     },
 
+  { id:'angels_of_love', label:'Angels of Love', type:'venue', genre:'techno', era:1988, city:'Naples', country:'IT',
+    desc:'Angels of Love (Angeli dell\'Amore) was a Naples party night that grew into one of the largest outdoor rave events in Europe. Founded in 1988, it was the central institution of the Neapolitan underground, drawing directly on American house and techno imports and on the energy of the Italian rave movement. At its peak in the 1990s it drew crowds of 20,000–50,000 people to warehouse and outdoor events around the city. Resident DJs including Ricky Montanari defined the sound, and the party launched the international careers of a generation of Neapolitan techno artists. Angels of Love ran in various forms until the early 2010s, and the scene it created made Naples one of the most distinctive regional techno cultures in Europe.' },
+
   { id:'marco_carola', label:'Marco Carola', type:'artist', genre:'techno', era:1995, city:'Naples', country:'IT',
     desc:'Marco Carola began his career in the Naples underground and became one of the most technically precise techno DJs of his generation. His releases on Music Man Records and Drumcode helped define hard European techno of the late 1990s. Later associated with Villalobos and the Perlon minimal scene, he eventually returned to harder techno through his long-running Ibiza party Music On.',
     releases:[

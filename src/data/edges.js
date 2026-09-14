@@ -1488,6 +1488,13 @@
   { from:'cosmic_disco_style',  to:'italo_disco',         strength:2, type:'lineage'   },
   { from:'afrofuturism',        to:'cosmic_disco_style',  strength:2, type:'influence' },
 
+  // ── ITALY — ANGELS OF LOVE ───────────────────────────────────────────────
+  { from:'chicago_scene',       to:'angels_of_love',      strength:2, type:'influence' },
+  { from:'acid',                to:'angels_of_love',      strength:2, type:'influence' },
+  { from:'italo_disco',         to:'angels_of_love',      strength:2, type:'influence' },
+  { from:'angels_of_love',      to:'marco_carola',        strength:3, type:'roster'    },
+  { from:'angels_of_love',      to:'joseph_capriati',     strength:2, type:'roster'    },
+
   // ── ITALY — TENAX / MARCO CAROLA / JOSEPH CAPRIATI ───────────────────────
   { from:'tenax',               to:'marco_carola',        strength:3, type:'roster'    },
   { from:'tenax',               to:'joseph_capriati',     strength:3, type:'roster'    },
