@@ -28,7 +28,7 @@ function Knob({ value, onChange, size = 32 }) {
   );
 }
 
-// ── Vertical fader (mixer-style volume) ──────────────────────────────────────
+// ── Vertical fader ────────────────────────────────────────────────────────────
 
 function VFader({ value, onChange }) {
   function onMouseDown(e) {
@@ -39,7 +39,6 @@ function VFader({ value, onChange }) {
     document.addEventListener('mousemove', onMove);
     document.addEventListener('mouseup', onUp);
   }
-
   return (
     <div className="gv-fader" onMouseDown={onMouseDown}>
       <div className="gv-fader-track">
@@ -51,7 +50,7 @@ function VFader({ value, onChange }) {
   );
 }
 
-// ── Vertical slider (SH-101 style ADSR) ─────────────────────────────────────
+// ── Vertical slider (ADSR) ────────────────────────────────────────────────────
 
 function VSlider({ value, onChange, label }) {
   function onMouseDown(e) {
@@ -62,7 +61,6 @@ function VSlider({ value, onChange, label }) {
     document.addEventListener('mousemove', onMove);
     document.addEventListener('mouseup', onUp);
   }
-
   return (
     <div className="gv-vslider" onMouseDown={onMouseDown}>
       <div className="gv-vslider-track">
@@ -73,12 +71,12 @@ function VSlider({ value, onChange, label }) {
   );
 }
 
-// ── Static definitions ────────────────────────────────────────────────────────
+// ── Constants ─────────────────────────────────────────────────────────────────
 
 const DRUM_TRACKS  = [
-  { id: 'kick', label: 'KICK' }, { id: 'snare', label: 'SNARE' },
-  { id: 'clap', label: 'CLAP' }, { id: 'hh_c',  label: 'HH'    },
-  { id: 'hh_o', label: 'OPEN' }, { id: 'perc',  label: 'PERC'  },
+  { id: 'kick',  label: 'KICK'  }, { id: 'snare', label: 'SNARE' },
+  { id: 'clap',  label: 'CLAP'  }, { id: 'hh_c',  label: 'HH'    },
+  { id: 'hh_o',  label: 'OPEN'  }, { id: 'perc',  label: 'PERC'  },
 ];
 const SYNTH_TRACKS = [{ id: 'bass', label: 'BASS' }, { id: 'lead', label: 'LEAD' }];
 const ALL_TRACKS   = [...DRUM_TRACKS, ...SYNTH_TRACKS];
@@ -133,15 +131,21 @@ function makeEmptyAuto() {
   }]));
 }
 
-// ── Voice column ─────────────────────────────────────────────────────────────
+// ── Voice column ──────────────────────────────────────────────────────────────
 
 const VoiceCol = memo(function VoiceCol({
   id, label, isSynth, muted, vp, params, filter, vol, pan, dly, rvb,
-  onVParam, onFilter, onVol, onPan, onDly, onRvb,
+  onVParam, onFilter, onVol, onPan, onDly, onRvb, onToggleMute,
 }) {
   return (
     <div className={`gv-col${muted ? ' gv-col--muted' : ''}`}>
-      <div className="gv-col-label">{label}</div>
+      <div
+        className={`gv-col-label${muted ? ' gv-col-label--muted' : ''}`}
+        onClick={() => onToggleMute(id)}
+        title={muted ? 'unmute' : 'mute'}
+      >
+        {label}
+      </div>
 
       {isSynth ? (
         <div className="gv-adsr-row">
@@ -162,7 +166,6 @@ const VoiceCol = memo(function VoiceCol({
 
       <div className="gv-sep" />
 
-      {/* Filter + RES (synths) + PAN */}
       <div className="gv-filt-row">
         <div className="gv-param">
           <Knob value={filter} onChange={v => onFilter(id, v)} />
@@ -180,7 +183,6 @@ const VoiceCol = memo(function VoiceCol({
         </div>
       </div>
 
-      {/* Fader + sends pinned to bottom */}
       <div className="gv-bottom">
         <VFader value={vol} onChange={v => onVol(id, v)} />
         <div className="gv-sep" />
@@ -203,7 +205,7 @@ function noiseBuf(ctx, dur) {
 }
 
 function makeImpulse(ctx) {
-  const sr = ctx.sampleRate, len = Math.ceil(sr * 3.5); // longer reverb tail
+  const sr = ctx.sampleRate, len = Math.ceil(sr * 3.5);
   const buf = ctx.createBuffer(2, len, sr);
   for (let ch = 0; ch < 2; ch++) {
     const d = buf.getChannelData(ch);
@@ -229,12 +231,10 @@ function makeSynthVoice(ctx, midi, type, t, bpm, vol, vp, filterCutoff, panVal, 
   const cutoffHz = filterCutoff >= 0.99 ? 18000 : 60 + Math.pow(filterCutoff, 2) * 14000;
   const vcf      = ctx.createBiquadFilter(); vcf.type = 'lowpass';
   vcf.frequency.setValueAtTime(cutoffHz, t); vcf.Q.setValueAtTime(0.5 + (vp.res ?? 0.1) * 22, t);
-
-  const att = 0.001 + (vp.att ?? 0.02) * 0.8;   // 1ms – 801ms
-  const dec = 0.005 + (vp.dec ?? 0.2)  * 1.5;   // 5ms – 1505ms
+  const att = 0.001 + (vp.att ?? 0.02) * 0.8;
+  const dec = 0.005 + (vp.dec ?? 0.2)  * 1.5;
   const sus = vp.sus ?? 0.55;
-  const rel = 0.02  + (vp.rel ?? 0.15) * 3.0;   // 20ms – 3020ms
-
+  const rel = 0.02  + (vp.rel ?? 0.15) * 3.0;
   const stepDur = (60 / bpm) / 4, noteLen = stepDur * 0.78;
   const vca = ctx.createGain();
   vca.gain.setValueAtTime(0.0001, t);
@@ -242,7 +242,6 @@ function makeSynthVoice(ctx, midi, type, t, bpm, vol, vp, filterCutoff, panVal, 
   vca.gain.linearRampToValueAtTime(vol * sus, t + att + dec);
   if (noteLen > att + dec) vca.gain.setValueAtTime(vol * sus, t + noteLen);
   vca.gain.linearRampToValueAtTime(0.0001, t + Math.max(noteLen, att + dec) + rel);
-
   const panner = ctx.createStereoPanner(); panner.pan.setValueAtTime((panVal ?? 0.5) * 2 - 1, t);
   const out = ctx.createGain(); out.gain.value = 1;
   osc.connect(vcf); vcf.connect(vca); vca.connect(panner); panner.connect(out); out.connect(ctx.destination);
@@ -251,11 +250,9 @@ function makeSynthVoice(ctx, midi, type, t, bpm, vol, vp, filterCutoff, panVal, 
   osc.start(t); osc.stop(t + Math.max(noteLen, att + dec) + rel + 0.05);
 }
 
-// Drum synths ─────────────────────────────────────────────────────────────────
-
 function doKick(ctx, t, dest, p) {
   const base = 35 + (p.pitch ?? 0.5) * 180;
-  const dec  = 0.08 + (p.decay ?? 0.45) * 1.4;  // 80ms – 1480ms
+  const dec  = 0.08 + (p.decay ?? 0.45) * 1.4;
   const osc = ctx.createOscillator(), g = ctx.createGain();
   osc.frequency.setValueAtTime(base * 3, t);
   osc.frequency.exponentialRampToValueAtTime(Math.max(0.001, base), t + 0.02);
@@ -269,7 +266,7 @@ function doKick(ctx, t, dest, p) {
 
 function doSnare(ctx, t, dest, p) {
   const bpHz = 400 + (p.tone  ?? 0.4) * 3600;
-  const dec  = 0.04 + (p.decay ?? 0.4) * 0.8;  // 40ms – 840ms
+  const dec  = 0.04 + (p.decay ?? 0.4) * 0.8;
   const ns   = ctx.createBufferSource(); ns.buffer = noiseBuf(ctx, dec + 0.05);
   const nf   = ctx.createBiquadFilter(); nf.type = 'bandpass'; nf.frequency.value = bpHz; nf.Q.value = 0.5;
   const ng   = ctx.createGain(); ng.gain.setValueAtTime(0.95, t); ng.gain.exponentialRampToValueAtTime(0.001, t + dec);
@@ -281,7 +278,7 @@ function doSnare(ctx, t, dest, p) {
 
 function doClap(ctx, t, dest, p) {
   const bpHz = 600 + (p.tone  ?? 0.4) * 2000;
-  const dec  = 0.05 + (p.decay ?? 0.35) * 0.5;  // 50ms – 550ms
+  const dec  = 0.05 + (p.decay ?? 0.35) * 0.5;
   [0, 0.010, 0.022].forEach(off => {
     const ns = ctx.createBufferSource(); ns.buffer = noiseBuf(ctx, dec);
     const f  = ctx.createBiquadFilter(); f.type = 'bandpass'; f.frequency.value = bpHz; f.Q.value = 0.65;
@@ -294,8 +291,8 @@ function doClap(ctx, t, dest, p) {
 function doHH(ctx, t, dest, p, isOpen) {
   const tone = p.tone ?? 0.5;
   const dec  = isOpen
-    ? 0.06 + (p.decay ?? 0.45) * 1.6   // 60ms – 1660ms
-    : 0.005 + (p.decay ?? 0.3) * 0.22; // 5ms – 225ms
+    ? 0.06 + (p.decay ?? 0.45) * 1.6
+    : 0.005 + (p.decay ?? 0.3) * 0.22;
   const ns = ctx.createBufferSource(); ns.buffer = noiseBuf(ctx, dec + 0.02);
   const f  = ctx.createBiquadFilter(); f.type = 'highpass'; f.frequency.value = 6000 + tone * 5000;
   const g  = ctx.createGain(); g.gain.setValueAtTime(0.55, t); g.gain.exponentialRampToValueAtTime(0.001, t + dec);
@@ -304,7 +301,7 @@ function doHH(ctx, t, dest, p, isOpen) {
 
 function doPerc(ctx, t, dest, p) {
   const base = 100 + (p.pitch ?? 0.5) * 1100;
-  const dec  = 0.02 + (p.decay ?? 0.4) * 0.8;  // 20ms – 820ms
+  const dec  = 0.02 + (p.decay ?? 0.4) * 0.8;
   const osc  = ctx.createOscillator();
   osc.frequency.setValueAtTime(base * 2.2, t);
   osc.frequency.exponentialRampToValueAtTime(Math.max(0.001, base * 0.4), t + dec);
@@ -326,14 +323,15 @@ export function Groovebox({ open, onClose, darkMode }) {
   const [trackPan,    setTrackPan]    = useState(() => makeVMap(0.5));
   const [dlyLvl,      setDlyLvl]     = useState(() => makeVMap(false));
   const [rvbLvl,      setRvbLvl]     = useState(() => makeVMap(false));
+  const [prob,        setProb]        = useState(() => makeVMap(1.0));
   const [vparams,     setVparams]     = useState(() =>
     Object.fromEntries(ALL_IDS.map(id => [id, { ...DEFAULT_VPARAMS[id] }]))
   );
   const [automation,  setAutomation]  = useState(makeEmptyAuto);
   const [isRec,       setIsRec]       = useState(false);
-  const [synthSel,    setSynthSel]    = useState(null);
   const [noteOct,     setNoteOct]     = useState(3);
   const [currentStep, setCurrentStep] = useState(-1);
+  const [hoverSynth,  setHoverSynth]  = useState(null); // {voice, step, rect}
 
   // ── Refs ───────────────────────────────────────────────────────────────────
 
@@ -344,6 +342,7 @@ export function Groovebox({ open, onClose, darkMode }) {
   const nextTRef       = useRef(0);
   const stepRef        = useRef(0);
   const playingStepRef = useRef(-1);
+  const hoverTimerRef  = useRef(null);
 
   const isRecRef    = useRef(isRec);       isRecRef.current    = isRec;
   const playingRef  = useRef(playing);     playingRef.current  = playing;
@@ -357,6 +356,7 @@ export function Groovebox({ open, onClose, darkMode }) {
   const tvolR       = useRef(trackVol);    tvolR.current       = trackVol;
   const tfltR       = useRef(trackFilter); tfltR.current       = trackFilter;
   const tpanR       = useRef(trackPan);    tpanR.current       = trackPan;
+  const probR       = useRef(prob);        probR.current       = prob;
   const vparR       = useRef(vparams);     vparR.current       = vparams;
   const autoR       = useRef(automation);  autoR.current       = automation;
   const setTvolR    = useRef(setTrackVol);
@@ -378,23 +378,13 @@ export function Groovebox({ open, onClose, darkMode }) {
 
   // ── Stable VoiceCol callbacks ────────────────────────────────────────────
 
-  const onVParam = useCallback((id, key, val) =>
-    setVparams(p => ({ ...p, [id]: { ...p[id], [key]: val } })), []);
-
-  const onFilter = useCallback((id, val) =>
-    setWithAuto(setTrackFilter, id, val, 'filter'), [setWithAuto]);
-
-  const onVol = useCallback((id, val) =>
-    setWithAuto(setTrackVol, id, val, 'vol'), [setWithAuto]);
-
-  const onPan = useCallback((id, val) =>
-    setTrackPan(p => ({ ...p, [id]: val })), []);
-
-  const onDly = useCallback((id) =>
-    setDlyLvl(p => ({ ...p, [id]: !p[id] })), []);
-
-  const onRvb = useCallback((id) =>
-    setRvbLvl(p => ({ ...p, [id]: !p[id] })), []);
+  const onVParam      = useCallback((id, key, val) => setVparams(p => ({ ...p, [id]: { ...p[id], [key]: val } })), []);
+  const onFilter      = useCallback((id, val) => setWithAuto(setTrackFilter, id, val, 'filter'), [setWithAuto]);
+  const onVol         = useCallback((id, val) => setWithAuto(setTrackVol, id, val, 'vol'), [setWithAuto]);
+  const onPan         = useCallback((id, val) => setTrackPan(p => ({ ...p, [id]: val })), []);
+  const onDly         = useCallback((id) => setDlyLvl(p => ({ ...p, [id]: !p[id] })), []);
+  const onRvb         = useCallback((id) => setRvbLvl(p => ({ ...p, [id]: !p[id] })), []);
+  const onToggleMute  = useCallback((id) => setMuted(p => ({ ...p, [id]: !p[id] })), []);
 
   // ── Scheduler ────────────────────────────────────────────────────────────
 
@@ -410,6 +400,7 @@ export function Groovebox({ open, onClose, darkMode }) {
       const dly  = dlyR.current;
       const rvb  = rvbR.current;
       const mut  = mutR.current;
+      const prb  = probR.current;
       const tvol = tvolR.current;
       const tflt = tfltR.current;
       const tpan = tpanR.current;
@@ -420,7 +411,6 @@ export function Groovebox({ open, onClose, darkMode }) {
 
       const rv = (id, param, base) => au[id]?.[param]?.[s] ?? base;
 
-      // Apply automation back to state so knobs/faders follow visually
       const newVol = {}, newFlt = {};
       let hasAV = false, hasAF = false;
       ALL_IDS.forEach(id => {
@@ -433,6 +423,7 @@ export function Groovebox({ open, onClose, darkMode }) {
 
       DRUM_TRACKS.forEach(({ id }) => {
         if (!drs[id][s] || mut[id]) return;
+        if (prb[id] < 1 && Math.random() > prb[id]) return;
         const dest = makeChain(ctx, t, vol * rv(id, 'vol', tvol[id]), rv(id, 'filter', tflt[id]), tpan[id], dn, rn, dly[id], rvb[id]);
         if (id === 'kick')  doKick(ctx, t, dest, vp[id]);
         if (id === 'snare') doSnare(ctx, t, dest, vp[id]);
@@ -442,12 +433,12 @@ export function Groovebox({ open, onClose, darkMode }) {
         if (id === 'perc')  doPerc(ctx, t, dest, vp[id]);
       });
 
-      if (!mut.bass && sth.bass[s]) {
+      if (!mut.bass && sth.bass[s] && (prb.bass >= 1 || Math.random() <= prb.bass)) {
         const notes = sth.bass[s];
         const nv = vol * rv('bass', 'vol', tvol.bass) * 0.8 / notes.length;
         notes.forEach(midi => makeSynthVoice(ctx, midi, 'sawtooth', t, bpm, nv, vp.bass, rv('bass', 'filter', tflt.bass), tpan.bass, dn, rn, dly.bass, rvb.bass));
       }
-      if (!mut.lead && sth.lead[s]) {
+      if (!mut.lead && sth.lead[s] && (prb.lead >= 1 || Math.random() <= prb.lead)) {
         const notes = sth.lead[s];
         const nv = vol * rv('lead', 'vol', tvol.lead) * 0.6 / notes.length;
         notes.forEach(midi => makeSynthVoice(ctx, midi, 'square', t, bpm, nv, vp.lead, rv('lead', 'filter', tflt.lead), tpan.lead, dn, rn, dly.lead, rvb.lead));
@@ -465,14 +456,11 @@ export function Groovebox({ open, onClose, darkMode }) {
     if (!ctxRef.current) {
       const ctx = new (window.AudioContext || window.webkitAudioContext)();
       ctxRef.current = ctx;
-      // Delay with longer feedback
-      const dly = ctx.createDelay(2.5);
-      dly.delayTime.value = (60 / bpmR.current) / 4;
-      const fb = ctx.createGain(); fb.gain.value = 0.55; // longer repeats
+      const dly = ctx.createDelay(2.5); dly.delayTime.value = (60 / bpmR.current) / 4;
+      const fb = ctx.createGain(); fb.gain.value = 0.55;
       const wet = ctx.createGain(); wet.gain.value = 0.55;
       dly.connect(fb); fb.connect(dly); dly.connect(wet); wet.connect(ctx.destination);
       dlyNodeRef.current = dly;
-      // Reverb with longer decay (3.5s impulse)
       const conv = ctx.createConvolver(); conv.buffer = makeImpulse(ctx);
       const rg = ctx.createGain(); rg.gain.value = 0.85;
       conv.connect(rg); rg.connect(ctx.destination);
@@ -493,72 +481,65 @@ export function Groovebox({ open, onClose, darkMode }) {
   }, []);
 
   const clearPattern = useCallback(() => {
-    setDrums(makeEmptyDrums()); setSynth(makeEmptySynth()); setSynthSel(null);
+    setDrums(makeEmptyDrums()); setSynth(makeEmptySynth());
   }, []);
   const clearAuto = useCallback(() => setAutomation(makeEmptyAuto()), []);
 
   const toggleDrum = useCallback((id, step) =>
     setDrums(p => ({ ...p, [id]: p[id].map((v, i) => i === step ? 1 - v : v) })), []);
-  const toggleMute = useCallback((id) =>
-    setMuted(p => ({ ...p, [id]: !p[id] })), []);
 
-  // ── Synth step editing — click filled = delete, click empty = create + open picker ──
+  // ── Synth step: click empty = add root, click filled = delete ─────────────
 
   function clickSynthStep(voice, step) {
     const cur = synth[voice][step];
-    if (cur !== null) {
-      // Already has notes:
-      if (synthSel?.voice === voice && synthSel?.step === step) {
-        // Second click on already-selected step → delete it
-        setSynth(p => { const n = [...p[voice]]; n[step] = null; return { ...p, [voice]: n }; });
-        setSynthSel(null);
-      } else {
-        // First click → select to open picker
-        setSynthSel({ voice, step });
-      }
-    } else {
-      // Empty step → create default note + open picker
-      const midi = semOctToMidi(0, noteOct);
-      setSynth(p => { const n = [...p[voice]]; n[step] = [midi]; return { ...p, [voice]: n }; });
-      setSynthSel({ voice, step });
-    }
-  }
-
-  function toggleNoteInChord(s) {
-    if (!synthSel) return;
-    const midi = semOctToMidi(s, noteOct);
     setSynth(p => {
-      const cur   = p[synthSel.voice][synthSel.step] ?? [];
-      const idx   = cur.indexOf(midi);
-      const next  = idx >= 0 ? cur.filter((_, i) => i !== idx) : [...cur, midi];
-      const notes = next.length > 0 ? next.sort((a, b) => a - b) : null;
-      const n = [...p[synthSel.voice]]; n[synthSel.step] = notes;
-      if (!notes) setSynthSel(null);
-      return { ...p, [synthSel.voice]: n };
+      const n = [...p[voice]];
+      n[step] = cur !== null ? null : [semOctToMidi(0, noteOct)];
+      return { ...p, [voice]: n };
     });
   }
 
-  function changeOct(o) {
+  // ── Hover popup: set a specific note on a step ───────────────────────────
+
+  function setPopupNote(semi) {
+    if (!hoverSynth) return;
+    const { voice, step } = hoverSynth;
+    const midi = semOctToMidi(semi, noteOct);
+    setSynth(p => { const n = [...p[voice]]; n[step] = [midi]; return { ...p, [voice]: n }; });
+  }
+
+  function changePopupOct(o) {
     setNoteOct(o);
-    if (synthSel) {
-      const cur = synth[synthSel.voice]?.[synthSel.step];
-      if (cur) {
-        const transposed = cur.map(m => semOctToMidi(m % 12, o));
-        setSynth(p => { const n = [...p[synthSel.voice]]; n[synthSel.step] = transposed; return { ...p, [synthSel.voice]: n }; });
-      }
+    if (!hoverSynth) return;
+    const { voice, step } = hoverSynth;
+    const cur = synth[voice][step];
+    if (cur) {
+      setSynth(p => { const n = [...p[voice]]; n[step] = cur.map(m => semOctToMidi(m % 12, o)); return { ...p, [voice]: n }; });
     }
   }
 
-  const selNotes   = synthSel ? (synth[synthSel.voice]?.[synthSel.step] ?? []) : [];
-  const activeSems = new Set(selNotes.map(m => m % 12));
+  function onStepMouseEnter(voice, step, e) {
+    clearTimeout(hoverTimerRef.current);
+    const rect = e.currentTarget.getBoundingClientRect();
+    setHoverSynth({ voice, step, rect });
+  }
+  function onStepMouseLeave() {
+    hoverTimerRef.current = setTimeout(() => setHoverSynth(null), 140);
+  }
+  function onPopupMouseEnter() { clearTimeout(hoverTimerRef.current); }
+  function onPopupMouseLeave() { hoverTimerRef.current = setTimeout(() => setHoverSynth(null), 140); }
+
+  const popupNotes = hoverSynth ? (synth[hoverSynth.voice]?.[hoverSynth.step] ?? []) : [];
+  const popupSems  = new Set(popupNotes.map(m => m % 12));
 
   // ── Render ────────────────────────────────────────────────────────────────
 
   return (
     <div className={`groove-panel${open ? ' open' : ''}${darkMode ? ' dark' : ''}`}>
 
-      <div className="groove-header">
+      <div className={`groove-header${isRec ? ' groove-header--rec' : ''}`}>
         <span className="groove-title">GROOVEBOX</span>
+        {isRec && <span className="groove-rec-indicator" />}
         <button className={`groove-play${playing ? ' act' : ''}`} onClick={playing ? stop : play}>
           {playing ? '■' : '▶'}
         </button>
@@ -589,7 +570,7 @@ export function Groovebox({ open, onClose, darkMode }) {
             filter={trackFilter[t.id]} vol={trackVol[t.id]} pan={trackPan[t.id]}
             dly={dlyLvl[t.id]} rvb={rvbLvl[t.id]}
             onVParam={onVParam} onFilter={onFilter} onVol={onVol} onPan={onPan}
-            onDly={onDly} onRvb={onRvb}
+            onDly={onDly} onRvb={onRvb} onToggleMute={onToggleMute}
           />
         ))}
         <div className="gv-divider-v" />
@@ -600,7 +581,7 @@ export function Groovebox({ open, onClose, darkMode }) {
             filter={trackFilter[t.id]} vol={trackVol[t.id]} pan={trackPan[t.id]}
             dly={dlyLvl[t.id]} rvb={rvbLvl[t.id]}
             onVParam={onVParam} onFilter={onFilter} onVol={onVol} onPan={onPan}
-            onDly={onDly} onRvb={onRvb}
+            onDly={onDly} onRvb={onRvb} onToggleMute={onToggleMute}
           />
         ))}
       </div>
@@ -610,8 +591,8 @@ export function Groovebox({ open, onClose, darkMode }) {
           <div key={t.id} className="groove-row">
             <span className="groove-label">{t.label}</span>
             <div className="groove-steps">
-              {GROUPS.map(g => (
-                <div key={g} className="groove-group">
+              {GROUPS.map((g, gi) => (
+                <div key={g} className={`groove-group${gi % 2 === 1 ? ' groove-group--alt' : ''}`}>
                   {drums[t.id].slice(g, g + 4).map((on, i) => {
                     const step = g + i;
                     return (
@@ -623,7 +604,10 @@ export function Groovebox({ open, onClose, darkMode }) {
                 </div>
               ))}
             </div>
-            <button className={`groove-mute-btn${muted[t.id] ? ' on' : ''}`} onClick={() => toggleMute(t.id)}>M</button>
+            <div className="groove-prob">
+              <Knob size={18} value={prob[t.id]} onChange={v => setProb(p => ({ ...p, [t.id]: v }))} />
+              <span className="groove-prob-lbl">{Math.round(prob[t.id] * 100)}%</span>
+            </div>
           </div>
         ))}
 
@@ -633,21 +617,21 @@ export function Groovebox({ open, onClose, darkMode }) {
           <div key={t.id} className="groove-row">
             <span className="groove-label">{t.label}</span>
             <div className="groove-steps">
-              {GROUPS.map(g => (
-                <div key={g} className="groove-group">
+              {GROUPS.map((g, gi) => (
+                <div key={g} className={`groove-group${gi % 2 === 1 ? ' groove-group--alt' : ''}`}>
                   {synth[t.id].slice(g, g + 4).map((notes, i) => {
-                    const step  = g + i;
-                    const isSel = synthSel?.voice === t.id && synthSel?.step === step;
-                    const root  = notes?.[0] ?? null;
+                    const step    = g + i;
+                    const isHover = hoverSynth?.voice === t.id && hoverSynth?.step === step;
+                    const root    = notes?.[0] ?? null;
                     return (
                       <button key={step}
-                        className={`groove-step groove-step--synth${notes ? ' on' : ''}${isSel ? ' sel' : ''}${step === currentStep ? ' cur' : ''}${muted[t.id] ? ' muted' : ''}`}
+                        className={`groove-step groove-step--synth${notes ? ' on' : ''}${isHover ? ' sel' : ''}${step === currentStep ? ' cur' : ''}${muted[t.id] ? ' muted' : ''}`}
                         onClick={() => clickSynthStep(t.id, step)}
+                        onMouseEnter={e => onStepMouseEnter(t.id, step, e)}
+                        onMouseLeave={onStepMouseLeave}
                       >
                         {root != null && (
-                          <span className="groove-note-lbl">
-                            {midiToNote(root)}{notes.length > 1 ? <sup>+{notes.length - 1}</sup> : ''}
-                          </span>
+                          <span className="groove-note-lbl">{midiToNote(root)}</span>
                         )}
                       </button>
                     );
@@ -655,37 +639,47 @@ export function Groovebox({ open, onClose, darkMode }) {
                 </div>
               ))}
             </div>
-            <button className={`groove-mute-btn${muted[t.id] ? ' on' : ''}`} onClick={() => toggleMute(t.id)}>M</button>
+            <div className="groove-prob">
+              <Knob size={18} value={prob[t.id]} onChange={v => setProb(p => ({ ...p, [t.id]: v }))} />
+              <span className="groove-prob-lbl">{Math.round(prob[t.id] * 100)}%</span>
+            </div>
           </div>
         ))}
       </div>
 
-      {synthSel && (
-        <div className="groove-notepick">
-          <div className="groove-pick-row">
-            <div className="groove-oct-row">
-              {[1, 2, 3, 4, 5].map(o => (
-                <button key={o} className={`groove-oct-btn${noteOct === o ? ' active' : ''}`}
-                  onClick={() => changeOct(o)}>{o}</button>
+      {hoverSynth && (() => {
+        const { rect } = hoverSynth;
+        const popH = 68;
+        const top  = rect.top - popH - 6 < 0 ? rect.bottom + 6 : rect.top - popH - 6;
+        const left = Math.max(4, Math.min(window.innerWidth - 224, rect.left + rect.width / 2 - 112));
+        return (
+          <div className="groove-step-popup"
+            style={{ top, left }}
+            onMouseEnter={onPopupMouseEnter}
+            onMouseLeave={onPopupMouseLeave}
+          >
+            <div className="gsp-oct-row">
+              {[1,2,3,4,5].map(o => (
+                <button key={o} className={`gsp-oct-btn${noteOct === o ? ' act' : ''}`}
+                  onClick={() => changePopupOct(o)}>{o}</button>
               ))}
-              <span className="groove-oct-lbl">OCT</span>
+              <span className="gsp-oct-lbl">OCT</span>
+              {popupNotes.length > 0 && (
+                <span className="gsp-note-lbl">{popupNotes.map(m => midiToNote(m)).join(' ')}</span>
+              )}
             </div>
-            {selNotes.length > 0 && (
-              <span className="groove-chord-lbl">{selNotes.map(m => midiToNote(m)).join(' ')}</span>
-            )}
-            <span className="groove-pick-hint">click step again to delete</span>
+            <div className="gsp-notes-row">
+              {NOTE_NAMES.map((name, s) => (
+                <button key={s}
+                  className={`gsp-note${IS_BLACK[s] ? ' blk' : ''}${popupSems.has(s) ? ' act' : ''}`}
+                  onClick={() => setPopupNote(s)}>
+                  {name}
+                </button>
+              ))}
+            </div>
           </div>
-          <div className="groove-keys">
-            {NOTE_NAMES.map((name, s) => (
-              <button key={s}
-                className={`groove-key${IS_BLACK[s] ? ' blk' : ''}${activeSems.has(s) ? ' active' : ''}`}
-                onClick={() => toggleNoteInChord(s)}>
-                <span className="groove-key-name">{name}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
+        );
+      })()}
     </div>
   );
 }

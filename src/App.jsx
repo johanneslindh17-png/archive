@@ -3040,8 +3040,8 @@ export default function App() {
           const prev = playerNodes[(idx - 1 + playerNodes.length) % playerNodes.length];
           const next = playerNodes[(idx + 1) % playerNodes.length];
           return (<>
-            <div style={{flex:3}} />
-            <div className="player-inline">
+            <div style={{flex:'1 1 auto'}} />
+            <div className="player-inline" style={{marginLeft:'auto'}}>
               <div className="player-sep" />
               <span className="player-name">{pNode.label}</span>
               <div className="player-iframe-wrap">
@@ -3062,7 +3062,6 @@ export default function App() {
               <a className="player-btn player-btn--show player-btn--bandcamp" href={`https://${pNode.bandcamp}.bandcamp.com`} target="_blank" rel="noopener noreferrer">bandcamp ↗</a>
               <div className="statusbar-sep" />
             </div>
-            <div style={{flex:1}} />
           </>);
         })()}
 
@@ -3086,6 +3085,18 @@ export default function App() {
             )}
           </div>
           <div className="statusbar-sep" />
+          <button
+            className={`groove-ctrl-btn${grooveOpen ? ' open' : ''}`}
+            onClick={() => setGrooveOpen(v => !v)}
+            title="Groovebox"
+          >
+            <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
+              {[0,1,2,3,4,5,6,7].map(i => (
+                <rect key={i} x={1+(i%4)*5} y={1+Math.floor(i/4)*7} width="3" height="5" rx="0.8"
+                  fill="currentColor" opacity={[0,3,5].includes(i) ? 1 : 0.32} />
+              ))}
+            </svg>
+          </button>
           <button className="tour-relaunch" onClick={() => setOnboardStep('welcome')} title="Relaunch intro">TOUR</button>
           <span className="archive-credit">DJ TJ</span>
         </div>
@@ -3199,15 +3210,6 @@ export default function App() {
           </div>
         </div>
       )}
-
-      {/* Groovebox trigger */}
-      <button
-        className={`groove-trigger${grooveOpen ? ' open' : ''}`}
-        onClick={() => setGrooveOpen(v => !v)}
-        title="Groovebox"
-      >
-        <span className="groove-trigger-icon">▨</span>
-      </button>
 
       <Groovebox open={grooveOpen} onClose={() => setGrooveOpen(false)} darkMode={darkMode} />
     </div>
