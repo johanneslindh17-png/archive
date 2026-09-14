@@ -2039,6 +2039,35 @@ export default function App() {
             const self = ev.currentTarget;
             self.classList.add('hov-self');
             hovPrevRef.current = [{ el: self }];
+
+            // Scale zoom: render a clone of this node in a separate HTML <div>
+            // outside the main SVG so the CSS transform is fully GPU-isolated.
+            const selfInnerEl = self.querySelector('.nd-inner');
+            if (selfInnerEl && svgGRef.current && svgRef.current) {
+              // Get zoom scale from D3's CSS transform string — no layout force.
+              const gXform = svgGRef.current.style.transform || '';
+              const km = gXform.match(/scale\(([\d.]+)\)/);
+              const k = km ? parseFloat(km[1]) : 1;
+              // Screen rect of the node (includes current zoom).
+              const nr = self.getBoundingClientRect();
+              const svgW = nr.width / k;   // node width in SVG user units
+              const svgH = nr.height / k;  // node height in SVG user units
+              const PAD_SVG = 18;           // extra SVG-unit padding for glow
+
+              const ov = document.createElement('div');
+              ov.style.cssText = `position:fixed;left:${nr.left}px;top:${nr.top}px;width:${nr.width}px;height:${nr.height}px;pointer-events:none;z-index:900;will-change:transform;transform:scale(1);transform-origin:center;transition:transform 0.12s ease-out;overflow:visible;`;
+              const miniSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+              miniSvg.setAttribute('viewBox', `${-svgW/2-PAD_SVG} ${-svgH/2-PAD_SVG} ${svgW+PAD_SVG*2} ${svgH+PAD_SVG*2}`);
+              miniSvg.style.cssText = `width:${nr.width+PAD_SVG*k*2}px;height:${nr.height+PAD_SVG*k*2}px;position:absolute;left:${-PAD_SVG*k}px;top:${-PAD_SVG*k}px;overflow:visible;pointer-events:none;`;
+              const wG = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+              wG.classList.add('nd', darkMode ? 'dark' : '', 'hov-self');
+              wG.appendChild(selfInnerEl.cloneNode(true));
+              miniSvg.appendChild(wG);
+              ov.appendChild(miniSvg);
+              document.body.appendChild(ov);
+              requestAnimationFrame(() => { ov.style.transform = 'scale(1.14)'; });
+              marchOverlayRef.current.push(ov);
+            }
             const svgNS = 'http://www.w3.org/2000/svg';
             const CHAR_W = 4.0, PAD = 3, BH = 11;
             const gradId = darkMode ? 'nd-glow-grad-dk' : 'nd-glow-grad-lt';
