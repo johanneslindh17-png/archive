@@ -1444,32 +1444,38 @@ path.eg.dim{opacity:0.055}
   50%       { opacity: 0.3; }
 }
 
-/* ── Voice-column panel — always dark hardware ── */
+/* ── Voice-column panel ── */
 .gv-panel {
   display: flex;
   align-items: stretch;
   padding: 13px 23px 13px 31px;
-  border-bottom: 1px solid #1c1c26;
+  border-bottom: 1px solid var(--tb-border);
   gap: 0;
   min-height: 308px;
+  background: var(--tb-bg);
+}
+.dark .gv-panel {
   background: #0a0a10;
+  border-bottom-color: #1c1c26;
 }
 
 .gv-divider-v {
   width: 1px;
-  background: #2a2a3e;
+  background: var(--tb-border);
   align-self: stretch;
   margin: 0 4px;
   flex-shrink: 0;
 }
+.dark .gv-divider-v { background: #2a2a3e; }
 
 /* Horizontal divider between sections within a column */
 .gv-sep {
   height: 1px;
-  background: #1e1e30;
+  background: var(--tb-border);
   margin: 2px 0;
   flex-shrink: 0;
 }
+.dark .gv-sep { background: #1e1e30; }
 
 .gv-col {
   flex: 1;
@@ -1689,7 +1695,8 @@ path.eg.dim{opacity:0.055}
   flex-shrink: 0;
 }
 .groove-step:hover { border-color: var(--tb-text-mid); background: var(--tb-hover); }
-.groove-step.on { background: var(--tb-text); border-color: var(--tb-text); }
+.groove-step.on { background: #555560; border-color: #555560; }
+.dark .groove-step.on { background: var(--tb-text); border-color: var(--tb-text); }
 .groove-step.on:hover { opacity: 0.75; }
 .groove-step.cur { outline: 2px solid var(--tb-text-mid); outline-offset: -2px; }
 .groove-step.on.cur { outline-color: var(--tb-bg); }
