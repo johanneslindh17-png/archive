@@ -1,5 +1,4 @@
 import { useState, useRef, useCallback, useEffect, memo } from 'react';
-import { Mp3Encoder } from 'lamejs';
 
 // ── Rotary knob ──────────────────────────────────────────────────────────────
 
@@ -634,29 +633,28 @@ export function Groovebox({ open, onClose, darkMode }) {
       rightAll.set(R, offset);
       offset += L.length;
     }
-    const toInt16 = (f32) => {
-      const i16 = new Int16Array(f32.length);
-      for (let i = 0; i < f32.length; i++)
-        i16[i] = Math.max(-32768, Math.min(32767, f32[i] * 32767));
-      return i16;
-    };
-    const encoder = new Mp3Encoder(2, ctx.sampleRate, 192);
-    const mp3Parts = [];
-    const blockSize = 1152;
-    for (let i = 0; i < totalSamples; i += blockSize) {
-      const L = toInt16(leftAll.subarray(i, i + blockSize));
-      const R = toInt16(rightAll.subarray(i, i + blockSize));
-      const buf = encoder.encodeBuffer(L, R);
-      if (buf.length > 0) mp3Parts.push(new Uint8Array(buf));
+    const sampleRate = ctx.sampleRate;
+    const numChannels = 2;
+    const bitsPerSample = 16;
+    const blockAlign = numChannels * (bitsPerSample / 8);
+    const byteRate = sampleRate * blockAlign;
+    const dataSize = totalSamples * blockAlign;
+    const wavBuf = new ArrayBuffer(44 + dataSize);
+    const v = new DataView(wavBuf);
+    const ws = (off, str) => { for (let i = 0; i < str.length; i++) v.setUint8(off + i, str.charCodeAt(i)); };
+    ws(0, 'RIFF'); v.setUint32(4, 36 + dataSize, true); ws(8, 'WAVE');
+    ws(12, 'fmt '); v.setUint32(16, 16, true); v.setUint16(20, 1, true);
+    v.setUint16(22, numChannels, true); v.setUint32(24, sampleRate, true);
+    v.setUint32(28, byteRate, true); v.setUint16(32, blockAlign, true);
+    v.setUint16(34, bitsPerSample, true); ws(36, 'data'); v.setUint32(40, dataSize, true);
+    let wp = 44;
+    for (let i = 0; i < totalSamples; i++) {
+      v.setInt16(wp, Math.max(-32768, Math.min(32767, leftAll[i]  * 32767)), true); wp += 2;
+      v.setInt16(wp, Math.max(-32768, Math.min(32767, rightAll[i] * 32767)), true); wp += 2;
     }
-    const end = encoder.flush();
-    if (end.length > 0) mp3Parts.push(new Uint8Array(end));
-    const blob = new Blob(mp3Parts, { type: 'audio/mpeg' });
+    const blob = new Blob([wavBuf], { type: 'audio/wav' });
     const url = URL.createObjectURL(blob);
     setMp3Url(url);
-    // Also trigger auto-download as fallback
-    const a = document.createElement('a');
-    a.href = url; a.download = 'groovebox.mp3'; a.click();
   }, []);
 
   const toggleSeqLen = useCallback(() => {
@@ -826,7 +824,7 @@ export function Groovebox({ open, onClose, darkMode }) {
         <button
           className={`groove-mono-btn groove-rec-capture${isCapturing ? ' active' : ''}`}
           onClick={isCapturing ? stopCapture : startCapture}
-          title={isCapturing ? 'Stop recording' : 'Record to MP3'}
+          title={isCapturing ? 'Stop recording' : 'Record to WAV'}
         >
           {isCapturing ? '⏹ STOP' : '⏺ REC'}
         </button>
@@ -837,9 +835,9 @@ export function Groovebox({ open, onClose, darkMode }) {
           <a
             className="groove-mono-btn groove-dl-btn"
             href={mp3Url}
-            download="groovebox.mp3"
+            download="groovebox.wav"
           >
-            ↓ DOWNLOAD MP3
+            ↓ DOWNLOAD WAV
           </a>
         )}
         {mp3Url === 'empty' && !isCapturing && (
