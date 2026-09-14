@@ -3040,8 +3040,7 @@ export default function App() {
           const prev = playerNodes[(idx - 1 + playerNodes.length) % playerNodes.length];
           const next = playerNodes[(idx + 1) % playerNodes.length];
           return (<>
-            <div style={{flex:'1 1 auto'}} />
-            <div className="player-inline" style={{marginLeft:'auto'}}>
+            <div className="player-inline">
               <div className="player-sep" />
               <span className="player-name">{pNode.label}</span>
               <div className="player-iframe-wrap">
@@ -3067,6 +3066,19 @@ export default function App() {
 
         </div>{/* end statusbar-scroll */}
         <div className="statusbar-end">
+          <button
+            className={`groove-ctrl-btn${grooveOpen ? ' open' : ''}`}
+            onClick={() => setGrooveOpen(v => !v)}
+            title="Groovebox"
+          >
+            <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
+              {[0,1,2,3,4,5,6,7].map(i => (
+                <rect key={i} x={1+(i%4)*5} y={1+Math.floor(i/4)*7} width="3" height="5" rx="0.8"
+                  fill="currentColor" opacity={[0,3,5].includes(i) ? 1 : 0.32} />
+              ))}
+            </svg>
+          </button>
+          <div className="statusbar-sep" />
           <button className="trial-counter" onClick={() => setPaywallOpen(true)}>support</button>
           {!unlocked && (
             <span className="trial-counter" onClick={() => setPaywallOpen(true)}>
@@ -3084,19 +3096,6 @@ export default function App() {
               </div>
             )}
           </div>
-          <div className="statusbar-sep" />
-          <button
-            className={`groove-ctrl-btn${grooveOpen ? ' open' : ''}`}
-            onClick={() => setGrooveOpen(v => !v)}
-            title="Groovebox"
-          >
-            <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
-              {[0,1,2,3,4,5,6,7].map(i => (
-                <rect key={i} x={1+(i%4)*5} y={1+Math.floor(i/4)*7} width="3" height="5" rx="0.8"
-                  fill="currentColor" opacity={[0,3,5].includes(i) ? 1 : 0.32} />
-              ))}
-            </svg>
-          </button>
           <button className="tour-relaunch" onClick={() => setOnboardStep('welcome')} title="Relaunch intro">TOUR</button>
           <span className="archive-credit">DJ TJ</span>
         </div>

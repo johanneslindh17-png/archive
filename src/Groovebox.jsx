@@ -184,12 +184,16 @@ const VoiceCol = memo(function VoiceCol({
       </div>
 
       <div className="gv-bottom">
-        <VFader value={vol} onChange={v => onVol(id, v)} />
+        <div className="gv-vol-cell">
+          <Knob size={42} value={vol} onChange={v => onVol(id, v)} />
+          <span className="gv-param-lbl">VOL</span>
+        </div>
         <div className="gv-sep" />
         <div className="gv-send-row">
           <button className={`gv-send-btn${dly ? ' on' : ''}`} onClick={() => onDly(id)}>DLY</button>
           <button className={`gv-send-btn${rvb ? ' on' : ''}`} onClick={() => onRvb(id)}>RVB</button>
         </div>
+        <button className={`gv-mute-col${muted ? ' on' : ''}`} onClick={() => onToggleMute(id)}>MUTE</button>
       </div>
     </div>
   );
@@ -532,9 +536,21 @@ export function Groovebox({ open, onClose, darkMode }) {
   const popupNotes = hoverSynth ? (synth[hoverSynth.voice]?.[hoverSynth.step] ?? []) : [];
   const popupSems  = new Set(popupNotes.map(m => m % 12));
 
+  // Compute popup position outside JSX to avoid IIFE-in-fragment parser issues
+  const POP_W = 330, POP_H = 130;
+  const POP_BLACK_INFO = [[1,0],[3,1],[6,3],[8,4],[10,5]];
+  const POP_WK = 40;
+  let popTop = 0, popLeft = 0;
+  if (hoverSynth) {
+    const r = hoverSynth.rect;
+    popTop  = r.top - POP_H - 8 < 0 ? r.bottom + 6 : r.top - POP_H - 8;
+    popLeft = Math.max(8, Math.min(window.innerWidth - POP_W - 8, r.left + r.width / 2 - POP_W / 2));
+  }
+
   // ── Render ────────────────────────────────────────────────────────────────
 
   return (
+    <>
     <div className={`groove-panel${open ? ' open' : ''}${darkMode ? ' dark' : ''}`}>
 
       <div className={`groove-header${isRec ? ' groove-header--rec' : ''}`}>
@@ -605,7 +621,7 @@ export function Groovebox({ open, onClose, darkMode }) {
               ))}
             </div>
             <div className="groove-prob">
-              <Knob size={18} value={prob[t.id]} onChange={v => setProb(p => ({ ...p, [t.id]: v }))} />
+              <Knob size={24} value={prob[t.id]} onChange={v => setProb(p => ({ ...p, [t.id]: v }))} />
               <span className="groove-prob-lbl">{Math.round(prob[t.id] * 100)}%</span>
             </div>
           </div>
@@ -640,46 +656,51 @@ export function Groovebox({ open, onClose, darkMode }) {
               ))}
             </div>
             <div className="groove-prob">
-              <Knob size={18} value={prob[t.id]} onChange={v => setProb(p => ({ ...p, [t.id]: v }))} />
+              <Knob size={24} value={prob[t.id]} onChange={v => setProb(p => ({ ...p, [t.id]: v }))} />
               <span className="groove-prob-lbl">{Math.round(prob[t.id] * 100)}%</span>
             </div>
           </div>
         ))}
       </div>
 
-      {hoverSynth && (() => {
-        const { rect } = hoverSynth;
-        const popH = 68;
-        const top  = rect.top - popH - 6 < 0 ? rect.bottom + 6 : rect.top - popH - 6;
-        const left = Math.max(4, Math.min(window.innerWidth - 224, rect.left + rect.width / 2 - 112));
-        return (
-          <div className="groove-step-popup"
-            style={{ top, left }}
-            onMouseEnter={onPopupMouseEnter}
-            onMouseLeave={onPopupMouseLeave}
-          >
-            <div className="gsp-oct-row">
-              {[1,2,3,4,5].map(o => (
-                <button key={o} className={`gsp-oct-btn${noteOct === o ? ' act' : ''}`}
-                  onClick={() => changePopupOct(o)}>{o}</button>
-              ))}
-              <span className="gsp-oct-lbl">OCT</span>
-              {popupNotes.length > 0 && (
-                <span className="gsp-note-lbl">{popupNotes.map(m => midiToNote(m)).join(' ')}</span>
-              )}
-            </div>
-            <div className="gsp-notes-row">
-              {NOTE_NAMES.map((name, s) => (
-                <button key={s}
-                  className={`gsp-note${IS_BLACK[s] ? ' blk' : ''}${popupSems.has(s) ? ' act' : ''}`}
-                  onClick={() => setPopupNote(s)}>
-                  {name}
-                </button>
-              ))}
-            </div>
-          </div>
-        );
-      })()}
     </div>
+    {hoverSynth && (
+      <div className="groove-step-popup"
+        style={{ top: popTop, left: popLeft, width: POP_W }}
+        onMouseEnter={onPopupMouseEnter}
+        onMouseLeave={onPopupMouseLeave}
+      >
+        <div className="gsp-header">
+          <div className="gsp-oct-row">
+            {[1,2,3,4,5].map(o => (
+              <button key={o} className={`gsp-oct-btn${noteOct === o ? ' act' : ''}`}
+                onClick={() => changePopupOct(o)}>{o}</button>
+            ))}
+            <span className="gsp-oct-lbl">OCT</span>
+          </div>
+          {popupNotes.length > 0 && (
+            <span className="gsp-note-lbl">{popupNotes.map(m => midiToNote(m)).join(' ')}</span>
+          )}
+        </div>
+        <div className="gsp-piano">
+          {[0,2,4,5,7,9,11].map(semi => (
+            <button key={semi}
+              className={`gsp-wkey${popupSems.has(semi) ? ' act' : ''}`}
+              onClick={() => setPopupNote(semi)}
+              title={NOTE_NAMES[semi]}
+            />
+          ))}
+          {POP_BLACK_INFO.map(([semi, wkIdx]) => (
+            <button key={semi}
+              className={`gsp-bkey${popupSems.has(semi) ? ' act' : ''}`}
+              style={{ left: wkIdx * (POP_WK + 1) + Math.round(POP_WK * 0.63) }}
+              onClick={() => setPopupNote(semi)}
+              title={NOTE_NAMES[semi]}
+            />
+          ))}
+        </div>
+      </div>
+    )}
+    </>
   );
 }
