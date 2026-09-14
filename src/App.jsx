@@ -2617,13 +2617,13 @@ export default function App() {
                 })}
                 <>
                   {/* dim edges → (search-dim nodes) → bright edges → nodes */}
-                  {/* hover classes (hov-self/hov-prev) are set via direct DOM — never move nodes between groups */}
-                  <g>{edgeEls.filter(el => el?.props?.className?.includes('dim'))}</g>
-                  {hlIds && <g>{nodeEls.filter((el, i) => el && !hlIds.has(NODES[i].id))}</g>}
-                  <g>{edgeEls.filter(el => el && !el.props?.className?.includes('dim'))}</g>
-                  {hovPathEls && <g style={{ pointerEvents:'none' }}>{hovPathEls}</g>}
-                  {!hlIds && <g>{nodeEls}</g>}
-                  {hlIds && <g>{nodeEls.filter((el, i) => el && hlIds.has(NODES[i].id))}</g>}
+                  {/* keys on every <g> so React never morphs one layer into another when hovPathEls mounts */}
+                  <g key="dim-edges">{edgeEls.filter(el => el?.props?.className?.includes('dim'))}</g>
+                  {hlIds && <g key="dim-nodes">{nodeEls.filter((el, i) => el && !hlIds.has(NODES[i].id))}</g>}
+                  <g key="bright-edges">{edgeEls.filter(el => el && !el.props?.className?.includes('dim'))}</g>
+                  {hovPathEls && <g key="hov-paths" style={{ pointerEvents:'none' }}>{hovPathEls}</g>}
+                  {!hlIds && <g key="nodes">{nodeEls}</g>}
+                  {hlIds && <g key="hl-nodes">{nodeEls.filter((el, i) => el && hlIds.has(NODES[i].id))}</g>}
                 </>
               </g>
             )}
@@ -2643,12 +2643,12 @@ export default function App() {
                     })}
                   </g>
                   <>
-                    <g>{edgeEls.filter(el => el?.props?.className?.includes('dim'))}</g>
-                    {hlIds && <g>{nodeEls.filter((el, i) => el && !hlIds.has(NODES[i].id))}</g>}
-                    <g>{edgeEls.filter(el => el && !el.props?.className?.includes('dim'))}</g>
-                    {hovPathEls && <g style={{ pointerEvents:'none' }}>{hovPathEls}</g>}
-                    {!hlIds && <g>{nodeEls}</g>}
-                    {hlIds && <g>{nodeEls.filter((el, i) => el && hlIds.has(NODES[i].id))}</g>}
+                    <g key="dim-edges">{edgeEls.filter(el => el?.props?.className?.includes('dim'))}</g>
+                    {hlIds && <g key="dim-nodes">{nodeEls.filter((el, i) => el && !hlIds.has(NODES[i].id))}</g>}
+                    <g key="bright-edges">{edgeEls.filter(el => el && !el.props?.className?.includes('dim'))}</g>
+                    {hovPathEls && <g key="hov-paths" style={{ pointerEvents:'none' }}>{hovPathEls}</g>}
+                    {!hlIds && <g key="nodes">{nodeEls}</g>}
+                    {hlIds && <g key="hl-nodes">{nodeEls.filter((el, i) => el && hlIds.has(NODES[i].id))}</g>}
                   </>
                 </>
               );
