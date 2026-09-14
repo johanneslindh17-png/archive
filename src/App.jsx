@@ -2943,7 +2943,6 @@ export default function App() {
 
       {/* Status bar */}
       <div className="statusbar" style={themeStyle ? { background: themeStyle.surface, borderTopColor: themeStyle.border } : undefined}>
-        <div className="statusbar-scroll">
         <div className="statusbar-item statusbar-item--log">
           <strong>{NODES.filter(n => filteredIds.has(n.id)).length}</strong> nodes
           <div className="node-log-popup">
@@ -2958,6 +2957,7 @@ export default function App() {
             </div>
           </div>
         </div>
+        <div className="statusbar-scroll">
         <div className="statusbar-sep" />
         <div className="statusbar-item">
           <strong>{visibleEdges.length}</strong> connections

@@ -1765,7 +1765,7 @@ path.eg.dim{opacity:0.055}
   text-align: right;
 }
 
-.groove-steps { display: flex; gap: 6px; }
+.groove-steps { display: flex; gap: 6px; width: 682px; flex-shrink: 0; }
 .groove-group { display: flex; gap: 2px; border-radius: 2px; }
 .groove-group--alt { background: rgba(128,128,200,0.06); }
 
@@ -1965,7 +1965,7 @@ path.eg.dim{opacity:0.055}
 .chat-panel {
   position: fixed;
   bottom: 54px;
-  right: 20px;
+  right: 52px;
   width: 288px;
   height: 370px;
   background: var(--tb-bg);
