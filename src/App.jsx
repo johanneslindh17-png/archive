@@ -1,4 +1,32 @@
 import { useState, useEffect, useRef, useCallback, useMemo, startTransition } from 'react';
+
+// Animate scale on a .nd-inner <g> via SVG transform attribute (not CSS transform).
+// SVG attribute transforms use the element's own coordinate space so no
+// transform-box/fill-box layout query is needed — other nodes are never touched.
+function scaleNode(el, target, dur = 100) {
+  if (!el) return;
+  cancelAnimationFrame(el._scaleRAF);
+  const m = el.getAttribute('transform')?.match(/scale\(([\d.]+)\)/);
+  const from = m ? parseFloat(m[1]) : 1;
+  if (Math.abs(from - target) < 0.001) {
+    if (target === 1) el.removeAttribute('transform');
+    return;
+  }
+  const t0 = performance.now();
+  function step(now) {
+    const p = Math.min(1, (now - t0) / dur);
+    const eased = 1 - (1 - p) ** 2; // ease-out quad
+    const s = from + (target - from) * eased;
+    if (p >= 1) {
+      if (target === 1) el.removeAttribute('transform');
+      else el.setAttribute('transform', `scale(${target})`);
+    } else {
+      el.setAttribute('transform', `scale(${s.toFixed(4)})`);
+      el._scaleRAF = requestAnimationFrame(step);
+    }
+  }
+  el._scaleRAF = requestAnimationFrame(step);
+}
 import { useSunMode } from './hooks/useSunMode.js';
 import { Groovebox } from './Groovebox.jsx';
 import * as d3 from 'd3';
@@ -2037,7 +2065,9 @@ export default function App() {
             // Apply hover visuals directly — avoids recomputing all 300+ nodes
             const self = ev.currentTarget;
             self.classList.add('hov-self');
-            hovPrevRef.current = [{ el: self }];
+            const selfInner = self.querySelector('.nd-inner');
+            scaleNode(selfInner, 1.14);
+            hovPrevRef.current = [{ el: self, inner: selfInner }];
             const svgNS = 'http://www.w3.org/2000/svg';
             const CHAR_W = 4.0, PAD = 3, BH = 11;
             const gradId = darkMode ? 'nd-glow-grad-dk' : 'nd-glow-grad-lt';
@@ -2114,9 +2144,10 @@ export default function App() {
             // Skip the current self node — if it was a neighbor of the previous
             // hovered node (hov-prev), removing hov-self here would cause a flash.
             oldOverlays.forEach(el => el.parentNode?.removeChild(el));
-            oldHovPrev.forEach(({ el }) => {
+            oldHovPrev.forEach(({ el, inner }) => {
               if (el === self) return;
               el.classList.remove('hov-self', 'hov-prev');
+              if (inner) scaleNode(inner, 1);
             });
           }
         }}
@@ -2126,7 +2157,10 @@ export default function App() {
           clearTimeout(leaveTimerRef.current);
           leaveTimerRef.current = setTimeout(() => {
             clearMarchOverlay();
-            hovPrevRef.current.forEach(({ el }) => el.classList.remove('hov-self', 'hov-prev'));
+            hovPrevRef.current.forEach(({ el, inner }) => {
+              el.classList.remove('hov-self', 'hov-prev');
+              if (inner) scaleNode(inner, 1);
+            });
             hovPrevRef.current = [];
             startTransition(() => setHovNode(null));
           }, 20);
@@ -2586,8 +2620,9 @@ export default function App() {
         <svg ref={svgRef} className="msv" onMouseLeave={() => {
           clearTimeout(leaveTimerRef.current);
           clearMarchOverlay();
-          hovPrevRef.current.forEach(({ el, txt, orig }) => {
+          hovPrevRef.current.forEach(({ el, inner, txt, orig }) => {
             el.classList.remove('hov-self', 'hov-prev');
+            if (inner) scaleNode(inner, 1);
             if (txt) txt.style.fill = orig;
           });
           hovPrevRef.current = [];

@@ -500,13 +500,11 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 /* Node scale-up — only on JS-controlled hov-self class.
    Transition lives on the active states only — unrelated nodes have no
    transition, so any spurious transform recalc is invisible. */
+/* Scale is applied via JS SVG-attribute transform on .nd-inner — no CSS transform-box needed */
 .nd.hov-self .nd-inner,
 .nd.sel .nd-inner {
-  transform: scale(1.14);
-  transform-box: fill-box;
-  transform-origin: center;
   filter: drop-shadow(0 0 5px rgba(0,0,0,0.32));
-  transition: transform 0.12s ease-out, filter 0.15s ease-out;
+  transition: filter 0.15s ease-out;
 }
 .dark .nd.hov-self .nd-inner,
 .dark .nd.sel .nd-inner {
