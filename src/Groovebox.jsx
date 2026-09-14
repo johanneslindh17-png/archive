@@ -509,23 +509,34 @@ export function Groovebox({ open, onClose, darkMode }) {
     if (!hoverSynth) return;
     const { voice, step } = hoverSynth;
     const midi = semOctToMidi(semi, noteOct);
-    setSynth(p => { const n = [...p[voice]]; n[step] = [midi]; return { ...p, [voice]: n }; });
+    setSynth(p => {
+      const n = [...p[voice]];
+      const cur = n[step];
+      if (!cur) {
+        n[step] = [midi];
+      } else if (cur.includes(midi)) {
+        const next = cur.filter(m => m !== midi);
+        n[step] = next.length > 0 ? next : null;
+      } else {
+        n[step] = [...cur, midi];
+      }
+      return { ...p, [voice]: n };
+    });
   }
 
-  function changePopupOct(o) {
-    setNoteOct(o);
-    if (!hoverSynth) return;
-    const { voice, step } = hoverSynth;
-    const cur = synth[voice][step];
-    if (cur) {
-      setSynth(p => { const n = [...p[voice]]; n[step] = cur.map(m => semOctToMidi(m % 12, o)); return { ...p, [voice]: n }; });
-    }
-  }
+  // Changing octave just moves the keyboard view — existing chord notes stay
+  function changePopupOct(o) { setNoteOct(o); }
 
   function onStepMouseEnter(voice, step, e) {
     clearTimeout(hoverTimerRef.current);
     const rect = e.currentTarget.getBoundingClientRect();
-    setHoverSynth({ voice, step, rect });
+    // If already showing a popup for a different voice, delay switching so
+    // the mouse can travel through adjacent rows without hijacking the popup
+    if (hoverSynth && hoverSynth.voice !== voice) {
+      hoverTimerRef.current = setTimeout(() => setHoverSynth({ voice, step, rect }), 350);
+    } else {
+      setHoverSynth({ voice, step, rect });
+    }
   }
   function onStepMouseLeave() {
     hoverTimerRef.current = setTimeout(() => setHoverSynth(null), 140);
@@ -534,7 +545,10 @@ export function Groovebox({ open, onClose, darkMode }) {
   function onPopupMouseLeave() { hoverTimerRef.current = setTimeout(() => setHoverSynth(null), 140); }
 
   const popupNotes = hoverSynth ? (synth[hoverSynth.voice]?.[hoverSynth.step] ?? []) : [];
-  const popupSems  = new Set(popupNotes.map(m => m % 12));
+  // Highlight keys matching the currently selected octave only
+  const popupSems = new Set(
+    popupNotes.filter(m => Math.floor(m / 12) - 1 === noteOct).map(m => m % 12)
+  );
 
   // Compute popup position outside JSX to avoid IIFE-in-fragment parser issues
   const POP_W = 330, POP_H = 130;
@@ -647,7 +661,9 @@ export function Groovebox({ open, onClose, darkMode }) {
                         onMouseLeave={onStepMouseLeave}
                       >
                         {root != null && (
-                          <span className="groove-note-lbl">{midiToNote(root)}</span>
+                          <span className="groove-note-lbl">
+                            {midiToNote(root)}{notes.length > 1 ? <span className="groove-chord-dot">+{notes.length - 1}</span> : null}
+                          </span>
                         )}
                       </button>
                     );

@@ -1723,6 +1723,11 @@ path.eg.dim{opacity:0.055}
   opacity: 0.8;
 }
 .groove-step--synth:not(.on) .groove-note-lbl { color: var(--tb-text); }
+.groove-chord-dot {
+  font-size: 0.36rem;
+  opacity: 0.8;
+  margin-left: 1px;
+}
 
 /* Probability knob cell */
 .groove-prob {
