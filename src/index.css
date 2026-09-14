@@ -497,14 +497,11 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 }
 .nd-self-text { animation: nd-self-text-pulse 2.6s ease-in-out infinite; }
 
-/* Node scale-up — only on JS-controlled hov-self class.
-   Transition lives on the active states only — unrelated nodes have no
-   transition, so any spurious transform recalc is invisible. */
-/* Scale is applied via JS SVG-attribute transform on .nd-inner — no CSS transform-box needed */
+/* Scale is applied via CSS inline styles (will-change:transform, transform-origin:0 0)
+   so the animation runs on the GPU compositor layer, isolated from other nodes. */
 .nd.hov-self .nd-inner,
 .nd.sel .nd-inner {
   filter: drop-shadow(0 0 5px rgba(0,0,0,0.32));
-  transition: filter 0.15s ease-out;
 }
 .dark .nd.hov-self .nd-inner,
 .dark .nd.sel .nd-inner {

@@ -1,34 +1,20 @@
 import { useState, useEffect, useRef, useCallback, useMemo, startTransition } from 'react';
-
-// Animate scale on a .nd-inner <g> via SVG transform attribute (not CSS transform).
-// SVG attribute transforms use the element's own coordinate space so no
-// transform-box/fill-box layout query is needed — other nodes are never touched.
-function scaleNode(el, target, dur = 100) {
-  if (!el) return;
-  cancelAnimationFrame(el._scaleRAF);
-  const m = el.getAttribute('transform')?.match(/scale\(([\d.]+)\)/);
-  const from = m ? parseFloat(m[1]) : 1;
-  if (Math.abs(from - target) < 0.001) {
-    if (target === 1) el.removeAttribute('transform');
-    return;
-  }
-  const t0 = performance.now();
-  function step(now) {
-    const p = Math.min(1, (now - t0) / dur);
-    const eased = 1 - (1 - p) ** 2; // ease-out quad
-    const s = from + (target - from) * eased;
-    if (p >= 1) {
-      if (target === 1) el.removeAttribute('transform');
-      else el.setAttribute('transform', `scale(${target})`);
-    } else {
-      el.setAttribute('transform', `scale(${s.toFixed(4)})`);
-      el._scaleRAF = requestAnimationFrame(step);
-    }
-  }
-  el._scaleRAF = requestAnimationFrame(step);
-}
 import { useSunMode } from './hooks/useSunMode.js';
 import { Groovebox } from './Groovebox.jsx';
+
+// Reset a .nd-inner's CSS scale back to 1, then clean up the inline styles
+// after the transition so there's no stale will-change on idle nodes.
+function resetInnerScale(inner) {
+  if (!inner) return;
+  clearTimeout(inner._scaleOff);
+  inner.style.transform = 'scale(1)';
+  inner._scaleOff = setTimeout(() => {
+    inner.style.transform = '';
+    inner.style.willChange = '';
+    inner.style.transition = '';
+    inner.style.transformOrigin = '';
+  }, 150);
+}
 import * as d3 from 'd3';
 import {
   COUNTRIES, GENRES, REGIONS, REGION_COUNT, COUNTRY_REGION,
@@ -2066,7 +2052,16 @@ export default function App() {
             const self = ev.currentTarget;
             self.classList.add('hov-self');
             const selfInner = self.querySelector('.nd-inner');
-            scaleNode(selfInner, 1.14);
+            if (selfInner) {
+              // Promote to own compositor layer so the scale runs on GPU,
+              // never touching the SVG paint surface of other nodes.
+              // transform-origin 0 0 = node center (content is centered at local origin).
+              clearTimeout(selfInner._scaleOff);
+              selfInner.style.willChange = 'transform';
+              selfInner.style.transformOrigin = '0 0';
+              selfInner.style.transition = 'transform 0.1s ease-out';
+              selfInner.style.transform = 'scale(1.14)';
+            }
             hovPrevRef.current = [{ el: self, inner: selfInner }];
             const svgNS = 'http://www.w3.org/2000/svg';
             const CHAR_W = 4.0, PAD = 3, BH = 11;
@@ -2147,7 +2142,7 @@ export default function App() {
             oldHovPrev.forEach(({ el, inner }) => {
               if (el === self) return;
               el.classList.remove('hov-self', 'hov-prev');
-              if (inner) scaleNode(inner, 1);
+              if (inner) resetInnerScale(inner);
             });
           }
         }}
@@ -2159,7 +2154,7 @@ export default function App() {
             clearMarchOverlay();
             hovPrevRef.current.forEach(({ el, inner }) => {
               el.classList.remove('hov-self', 'hov-prev');
-              if (inner) scaleNode(inner, 1);
+              if (inner) resetInnerScale(inner);
             });
             hovPrevRef.current = [];
             startTransition(() => setHovNode(null));
@@ -2622,7 +2617,7 @@ export default function App() {
           clearMarchOverlay();
           hovPrevRef.current.forEach(({ el, inner, txt, orig }) => {
             el.classList.remove('hov-self', 'hov-prev');
-            if (inner) scaleNode(inner, 1);
+            if (inner) resetInnerScale(inner);
             if (txt) txt.style.fill = orig;
           });
           hovPrevRef.current = [];
