@@ -2617,14 +2617,13 @@ export default function App() {
                 })}
                 <>
                   {/* dim edges → (search-dim nodes) → bright edges → nodes */}
-                  {/* hover visual state is CSS-only (hov-self/hov-prev) — no DOM reshuffling on hover */}
+                  {/* hover classes (hov-self/hov-prev) are set via direct DOM — never move nodes between groups */}
                   <g>{edgeEls.filter(el => el?.props?.className?.includes('dim'))}</g>
-                  {hlIds && <g>{nodeEls.filter((el, i) => el && !hlIds.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>}
+                  {hlIds && <g>{nodeEls.filter((el, i) => el && !hlIds.has(NODES[i].id))}</g>}
                   <g>{edgeEls.filter(el => el && !el.props?.className?.includes('dim'))}</g>
                   {hovPathEls && <g style={{ pointerEvents:'none' }}>{hovPathEls}</g>}
-                  {!hlIds && <g>{nodeEls.filter((el, i) => el && NODES[i].id !== hovNode?.id)}</g>}
-                  {hlIds && <g>{nodeEls.filter((el, i) => el && hlIds.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>}
-                  <g>{nodeEls.filter((el, i) => el && NODES[i].id === hovNode?.id)}</g>
+                  {!hlIds && <g>{nodeEls}</g>}
+                  {hlIds && <g>{nodeEls.filter((el, i) => el && hlIds.has(NODES[i].id))}</g>}
                 </>
               </g>
             )}
@@ -2645,12 +2644,11 @@ export default function App() {
                   </g>
                   <>
                     <g>{edgeEls.filter(el => el?.props?.className?.includes('dim'))}</g>
-                    {hlIds && <g>{nodeEls.filter((el, i) => el && !hlIds.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>}
+                    {hlIds && <g>{nodeEls.filter((el, i) => el && !hlIds.has(NODES[i].id))}</g>}
                     <g>{edgeEls.filter(el => el && !el.props?.className?.includes('dim'))}</g>
                     {hovPathEls && <g style={{ pointerEvents:'none' }}>{hovPathEls}</g>}
-                    {!hlIds && <g>{nodeEls.filter((el, i) => el && NODES[i].id !== hovNode?.id)}</g>}
-                    {hlIds && <g>{nodeEls.filter((el, i) => el && hlIds.has(NODES[i].id) && NODES[i].id !== hovNode?.id)}</g>}
-                    <g>{nodeEls.filter((el, i) => el && NODES[i].id === hovNode?.id)}</g>
+                    {!hlIds && <g>{nodeEls}</g>}
+                    {hlIds && <g>{nodeEls.filter((el, i) => el && hlIds.has(NODES[i].id))}</g>}
                   </>
                 </>
               );
