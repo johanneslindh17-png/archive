@@ -2037,7 +2037,10 @@ export default function App() {
             hovPrevRef.current = [];
             // Apply hover visuals directly — avoids recomputing all 300+ nodes
             const self = ev.currentTarget;
-            self.classList.add('hov-self');
+            // Do NOT add hov-self to the original SVG node — that would trigger
+            // filter:drop-shadow in CSS which forces a full SVG recomposite,
+            // causing sub-pixel jitter on every other node. The overlay div below
+            // renders the hovered node in a GPU-isolated layer with the same CSS.
             hovPrevRef.current = [{ el: self }];
 
             // Scale zoom: render a clone of this node in a separate HTML <div>
@@ -2081,67 +2084,77 @@ export default function App() {
               }
             }
             const fc = nodeFontCacheRef.current;
-            // Self-glow (behind the hovered node itself)
-            const selfP = positions[n.id];
-            if (selfP && svgGRef.current) {
-              const bw = Math.max(28, Math.min(60, n.label.length * CHAR_W + PAD * 2));
-              const selfGlowEl = document.createElementNS(svgNS, 'ellipse');
-              selfGlowEl.setAttribute('cx', selfP.x);
-              selfGlowEl.setAttribute('cy', selfP.y - 1);
-              selfGlowEl.setAttribute('rx', bw / 2 + 12);
-              selfGlowEl.setAttribute('ry', BH / 2 + 4);
-              selfGlowEl.setAttribute('fill', `url(#${gradId})`);
-              selfGlowEl.style.pointerEvents = 'none';
-              selfGlowEl.classList.add('nd-glow-el', 'nd-glow-self');
-              svgGRef.current.appendChild(selfGlowEl);
-              marchOverlayRef.current.push(selfGlowEl);
-            }
             const textFill = darkMode ? 'white' : 'black';
-            // Batch all new glow/text elements into a fragment — one DOM mutation
-            const frag = document.createDocumentFragment();
-            EDGES.forEach(e => {
-              if (e.type === 'aesthetic') return;
-              const nbId = e.from === n.id ? e.to : e.to === n.id ? e.from : null;
-              if (!nbId) return;
-              const nbEl = svgGRef.current?.querySelector(`[data-nid="${nbId}"]`);
-              if (!nbEl) return;
-              nbEl.classList.add('hov-prev');
-              hovPrevRef.current.push({ el: nbEl });
-              const p = positions[nbId];
-              const nb = NODE_BY_ID.get(nbId);
-              if (!p || !nb) return;
-              const bw = Math.max(28, Math.min(60, nb.label.length * CHAR_W + PAD * 2));
-              const glowEl = document.createElementNS(svgNS, 'ellipse');
-              glowEl.setAttribute('cx', p.x);
-              glowEl.setAttribute('cy', p.y - 1);
-              glowEl.setAttribute('rx', bw / 2 + 9);
-              glowEl.setAttribute('ry', BH / 2 + 3);
-              glowEl.setAttribute('fill', `url(#${gradId})`);
-              glowEl.style.pointerEvents = 'none';
-              const nbIsDim = hlIds ? !hlIds.has(nbId) : false;
-              glowEl.classList.add('nd-glow-el', nbIsDim ? 'nd-glow-pulse' : 'nd-glow-static');
-              frag.appendChild(glowEl);
-              marchOverlayRef.current.push(glowEl);
-              if (nbIsDim && fc) {
-                const txtEl = document.createElementNS(svgNS, 'text');
-                txtEl.setAttribute('x', p.x);
-                txtEl.setAttribute('y', p.y);
-                txtEl.setAttribute('text-anchor', 'middle');
-                txtEl.setAttribute('dominant-baseline', 'middle');
-                txtEl.style.fontSize = fc.fontSize;
-                txtEl.style.letterSpacing = fc.letterSpacing;
-                txtEl.style.fontFamily = fc.fontFamily;
-                txtEl.style.fontWeight = fc.fontWeight;
-                txtEl.style.fill = textFill;
-                txtEl.style.pointerEvents = 'none';
-                txtEl.classList.add('nd-march-pulse-text');
-                txtEl.textContent = nb.label;
-                frag.appendChild(txtEl);
-                marchOverlayRef.current.push(txtEl);
+            // Snapshot neighbour ids now (sync) so the rAF closure doesn't
+            // accidentally close over stale state if the user moves fast.
+            const selfNodeId = n.id;
+            const selfNodeLabel = n.label;
+
+            // Defer all SVG DOM mutations to the next frame so the overlay
+            // (GPU-isolated div) appears first — clean, no SVG recomposite shake.
+            requestAnimationFrame(() => {
+              if (!svgGRef.current) return;
+              // Self-glow (behind the hovered node itself)
+              const selfP = positions[selfNodeId];
+              if (selfP) {
+                const bw = Math.max(28, Math.min(60, selfNodeLabel.length * CHAR_W + PAD * 2));
+                const selfGlowEl = document.createElementNS(svgNS, 'ellipse');
+                selfGlowEl.setAttribute('cx', selfP.x);
+                selfGlowEl.setAttribute('cy', selfP.y - 1);
+                selfGlowEl.setAttribute('rx', bw / 2 + 12);
+                selfGlowEl.setAttribute('ry', BH / 2 + 4);
+                selfGlowEl.setAttribute('fill', `url(#${gradId})`);
+                selfGlowEl.style.pointerEvents = 'none';
+                selfGlowEl.classList.add('nd-glow-el', 'nd-glow-self');
+                svgGRef.current.appendChild(selfGlowEl);
+                marchOverlayRef.current.push(selfGlowEl);
               }
+              // Batch all neighbour glow/text elements into a fragment — one DOM mutation
+              const frag = document.createDocumentFragment();
+              EDGES.forEach(e => {
+                if (e.type === 'aesthetic') return;
+                const nbId = e.from === selfNodeId ? e.to : e.to === selfNodeId ? e.from : null;
+                if (!nbId) return;
+                const nbEl = svgGRef.current?.querySelector(`[data-nid="${nbId}"]`);
+                if (!nbEl) return;
+                nbEl.classList.add('hov-prev');
+                hovPrevRef.current.push({ el: nbEl });
+                const p = positions[nbId];
+                const nb = NODE_BY_ID.get(nbId);
+                if (!p || !nb) return;
+                const bw = Math.max(28, Math.min(60, nb.label.length * CHAR_W + PAD * 2));
+                const glowEl = document.createElementNS(svgNS, 'ellipse');
+                glowEl.setAttribute('cx', p.x);
+                glowEl.setAttribute('cy', p.y - 1);
+                glowEl.setAttribute('rx', bw / 2 + 9);
+                glowEl.setAttribute('ry', BH / 2 + 3);
+                glowEl.setAttribute('fill', `url(#${gradId})`);
+                glowEl.style.pointerEvents = 'none';
+                const nbIsDim = hlIds ? !hlIds.has(nbId) : false;
+                glowEl.classList.add('nd-glow-el', nbIsDim ? 'nd-glow-pulse' : 'nd-glow-static');
+                frag.appendChild(glowEl);
+                marchOverlayRef.current.push(glowEl);
+                if (nbIsDim && fc) {
+                  const txtEl = document.createElementNS(svgNS, 'text');
+                  txtEl.setAttribute('x', p.x);
+                  txtEl.setAttribute('y', p.y);
+                  txtEl.setAttribute('text-anchor', 'middle');
+                  txtEl.setAttribute('dominant-baseline', 'middle');
+                  txtEl.style.fontSize = fc.fontSize;
+                  txtEl.style.letterSpacing = fc.letterSpacing;
+                  txtEl.style.fontFamily = fc.fontFamily;
+                  txtEl.style.fontWeight = fc.fontWeight;
+                  txtEl.style.fill = textFill;
+                  txtEl.style.pointerEvents = 'none';
+                  txtEl.classList.add('nd-march-pulse-text');
+                  txtEl.textContent = nb.label;
+                  frag.appendChild(txtEl);
+                  marchOverlayRef.current.push(txtEl);
+                }
+              });
+              svgGRef.current.appendChild(frag);
             });
-            svgGRef.current.appendChild(frag);
-            // Remove old overlays now that new ones are already in the DOM.
+            // Remove old overlays now that the new overlay div is already in the DOM.
             // Skip the current self node — if it was a neighbor of the previous
             // hovered node (hov-prev), removing hov-self here would cause a flash.
             oldOverlays.forEach(el => el.parentNode?.removeChild(el));
