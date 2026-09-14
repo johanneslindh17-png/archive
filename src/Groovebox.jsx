@@ -115,28 +115,30 @@ function midiToNote(midi) {
 }
 function semOctToMidi(s, oct) { return (oct + 1) * 12 + s; }
 
-function makeEmptyDrums() {
-  return Object.fromEntries(DRUM_TRACKS.map(t => [t.id, new Array(STEPS).fill(0)]));
+const GROUPS_32 = [0, 4, 8, 12, 16, 20, 24, 28];
+
+function makeEmptyDrums(len = STEPS) {
+  return Object.fromEntries(DRUM_TRACKS.map(t => [t.id, new Array(len).fill(0)]));
 }
-function makeEmptySynth() {
-  return { bass: new Array(STEPS).fill(null), lead: new Array(STEPS).fill(null) };
+function makeEmptySynth(len = STEPS) {
+  return { bass: new Array(len).fill(null), lead: new Array(len).fill(null) };
 }
 function makeVMap(val) {
   return Object.fromEntries(ALL_IDS.map(id => [id, val]));
 }
-function makeEmptyAuto() {
+function makeEmptyAuto(len = STEPS) {
   return Object.fromEntries(ALL_IDS.map(id => [id, {
-    vol:    new Array(STEPS).fill(null),
-    filter: new Array(STEPS).fill(null),
-    pan:    new Array(STEPS).fill(null),
-    pitch:  new Array(STEPS).fill(null),
-    decay:  new Array(STEPS).fill(null),
-    tone:   new Array(STEPS).fill(null),
-    att:    new Array(STEPS).fill(null),
-    dec:    new Array(STEPS).fill(null),
-    sus:    new Array(STEPS).fill(null),
-    rel:    new Array(STEPS).fill(null),
-    res:    new Array(STEPS).fill(null),
+    vol:    new Array(len).fill(null),
+    filter: new Array(len).fill(null),
+    pan:    new Array(len).fill(null),
+    pitch:  new Array(len).fill(null),
+    decay:  new Array(len).fill(null),
+    tone:   new Array(len).fill(null),
+    att:    new Array(len).fill(null),
+    dec:    new Array(len).fill(null),
+    sus:    new Array(len).fill(null),
+    rel:    new Array(len).fill(null),
+    res:    new Array(len).fill(null),
   }]));
 }
 
@@ -356,6 +358,7 @@ export function Groovebox({ open, onClose, darkMode }) {
   );
   const [automation,  setAutomation]  = useState(makeEmptyAuto);
   const [isRec,       setIsRec]       = useState(false);
+  const [seqLen,      setSeqLen]      = useState(16);
   const [noteOct,     setNoteOct]     = useState(3);
   const [currentStep, setCurrentStep] = useState(-1);
   const [hoverSynth,  setHoverSynth]  = useState(null); // {voice, step, rect}
@@ -374,6 +377,7 @@ export function Groovebox({ open, onClose, darkMode }) {
   const hoverTimerRef  = useRef(null);
 
   const isRecRef    = useRef(isRec);       isRecRef.current    = isRec;
+  const seqLenRef   = useRef(seqLen);      seqLenRef.current   = seqLen;
   const playingRef  = useRef(playing);     playingRef.current  = playing;
   const bpmR        = useRef(bpm);         bpmR.current        = bpm;
   const volR        = useRef(volume);      volR.current        = volume;
@@ -509,7 +513,7 @@ export function Groovebox({ open, onClose, darkMode }) {
       playingStepRef.current = s;
       setStepR.current(s);
       nextTRef.current += (60 / bpm) / 4;
-      stepRef.current = (s + 1) % STEPS;
+      stepRef.current = (s + 1) % seqLenRef.current;
     }
     schedRef.current = setTimeout(tick, 22);
   }, []);
@@ -543,9 +547,28 @@ export function Groovebox({ open, onClose, darkMode }) {
   }, []);
 
   const clearPattern = useCallback(() => {
-    setDrums(makeEmptyDrums()); setSynth(makeEmptySynth());
+    setDrums(makeEmptyDrums(seqLenRef.current));
+    setSynth(makeEmptySynth(seqLenRef.current));
   }, []);
-  const clearAuto = useCallback(() => setAutomation(makeEmptyAuto()), []);
+  const clearAuto = useCallback(() => setAutomation(makeEmptyAuto(seqLenRef.current)), []);
+
+  const toggleSeqLen = useCallback(() => {
+    if (seqLenRef.current === 16) {
+      setDrums(d => Object.fromEntries(Object.entries(d).map(([id, arr]) => [id, [...arr, ...arr]])));
+      setSynth(s => ({ bass: [...s.bass, ...s.bass], lead: [...s.lead, ...s.lead] }));
+      setAutomation(a => Object.fromEntries(Object.entries(a).map(([id, track]) => [
+        id, Object.fromEntries(Object.entries(track).map(([k, arr]) => [k, [...arr, ...arr]])),
+      ])));
+      setSeqLen(32);
+    } else {
+      setDrums(d => Object.fromEntries(Object.entries(d).map(([id, arr]) => [id, arr.slice(0, 16)])));
+      setSynth(s => ({ bass: s.bass.slice(0, 16), lead: s.lead.slice(0, 16) }));
+      setAutomation(a => Object.fromEntries(Object.entries(a).map(([id, track]) => [
+        id, Object.fromEntries(Object.entries(track).map(([k, arr]) => [k, arr.slice(0, 16)])),
+      ])));
+      setSeqLen(16);
+    }
+  }, []);
 
   const toggleDrum = useCallback((id, step) =>
     setDrums(p => ({ ...p, [id]: p[id].map((v, i) => i === step ? 1 - v : v) })), []);
@@ -683,6 +706,11 @@ export function Groovebox({ open, onClose, darkMode }) {
         <button className={`groove-rec-btn${isRec ? ' active' : ''}`} onClick={() => setIsRec(v => !v)}>
           <span className="groove-rec-dot" />AUTO REC
         </button>
+        <div className="groove-seqlen">
+          <button className={`groove-seqlen-btn${seqLen === 16 ? ' act' : ''}`} onClick={() => seqLen !== 16 && toggleSeqLen()}>16</button>
+          <button className={`groove-seqlen-btn${seqLen === 32 ? ' act' : ''}`} onClick={() => seqLen !== 32 && toggleSeqLen()}>32</button>
+          <span className="groove-seqlen-lbl">STEPS</span>
+        </div>
         <button className="groove-mono-btn" onClick={clearPattern}>CLR STEPS</button>
         <button className="groove-mono-btn" onClick={clearAuto}>CLR AUTO</button>
         <button className="groove-close" onClick={() => { stop(); onClose(); }}>✕</button>
@@ -712,12 +740,12 @@ export function Groovebox({ open, onClose, darkMode }) {
         ))}
       </div>
 
-      <div className="groove-seq">
+      <div className={`groove-seq${seqLen === 32 ? ' mode-32' : ''}`}>
         {DRUM_TRACKS.map(t => (
           <div key={t.id} className="groove-row">
             <span className="groove-label">{t.label}</span>
             <div className="groove-steps">
-              {GROUPS.map((g, gi) => (
+              {(seqLen === 32 ? GROUPS_32 : GROUPS).map((g, gi) => (
                 <div key={g} className={`groove-group${gi % 2 === 1 ? ' groove-group--alt' : ''}`}>
                   {drums[t.id].slice(g, g + 4).map((on, i) => {
                     const step = g + i;
@@ -743,7 +771,7 @@ export function Groovebox({ open, onClose, darkMode }) {
           <div key={t.id} className="groove-row">
             <span className="groove-label">{t.label}</span>
             <div className="groove-steps">
-              {GROUPS.map((g, gi) => (
+              {(seqLen === 32 ? GROUPS_32 : GROUPS).map((g, gi) => (
                 <div key={g} className={`groove-group${gi % 2 === 1 ? ' groove-group--alt' : ''}`}>
                   {synth[t.id].slice(g, g + 4).map((notes, i) => {
                     const step    = g + i;
