@@ -1780,9 +1780,9 @@ path.eg.dim{opacity:0.055}
 
 /* 32-step mode — halve step width, close gaps */
 .groove-seq.mode-32 .groove-steps { gap: 3px; }
-.groove-seq.mode-32 .groove-group { gap: 1px; }
-.groove-seq.mode-32 .groove-step { width: 19px; }
-.groove-seq.mode-32 .groove-step--synth { width: 19px; }
+.groove-seq.mode-32 .groove-group { gap: 1px; flex: 1; }
+.groove-seq.mode-32 .groove-step { width: auto; flex: 1; }
+.groove-seq.mode-32 .groove-step--synth { width: auto; flex: 1; }
 
 /* Drum steps */
 .groove-step {
