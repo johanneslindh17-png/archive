@@ -545,6 +545,8 @@ export default function App() {
   const [grooveOpen, setGrooveOpen] = useState(false);
   const [chatOpen,   setChatOpen]   = useState(false);
   const chatRef = useRef(null);
+  const [logOpen,    setLogOpen]    = useState(false);
+  const [logHlDate,  setLogHlDate]  = useState(null);
   const [pathNodes, setPathNodes] = useState([]);
   const [pathStep, setPathStep] = useState(null);
   const deepLinkNodeRef = useRef(null);
@@ -1713,9 +1715,15 @@ export default function App() {
     return s;
   }, [pathResult]);
 
+  const logHlIds = useMemo(() => {
+    if (!logHlDate) return null;
+    return new Set(NODE_CHANGELOG.filter(e => e.date === logHlDate && NODE_BY_ID.has(e.id)).map(e => e.id));
+  }, [logHlDate]);
+
   const hlIds = useMemo(() => {
     if (pathHlIds) return pathHlIds;
     if (pathMode) return null;
+    if (!focusId && logHlIds) return logHlIds;
     if (!focusId) return null;
     const s = new Set([focusId]);
     visibleEdges.forEach(e => {
@@ -1723,7 +1731,7 @@ export default function App() {
       if (e.to === focusId)   { if (NODE_BY_ID.has(e.from)) s.add(e.from); }
     });
     return s;
-  }, [pathHlIds, pathMode, focusId, visibleEdges]);
+  }, [pathHlIds, pathMode, focusId, logHlIds, visibleEdges]);
 
   const hlEdges = useMemo(() => {
     if (pathHlEdges) return pathHlEdges;
@@ -2943,32 +2951,43 @@ export default function App() {
 
       {/* Status bar */}
       <div className="statusbar" style={themeStyle ? { background: themeStyle.surface, borderTopColor: themeStyle.border } : undefined}>
-        <div className="statusbar-item statusbar-item--log">
+        <div className="statusbar-item">
           <strong>{NODES.filter(n => filteredIds.has(n.id)).length}</strong> nodes
-          <div className="node-log-popup">
-            <div className="node-log-header">Recently added</div>
-            <div className="node-log-list">
-              {(() => {
-                const entries = NODE_CHANGELOG.filter(e => NODE_BY_ID.has(e.id));
-                const groups = [];
-                entries.forEach(e => {
-                  if (!groups.length || groups[groups.length - 1].date !== e.date)
-                    groups.push({ date: e.date, items: [] });
-                  groups[groups.length - 1].items.push(e);
-                });
-                return groups.map(g => (
-                  <div key={g.date} className="node-log-group">
-                    <div className="node-log-date">{g.date}</div>
-                    {g.items.map(e => (
-                      <button key={e.id} className="node-log-row" onClick={() => { selectNode(e.id); scrollToNode(e.id); }}>
-                        <span className="node-log-label">{e.label}</span>
-                      </button>
-                    ))}
-                  </div>
-                ));
-              })()}
+        </div>
+        <div className="statusbar-sep" />
+        <div className="statusbar-item--log">
+          <button className={`node-log-btn${logOpen ? ' open' : ''}`} onClick={() => setLogOpen(v => !v)}>
+            NODE LOG
+          </button>
+          {logOpen && (
+            <div className="node-log-popup">
+              <div className="node-log-header">Recently added</div>
+              <div className="node-log-list">
+                {(() => {
+                  const entries = NODE_CHANGELOG.filter(e => NODE_BY_ID.has(e.id));
+                  const groups = [];
+                  entries.forEach(e => {
+                    if (!groups.length || groups[groups.length - 1].date !== e.date)
+                      groups.push({ date: e.date, items: [] });
+                    groups[groups.length - 1].items.push(e);
+                  });
+                  return groups.map(g => (
+                    <div key={g.date} className="node-log-group">
+                      <button
+                        className={`node-log-date${logHlDate === g.date ? ' active' : ''}`}
+                        onClick={() => setLogHlDate(d => d === g.date ? null : g.date)}
+                      >{g.date}</button>
+                      {g.items.map(e => (
+                        <button key={e.id} className="node-log-row" onClick={() => { selectNode(e.id); scrollToNode(e.id); setLogOpen(false); }}>
+                          <span className="node-log-label">{e.label}</span>
+                        </button>
+                      ))}
+                    </div>
+                  ));
+                })()}
+              </div>
             </div>
-          </div>
+          )}
         </div>
         <div className="statusbar-scroll">
         <div className="statusbar-sep" />

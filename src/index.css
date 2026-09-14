@@ -895,56 +895,69 @@ path.eg.dim{opacity:0.055}
 }
 .statusbar-sep{width:1px;height:12px;background:var(--tb-border);}
 
-/* Node count hover — recently added log */
-.statusbar-item--log {
-  position: relative;
-  cursor: default;
+/* Node log — click-triggered popup */
+.statusbar-item--log { position: relative; }
+.node-log-btn {
+  background: transparent;
+  border: none;
+  font-family: 'Syne Mono', monospace;
+  font-size: 0.54rem;
+  letter-spacing: 0.1em;
+  color: var(--tb-text-dim);
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.12s;
 }
-.statusbar-item--log:hover .node-log-popup { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.node-log-btn:hover, .node-log-btn.open { color: var(--tb-text); }
 .node-log-popup {
   position: absolute;
   bottom: calc(100% + 8px);
   left: 0;
-  width: 220px;
+  width: 230px;
   background: var(--tb-bg);
   border: 1px solid var(--tb-border);
   border-radius: 3px;
   z-index: 200;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(4px);
-  transition: opacity 0.15s, transform 0.15s;
 }
 .node-log-header {
   font-size: 0.52rem;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: var(--tb-text-dim);
+  color: var(--tb-text-mid);
   padding: 7px 10px 5px;
   border-bottom: 1px solid var(--tb-border);
 }
 .node-log-list {
-  max-height: 240px;
+  max-height: 260px;
   overflow-y: auto;
   scrollbar-width: none;
   padding: 4px 0;
 }
 .node-log-list::-webkit-scrollbar { display: none; }
-.node-log-group { padding: 5px 0 2px; }
+.node-log-group { padding: 4px 0 3px; }
 .node-log-group + .node-log-group { border-top: 1px solid var(--tb-border); }
 .node-log-date {
-  font-size: 0.48rem;
-  color: var(--tb-text-dim);
-  letter-spacing: 0.08em;
-  padding: 2px 10px 3px;
+  font-family: 'Syne Mono', monospace;
+  font-size: 0.56rem;
+  color: var(--tb-text-mid);
+  letter-spacing: 0.06em;
+  padding: 3px 10px 4px;
   display: block;
+  width: 100%;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.1s, background 0.1s;
 }
+.node-log-date:hover { background: var(--tb-hover); color: var(--tb-text); }
+.node-log-date.active { color: var(--tb-text); background: var(--tb-hover); }
 .node-log-row {
   display: block;
   width: 100%;
   background: transparent;
   border: none;
-  padding: 3px 10px 3px 18px;
+  padding: 3px 10px 3px 20px;
   cursor: pointer;
   text-align: left;
   font-family: 'Syne Mono', monospace;
