@@ -1363,6 +1363,13 @@ path.eg.dim{opacity:0.055}
 .groove-header--rec {
   border-bottom-color: #c84040;
 }
+.groove-header-sep {
+  width: 1px;
+  height: 18px;
+  background: var(--tb-border);
+  flex-shrink: 0;
+  margin: 0 2px;
+}
 .groove-rec-indicator {
   width: 7px; height: 7px;
   border-radius: 50%;

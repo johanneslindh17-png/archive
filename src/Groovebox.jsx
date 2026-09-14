@@ -703,15 +703,17 @@ export function Groovebox({ open, onClose, darkMode }) {
           <input className="groove-vol-slider" type="range" min="0" max="1" step="0.02"
             value={volume} onChange={e => setVolume(+e.target.value)} />
         </label>
-        <button className={`groove-rec-btn${isRec ? ' active' : ''}`} onClick={() => setIsRec(v => !v)}>
-          <span className="groove-rec-dot" />AUTO REC
-        </button>
+        <div className="groove-header-sep" />
         <div className="groove-seqlen">
           <button className={`groove-seqlen-btn${seqLen === 16 ? ' act' : ''}`} onClick={() => seqLen !== 16 && toggleSeqLen()}>16</button>
           <button className={`groove-seqlen-btn${seqLen === 32 ? ' act' : ''}`} onClick={() => seqLen !== 32 && toggleSeqLen()}>32</button>
           <span className="groove-seqlen-lbl">STEPS</span>
         </div>
         <button className="groove-mono-btn" onClick={clearPattern}>CLR STEPS</button>
+        <div className="groove-header-sep" />
+        <button className={`groove-rec-btn${isRec ? ' active' : ''}`} onClick={() => setIsRec(v => !v)}>
+          <span className="groove-rec-dot" />AUTO REC
+        </button>
         <button className="groove-mono-btn" onClick={clearAuto}>CLR AUTO</button>
         <button className="groove-close" onClick={() => { stop(); onClose(); }}>✕</button>
       </div>
