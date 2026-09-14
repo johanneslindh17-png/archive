@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback, useMemo, startTransition } from 'react';
 import { useSunMode } from './hooks/useSunMode.js';
 import { Groovebox } from './Groovebox.jsx';
+import { Chat } from './Chat.jsx';
 
 import * as d3 from 'd3';
 import {
@@ -541,6 +542,8 @@ export default function App() {
   const [verifyError, setVerifyError] = useState('');
   const [pathMode, setPathMode] = useState(false);
   const [grooveOpen, setGrooveOpen] = useState(false);
+  const [chatOpen,   setChatOpen]   = useState(false);
+  const chatRef = useRef(null);
   const [pathNodes, setPathNodes] = useState([]);
   const [pathStep, setPathStep] = useState(null);
   const deepLinkNodeRef = useRef(null);
@@ -2766,6 +2769,7 @@ export default function App() {
             <>
               <div className="dp-toprow">
                 <button className="dp-close" onClick={closePanel}>×</button>
+                <button className="dp-share-btn" onClick={() => { chatRef.current?.share(selNode.id, selNode.label); setChatOpen(true); }}>share in chat ↗</button>
               </div>
 
               {/* Type pill */}
@@ -3067,6 +3071,12 @@ export default function App() {
         </div>{/* end statusbar-scroll */}
         <div className="statusbar-end">
           <button
+            className={`groove-ctrl-btn${chatOpen ? ' open' : ''}`}
+            onClick={() => setChatOpen(v => !v)}
+            title="Chat"
+            style={{ fontSize: '0.7rem', letterSpacing: '0.06em', padding: '0 8px', fontFamily: 'inherit' }}
+          >CHAT</button>
+          <button
             className={`groove-ctrl-btn${grooveOpen ? ' open' : ''}`}
             onClick={() => setGrooveOpen(v => !v)}
             title="Groovebox"
@@ -3211,6 +3221,7 @@ export default function App() {
       )}
 
       <Groovebox open={grooveOpen} onClose={() => setGrooveOpen(false)} darkMode={darkMode} />
+      <Chat ref={chatRef} open={chatOpen} onSelectNode={id => { selectNode(id); scrollToNode(id); }} darkMode={darkMode} />
     </div>
   );
 }
