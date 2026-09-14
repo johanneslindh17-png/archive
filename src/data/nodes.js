@@ -2945,7 +2945,7 @@ export const NODES = [
     ], spotify:'5a0etAzO5V26gvlbmHzT9W', },
 
   { id:'melchior_productions', label:'Melchior Productions Ltd', type:'artist', genre:'minimal', era:2009, city:'Amsterdam', country:'NL',
-    desc:'Melchior Sultana releases as Melchior Productions Ltd, primarily on Clone Records in Rotterdam, and his music makes no move toward spectacle. Minimal, functional, quietly precise — these are records built for the middle sections of long sets, not for peak moments. That anti-spectacularity is a philosophy in itself, one that sits squarely within the Amsterdam and Rotterdam tradition of music that serves the floor rather than the DJ\'s ego.',
+    desc:'Thomas Melchior releases as Melchior Productions Ltd, one of several aliases alongside Melchior Communications Ltd and Cinderfella LTD. His music makes no move toward spectacle — minimal, functional, quietly precise. These are records built for the middle sections of long sets, not for peak moments. That anti-spectacularity is a philosophy in itself, one that sits squarely within the Amsterdam and Rotterdam tradition of music that serves the floor rather than the DJ\'s ego.',
     releases: [
       { title: 'Melchior Productions Vol. 1 (Clone)', year: 2009 },
     ], spotify:'5U4tB4bjuiSVd1StrbFZSa', },
