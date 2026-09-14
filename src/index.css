@@ -894,6 +894,66 @@ path.eg.dim{opacity:0.055}
   font-variant-numeric:tabular-nums;overflow:visible;
 }
 .statusbar-sep{width:1px;height:12px;background:var(--tb-border);}
+
+/* Node count hover — recently added log */
+.statusbar-item--log {
+  position: relative;
+  cursor: default;
+}
+.statusbar-item--log:hover .node-log-popup { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.node-log-popup {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  width: 220px;
+  background: var(--tb-bg);
+  border: 1px solid var(--tb-border);
+  border-radius: 3px;
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(4px);
+  transition: opacity 0.15s, transform 0.15s;
+}
+.node-log-header {
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--tb-text-dim);
+  padding: 7px 10px 5px;
+  border-bottom: 1px solid var(--tb-border);
+}
+.node-log-list {
+  max-height: 240px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  padding: 4px 0;
+}
+.node-log-list::-webkit-scrollbar { display: none; }
+.node-log-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 4px 10px;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Syne Mono', monospace;
+}
+.node-log-row:hover { background: var(--tb-hover); }
+.node-log-date {
+  font-size: 0.5rem;
+  color: var(--tb-text-dim);
+  flex-shrink: 0;
+  letter-spacing: 0.02em;
+}
+.node-log-label {
+  font-size: 0.62rem;
+  color: var(--tb-text);
+  letter-spacing: 0.04em;
+}
 .tour-relaunch{
   background:none;border:1px solid var(--tb-border);border-radius:2px;
   height:28px;padding:0 8px;

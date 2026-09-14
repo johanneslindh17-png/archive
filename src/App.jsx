@@ -13,6 +13,7 @@ import { NODES } from './data/nodes.js';
 import { EDGES } from './data/edges.js';
 import { PHOTOS } from './data/photos.js';
 import { NEWS_TICKER } from './data/newsTicker.js';
+import { NODE_CHANGELOG } from './data/changelog.js';
 
 const NODE_BY_ID = new Map(NODES.map(n => [n.id, n]));
 
@@ -2943,8 +2944,19 @@ export default function App() {
       {/* Status bar */}
       <div className="statusbar" style={themeStyle ? { background: themeStyle.surface, borderTopColor: themeStyle.border } : undefined}>
         <div className="statusbar-scroll">
-        <div className="statusbar-item">
+        <div className="statusbar-item statusbar-item--log">
           <strong>{NODES.filter(n => filteredIds.has(n.id)).length}</strong> nodes
+          <div className="node-log-popup">
+            <div className="node-log-header">Recently added</div>
+            <div className="node-log-list">
+              {NODE_CHANGELOG.filter(e => NODE_BY_ID.has(e.id)).map(e => (
+                <button key={e.id} className="node-log-row" onClick={() => { selectNode(e.id); scrollToNode(e.id); }}>
+                  <span className="node-log-date">{e.date}</span>
+                  <span className="node-log-label">{e.label}</span>
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
         <div className="statusbar-sep" />
         <div className="statusbar-item">
