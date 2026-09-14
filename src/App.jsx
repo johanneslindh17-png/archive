@@ -2948,12 +2948,25 @@ export default function App() {
           <div className="node-log-popup">
             <div className="node-log-header">Recently added</div>
             <div className="node-log-list">
-              {NODE_CHANGELOG.filter(e => NODE_BY_ID.has(e.id)).map(e => (
-                <button key={e.id} className="node-log-row" onClick={() => { selectNode(e.id); scrollToNode(e.id); }}>
-                  <span className="node-log-date">{e.date}</span>
-                  <span className="node-log-label">{e.label}</span>
-                </button>
-              ))}
+              {(() => {
+                const entries = NODE_CHANGELOG.filter(e => NODE_BY_ID.has(e.id));
+                const groups = [];
+                entries.forEach(e => {
+                  if (!groups.length || groups[groups.length - 1].date !== e.date)
+                    groups.push({ date: e.date, items: [] });
+                  groups[groups.length - 1].items.push(e);
+                });
+                return groups.map(g => (
+                  <div key={g.date} className="node-log-group">
+                    <div className="node-log-date">{g.date}</div>
+                    {g.items.map(e => (
+                      <button key={e.id} className="node-log-row" onClick={() => { selectNode(e.id); scrollToNode(e.id); }}>
+                        <span className="node-log-label">{e.label}</span>
+                      </button>
+                    ))}
+                  </div>
+                ));
+              })()}
             </div>
           </div>
         </div>
