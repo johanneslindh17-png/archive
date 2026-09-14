@@ -571,6 +571,7 @@ export default function App() {
       window.history.replaceState(null, '', location.pathname + location.search);
       setSelected(null);
       setHistory([]);
+      setLogHlDate(null);
     } else {
       if (!unlocked) {
         const next = trialCount + 1;
@@ -630,6 +631,7 @@ export default function App() {
     setPanelX(null);
     setPathMode(false);
     setPathNodes([]);
+    setLogHlDate(null);
   }
 
   // Fly back to the overview zoom level, keeping the current vertical era centred
