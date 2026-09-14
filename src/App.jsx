@@ -2135,7 +2135,9 @@ export default function App() {
                 glowEl.style.pointerEvents = 'none';
                 const nbIsDim = hlIds ? !hlIds.has(nbId) : false;
                 glowEl.classList.add('nd-glow-el', nbIsDim ? 'nd-glow-pulse' : 'nd-glow-static');
-                glowFrag.appendChild(glowEl);
+                // Dim nodes are faded — put their glow in front so it's visible.
+                // Non-dim nodes get the glow behind as a backlight.
+                (nbIsDim ? txtFrag : glowFrag).appendChild(glowEl);
                 marchOverlayRef.current.push(glowEl);
                 if (nbIsDim && fc) {
                   const txtEl = document.createElementNS(svgNS, 'text');
