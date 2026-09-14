@@ -2,7 +2,7 @@ import { useState, useRef, useCallback, memo } from 'react';
 
 // ── Rotary knob ──────────────────────────────────────────────────────────────
 
-function Knob({ value, onChange, size = 28 }) {
+function Knob({ value, onChange, size = 32 }) {
   const angle = -135 + value * 270;
   const rad   = (angle * Math.PI) / 180;
   const cx = size / 2, cy = size / 2;

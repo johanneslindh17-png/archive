@@ -1269,8 +1269,10 @@ path.eg.dim{opacity:0.055}
   position: fixed;
   bottom: 54px;
   left: 50%;
-  /* 32px steps: 10+40(label)+5 + (16×32+24+12) + 5+26(mute)+10 = 644px */
-  width: min(97vw, 648px);
+  /* 36px steps ×1.15: 12+46(label)+5 + (16×36+24+15) + 5+30(mute)+12 = 729px */
+  width: min(97vw, 732px);
+  max-height: calc(100vh - 60px);
+  overflow-y: auto;
   z-index: 890;
   background: var(--tb-bg);
   border: 1px solid var(--tb-border);
@@ -1431,10 +1433,10 @@ path.eg.dim{opacity:0.055}
 .gv-panel {
   display: flex;
   align-items: stretch;
-  padding: 10px 18px 10px 24px;
+  padding: 12px 21px 12px 28px;
   border-bottom: 1px solid #1c1c26;
   gap: 0;
-  min-height: 250px;
+  min-height: 280px;
   background: #0a0a10;
 }
 
@@ -1459,19 +1461,19 @@ path.eg.dim{opacity:0.055}
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 0 2px;
+  gap: 5px;
+  padding: 0 3px;
   transition: opacity 0.15s;
 }
 .gv-col--muted { opacity: 0.28; }
 
 .gv-col-label {
-  font-size: 0.52rem;
+  font-size: 0.60rem;
   letter-spacing: 0.12em;
   color: #a0a0cc;
   font-weight: 700;
   text-align: center;
-  padding-bottom: 3px;
+  padding-bottom: 4px;
   border-bottom: 1px solid #2a2a40;
   flex-shrink: 0;
 }
@@ -1495,7 +1497,7 @@ path.eg.dim{opacity:0.055}
 .gv-filt-row { display: flex; gap: 2px; justify-content: center; }
 
 .gv-param-lbl {
-  font-size: 0.42rem;
+  font-size: 0.48rem;
   letter-spacing: 0.06em;
   color: #8080a8;
   text-align: center;
@@ -1513,7 +1515,7 @@ path.eg.dim{opacity:0.055}
 /* ADSR row: 4 vertical sliders + RES knob side by side */
 .gv-adsr-row {
   display: flex;
-  gap: 3px;
+  gap: 4px;
   align-items: flex-end;
   justify-content: center;
 }
@@ -1529,8 +1531,8 @@ path.eg.dim{opacity:0.055}
   user-select: none;
 }
 .gv-vslider-track {
-  width: 4px;
-  height: 54px;
+  width: 5px;
+  height: 62px;
   background: #161622;
   border-radius: 2px;
   position: relative;
@@ -1541,8 +1543,8 @@ path.eg.dim{opacity:0.055}
   position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 14px;
-  height: 5px;
+  width: 16px;
+  height: 6px;
   background: #b0b0d0;
   border-radius: 1px;
   pointer-events: none;
@@ -1559,8 +1561,8 @@ path.eg.dim{opacity:0.055}
   user-select: none;
 }
 .gv-fader-track {
-  width: 6px;
-  height: 64px;
+  width: 7px;
+  height: 74px;
   background: #0e0e1a;
   border-radius: 3px;
   position: relative;
@@ -1578,8 +1580,8 @@ path.eg.dim{opacity:0.055}
   position: absolute;
   left: 50%;
   transform: translate(-50%, 50%);
-  width: 18px;
-  height: 6px;
+  width: 21px;
+  height: 7px;
   background: #c0c0d8;
   border-radius: 1px;
   pointer-events: none;
@@ -1608,9 +1610,9 @@ path.eg.dim{opacity:0.055}
   background: #0e0e18;
   color: #6060a0;
   font-family: 'Syne Mono', monospace;
-  font-size: 0.38rem;
+  font-size: 0.44rem;
   letter-spacing: 0.06em;
-  padding: 3px 1px;
+  padding: 4px 2px;
   cursor: pointer;
   transition: color 0.12s, border-color 0.12s;
   border-radius: 2px;
@@ -1622,7 +1624,7 @@ path.eg.dim{opacity:0.055}
 
 /* ── Sequencer rows ── */
 .groove-seq {
-  padding: 5px 10px 7px;
+  padding: 6px 12px 8px;
   display: flex;
   flex-direction: column;
   gap: 3px;
@@ -1641,21 +1643,21 @@ path.eg.dim{opacity:0.055}
 }
 
 .groove-label {
-  font-size: 0.5rem;
+  font-size: 0.58rem;
   letter-spacing: 0.08em;
   color: var(--tb-text-dim);
-  width: 40px;
+  width: 46px;
   flex-shrink: 0;
   text-align: right;
 }
 
-.groove-steps { display: flex; gap: 4px; }
+.groove-steps { display: flex; gap: 5px; }
 .groove-group { display: flex; gap: 2px; }
 
 /* Drum steps */
 .groove-step {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border: 1px solid var(--tb-border);
   background: transparent;
   cursor: pointer;
@@ -1673,8 +1675,8 @@ path.eg.dim{opacity:0.055}
 
 /* Synth steps */
 .groove-step--synth {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   position: relative;
   display: flex;
   align-items: center;
@@ -1685,7 +1687,7 @@ path.eg.dim{opacity:0.055}
 
 .groove-note-lbl {
   font-family: 'Syne Mono', monospace;
-  font-size: 0.44rem;
+  font-size: 0.5rem;
   letter-spacing: 0;
   color: var(--tb-bg);
   pointer-events: none;
@@ -1707,10 +1709,10 @@ path.eg.dim{opacity:0.055}
   background: transparent;
   color: var(--tb-text-dim);
   font-family: 'Syne Mono', monospace;
-  font-size: 0.44rem;
+  font-size: 0.5rem;
   letter-spacing: 0.05em;
-  width: 26px;
-  height: 32px;
+  width: 30px;
+  height: 36px;
   cursor: pointer;
   transition: color 0.12s, background 0.12s, border-color 0.12s;
   border-radius: 2px;
