@@ -1637,6 +1637,19 @@ path.eg.dim{opacity:0.055}
 .gv-knob-line { stroke: #c8c4bc; stroke-width: 1.8; stroke-linecap: round; }
 .gv-knob:hover .gv-knob-body { stroke: #5050a0; }
 .gv-knob:hover .gv-knob-line { stroke: #e8e4d8; }
+/* Light mode: retro hardware gray chassis */
+.groove-panel:not(.dark) {
+  background: #ccc9c0;
+  border-color: #b4b1a8;
+}
+.groove-panel:not(.dark) .gv-panel { background: #c0bdb4; }
+.groove-panel:not(.dark) .groove-header { border-bottom-color: #b4b1a8; }
+.groove-panel:not(.dark) .groove-seq-divider { background: #b8b5ac; }
+.groove-panel:not(.dark) .groove-step { border-color: #a8a59c; }
+.groove-panel:not(.dark) .groove-step:hover { background: rgba(0,0,0,0.08); }
+.groove-panel:not(.dark) .groove-step.on { background: #4a4845; border-color: #4a4845; }
+.groove-panel:not(.dark) .groove-label { color: #6a6860; }
+
 /* Light mode: softer dark-gray knobs instead of near-black */
 .groove-panel:not(.dark) .gv-knob-body { fill: #2d2b3e; stroke: #4a4866; }
 .groove-panel:not(.dark) .gv-knob-line { stroke: #807898; }
