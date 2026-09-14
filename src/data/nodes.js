@@ -5986,4 +5986,18 @@ export const NODES = [
       { title: '\'Patterns of Consciousness\' LP (Important)', year: 2017 },
       { title: '\'Ecstatic Computation\' LP (light-years)', year: 2019 },
     ]},
+
+  { id:'cosmjn', label:'Cosmjn', type:'artist', genre:'techno', era:2008, city:'Bucharest', country:'RO',
+    desc:'Cosmjn (real name Cosmin) is a Bucharest-based DJ and producer central to the Romanian minimal scene. His sound sits at the micro-minimal end of the rominimal spectrum — deeply hypnotic, groove-driven tracks built from sparse elements and subtle textural development. He has released on Subtil, Eastenderz, Atipic, and Playedby, and performs frequently alongside the core figures of the Romanian scene including Lizz, Nu Zau, Priku, and Arapu. He is a regular presence at Sunwaves Festival, the defining event of the Romanian underground.',
+    releases: [] },
+
+  { id:'lizz', label:'Lizz', type:'artist', genre:'techno', era:2010, city:'Cluj-Napoca', country:'RO',
+    desc:'Lizz (real name Petre Ionut Valentin, also known as Petre Vali) is a Romanian DJ and producer born in Buzau and based in Cluj-Napoca, where he has been a resident at Club Midi. His music sits within the rominimal tradition — minimal, hypnotic, and deeply groove-oriented — and he has released on Sleep is Commercial, Eastenderz, Valioso Recordings, and Playedby. He is closely associated with Cosmjn and the wider network of Romanian artists that includes Nu Zau, Priku, Mihigh, and Suciu, and has toured internationally across Europe, Asia, and Australia.',
+    releases: [] },
+
+  { id:'mark_farina', label:'Mark Farina', type:'artist', genre:'deep', era:1989, city:'Chicago', country:'US',
+    desc:'Mark Farina is a Chicago-born DJ who relocated to San Francisco in the early 1990s and has since operated at the intersection of underground house and what he calls Mushroom Jazz — a blend of deep house with jazz, hip-hop, and downbeat influences that he developed into an ongoing mix series beginning in 1993. A longtime resident at Smartbar in Chicago and The Mighty in San Francisco, he has been one of the most active touring DJs in American underground dance music for over three decades. His releases appear on Om Records, Music For Freaks, and Robsoul Recordings. He is closely associated with Derrick Carter and DJ Sneak, the core of the Chicago house scene that bridged American funk traditions with European club culture.',
+    releases: [
+      { title: '\'Mushroom Jazz\' series (OM Records)', year: 1994 },
+    ]},
 ];

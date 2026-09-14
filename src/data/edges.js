@@ -3209,4 +3209,17 @@
 
   // -- CATERINA BARBIERI -----------------------------------------------------
   { from:'raster_noton',    to:'caterina_barbieri',     strength:1, type:'aesthetic' },
+
+  // -- COSMJN ----------------------------------------------------------------
+  { from:'barac',           to:'cosmjn',                strength:2, type:'aesthetic' }, // Romanian minimal scene
+  { from:'lizz',            to:'cosmjn',                strength:3, type:'collaboration' },
+
+  // -- LIZZ ------------------------------------------------------------------
+  { from:'barac',           to:'lizz',                  strength:2, type:'aesthetic' }, // Romanian minimal scene
+  { from:'cosmjn',          to:'lizz',                  strength:3, type:'collaboration' },
+
+  // -- MARK FARINA -----------------------------------------------------------
+  { from:'chicago_scene',   to:'mark_farina',           strength:3, type:'lineage' },
+  { from:'derrick_carter',  to:'mark_farina',           strength:3, type:'collaboration' },
+  { from:'dj_sneak',        to:'mark_farina',           strength:2, type:'aesthetic' },
 ];
