@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback, memo } from 'react';
+import { useState, useRef, useCallback, useEffect, memo } from 'react';
 
 // ── Rotary knob ──────────────────────────────────────────────────────────────
 
@@ -128,6 +128,9 @@ function makeEmptyAuto() {
   return Object.fromEntries(ALL_IDS.map(id => [id, {
     vol:    new Array(STEPS).fill(null),
     filter: new Array(STEPS).fill(null),
+    pitch:  new Array(STEPS).fill(null),
+    decay:  new Array(STEPS).fill(null),
+    tone:   new Array(STEPS).fill(null),
   }]));
 }
 
@@ -304,13 +307,21 @@ function doHH(ctx, t, dest, p, isOpen) {
 }
 
 function doPerc(ctx, t, dest, p) {
-  const base = 100 + (p.pitch ?? 0.5) * 1100;
-  const dec  = 0.02 + (p.decay ?? 0.4) * 0.8;
+  // Conga-style: sine with quick pitch drop, short attack noise burst
+  const base = 120 + (p.pitch ?? 0.5) * 380; // 120-500 Hz conga range
+  const dec  = 0.04 + (p.decay ?? 0.4) * 0.55;
   const osc  = ctx.createOscillator();
-  osc.frequency.setValueAtTime(base * 2.2, t);
-  osc.frequency.exponentialRampToValueAtTime(Math.max(0.001, base * 0.4), t + dec);
-  const g = ctx.createGain(); g.gain.setValueAtTime(0.7, t); g.gain.exponentialRampToValueAtTime(0.001, t + dec);
+  osc.type = 'sine';
+  osc.frequency.setValueAtTime(base * 1.9, t);
+  osc.frequency.exponentialRampToValueAtTime(Math.max(0.001, base), t + 0.014);
+  osc.frequency.exponentialRampToValueAtTime(Math.max(0.001, base * 0.72), t + dec);
+  const g = ctx.createGain(); g.gain.setValueAtTime(1.3, t); g.gain.exponentialRampToValueAtTime(0.001, t + dec);
   osc.connect(g); g.connect(dest); osc.start(t); osc.stop(t + dec + 0.02);
+  // Attack transient
+  const ns = ctx.createBufferSource(); ns.buffer = noiseBuf(ctx, 0.018);
+  const nf = ctx.createBiquadFilter(); nf.type = 'bandpass'; nf.frequency.value = base * 2.5; nf.Q.value = 2.2;
+  const ng = ctx.createGain(); ng.gain.setValueAtTime(0.35, t); ng.gain.exponentialRampToValueAtTime(0.001, t + 0.016);
+  ns.connect(nf); nf.connect(ng); ng.connect(dest); ns.start(t);
 }
 
 // ── Main component ────────────────────────────────────────────────────────────
@@ -336,6 +347,8 @@ export function Groovebox({ open, onClose, darkMode }) {
   const [noteOct,     setNoteOct]     = useState(3);
   const [currentStep, setCurrentStep] = useState(-1);
   const [hoverSynth,  setHoverSynth]  = useState(null); // {voice, step, rect}
+  const [lockedSynth, setLockedSynth] = useState(null); // {voice, step, rect} — click-locked popup
+  const popupRef = useRef(null);
 
   // ── Refs ───────────────────────────────────────────────────────────────────
 
@@ -365,6 +378,7 @@ export function Groovebox({ open, onClose, darkMode }) {
   const autoR       = useRef(automation);  autoR.current       = automation;
   const setTvolR    = useRef(setTrackVol);
   const setTfltR    = useRef(setTrackFilter);
+  const setVparR    = useRef(setVparams);
   const setStepR    = useRef(setCurrentStep);
 
   // ── Automation writer ────────────────────────────────────────────────────
@@ -383,6 +397,17 @@ export function Groovebox({ open, onClose, darkMode }) {
   // ── Stable VoiceCol callbacks ────────────────────────────────────────────
 
   const onVParam      = useCallback((id, key, val) => setVparams(p => ({ ...p, [id]: { ...p[id], [key]: val } })), []);
+  const onVParamAuto  = useCallback((id, key, val) => {
+    setVparams(p => ({ ...p, [id]: { ...p[id], [key]: val } }));
+    if (isRecRef.current && playingRef.current && playingStepRef.current >= 0) {
+      const s = playingStepRef.current;
+      setAutomation(prev => {
+        const track = prev[id];
+        if (!track?.[key]) return prev;
+        return { ...prev, [id]: { ...track, [key]: track[key].map((v, i) => i === s ? val : v) } };
+      });
+    }
+  }, []); // eslint-disable-line
   const onFilter      = useCallback((id, val) => setWithAuto(setTrackFilter, id, val, 'filter'), [setWithAuto]);
   const onVol         = useCallback((id, val) => setWithAuto(setTrackVol, id, val, 'vol'), [setWithAuto]);
   const onPan         = useCallback((id, val) => setTrackPan(p => ({ ...p, [id]: val })), []);
@@ -425,16 +450,35 @@ export function Groovebox({ open, onClose, darkMode }) {
       if (hasAV) setTvolR.current(p => ({ ...p, ...newVol }));
       if (hasAF) setTfltR.current(p => ({ ...p, ...newFlt }));
 
+      // Apply drum param automation (pitch/decay/tone) for UI knobs + sound
+      const newVp = {};
+      let hasVP = false;
+      DRUM_TRACKS.forEach(({ id }) => {
+        const track = au[id]; if (!track) return;
+        const ups = {};
+        if (track.pitch?.[s] != null) ups.pitch = track.pitch[s];
+        if (track.decay?.[s] != null) ups.decay = track.decay[s];
+        if (track.tone?.[s]  != null) ups.tone  = track.tone[s];
+        if (Object.keys(ups).length > 0) { newVp[id] = ups; hasVP = true; }
+      });
+      if (hasVP) setVparR.current(p => {
+        const n = { ...p };
+        Object.entries(newVp).forEach(([id, ups]) => { n[id] = { ...n[id], ...ups }; });
+        return n;
+      });
+      const getVp = (id) => newVp[id] ? { ...vp[id], ...newVp[id] } : vp[id];
+
       DRUM_TRACKS.forEach(({ id }) => {
         if (!drs[id][s] || mut[id]) return;
         if (prb[id] < 1 && Math.random() > prb[id]) return;
         const dest = makeChain(ctx, t, vol * rv(id, 'vol', tvol[id]), rv(id, 'filter', tflt[id]), tpan[id], dn, rn, dly[id], rvb[id]);
-        if (id === 'kick')  doKick(ctx, t, dest, vp[id]);
-        if (id === 'snare') doSnare(ctx, t, dest, vp[id]);
-        if (id === 'clap')  doClap(ctx, t, dest, vp[id]);
-        if (id === 'hh_c')  doHH(ctx, t, dest, vp[id], false);
-        if (id === 'hh_o')  doHH(ctx, t, dest, vp[id], true);
-        if (id === 'perc')  doPerc(ctx, t, dest, vp[id]);
+        const dvp = getVp(id);
+        if (id === 'kick')  doKick(ctx, t, dest, dvp);
+        if (id === 'snare') doSnare(ctx, t, dest, dvp);
+        if (id === 'clap')  doClap(ctx, t, dest, dvp);
+        if (id === 'hh_c')  doHH(ctx, t, dest, dvp, false);
+        if (id === 'hh_o')  doHH(ctx, t, dest, dvp, true);
+        if (id === 'perc')  doPerc(ctx, t, dest, dvp);
       });
 
       if (!mut.bass && sth.bass[s] && (prb.bass >= 1 || Math.random() <= prb.bass)) {
@@ -494,20 +538,24 @@ export function Groovebox({ open, onClose, darkMode }) {
 
   // ── Synth step: click empty = add root, click filled = delete ─────────────
 
-  function clickSynthStep(voice, step) {
+  function clickSynthStep(voice, step, e) {
+    const rect = e.currentTarget.getBoundingClientRect();
     const cur = synth[voice][step];
     setSynth(p => {
       const n = [...p[voice]];
       n[step] = cur !== null ? null : [semOctToMidi(0, noteOct)];
       return { ...p, [voice]: n };
     });
+    // Lock popup open until mouse moves far away or click elsewhere
+    setLockedSynth({ voice, step, rect });
   }
 
   // ── Hover popup: set a specific note on a step ───────────────────────────
 
   function setPopupNote(semi) {
-    if (!hoverSynth) return;
-    const { voice, step } = hoverSynth;
+    const active = lockedSynth || hoverSynth;
+    if (!active) return;
+    const { voice, step } = active;
     const midi = semOctToMidi(semi, noteOct);
     setSynth(p => {
       const n = [...p[voice]];
@@ -529,9 +577,8 @@ export function Groovebox({ open, onClose, darkMode }) {
 
   function onStepMouseEnter(voice, step, e) {
     clearTimeout(hoverTimerRef.current);
+    if (lockedSynth && lockedSynth.voice !== voice) return; // don't hijack while locked to a different voice
     const rect = e.currentTarget.getBoundingClientRect();
-    // If already showing a popup for a different voice, delay switching so
-    // the mouse can travel through adjacent rows without hijacking the popup
     if (hoverSynth && hoverSynth.voice !== voice) {
       hoverTimerRef.current = setTimeout(() => setHoverSynth({ voice, step, rect }), 350);
     } else {
@@ -539,12 +586,47 @@ export function Groovebox({ open, onClose, darkMode }) {
     }
   }
   function onStepMouseLeave() {
+    if (lockedSynth) return;
     hoverTimerRef.current = setTimeout(() => setHoverSynth(null), 140);
   }
   function onPopupMouseEnter() { clearTimeout(hoverTimerRef.current); }
-  function onPopupMouseLeave() { hoverTimerRef.current = setTimeout(() => setHoverSynth(null), 140); }
+  function onPopupMouseLeave() {
+    if (lockedSynth) return;
+    hoverTimerRef.current = setTimeout(() => setHoverSynth(null), 140);
+  }
 
-  const popupNotes = hoverSynth ? (synth[hoverSynth.voice]?.[hoverSynth.step] ?? []) : [];
+  // Unlock lock when mouse moves far from the locked step
+  useEffect(() => {
+    if (!lockedSynth) return;
+    const handle = (e) => {
+      if (popupRef.current) {
+        const pr = popupRef.current.getBoundingClientRect();
+        if (e.clientX >= pr.left - 12 && e.clientX <= pr.right + 12 &&
+            e.clientY >= pr.top - 12 && e.clientY <= pr.bottom + 12) return;
+      }
+      const r = lockedSynth.rect;
+      const dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+      const d = Math.sqrt(dx * dx + dy * dy);
+      if (d > 160) { setLockedSynth(null); setHoverSynth(null); }
+    };
+    document.addEventListener('mousemove', handle);
+    return () => document.removeEventListener('mousemove', handle);
+  }, [lockedSynth]);
+
+  // Unlock on click outside popup or synth step
+  useEffect(() => {
+    if (!lockedSynth) return;
+    const handle = (e) => {
+      if (e.target.closest?.('.groove-step-popup')) return;
+      if (e.target.closest?.('.groove-step--synth')) return;
+      setLockedSynth(null); setHoverSynth(null);
+    };
+    document.addEventListener('mousedown', handle);
+    return () => document.removeEventListener('mousedown', handle);
+  }, [lockedSynth]);
+
+  const activePopup = lockedSynth || hoverSynth;
+  const popupNotes = activePopup ? (synth[activePopup.voice]?.[activePopup.step] ?? []) : [];
   // Highlight keys matching the currently selected octave only
   const popupSems = new Set(
     popupNotes.filter(m => Math.floor(m / 12) - 1 === noteOct).map(m => m % 12)
@@ -555,8 +637,8 @@ export function Groovebox({ open, onClose, darkMode }) {
   const POP_BLACK_INFO = [[1,0],[3,1],[6,3],[8,4],[10,5]];
   const POP_WK = 40;
   let popTop = 0, popLeft = 0;
-  if (hoverSynth) {
-    const r = hoverSynth.rect;
+  if (activePopup) {
+    const r = activePopup.rect;
     popTop  = r.top - POP_H - 8 < 0 ? r.bottom + 6 : r.top - POP_H - 8;
     popLeft = Math.max(8, Math.min(window.innerWidth - POP_W - 8, r.left + r.width / 2 - POP_W / 2));
   }
@@ -599,7 +681,7 @@ export function Groovebox({ open, onClose, darkMode }) {
             muted={muted[t.id]} vp={vparams[t.id]} params={VOICE_PARAMS[t.id]}
             filter={trackFilter[t.id]} vol={trackVol[t.id]} pan={trackPan[t.id]}
             dly={dlyLvl[t.id]} rvb={rvbLvl[t.id]}
-            onVParam={onVParam} onFilter={onFilter} onVol={onVol} onPan={onPan}
+            onVParam={onVParamAuto} onFilter={onFilter} onVol={onVol} onPan={onPan}
             onDly={onDly} onRvb={onRvb} onToggleMute={onToggleMute}
           />
         ))}
@@ -651,12 +733,13 @@ export function Groovebox({ open, onClose, darkMode }) {
                 <div key={g} className={`groove-group${gi % 2 === 1 ? ' groove-group--alt' : ''}`}>
                   {synth[t.id].slice(g, g + 4).map((notes, i) => {
                     const step    = g + i;
-                    const isHover = hoverSynth?.voice === t.id && hoverSynth?.step === step;
+                    const isHover = (hoverSynth?.voice === t.id && hoverSynth?.step === step) ||
+                                    (lockedSynth?.voice === t.id && lockedSynth?.step === step);
                     const root    = notes?.[0] ?? null;
                     return (
                       <button key={step}
                         className={`groove-step groove-step--synth${notes ? ' on' : ''}${isHover ? ' sel' : ''}${step === currentStep ? ' cur' : ''}${muted[t.id] ? ' muted' : ''}`}
-                        onClick={() => clickSynthStep(t.id, step)}
+                        onClick={(e) => clickSynthStep(t.id, step, e)}
                         onMouseEnter={e => onStepMouseEnter(t.id, step, e)}
                         onMouseLeave={onStepMouseLeave}
                       >
@@ -680,8 +763,8 @@ export function Groovebox({ open, onClose, darkMode }) {
       </div>
 
     </div>
-    {hoverSynth && (
-      <div className="groove-step-popup"
+    {activePopup && (
+      <div className="groove-step-popup" ref={popupRef}
         style={{ top: popTop, left: popLeft, width: POP_W }}
         onMouseEnter={onPopupMouseEnter}
         onMouseLeave={onPopupMouseLeave}
