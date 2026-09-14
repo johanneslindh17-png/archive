@@ -2094,6 +2094,7 @@ export default function App() {
             // (GPU-isolated div) appears first — clean, no SVG recomposite shake.
             requestAnimationFrame(() => {
               if (!svgGRef.current) return;
+              const glowTarget = glowLayerRef.current || svgGRef.current;
               // Self-glow (behind the hovered node itself)
               const selfP = positions[selfNodeId];
               if (selfP) {
@@ -2106,11 +2107,13 @@ export default function App() {
                 selfGlowEl.setAttribute('fill', `url(#${gradId})`);
                 selfGlowEl.style.pointerEvents = 'none';
                 selfGlowEl.classList.add('nd-glow-el', 'nd-glow-self');
-                svgGRef.current.appendChild(selfGlowEl);
+                glowTarget.appendChild(selfGlowEl);
                 marchOverlayRef.current.push(selfGlowEl);
               }
-              // Batch all neighbour glow/text elements into a fragment — one DOM mutation
-              const frag = document.createDocumentFragment();
+              // Two fragments: glows go into the glow layer (behind nodes),
+              // text labels go into svgGRef (on top, readable).
+              const glowFrag = document.createDocumentFragment();
+              const txtFrag  = document.createDocumentFragment();
               EDGES.forEach(e => {
                 if (e.type === 'aesthetic') return;
                 const nbId = e.from === selfNodeId ? e.to : e.to === selfNodeId ? e.from : null;
@@ -2132,7 +2135,7 @@ export default function App() {
                 glowEl.style.pointerEvents = 'none';
                 const nbIsDim = hlIds ? !hlIds.has(nbId) : false;
                 glowEl.classList.add('nd-glow-el', nbIsDim ? 'nd-glow-pulse' : 'nd-glow-static');
-                frag.appendChild(glowEl);
+                glowFrag.appendChild(glowEl);
                 marchOverlayRef.current.push(glowEl);
                 if (nbIsDim && fc) {
                   const txtEl = document.createElementNS(svgNS, 'text');
@@ -2148,11 +2151,12 @@ export default function App() {
                   txtEl.style.pointerEvents = 'none';
                   txtEl.classList.add('nd-march-pulse-text');
                   txtEl.textContent = nb.label;
-                  frag.appendChild(txtEl);
+                  txtFrag.appendChild(txtEl);
                   marchOverlayRef.current.push(txtEl);
                 }
               });
-              svgGRef.current.appendChild(frag);
+              glowTarget.appendChild(glowFrag);
+              svgGRef.current.appendChild(txtFrag);
             });
             // Remove old overlays now that the new overlay div is already in the DOM.
             // Skip the current self node — if it was a neighbor of the previous
