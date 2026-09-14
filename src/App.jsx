@@ -2,13 +2,6 @@ import { useState, useEffect, useRef, useCallback, useMemo, startTransition } fr
 import { useSunMode } from './hooks/useSunMode.js';
 import { Groovebox } from './Groovebox.jsx';
 
-// Reset a .nd group's CSS scale and clean up inline styles immediately.
-function resetOuterScale(el) {
-  if (!el) return;
-  clearTimeout(el._scaleOff);
-  el.style.transform = '';
-  el.style.transformOrigin = '';
-}
 import * as d3 from 'd3';
 import {
   COUNTRIES, GENRES, REGIONS, REGION_COUNT, COUNTRY_REGION,
@@ -2047,14 +2040,38 @@ export default function App() {
             self.classList.add('hov-self');
             const selfInner = self.querySelector('.nd-inner');
             // Scale the outer .nd group using SVG viewport coordinates as origin.
-            // No transition yet — testing if even instant scale causes shaking.
-            const p = positions[n.id];
-            if (p) {
-              clearTimeout(self._scaleOff);
-              self.style.transformOrigin = `${p.x}px ${p.y}px`;
-              self.style.transform = 'scale(1.14)';
+            // Scale overlay: clone the node's inner <g> into a SEPARATE <svg>
+            // appended to document.body. This SVG is completely outside the main
+            // SVG canvas, so the CSS scale transition never triggers a repaint of
+            // other nodes. The main SVG element is never touched.
+            if (selfInner && svgRef.current) {
+              const ctm = self.getCTM();
+              if (ctm) {
+                const svgRect = svgRef.current.getBoundingClientRect();
+                const k = ctm.a; // current pan/zoom scale
+                const screenCX = svgRect.left + ctm.e;
+                const screenCY = svgRect.top + ctm.f;
+                const nodeRect = self.getBoundingClientRect();
+                const EXTRA = 14; // extra px padding (SVG units) for glow
+                const svgW = nodeRect.width / k;
+                const svgH = nodeRect.height / k;
+                const overlayW = nodeRect.width + EXTRA * k * 2;
+                const overlayH = nodeRect.height + EXTRA * k * 2;
+
+                const ov = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                ov.setAttribute('viewBox', `${-svgW/2-EXTRA} ${-svgH/2-EXTRA} ${svgW+EXTRA*2} ${svgH+EXTRA*2}`);
+                ov.style.cssText = `position:fixed;left:${screenCX-overlayW/2}px;top:${screenCY-overlayH/2}px;width:${overlayW}px;height:${overlayH}px;pointer-events:none;z-index:1000;overflow:visible;transform-origin:${overlayW/2}px ${overlayH/2}px;will-change:transform;transform:scale(1);transition:transform 0.12s ease-out;`;
+                const wrapG = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+                wrapG.classList.add('nd', 'hov-self');
+                wrapG.appendChild(selfInner.cloneNode(true));
+                ov.appendChild(wrapG);
+                document.body.appendChild(ov);
+                // Trigger transition on next frame (start → target)
+                requestAnimationFrame(() => { ov.style.transform = 'scale(1.14)'; });
+                marchOverlayRef.current.push(ov);
+              }
             }
-            hovPrevRef.current = [{ el: self, inner: selfInner }];
+            hovPrevRef.current = [{ el: self }];
             const svgNS = 'http://www.w3.org/2000/svg';
             const CHAR_W = 4.0, PAD = 3, BH = 11;
             const gradId = darkMode ? 'nd-glow-grad-dk' : 'nd-glow-grad-lt';
@@ -2131,10 +2148,9 @@ export default function App() {
             // Skip the current self node — if it was a neighbor of the previous
             // hovered node (hov-prev), removing hov-self here would cause a flash.
             oldOverlays.forEach(el => el.parentNode?.removeChild(el));
-            oldHovPrev.forEach(({ el, inner }) => {
+            oldHovPrev.forEach(({ el }) => {
               if (el === self) return;
               el.classList.remove('hov-self', 'hov-prev');
-              resetOuterScale(el);
             });
           }
         }}
@@ -2144,9 +2160,8 @@ export default function App() {
           clearTimeout(leaveTimerRef.current);
           leaveTimerRef.current = setTimeout(() => {
             clearMarchOverlay();
-            hovPrevRef.current.forEach(({ el, inner }) => {
+            hovPrevRef.current.forEach(({ el }) => {
               el.classList.remove('hov-self', 'hov-prev');
-              resetOuterScale(el);
             });
             hovPrevRef.current = [];
             startTransition(() => setHovNode(null));
@@ -2607,9 +2622,8 @@ export default function App() {
         <svg ref={svgRef} className="msv" onMouseLeave={() => {
           clearTimeout(leaveTimerRef.current);
           clearMarchOverlay();
-          hovPrevRef.current.forEach(({ el, inner, txt, orig }) => {
+          hovPrevRef.current.forEach(({ el, txt, orig }) => {
             el.classList.remove('hov-self', 'hov-prev');
-            resetOuterScale(el);
             if (txt) txt.style.fill = orig;
           });
           hovPrevRef.current = [];
