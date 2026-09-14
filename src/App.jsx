@@ -343,14 +343,14 @@ const TOUR_STEPS = [
   {
     id: 'node',
     title: 'EVERY NODE IS A STORY',
-    body: "I just opened Surgeon's profile — Anthony Child is a Berghain resident from Birmingham who co-founded the Downwards label with Regis. Scroll the panel to see his connections, releases, and full context. Click any highlighted name to follow the thread.",
+    body: "I just opened Jeff Mills' profile — born in Detroit, he began DJing as \"The Wizard\" on WJLB radio, co-founded Underground Resistance, and launched Axis Records. \"The Bells\" (1996) is one of the most recognised records in techno history. Scroll the panel to see his connections, releases, and full context. Click any highlighted name to follow the thread.",
     getTarget: () => document.querySelector('.dp.open'),
     cardSide: 'persist',
     onEnter: ctx => {
       ctx.setPanelOnLeft(false);
       ctx.setPanelX(null);
-      ctx.tourSelectNode('surgeon');
-      ctx.scrollToNode('surgeon');
+      ctx.tourSelectNode('jeff_mills');
+      ctx.scrollToNode('jeff_mills');
     },
     delay: 500,
   },
@@ -361,7 +361,7 @@ const TOUR_STEPS = [
     getTarget: () => document.querySelector('.player-inline'),
     getSecondTarget: () => document.querySelector('.dp-spotify-link'),
     cardSide: 'persist',
-    onEnter: ctx => { ctx.setPlayingNodeId('surgeon'); },
+    onEnter: ctx => { ctx.setPlayingNodeId('jeff_mills'); },
     delay: 200,
   },
   {
@@ -2140,6 +2140,17 @@ export default function App() {
                 (nbIsDim ? txtFrag : glowFrag).appendChild(glowEl);
                 marchOverlayRef.current.push(glowEl);
                 if (nbIsDim && fc) {
+                  // Opaque background rect so the pulsing text is legible.
+                  const bgRect = document.createElementNS(svgNS, 'rect');
+                  bgRect.setAttribute('x', p.x - bw / 2);
+                  bgRect.setAttribute('y', p.y - BH / 2);
+                  bgRect.setAttribute('width', bw);
+                  bgRect.setAttribute('height', BH);
+                  bgRect.setAttribute('rx', '2');
+                  bgRect.setAttribute('fill', darkMode ? '#0c0c10' : '#ffffff');
+                  bgRect.style.pointerEvents = 'none';
+                  txtFrag.appendChild(bgRect);
+                  marchOverlayRef.current.push(bgRect);
                   const txtEl = document.createElementNS(svgNS, 'text');
                   txtEl.setAttribute('x', p.x);
                   txtEl.setAttribute('y', p.y);
