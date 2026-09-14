@@ -1330,11 +1330,11 @@ path.eg.dim{opacity:0.055}
 /* Panel slides up from behind the statusbar into the grid area */
 .groove-panel {
   position: fixed;
-  bottom: 74px;  /* 54px statusbar + 20px gap */
-  top: 82px;     /* 62px topbar + 20px gap */
+  bottom: 74px;
   left: 50%;
   /* 40px steps: 13+51(label)+6 + (16×40+24+18) + 6+36(prob)+13 = 807px */
   width: min(97vw, 810px);
+  max-height: calc(100vh - 62px - 74px - 20px);
   overflow-y: auto;
   scrollbar-width: none;
   z-index: 10;
@@ -1637,6 +1637,11 @@ path.eg.dim{opacity:0.055}
 .gv-knob-line { stroke: #c8c4bc; stroke-width: 1.8; stroke-linecap: round; }
 .gv-knob:hover .gv-knob-body { stroke: #5050a0; }
 .gv-knob:hover .gv-knob-line { stroke: #e8e4d8; }
+/* Light mode: softer dark-gray knobs instead of near-black */
+.groove-panel:not(.dark) .gv-knob-body { fill: #2d2b3e; stroke: #4a4866; }
+.groove-panel:not(.dark) .gv-knob-line { stroke: #807898; }
+.groove-panel:not(.dark) .gv-knob:hover .gv-knob-body { stroke: #6060b0; }
+.groove-panel:not(.dark) .gv-knob:hover .gv-knob-line { stroke: #a09abf; }
 
 /* ADSR row: 4 vertical sliders + RES knob side by side */
 .gv-adsr-row {
@@ -1676,6 +1681,9 @@ path.eg.dim{opacity:0.055}
   pointer-events: none;
 }
 .gv-vslider:hover .gv-vslider-thumb { background: #e0e0f8; }
+.groove-panel:not(.dark) .gv-vslider-track { background: #25223a; border-color: #3c3a58; }
+.groove-panel:not(.dark) .gv-vslider-thumb { background: #7572a0; }
+.groove-panel:not(.dark) .gv-vslider:hover .gv-vslider-thumb { background: #9490c4; }
 
 /* Vertical volume fader — mixer channel strip style */
 .gv-fader {
@@ -1695,6 +1703,7 @@ path.eg.dim{opacity:0.055}
   border: 1px solid #2a2a3e;
   flex-shrink: 0;
 }
+.groove-panel:not(.dark) .gv-fader-track { background: #1e1c2e; border-color: #3a3858; }
 .gv-fader-fill {
   position: absolute;
   bottom: 0; left: 0; right: 0;
@@ -1714,6 +1723,8 @@ path.eg.dim{opacity:0.055}
   box-shadow: 0 1px 3px rgba(0,0,0,0.6);
 }
 .gv-fader:hover .gv-fader-thumb { background: #e8e8f8; }
+.groove-panel:not(.dark) .gv-fader-thumb { background: #7572a0; }
+.groove-panel:not(.dark) .gv-fader:hover .gv-fader-thumb { background: #9490c4; }
 
 /* Bottom block (fader + sends) — margin-top:auto aligns faders across all columns */
 .gv-bottom {
@@ -1747,6 +1758,9 @@ path.eg.dim{opacity:0.055}
 }
 .gv-send-btn:hover { color: #8080c0; border-color: #3e3e70; }
 .gv-send-btn.on { color: #7878e8; border-color: #4848a8; background: #13132a; }
+.groove-panel:not(.dark) .gv-send-btn { background: #1e1c2e; border-color: #3a3858; color: #7070b8; }
+.groove-panel:not(.dark) .gv-send-btn.on { background: #2a2848; border-color: #5050a0; color: #9090e0; }
+.groove-panel:not(.dark) .gv-send-btn:hover { color: #9090d0; border-color: #5050a0; }
 
 /* ── Sequencer rows ── */
 .groove-seq {
