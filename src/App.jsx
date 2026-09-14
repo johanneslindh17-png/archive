@@ -361,7 +361,21 @@ const TOUR_STEPS = [
     getTarget: () => document.querySelector('.player-inline'),
     getSecondTarget: () => document.querySelector('.dp-spotify-link'),
     cardSide: 'persist',
-    onEnter: ctx => { ctx.setPlayingNodeId('jeff_mills'); },
+    onEnter: ctx => {
+      ctx.setPlayingNodeId('jeff_mills');
+      // Calmly scroll the detail panel so the Spotify link comes into view
+      const t = setTimeout(() => {
+        const panel   = document.querySelector('.dp.open');
+        const spotify = document.querySelector('.dp-spotify-link');
+        if (panel && spotify) {
+          const pRect = panel.getBoundingClientRect();
+          const sRect = spotify.getBoundingClientRect();
+          const target = panel.scrollTop + (sRect.top - pRect.top) - pRect.height * 0.55;
+          panel.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
+        }
+      }, 500);
+      return () => clearTimeout(t);
+    },
     delay: 200,
   },
   {
@@ -2069,7 +2083,7 @@ export default function App() {
               miniSvg.appendChild(wG);
               ov.appendChild(miniSvg);
               document.body.appendChild(ov);
-              requestAnimationFrame(() => { ov.style.transform = 'scale(1.14)'; });
+              requestAnimationFrame(() => { ov.style.transform = 'scale(1.08)'; });
               marchOverlayRef.current.push(ov);
             }
             const svgNS = 'http://www.w3.org/2000/svg';
