@@ -629,7 +629,7 @@ export default function App() {
   // Fly back to the overview zoom level, keeping the current vertical era centred
   function flyHome() {
     if (!zoomRef.current || !svgRef.current) return;
-    const k  = (window.innerWidth || screen.width) / W;
+    const k  = screen.width / W;
     const vh = window.innerHeight;
     const live = d3.zoomTransform(svgRef.current);
     // Which SVG y is currently at the vertical centre of the viewport?
@@ -1379,7 +1379,7 @@ export default function App() {
     zoomRef.current = zoom;
     const svg = d3.select(svgRef.current);
     svg.call(zoom);
-    svg.call(zoom.transform, d3.zoomIdentity.translate(0, 0).scale((window.innerWidth || screen.width) / W));
+    svg.call(zoom.transform, d3.zoomIdentity.translate(0, 0).scale(screen.width / W));
 
     // Regular scroll wheel → pan vertically
     const handleWheel = event => {
