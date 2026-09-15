@@ -396,6 +396,15 @@ const TOUR_STEPS = [
     },
     delay: 200,
   },
+  {
+    id: 'groovebox',
+    title: 'MAKE YOUR OWN',
+    body: "Want to make some music yourself? Try the Electronic Archive Groovebox — a built-in drum machine and sequencer. Hit the button in the bottom-right corner to open it, then start programming beats.",
+    getTarget: () => document.querySelector('[title="Groovebox"]'),
+    cardSide: 'persist',
+    onEnter: null,
+    delay: 100,
+  },
 ];
 
 export default function App() {
