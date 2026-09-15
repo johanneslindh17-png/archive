@@ -77,7 +77,6 @@ const DRUM_TRACKS  = [
   { id: 'kick',  label: 'KICK'  }, { id: 'snare', label: 'SNARE' },
   { id: 'clap',  label: 'CLAP'  }, { id: 'hh_c',  label: 'HH'    },
   { id: 'hh_o',  label: 'OPEN'  }, { id: 'perc',  label: 'PERC'  },
-  { id: 'smpl',  label: 'SMPL'  },
 ];
 const SYNTH_TRACKS = [{ id: 'bass', label: 'BASS' }, { id: 'lead', label: 'LEAD' }];
 const ALL_TRACKS   = [...DRUM_TRACKS, ...SYNTH_TRACKS];
@@ -97,7 +96,6 @@ const VOICE_PARAMS = {
   perc:  [{ key: 'pitch', label: 'PITCH' }, { key: 'decay', label: 'DECAY' }],
   bass:  [{ key: 'att', label: 'ATT' }, { key: 'dec', label: 'DEC' }, { key: 'sus', label: 'SUS' }, { key: 'rel', label: 'REL' }],
   lead:  [{ key: 'att', label: 'ATT' }, { key: 'dec', label: 'DEC' }, { key: 'sus', label: 'SUS' }, { key: 'rel', label: 'REL' }],
-  smpl:  [],
 };
 
 const DEFAULT_VPARAMS = {
@@ -109,7 +107,6 @@ const DEFAULT_VPARAMS = {
   perc:  { pitch: 0.5, decay: 0.4  },
   bass:  { att: 0.02, dec: 0.2, sus: 0.55, rel: 0.15, res: 0.1  },
   lead:  { att: 0.01, dec: 0.1, sus: 0.6,  rel: 0.12, res: 0.15 },
-  smpl:  {},
 };
 
 function midiToNote(midi) {
@@ -144,68 +141,6 @@ function makeEmptyAuto(len = STEPS) {
     res:    new Array(len).fill(null),
   }]));
 }
-
-// ── Sample column ─────────────────────────────────────────────────────────────
-
-const SampleCol = memo(function SampleCol({
-  isSampling, hasSample, muted,
-  filter, vol, pan, dly, rvb,
-  onSample, onFilter, onVol, onPan, onDly, onRvb, onToggleMute,
-}) {
-  return (
-    <div className={`gv-col${muted ? ' gv-col--muted' : ''}`}>
-      <div
-        className={`gv-col-label${muted ? ' gv-col-label--muted' : ''}`}
-        onClick={onToggleMute}
-        title={muted ? 'unmute' : 'mute'}
-      >
-        SMPL
-      </div>
-
-      <div className="gv-smpl-area">
-        <button
-          className={`gv-smpl-btn${isSampling ? ' sampling' : ''}${hasSample && !isSampling ? ' has-sample' : ''}`}
-          onClick={onSample}
-          title={isSampling ? 'Stop sampling' : hasSample ? 'Resample' : 'Grab browser audio'}
-        >
-          {isSampling ? '⏹' : '⏺'}
-        </button>
-        <span className={`gv-smpl-status${isSampling ? ' rec' : hasSample ? ' ready' : ''}`}>
-          {isSampling ? 'REC' : hasSample ? 'READY' : 'EMPTY'}
-        </span>
-        {hasSample && !isSampling && (
-          <span className="gv-smpl-hint">trigger on steps</span>
-        )}
-      </div>
-
-      <div className="gv-sep" />
-
-      <div className="gv-filt-row">
-        <div className="gv-param">
-          <Knob value={filter} onChange={onFilter} />
-          <span className="gv-param-lbl">FILT</span>
-        </div>
-        <div className="gv-param">
-          <Knob value={pan} onChange={onPan} />
-          <span className="gv-param-lbl">PAN</span>
-        </div>
-      </div>
-
-      <div className="gv-bottom">
-        <div className="gv-vol-cell">
-          <Knob size={42} value={vol} onChange={onVol} />
-          <span className="gv-param-lbl">VOL</span>
-        </div>
-        <div className="gv-sep" />
-        <div className="gv-send-row">
-          <button className={`gv-send-btn${dly ? ' on' : ''}`} onClick={onDly}>DLY</button>
-          <button className={`gv-send-btn${rvb ? ' on' : ''}`} onClick={onRvb}>RVB</button>
-        </div>
-        <button className={`gv-mute-col${muted ? ' on' : ''}`} onClick={onToggleMute}>MUTE</button>
-      </div>
-    </div>
-  );
-});
 
 // ── Voice column ──────────────────────────────────────────────────────────────
 
@@ -427,9 +362,7 @@ export function Groovebox({ open, onClose, darkMode }) {
   const [isRec,       setIsRec]       = useState(false);
   const [isCapturing, setIsCapturing] = useState(false);
   const [mp3Url,      setMp3Url]      = useState(null);
-  const [isSampling,  setIsSampling]  = useState(false);
-  const [hasSample,   setHasSample]   = useState(false);
-  const [seqLen,      setSeqLen]      = useState(16);
+const [seqLen,      setSeqLen]      = useState(16);
   const [noteOct,     setNoteOct]     = useState(3);
   const [currentStep, setCurrentStep] = useState(-1);
   const [hoverSynth,  setHoverSynth]  = useState(null); // {voice, step, rect}
@@ -448,11 +381,7 @@ export function Groovebox({ open, onClose, darkMode }) {
   const analyserRef    = useRef(null);
   const waveCanvasRef  = useRef(null);
   const animFrameRef   = useRef(null);
-  const sampleBufRef   = useRef(null);
-  const sampleRecRef   = useRef(null);
-  const sampleStreamRef = useRef(null);
-  const sampleWaveRef  = useRef(null);
-  const nextTRef       = useRef(0);
+const nextTRef       = useRef(0);
   const stepRef        = useRef(0);
   const playingStepRef = useRef(-1);
   const hoverTimerRef  = useRef(null);
@@ -571,18 +500,7 @@ export function Groovebox({ open, onClose, darkMode }) {
       DRUM_TRACKS.forEach(({ id }) => {
         if (!drs[id][s] || mut[id]) return;
         if (prb[id] < 1 && Math.random() > prb[id]) return;
-        if (id === 'smpl') {
-          const buf = sampleBufRef.current;
-          if (buf) {
-            const dest = makeChain(ctx, t, vol * rv(id, 'vol', tvol[id]), rv(id, 'filter', tflt[id]), rv(id, 'pan', tpan[id]), dn, rn, dly[id], rvb[id], mg);
-            const src = ctx.createBufferSource();
-            src.buffer = buf;
-            src.connect(dest);
-            src.start(t);
-          }
-          return;
-        }
-        const dest = makeChain(ctx, t, vol * rv(id, 'vol', tvol[id]), rv(id, 'filter', tflt[id]), rv(id, 'pan', tpan[id]), dn, rn, dly[id], rvb[id], mg);
+const dest = makeChain(ctx, t, vol * rv(id, 'vol', tvol[id]), rv(id, 'filter', tflt[id]), rv(id, 'pan', tpan[id]), dn, rn, dly[id], rvb[id], mg);
         const dvp = getVp(id);
         if (id === 'kick')  doKick(ctx, t, dest, dvp);
         if (id === 'snare') doSnare(ctx, t, dest, dvp);
@@ -757,52 +675,7 @@ export function Groovebox({ open, onClose, darkMode }) {
     }
   }, []);
 
-  const startSampling = useCallback(async () => {
-    let ctx = ctxRef.current;
-    if (!ctx) {
-      ctx = new (window.AudioContext || window.webkitAudioContext)();
-      ctxRef.current = ctx;
-      const master = ctx.createGain(); master.gain.value = 1;
-      master.connect(ctx.destination);
-      masterGainRef.current = master;
-    }
-    if (ctx.state === 'suspended') await ctx.resume();
-    let stream;
-    try {
-      stream = await navigator.mediaDevices.getDisplayMedia({ video: true, audio: true });
-      stream.getVideoTracks().forEach(t => t.stop());
-    } catch {
-      stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-    }
-    sampleStreamRef.current = stream;
-    const chunks = [];
-    const mimeType = MediaRecorder.isTypeSupported('audio/webm;codecs=opus')
-      ? 'audio/webm;codecs=opus' : 'audio/webm';
-    const rec = new MediaRecorder(stream, { mimeType });
-    rec.ondataavailable = e => { if (e.data.size > 0) chunks.push(e.data); };
-    rec.onstop = async () => {
-      stream.getTracks().forEach(t => t.stop());
-      if (!chunks.length) return;
-      const blob = new Blob(chunks, { type: mimeType });
-      const arrayBuf = await blob.arrayBuffer();
-      try {
-        const audioBuf = await ctx.decodeAudioData(arrayBuf);
-        sampleBufRef.current = audioBuf;
-        setHasSample(true);
-      } catch (e) { console.error('Sample decode failed:', e); }
-    };
-    rec.start(100);
-    sampleRecRef.current = rec;
-    setIsSampling(true);
-  }, []);
-
-  const stopSampling = useCallback(() => {
-    sampleRecRef.current?.stop();
-    sampleRecRef.current = null;
-    setIsSampling(false);
-  }, []);
-
-  const toggleDrum = useCallback((id, step) =>
+const toggleDrum = useCallback((id, step) =>
     setDrums(p => ({ ...p, [id]: p[id].map((v, i) => i === step ? 1 - v : v) })), []);
 
   // ── Synth step: click empty = add root, click filled = delete ─────────────
@@ -974,7 +847,7 @@ export function Groovebox({ open, onClose, darkMode }) {
       </div>
 
       <div className="gv-panel">
-        {DRUM_TRACKS.filter(t => t.id !== 'smpl').map(t => (
+        {DRUM_TRACKS.map(t => (
           <VoiceCol key={t.id}
             id={t.id} label={t.label} isSynth={false}
             muted={muted[t.id]} vp={vparams[t.id]} params={VOICE_PARAMS[t.id]}
@@ -984,15 +857,6 @@ export function Groovebox({ open, onClose, darkMode }) {
             onDly={onDly} onRvb={onRvb} onToggleMute={onToggleMute}
           />
         ))}
-        <SampleCol
-          isSampling={isSampling} hasSample={hasSample}
-          muted={muted.smpl}
-          filter={trackFilter.smpl} vol={trackVol.smpl} pan={trackPan.smpl}
-          dly={dlyLvl.smpl} rvb={rvbLvl.smpl}
-          onSample={isSampling ? stopSampling : startSampling}
-          onFilter={v => onFilter('smpl', v)} onVol={v => onVol('smpl', v)} onPan={v => onPan('smpl', v)}
-          onDly={() => onDly('smpl')} onRvb={() => onRvb('smpl')} onToggleMute={() => onToggleMute('smpl')}
-        />
         <div className="gv-divider-v" />
         {SYNTH_TRACKS.map(t => (
           <VoiceCol key={t.id}
