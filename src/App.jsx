@@ -3127,30 +3127,10 @@ export default function App() {
             onClick={() => setGrooveOpen(v => !v)}
             title="Groovebox"
           >
-            <svg width="34" height="14" viewBox="0 0 34 14" fill="none">
-              {/* knobs */}
-              {[3.5, 9, 14.5].map((cx, i) => {
-                const angles = [-0.6, 0, 0.7];
-                const a = angles[i];
-                return (
-                  <g key={i}>
-                    <circle cx={cx} cy={5} r={2.8} fill="currentColor" opacity={0.28} />
-                    <line x1={cx} y1={5} x2={cx + Math.sin(a)*2.0} y2={5 - Math.cos(a)*2.0}
-                      stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" opacity={0.9} />
-                  </g>
-                );
-              })}
-              {/* fader track + thumb */}
-              <rect x={20} y={1.5} width={1.8} height={11} rx="0.9" fill="currentColor" opacity={0.22} />
-              <rect x={19.4} y={4.5} width={3} height={3} rx="0.7" fill="currentColor" opacity={0.85} />
-              {/* step pads */}
-              {[0,1,2,3].map(i => (
-                <rect key={i} x={24.5+i*2.4} y={9.5} width={1.8} height={3} rx="0.5"
-                  fill="currentColor" opacity={[0,2].includes(i) ? 0.9 : 0.28} />
-              ))}
-              {[0,1,2,3].map(i => (
-                <rect key={i} x={24.5+i*2.4} y={5.5} width={1.8} height={3} rx="0.5"
-                  fill="currentColor" opacity={[1,3].includes(i) ? 0.9 : 0.28} />
+            <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
+              {[0,1,2,3,4,5,6,7].map(i => (
+                <rect key={i} x={1+(i%4)*5} y={1+Math.floor(i/4)*7} width="3" height="5" rx="0.8"
+                  fill="currentColor" opacity={[0,3,5].includes(i) ? 1 : 0.32} />
               ))}
             </svg>
             <span style={{ fontSize: '0.54rem', letterSpacing: '0.1em', fontFamily: 'inherit', marginLeft: 5 }}>GROOVE</span>
