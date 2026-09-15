@@ -1517,6 +1517,46 @@
   { from:'melodic_techno',      to:'agents_of_time',      strength:2, type:'aesthetic' },
   { from:'melodic_techno',      to:'anyma',               strength:2, type:'aesthetic' },
 
+  // ── ITALY — FLYING RECORDS ───────────────────────────────────────────────
+  { from:'chicago_scene',       to:'flying_records',      strength:2, type:'influence' },
+  { from:'acid',                to:'flying_records',      strength:2, type:'influence' },
+  { from:'flying_records',      to:'angels_of_love',      strength:3, type:'influence' },
+  { from:'flying_records',      to:'ricky_montanari',     strength:2, type:'influence' },
+  { from:'flying_records',      to:'marco_carola',        strength:2, type:'influence' },
+
+  // ── ITALY — COCORICÒ ─────────────────────────────────────────────────────
+  { from:'acid',                to:'cocorico',            strength:2, type:'influence' },
+  { from:'angels_of_love',      to:'cocorico',            strength:2, type:'aesthetic' },
+  { from:'tenax',               to:'cocorico',            strength:1, type:'aesthetic' },
+  { from:'cocorico',            to:'marco_carola',        strength:3, type:'roster'    },
+  { from:'cocorico',            to:'joseph_capriati',     strength:3, type:'roster'    },
+  { from:'cocorico',            to:'enrico_sangiuliano',  strength:2, type:'roster'    },
+  { from:'cocorico',            to:'ricky_montanari',     strength:2, type:'roster'    },
+
+  // ── ITALY — GOA CLUB / ROMAN SCENE ──────────────────────────────────────
+  { from:'angels_of_love',      to:'goa_club',            strength:1, type:'aesthetic' },
+  { from:'goa_club',            to:'donato_dozzy',        strength:3, type:'roster'    },
+  { from:'goa_club',            to:'dino_sabatini',       strength:3, type:'roster'    },
+  { from:'goa_club',            to:'neel',                strength:2, type:'roster'    },
+
+  // ── ITALY — NEEL / SPAZIO DISPONIBILE ───────────────────────────────────
+  { from:'donato_dozzy',        to:'neel',                strength:3, type:'aesthetic' },
+  { from:'ambient_techno',      to:'neel',                strength:2, type:'influence' },
+  { from:'donato_dozzy',        to:'spazio_disponibile',  strength:3, type:'lineage'   },
+  { from:'neel',                to:'spazio_disponibile',  strength:3, type:'lineage'   },
+  { from:'spazio_disponibile',  to:'donato_dozzy',        strength:3, type:'roster'    },
+  { from:'spazio_disponibile',  to:'neel',                strength:3, type:'roster'    },
+  { from:'spazio_disponibile',  to:'dino_sabatini',       strength:2, type:'roster'    },
+
+  // ── ITALY — DINO SABATINI ────────────────────────────────────────────────
+  { from:'donato_dozzy',        to:'dino_sabatini',       strength:2, type:'aesthetic' },
+  { from:'ambient_techno',      to:'dino_sabatini',       strength:2, type:'influence' },
+
+  // ── ITALY — CLAUDIO PRC ──────────────────────────────────────────────────
+  { from:'angels_of_love',      to:'claudio_prc',         strength:2, type:'influence' },
+  { from:'berghain',            to:'claudio_prc',         strength:1, type:'aesthetic' },
+  { from:'enrico_sangiuliano',  to:'claudio_prc',         strength:1, type:'aesthetic' },
+
   // ── SWEDEN — DRUMCODE / ADAM BEYER ───────────────────────────────────────
   { from:'detroit_scene',       to:'drumcode',            strength:2, type:'influence' },
   { from:'tresor_records',      to:'drumcode',            strength:2, type:'influence' },

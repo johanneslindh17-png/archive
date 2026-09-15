@@ -3492,6 +3492,41 @@ export const NODES = [
     desc:'Tenax is a Florence club running since 1981, making it one of the longest-standing techno and electronic music venues in Italy. Passing through disco, new wave, and eventually techno, it became internationally known from the 1990s as a destination for serious electronic music. A living link in the chain connecting the Italian tradition — from Cosmic through Italo Disco — to contemporary club culture.',
     },
 
+  { id:'flying_records', label:'Flying Records', type:'label', genre:'techno', era:1988, city:'Naples', country:'IT',
+    desc:'Flying Records was a Naples record shop and distribution company founded in the late 1980s that became the primary gateway for American house and techno into Italy. The shop was a central meeting point for the Neapolitan underground, and its label arm released some of the earliest Italian electronic music. It played a foundational role in building the scene that would produce Angels of Love and an entire generation of Italian techno artists.',
+    releases:[] },
+
+  { id:'cocorico', label:'Cocoricò', type:'venue', genre:'techno', era:1989, city:'Riccione', country:'IT',
+    desc:'Cocoricò is a club in Riccione on the Adriatic coast, opened in 1989 and recognisable by its distinctive pyramid structure. It became one of the most important techno venues in Italy and one of the most visited clubs in Europe during the 1990s rave era, drawing enormous crowds from across the country. Its bookings have spanned acid house, hard techno, and contemporary electronic music. It remains active, one of the very few Italian clubs of that generation still operating.',
+    },
+
+  { id:'goa_club', label:'Goa Club', type:'venue', genre:'techno', era:1990, city:'Rome', country:'IT',
+    desc:'Goa Club is a Rome venue that has been at the centre of the city\'s underground techno scene since 1990. Named in reference to the Goa trance movement, it evolved into a serious techno club known for uncompromising bookings and a devoted local following. It has been a home stage for Donato Dozzy, Dino Sabatini, Neel, and many other Roman artists, and represents one of the most continuous threads in Italian techno culture from the early 1990s to the present.',
+    },
+
+  { id:'neel', label:'Neel', type:'artist', genre:'techno', era:2008, city:'Rome', country:'IT',
+    desc:'Neel is a Rome-based producer and DJ, and the close creative partner of Donato Dozzy. Together, under the name Voices from the Lake, they recorded the album of the same name in 2012 — one of the most critically revered ambient-techno records of its decade, combining long, slowly evolving synthesizer patterns with a deep psychedelic patience. Solo, Neel has released on Aquaplano, Spectra Sonics, and Spazio Disponibile. He is a central figure in Rome\'s experimental electronic underground.',
+    releases:[
+      { title:'Voices from the Lake — with Donato Dozzy (Spectrum Spools)', year:2012 },
+    ], spotify:'2a6B2JZiOQ7bwqCvGbCaFv', },
+
+  { id:'spazio_disponibile', label:'Spazio Disponibile', type:'label', genre:'techno', era:2010, city:'Rome', country:'IT',
+    desc:'Spazio Disponibile is a Rome-based label founded by Donato Dozzy and Neel. It publishes experimental electronic music, ambient, and deep techno from the Roman underground and from an international circle of artists who share its sensibility. Patient, psychedelic, and uncompromising, the label has been a key vehicle for the strand of Italian electronics that values depth over immediacy.',
+    releases:[] },
+
+  { id:'dino_sabatini', label:'Dino Sabatini', type:'artist', genre:'techno', era:2008, city:'Rome', country:'IT',
+    desc:'Dino Sabatini is a Rome-based producer, DJ, and label founder who runs Outis Music. His music draws on minimal techno, dark ambient, and the psychedelic tradition associated with Donato Dozzy and the Roman underground. He has released on Prologue, Semantica, and his own Outis imprint, and has been a regular presence at Goa Club. His work represents the more inward, experimental strand of Italian techno — patient, dark, and deeply rooted in the city\'s scene.',
+    releases:[
+      { title:'Wandering EP (Prologue)', year:2011 },
+    ], spotify:'0eJbmHgxsj8dXzpNrW6qeH', },
+
+  { id:'claudio_prc', label:'Claudio PRC', type:'artist', genre:'techno', era:2010, city:'Milan', country:'IT',
+    desc:'Claudio PRC (Claudio Parietti) is a Milan-based producer and DJ who has become one of Italy\'s most respected underground techno artists. His music is dark, industrial, and hypnotic — rooted in the harder end of the Italian rave tradition but with a distinctly contemporary minimalism. He has released on Prologue, Kontra-Musik, and Stroboscopic Artefacts, and founded his own PRC Music imprint. His career connects the Neapolitan intensity of the early Italian scene to the disciplined machine music of the Berlin school.',
+    releases:[
+      { title:'Noche EP (Prologue)', year:2011 },
+      { title:'Sensorama (Kontra-Musik)', year:2014 },
+    ], spotify:'3Eu4piMRhSbVpMFnPO5Tnl', },
+
   // ── DETROIT ADDITIONS ────────────────────────────────────────────────────
   { id:'omar_s', label:'Omar S', type:'artist', genre:'detroit', era:2004, city:'Detroit', country:'US',
     desc:'Alexander Omar Smith records as Omar S on his own FXHE Records. His music is raw, deliberately unpolished Detroit house and techno — drum machines recorded hot, chords riding the red, arrangements that feel live and human rather than engineered. He represents a strand of Detroit music that rejects European sophistication in favour of directness, funk, and a commitment to the physical dimensions of dance.',
