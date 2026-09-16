@@ -190,6 +190,9 @@
   { from:'smallville',    to:'move_d',         strength:3, type:'roster' },
   { from:'smallville',    to:'traumprinz',     strength:2, type:'roster' },
   { from:'smallville',    to:'lbhonne',        strength:2, type:'roster' },
+  { from:'ambient_techno',to:'space_drum_meditation', strength:2, type:'influence' },
+  { from:'dial',          to:'space_drum_meditation', strength:1, type:'aesthetic' },
+  { from:'smallville',    to:'space_drum_meditation', strength:1, type:'aesthetic' },
 
   // ── INNERVISIONS / MELODIC ───────────────────────────────────────────────
   { from:'innervisions',  to:'dixon',          strength:3, type:'roster' },
@@ -219,6 +222,9 @@
   { from:'orion',         to:'stolar',         strength:3, type:'roster' },
   { from:'orion',         to:'projectindigo',  strength:2, type:'aesthetic' },
   { from:'lbhonne',       to:'benkaczor',      strength:2, type:'aesthetic' },
+  { from:'stolar',        to:'soela',          strength:3, type:'roster' },
+  { from:'dial',          to:'soela',          strength:2, type:'roster' },
+  { from:'kompakt',       to:'soela',          strength:2, type:'roster' },
 
   // ── SCANDINAVIA ───────────────────────────────────────────────────────────
   { from:'ambient',        to:'royksopp',        strength:2, type:'influence' },
@@ -510,6 +516,11 @@
   { from:'clone',         to:'nousklaer',      strength:2, type:'aesthetic' },
   { from:'rush_hour',     to:'nousklaer',      strength:1, type:'aesthetic' },
   { from:'perron',        to:'clone',          strength:2, type:'aesthetic' },
+  { from:'nousklaer',     to:'konduku',        strength:3, type:'roster' },
+  { from:'spazio_disponibile', to:'konduku',   strength:2, type:'roster' },
+  { from:'ambient_techno',to:'konduku',        strength:2, type:'influence' },
+  { from:'nousklaer',     to:'woody92',        strength:2, type:'aesthetic' },
+  { from:'clone',         to:'woody92',        strength:1, type:'aesthetic' },
 
   // ── EVENTS ────────────────────────────────────────────────────────────────
   { from:'tresor_club',   to:'love_parade',    strength:3, type:'lineage' },

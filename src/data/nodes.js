@@ -909,6 +909,13 @@ export const NODES = [
       { title: '"Rain" (Smallville)', year: 2016 },
     ], spotify:'5rwUYLyUq8gBsVaOUcUxpE', },
 
+  { id:'space_drum_meditation', label:'Space Drum Meditation', type:'artist', genre:'experimental', era:2020, city:'Hamburg', country:'DE',
+    desc:'Space Drum Meditation is a Hamburg-based duo working in ceremonial techno, tribal rhythms, and deep atmospheric electronics. They run their own self-titled imprint (SDM), which has served as the outlet for a series of records exploring hypnotic percussion and extended ambient club music. As DJs they blend sources from far outside electronic music into their sets alongside techno grooves.',
+    releases:[
+      { title: 'SDM001 (Space Drum Meditation)', year: 2020 },
+      { title: '"Four Tusks" SDMLP01 (Space Drum Meditation)', year: 2023 },
+    ],
+  },
 
   { id:'panthaduprince', label:'Pantha du Prince', type:'artist', genre:'ambient', era:2004, city:'Hamburg', country:'DE', bandcamp:'panthaduprinceofficial', bandcamp_album:'377250429',
     desc:'Hendrik Weber records as Pantha du Prince and is based in Hamburg. His music is characterised by crystalline textures, slow tempos, and a connection to minimalist composition. His album Black Noise (Rough Trade, 2010) received substantial critical attention. His collaboration with the Norwegian group The Bell Laboratory, Elements of Light (2013), combined electronic production with live acoustic bells.',
@@ -987,8 +994,17 @@ export const NODES = [
    spotify:'2YPdf4qm4mzQQYEjxY1lWo', },
 
   { id:'stolar', label:'Stólar', type:'label', genre:'giegling', era:2017, city:'Berlin', country:'DE',
-    desc:'Stólar is a Berlin-based record label run by Philipp Priebe. The label releases ambient-leaning deep house connected to the broader European underground network including Project Indigo and Orion.',
+    desc:'Stólar is an independent Berlin-based house label run by Philipp Priebe. Its catalogue leans toward melancholic deep house and dub-inflected atmospherics. Artists on the label include Soela, Ben Kaczor, Lawrence, and Tobi Neumann. Connected to the Project Indigo and Orion orbit.',
     releases: [],
+  },
+
+  { id:'soela', label:'Soela', type:'artist', genre:'deep', era:2016, city:'Berlin', country:'DE',
+    desc:'Soela is the alias of Elina Shorokhova, a Berlin-based DJ and producer originally from southern Russia. An experienced pianist and vocalist, her music moves across house, dub techno, and experimental electronica. She has released on Kompakt, Dial, Detroit Underground, Fauxpas Musik, Shall Not Fade, and Stólar.',
+    releases:[
+      { title: 'Genuine Silk EP (Fauxpas Musik)', year: 2017 },
+      { title: '"Dark Portrait" (Detroit Underground)', year: 2019 },
+      { title: 'Lily EP (Kompakt)', year: 2024 },
+    ],
   },
 
   { id:'benkaczor', label:'Ben Kaczor', type:'artist', genre:'deep', era:2016, city:'Zurich', country:'CH',
@@ -2286,6 +2302,22 @@ export const NODES = [
       { title: 'Paerels (compilation)', year: 2017 },
       { title: 'Paerels II (compilation)', year: 2020 },
     ]},
+
+  { id:'konduku', label:'Konduku', type:'artist', genre:'experimental', era:2014, city:'Rotterdam', country:'NL',
+    desc:'Konduku is a Rotterdam-based producer known for the K-series on Nous\'klaer Audio — five EPs (K1 Emerald Island through K5 Ebedi) that built a reputation for polyrhythmic, texturally rich electronic music. He has also released the celebrated Parlama EP on Spazio Disponibile and appeared on DJ Nobu\'s Bitta label and Delsin\'s Mantis Series.',
+    releases:[
+      { title: 'Emerald Island K1 (Nous\'klaer Audio)', year: 2014 },
+      { title: 'Parlama EP (Spazio Disponibile)', year: 2020 },
+      { title: 'Ebedi K5 (Nous\'klaer Audio)', year: 2024 },
+    ],
+  },
+
+  { id:'woody92', label:'Woody92', type:'artist', genre:'experimental', era:2015, city:'Delft', country:'NL',
+    desc:'Woody92, real name Woody \'s-Gravemade, is a DJ and producer from Delft in the Netherlands. His sets explore psychoactive leftfield electronics, hypnotic techno, and radiant minimalism drawn from far outside standard record pools. In 2021 he founded Omen Wapta, a multidisciplinary label releasing experimental and glitch-oriented electronic music by artists including Toshiaki Ooi (Jemapur), Loek Frey, and Harald Uunk.',
+    releases:[
+      { title: 'Mode Cleaner (Omen Wapta)', year: 2021 },
+    ],
+  },
 
   // ── UK — LOBSTER THEREMIN ────────────────────────────────────────────────
   { id:'lobster_theremin', label:'Lobster Theremin', type:'label', genre:'deep', era:2012, city:'London', country:'UK', bandcamp:'lobstertheremin',

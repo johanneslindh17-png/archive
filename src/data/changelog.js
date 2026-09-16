@@ -2,6 +2,10 @@
 // Add new entries here whenever nodes are added.
 export const NODE_CHANGELOG = [
   // 2026-09-16
+  { id: 'space_drum_meditation',label: 'Space Drum Meditation',    date: '2026-09-16' },
+  { id: 'konduku',              label: 'Konduku',                  date: '2026-09-16' },
+  { id: 'woody92',              label: 'Woody92',                  date: '2026-09-16' },
+  { id: 'soela',                label: 'Soela',                    date: '2026-09-16' },
   { id: 'flying_records',       label: 'Flying Records',           date: '2026-09-16' },
   { id: 'cocorico',             label: 'Cocoricò',                 date: '2026-09-16' },
   { id: 'goa_club',             label: 'Goa Club',                 date: '2026-09-16' },
