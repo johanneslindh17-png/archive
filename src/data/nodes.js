@@ -1015,6 +1015,16 @@ export const NODES = [
     releases: [],
   },
 
+  { id:'philipp_priebe', label:'Philipp Priebe', type:'artist', genre:'deep', era:2014, city:'Berlin', country:'DE',
+    desc:'Philipp Priebe is a Berlin-based producer born in Saxony and musically educated in Greifswald on the Baltic coast — a city whose landscape he cites alongside Caspar David Friedrich as an influence on his sound. He runs the Stólar label and works in a deeply meditative zone of dub techno and hazy deep house. He has released on IL Y A Records (Japan), Feuilleton, Freund der Familie, Scale Limited, and Stately Records alongside his own Stólar imprint.',
+    releases:[
+      { title: 'The Being of the Beautiful (IL Y A Records)', year: 2014 },
+      { title: 'Apparent Calm Palms (Feuilleton)', year: 2022 },
+      { title: 'Movements In An Empty Department Store (Stólar)', year: 2023 },
+      { title: 'Until The End (Freund der Familie)', year: 2025 },
+    ],
+  },
+
   { id:'soela', label:'Soela', type:'artist', genre:'deep', era:2016, city:'Berlin', country:'DE',
     desc:'Soela is the alias of Elina Shorokhova, a Berlin-based DJ and producer originally from southern Russia. An experienced pianist and vocalist, her music moves across house, dub techno, and experimental electronica. She has released on Kompakt, Dial, Detroit Underground, Fauxpas Musik, Shall Not Fade, and Stólar.',
     releases:[
@@ -2266,6 +2276,13 @@ export const NODES = [
       { title: 'Windmaker EP (Hypercolour)', year: 2016 },
       { title: 'A Place Called Inkonst (Kontra Musik)', year: 2019 },
     ], spotify:'5cKPK8DCxX1R5PwQOU1huv', },
+
+  { id:'johanna_knutsson', label:'Johanna Knutsson', type:'artist', genre:'experimental', era:2012, city:'Berlin', country:'SE',
+    desc:'Johanna Knutsson is a Swedish-born, Berlin-based producer and DJ who began collecting electronic music in 2006 before establishing herself on the Berlin underground circuit at the turn of the 2010s. Her sound builds outward from techno toward ambient and emotive electronics. She co-runs the UFO Station label with Hans Berg and the astrology-inspired Zodiac 44 imprint with Luca Lozano. She is a key member of Sebastian Mullaert\'s Circle of Live collective. Her album Dingsbums Homage (Patience, 2022) is a sweeping suite of drifting electronica.',
+    releases:[
+      { title: 'Dingsbums Homage (Patience)', year: 2022 },
+    ],
+  },
 
   { id:'carsten_jost', label:'Carsten Jost', type:'artist', genre:'deep', era:2004, city:'Hamburg', country:'DE',
     desc:'Carsten Jost co-founded Dial Records in Hamburg in 2002 with Lawrence. He releases minimal, deep house under his own name on Dial and has been a core figure in the Hamburg deep house network. His productions are patient and harmonically developed, working within the same aesthetic territory as Lawrence but with a slightly more minimal quality.',

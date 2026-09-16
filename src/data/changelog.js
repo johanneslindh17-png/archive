@@ -2,6 +2,8 @@
 // Add new entries here whenever nodes are added.
 export const NODE_CHANGELOG = [
   // 2026-09-16
+  { id: 'philipp_priebe',       label: 'Philipp Priebe',           date: '2026-09-16' },
+  { id: 'johanna_knutsson',     label: 'Johanna Knutsson',         date: '2026-09-16' },
   { id: 'fantastic_man',        label: 'Fantastic Man',            date: '2026-09-16' },
   { id: 'claro_intelecto',      label: 'Claro Intelecto',          date: '2026-09-16' },
   { id: 'steve_bug',            label: 'Steve Bug',                date: '2026-09-16' },

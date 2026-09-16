@@ -224,6 +224,10 @@
   { from:'orion',         to:'stolar',         strength:3, type:'roster' },
   { from:'orion',         to:'projectindigo',  strength:2, type:'aesthetic' },
   { from:'lbhonne',       to:'benkaczor',      strength:2, type:'aesthetic' },
+  { from:'philipp_priebe',to:'stolar',          strength:3, type:'lineage' },
+  { from:'stolar',        to:'philipp_priebe', strength:3, type:'roster' },
+  { from:'basicchannel',  to:'philipp_priebe', strength:2, type:'influence' },
+  { from:'dial',          to:'philipp_priebe', strength:1, type:'aesthetic' },
   { from:'stolar',        to:'soela',          strength:3, type:'roster' },
   { from:'dial',          to:'soela',          strength:2, type:'roster' },
   { from:'kompakt',       to:'soela',          strength:2, type:'roster' },
@@ -495,6 +499,8 @@
   { from:'cocoon',        to:'minilogue',      strength:3, type:'roster' },
   { from:'minilogue',     to:'sebastian_mullaert', strength:3, type:'lineage' },
   { from:'mule_musiq',    to:'sebastian_mullaert', strength:2, type:'roster' },
+  { from:'sebastian_mullaert', to:'johanna_knutsson', strength:2, type:'aesthetic' },
+  { from:'kontra_musik',  to:'johanna_knutsson',   strength:1, type:'aesthetic' },
 
   // ── HAMBURG — CARSTEN JOST ────────────────────────────────────────────────
   { from:'dial',          to:'carsten_jost',   strength:3, type:'roster' },
