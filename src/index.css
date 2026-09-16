@@ -93,7 +93,7 @@ body.svg-dragging .topbar{pointer-events:none;}
 .dark .htip b{ color:var(--tb-text); }
 html,body,#root{width:100%;height:100%;overflow:hidden;overscroll-behavior:none}
 body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webkit-font-smoothing:antialiased}
-.app{display:flex;flex-direction:column;height:100vh}
+.app{display:flex;flex-direction:column;height:100vh;height:100dvh}
 .topbar{
   display:flex;align-items:center;height:62px;padding:0 0;
   border-bottom:1px solid var(--tb-border);
@@ -856,7 +856,7 @@ path.eg.dim{opacity:0.055}
 
 .statusbar{
   min-height:54px;border-top:1px solid var(--tb-border);background:var(--tb-bg);
-  display:flex;align-items:center;padding:0 20px;gap:0;flex-shrink:0;
+  display:flex;align-items:center;padding:0 20px;padding-bottom:env(safe-area-inset-bottom,0px);gap:0;flex-shrink:0;
   position:relative;z-index:20;
   font-family:'Syne Mono',monospace;font-size:0.54rem;letter-spacing:0.1em;color:var(--tb-text-mid);
   transition:background 0.2s,border-color 0.2s;
