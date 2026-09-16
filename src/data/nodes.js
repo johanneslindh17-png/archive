@@ -984,7 +984,14 @@ export const NODES = [
   },
 
   { id:'orion', label:'Orion Records', type:'label', genre:'giegling', era:2016, city:'Zurich', country:'CH',
-    desc:'Orion Records is a Zurich underground label founded in 2016, releasing slow, spacious deep house with ambient sensibility. It is connected to the Project Indigo orbit.',
+    desc:'Orion Records is a Zurich underground label founded in 2016, releasing slow, spacious deep house with ambient sensibility. Connected to the Project Indigo and Stólar orbit. After five years of releases, the label compiled its network on the double vinyl Horizon Begins (2025), featuring Martinou, ATEQ, Skyra (Tbilisi), Ben Kaczor, LB Honne, Hame, and Soela.',
+    releases: [
+      { title: 'Horizon Begins 1 (compilation)', year: 2025 },
+    ],
+  },
+
+  { id:'ateq', label:'ATEQ', type:'artist', genre:'giegling', era:2013, city:'Berlin', country:'DE',
+    desc:'ATEQ is the project of Berlin-based producer Florian Lepa, one of the original members of the Weimar-rooted Giegling collective. His productions work in a minimal, contemplative techno register consistent with Giegling\'s meditative aesthetic. He has performed at Berghain and appeared on the Orion Records compilation Horizon Begins (2025).',
     releases: [],
   },
 
@@ -1702,6 +1709,11 @@ export const NODES = [
       { title: 'Bassiani 001 (Bassiani Records)', year: 2016 },
     ], spotify:'4XW87HXcsYTkdK7IhSy2Kt', },
 
+  { id:'skyra', label:'Skyra', type:'artist', genre:'minimal', era:2019, city:'Tbilisi', country:'GE',
+    desc:'Skyra is the project of Sandro Papaskiri, a Tbilisi-based producer and DJ who has been sound engineer at Bassiani since 2019. His music moves between house and techno — spacious, warm, and emotionally precise. He co-founded the Unforeseen platform in 2024 and has released on Morevi Records, Icontrax, and Orion Records.',
+    releases: [],
+  },
+
   { id:'irakli', label:'Irakli', type:'artist', genre:'minimal', era:2016, city:'Tbilisi', country:'GE',
     desc:'Irakli is a Tbilisi-born DJ and producer closely associated with Bassiani. His 2021 debut album Major Signals appeared on Dial Records in Hamburg — a direct validation from one of the most respected labels in European deep and minimal music. His 2023 live recording Mechanical Moon at Robert Johnson (the Offenbach club central to rominimal and Perlon) placed him within the same network that shaped Rhadoo and the Romanian scene. His music moves between dark minimal techno and deeper, more introspective territory.',
     releases: [
@@ -2312,6 +2324,13 @@ export const NODES = [
     ],
   },
 
+  { id:'hame', label:'Hame', type:'artist', genre:'deep', era:2018, city:'Amsterdam', country:'NL',
+    desc:'Hame (Hamish Rahn) is an Australian producer and DJ based in Amsterdam. He founded the label and event concept Pintai and works across acid house, ambient, and leftfield club music. He appeared on the Orion Records compilation Horizon Begins (2025).',
+    releases: [
+      { title: 'Universal Positive Regard (Pintai)', year: 2020 },
+    ],
+  },
+
   { id:'woody92', label:'Woody92', type:'artist', genre:'experimental', era:2015, city:'Delft', country:'NL',
     desc:'Woody92, real name Woody \'s-Gravemade, is a DJ and producer from Delft in the Netherlands. His sets explore psychoactive leftfield electronics, hypnotic techno, and radiant minimalism drawn from far outside standard record pools. In 2021 he founded Omen Wapta, a multidisciplinary label releasing experimental and glitch-oriented electronic music by artists including Toshiaki Ooi (Jemapur), Loek Frey, and Harald Uunk.',
     releases:[
@@ -2655,10 +2674,12 @@ export const NODES = [
       { title: '"Post-Scriptum" — Oscar Mulero (HATE)', year: 2016 },
     ]},
 
-  { id:'martinou', label:'Martinou', type:'artist', genre:'experimental', era:2014, city:'', country:'SE',
-    desc:'Martinou is a Swedish producer releasing on the Sewer Sender label. His debut album Deep Sea Seated Concrete Solid (Sewer Sender, 2016) is a work of textural ambient and experimental electronics with a slow, submerged quality. He is part of a small Scandinavian network of producers engaged with ambient and deep house at a considerable remove from club contexts, connected loosely to the Dial and northern European underground orbit.',
+  { id:'martinou', label:'Martinou', type:'artist', genre:'experimental', era:2014, city:'Malmö', country:'SE',
+    desc:'Martinou is a Malmö-based Swedish producer and live performer with over 20 years in electronic music. His debut on Sewer Sender — the label he co-founded in 2014 — established a textural ambient and deep house approach. His albums Rift (Nous\'klaer Audio, 2021) and Chiral (Nous\'klaer Audio, 2023) are among the most acclaimed releases on the Rotterdam label, blending house, techno, and introspective ambient composition. He has also released on Turbo Recordings, Mule Musiq, and Melifera, and appeared on the Orion Records compilation Horizon Begins (2025).',
     releases: [
       { title: 'Deep Sea Seated Concrete Solid (Sewer Sender)', year: 2016 },
+      { title: 'Rift (Nous\'klaer Audio)', year: 2021 },
+      { title: 'Chiral (Nous\'klaer Audio)', year: 2023 },
     ], spotify:'5mxwKKP9qnvmfpuAgoI7kp', },
 
   { id:'northern_electronics_artists', label:'Abdulla Rashim', type:'artist', genre:'ambient', era:2012, city:'Stockholm', country:'SE',
@@ -2845,6 +2866,23 @@ export const NODES = [
     ]},
 
   // ── New additions ─────────────────────────────────────────────────────────
+
+  { id:'poker_flat', label:'Poker Flat Recordings', type:'label', genre:'minimal', era:1998, city:'Berlin', country:'DE',
+    desc:'Poker Flat Recordings was founded in Berlin in 1998 by Steve Bug. It became one of the defining labels of the Berlin minimal and deep house sound in the late 1990s and 2000s, releasing Steve Bug\'s own productions alongside artists including Langenberg, Mark Broom, and Troy Pierce. The label operated at the intersection of minimal techno and deep house.',
+    releases: [
+      { title: 'The Other Day — Steve Bug (Poker Flat)', year: 2000 },
+    ],
+  },
+
+  { id:'steve_bug', label:'Steve Bug', type:'artist', genre:'minimal', era:1996, city:'Berlin', country:'DE',
+    desc:'Steve Bug, born Stefan Brügesch in Nienburg, began DJing in Bremen and Hamburg in the early 1990s, building his reputation through an Ibiza residency in 1991 and an appearance at the Love Parade that year. He founded Poker Flat Recordings in Berlin in 1998 and ran Audiomatique and Dessous as further outlets. Across over 30 years his sound moved fluidly between minimal techno, deep house, and acid house — a long-form, eclectic approach that made him one of the most consistent global touring DJs of his generation. He has released on Cocoon, Minus, Hot Creations, and Bedrock.',
+    releases: [
+      { title: 'Volksworld (Poker Flat)', year: 1997 },
+      { title: 'The Other Day (Poker Flat)', year: 2000 },
+      { title: '"Loverboy" (Poker Flat)', year: 2000 },
+      { title: 'Never Ending Winding Roads (Poker Flat)', year: 2020 },
+    ],
+  },
 
   { id:'cocoon', label:'Cocoon Records', type:'label', genre:'techno', era:1999, city:'Frankfurt', country:'DE',
     desc:'Cocoon Records cannot be separated from the Amnesia residency that Sven Väth held for over two decades in Ibiza — the label extended that Monday-night sensibility onto vinyl. Broad in emotional range, from deep atmospheric house to hard industrial rhythms, it documented the annual Ibiza season through its compilation series with a consistency few club labels have matched. Richie Hawtin, Ricardo Villalobos, and Jacek Sienkiewicz all released within its orbit.',

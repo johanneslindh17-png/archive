@@ -203,6 +203,8 @@
   // ── GIEGLING ──────────────────────────────────────────────────────────────
   { from:'dial',          to:'giegling',       strength:2, type:'aesthetic' },
   { from:'smallville',    to:'giegling',       strength:2, type:'aesthetic' },
+  { from:'giegling',      to:'ateq',           strength:3, type:'roster' },
+  { from:'orion',         to:'ateq',           strength:2, type:'roster' },
   { from:'giegling',      to:'traumprinz',     strength:3, type:'roster' },
   { from:'giegling',      to:'djhealer',       strength:3, type:'roster' },
   { from:'giegling',      to:'leafar',         strength:3, type:'roster' },
@@ -521,6 +523,9 @@
   { from:'ambient_techno',to:'konduku',        strength:2, type:'influence' },
   { from:'nousklaer',     to:'woody92',        strength:2, type:'aesthetic' },
   { from:'clone',         to:'woody92',        strength:1, type:'aesthetic' },
+  { from:'orion',         to:'hame',           strength:2, type:'roster' },
+  { from:'nousklaer',     to:'martinou',       strength:3, type:'roster' },
+  { from:'orion',         to:'martinou',       strength:2, type:'roster' },
 
   // ── EVENTS ────────────────────────────────────────────────────────────────
   { from:'tresor_club',   to:'love_parade',    strength:3, type:'lineage' },
@@ -994,6 +999,8 @@
   // Residents
   { from:'bassiani',          to:'hvl',                strength:3, type:'roster' },
   { from:'bassiani',          to:'irakli',             strength:3, type:'roster' },
+  { from:'bassiani',          to:'skyra',              strength:3, type:'roster' },
+  { from:'orion',             to:'skyra',              strength:2, type:'roster' },
   // Irakli on Dial Records (Hamburg) and Robert Johnson
   { from:'dial',              to:'irakli',             strength:3, type:'roster' },
   { from:'robertjohnson',     to:'irakli',             strength:2, type:'roster' },
@@ -1195,6 +1202,10 @@
 
   // Stephan Bodzin
   { from:'cocoon',             to:'stephan_bodzin',     strength:2, type:'roster' },      // desc: "early work, including material on Cocoon Recordings"
+  { from:'steve_bug',          to:'poker_flat',         strength:3, type:'lineage' },
+  { from:'cocoon',             to:'steve_bug',          strength:2, type:'roster' },
+  { from:'hot_creations',      to:'steve_bug',          strength:1, type:'roster' },
+  { from:'perlon',             to:'poker_flat',         strength:1, type:'aesthetic' },
 
   // Caribou / Daphni
   { from:'caribou',            to:'daphni',             strength:3, type:'lineage' },     // desc: "Daphni is the house and techno alias of Dan Snaith (Caribou)"
