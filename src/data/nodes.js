@@ -380,6 +380,16 @@ export const NODES = [
       { title: 'Faith in Strangers — Andy Stott', year: 2014 },
     ]},
 
+  { id:'claro_intelecto', label:'Claro Intelecto', type:'artist', genre:'ambient', era:2003, city:'Manchester', country:'UK',
+    desc:'Claro Intelecto is the alias of Mark Stewart from Bolton, Greater Manchester. He debuted in 2003 on the Manchester IDM label Ai Records before joining Modern Love in 2005, where he has released all his subsequent work. His productions are built from custom-sculpted drums and thick pad textures, drawing on Detroit techno, dub techno, and the deep, melancholic sensibility of the northern English rave scene — shaped by years attending nights at the Haçienda and Paradise Factory. His album Neurofibro (2004) and the subsequent series of Modern Love releases are among the most distinctive bodies of work in UK underground techno.',
+    releases: [
+      { title: '"Peace of Mind" (Ai Records)', year: 2003 },
+      { title: 'Neurofibro (Ai Records)', year: 2004 },
+      { title: 'Metanarrative (Modern Love)', year: 2008 },
+      { title: 'Warehouse Sessions (Modern Love)', year: 2009 },
+    ],
+  },
+
   { id:'fuse_london', label:'Fuse London', type:'label', genre:'techhouse', era:2008, city:'London', country:'UK',
     desc:'Fuse London was established as a club night at Fabric in 2008 before developing into a label. It occupies the more underground end of the tech house spectrum, focusing on groove-driven, functional dance music. The label has maintained a consistent aesthetic across its releases since its founding.',
     releases: [
@@ -4296,6 +4306,15 @@ export const NODES = [
     releases: [
       { title: 'Sky Walking (Efficient Space)', year: 2017 },
     ]},
+
+  { id:'fantastic_man', label:'Fantastic Man', type:'artist', genre:'deep', era:2015, city:'Melbourne', country:'AU',
+    desc:'Fantastic Man is the long-running alias of Mic Newman, a Melbourne-based DJ and producer known for spacious, hypnotic, Balearic-influenced deep house. He has released on Mule Musiq, Love on the Rocks, Kalahari Oyster Kult, and Basic Spirit, and runs his own Superconscious Records imprint. His productions are immersive and unhurried — cult favourites including Trance Sexual and the Visions of Dance series defined a particular strain of Australian deep electronics with a warm cosmic drift.',
+    releases: [
+      { title: '"Trance Sexual" (Superconscious Records)', year: 2017 },
+      { title: 'Visions of Dance (Superconscious Records)', year: 2020 },
+      { title: 'DJ Mentality (Superconscious Records)', year: 2023 },
+    ],
+  },
 
   { id:'tornado_wallace', label:'Tornado Wallace', type:'artist', genre:'disco', era:2015, city:'Melbourne', country:'AU',
     desc:'Tornado Wallace is a Melbourne-based producer and DJ whose music sits at the intersection of cosmic disco, Balearic music, and Australian bush culture. His releases on Efficient Space and Beats in Space are built from a warm, improvised aesthetic that draws on Daniele Baldelli\'s cosmic tradition, African rhythms, and the eternal summer of Australian outdoor parties. He founded Efficient Space as a platform for global dance music outside Western commercial circuits, and his own productions are among the most emotionally generous and physically alive in contemporary electronic music.',

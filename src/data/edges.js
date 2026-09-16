@@ -314,6 +314,9 @@
   { from:'basicchannel',  to:'modern_love',    strength:2, type:'influence' },
   { from:'modern_love',   to:'andy_stott',     strength:3, type:'roster' },
   { from:'basicchannel',  to:'andy_stott',     strength:2, type:'influence' },
+  { from:'modern_love',   to:'claro_intelecto',strength:3, type:'roster' },
+  { from:'basicchannel',  to:'claro_intelecto',strength:2, type:'influence' },
+  { from:'hacienda',      to:'claro_intelecto',strength:1, type:'influence' },
   { from:'acid_house',    to:'fuse_london',    strength:1, type:'lineage' },
   { from:'levan',         to:'acid_house',     strength:1, type:'influence' },
 
@@ -2114,7 +2117,10 @@
   { from:'villalobos',          to:'isolee',              strength:2, type:'aesthetic' },
   { from:'move_d',              to:'isolee',              strength:2, type:'aesthetic' },
 
-  // ── TORNADO WALLACE / EFFICIENT SPACE ─────────────────────────────────────
+  // ── TORNADO WALLACE / EFFICIENT SPACE / FANTASTIC MAN ──────────────────────
+  { from:'mule_musiq',          to:'fantastic_man',       strength:2, type:'roster'    },
+  { from:'efficient_space',     to:'fantastic_man',       strength:2, type:'aesthetic' },
+  { from:'cosmic_disco_style',  to:'fantastic_man',       strength:2, type:'influence' },
   { from:'tornado_wallace',     to:'efficient_space',     strength:3, type:'lineage'   },
   { from:'efficient_space',     to:'tornado_wallace',     strength:3, type:'roster'    },
   { from:'cosmic_disco_style',  to:'tornado_wallace',     strength:3, type:'influence' },
