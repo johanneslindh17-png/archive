@@ -643,7 +643,8 @@ export default function App() {
   function flyHome() {
     if (!zoomRef.current || !svgRef.current) return;
     const _iw2 = window.innerWidth;
-    const _bz2 = (_iw2 >= 600 && _iw2 <= 1180) ? 68 : 0;
+    const _isTouch2 = window.matchMedia('(pointer:coarse)').matches;
+    const _bz2 = (_iw2 >= 600 && _iw2 <= 1400 && _isTouch2) ? 68 : 0;
     const k  = (_iw2 - _bz2) / W;
     const vh = window.innerHeight;
     const live = d3.zoomTransform(svgRef.current);
@@ -1366,7 +1367,8 @@ export default function App() {
   useEffect(() => {
     if (!svgRef.current) return;
     const _iw = window.innerWidth;
-    const _bezel = (_iw >= 600 && _iw <= 1180) ? 68 : 0;
+    const _isTouch = window.matchMedia('(pointer:coarse)').matches;
+    const _bezel = (_iw >= 600 && _iw <= 1400 && _isTouch) ? 68 : 0;
     const _fitK = (_iw - _bezel) / W;
     const zoom = d3.zoom()
       .scaleExtent([_fitK, 8])

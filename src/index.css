@@ -1304,10 +1304,12 @@ path.eg.dim{opacity:0.055}
   .statusbar::-webkit-scrollbar{display:none;}
 }
 
-/* ── iPad layout (600–1180px): right bezel + 2-row statusbar ─────────────── */
+/* ── iPad layout: right bezel + 2-row statusbar ─────────────────────────── */
+/* pointer:coarse = touch primary (finger/pencil), excludes mouse-driven desktops.
+   max-width:1400px keeps out very large monitors on the off chance touch is reported. */
 .ipad-bezel{display:none;}
 
-@media(min-width:600px) and (max-width:1180px){
+@media(min-width:600px) and (max-width:1400px) and (pointer:coarse){
   /* Show right bezel */
   .ipad-bezel{
     display:flex;flex-direction:column;align-items:stretch;gap:3px;
