@@ -993,29 +993,25 @@ const toggleDrum = useCallback((id, step) =>
           <span className="gv-param-lbl">FILT</span>
         </div>
         <div className="gv-master-sep" />
-        <div className="gv-master-fx-pair">
-          <div className="gv-master-knob">
-            <Knob value={masterRvb} onChange={setMasterRvb} size={24} />
-            <span className="gv-param-lbl">SEND</span>
-          </div>
-          <div className="gv-master-knob">
-            <Knob value={masterRvbTime} onChange={setMasterRvbTime} size={24} />
-            <span className="gv-param-lbl">TIME</span>
-          </div>
-        </div>
         <span className="gv-master-fx-label">RVB</span>
-        <div className="gv-master-fx-div" />
-        <div className="gv-master-fx-pair">
-          <div className="gv-master-knob">
-            <Knob value={masterDly} onChange={setMasterDly} size={24} />
-            <span className="gv-param-lbl">SEND</span>
-          </div>
-          <div className="gv-master-knob">
-            <Knob value={masterDlyTime} onChange={setMasterDlyTime} size={24} />
-            <span className="gv-param-lbl">TIME</span>
-          </div>
+        <div className="gv-master-knob">
+          <Knob value={masterRvb} onChange={setMasterRvb} />
+          <span className="gv-param-lbl">SEND</span>
         </div>
+        <div className="gv-master-knob">
+          <Knob value={masterRvbTime} onChange={setMasterRvbTime} />
+          <span className="gv-param-lbl">TIME</span>
+        </div>
+        <div className="gv-master-fx-div" />
         <span className="gv-master-fx-label">DLY</span>
+        <div className="gv-master-knob">
+          <Knob value={masterDly} onChange={setMasterDly} />
+          <span className="gv-param-lbl">SEND</span>
+        </div>
+        <div className="gv-master-knob">
+          <Knob value={masterDlyTime} onChange={setMasterDlyTime} />
+          <span className="gv-param-lbl">TIME</span>
+        </div>
       </div>
 
       </div>{/* groove-bottom */}
