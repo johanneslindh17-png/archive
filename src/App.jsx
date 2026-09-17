@@ -2805,7 +2805,6 @@ export default function App() {
             <>
               <div className="dp-toprow">
                 <button className="dp-close" onClick={closePanel}>×</button>
-                <button className="dp-share-btn" onClick={() => { chatRef.current?.share(selNode.id, selNode.label); setChatOpen(true); }}>share in chat ↗</button>
               </div>
 
               {/* Type pill */}
@@ -2892,29 +2891,28 @@ export default function App() {
               {/* Description */}
               <div className="dp-desc">{renderDesc(selNode.desc, selNode.id, id => { selectNode(id); scrollToNode(id); })}</div>
 
-              {/* Bandcamp + Spotify */}
-              {(selNode.bandcamp || selNode.spotify) && (
-                <div className="dp-bandcamp">
-                  {selNode.bandcamp_album && (
-                    <button
-                      className={`dp-play-btn${playingNodeId === selNode.id ? ' dp-play-btn--on' : ''}`}
-                      onClick={() => setPlayingNodeId(selNode.id)}
-                    >
-                      {playingNodeId === selNode.id ? '♪ now playing' : '▶ listen'}
-                    </button>
-                  )}
-                  {selNode.bandcamp && (
-                    <a className="dp-bc-link" href={`https://${selNode.bandcamp}.bandcamp.com`} target="_blank" rel="noopener noreferrer">
-                      Bandcamp ↗
-                    </a>
-                  )}
-                  {selNode.spotify && (
-                    <a className="dp-bc-link dp-spotify-link" href={`https://open.spotify.com/artist/${selNode.spotify}`} target="_blank" rel="noopener noreferrer">
-                      Spotify ↗
-                    </a>
-                  )}
-                </div>
-              )}
+              {/* Bandcamp + Spotify + Share */}
+              <div className="dp-bandcamp">
+                {selNode.bandcamp_album && (
+                  <button
+                    className={`dp-play-btn${playingNodeId === selNode.id ? ' dp-play-btn--on' : ''}`}
+                    onClick={() => setPlayingNodeId(selNode.id)}
+                  >
+                    {playingNodeId === selNode.id ? '♪ now playing' : '▶ listen'}
+                  </button>
+                )}
+                {selNode.bandcamp && (
+                  <a className="dp-bc-link" href={`https://${selNode.bandcamp}.bandcamp.com`} target="_blank" rel="noopener noreferrer">
+                    Bandcamp ↗
+                  </a>
+                )}
+                {selNode.spotify && (
+                  <a className="dp-bc-link dp-spotify-link" href={`https://open.spotify.com/artist/${selNode.spotify}`} target="_blank" rel="noopener noreferrer">
+                    Spotify ↗
+                  </a>
+                )}
+                <button className="dp-share-btn" style={{ marginLeft:'auto' }} onClick={() => { chatRef.current?.share(selNode.id, selNode.label); setChatOpen(true); }}>share in chat ↗</button>
+              </div>
 
               {/* Key Releases */}
               {selNode.releases?.length > 0 && (
