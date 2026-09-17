@@ -452,9 +452,18 @@ const nextTRef       = useRef(0);
 
   // ── Master FX live updates ────────────────────────────────────────────────
   useEffect(() => {
-    if (!masterFilterRef.current) return;
-    const hz = masterFlt >= 0.99 ? 18000 : 60 + Math.pow(masterFlt, 2) * 14000;
-    masterFilterRef.current.frequency.setTargetAtTime(hz, 0, 0.02);
+    const f = masterFilterRef.current; if (!f) return;
+    const now = ctxRef.current?.currentTime ?? 0;
+    if (masterFlt < 0.46) {
+      f.type = 'lowpass';
+      f.frequency.setTargetAtTime(60 + Math.pow(masterFlt / 0.46, 2) * 16000, now, 0.02);
+    } else if (masterFlt > 0.54) {
+      f.type = 'highpass';
+      f.frequency.setTargetAtTime(20 + Math.pow((masterFlt - 0.54) / 0.46, 2) * 7000, now, 0.02);
+    } else {
+      f.type = 'lowpass';
+      f.frequency.setTargetAtTime(18000, now, 0.02);
+    }
   }, [masterFlt]);
   useEffect(() => {
     if (rvbWetRef.current) rvbWetRef.current.gain.setTargetAtTime(masterRvb * 0.85, 0, 0.02);
@@ -690,14 +699,14 @@ const dest = makeChain(ctx, t, vol * rv(id, 'vol', tvol[id]), rv(id, 'filter', t
   const toggleSeqLen = useCallback(() => {
     if (seqLenRef.current === 16) {
       setDrums(d => Object.fromEntries(Object.entries(d).map(([id, arr]) => [id, [...arr, ...arr]])));
-      setSynth(s => ({ bass: [...s.bass, ...s.bass], lead: [...s.lead, ...s.lead] }));
+      setSynth(s => Object.fromEntries(Object.entries(s).map(([id, arr]) => [id, [...arr, ...arr]])));
       setAutomation(a => Object.fromEntries(Object.entries(a).map(([id, track]) => [
         id, Object.fromEntries(Object.entries(track).map(([k, arr]) => [k, [...arr, ...arr]])),
       ])));
       setSeqLen(32);
     } else {
       setDrums(d => Object.fromEntries(Object.entries(d).map(([id, arr]) => [id, arr.slice(0, 16)])));
-      setSynth(s => ({ bass: s.bass.slice(0, 16), lead: s.lead.slice(0, 16) }));
+      setSynth(s => Object.fromEntries(Object.entries(s).map(([id, arr]) => [id, arr.slice(0, 16)])));
       setAutomation(a => Object.fromEntries(Object.entries(a).map(([id, track]) => [
         id, Object.fromEntries(Object.entries(track).map(([k, arr]) => [k, arr.slice(0, 16)])),
       ])));

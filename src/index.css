@@ -1862,7 +1862,7 @@ path.eg.dim{opacity:0.055}
 /* Drum steps */
 .groove-step {
   width: 40px;
-  height: 40px;
+  height: 28px;
   border: 1px solid var(--tb-border);
   background: transparent;
   cursor: pointer;
@@ -1882,7 +1882,7 @@ path.eg.dim{opacity:0.055}
 /* Synth steps */
 .groove-step--synth {
   width: 40px;
-  height: 40px;
+  height: 28px;
   position: relative;
   display: flex;
   align-items: center;
@@ -2308,8 +2308,8 @@ path.eg.dim{opacity:0.055}
 @media (max-width: 660px) {
   .groove-panel { width: 100%; left: 0; transform: translateY(100%); border-radius: 0; }
   .groove-panel.open { transform: translateY(0); }
-  .groove-step { width: 18px; height: 18px; }
-  .groove-step--synth { width: 18px; height: 18px; }
+  .groove-step { width: 18px; height: 14px; }
+  .groove-step--synth { width: 18px; height: 14px; }
   .groove-mute-btn { height: 18px; }
   .gv-panel { overflow-x: auto; padding: 8px 8px 6px 8px; }
   .gv-col { min-width: 54px; }
