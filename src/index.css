@@ -1303,6 +1303,71 @@ path.eg.dim{opacity:0.055}
   .statusbar{overflow-x:auto;flex-wrap:nowrap;}
   .statusbar::-webkit-scrollbar{display:none;}
 }
+
+/* ── iPad layout (600–1180px): right bezel + 2-row statusbar ─────────────── */
+.ipad-bezel{display:none;}
+
+@media(min-width:600px) and (max-width:1180px){
+  /* Show right bezel */
+  .ipad-bezel{
+    display:flex;flex-direction:column;align-items:stretch;gap:3px;
+    position:fixed;right:0;top:62px;bottom:108px;
+    width:68px;z-index:50;
+    background:var(--tb-bg);border-left:1px solid var(--tb-border);
+    padding:8px 5px;
+  }
+  .dark .ipad-bezel{background:var(--tb-bg);border-left-color:var(--tb-border);}
+  .ipad-bezel-btn{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:5px;padding:8px 2px;min-height:52px;
+    border:1px solid var(--tb-border);background:transparent;
+    color:var(--tb-text-mid);cursor:pointer;border-radius:2px;
+    font-family:'Syne Mono',monospace;font-size:0.48rem;letter-spacing:0.1em;
+    text-transform:uppercase;transition:color 0.15s,background 0.15s;flex-shrink:0;
+  }
+  .ipad-bezel-btn:hover,.ipad-bezel-btn.open{color:var(--tb-text);background:var(--tb-hover);}
+  .ipad-bezel-btn svg{flex-shrink:0;}
+
+  /* Override the existing tablet overflow rule */
+  .statusbar{
+    overflow:visible !important;flex-wrap:wrap !important;
+    padding:0 68px 0 0 !important;min-height:auto !important;gap:0 !important;
+  }
+  .statusbar::-webkit-scrollbar{display:none;}
+
+  /* Hide non-essential statusbar pieces */
+  .statusbar-item--log{display:none !important;}
+  .statusbar-end{display:none !important;}
+  .statusbar-scroll .statusbar-sep{display:none !important;}
+  .statusbar-scroll .statusbar-item{display:none !important;}
+  .statusbar-scroll .player-sep{display:none !important;}
+
+  /* Scroll container: full width, wraps rows */
+  .statusbar-scroll{
+    flex:0 0 100% !important;width:100% !important;
+    overflow:visible !important;flex-wrap:wrap !important;
+    padding:0 12px !important;gap:0 !important;
+    align-content:flex-start;
+  }
+
+  /* Row 1: node type chips */
+  .sb-type-filter{
+    flex:0 0 100%;width:100%;
+    padding:5px 0 4px;border-bottom:1px solid var(--tb-border);
+  }
+
+  /* Row 2: inline player */
+  .player-inline{flex:0 0 100%;width:100%;padding:3px 0;}
+
+  /* Contact dropdown: shift left of bezel */
+  .contact-dropdown{right:76px !important;bottom:120px !important;}
+
+  /* Groove panel: clear the 2-row statusbar */
+  .groove-panel{
+    bottom:128px !important;
+    max-height:calc(100vh - 62px - 128px - 20px) !important;
+  }
+}
 .tour-v2-next:hover{opacity:0.85;}
 
 /* ── Groovebox ───────────────────────────────────────────────────────────────*/

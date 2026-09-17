@@ -642,7 +642,9 @@ export default function App() {
   // Fly back to the overview zoom level, keeping the current vertical era centred
   function flyHome() {
     if (!zoomRef.current || !svgRef.current) return;
-    const k  = screen.width / W;
+    const _iw2 = window.innerWidth;
+    const _bz2 = (_iw2 >= 600 && _iw2 <= 1180) ? 68 : 0;
+    const k  = (_iw2 - _bz2) / W;
     const vh = window.innerHeight;
     const live = d3.zoomTransform(svgRef.current);
     // Which SVG y is currently at the vertical centre of the viewport?
@@ -1363,8 +1365,11 @@ export default function App() {
 
   useEffect(() => {
     if (!svgRef.current) return;
+    const _iw = window.innerWidth;
+    const _bezel = (_iw >= 600 && _iw <= 1180) ? 68 : 0;
+    const _fitK = (_iw - _bezel) / W;
     const zoom = d3.zoom()
-      .scaleExtent([(window.innerWidth || screen.width) / W, 8])
+      .scaleExtent([_fitK, 8])
       .translateExtent([[0, 0], [W, H]])  // single copy, bounded
       // Only zoom on ctrl+wheel or pinch — regular scroll pans
       .filter(event => {
@@ -1394,7 +1399,7 @@ export default function App() {
     zoomRef.current = zoom;
     const svg = d3.select(svgRef.current);
     svg.call(zoom);
-    svg.call(zoom.transform, d3.zoomIdentity.translate(0, 0).scale(screen.width / W));
+    svg.call(zoom.transform, d3.zoomIdentity.translate(0, 0).scale(_fitK));
 
     // Regular scroll wheel → pan vertically
     const handleWheel = event => {
@@ -3290,6 +3295,48 @@ export default function App() {
           </div>
         </div>
       )}
+
+      {/* iPad right bezel — visible only via CSS on 600–1180px viewports */}
+      <div className="ipad-bezel" style={themeStyle ? { background: themeStyle.surface, borderLeftColor: themeStyle.border } : undefined}>
+        <button
+          className={`ipad-bezel-btn${grooveOpen ? ' open' : ''}`}
+          onClick={() => setGrooveOpen(v => !v)}
+          title="Groovebox"
+        >
+          <svg width="18" height="13" viewBox="0 0 20 14" fill="none">
+            {[0,1,2,3,4,5,6,7].map(i => (
+              <rect key={i} x={1+(i%4)*5} y={1+Math.floor(i/4)*7} width="3" height="5" rx="0.8"
+                fill="currentColor" opacity={[0,3,5].includes(i) ? 1 : 0.32} />
+            ))}
+          </svg>
+          GROOVE
+        </button>
+        <button
+          className={`ipad-bezel-btn${chatOpen ? ' open' : ''}`}
+          onClick={() => setChatOpen(v => !v)}
+          title="Chat"
+        >CHAT</button>
+        <div style={{ position: 'relative' }}>
+          <button
+            className={`ipad-bezel-btn${contactOpen ? ' open' : ''}`}
+            onClick={e => { e.stopPropagation(); setContactOpen(o => !o); }}
+            style={{ width: '100%' }}
+          >CONTACT</button>
+          {contactOpen && (
+            <div className="contact-dropdown contact-dropdown--bezel" onClick={e => e.stopPropagation()}>
+              <div className="contact-body">
+                Do you know an artist that should be part of the archive? Did you spot something that wasn't quite right? Reach out — I read everything and will make sure to fix it.
+              </div>
+              <a className="contact-email" href="mailto:electronicarchive@gmail.com">electronicarchive@gmail.com</a>
+            </div>
+          )}
+        </div>
+        <button
+          className="ipad-bezel-btn"
+          onClick={() => setOnboardStep('welcome')}
+          title="Relaunch intro"
+        >TOUR</button>
+      </div>
 
       <Groovebox open={grooveOpen} onClose={() => setGrooveOpen(false)} darkMode={darkMode} />
       <Chat ref={chatRef} open={chatOpen} onSelectNode={id => { selectNode(id); scrollToNode(id); }} darkMode={darkMode} />
