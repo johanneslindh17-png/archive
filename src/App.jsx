@@ -1068,6 +1068,8 @@ export default function App() {
   const tfRef = useRef({ k: 1, x: 0, y: 0 }); // always-current transform for click handlers
   const expandedRef = useRef(null);     // always-current expanded key for zoom end handler
   const hovNodeRef = useRef(null);      // always-current hovNode for click handlers (avoids nodeEls dep)
+  const isScrollingRef = useRef(false); // true during scroll — suppresses hover to stop hlIds toggling
+  const scrollEndTimerRef = useRef(null);
 
   const [searchFocus, setSearchFocus] = useState(false);
   const [searchActiveIdx, setSearchActiveIdx] = useState(-1);
@@ -1398,6 +1400,13 @@ export default function App() {
     const handleWheel = event => {
       if (event.ctrlKey) return; // let d3 handle ctrl+scroll zoom
       event.preventDefault();
+      // Suppress hover during scroll so hlIds stops toggling as nodes pass the cursor
+      if (!isScrollingRef.current) {
+        isScrollingRef.current = true;
+        startTransition(() => setHovNode(null));
+      }
+      clearTimeout(scrollEndTimerRef.current);
+      scrollEndTimerRef.current = setTimeout(() => { isScrollingRef.current = false; }, 150);
       svg.call(zoom.translateBy, 0, -event.deltaY * 0.8);
     };
     svgRef.current.addEventListener('wheel', handleWheel, { passive: false });
@@ -2055,6 +2064,7 @@ export default function App() {
           }
         }}
         onMouseEnter={ev => {
+          if (isScrollingRef.current) return;
           // Cancel any pending leave-cleanup so there's no blank frame between nodes
           clearTimeout(leaveTimerRef.current);
           if (!isDim) {
@@ -2215,6 +2225,7 @@ export default function App() {
           }
         }}
         onMouseLeave={() => {
+          if (isScrollingRef.current) return;
           // Defer cleanup — onMouseEnter of the next node will cancel this timer,
           // so hovering between adjacent nodes never produces a blank frame
           clearTimeout(leaveTimerRef.current);
