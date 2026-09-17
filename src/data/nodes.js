@@ -2545,11 +2545,13 @@ export const NODES = [
 
   // ── BERLIN — MINIMAL / DARK TECHNO ────────────────────────────────────────
   { id:'claudio_prc', label:'Claudio PRC', type:'artist', genre:'techno', era:2009, city:'Berlin', country:'DE',
-    desc:'Claudio PRC is a Sardinian-born producer and DJ based in Berlin. His music draws on Detroit techno and electroacoustic traditions, combining lean rhythmic structures with abstract sound design and industrial texture. He released a series of EPs on the Berlin label Prologue from 2009 onwards — including Clear Depths (2010), Vacuum Substance (2010), and Inner State (2012) — and has also appeared on Semantica Records and Stroboscopic Artefacts.',
+    desc:'Claudio PRC (Claudio Parietti) is a Sardinian-born producer and DJ based in Berlin. His music draws on Detroit techno and electroacoustic traditions, combining lean rhythmic structures with abstract sound design and industrial texture. He released on Prologue from 2009 — including Clear Depths (2010), Vacuum Substance (2010), and Inner State (2012) — and has appeared on Semantica Records, Stroboscopic Artefacts, and Kontra-Musik. He also founded his own PRC Music imprint.',
     releases: [
       { title: 'Clear Depths EP (Prologue)', year: 2010 },
       { title: 'Vacuum Substance EP (Prologue)', year: 2010 },
       { title: 'Inner State (Prologue)', year: 2012 },
+      { title: 'Noche EP (Prologue)', year: 2011 },
+      { title: 'Sensorama (Kontra-Musik)', year: 2014 },
     ], spotify:'5qbXOiqkhAk2GEvpkma7xj', },
 
   // ── GERMANY — HEIDELBERG / AMBIENT HOUSE ──────────────────────────────────
@@ -3617,12 +3619,6 @@ export const NODES = [
       { title:'Wandering EP (Prologue)', year:2011 },
     ], spotify:'0eJbmHgxsj8dXzpNrW6qeH', },
 
-  { id:'claudio_prc', label:'Claudio PRC', type:'artist', genre:'techno', era:2010, city:'Milan', country:'IT',
-    desc:'Claudio PRC (Claudio Parietti) is a Milan-based producer and DJ who has become one of Italy\'s most respected underground techno artists. His music is dark, industrial, and hypnotic — rooted in the harder end of the Italian rave tradition but with a distinctly contemporary minimalism. He has released on Prologue, Kontra-Musik, and Stroboscopic Artefacts, and founded his own PRC Music imprint. His career connects the Neapolitan intensity of the early Italian scene to the disciplined machine music of the Berlin school.',
-    releases:[
-      { title:'Noche EP (Prologue)', year:2011 },
-      { title:'Sensorama (Kontra-Musik)', year:2014 },
-    ], spotify:'3Eu4piMRhSbVpMFnPO5Tnl', },
 
   // ── DETROIT ADDITIONS ────────────────────────────────────────────────────
   { id:'omar_s', label:'Omar S', type:'artist', genre:'detroit', era:2004, city:'Detroit', country:'US',
