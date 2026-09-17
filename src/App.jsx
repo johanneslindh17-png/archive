@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback, useMemo, startTransition } from 'react';
+import { useState, useEffect, useRef, useCallback, useMemo, startTransition, useDeferredValue } from 'react';
 import { useSunMode } from './hooks/useSunMode.js';
 import { Groovebox } from './Groovebox.jsx';
 import { Chat } from './Chat.jsx';
@@ -1755,6 +1755,9 @@ export default function App() {
     return s;
   }, [pathHlIds, pathMode, focusId, logHlIds, visibleEdges]);
 
+  // Defer so nodeEls recompute never blocks a scroll paint frame
+  const deferredHlIds = useDeferredValue(hlIds);
+
   const hlEdges = useMemo(() => {
     if (pathHlEdges) return pathHlEdges;
     if (pathMode) return null;
@@ -1937,8 +1940,8 @@ export default function App() {
     const pos = getPos(n.id);
     if (!pos) return null;
     const isFilt = filteredIds.has(n.id);
-    const isHl = hlIds ? hlIds.has(n.id) : isFilt;
-    const isDim = (hlIds && !hlIds.has(n.id)) || (!hlIds && !isFilt);
+    const isHl = deferredHlIds ? deferredHlIds.has(n.id) : isFilt;
+    const isDim = (deferredHlIds && !deferredHlIds.has(n.id)) || (!deferredHlIds && !isFilt);
     const isSel = n.id === selected || n.id === pinned;
     const charW = 4.0, pad = 3;
     const isMoment  = n.type === 'moment';
@@ -2182,7 +2185,7 @@ export default function App() {
                 glowEl.setAttribute('ry', BH / 2 + 3);
                 glowEl.setAttribute('fill', `url(#${gradId})`);
                 glowEl.style.pointerEvents = 'none';
-                const nbIsDim = hlIds ? !hlIds.has(nbId) : false;
+                const nbIsDim = deferredHlIds ? !deferredHlIds.has(nbId) : false;
                 glowEl.classList.add('nd-glow-el', nbIsDim ? 'nd-glow-pulse' : 'nd-glow-static');
                 // Dim nodes are faded — put their glow in front so it's visible.
                 // Non-dim nodes get the glow behind as a backlight.
@@ -2255,7 +2258,7 @@ export default function App() {
         </g>
       </g>
     );
-  }), [positions, expandedPositions, expanded, filteredIds, hlIds, selected, darkMode, colorTheme, pathMode, setPathNodes, setPathStep, selectNode, scrollToNode]);
+  }), [positions, expandedPositions, expanded, filteredIds, deferredHlIds, selected, darkMode, colorTheme, pathMode, setPathNodes, setPathStep, selectNode, scrollToNode]);
 
   return (
     <div className="app">
@@ -2707,7 +2710,7 @@ export default function App() {
           startTransition(() => setHovNode(null));
         }}>
           <rect x={0} y={0} width="100%" height="100%" fill={themeStyle?.bg || (darkMode ? '#0c0c10' : '#ffffff')} onClick={() => { clearAll(); flyHome(); }} />
-          <g ref={svgGRef} style={{ transformOrigin: '0 0', willChange: 'transform' }}>
+          <g ref={svgGRef} style={{ transformOrigin: '0 0' }}>
 
             {/* Year grid */}
             <g>
