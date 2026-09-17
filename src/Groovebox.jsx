@@ -221,8 +221,8 @@ function noiseBuf(ctx, dur) {
   return buf;
 }
 
-function makeImpulse(ctx) {
-  const sr = ctx.sampleRate, len = Math.ceil(sr * 3.5);
+function makeImpulse(ctx, secs = 3.5) {
+  const sr = ctx.sampleRate, len = Math.ceil(sr * secs);
   const buf = ctx.createBuffer(2, len, sr);
   for (let ch = 0; ch < 2; ch++) {
     const d = buf.getChannelData(ch);
@@ -361,9 +361,11 @@ export function Groovebox({ open, onClose, darkMode }) {
     Object.fromEntries(ALL_IDS.map(id => [id, { ...DEFAULT_VPARAMS[id] }]))
   );
   const [automation,  setAutomation]  = useState(makeEmptyAuto);
-  const [masterFlt,   setMasterFlt]   = useState(1.0);
-  const [masterRvb,   setMasterRvb]   = useState(0.55);
-  const [masterDly,   setMasterDly]   = useState(0.55);
+  const [masterFlt,     setMasterFlt]     = useState(1.0);
+  const [masterRvb,     setMasterRvb]     = useState(0.65);
+  const [masterRvbTime, setMasterRvbTime] = useState(0.45);
+  const [masterDly,     setMasterDly]     = useState(0.65);
+  const [masterDlyTime, setMasterDlyTime] = useState(0.4);
   const [isRec,       setIsRec]       = useState(false);
   const [isCapturing, setIsCapturing] = useState(false);
   const [mp3Url,      setMp3Url]      = useState(null);
@@ -466,11 +468,20 @@ const nextTRef       = useRef(0);
     }
   }, [masterFlt]);
   useEffect(() => {
-    if (rvbWetRef.current) rvbWetRef.current.gain.setTargetAtTime(masterRvb * 0.85, 0, 0.02);
+    if (rvbWetRef.current) rvbWetRef.current.gain.setTargetAtTime(masterRvb * 1.1, 0, 0.02);
   }, [masterRvb]);
   useEffect(() => {
-    if (dlyWetRef.current) dlyWetRef.current.gain.setTargetAtTime(masterDly * 0.55, 0, 0.02);
+    if (dlyWetRef.current) dlyWetRef.current.gain.setTargetAtTime(masterDly * 0.85, 0, 0.02);
   }, [masterDly]);
+  useEffect(() => {
+    const conv = rvbNodeRef.current; if (!conv || !ctxRef.current) return;
+    const secs = 0.4 + masterRvbTime * 7;
+    conv.buffer = makeImpulse(ctxRef.current, secs);
+  }, [masterRvbTime]);
+  useEffect(() => {
+    const dly = dlyNodeRef.current; if (!dly) return;
+    dly.delayTime.setTargetAtTime(0.04 + masterDlyTime * 0.86, 0, 0.02);
+  }, [masterDlyTime]);
 
   // ── Scheduler ────────────────────────────────────────────────────────────
 
@@ -579,7 +590,7 @@ const dest = makeChain(ctx, t, vol * rv(id, 'vol', tvol[id]), rv(id, 'filter', t
       dly.connect(fb); fb.connect(dly); dly.connect(wet); wet.connect(master);
       dlyNodeRef.current = dly;
       dlyWetRef.current = wet;
-      const conv = ctx.createConvolver(); conv.buffer = makeImpulse(ctx);
+      const conv = ctx.createConvolver(); conv.buffer = makeImpulse(ctx, 0.4 + masterRvbTime * 7);
       const rg = ctx.createGain(); rg.gain.value = 0.85;
       conv.connect(rg); rg.connect(master);
       rvbNodeRef.current = conv;
@@ -982,14 +993,29 @@ const toggleDrum = useCallback((id, step) =>
           <span className="gv-param-lbl">FILT</span>
         </div>
         <div className="gv-master-sep" />
-        <div className="gv-master-knob">
-          <Knob value={masterRvb} onChange={setMasterRvb} />
-          <span className="gv-param-lbl">RVB</span>
+        <div className="gv-master-fx-pair">
+          <div className="gv-master-knob">
+            <Knob value={masterRvb} onChange={setMasterRvb} size={24} />
+            <span className="gv-param-lbl">SEND</span>
+          </div>
+          <div className="gv-master-knob">
+            <Knob value={masterRvbTime} onChange={setMasterRvbTime} size={24} />
+            <span className="gv-param-lbl">TIME</span>
+          </div>
         </div>
-        <div className="gv-master-knob">
-          <Knob value={masterDly} onChange={setMasterDly} />
-          <span className="gv-param-lbl">DLY</span>
+        <span className="gv-master-fx-label">RVB</span>
+        <div className="gv-master-fx-div" />
+        <div className="gv-master-fx-pair">
+          <div className="gv-master-knob">
+            <Knob value={masterDly} onChange={setMasterDly} size={24} />
+            <span className="gv-param-lbl">SEND</span>
+          </div>
+          <div className="gv-master-knob">
+            <Knob value={masterDlyTime} onChange={setMasterDlyTime} size={24} />
+            <span className="gv-param-lbl">TIME</span>
+          </div>
         </div>
+        <span className="gv-master-fx-label">DLY</span>
       </div>
 
       </div>{/* groove-bottom */}
