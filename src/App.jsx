@@ -549,6 +549,7 @@ export default function App() {
   const [pathMode, setPathMode] = useState(false);
   const [grooveOpen, setGrooveOpen] = useState(false);
   const [chatOpen,   setChatOpen]   = useState(false);
+  const [typePopOpen, setTypePopOpen] = useState(false);
   const chatRef = useRef(null);
   const [logOpen,    setLogOpen]    = useState(false);
   const [logHlDate,  setLogHlDate]  = useState(null);
@@ -1326,6 +1327,14 @@ export default function App() {
     document.addEventListener('click', close);
     return () => document.removeEventListener('click', close);
   }, [contactOpen]);
+
+  // Close node-type popup on outside click
+  useEffect(() => {
+    if (!typePopOpen) return;
+    const close = () => setTypePopOpen(false);
+    document.addEventListener('click', close);
+    return () => document.removeEventListener('click', close);
+  }, [typePopOpen]);
 
   // Zoom
   const zoomRef = useRef(null);
@@ -3029,7 +3038,12 @@ export default function App() {
         </div>
         {/* Node type filter — always visible, drives display + search */}
         <div className="statusbar-sep" />
-        <div className="sb-type-filter">
+        {/* iPad: compact toggle button that opens type filter as popup */}
+        <button
+          className={`sb-type-toggle${typePopOpen ? ' open' : ''}`}
+          onClick={e => { e.stopPropagation(); setTypePopOpen(v => !v); }}
+        >NODE TYPE</button>
+        <div className={`sb-type-filter${typePopOpen ? ' pop' : ''}`} onClick={e => e.stopPropagation()}>
           <span className="sb-type-label">Node type</span>
           {[
             { key: 'artist', label: 'Artist' },
@@ -3298,15 +3312,7 @@ export default function App() {
         </div>
       )}
 
-      {/* iPad right bezel — visible only on touch viewports via CSS */}
-      <div className="ipad-bezel" style={themeStyle ? { background: themeStyle.surface, borderLeftColor: themeStyle.border } : undefined}>
-        <button className={`ipad-bezel-btn${grooveOpen ? ' open' : ''}`} onClick={() => setGrooveOpen(v => !v)} title="Groovebox">GROOVE</button>
-        <button className={`ipad-bezel-btn${chatOpen ? ' open' : ''}`} onClick={() => setChatOpen(v => !v)} title="Chat">CHAT</button>
-        <button className={`ipad-bezel-btn${contactOpen ? ' open' : ''}`} onClick={e => { e.stopPropagation(); setContactOpen(o => !o); }} title="Contact">CONTACT</button>
-        <button className="ipad-bezel-btn" onClick={() => setOnboardStep('welcome')} title="Tour">TOUR</button>
-      </div>
-
-      <Groovebox open={grooveOpen} onClose={() => setGrooveOpen(false)} darkMode={darkMode} />
+<Groovebox open={grooveOpen} onClose={() => setGrooveOpen(false)} darkMode={darkMode} />
       <Chat ref={chatRef} open={chatOpen} onSelectNode={id => { selectNode(id); scrollToNode(id); }} darkMode={darkMode} />
     </div>
   );

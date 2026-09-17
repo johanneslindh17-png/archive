@@ -1304,57 +1304,50 @@ path.eg.dim{opacity:0.055}
   .statusbar::-webkit-scrollbar{display:none;}
 }
 
-/* ── iPad layout: slim right bezel, same single-row statusbar as desktop ─── */
-/* pointer:coarse = touch primary (finger/pencil) — excludes mouse desktops.
-   Covers all iPad sizes portrait+landscape (up to iPad Pro 12.9" landscape = 1366px). */
-.ipad-bezel{display:none;}
+/* ── iPad statusbar: compact single row, node-type popup ─────────────────── */
+/* sb-type-toggle hidden on desktop, visible on iPad (pointer:coarse). */
+.sb-type-toggle{display:none;}
 
 @media(min-width:600px) and (max-width:1400px) and (pointer:coarse){
-  /* Slim 40px bezel on right with rotated button labels */
-  .ipad-bezel{
-    display:flex;flex-direction:column;align-items:stretch;gap:3px;
-    position:fixed;right:0;top:62px;bottom:54px;
-    width:40px;z-index:50;
-    background:var(--tb-bg);border-left:1px solid var(--tb-border);
-    padding:6px 3px;
-  }
-  .ipad-bezel-btn{
-    flex:1;display:flex;align-items:center;justify-content:center;
-    min-height:0;padding:0;
-    border:1px solid var(--tb-border);background:transparent;
-    color:var(--tb-text-mid);cursor:pointer;border-radius:2px;
-    font-family:'Syne Mono',monospace;font-size:0.44rem;letter-spacing:0.1em;
-    text-transform:uppercase;transition:color 0.15s,background 0.15s;
-    writing-mode:vertical-rl;transform:rotate(180deg);
-  }
-  .ipad-bezel-btn:hover,.ipad-bezel-btn.open{color:var(--tb-text);background:var(--tb-hover);}
-
-  /* Statusbar: same single row as desktop, just add right padding for the bezel */
-  .statusbar{padding-right:40px !important;overflow-x:auto !important;flex-wrap:nowrap !important;}
-  .statusbar::-webkit-scrollbar{display:none;}
-
-  /* Hide NODE LOG and node/connection counts to free up room for player + type chips */
+  /* Hide NODE LOG and node/connection counts */
   .statusbar-item--log{display:none !important;}
   .statusbar-scroll .statusbar-item{display:none !important;}
-  /* Hide the leading separator that was next to the log/counts */
   .statusbar-scroll > .statusbar-sep:first-child{display:none !important;}
+  .statusbar-scroll > .statusbar-sep:nth-child(2){display:none !important;}
+  .statusbar-scroll > .statusbar-sep:nth-child(3){display:none !important;}
 
-  /* Hide the 4 buttons from statusbar-end — they live in the bezel now */
-  .statusbar-end .groove-ctrl-btn{display:none !important;}
-  .statusbar-end .tour-relaunch{display:none !important;}
-  .statusbar-end .sb-contact-wrap{display:none !important;}
-  .statusbar-end > .statusbar-sep:first-child{display:none !important;}
+  /* Compact player: hide artist name and extra links */
+  .player-name{display:none !important;}
+  .player-btn--show{display:none !important;}
+  .player-btn--bandcamp{display:none !important;}
+  .player-sep{display:none !important;}
 
-  /* Contact dropdown: clear the bezel */
-  .contact-dropdown{right:48px !important;}
+  /* Hide inline type chips; show the popup toggle button instead */
+  .sb-type-filter{display:none;}
+  .sb-type-filter.pop{
+    display:flex;flex-wrap:wrap;gap:8px;
+    position:fixed;bottom:58px;left:0;right:0;
+    background:var(--tb-bg);border-top:1px solid var(--tb-border);
+    padding:14px 16px;z-index:300;
+  }
+  .dark .sb-type-filter.pop{background:var(--tb-bg);}
+  .sb-type-toggle{
+    display:flex;align-items:center;
+    height:32px;padding:0 12px;
+    border:1px solid var(--tb-border);background:transparent;
+    color:var(--tb-text-mid);cursor:pointer;border-radius:2px;
+    font-family:'Syne Mono',monospace;font-size:0.52rem;letter-spacing:0.1em;
+    text-transform:uppercase;transition:color 0.15s,background 0.15s;flex-shrink:0;
+  }
+  .sb-type-toggle:hover,.sb-type-toggle.open{color:var(--tb-text);background:var(--tb-hover);}
+  .sb-type-label{display:none;}
 
-  /* Groovebox: compact step buttons + fit within available width */
+  /* Groovebox: compact step buttons, fit in viewport */
   .groove-step{width:26px;}
   .groove-step--synth{width:26px;}
-  .groove-steps{width:auto !important;gap:4px !important;flex-wrap:nowrap;}
+  .groove-steps{width:auto !important;gap:4px !important;}
   .groove-panel{
-    left:calc(50% - 20px) !important;
-    width:min(calc(100vw - 50px), 880px) !important;
+    width:min(calc(100vw - 16px), 880px) !important;
     overflow-x:auto;
   }
 }
