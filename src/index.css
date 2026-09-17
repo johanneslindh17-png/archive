@@ -1780,12 +1780,53 @@ path.eg.dim{opacity:0.055}
 .groove-panel:not(.dark) .gv-send-btn:hover { color: #9090d0; border-color: #5050a0; }
 
 /* ── Sequencer rows ── */
+.groove-bottom {
+  display: flex;
+  align-items: stretch;
+}
+
 .groove-seq {
-  padding: 7px 13px 9px;
+  padding: 7px 6px 9px 13px;
   display: flex;
   flex-direction: column;
   gap: 3px;
+  flex: 1;
+  min-width: 0;
 }
+
+/* Master FX vertical column */
+.gv-master {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px 10px;
+  border-left: 1px solid var(--tb-border);
+  width: 62px;
+  flex-shrink: 0;
+}
+.dark .gv-master { border-left-color: #1c1c26; }
+.gv-master-label {
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  color: #a0a0cc;
+  font-weight: 700;
+  text-align: center;
+  padding-bottom: 2px;
+}
+.gv-master-knob {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.gv-master-sep {
+  width: 100%;
+  height: 1px;
+  background: var(--tb-border);
+  margin: 2px 0;
+}
+.dark .gv-master-sep { background: #1e1e30; }
 
 .groove-seq-divider {
   height: 1px;

@@ -361,6 +361,9 @@ export function Groovebox({ open, onClose, darkMode }) {
     Object.fromEntries(ALL_IDS.map(id => [id, { ...DEFAULT_VPARAMS[id] }]))
   );
   const [automation,  setAutomation]  = useState(makeEmptyAuto);
+  const [masterFlt,   setMasterFlt]   = useState(1.0);
+  const [masterRvb,   setMasterRvb]   = useState(0.55);
+  const [masterDly,   setMasterDly]   = useState(0.55);
   const [isRec,       setIsRec]       = useState(false);
   const [isCapturing, setIsCapturing] = useState(false);
   const [mp3Url,      setMp3Url]      = useState(null);
@@ -373,10 +376,13 @@ const [seqLen,      setSeqLen]      = useState(16);
 
   // ── Refs ───────────────────────────────────────────────────────────────────
 
-  const ctxRef         = useRef(null);
-  const masterGainRef  = useRef(null);
-  const dlyNodeRef     = useRef(null);
-  const rvbNodeRef     = useRef(null);
+  const ctxRef             = useRef(null);
+  const masterGainRef      = useRef(null);
+  const masterFilterRef    = useRef(null);
+  const dlyNodeRef         = useRef(null);
+  const dlyWetRef          = useRef(null);
+  const rvbNodeRef         = useRef(null);
+  const rvbWetRef          = useRef(null);
   const schedRef       = useRef(null);
   const recProcRef     = useRef(null);
   const recChunksRef   = useRef([]);
@@ -443,6 +449,19 @@ const nextTRef       = useRef(0);
   const onDly         = useCallback((id) => setDlyLvl(p => ({ ...p, [id]: !p[id] })), []);
   const onRvb         = useCallback((id) => setRvbLvl(p => ({ ...p, [id]: !p[id] })), []);
   const onToggleMute  = useCallback((id) => setMuted(p => ({ ...p, [id]: !p[id] })), []);
+
+  // ── Master FX live updates ────────────────────────────────────────────────
+  useEffect(() => {
+    if (!masterFilterRef.current) return;
+    const hz = masterFlt >= 0.99 ? 18000 : 60 + Math.pow(masterFlt, 2) * 14000;
+    masterFilterRef.current.frequency.setTargetAtTime(hz, 0, 0.02);
+  }, [masterFlt]);
+  useEffect(() => {
+    if (rvbWetRef.current) rvbWetRef.current.gain.setTargetAtTime(masterRvb * 0.85, 0, 0.02);
+  }, [masterRvb]);
+  useEffect(() => {
+    if (dlyWetRef.current) dlyWetRef.current.gain.setTargetAtTime(masterDly * 0.55, 0, 0.02);
+  }, [masterDly]);
 
   // ── Scheduler ────────────────────────────────────────────────────────────
 
@@ -541,17 +560,21 @@ const dest = makeChain(ctx, t, vol * rv(id, 'vol', tvol[id]), rv(id, 'filter', t
       const ctx = new (window.AudioContext || window.webkitAudioContext)();
       ctxRef.current = ctx;
       const master = ctx.createGain(); master.gain.value = 1;
-      master.connect(ctx.destination);
+      const mflt = ctx.createBiquadFilter(); mflt.type = 'lowpass'; mflt.frequency.value = 18000; mflt.Q.value = 0.5;
+      master.connect(mflt); mflt.connect(ctx.destination);
       masterGainRef.current = master;
+      masterFilterRef.current = mflt;
       const dly = ctx.createDelay(2.5); dly.delayTime.value = (60 / bpmR.current) / 4;
       const fb = ctx.createGain(); fb.gain.value = 0.55;
       const wet = ctx.createGain(); wet.gain.value = 0.55;
       dly.connect(fb); fb.connect(dly); dly.connect(wet); wet.connect(master);
       dlyNodeRef.current = dly;
+      dlyWetRef.current = wet;
       const conv = ctx.createConvolver(); conv.buffer = makeImpulse(ctx);
       const rg = ctx.createGain(); rg.gain.value = 0.85;
       conv.connect(rg); rg.connect(master);
       rvbNodeRef.current = conv;
+      rvbWetRef.current = rg;
     }
     const ctx = ctxRef.current;
     if (ctx.state === 'suspended') ctx.resume();
@@ -877,6 +900,7 @@ const toggleDrum = useCallback((id, step) =>
         ))}
       </div>
 
+      <div className="groove-bottom">
       <div className={`groove-seq${seqLen === 32 ? ' mode-32' : ''}`}>
         {DRUM_TRACKS.map(t => (
           <div key={t.id} className="groove-row">
@@ -940,6 +964,26 @@ const toggleDrum = useCallback((id, step) =>
           </div>
         ))}
       </div>
+
+      {/* Master FX column */}
+      <div className="gv-master">
+        <div className="gv-master-label">MASTER</div>
+        <div className="gv-master-knob">
+          <Knob value={masterFlt} onChange={setMasterFlt} />
+          <span className="gv-param-lbl">FILT</span>
+        </div>
+        <div className="gv-master-sep" />
+        <div className="gv-master-knob">
+          <Knob value={masterRvb} onChange={setMasterRvb} />
+          <span className="gv-param-lbl">RVB</span>
+        </div>
+        <div className="gv-master-knob">
+          <Knob value={masterDly} onChange={setMasterDly} />
+          <span className="gv-param-lbl">DLY</span>
+        </div>
+      </div>
+
+      </div>{/* groove-bottom */}
 
     </div>
     {activePopup && (
