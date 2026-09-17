@@ -3173,7 +3173,7 @@ export default function App() {
               {`${Math.max(0, TRIAL_LIMIT - trialCount)} views`}
             </span>
           )}
-          <div style={{ position: 'relative' }}>
+          <div className="sb-contact-wrap" style={{ position: 'relative' }}>
             <button className="trial-counter" onClick={e => { e.stopPropagation(); setContactOpen(o => !o); }}>contact</button>
             {contactOpen && (
               <div className="contact-dropdown" onClick={e => e.stopPropagation()}>
@@ -3298,46 +3298,12 @@ export default function App() {
         </div>
       )}
 
-      {/* iPad right bezel — visible only via CSS on 600–1180px viewports */}
+      {/* iPad right bezel — visible only on touch viewports via CSS */}
       <div className="ipad-bezel" style={themeStyle ? { background: themeStyle.surface, borderLeftColor: themeStyle.border } : undefined}>
-        <button
-          className={`ipad-bezel-btn${grooveOpen ? ' open' : ''}`}
-          onClick={() => setGrooveOpen(v => !v)}
-          title="Groovebox"
-        >
-          <svg width="18" height="13" viewBox="0 0 20 14" fill="none">
-            {[0,1,2,3,4,5,6,7].map(i => (
-              <rect key={i} x={1+(i%4)*5} y={1+Math.floor(i/4)*7} width="3" height="5" rx="0.8"
-                fill="currentColor" opacity={[0,3,5].includes(i) ? 1 : 0.32} />
-            ))}
-          </svg>
-          GROOVE
-        </button>
-        <button
-          className={`ipad-bezel-btn${chatOpen ? ' open' : ''}`}
-          onClick={() => setChatOpen(v => !v)}
-          title="Chat"
-        >CHAT</button>
-        <div style={{ position: 'relative' }}>
-          <button
-            className={`ipad-bezel-btn${contactOpen ? ' open' : ''}`}
-            onClick={e => { e.stopPropagation(); setContactOpen(o => !o); }}
-            style={{ width: '100%' }}
-          >CONTACT</button>
-          {contactOpen && (
-            <div className="contact-dropdown contact-dropdown--bezel" onClick={e => e.stopPropagation()}>
-              <div className="contact-body">
-                Do you know an artist that should be part of the archive? Did you spot something that wasn't quite right? Reach out — I read everything and will make sure to fix it.
-              </div>
-              <a className="contact-email" href="mailto:electronicarchive@gmail.com">electronicarchive@gmail.com</a>
-            </div>
-          )}
-        </div>
-        <button
-          className="ipad-bezel-btn"
-          onClick={() => setOnboardStep('welcome')}
-          title="Relaunch intro"
-        >TOUR</button>
+        <button className={`ipad-bezel-btn${grooveOpen ? ' open' : ''}`} onClick={() => setGrooveOpen(v => !v)} title="Groovebox">GROOVE</button>
+        <button className={`ipad-bezel-btn${chatOpen ? ' open' : ''}`} onClick={() => setChatOpen(v => !v)} title="Chat">CHAT</button>
+        <button className={`ipad-bezel-btn${contactOpen ? ' open' : ''}`} onClick={e => { e.stopPropagation(); setContactOpen(o => !o); }} title="Contact">CONTACT</button>
+        <button className="ipad-bezel-btn" onClick={() => setOnboardStep('welcome')} title="Tour">TOUR</button>
       </div>
 
       <Groovebox open={grooveOpen} onClose={() => setGrooveOpen(false)} darkMode={darkMode} />

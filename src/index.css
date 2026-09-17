@@ -1304,70 +1304,58 @@ path.eg.dim{opacity:0.055}
   .statusbar::-webkit-scrollbar{display:none;}
 }
 
-/* ── iPad layout: right bezel + 2-row statusbar ─────────────────────────── */
-/* pointer:coarse = touch primary (finger/pencil), excludes mouse-driven desktops.
-   max-width:1400px keeps out very large monitors on the off chance touch is reported. */
+/* ── iPad layout: slim right bezel, same single-row statusbar as desktop ─── */
+/* pointer:coarse = touch primary (finger/pencil) — excludes mouse desktops.
+   Covers all iPad sizes portrait+landscape (up to iPad Pro 12.9" landscape = 1366px). */
 .ipad-bezel{display:none;}
 
 @media(min-width:600px) and (max-width:1400px) and (pointer:coarse){
-  /* Show right bezel */
+  /* Slim 40px bezel on right with rotated button labels */
   .ipad-bezel{
     display:flex;flex-direction:column;align-items:stretch;gap:3px;
-    position:fixed;right:0;top:62px;bottom:108px;
-    width:68px;z-index:50;
+    position:fixed;right:0;top:62px;bottom:54px;
+    width:40px;z-index:50;
     background:var(--tb-bg);border-left:1px solid var(--tb-border);
-    padding:8px 5px;
+    padding:6px 3px;
   }
-  .dark .ipad-bezel{background:var(--tb-bg);border-left-color:var(--tb-border);}
   .ipad-bezel-btn{
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    gap:5px;padding:8px 2px;min-height:52px;
+    flex:1;display:flex;align-items:center;justify-content:center;
+    min-height:0;padding:0;
     border:1px solid var(--tb-border);background:transparent;
     color:var(--tb-text-mid);cursor:pointer;border-radius:2px;
-    font-family:'Syne Mono',monospace;font-size:0.48rem;letter-spacing:0.1em;
-    text-transform:uppercase;transition:color 0.15s,background 0.15s;flex-shrink:0;
+    font-family:'Syne Mono',monospace;font-size:0.44rem;letter-spacing:0.1em;
+    text-transform:uppercase;transition:color 0.15s,background 0.15s;
+    writing-mode:vertical-rl;transform:rotate(180deg);
   }
   .ipad-bezel-btn:hover,.ipad-bezel-btn.open{color:var(--tb-text);background:var(--tb-hover);}
-  .ipad-bezel-btn svg{flex-shrink:0;}
 
-  /* Override the existing tablet overflow rule */
-  .statusbar{
-    overflow:visible !important;flex-wrap:wrap !important;
-    padding:0 68px 0 0 !important;min-height:auto !important;gap:0 !important;
-  }
+  /* Statusbar: same single row as desktop, just add right padding for the bezel */
+  .statusbar{padding-right:40px !important;overflow-x:auto !important;flex-wrap:nowrap !important;}
   .statusbar::-webkit-scrollbar{display:none;}
 
-  /* Hide non-essential statusbar pieces */
+  /* Hide NODE LOG and node/connection counts to free up room for player + type chips */
   .statusbar-item--log{display:none !important;}
-  .statusbar-end{display:none !important;}
-  .statusbar-scroll .statusbar-sep{display:none !important;}
   .statusbar-scroll .statusbar-item{display:none !important;}
-  .statusbar-scroll .player-sep{display:none !important;}
+  /* Hide the leading separator that was next to the log/counts */
+  .statusbar-scroll > .statusbar-sep:first-child{display:none !important;}
 
-  /* Scroll container: full width, wraps rows */
-  .statusbar-scroll{
-    flex:0 0 100% !important;width:100% !important;
-    overflow:visible !important;flex-wrap:wrap !important;
-    padding:0 12px !important;gap:0 !important;
-    align-content:flex-start;
-  }
+  /* Hide the 4 buttons from statusbar-end — they live in the bezel now */
+  .statusbar-end .groove-ctrl-btn{display:none !important;}
+  .statusbar-end .tour-relaunch{display:none !important;}
+  .statusbar-end .sb-contact-wrap{display:none !important;}
+  .statusbar-end > .statusbar-sep:first-child{display:none !important;}
 
-  /* Row 1: node type chips */
-  .sb-type-filter{
-    flex:0 0 100%;width:100%;
-    padding:5px 0 4px;border-bottom:1px solid var(--tb-border);
-  }
+  /* Contact dropdown: clear the bezel */
+  .contact-dropdown{right:48px !important;}
 
-  /* Row 2: inline player */
-  .player-inline{flex:0 0 100%;width:100%;padding:3px 0;}
-
-  /* Contact dropdown: shift left of bezel */
-  .contact-dropdown{right:76px !important;bottom:120px !important;}
-
-  /* Groove panel: clear the 2-row statusbar */
+  /* Groovebox: compact step buttons + fit within available width */
+  .groove-step{width:26px;}
+  .groove-step--synth{width:26px;}
+  .groove-steps{width:auto !important;gap:4px !important;flex-wrap:nowrap;}
   .groove-panel{
-    bottom:128px !important;
-    max-height:calc(100vh - 62px - 128px - 20px) !important;
+    left:calc(50% - 20px) !important;
+    width:min(calc(100vw - 50px), 880px) !important;
+    overflow-x:auto;
   }
 }
 .tour-v2-next:hover{opacity:0.85;}
