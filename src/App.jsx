@@ -1403,6 +1403,12 @@ export default function App() {
       // Suppress hover during scroll so hlIds stops toggling as nodes pass the cursor
       if (!isScrollingRef.current) {
         isScrollingRef.current = true;
+        // Synchronously tear down hover DOM visuals before the next paint
+        clearTimeout(leaveTimerRef.current);
+        marchOverlayRef.current.forEach(el => el.parentNode?.removeChild(el));
+        marchOverlayRef.current = [];
+        hovPrevRef.current.forEach(({ el }) => el.classList.remove('hov-self', 'hov-prev'));
+        hovPrevRef.current = [];
         startTransition(() => setHovNode(null));
       }
       clearTimeout(scrollEndTimerRef.current);
