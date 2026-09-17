@@ -78,7 +78,7 @@ const DRUM_TRACKS  = [
   { id: 'clap',  label: 'CLAP'  }, { id: 'hh_c',  label: 'HH'    },
   { id: 'hh_o',  label: 'OPEN'  }, { id: 'perc',  label: 'PERC'  },
 ];
-const SYNTH_TRACKS = [{ id: 'bass', label: 'BASS' }, { id: 'lead', label: 'LEAD' }];
+const SYNTH_TRACKS = [{ id: 'bass', label: 'BASS' }, { id: 'lead', label: 'LEAD' }, { id: 'pad', label: 'PAD' }];
 const ALL_TRACKS   = [...DRUM_TRACKS, ...SYNTH_TRACKS];
 const ALL_IDS      = ALL_TRACKS.map(t => t.id);
 const STEPS        = 16;
@@ -96,6 +96,7 @@ const VOICE_PARAMS = {
   perc:  [{ key: 'pitch', label: 'PITCH' }, { key: 'decay', label: 'DECAY' }],
   bass:  [{ key: 'att', label: 'ATT' }, { key: 'dec', label: 'DEC' }, { key: 'sus', label: 'SUS' }, { key: 'rel', label: 'REL' }],
   lead:  [{ key: 'att', label: 'ATT' }, { key: 'dec', label: 'DEC' }, { key: 'sus', label: 'SUS' }, { key: 'rel', label: 'REL' }],
+  pad:   [{ key: 'att', label: 'ATT' }, { key: 'dec', label: 'DEC' }, { key: 'sus', label: 'SUS' }, { key: 'rel', label: 'REL' }],
 };
 
 const DEFAULT_VPARAMS = {
@@ -107,6 +108,7 @@ const DEFAULT_VPARAMS = {
   perc:  { pitch: 0.5, decay: 0.4  },
   bass:  { att: 0.02, dec: 0.2, sus: 0.55, rel: 0.15, res: 0.1  },
   lead:  { att: 0.01, dec: 0.1, sus: 0.6,  rel: 0.12, res: 0.15 },
+  pad:   { att: 0.4,  dec: 0.3, sus: 0.8,  rel: 0.6,  res: 0.05 },
 };
 
 function midiToNote(midi) {
@@ -121,7 +123,7 @@ function makeEmptyDrums(len = STEPS) {
   return Object.fromEntries(DRUM_TRACKS.map(t => [t.id, new Array(len).fill(0)]));
 }
 function makeEmptySynth(len = STEPS) {
-  return { bass: new Array(len).fill(null), lead: new Array(len).fill(null) };
+  return { bass: new Array(len).fill(null), lead: new Array(len).fill(null), pad: new Array(len).fill(null) };
 }
 function makeVMap(val) {
   return Object.fromEntries(ALL_IDS.map(id => [id, val]));
@@ -519,6 +521,11 @@ const dest = makeChain(ctx, t, vol * rv(id, 'vol', tvol[id]), rv(id, 'filter', t
         const notes = sth.lead[s];
         const nv = vol * rv('lead', 'vol', tvol.lead) * 0.6 / notes.length;
         notes.forEach(midi => makeSynthVoice(ctx, midi, 'square', t, bpm, nv, getVp('lead'), rv('lead', 'filter', tflt.lead), rv('lead', 'pan', tpan.lead), dn, rn, dly.lead, rvb.lead, mg));
+      }
+      if (!mut.pad && sth.pad[s] && (prb.pad >= 1 || Math.random() <= prb.pad)) {
+        const notes = sth.pad[s];
+        const nv = vol * rv('pad', 'vol', tvol.pad) * 0.5 / notes.length;
+        notes.forEach(midi => makeSynthVoice(ctx, midi, 'triangle', t, bpm, nv, getVp('pad'), rv('pad', 'filter', tflt.pad), rv('pad', 'pan', tpan.pad), dn, rn, dly.pad, rvb.pad, mg));
       }
 
       playingStepRef.current = s;

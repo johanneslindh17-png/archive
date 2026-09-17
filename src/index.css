@@ -1332,8 +1332,8 @@ path.eg.dim{opacity:0.055}
   position: fixed;
   bottom: 74px;
   left: 50%;
-  /* 40px steps: 13+51(label)+6 + (16×40+24+18) + 6+36(prob)+13 = 807px */
-  width: min(97vw, 810px);
+  /* 40px steps: 13+51(label)+6 + (16×40+24+18) + 6+36(prob)+13 = 807px + ~70px for 3rd synth col */
+  width: min(97vw, 880px);
   max-height: calc(100vh - 62px - 74px - 20px);
   overflow-y: auto;
   scrollbar-width: none;
