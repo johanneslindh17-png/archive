@@ -232,6 +232,12 @@ export const NODE_CHANGELOG = [
   { id: 'throbbing_gristle',    label: 'Throbbing Gristle',        date: '2026-08-31' },
   { id: 'front_242',            label: 'Front 242',                date: '2026-08-31' },
 
+  // 2026-09-19
+  { id: 'eddy_de_clercq',       label: 'Eddy de Clercq',          date: '2026-09-19' },
+  { id: 'club_roxy',            label: 'RoXY',                    date: '2026-09-19' },
+  { id: 'bluetiek_in',          label: 'BlueTiek-In',             date: '2026-09-19' },
+  { id: 'peter_slaghuis',       label: 'Peter Slaghuis',          date: '2026-09-19' },
+
   // 2026-08-15
   { id: 'dc10',                 label: 'DC-10',                    date: '2026-08-15' },
   { id: 'circoloco',            label: 'Circoloco',                date: '2026-08-15' },

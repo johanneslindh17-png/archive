@@ -3296,4 +3296,18 @@
   { from:'chicago_scene',   to:'mark_farina',           strength:3, type:'lineage' },
   { from:'derrick_carter',  to:'mark_farina',           strength:3, type:'collaboration' },
   { from:'dj_sneak',        to:'mark_farina',           strength:2, type:'aesthetic' },
+
+  // -- EDDY DE CLERCQ + CLUB ROXY -------------------------------------------
+  { from:'chicago_scene',   to:'eddy_de_clercq',        strength:2, type:'influence' },
+  { from:'eddy_de_clercq',  to:'club_roxy',             strength:3, type:'lineage' },
+  { from:'club_roxy',       to:'trouw',                 strength:2, type:'lineage' },
+  { from:'club_roxy',       to:'ade',                   strength:2, type:'lineage' },
+  { from:'eddy_de_clercq',  to:'ade',                   strength:2, type:'lineage' },
+
+  // -- BLUETIEK-IN + PETER SLAGHUIS -----------------------------------------
+  { from:'chicago_scene',   to:'bluetiek_in',           strength:2, type:'influence' },
+  { from:'chicago_scene',   to:'peter_slaghuis',        strength:2, type:'influence' },
+  { from:'peter_slaghuis',  to:'bluetiek_in',           strength:3, type:'lineage' },
+  { from:'bluetiek_in',     to:'perron',                strength:2, type:'lineage' },
+  { from:'bluetiek_in',     to:'ade',                   strength:1, type:'aesthetic' },
 ];
