@@ -3181,7 +3181,7 @@ export default function App() {
             style={{ fontSize: '0.7rem', letterSpacing: '0.06em', padding: '0 8px', fontFamily: 'inherit' }}
           >CHAT</button>
           <div className="statusbar-sep" />
-          <button className="trial-counter" onClick={() => setPaywallOpen(true)}>support the archive</button>
+          <button className="trial-counter" onClick={() => setPaywallOpen(true)}>♥ support the archive</button>
           {!unlocked && (
             <span className="trial-counter" onClick={() => setPaywallOpen(true)}>
               {`${Math.max(0, TRIAL_LIMIT - trialCount)} views`}
