@@ -1363,6 +1363,8 @@ path.eg.dim{opacity:0.055}
   .statusbar-scroll { gap: 8px; }
   .sb-type-filter { zoom: 0.88; }
   .statusbar-end { zoom: 0.88; }
+  /* Info panel */
+  .dp { zoom: 0.88; }
   /* Groovebox */
   .groove-panel { zoom: 0.88; }
 }
@@ -1373,6 +1375,7 @@ path.eg.dim{opacity:0.055}
   .statusbar-scroll { gap: 5px; }
   .sb-type-filter { zoom: 0.78; }
   .statusbar-end { zoom: 0.78; }
+  .dp { zoom: 0.78; }
   .groove-panel { zoom: 0.76; }
 }
 
