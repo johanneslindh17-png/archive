@@ -567,8 +567,8 @@ const dest = makeChain(ctx, t, vol * rv(id, 'vol', tvol[id]), rv(id, 'filter', t
         notes.forEach(midi => makeSynthVoice(ctx, midi, 'triangle', t, bpm, nv, getVp('pad'), rv('pad', 'filter', tflt.pad), rv('pad', 'pan', tpan.pad), dn, rn, dly.pad, rvb.pad, mg));
       }
 
-      playingStepRef.current = s;
-      setStepR.current(s);
+      const visualDelay = Math.max(0, (t - ctx.currentTime) * 1000);
+      setTimeout(() => { playingStepRef.current = s; setStepR.current(s); }, visualDelay);
       nextTRef.current += (60 / bpm) / 4;
       stepRef.current = (s + 1) % seqLenRef.current;
     }
