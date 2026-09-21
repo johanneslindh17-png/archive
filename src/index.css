@@ -1353,6 +1353,19 @@ path.eg.dim{opacity:0.055}
 }
 .tour-v2-next:hover{opacity:0.85;}
 
+/* ── Groovebox: scale down on smaller desktop screens (pointer:fine) ─────── */
+/* zoom scales the whole panel and all its children proportionally.            */
+/* pointer:fine excludes iPad/touch which has its own compact layout above.    */
+@media (max-width: 1440px) and (pointer: fine) {
+  .groove-panel { zoom: 0.88; }
+}
+@media (max-width: 1250px) and (pointer: fine) {
+  .groove-panel { zoom: 0.76; }
+}
+@media (max-width: 1050px) and (pointer: fine) {
+  .groove-panel { zoom: 0.66; }
+}
+
 /* ── Groovebox ───────────────────────────────────────────────────────────────*/
 .groove-trigger {
   position: fixed;
