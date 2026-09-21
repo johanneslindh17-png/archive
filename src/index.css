@@ -1353,15 +1353,30 @@ path.eg.dim{opacity:0.055}
 }
 .tour-v2-next:hover{opacity:0.85;}
 
-/* ── Groovebox: scale down on smaller desktop screens (pointer:fine) ─────── */
-/* zoom scales the whole panel and all its children proportionally.            */
-/* pointer:fine excludes iPad/touch which has its own compact layout above.    */
+/* ── Statusbar + Groovebox: scale on smaller desktop screens (pointer:fine) ── */
+/* pointer:fine excludes iPad/touch which has its own compact layout.           */
+
+/* 1440px — small/medium laptop */
 @media (max-width: 1440px) and (pointer: fine) {
+  /* Statusbar: shrink text + gaps; zoom the fixed-size sections (chips, buttons) */
+  .statusbar { font-size: 0.47rem; padding: 0 12px; }
+  .statusbar-scroll { gap: 8px; }
+  .sb-type-filter { zoom: 0.88; }
+  .statusbar-end { zoom: 0.88; }
+  /* Groovebox */
   .groove-panel { zoom: 0.88; }
 }
-@media (max-width: 1250px) and (pointer: fine) {
+
+/* 1280px — 13-14" laptop */
+@media (max-width: 1280px) and (pointer: fine) {
+  .statusbar { font-size: 0.43rem; padding: 0 8px; }
+  .statusbar-scroll { gap: 5px; }
+  .sb-type-filter { zoom: 0.78; }
+  .statusbar-end { zoom: 0.78; }
   .groove-panel { zoom: 0.76; }
 }
+
+/* 1050px — very small */
 @media (max-width: 1050px) and (pointer: fine) {
   .groove-panel { zoom: 0.66; }
 }
