@@ -1353,6 +1353,10 @@ path.eg.dim{opacity:0.055}
 }
 .tour-v2-next:hover{opacity:0.85;}
 
+/* ── Modals: never overflow on short screens ─────────────────────────────── */
+.paywall-modal { max-height: calc(100dvh - 40px); overflow-y: auto; }
+.onboard-modal { max-height: calc(100dvh - 40px); overflow-y: auto; }
+
 /* ── Statusbar + Groovebox: scale on smaller desktop screens (pointer:fine) ── */
 /* pointer:fine excludes iPad/touch which has its own compact layout.           */
 
@@ -1379,9 +1383,31 @@ path.eg.dim{opacity:0.055}
   .groove-panel { zoom: 0.76; }
 }
 
+/* 1150px — intermediate step to avoid abrupt jump to 0.66 at 1050px */
+@media (max-width: 1150px) and (pointer: fine) {
+  .statusbar { font-size: 0.41rem; padding: 0 6px; }
+  .statusbar-scroll { gap: 4px; }
+  .sb-type-filter { zoom: 0.72; }
+  .statusbar-end { zoom: 0.72; }
+  .dp { zoom: 0.72; }
+  .groove-panel { zoom: 0.70; }
+}
+
 /* 1050px — very small */
 @media (max-width: 1050px) and (pointer: fine) {
-  .groove-panel { zoom: 0.66; }
+  .groove-panel { zoom: 0.64; }
+  .dp { zoom: 0.66; }
+}
+
+/* Short viewport on wide screens (≥1280px): apply slight extra reduction */
+@media (min-width: 1280px) and (max-height: 820px) and (pointer: fine) {
+  .groove-panel { zoom: 0.82; }
+  .dp { zoom: 0.82; }
+}
+/* 13" Mac sweet spot: ~1280px wide × ~800px tall — both narrow AND short */
+@media (min-width: 1150px) and (max-width: 1280px) and (max-height: 820px) and (pointer: fine) {
+  .groove-panel { zoom: 0.70; }
+  .dp { zoom: 0.72; }
 }
 
 /* ── Groovebox ───────────────────────────────────────────────────────────────*/
