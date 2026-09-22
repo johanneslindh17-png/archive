@@ -1326,9 +1326,12 @@ path.eg.dim{opacity:0.055}
   .sb-type-filter{display:none;}
   .sb-type-filter.pop{
     display:flex;flex-wrap:wrap;gap:8px;
-    position:fixed;bottom:58px;left:0;right:0;
-    background:var(--tb-bg);border-top:1px solid var(--tb-border);
+    position:fixed;bottom:calc(54px + env(safe-area-inset-bottom,0px));left:0;right:0;
+    background:var(--tb-bg);
+    border-top:1px solid var(--tb-border);
+    border-bottom:1px solid var(--tb-border);
     padding:14px 16px;z-index:300;
+    box-shadow:0 -4px 16px rgba(0,0,0,0.07);
   }
   .dark .sb-type-filter.pop{background:var(--tb-bg);}
   .sb-type-toggle{

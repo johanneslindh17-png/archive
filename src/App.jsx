@@ -1389,7 +1389,19 @@ export default function App() {
       })
       // During pointer drag: disable topbar pointer-events so the stray synthetic
       // click that fires on pointer-capture release can never hit a topbar button.
-      .on('start', () => { document.body.classList.add('svg-dragging'); })
+      // Also clear any stuck hover overlays (touch-pan never fires onMouseLeave).
+      .on('start', () => {
+        document.body.classList.add('svg-dragging');
+        if (!isScrollingRef.current) {
+          isScrollingRef.current = true;
+          clearTimeout(leaveTimerRef.current);
+          marchOverlayRef.current.forEach(el => el.parentNode?.removeChild(el));
+          marchOverlayRef.current = [];
+          hovPrevRef.current.forEach(({ el }) => el.classList.remove('hov-self', 'hov-prev'));
+          hovPrevRef.current = [];
+          startTransition(() => setHovNode(null));
+        }
+      })
       .on('zoom', e => {
         // Always update the DOM directly — d3 owns the <g> transform, not React
         if (svgGRef.current) {
@@ -1405,7 +1417,10 @@ export default function App() {
       .on('end', () => {
         // Keep topbar locked briefly so the stray click (which fires async after
         // pointer-capture release) is still swallowed by the CSS block.
-        setTimeout(() => document.body.classList.remove('svg-dragging'), 80);
+        setTimeout(() => {
+          document.body.classList.remove('svg-dragging');
+          isScrollingRef.current = false;
+        }, 150);
       });
     zoomRef.current = zoom;
     const svg = d3.select(svgRef.current);
