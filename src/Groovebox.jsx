@@ -11,17 +11,18 @@ function Knob({ value, onChange, size = 32 }) {
   const lx = cx + Math.sin(rad) * len;
   const ly = cy - Math.cos(rad) * len;
 
-  function onMouseDown(e) {
+  function onPointerDown(e) {
     e.preventDefault();
+    e.currentTarget.setPointerCapture(e.pointerId);
     const startY = e.clientY, startVal = value;
     const onMove = ev => onChange(Math.max(0, Math.min(1, startVal + (startY - ev.clientY) / 80)));
-    const onUp   = () => { document.removeEventListener('mousemove', onMove); document.removeEventListener('mouseup', onUp); };
-    document.addEventListener('mousemove', onMove);
-    document.addEventListener('mouseup', onUp);
+    const onUp   = () => { document.removeEventListener('pointermove', onMove); document.removeEventListener('pointerup', onUp); };
+    document.addEventListener('pointermove', onMove);
+    document.addEventListener('pointerup', onUp);
   }
 
   return (
-    <svg width={size} height={size} className="gv-knob" onMouseDown={onMouseDown}>
+    <svg width={size} height={size} className="gv-knob" onPointerDown={onPointerDown} style={{ touchAction: 'none' }}>
       <circle cx={cx} cy={cy} r={r} className="gv-knob-body" />
       <line   x1={cx} y1={cy} x2={lx} y2={ly} className="gv-knob-line" />
     </svg>
@@ -31,16 +32,17 @@ function Knob({ value, onChange, size = 32 }) {
 // ── Vertical fader ────────────────────────────────────────────────────────────
 
 function VFader({ value, onChange }) {
-  function onMouseDown(e) {
+  function onPointerDown(e) {
     e.preventDefault();
+    e.currentTarget.setPointerCapture(e.pointerId);
     const rect = e.currentTarget.querySelector('.gv-fader-track').getBoundingClientRect();
     const onMove = ev => onChange(Math.max(0, Math.min(1, 1 - (ev.clientY - rect.top) / rect.height)));
-    const onUp   = () => { document.removeEventListener('mousemove', onMove); document.removeEventListener('mouseup', onUp); };
-    document.addEventListener('mousemove', onMove);
-    document.addEventListener('mouseup', onUp);
+    const onUp   = () => { document.removeEventListener('pointermove', onMove); document.removeEventListener('pointerup', onUp); };
+    document.addEventListener('pointermove', onMove);
+    document.addEventListener('pointerup', onUp);
   }
   return (
-    <div className="gv-fader" onMouseDown={onMouseDown}>
+    <div className="gv-fader" onPointerDown={onPointerDown} style={{ touchAction: 'none' }}>
       <div className="gv-fader-track">
         <div className="gv-fader-fill" style={{ height: `${value * 100}%` }} />
         <div className="gv-fader-thumb" style={{ bottom: `${value * 100}%` }} />
@@ -53,16 +55,17 @@ function VFader({ value, onChange }) {
 // ── Vertical slider (ADSR) ────────────────────────────────────────────────────
 
 function VSlider({ value, onChange, label }) {
-  function onMouseDown(e) {
+  function onPointerDown(e) {
     e.preventDefault();
+    e.currentTarget.setPointerCapture(e.pointerId);
     const rect = e.currentTarget.querySelector('.gv-vslider-track').getBoundingClientRect();
     const onMove = ev => onChange(Math.max(0, Math.min(1, 1 - (ev.clientY - rect.top) / rect.height)));
-    const onUp   = () => { document.removeEventListener('mousemove', onMove); document.removeEventListener('mouseup', onUp); };
-    document.addEventListener('mousemove', onMove);
-    document.addEventListener('mouseup', onUp);
+    const onUp   = () => { document.removeEventListener('pointermove', onMove); document.removeEventListener('pointerup', onUp); };
+    document.addEventListener('pointermove', onMove);
+    document.addEventListener('pointerup', onUp);
   }
   return (
-    <div className="gv-vslider" onMouseDown={onMouseDown}>
+    <div className="gv-vslider" onPointerDown={onPointerDown} style={{ touchAction: 'none' }}>
       <div className="gv-vslider-track">
         <div className="gv-vslider-thumb" style={{ top: `${(1 - value) * 100}%` }} />
       </div>

@@ -1345,15 +1345,20 @@ path.eg.dim{opacity:0.055}
   .sb-type-toggle:hover,.sb-type-toggle.open{color:var(--tb-text);background:var(--tb-hover);}
   .sb-type-label{display:none;}
 
-  /* Groovebox: scale down and cap height so the map stays visible above it */
+  /* Groovebox: center in canvas, scale down, cap height */
   .groove-step{width:26px;}
   .groove-step--synth{width:26px;}
   .groove-steps{width:auto !important;gap:4px !important;}
   .groove-panel{
     width:min(calc(100vw - 16px), 880px) !important;
     overflow-x:auto;
-    /* Never taller than 45% of the viewport so the canvas stays visible above */
-    max-height: min(calc(100dvh - 62px - 74px - 16px), 45dvh) !important;
+    /* Center vertically in the canvas (between topbar and statusbar) */
+    top: 62px;
+    bottom: calc(54px + env(safe-area-inset-bottom, 0px));
+    height: fit-content;
+    margin-block: auto;
+    /* Never taller than 45dvh so the map stays visible above and below */
+    max-height: 45dvh !important;
     zoom: 0.82;
   }
 }
