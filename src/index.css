@@ -1352,14 +1352,16 @@ path.eg.dim{opacity:0.055}
   .groove-panel{
     width:min(calc(100vw - 16px), 880px) !important;
     overflow-x:auto;
-    /* Center vertically in the canvas (between topbar and statusbar) */
-    top: 62px;
-    bottom: calc(54px + env(safe-area-inset-bottom, 0px));
-    height: fit-content;
-    margin-block: auto;
-    /* Never taller than 45dvh so the map stays visible above and below */
     max-height: 45dvh !important;
     zoom: 0.82;
+    /* Anchor at viewport midpoint; hidden state slides entirely off screen below */
+    top: 50dvh;
+    bottom: auto;
+    transform: translateX(-50%) translateY(100dvh);
+  }
+  .groove-panel.open {
+    /* Translate up by half own height → visually centered at 50dvh */
+    transform: translateX(-50%) translateY(-50%);
   }
 }
 .tour-v2-next:hover{opacity:0.85;}
