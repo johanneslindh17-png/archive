@@ -3310,4 +3310,16 @@
   { from:'peter_slaghuis',  to:'bluetiek_in',           strength:3, type:'lineage' },
   { from:'bluetiek_in',     to:'perron',                strength:2, type:'lineage' },
   { from:'bluetiek_in',     to:'ade',                   strength:1, type:'aesthetic' },
+
+  // -- TIMMY REGISFORD -------------------------------------------------------
+  { from:'paradise_garage',   to:'timmy_regisford',     strength:3, type:'lineage' },
+  { from:'tony_humphries',    to:'timmy_regisford',     strength:3, type:'lineage' },
+  { from:'deep_house',        to:'timmy_regisford',     strength:3, type:'lineage' },
+  { from:'timmy_regisford',   to:'body_and_soul',       strength:2, type:'aesthetic' },
+
+  // -- SUPERPITCHER + REBOLLADO ----------------------------------------------
+  { from:'kompakt',           to:'superpitcher',        strength:3, type:'roster' },
+  { from:'dj_koze',           to:'superpitcher',        strength:2, type:'aesthetic' },
+  { from:'superpitcher',      to:'rebollado',           strength:3, type:'collaboration' },
+  { from:'kompakt',           to:'rebollado',           strength:2, type:'aesthetic' },
 ];

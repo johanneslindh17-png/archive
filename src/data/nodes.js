@@ -844,6 +844,24 @@ export const NODES = [
       { title: 'Total 1 (Kompakt compilation)', year: 1998 },
     ]},
 
+  { id:'superpitcher', label:'Superpitcher', type:'artist', genre:'minimal', era:2000, city:'Cologne', country:'DE',
+    desc:'Aksel Schaufler — born 1973, Germany, recording as Superpitcher — first appeared on Kompakt\'s Total 2 compilation in 2000 with "Shadows" and became a core artist on the label. His music draws equally from glam rock, New Wave, and electronic minimalism, producing a melodic, melancholic sensibility that stood apart from the harder edges of early 2000s German minimal. His debut album Here Comes Love (2004) and the mix compilation Today (2005) are considered among the most distinctive documents of the Cologne sound. He later co-founded the Hippie Dance label with Mexican producer Rebollado, with whom he formed the Pachanga Boys project — known for hypnotic, extended DJ tools that merge psychedelic repetition with deep melodic sensibility. He is currently based in Paris.',
+    releases: [
+      { title: '"Shadows" (Kompakt Total 2)', year: 2000 },
+      { title: '"Heroin" 12" (Kompakt)', year: 2001 },
+      { title: 'Here Comes Love (Kompakt)', year: 2004 },
+      { title: 'Today — mix (Kompakt)', year: 2005 },
+      { title: 'The Golden Ravedays (Hippie Dance)', year: 2017 },
+    ], spotify:'2IqIm17kPdPzKjLLRJmkjM' },
+
+  { id:'rebollado', label:'Rebollado', type:'artist', genre:'minimal', era:2002, city:'Cologne', country:'DE',
+    desc:'Mauricio Rebolledo — born in Xalapa, Veracruz, Mexico — began DJing in 2002 as resident at the Santanera club in Playa del Carmen, developing a style rooted in psychedelic, hypnotic house and techno. When Kompakt artist Matias Aguayo played at Santanera he became a mentor, bringing Rebollado onto his Cómeme label. Rebollado later relocated to Cologne, where he met Aksel Schaufler (Superpitcher) and the two co-founded the Pachanga Boys project and the Hippie Dance label. The Pachanga Boys\' "We Are Really Sorry" (2011) became a defining document of psychedelic hypnotic house. Rebollado\'s solo work on Cómeme and Hippie Dance earned him recognition as one of Mexico\'s most internationally influential electronic artists; in 2015 Forbes Mexico listed him among the 50 most influential Mexican creatives worldwide.',
+    releases: [
+      { title: 'Momento (Cómeme)', year: 2012 },
+      { title: '"We Are Really Sorry" — Pachanga Boys (Hippie Dance)', year: 2011 },
+      { title: 'Ipanema (Cómeme)', year: 2015 },
+    ], spotify:'2BFDkXIvdxYs4dkGqOtnJO' },
+
   // ── GERMANY — FRANKFURT ──────────────────────────────────────────────────
   { id:'perlon', label:'Perlon', type:'label', genre:'minimal', era:1999, city:'Frankfurt', country:'DE',
     desc:'Perlon was co-founded in Frankfurt in 1999 by Ricardo Villalobos and Zip. It became associated with microhouse — a reduced form of minimal house in which tracks routinely run to extended lengths, rhythmic elements are implied rather than stated, and individual sonic components carry high compositional weight. The Robert Johnson club in Offenbach was the primary associated venue.',
@@ -5606,6 +5624,10 @@ export const NODES = [
 
   { id:'sound_factory', label:'Sound Factory', type:'venue', genre:'deep', era:1989, city:'New York', country:'US',
     desc:'The Sound Factory was a nightclub in the Chelsea district of Manhattan, co-founded by Junior Vasquez and Richard Grant in 1989 and operating until 1995. The club catered to an ethnically diverse, predominantly gay crowd and became one of New York\'s most celebrated nightspots of the early 1990s, built around Vasquez\'s marathon DJ sets that could run from midnight past noon on Sunday. The Sound Factory occupied a critical position in the post-Paradise Garage landscape: drawing the downtown New York dance community into a new space and new decade while maintaining the sexual, racial, and sonic freedom of its predecessor. The club\'s closure in 1995 — and its successor club STW, also known as Sound Factory Bar — marked the end of one of the defining chapters in New York nightlife.',
+    releases: [] },
+
+  { id:'timmy_regisford', label:'Timmy Regisford', type:'artist', genre:'deep', era:1991, city:'New York', country:'US',
+    desc:'Timmy Regisford — born in Trinidad and raised in New York — came up in the orbit of the Paradise Garage in the late 1970s and learned to mix under the mentorship of Tony Humphries in the early 1980s. From 1985 he served as Music Director at WBLS radio, and in 1988 became A&R Director at Atlantic Records, later holding VP positions at MCA, Motown, and DreamWorks. In March 1991 — four years after the Paradise Garage closed — he founded Club Shelter in Tribeca, a weekly party that has run continuously for over 35 years and stands as one of the longest-running and most beloved soulful house institutions in the world. Shelter\'s marathon sets blend house, Afro-jazz, Latin jazz, disco, funk, and gospel into rituals of collective healing. Regisford releases music on his own imprints 157 Shelter Records, Restricted Access, and Un-Restricted Access.',
     releases: [] },
 
   { id:'ron_trent', label:'Ron Trent', type:'artist', genre:'deep', era:1990, city:'Chicago', country:'US',
