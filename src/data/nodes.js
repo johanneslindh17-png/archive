@@ -1750,6 +1750,15 @@ export const NODES = [
     releases: [],
   },
 
+  { id:'hamatsuki', label:'Hamatsuki', type:'artist', genre:'deep', era:2017, city:'Tbilisi', country:'GE',
+    desc:'Hamatsuki is the project of Mamuka Tskhadaia, a Tbilisi-based DJ and producer who has been a resident at Bassiani and its open-air Horoom party since at least 2017. His music — described by Vice/Thump as "raw, dreamy house" — moves between lo-fi deep house, ambient-textural work, and leftfield house with traces of traditional Georgian folk music in its melodic sensibility. He debuted with the "Uncertain Loops" cassette EP on the Polish GASP Records (2017), followed by the "Remember EP" on Glasgow\'s Sub Club-affiliated Sensu label (2018), and the "Sleepwalking" LP on Tbilisi\'s Clone-distributed Mind Controlled Rectifier (2021). Further releases followed on Tbilisi\'s Fantastic Planet label (2023) and Apnea (2024). Beyond music, Tskhadaia was among the artists who turned an underground creative space into a shelter during Georgia\'s pro-EU protests, embodying the political dimension long associated with the Bassiani community.',
+    releases: [
+      { title: 'Uncertain Loops (GASP Records)', year: 2017 },
+      { title: 'Remember EP (Sensu)', year: 2018 },
+      { title: 'Sleepwalking LP (Mind Controlled Rectifier)', year: 2021 },
+      { title: 'Routes EP (Fantastic Planet)', year: 2023 },
+    ]},
+
   { id:'irakli', label:'Irakli', type:'artist', genre:'minimal', era:2016, city:'Tbilisi', country:'GE',
     desc:'Irakli is a Tbilisi-born DJ and producer closely associated with Bassiani. His 2021 debut album Major Signals appeared on Dial Records in Hamburg — a direct validation from one of the most respected labels in European deep and minimal music. His 2023 live recording Mechanical Moon at Robert Johnson (the Offenbach club central to rominimal and Perlon) placed him within the same network that shaped Rhadoo and the Romanian scene. His music moves between dark minimal techno and deeper, more introspective territory.',
     releases: [

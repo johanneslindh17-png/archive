@@ -3322,4 +3322,8 @@
   { from:'dj_koze',           to:'superpitcher',        strength:2, type:'aesthetic' },
   { from:'superpitcher',      to:'rebolledo',           strength:3, type:'collaboration' },
   { from:'superpitcher',      to:'pachanga_boys',       strength:3, type:'collaboration' },
+
+  // -- HAMATSUKI -------------------------------------------------------------
+  { from:'bassiani',          to:'hamatsuki',           strength:3, type:'roster' },
+  { from:'deep_house',        to:'hamatsuki',           strength:2, type:'influence' },
 ];
