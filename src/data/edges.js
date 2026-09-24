@@ -3317,9 +3317,9 @@
   { from:'deep_house',        to:'timmy_regisford',     strength:3, type:'lineage' },
   { from:'timmy_regisford',   to:'body_and_soul',       strength:2, type:'aesthetic' },
 
-  // -- SUPERPITCHER + REBOLLADO ----------------------------------------------
+  // -- SUPERPITCHER ----------------------------------------------------------
   { from:'kompakt',           to:'superpitcher',        strength:3, type:'roster' },
   { from:'dj_koze',           to:'superpitcher',        strength:2, type:'aesthetic' },
-  { from:'superpitcher',      to:'rebollado',           strength:3, type:'collaboration' },
-  { from:'kompakt',           to:'rebollado',           strength:2, type:'aesthetic' },
+  { from:'superpitcher',      to:'rebolledo',           strength:3, type:'collaboration' },
+  { from:'superpitcher',      to:'pachanga_boys',       strength:3, type:'collaboration' },
 ];

@@ -854,14 +854,6 @@ export const NODES = [
       { title: 'The Golden Ravedays (Hippie Dance)', year: 2017 },
     ], spotify:'2IqIm17kPdPzKjLLRJmkjM' },
 
-  { id:'rebollado', label:'Rebollado', type:'artist', genre:'minimal', era:2002, city:'Cologne', country:'DE',
-    desc:'Mauricio Rebolledo — born in Xalapa, Veracruz, Mexico — began DJing in 2002 as resident at the Santanera club in Playa del Carmen, developing a style rooted in psychedelic, hypnotic house and techno. When Kompakt artist Matias Aguayo played at Santanera he became a mentor, bringing Rebollado onto his Cómeme label. Rebollado later relocated to Cologne, where he met Aksel Schaufler (Superpitcher) and the two co-founded the Pachanga Boys project and the Hippie Dance label. The Pachanga Boys\' "We Are Really Sorry" (2011) became a defining document of psychedelic hypnotic house. Rebollado\'s solo work on Cómeme and Hippie Dance earned him recognition as one of Mexico\'s most internationally influential electronic artists; in 2015 Forbes Mexico listed him among the 50 most influential Mexican creatives worldwide.',
-    releases: [
-      { title: 'Momento (Cómeme)', year: 2012 },
-      { title: '"We Are Really Sorry" — Pachanga Boys (Hippie Dance)', year: 2011 },
-      { title: 'Ipanema (Cómeme)', year: 2015 },
-    ], spotify:'2BFDkXIvdxYs4dkGqOtnJO' },
-
   // ── GERMANY — FRANKFURT ──────────────────────────────────────────────────
   { id:'perlon', label:'Perlon', type:'label', genre:'minimal', era:1999, city:'Frankfurt', country:'DE',
     desc:'Perlon was co-founded in Frankfurt in 1999 by Ricardo Villalobos and Zip. It became associated with microhouse — a reduced form of minimal house in which tracks routinely run to extended lengths, rhythmic elements are implied rather than stated, and individual sonic components carry high compositional weight. The Robert Johnson club in Offenbach was the primary associated venue.',
