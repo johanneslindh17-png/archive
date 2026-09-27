@@ -552,6 +552,7 @@ export default function App() {
   const [typePopOpen, setTypePopOpen] = useState(false);
   const chatRef = useRef(null);
   const [logOpen,    setLogOpen]    = useState(false);
+  const [aboutOpen,  setAboutOpen]  = useState(false);
   const [logHlDate,  setLogHlDate]  = useState(null);
   const [pathNodes, setPathNodes] = useState([]);
   const [pathStep, setPathStep] = useState(null);
@@ -2460,8 +2461,11 @@ export default function App() {
           )}
         </div>
 
+        {/* About */}
+        <button className="about-trigger" onClick={() => setAboutOpen(true)}>About</button>
+
         {/* Legend / Guide */}
-        <div className="legwrap" style={{ marginLeft: 'auto' }}>
+        <div className="legwrap">
           <div className="legtrigger">?</div>
           <div className="legbox">
             <div className="legbox-header">
@@ -3327,7 +3331,44 @@ export default function App() {
         </div>
       )}
 
-<Groovebox open={grooveOpen} onClose={() => setGrooveOpen(false)} darkMode={darkMode} />
+      {aboutOpen && (
+        <div className="about-overlay" onClick={e => { if (e.target === e.currentTarget) setAboutOpen(false); }}>
+          <div className="about-modal">
+            <button className="about-close" onClick={() => setAboutOpen(false)}>✕</button>
+            <div className="about-wordmark">ELECTRONICARCHIVE</div>
+            <div className="about-section">
+              <div className="about-section-title">The Archive</div>
+              <p className="about-body">
+                A living research map of the electronic music underground — documenting the origins,
+                migrations and mutations of house, techno and related forms since the late 1980s.
+                Every connection is based on verified research: interviews, biographies, liner notes
+                and academic sources. It is an ongoing documentation intended to evolve with the scene.
+              </p>
+            </div>
+            <div className="about-section">
+              <div className="about-section-title">Who Builds It</div>
+              <p className="about-body">
+                Built and maintained by a DJ, producer and music collector who spent fifteen years
+                inside the Dutch and German underground — not observing the scene, but living it.
+                The connections here combine verified documented history with first-hand experience.
+                Not a personal blog. Not a database. Something in between.
+              </p>
+            </div>
+            <div className="about-section">
+              <div className="about-section-title">Membership</div>
+              <p className="about-body">
+                New nodes and connections are added every week. Features are built continuously.
+                Membership keeps the archive open, growing and free for everyone.
+              </p>
+            </div>
+            <button className="about-cta" onClick={() => { setAboutOpen(false); setPaywallOpen(true); }}>
+              Become a Member — €20 / year
+            </button>
+          </div>
+        </div>
+      )}
+
+      <Groovebox open={grooveOpen} onClose={() => setGrooveOpen(false)} darkMode={darkMode} />
       <Chat ref={chatRef} open={chatOpen} onSelectNode={id => { selectNode(id); scrollToNode(id); }} darkMode={darkMode} />
     </div>
   );
