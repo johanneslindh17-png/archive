@@ -2682,7 +2682,7 @@ export default function App() {
             ← ALL REGIONS
           </div>
           <div className="regionlabel-sep" />
-          <strong>{(REGIONS[expanded]?.label || expanded).toUpperCase()}</strong>
+          <strong>{(REGIONS[expanded]?.label || expanded).replace('\n', ' ').toUpperCase()}</strong>
         </div>
       )}
 
@@ -2715,7 +2715,9 @@ export default function App() {
               <div key={key} className="column-header-label"
                 style={{ left: screenX, cursor: 'pointer' }}
                 onClick={() => doExpand(key)}>
-                {r.label.toUpperCase()}
+                {r.label.split('\n').map((line, i) => (
+                  <span key={i} className="chl-line">{line.toUpperCase()}</span>
+                ))}
               </div>
             );
           })}
