@@ -2616,7 +2616,7 @@ export default function App() {
               setNewsItem(nextNewsItem());
             }}
           >
-            {'› ElectronicArchive.club — A free online resource for learning about the electronic music underground. Artists, labels, clubs, and pivotal moments — connected by documented lines of influence and lineage. Discover music, follow the Bandcamp links to support the artists directly. Have fun exploring! — TJ'}
+            {'› ElectronicArchive.club — A living research map of the electronic music underground. Built by a DJ, producer and collector with fifteen years inside the Dutch and German scenes. Verified research, first-hand knowledge, growing every week. — TJ'}
           </div>
         )}
         {!selected && !pinned && welcomeDone && newsItem && (
@@ -3224,7 +3224,7 @@ export default function App() {
           <div className="onboard-modal">
             <div className="onboard-wordmark">ELECTRONICARCHIVE</div>
             <div className="onboard-pitch">
-              ElectronicArchive is a free online resource for learning about the electronic music underground — artists, labels, clubs, and pivotal moments, connected by documented lines of influence and lineage. From the roots of Chicago and Detroit in the late 70s, through London, Berlin, Kingston, Tokyo and beyond. It's a living map. New nodes and connections are added every week.
+              A living research map of the electronic music underground — built by a DJ, producer and collector who spent fifteen years inside the Dutch and German scenes. The connections, histories and lineages here come from that proximity: verified research grounded in first-hand knowledge of how the music actually developed. From Chicago and Detroit in the late 70s, through London, Berlin, Amsterdam, Tokyo and beyond. New nodes and connections are added every week.
             </div>
             <div className="onboard-btns">
               <button className="onboard-btn-primary" onClick={dismissOnboard}>Start exploring</button>
@@ -3300,7 +3300,7 @@ export default function App() {
           <div className="paywall-modal">
             <div className="paywall-title">Become a Member</div>
             <div className="paywall-body">
-              ElectronicArchive is a free, independently maintained online resource for learning about the electronic music underground. It's an ongoing process — new nodes and connections are added every week as the map grows. A membership keeps the Archive running and gives you full access. Thank you for being part of it.
+              ElectronicArchive is built by a DJ, producer and collector who spent fifteen years inside the Dutch and German underground — not observing the scene, but living it. The connections, histories and lineages here are verified research grounded in first-hand knowledge: not a personal blog, not a database, something in between.<br /><br />Membership keeps the archive growing. New nodes and connections are added every week, alongside ongoing research into artists, venues, labels and the scenes that connect them. Your support keeps it free and open for everyone.
             </div>
             <a
               className="paywall-buy"
