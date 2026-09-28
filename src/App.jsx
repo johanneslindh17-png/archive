@@ -3359,8 +3359,10 @@ export default function App() {
             <div className="about-section">
               <div className="about-section-title">Membership</div>
               <p className="about-body">
-                The archive is free to explore for 25 views. After that, a membership is required.
-                New nodes and connections are added every week. Features are built continuously.
+                The archive is free to explore for 25 views — after that, a membership is required.
+                As a member you get full access to the archive, weekly node updates, and every new
+                feature as it is built. You are also directly supporting the ongoing documentation
+                of a scene and a history that deserves to be preserved.
               </p>
             </div>
             <button className="about-cta" onClick={() => { setAboutOpen(false); setPaywallOpen(true); }}>
