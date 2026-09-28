@@ -982,9 +982,7 @@ path.eg.dim{opacity:0.055}
 .column-header-strip{
   position:absolute;top:0;left:0;right:0;height:44px;
   z-index:15;pointer-events:none;overflow:hidden;
-  background:rgba(255,255,255,0.15);
-  backdrop-filter:blur(6px);
-  -webkit-backdrop-filter:blur(6px);
+  background:var(--tb-bg);
   border-bottom:1px solid var(--tb-border);
   transition:background 0.2s,border-color 0.2s;
 }
@@ -1001,7 +999,6 @@ path.eg.dim{opacity:0.055}
 }
 .chl-line{display:block;white-space:nowrap;}
 .column-header-label:hover{color:#111111;}
-.dark .column-header-strip{background:rgba(12,12,16,0.15);}
 .dark .column-header-label{color:#c0bdd8;}
 .dark .column-header-label:hover{color:#ffffff;}
 
