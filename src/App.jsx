@@ -2620,7 +2620,7 @@ export default function App() {
               setNewsItem(nextNewsItem());
             }}
           >
-            {'› ElectronicArchive.club — A living research map of the electronic music underground. Built by a DJ, producer and collector with fifteen years inside the Dutch and German scenes. Verified research, first-hand knowledge, growing every week. — TJ'}
+            {'› ElectronicArchive.club — A free online resource for learning about the electronic music underground. Artists, labels, clubs, and pivotal moments — connected by documented lines of influence and lineage. Discover music, follow the Bandcamp links to support the artists directly. Have fun exploring! — TJ'}
           </div>
         )}
         {!selected && !pinned && welcomeDone && newsItem && (
