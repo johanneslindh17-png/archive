@@ -982,8 +982,8 @@ path.eg.dim{opacity:0.055}
 .column-header-strip{
   position:absolute;top:0;left:0;right:0;height:44px;
   z-index:15;pointer-events:none;overflow:hidden;
-  background:color-mix(in srgb, var(--tb-bg) 70%, transparent);
-  backdrop-filter:blur(2px);
+  background:color-mix(in srgb, var(--tb-bg) 20%, transparent);
+  backdrop-filter:blur(6px);
   -webkit-backdrop-filter:blur(2px);
   border-bottom:1px solid var(--tb-border);
   transition:background 0.2s,border-color 0.2s;
