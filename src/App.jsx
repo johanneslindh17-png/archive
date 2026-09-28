@@ -2095,7 +2095,7 @@ export default function App() {
             setPathStep(null);
             return;
           }
-          if (isSel) {
+          if (selected) {
             selectNode(null);
             setPanelOnLeft(false);
             setPanelX(null);
