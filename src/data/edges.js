@@ -3326,4 +3326,41 @@
   // -- HAMATSUKI -------------------------------------------------------------
   { from:'bassiani',          to:'hamatsuki',           strength:3, type:'roster' },
   { from:'deep_house',        to:'hamatsuki',           strength:2, type:'influence' },
+
+  // -- JON HOPKINS -----------------------------------------------------------
+  { from:'brian_eno',         to:'jon_hopkins',         strength:3, type:'collaboration' },
+  { from:'ambient',           to:'jon_hopkins',         strength:2, type:'influence' },
+  { from:'jon_hopkins',       to:'burial',              strength:2, type:'aesthetic' },
+
+  // -- LINDSTRØM -------------------------------------------------------------
+  { from:'disco',             to:'lindstrom',           strength:3, type:'influence' },
+  { from:'prins_thomas',      to:'lindstrom',           strength:3, type:'collaboration' },
+  { from:'todd_terje',        to:'lindstrom',           strength:2, type:'aesthetic' },
+
+  // -- LORAINE JAMES ---------------------------------------------------------
+  { from:'hyperdub',          to:'loraine_james',       strength:3, type:'roster' },
+  { from:'kode9',             to:'loraine_james',       strength:2, type:'lineage' },
+
+  // -- PLASTICIAN ------------------------------------------------------------
+  { from:'rinse_fm',          to:'plastician',          strength:3, type:'roster' },
+  { from:'dubstep',           to:'plastician',          strength:3, type:'lineage' },
+  { from:'wiley',             to:'plastician',          strength:2, type:'aesthetic' },
+
+  // -- SAOIRSE ---------------------------------------------------------------
+  { from:'fabric',            to:'saoirse',             strength:3, type:'roster' },
+  { from:'rinse_fm',          to:'saoirse',             strength:2, type:'influence' },
+
+  // -- MARKO NASTIĆ ----------------------------------------------------------
+  { from:'drugstore',         to:'marko_nastic',        strength:3, type:'roster' },
+  { from:'tijana_t',          to:'marko_nastic',        strength:2, type:'aesthetic' },
+
+  // -- EQUIKNOXX -------------------------------------------------------------
+  { from:'lee_scratch_perry', to:'equiknoxx',           strength:2, type:'influence' },
+  { from:'king_tubby',        to:'equiknoxx',           strength:2, type:'influence' },
+  { from:'demdike_stare',     to:'equiknoxx',           strength:2, type:'collaboration' },
+
+  // -- DJ PYTHON -------------------------------------------------------------
+  { from:'cumbia',            to:'dj_python',           strength:2, type:'influence' },
+  { from:'deep_house',        to:'dj_python',           strength:2, type:'influence' },
+  { from:'felipe_gordon',     to:'dj_python',           strength:1, type:'aesthetic' },
 ];

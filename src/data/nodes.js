@@ -481,6 +481,12 @@ export const NODES = [
       { title: 'Rinse FM (licensed)', year: 2010 },
     ]},
 
+  { id:'plastician', label:'Plastician', type:'artist', genre:'experimental', era:2003, city:'London', country:'UK',
+    desc:'Chris Mercer — Plastician — is a London DJ and producer whose pirate radio career on Rinse FM from 2003 placed him at the centre of both grime and early dubstep. His radio shows and DJ sets were among the primary vehicles through which both genres reached international audiences. He founded Terrorhythm Recordings and later coined the term "purple" for a variant of dubstep that emerged in the late 2000s. His position bridging grime, dubstep, and global bass music makes him one of the key connective figures in UK underground music of that period.',
+    releases: [
+      { title: '"Gu Gu" (Terrorhythm)', year: 2007 },
+    ], spotify:'6rk1fLuaoxI9V2OREXEcGK', },
+
   { id:'dubstep', label:'Dubstep', type:'style', genre:'ambient', era:2001, city:'London', country:'UK',
     desc:'Dubstep emerged in South London around 2001 from a specific collision: the rhythmic language of 2-step garage meeting the bass weight and spatial depth of dub reggae, filtered through UK hardcore and sound system culture. Its defining characteristics were a half-time 140bpm pulse, enormous sub-bass frequencies that required specialist sound systems to reproduce properly, and a structural patience that owed more to dub than to house. Digital Mystikz, Skream, Benga, and Loefah were its early architects; Burial\'s anonymous productions gave the sound an emotional depth that secured its place in music history. The commercial version that emerged after 2010 bears little relationship to the original South London form.',
     releases: [
@@ -1878,6 +1884,14 @@ export const NODES = [
       { title: 'Dark Energy — Jlin (Hyperdub)', year: 2015 },
     ]},
 
+  { id:'loraine_james', label:'Loraine James', type:'artist', genre:'experimental', era:2017, city:'London', country:'UK',
+    desc:'Loraine James is a London-based producer signed to Hyperdub, whose albums For You and I (2020) and Reflection (2021) brought broken beat, jazz, and post-grime textures into an emotionally direct and formally rigorous body of work. Raised in Enfield, she began producing as a teenager and has cited James Blake, Actress, and UK garage as key references. Her releases on Hyperdub place her in direct lineage with the label\'s founding commitment to experimental club music rooted in London sound culture.',
+    releases: [
+      { title: 'For You and I (Hyperdub)', year: 2020 },
+      { title: 'Reflection (Hyperdub)', year: 2021 },
+      { title: 'Gentle Confrontation (Hyperdub)', year: 2023 },
+    ], spotify:'7xBTg15bAONOFJbX0pcB0F', },
+
   { id:'kode9', label:'Kode9', type:'artist', genre:'experimental', era:2004, city:'London', country:'UK', bandcamp:'kode9', bandcamp_album:'0107193543',
     desc:'Steve Goodman records as Kode9 and founded Hyperdub in London in 2004. His theoretical writing — Sonic Warfare (2009, MIT Press) — is among the most influential texts on bass music and its physical-political dimensions. His productions with the late Spaceape (Stephen Gordon) introduced dub-influenced, voice-led electronics into what became dubstep. He is responsible for signing and releasing Burial\'s first recordings — one of the most consequential curatorial decisions in British underground music.',
     releases: [
@@ -2667,6 +2681,10 @@ export const NODES = [
       { title: 'Migration (Ninja Tune)', year: 2017 },
     ], spotify:'0cmWgDlu9CwTgxPhf403hb', },
 
+  { id:'saoirse', label:'Saoirse', type:'artist', genre:'experimental', era:2015, city:'London', country:'UK',
+    desc:'Saoirse is a Dublin-born, London-based DJ and producer who became one of the most respected selectors in the UK underground through her NTS Radio show and her residency at fabric, where she has played since 2017. Her sets move between industrial techno, noise, footwork, and left-field electronics, resisting easy genre categorisation. She has played at Berghain, Dekmantel, and Unsound, and is widely cited as one of the defining voices of the current UK underground.',
+    releases: [], spotify:'34M1UOiHyiHlBfU1F85Fjr', },
+
   { id:'burial', label:'Burial', type:'artist', genre:'experimental', era:2006, city:'London', country:'UK', bandcamp:'burial', bandcamp_album:'4015966257',
     desc:'Burial is an anonymous producer from South London. His debut album Burial (Hyperdub, 2006) and its follow-up Untrue (Hyperdub, 2007) placed him at the centre of a significant shift in British electronic music — combining UK garage rhythms with a heavily processed, melancholic atmospherics. His identity remained unknown until 2008. He has collaborated extensively with Four Tet and Massive Attack, and his records continue to appear sporadically on Hyperdub. His influence on atmospheric electronic music and what became known as post-dubstep is difficult to overstate.',
     releases: [
@@ -2759,6 +2777,14 @@ export const NODES = [
       { title: 'Ambient 4: On Land — Brian Eno (EG)', year: 1982 },
     ]},
 
+  { id:'jon_hopkins', label:'Jon Hopkins', type:'artist', genre:'ambient', era:2004, city:'London', country:'UK',
+    desc:'Jon Hopkins is a London-born pianist, composer and producer who trained at the Royal College of Music before moving into electronic music production. He came to wider attention through his collaboration with Brian Eno on Small Craft on a Milk Sea (2010), and through his work producing and co-writing material for Coldplay. His solo album Immunity (Domino, 2013) marked a decisive shift toward club-influenced electronic music — dense, long-form, architecturally precise — and received the Mercury Prize nomination. Singularity (2018) and Music for Psychedelic Therapy (2021) extended his practice into meditative and ceremonial contexts. He occupies an unusual position: classically trained, rooted in ambient music, and capable of producing genuinely functional club music.',
+    releases: [
+      { title: 'Immunity (Domino)', year: 2013 },
+      { title: 'Singularity (Domino)', year: 2018 },
+      { title: 'Small Craft on a Milk Sea — with Brian Eno (Warp)', year: 2010 },
+    ], spotify:'7yxi31szvlbwvKq9dYOmFI', },
+
   { id:'brian_eno', label:'Brian Eno', type:'artist', genre:'ambient', era:1975, city:'London', country:'UK',
     desc:'Brian Eno (born 1948, Woodbridge, Suffolk) established the formal grammar of ambient music with Discreet Music (1975) and the four-volume Ambient series beginning with Music for Airports (1978), coining the term and defining it as music that could "accommodate many levels of listening attention without enforcing one." Operating on his own Obscure and Opal labels and later through Virgin and EG Records, he influenced every subsequent practitioner of the idiom. His guitar-tape collaborations with Robert Fripp anticipated drone music; his production of Talking Heads and Bowie\'s Berlin trilogy showed that the same ideas reshaped rock. Biosphere, Aphex Twin, Boards of Canada, and the entire Apollo Records ambient techno lineage cite him as a primary reference.',
     releases: [
@@ -2835,6 +2861,14 @@ export const NODES = [
       { title: 'Multila (Chain Reaction)', year: 2000 },
       { title: 'Whistleblower (Huume)', year: 2012 },
     ], spotify:'5E3H2KyR31E2Dj3K6vIUe9', },
+
+  { id:'lindstrom', label:'Lindstrøm', type:'artist', genre:'disco', era:2003, city:'Oslo', country:'NO',
+    desc:'Hans-Peter Lindstrøm is a Norwegian producer and DJ based in Oslo who became the central figure in the cosmic disco and space disco revival of the mid-2000s. His early tracks on Feedelity — the label he co-founded with Prins Thomas — established a distinctly Norwegian approach to extended synthesiser-driven dance music, rooted equally in 1970s German electronic music and classic disco but entirely unhurried by club convention. His debut album Where You Go I Go Too (2008) is a 47-minute single track. He has collaborated extensively with Prins Thomas and Todd Terje, and his influence on the European nu-disco revival is foundational. His work does not follow the logic of club programming — it follows the logic of cosmic expansion.',
+    releases: [
+      { title: 'It\'s a Feedelity Affair (Feedelity)', year: 2006 },
+      { title: 'Where You Go I Go Too (Feedelity)', year: 2008 },
+      { title: 'Six Cups of Rebel (Smalltown Supersound)', year: 2012 },
+    ], spotify:'2MQFUiVlbShJvKAfpTNGDc', },
 
   { id:'todd_terje', label:'Todd Terje', type:'artist', genre:'disco', era:2006, city:'Oslo', country:'NO',
     desc:'Terje Olsen (born 1975, Mjøndalen, Norway) records as Todd Terje and releases on his own Olsen Records label (Oslo). A central figure in the Norwegian cosmic house revival alongside Lindstrøm and Prins Thomas, he constructs extended space disco and nu-disco tracks referencing Italo disco, Giorgio Moroder, and late-1970s synthesizer aesthetics. His debut album It\'s Album Time (2014) achieved genuine crossover success. His remixes of Roxy Music and Bryan Ferry connect him to a broader culture of disco consciousness.',
@@ -3990,6 +4024,12 @@ export const NODES = [
   { id:'drugstore', label:'Drugstore', type:'venue', genre:'techno', era:2002, city:'Belgrade', country:'RS',
     desc:'Drugstore is a club in Belgrade that became one of Eastern Europe\'s most respected techno venues during the 2000s and 2010s. Alongside clubs in Warsaw, Tbilisi, and Kyiv, it represented the growth of a serious underground techno culture in post-socialist cities — spaces where music and political freedom were intertwined in specific ways. Drugstore\'s booking policy drew heavily from the Berghain aesthetic while developing a distinctly Serbian character. Tijana T and other Belgrade-based artists developed their sound and audiences there.',
     },
+
+  { id:'marko_nastic', label:'Marko Nastić', type:'artist', genre:'techno', era:2003, city:'Belgrade', country:'RS',
+    desc:'Marko Nastić is a Belgrade-based DJ and producer who is one of the cornerstones of the Serbian underground techno scene. He has played at Berghain, fabric, and Robert Johnson, and has released on Ostgut Ton. His sets and productions reflect the specific aesthetic of the Belgrade underground — a scene that developed in parallel to Berlin rather than in imitation of it, shaped by the particular political and cultural context of post-war Serbia. He runs the OTA label and is a long-standing resident at Drugstore.',
+    releases: [
+      { title: 'I Exist (Ostgut Ton)', year: 2016 },
+    ], spotify:'1qlr9BvjFWIBn9ksHJfCBF', },
 
   { id:'tijana_t', label:'Tijana T', type:'artist', genre:'techno', era:2009, city:'Belgrade', country:'RS',
     desc:'Tijana Todorović — Tijana T — is a Belgrade-born DJ and producer who became one of the most internationally recognised artists from the Serbian underground. Her sets blend industrial techno with deeper house influences, and she has played at Berghain, fabric, and Panorama Bar while maintaining her connection to the Belgrade scene. She has released on Ostgut Ton and Optimo Music, and her profile represents the integration of Eastern European underground club culture into the broader international techno circuit.',
@@ -5333,6 +5373,13 @@ export const NODES = [
       { title: '"Police and Thieves" — Junior Murvin', year: 1976 },
     ], spotify:'1TsG4AumsMt1Tcq2nHpov9', },
 
+  { id:'equiknoxx', label:'Equiknoxx', type:'artist', genre:'experimental', era:2013, city:'Kingston', country:'JM',
+    desc:'Equiknoxx is a Kingston-based collective — primarily Gavsborg (Brian Edwards) and Time Cow (Devin Morrison) — whose productions fuse the structural logic of Jamaican dancehall and sound system culture with experimental electronics. Their records on their own Equiknoxx Music label (later released internationally through Demdike Stare\'s DDS label) are rhythmically complex, bass-heavy, and deeply rooted in Kingston — resistant to the smooth mediation that typically accompanies Caribbean music entering European club contexts. Their work is among the clearest examples of non-European club music that has developed on its own terms and reached an international audience without compromising its origins.',
+    releases: [
+      { title: 'Colon Man (Equiknoxx Music)', year: 2016 },
+      { title: 'Bird Sound Power (Equiknoxx / DDS)', year: 2017 },
+    ], spotify:'2hXbpJkFELDMEqGJsRl0mK', },
+
   // ── AFROBEAT ──────────────────────────────────────────────────────────────
 
   { id:'fela_kuti', label:'Fela Kuti', type:'artist', genre:'experimental', era:1969, city:'Lagos', country:'NG',
@@ -5662,6 +5709,13 @@ export const NODES = [
     releases: [
       { title: 'Lucas (album)', year: 2022 },
     ], spotify:'0ymdoOsfzRbCoAMfJPpsEx', },
+
+  { id:'dj_python', label:'DJ Python', type:'artist', genre:'experimental', era:2014, city:'New York', country:'US',
+    desc:'Brian Piñeyro — DJ Python — is a Colombian-American producer and DJ based in New York. His album Mas Amable (2020, Incienso) introduced a genuinely new aesthetic: slowed reggaeton rhythms processed into ambient and club textures, combining dembow percussion patterns with the tonal language of deep house. The result was widely cited as one of the most original electronic albums of the decade. His sets and productions navigate between Latin club traditions and New York experimental club culture, occupying a space that had not been clearly articulated before him. He also produces trance-influenced music under the alias Club Sentimientos.',
+    releases: [
+      { title: 'Mas Amable (Incienso)', year: 2020 },
+      { title: 'Entrega (2MR)', year: 2018 },
+    ], spotify:'2hFMEYRhJTmVzfNMqiMVXW', },
 
   { id:'felipe_gordon', label:'Felipe Gordon', type:'artist', genre:'deep', era:2014, city:'Bogotá', country:'CO',
     desc:'Felipe Gordon is a producer, multi-instrumentalist, and DJ born and raised in Bogotá, Colombia. As a teenager he played drums and guitar in punk bands before discovering electronic music through artists like Cassius, which led to a lifelong interest in vintage synthesizers. Around 2014 he began self-releasing music on his own Nómada Records imprint, developing a style that fuses jazz samples, flowing pianos, and acid bass lines into house records that also draw on hip-hop and broken beat influences. He later founded Wide Awake Records as a second label outlet. Gordon has released on Toy Tonics, Clone Records, Local Talk, Shall Not Fade, and Razor-N-Tape, and is one of a growing number of Bogotá-based producers building an international profile from South America\'s emerging house music scene.',

@@ -1,6 +1,15 @@
 // Most recently added nodes, newest first.
 // Add new entries here whenever nodes are added.
 export const NODE_CHANGELOG = [
+  // 2026-09-30
+  { id: 'jon_hopkins',          label: 'Jon Hopkins',               date: '2026-09-30' },
+  { id: 'lindstrom',            label: 'Lindstrøm',                 date: '2026-09-30' },
+  { id: 'loraine_james',        label: 'Loraine James',             date: '2026-09-30' },
+  { id: 'plastician',           label: 'Plastician',                date: '2026-09-30' },
+  { id: 'saoirse',              label: 'Saoirse',                   date: '2026-09-30' },
+  { id: 'marko_nastic',         label: 'Marko Nastić',              date: '2026-09-30' },
+  { id: 'equiknoxx',            label: 'Equiknoxx',                 date: '2026-09-30' },
+  { id: 'dj_python',            label: 'DJ Python',                 date: '2026-09-30' },
   // 2026-09-25
   { id: 'hamatsuki',            label: 'Hamatsuki',                 date: '2026-09-25' },
   // 2026-09-24
