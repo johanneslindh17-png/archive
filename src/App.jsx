@@ -13,6 +13,7 @@ import { NODES } from './data/nodes.js';
 import { EDGES } from './data/edges.js';
 import { PHOTOS } from './data/photos.js';
 import { NEWS_TICKER } from './data/newsTicker.js';
+import { ERA_SUMMARIES } from './data/eraSummaries.js';
 import { NODE_CHANGELOG } from './data/changelog.js';
 
 const NODE_BY_ID = new Map(NODES.map(n => [n.id, n]));
@@ -553,6 +554,7 @@ export default function App() {
   const chatRef = useRef(null);
   const [logOpen,    setLogOpen]    = useState(false);
   const [aboutOpen,  setAboutOpen]  = useState(false);
+  const [eraYear,    setEraYear]    = useState(null);
   const [logHlDate,  setLogHlDate]  = useState(null);
   const [pathNodes, setPathNodes] = useState([]);
   const [pathStep, setPathStep] = useState(null);
@@ -2696,7 +2698,9 @@ export default function App() {
             const screenY = eraY(y) * tf.k + tf.y;
             if (screenY < -20 || screenY > window.innerHeight) return null;
             return (
-              <div key={y} className="year-label-fixed" style={{ top: screenY }}>
+              <div key={y} className={`year-label-fixed${ERA_SUMMARIES[y] ? ' year-label-clickable' : ''}`}
+                style={{ top: screenY }}
+                onClick={() => ERA_SUMMARIES[y] && setEraYear(y)}>
                 {String(y)}
               </div>
             );
@@ -3371,6 +3375,21 @@ export default function App() {
           </div>
         </div>
       )}
+
+      {eraYear !== null && ERA_SUMMARIES[eraYear] && (() => {
+        const era = ERA_SUMMARIES[eraYear];
+        return (
+          <div className="era-overlay" onClick={e => { if (e.target === e.currentTarget) setEraYear(null); }}>
+            <div className="era-modal">
+              <button className="era-close" onClick={() => setEraYear(null)}>✕</button>
+              <div className="era-span">{era.span}</div>
+              {era.body.map((para, i) => (
+                <p key={i} className="era-body">{para}</p>
+              ))}
+            </div>
+          </div>
+        );
+      })()}
 
       <Groovebox open={grooveOpen} onClose={() => setGrooveOpen(false)} darkMode={darkMode} />
       <Chat ref={chatRef} open={chatOpen} onSelectNode={id => { selectNode(id); scrollToNode(id); }} darkMode={darkMode} />
