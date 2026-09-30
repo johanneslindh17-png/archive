@@ -3363,4 +3363,47 @@
   { from:'cumbia',            to:'dj_python',           strength:2, type:'influence' },
   { from:'deep_house',        to:'dj_python',           strength:2, type:'influence' },
   { from:'felipe_gordon',     to:'dj_python',           strength:1, type:'aesthetic' },
+
+  // -- JASSS -----------------------------------------------------------------
+  { from:'berghain',          to:'jasss',               strength:3, type:'roster' },
+  { from:'dystopian',         to:'jasss',               strength:2, type:'aesthetic' },
+  { from:'blawan',            to:'jasss',               strength:2, type:'aesthetic' },
+
+  // -- MACHINE WOMAN ---------------------------------------------------------
+  { from:'berghain',          to:'machine_woman',       strength:2, type:'influence' },
+  { from:'jasss',             to:'machine_woman',       strength:2, type:'aesthetic' },
+
+  // -- KARENN ----------------------------------------------------------------
+  { from:'blawan',            to:'karenn',              strength:3, type:'lineage' },
+  { from:'pariah',            to:'karenn',              strength:3, type:'lineage' },
+  { from:'hessle_audio',      to:'karenn',              strength:3, type:'roster' },
+
+  // -- BRADLEY ZERO ----------------------------------------------------------
+  { from:'rhythm_section_intl', to:'bradley_zero',      strength:3, type:'lineage' },
+  { from:'deep_house',        to:'bradley_zero',        strength:2, type:'influence' },
+
+  // -- RHYTHM SECTION INTERNATIONAL -----------------------------------------
+  { from:'bradley_zero',      to:'rhythm_section_intl', strength:3, type:'lineage' },
+  { from:'leon_vynehall',     to:'rhythm_section_intl', strength:2, type:'aesthetic' },
+
+  // -- FOLAMOUR --------------------------------------------------------------
+  { from:'deep_house',        to:'folamour',            strength:3, type:'lineage' },
+  { from:'french_touch',      to:'folamour',            strength:2, type:'influence' },
+  { from:'correspondant',     to:'folamour',            strength:1, type:'aesthetic' },
+
+  // -- DJ BORING -------------------------------------------------------------
+  { from:'deep_house',        to:'dj_boring',           strength:3, type:'lineage' },
+  { from:'tornado_wallace',   to:'dj_boring',           strength:2, type:'aesthetic' },
+
+  // -- CIEL ------------------------------------------------------------------
+  { from:'deep_house',        to:'ciel',                strength:3, type:'lineage' },
+  { from:'art_department',    to:'ciel',                strength:2, type:'aesthetic' },
+
+  // -- YU SU -----------------------------------------------------------------
+  { from:'deep_house',        to:'yu_su',               strength:2, type:'influence' },
+  { from:'ciel',              to:'yu_su',               strength:1, type:'aesthetic' },
+
+  // -- PRIORI ----------------------------------------------------------------
+  { from:'art_department',    to:'priori',              strength:1, type:'aesthetic' },
+  { from:'yu_su',             to:'priori',              strength:1, type:'aesthetic' },
 ];

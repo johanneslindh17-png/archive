@@ -1003,6 +1003,21 @@ export const NODES = [
       { title: 'Turning (Giegling)', year: 2021 },
     ], spotify:'1X5aTyyXc90P2xJXowsW95', },
 
+  // ── GERMANY — JASSS ────────────────────────────────────────────────────────
+  { id:'jasss', label:'JASSS', type:'artist', genre:'techno', era:2013, city:'Berlin', country:'DE',
+    desc:'JASSS is the alias of Sara Lorenz, a Spanish-born DJ and producer based in Berlin. She emerged from the industrial and EBM-influenced end of the Berlin techno scene and is one of the most consistently provocative voices in contemporary club music. Her sets blend hard techno, industrial, and body music into something confrontational and physical. She founded her own label Mechatronica and has become a regular presence at Berghain and across the European festival circuit.',
+    releases: [
+      { title: 'Brutalism (Mechatronica)', year: 2017 },
+      { title: 'El Mundo Del Silencio (MDD)', year: 2019 },
+    ]},
+
+  // ── GERMANY — MACHINE WOMAN ────────────────────────────────────────────────
+  { id:'machine_woman', label:'Machine Woman', type:'artist', genre:'experimental', era:2017, city:'Berlin', country:'DE',
+    desc:'Machine Woman is a Melbourne-born, Berlin-based artist whose work operates at the intersection of experimental electronics and club music. She releases on Technicolour and other labels, building a practice grounded in deconstructed rhythms, raw sound design, and emotional intensity. Her sound resists categorisation — at different moments it touches techno, ambient, and hardcore without settling into any of them.',
+    releases: [
+      { title: 'Rave or Die (Naive)', year: 2019 },
+    ]},
+
   // ── SWITZERLAND ──────────────────────────────────────────────────────────
   { id:'projectindigo', label:'Project Indigo', type:'label', genre:'giegling', era:2015, city:'Zurich', country:'CH',
     desc:'Project Indigo was founded in Zurich in 2015 and is a primary label for LB Honne. Its aesthetic aligns with the Giegling and Hamburg deep house networks.',
@@ -2184,6 +2199,18 @@ export const NODES = [
       { title: 'Nothing Is Still (Ninja Tune)', year: 2018 },
     ], spotify:'2o7L9DNcmzocYll1o0GGTU', },
 
+  // ── UK — BRADLEY ZERO ──────────────────────────────────────────────────────
+  { id:'bradley_zero', label:'Bradley Zero', type:'artist', genre:'deep', era:2013, city:'London', country:'UK',
+    desc:'Bradley Zero is a London DJ and the founder of Rhythm Section International, a label and event series he established in Brixton in 2013. His sets draw from deep house, soul, jazz, and global sounds — patient, late-night listening rather than peak-time energy. The Long Weekend parties he curated helped establish a South London community around slower, more introspective dance music.',
+    releases: []},
+
+  // ── UK — RHYTHM SECTION INTERNATIONAL ─────────────────────────────────────
+  { id:'rhythm_section_intl', label:'Rhythm Section International', type:'label', genre:'deep', era:2013, city:'London', country:'UK',
+    desc:'Rhythm Section International is an independent label founded by Bradley Zero in Brixton, South London in 2013. It built a catalogue around deep house, soul, and jazz-inflected electronic music, platforming artists including Throwing Shade (Nabihah Iqbal), Patrick Holland, and others from the London underground. The label is also associated with the Long Weekend festival and Rhythm Section radio show. It is one of the defining imprints of South London\'s contemporary underground.',
+    releases: [
+      { title: 'Throwing Shade — Ghetto Safari (Rhythm Section International)', year: 2016 },
+    ]},
+
   { id:'lone', label:'Lone', type:'artist', genre:'experimental', era:2008, city:'Nottingham', country:'UK',
     desc:'Matt Cutler records as Lone and is based in Nottingham. He began releasing on Dealmaker before moving to R&S and Greco-Roman. His music draws on early 1990s rave and IDM aesthetics — colourful, sample-dense, with a strong sense of euphoria — as well as Detroit electronic and Chicago house. He has released consistently since the late 2000s with a broad stylistic range.',
     releases: [
@@ -2499,6 +2526,14 @@ export const NODES = [
       { title: 'Timedance release (Timedance)', year: 2023 },
       { title: 'Pattern Gardening contribution (Wisdom Teeth)', year: 2024 },
     ], spotify:'5b4g39OmFtyQcwYLSHCvsC', },
+
+  // ── FRANCE — FOLAMOUR ─────────────────────────────────────────────────────
+  { id:'folamour', label:'Folamour', type:'artist', genre:'deep', era:2014, city:'Lyon', country:'FR',
+    desc:'Folamour is the alias of Corentin Kuster, a Lyon-based DJ and producer known for slow, textured deep house and disco-influenced electronic music. He founded his own label FHUO Records and has released on Unknown To The Unknown and Permanent Vacation. His productions are built from careful sampling and an unhurried groove — part of a European tradition of house that values feeling over energy.',
+    releases: [
+      { title: 'This Is Our Acid / Soft Rocks (FHUO Records)', year: 2015 },
+      { title: 'Bluebird / Bird Of Paradise (FHUO Records)', year: 2018 },
+    ]},
 
   // ── UK — BRISTOL (SKULL DISCO / LIVITY SOUND / TIMEDANCE) ────────────────
   { id:'skull_disco', label:'Skull Disco', type:'label', genre:'experimental', era:2005, city:'Bristol', country:'UK',
@@ -4407,6 +4442,14 @@ export const NODES = [
       { title: 'Presence (Beats in Space)', year: 2020 },
     ], spotify:'6GNWPphcJ5CtIwCJVV1lLT', },
 
+  // ── AU — DJ BORING ─────────────────────────────────────────────────────────
+  { id:'dj_boring', label:'DJ Boring', type:'artist', genre:'deep', era:2016, city:'Melbourne', country:'AU',
+    desc:'DJ Boring is the alias of Joshua Inwood, a Melbourne producer who broke through with "Winona" (2017) on Unknown To The Unknown — a hypnotic, effortless deep house track that became an unlikely anthem of the mid-2010s online house revival. His music is warm, unhurried, and rooted in a love of late-night grooves. He has released on Unknown To The Unknown and Clone, representing an Australian generation that absorbed the deep house tradition and made it distinctly their own.',
+    releases: [
+      { title: '"Winona" (Unknown To The Unknown)', year: 2017 },
+      { title: 'Another Jungle EP (Unknown To The Unknown)', year: 2018 },
+    ], spotify:'3PRMvSmchOsFknvRWFpjbz'},
+
   { id:'s_a_m', label:'S.A.M', type:'artist', genre:'deep', era:2012, city:'Amsterdam', country:'NL',
     desc:'S.A.M is a Danish-born producer and DJ based in the Netherlands. His releases on Delaphine Records and other labels work at the intersection of deep house, minimal techno, and experimental club music.',
     releases: [
@@ -4748,6 +4791,13 @@ export const NODES = [
     releases: [
       { title: 'Here From Where We Are (R&S Records)', year: 2012 },
     ], spotify:'3PP5mEG3X0CjthaqiEXqJU', },
+
+  // ── UK — KARENN ────────────────────────────────────────────────────────────
+  { id:'karenn', label:'Karenn', type:'artist', genre:'techno', era:2011, city:'London', country:'UK',
+    desc:'Karenn is the live techno duo formed by Blawan (Jamie Roberts) and Pariah (Robin Stewart). Their performances are built entirely from hardware — no computers, no fixed set. Since forming in 2011 they have released on Hessle Audio and performed at Boiler Room, Berghain, and festivals across Europe. The project exists solely as a live act and is among the most powerful expressions of improvised industrial techno in contemporary club music.',
+    releases: [
+      { title: '"Grapefruit" / "Carved Goat" EP (Hessle Audio)', year: 2012 },
+    ]},
 
   // ── UK — DJ EZ ───────────────────────────────────────────────────────────
   { id:'dj_ez', label:'DJ EZ', type:'artist', genre:'chicago', era:1994, city:'London', country:'UK',
@@ -6017,6 +6067,28 @@ export const NODES = [
     releases: [
       { title: 'The Drawing Board (No. 19 Music)', year: 2011 },
     ], spotify:'7Gsu15RkjjdKhMecdRpk9x', },
+
+  // ── CA — CIEL ──────────────────────────────────────────────────────────────
+  { id:'ciel', label:'Ciel', type:'artist', genre:'deep', era:2016, city:'Toronto', country:'CA',
+    desc:'Ciel is a Toronto DJ and producer who operates at the intersection of deep house, italo, and electronic music. She founded Good Company Records as a platform for her work and the broader Toronto underground. Her sets draw from a broad, melodic palette — unhurried and personal — making her one of the most distinctive voices in contemporary Canadian electronic music.',
+    releases: [
+      { title: 'Soft Junctions (Good Company Records)', year: 2020 },
+    ]},
+
+  // ── CA — YU SU ─────────────────────────────────────────────────────────────
+  { id:'yu_su', label:'Yu Su', type:'artist', genre:'ambient', era:2020, city:'Vancouver', country:'CA',
+    desc:'Yu Su is a Chinese-born, Vancouver-based artist whose work blends ambient electronics, gentle house rhythms, and traces of Chinese folk music. Her debut album Yellow River Blue (Rolling Wave Records, 2021) was widely acclaimed for its singular fusion of Eastern melodic sensibility and Western electronic club forms. Her music moves between the dancefloor and the interior at a pace that is entirely its own.',
+    releases: [
+      { title: 'Yellow River Blue (Rolling Wave Records)', year: 2021 },
+    ]},
+
+  // ── CA — PRIORI ────────────────────────────────────────────────────────────
+  { id:'priori', label:'Priori', type:'artist', genre:'ambient', era:2018, city:'Montreal', country:'CA',
+    desc:'Priori is the alias of Francis Latreille, a Montreal-based artist who works in ambient and experimental electronics. He releases on Arbutus Records — the Montreal label that also nurtured Grimes and Majical Cloudz — and his music sits at the most introspective end of the electronic spectrum: patient, melodic, and built from a sense of space. His album Instinct (2022) is considered his most fully realised work.',
+    releases: [
+      { title: 'In Four Movements (Arbutus Records)', year: 2019 },
+      { title: 'Instinct (Arbutus Records)', year: 2022 },
+    ]},
 
   // ── US — FRED P ─────────────────────────────────────────────────────────
   { id:'fred_p', label:'Fred P', type:'artist', genre:'house', era:2005, city:'New York', country:'US',
