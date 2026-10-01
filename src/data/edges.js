@@ -3364,6 +3364,10 @@
   { from:'deep_house',        to:'dj_python',           strength:2, type:'influence' },
   { from:'felipe_gordon',     to:'dj_python',           strength:1, type:'aesthetic' },
 
+  // -- GATHASPAR -------------------------------------------------------------
+  { from:'panorama_bar',      to:'gathaspar',           strength:2, type:'roster' },
+  { from:'machine_woman',     to:'gathaspar',           strength:1, type:'aesthetic' },
+
   // -- JASSS -----------------------------------------------------------------
   { from:'berghain',          to:'jasss',               strength:3, type:'roster' },
   { from:'dystopian',         to:'jasss',               strength:2, type:'aesthetic' },

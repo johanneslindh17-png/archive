@@ -1018,6 +1018,15 @@ export const NODES = [
       { title: 'Rave or Die (Naive)', year: 2019 },
     ]},
 
+  // ── GERMANY — GATHASPAR ────────────────────────────────────────────────────
+  { id:'gathaspar', label:'Gathaspar', type:'artist', genre:'minimal', era:2010, city:'Munich', country:'DE',
+    desc:'Gathaspar is a Polish-born, Munich-based live performer and producer. He works at the intersection of acoustic and electronic music — minimal, spacious, built around texture and atmosphere rather than club energy. He has released on Thema, Freude am Tanzen, and Resopal Schallware, and self-publishes through his own Chypre imprint. His live sets, which he is careful to distinguish from DJing, have been presented at Panorama Bar and Watergate among others.',
+    releases: [
+      { title: 'Artificial Respiration (Resopal Schallware)', year: 2012 },
+      { title: 'National Costumes (Thema)', year: 2015 },
+      { title: 'Chypre002 (Chypre)', year: 2022 },
+    ]},
+
   // ── SWITZERLAND ──────────────────────────────────────────────────────────
   { id:'projectindigo', label:'Project Indigo', type:'label', genre:'giegling', era:2015, city:'Zurich', country:'CH',
     desc:'Project Indigo was founded in Zurich in 2015 and is a primary label for LB Honne. Its aesthetic aligns with the Giegling and Hamburg deep house networks.',
