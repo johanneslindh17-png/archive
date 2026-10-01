@@ -2097,7 +2097,7 @@ export default function App() {
             setPathStep(null);
             return;
           }
-          if (selected) {
+          if (isDim) {
             selectNode(null);
             setPanelOnLeft(false);
             setPanelX(null);
