@@ -2144,7 +2144,7 @@ export default function App() {
               const PAD_SVG = 18;           // extra SVG-unit padding for glow
 
               const ov = document.createElement('div');
-              ov.style.cssText = `position:fixed;left:${nr.left}px;top:${nr.top}px;width:${nr.width}px;height:${nr.height}px;pointer-events:none;z-index:900;will-change:transform;transform:scale(1);transform-origin:center;transition:transform 0.12s ease-out;overflow:visible;`;
+              ov.style.cssText = `position:fixed;left:${nr.left}px;top:${nr.top}px;width:${nr.width}px;height:${nr.height}px;pointer-events:none;z-index:900;overflow:visible;`;
               const miniSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
               miniSvg.setAttribute('viewBox', `${-svgW/2-PAD_SVG} ${-svgH/2-PAD_SVG} ${svgW+PAD_SVG*2} ${svgH+PAD_SVG*2}`);
               miniSvg.style.cssText = `width:${nr.width+PAD_SVG*k*2}px;height:${nr.height+PAD_SVG*k*2}px;position:absolute;left:${-PAD_SVG*k}px;top:${-PAD_SVG*k}px;overflow:visible;pointer-events:none;`;
@@ -2155,7 +2155,7 @@ export default function App() {
               miniSvg.appendChild(wG);
               ov.appendChild(miniSvg);
               document.body.appendChild(ov);
-              requestAnimationFrame(() => { ov.style.transform = 'scale(1.08)'; });
+              // no scale-up; overlay stays at natural size
               marchOverlayRef.current.push(ov);
             }
             const svgNS = 'http://www.w3.org/2000/svg';
