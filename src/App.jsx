@@ -2839,11 +2839,8 @@ export default function App() {
         {/* Detail panel */}
         {(() => {
           const tc = colorTheme === 'type' && selNode ? (darkMode ? TYPE_COLORS[selNode.type]?.dark : TYPE_COLORS[selNode.type]?.light) : null;
-          const spineCount = selectedSet.filter(id => id !== selected).length;
-          const shelfOffset = spineCount * 36; // px the panel shifts left to make room for spines
           const panelStyle = {
-            ...(panelX !== null ? { left: panelX, right: 'auto' } :
-               (!panelOnLeft && shelfOffset > 0) ? { right: shelfOffset } : {}),
+            ...(panelX !== null ? { left: panelX, right: 'auto' } : {}),
             ...(themeStyle && !tc ? { background: themeStyle.surface, borderLeftColor: themeStyle.border, borderRightColor: themeStyle.border } : {}),
             ...(tc ? { background: tc.fill, borderLeftColor: tc.stroke, borderLeftWidth: panelOnLeft ? undefined : '3px', borderRightColor: panelOnLeft ? tc.stroke : undefined, borderRightWidth: panelOnLeft ? '3px' : undefined } : {}),
           };
@@ -3031,29 +3028,6 @@ export default function App() {
           );
         })()}
 
-
-        {/* Spine shelf — collapsed panels for non-active selectedSet nodes */}
-        {selectedSet.filter(id => id !== selected).length > 0 && (
-          <div className="spine-shelf">
-            {selectedSet.filter(id => id !== selected).map(id => {
-              const nd = NODE_BY_ID.get(id);
-              if (!nd) return null;
-              const tc = colorTheme === 'type' ? (darkMode ? TYPE_COLORS[nd.type]?.dark : TYPE_COLORS[nd.type]?.light) : null;
-              const col = tc ? tc.stroke : getThemeColors(nd, colorTheme, darkMode)?.stroke;
-              return (
-                <div
-                  key={`spine-${id}`}
-                  className="spine"
-                  style={col ? { borderColor: col } : undefined}
-                  onClick={() => jumpToTab(id)}
-                >
-                  <span className="spine-label" style={col ? { color: col } : undefined}>{nd.label}</span>
-                  <button className="spine-x" onClick={e => { e.stopPropagation(); removeFromSet(id); }}>×</button>
-                </div>
-              );
-            })}
-          </div>
-        )}
 
         {/* Hover tip */}
         {hovNode && (
