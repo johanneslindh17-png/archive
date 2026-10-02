@@ -2839,8 +2839,11 @@ export default function App() {
         {/* Detail panel */}
         {(() => {
           const tc = colorTheme === 'type' && selNode ? (darkMode ? TYPE_COLORS[selNode.type]?.dark : TYPE_COLORS[selNode.type]?.light) : null;
+          const spineCount = selectedSet.filter(id => id !== selected).length;
+          const shelfOffset = spineCount * 36; // px the panel shifts left to make room for spines
           const panelStyle = {
-            ...(panelX !== null ? { left: panelX, right: 'auto' } : {}),
+            ...(panelX !== null ? { left: panelX, right: 'auto' } :
+               (!panelOnLeft && shelfOffset > 0) ? { right: shelfOffset } : {}),
             ...(themeStyle && !tc ? { background: themeStyle.surface, borderLeftColor: themeStyle.border, borderRightColor: themeStyle.border } : {}),
             ...(tc ? { background: tc.fill, borderLeftColor: tc.stroke, borderLeftWidth: panelOnLeft ? undefined : '3px', borderRightColor: panelOnLeft ? tc.stroke : undefined, borderRightWidth: panelOnLeft ? '3px' : undefined } : {}),
           };

@@ -652,46 +652,45 @@ path.eg.dim{opacity:0.055}
 .dp.dragging{transition:none;user-select:none;cursor:grabbing;}
 .dp button,.dp .dp-back,.dp .dp-conn{cursor:pointer;}
 
-/* Spine shelf */
+/* Spine shelf — full-height book spines to the right of the active panel */
 .spine-shelf{
   position:absolute;right:0;top:44px;bottom:0;
-  display:flex;flex-direction:column;align-items:flex-end;
-  gap:4px;padding:8px 0;
-  pointer-events:none;z-index:79;
+  display:flex;flex-direction:row;align-items:stretch;
+  pointer-events:none;z-index:81;
 }
 .spine{
-  width:28px;height:140px;
+  width:36px;
   background:var(--tb-bg);
-  border-left:2px solid #ccc;
-  display:flex;flex-direction:column;align-items:center;justify-content:space-between;
-  padding:8px 0 6px;
+  border-left:1px solid var(--tb-border);
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:space-between;
+  padding:20px 0 14px;
   cursor:pointer;pointer-events:all;
-  box-shadow:-2px 0 12px rgba(0,0,0,0.07);
-  transition:width 0.15s ease, box-shadow 0.15s ease;
-  overflow:hidden;
+  box-shadow:-3px 0 16px rgba(0,0,0,0.09);
+  transition:width 0.18s ease, background 0.15s;
+  overflow:hidden;flex-shrink:0;
 }
-.spine:hover{
-  width:32px;
-  box-shadow:-4px 0 18px rgba(0,0,0,0.13);
-}
+.spine:hover{ width:42px; background:#f7f7f5; }
 .spine-label{
   writing-mode:vertical-rl;
   text-orientation:mixed;
   transform:rotate(180deg);
   font-family:'Syne Mono',monospace;
-  font-size:0.52rem;letter-spacing:0.1em;text-transform:uppercase;
-  color:#888;white-space:nowrap;overflow:hidden;
-  flex:1;min-height:0;
-  display:flex;align-items:center;
+  font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:#999;white-space:nowrap;overflow:hidden;
+  flex:1;min-height:0;padding:0 2px;
 }
+.spine-label:hover{ color:#333; }
 .spine-x{
   background:none;border:none;padding:0;cursor:pointer;
-  font-size:0.65rem;line-height:1;color:#ccc;flex-shrink:0;
+  font-size:0.7rem;line-height:1;color:#ccc;flex-shrink:0;
   transition:color 0.15s;
 }
 .spine-x:hover{ color:#333; }
-.dark .spine{ background:#0e0e14;border-left-color:#2a2a3c; }
+.dark .spine{ background:#0e0e14;border-left-color:#1e1e2c; }
+.dark .spine:hover{ background:#13131e; }
 .dark .spine-label{ color:#3a3a52; }
+.dark .spine-label:hover{ color:#9090a8; }
 .dark .spine-x{ color:#2a2a3c; }
 .dark .spine-x:hover{ color:#9090a8; }
 .dp-move-hint{
