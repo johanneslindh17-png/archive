@@ -413,7 +413,7 @@ export default function App() {
   const [expanded, setExpanded] = useState(null);
   const [searchQ, setSearchQ] = useState('');
   const [selected, setSelected] = useState(null);
-  const [history, setHistory] = useState([]);
+  const [selectedSet, setSelectedSet] = useState([]); // ordered array — all tabs in the trail
   const tfRafRef    = useRef(null); // RAF handle for throttling setTf
   const hovPrevRef  = useRef([]);   // DOM elements modified on hover — cleaned on mouseleave
   const leaveTimerRef   = useRef(null);  // debounce hover cleanup
@@ -459,7 +459,7 @@ export default function App() {
     EDGES.forEach(e => {
       if (e.type === 'aesthetic') return;
       const nbId = e.from === n.id ? e.to : e.to === n.id ? e.from : null;
-      if (!nbId || nbId === selected || nbId === pinned) return;
+      if (!nbId || selectedSet.includes(nbId)) return;
       if (hlIds?.has(nbId)) return; // skip already-highlighted nodes in a selection web
       const nb = NODE_BY_ID.get(nbId);
       if (!nb) return;
@@ -579,21 +579,43 @@ export default function App() {
     if (id === null) {
       window.history.replaceState(null, '', location.pathname + location.search);
       setSelected(null);
-      setHistory([]);
+      setSelectedSet([]);
+      setPinned(null);
       setLogHlDate(null);
+      return;
+    }
+    if (!unlocked) {
+      const next = trialCount + 1;
+      localStorage.setItem('archiveTrialCount', next);
+      setTrialCount(next);
+      if (next > TRIAL_LIMIT) { setPaywallOpen(true); return; }
+    }
+    if (selectedSet.includes(id)) {
+      // Toggle off — remove from trail
+      const newSet = selectedSet.filter(x => x !== id);
+      setSelectedSet(newSet);
+      const newActive = newSet.length ? newSet[newSet.length - 1] : null;
+      setSelected(newActive);
+      if (!newSet.length) { setPinned(null); setPanelOnLeft(false); setPanelX(null); }
     } else {
-      if (!unlocked) {
-        const next = trialCount + 1;
-        localStorage.setItem('archiveTrialCount', next);
-        setTrialCount(next);
-        if (next > TRIAL_LIMIT) { setPaywallOpen(true); return; }
-      }
-      // Continue trail from pinned node too, not just from an open panel
-      setHistory(prev => (selected || pinned) ? [...prev, (selected || pinned)] : prev);
+      // Add to trail
+      setSelectedSet(prev => [...prev, id]);
       setSelected(id);
       setPinned(null);
       window.history.replaceState(null, '', '#node=' + id);
     }
+  }
+
+  function removeFromSet(id) {
+    const newSet = selectedSet.filter(x => x !== id);
+    setSelectedSet(newSet);
+    if (selected === id) {
+      const newActive = newSet.length ? newSet[newSet.length - 1] : null;
+      setSelected(newActive);
+      if (newActive) scrollToNode(newActive, 0.2);
+      else { setPanelOnLeft(false); setPanelX(null); }
+    }
+    if (!newSet.length) setPinned(null);
   }
 
   async function verifyLicense() {
@@ -623,19 +645,17 @@ export default function App() {
     setVerifying(false);
   }
 
-  // Close panel but keep the node highlighted and breadcrumb visible
+  // Close panel — node stays in selectedSet so network stays highlighted
   function closePanel() {
-    setPinned(selected);
     setSelected(null);
-    // history intentionally preserved so breadcrumb stays intact
   }
 
-  // Clear everything — selection, pin, history
+  // Clear everything — selection, trail, pin
   function clearAll() {
     window.history.replaceState(null, '', location.pathname + location.search);
     setSelected(null);
+    setSelectedSet([]);
     setPinned(null);
-    setHistory([]);
     setPanelOnLeft(false);
     setPanelX(null);
     setPathMode(false);
@@ -680,21 +700,10 @@ export default function App() {
       });
   }
 
-  function goBack() {
-    const prev = history[history.length - 1];
-    setHistory(h => h.slice(0, -1));
-    setSelected(prev || null);
-    if (prev) scrollToNode(prev);
-  }
-
-  // Jump directly to any item in the breadcrumb trail
-  function jumpToHistory(idx) {
-    const id = history[idx];
-    if (!id) return;
-    setHistory(h => h.slice(0, idx));
+  // Switch active tab without changing the trail
+  function jumpToTab(id) {
     setSelected(id);
-    setPinned(null);
-    scrollToNode(id);
+    scrollToNode(id, 0.2);
   }
 
   // Match a node against a lowercase query string across all relevant fields
@@ -1286,7 +1295,7 @@ export default function App() {
 
   // Ticker + welcome navigation: pause/resume exactly where each was.
   useEffect(() => {
-    if (selected || pinned) {
+    if (selected || selectedSet.length) {
       if (welcomeDone) {
         if (newsGapTimerRef.current) { clearTimeout(newsGapTimerRef.current); newsGapTimerRef.current = null; }
         if (newsItemRef.current && newsStartRef.current) {
@@ -1321,7 +1330,7 @@ export default function App() {
         }
       }
     }
-  }, [selected, pinned, welcomeDone]);
+  }, [selected, selectedSet, welcomeDone]);
 
   // Close contact dropdown on outside click
   useEffect(() => {
@@ -1677,8 +1686,6 @@ export default function App() {
   }, [selected]);
 
 
-  const focusId = selected || pinned;
-
   const pathResult = useMemo(() => {
     if (!pathMode || pathNodes.length !== 2) return null;
     return bfsPath(pathNodes[0], pathNodes[1]);
@@ -1709,7 +1716,7 @@ export default function App() {
 
       if (e.key === 'Backspace') {
         e.preventDefault();
-        if (history.length > 0) goBack();
+        if (selectedSet.length > 1) removeFromSet(selectedSet[selectedSet.length - 1]);
         else clearAll();
         return;
       }
@@ -1752,7 +1759,7 @@ export default function App() {
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathMode, pathStep, selected, history]);
+  }, [pathMode, pathStep, selected, selectedSet]);
 
   const pathHlIds = useMemo(() => {
     if (!pathMode || pathNodes.length < 2) return null;
@@ -1776,18 +1783,20 @@ export default function App() {
     return new Set(NODE_CHANGELOG.filter(e => e.date === logHlDate && NODE_BY_ID.has(e.id)).map(e => e.id));
   }, [logHlDate]);
 
+  const selectedSetObj = useMemo(() => new Set(selectedSet), [selectedSet]);
+
   const hlIds = useMemo(() => {
     if (pathHlIds) return pathHlIds;
     if (pathMode) return null;
-    if (!focusId && logHlIds) return logHlIds;
-    if (!focusId) return null;
-    const s = new Set([focusId]);
+    if (!selectedSet.length && !pinned) return logHlIds || null;
+    const roots = selectedSet.length ? selectedSetObj : new Set([pinned]);
+    const s = new Set(roots);
     visibleEdges.forEach(e => {
-      if (e.from === focusId) { if (NODE_BY_ID.has(e.to))   s.add(e.to); }
-      if (e.to === focusId)   { if (NODE_BY_ID.has(e.from)) s.add(e.from); }
+      if (roots.has(e.from) && NODE_BY_ID.has(e.to))   s.add(e.to);
+      if (roots.has(e.to)   && NODE_BY_ID.has(e.from)) s.add(e.from);
     });
     return s;
-  }, [pathHlIds, pathMode, focusId, logHlIds, visibleEdges]);
+  }, [pathHlIds, pathMode, selectedSet, selectedSetObj, pinned, logHlIds, visibleEdges]);
 
   // Defer so nodeEls recompute never blocks a scroll paint frame
   const deferredHlIds = useDeferredValue(hlIds);
@@ -1795,9 +1804,10 @@ export default function App() {
   const hlEdges = useMemo(() => {
     if (pathHlEdges) return pathHlEdges;
     if (pathMode) return null;
-    if (!focusId) return null;
-    return new Set(visibleEdges.filter(e => e.from === focusId || e.to === focusId).map(e => `${e.from}|${e.to}`));
-  }, [pathHlEdges, pathMode, focusId, visibleEdges]);
+    const roots = selectedSet.length ? selectedSetObj : pinned ? new Set([pinned]) : null;
+    if (!roots) return null;
+    return new Set(visibleEdges.filter(e => roots.has(e.from) || roots.has(e.to)).map(e => `${e.from}|${e.to}`));
+  }, [pathHlEdges, pathMode, selectedSet, selectedSetObj, pinned, visibleEdges]);
 
   function handlePanelDragStart(e) {
     // Don't initiate drag from interactive elements
@@ -1976,7 +1986,7 @@ export default function App() {
     const isFilt = filteredIds.has(n.id);
     const isHl = deferredHlIds ? deferredHlIds.has(n.id) : isFilt;
     const isDim = (deferredHlIds && !deferredHlIds.has(n.id)) || (!deferredHlIds && !isFilt);
-    const isSel = n.id === selected || n.id === pinned;
+    const isSel = selectedSetObj.has(n.id) || n.id === pinned;
     const charW = 4.0, pad = 3;
     const isMoment  = n.type === 'moment';
     const isStyle   = n.type === 'style';
@@ -2102,8 +2112,10 @@ export default function App() {
             setPanelOnLeft(false);
             setPanelX(null);
           } else {
+            if (!selectedSet.includes(n.id)) {
+              positionPanel(n.id, d3.zoomTransform(svgRef.current));
+            }
             selectNode(n.id);
-            positionPanel(n.id, d3.zoomTransform(svgRef.current));
           }
         }}
         onMouseEnter={ev => {
@@ -2292,7 +2304,7 @@ export default function App() {
         </g>
       </g>
     );
-  }), [positions, expandedPositions, expanded, filteredIds, deferredHlIds, selected, darkMode, colorTheme, pathMode, setPathNodes, setPathStep, selectNode, scrollToNode]);
+  }), [positions, expandedPositions, expanded, filteredIds, deferredHlIds, selected, selectedSet, selectedSetObj, darkMode, colorTheme, pathMode, setPathNodes, setPathStep, selectNode, scrollToNode]);
 
   return (
     <div className="app">
@@ -2608,7 +2620,7 @@ export default function App() {
 
       {/* Node breadcrumb bar — always rendered to avoid layout shift on selection */}
       <div className="nodebreadcrumb" style={themeStyle ? { background: themeStyle.surface, borderBottomColor: themeStyle.border } : undefined}>
-        {!selected && !pinned && !welcomeDone && (
+        {!selectedSet.length && !pinned && !welcomeDone && (
           <div
             key={welcomeKey}
             className="nbc-welcome"
@@ -2625,7 +2637,7 @@ export default function App() {
             {'› ElectronicArchive.club — A free online resource for learning about the electronic music underground. Artists, labels, clubs, and pivotal moments — connected by documented lines of influence and lineage. Discover music, follow the Bandcamp links to support the artists directly. Have fun exploring! — TJ'}
           </div>
         )}
-        {!selected && !pinned && welcomeDone && newsItem && (
+        {!selectedSet.length && !pinned && welcomeDone && newsItem && (
           <div
             key={newsKey}
             className={'nbc-welcome' + (newsItem.nodeId ? ' nbc-welcome--linked' : '')}
@@ -2656,23 +2668,30 @@ export default function App() {
             {'› ' + newsItem.text}
           </div>
         )}
-        {(selected || pinned) && <>
+        {(selectedSet.length > 0 || pinned) && <>
           <div className="nbc-home" onClick={() => { clearAll(); flyHome(); }}>← ALL NODES</div>
           <div className="nbc-sep" />
-          {history.map((id, i) => {
+          {selectedSet.map(id => {
             const nd = NODE_BY_ID.get(id);
             if (!nd) return null;
             const col = getThemeColors(nd, colorTheme, darkMode)?.stroke;
-            return [
-              <div key={`ni-${id}-${i}`} className="nbc-item" style={col ? { color: col } : undefined} onClick={() => jumpToHistory(i)}>{nd.label}</div>,
-              <div key={`na-${id}-${i}`} className="nbc-arrow">›</div>,
-            ];
+            const isActive = id === selected;
+            return (
+              <div key={`tab-${id}`} className={`nbc-tab${isActive ? ' nbc-tab--active' : ''}`} style={col ? { color: col } : undefined}>
+                <span className="nbc-tab-label" onClick={() => jumpToTab(id)}>{nd.label}</span>
+                <button className="nbc-tab-x" onClick={e => { e.stopPropagation(); removeFromSet(id); }}>×</button>
+              </div>
+            );
           })}
-          {(() => {
-            const curId = selected || pinned;
-            const nd = NODE_BY_ID.get(curId);
+          {pinned && !selectedSet.length && (() => {
+            const nd = NODE_BY_ID.get(pinned);
             const col = nd ? getThemeColors(nd, colorTheme, darkMode)?.stroke : null;
-            return <div className="nbc-current" style={col ? { color: col } : undefined}>{nd?.label}</div>;
+            return (
+              <div className="nbc-tab nbc-tab--active" style={col ? { color: col } : undefined}>
+                <span className="nbc-tab-label" onClick={() => jumpToTab(pinned)}>{nd?.label}</span>
+                <button className="nbc-tab-x" onClick={() => clearAll()}>×</button>
+              </div>
+            );
           })()}
         </>}
       </div>
