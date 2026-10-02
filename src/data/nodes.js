@@ -1018,6 +1018,14 @@ export const NODES = [
       { title: 'Rave or Die (Naive)', year: 2019 },
     ]},
 
+  // ── GERMANY — TOXIDO MASK ──────────────────────────────────────────────────
+  { id:'toxido_mask', label:'Toxido Mask', type:'artist', genre:'techno', era:2018, city:'Berlin', country:'DE',
+    desc:'Toxido Mask is the alias of Julia Lipniewicz, a Berlin-based DJ, producer, and sound designer. A resident at Tresor, her work moves between ambient, halftime, and techno — dense sound design built from careful studio craft. She has released on Tresor Records, Semantica, and Pregnant Void. She also curates the OMM Transmission podcast and event series.',
+    releases: [
+      { title: 'Spirit Waters LP (Pregnant Void)', year: 2022 },
+      { title: 'Uyum (Tresor Records)', year: 2023 },
+    ]},
+
   // ── GERMANY — GATHASPAR ────────────────────────────────────────────────────
   { id:'gathaspar', label:'Gathaspar', type:'artist', genre:'minimal', era:2010, city:'Munich', country:'DE',
     desc:'Gathaspar is a Polish-born, Munich-based live performer and producer. He works at the intersection of acoustic and electronic music — minimal, spacious, built around texture and atmosphere rather than club energy. He has released on Thema, Freude am Tanzen, and Resopal Schallware, and self-publishes through his own Chypre imprint. His live sets, which he is careful to distinguish from DJing, have been presented at Panorama Bar and Watergate among others.',
@@ -2584,6 +2592,14 @@ export const NODES = [
       { title: 'Timedance 020 — Various', year: 2021 },
     ]},
 
+  // ── UK — IDLE HANDS ───────────────────────────────────────────────────────
+  { id:'idle_hands', label:'Idle Hands', type:'label', genre:'experimental', era:2009, city:'Bristol', country:'UK',
+    desc:'Idle Hands was founded by Chris Farrell in Bristol in 2009 — its first release, an EP from Peverelist, established the tone immediately: dark, heavy, rooted in post-dubstep bass but never contained by it. Over more than a decade it became one of the most consistently curated imprints in the Bristol underground, platforming Kowton, Shanti Celeste, Hodge, Mad Miran, and others who defined a particular strain of music that sat between house, techno, and bass culture. The label also ran a record shop on Stokes Croft that became a community hub. It paused releases in 2022.',
+    releases: [
+      { title: 'Idle Hands 001 — Peverelist', year: 2009 },
+      { title: 'Idle Hands 010 — Kowton', year: 2012 },
+    ]},
+
   // ── US — DJ STINGRAY ─────────────────────────────────────────────────────
   { id:'dj_stingray', label:'DJ Stingray 313', type:'artist', genre:'techno', era:2003, city:'Detroit', country:'US',
     desc:'Sherard Ingram records as DJ Stingray 313 and is based in Detroit. He is one of the most significant figures in the contemporary Detroit techno and electro underground. A close associate of the Underground Resistance and Drexciya orbits, he also records as Dopplereffekt (a project exploring clinical, scientific electronics) and has released on Tresor, Frustrated Funk, Ilian Tape, and his own Membrain label. His DJ sets are technically exceptional and encyclopedically rooted in Detroit electronic music history, while his productions push toward the boundary of electro, techno, and machine funk. He represents a direct continuity between the founding Detroit generation and the contemporary global underground.',
@@ -2961,6 +2977,13 @@ export const NODES = [
   { id:'salon_des_amateurs', label:'Salon des Amateurs', type:'venue', genre:'experimental', era:2006, city:'Düsseldorf', country:'DE',
     desc:'Salon des Amateurs is a club and event series in Düsseldorf that opened around 2006. It became a defining context for a generation of German DJs working outside conventional techno and house categories — industrial, no wave, EBM, and abstract electronics all found a platform here. Lena Willikens held a long residency; other associated figures included Gerd Janson, Vladimir Ivkovic, and Move D. The salon\'s programming approach shaped a distinct strand of German club culture that valued curation and eclecticism over genre orthodoxy.',
     releases: []},
+
+  // ── GERMANY — VLADIMIR IVKOVIC ────────────────────────────────────────────
+  { id:'vladimir_ivkovic', label:'Vladimir Ivkovic', type:'artist', genre:'experimental', era:2010, city:'Düsseldorf', country:'DE',
+    desc:'Vladimir Ivkovic is a DJ and producer of Serbian origin, based in Düsseldorf and closely associated with Salon des Amateurs. His sets are among the most rigorously eclectic in European club culture — moving across new wave, industrial, cosmic disco, and slower post-punk electronics in ways that resist easy description. He co-runs the Offen Music label with Amir Alexander and has played residencies in Düsseldorf, Berlin, and internationally. He also contributes to the Salon des Amateurs compilation series alongside Lena Willikens.',
+    releases: [
+      { title: 'Offen Music 001 (Offen Music)', year: 2013 },
+    ]},
 
   // ── NETHERLANDS — INTERSTELLAR FUNK ──────────────────────────────────────
   { id:'interstellar_funk', label:'Interstellar Funk', type:'artist', genre:'experimental', era:2012, city:'Amsterdam', country:'NL', bandcamp:'interstellarfunk', bandcamp_album:'3697715538',
@@ -5413,6 +5436,14 @@ export const NODES = [
     desc:'Loefah — born Joseph McNulty in South London — co-founded the DMZ club night at Mass in Brixton alongside Mala and Coki, helping establish that venue as the central institution of the early dubstep scene. His own productions took the genre\'s bass-weight and minimalism to an extreme: sparse percussion, long periods of near-silence, sub-bass frequencies used as the primary compositional material. He founded the Swamp81 label in 2009, which released work by artists including Bok Bok and Dark0, and maintained a curatorial commitment to deep, functional, aesthetically uncompromising club music. Where some dubstep producers moved toward heavier or more melodic forms, Loefah consistently pursued reduction — treating removal as the primary creative gesture.',
     releases: [] , spotify:'1ICQEDALtLouPV8yEaJXVb', },
 
+  // ── UK — SWAMP81 ─────────────────────────────────────────────────────────
+  { id:'swamp81', label:'Swamp81', type:'label', genre:'experimental', era:2009, city:'London', country:'UK',
+    desc:'Swamp81 was founded by Loefah in London in 2009. It grew out of the South London dubstep world and the DMZ sound he helped build, but quickly became something stranger: a home for bass-oriented music that moved through UK funky, grime, footwork references, and deconstructed club music. The label released work by Bok Bok, Dark0, Wen, and others who were defining a post-dubstep strain of UK club music in the early 2010s. Its aesthetic — functional but uncomfortable, bass-heavy, indifferent to genre — made it an important bridge between dubstep\'s original London moment and the wider UK electronic underground that followed.',
+    releases: [
+      { title: 'Swamp81 001 — Loefah', year: 2009 },
+      { title: 'Swamp81 009 — Bok Bok', year: 2011 },
+    ]},
+
   // ── JAMAICAN DUB & ROOTS ──────────────────────────────────────────────────
 
   { id:'studio_one', label:'Studio One', type:'label', genre:'disco', era:1963, city:'Kingston', country:'JM',
@@ -5806,6 +5837,21 @@ export const NODES = [
   { id:'san_proper', label:'San Proper', type:'artist', genre:'deep', era:2010, city:'Amsterdam', country:'NL',
     desc:'San Proper is an Amsterdam-based DJ and musician known for deep, hypnotic house music and live performances that blur the line between DJ set and live act. He has released on Clone Records (Rotterdam) and is part of the Amsterdam underground that surrounds the Clone and Rush Hour networks.',
     releases: [] , spotify:'3hciB8bkQeECakkTWmrPEH', },
+
+  // ── NETHERLANDS — MAD MIRAN ──────────────────────────────────────────────
+  { id:'mad_miran', label:'Mad Miran', type:'artist', genre:'experimental', era:2018, city:'Rotterdam', country:'NL',
+    desc:'Mad Miran is a Dutch DJ, producer, and radio host based between Rotterdam and Barcelona. Her sets draw on broken rhythms, bass-heavy electronics, and post-club experimentalism, and she has become one of the more distinctive voices in the European underground. She has released on Idle Hands (Bristol) and Swamp81, placing her within a transatlantic conversation between UK bass culture and continental experimentalism. She also hosts a show on NTS Radio.',
+    releases: [
+      { title: 'IH-Digital 022 (Idle Hands)', year: 2021 },
+    ]},
+
+  // ── NETHERLANDS — UPSAMMY ────────────────────────────────────────────────
+  { id:'upsammy', label:'Upsammy', type:'artist', genre:'experimental', era:2018, city:'Amsterdam', country:'NL',
+    desc:'Upsammy is the alias of Thessa Torsing, an Amsterdam-based producer who has developed one of the more singular voices in contemporary European electronic music. Her work on Dekmantel — particularly the album "Zoom" (2020) — unfolds slowly through textural, constantly mutating structures that feel sculptural rather than functional. She has also released on Discrepant and Knekelhuis, and her work suggests influences from ambient, musique concrète, and club music without belonging fully to any of them.',
+    releases: [
+      { title: 'Zoom (Dekmantel)', year: 2020 },
+      { title: 'Present Ginger (Dekmantel)', year: 2023 },
+    ], spotify:'1FcXMCjNfZqPzP9oGBYrfK', },
 
   // ── UK — MAYA JANE COLES ────────────────────────────────────────────────
   { id:'maya_jane_coles', label:'Maya Jane Coles', type:'artist', genre:'deep', era:2012, city:'London', country:'UK',

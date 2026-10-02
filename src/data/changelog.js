@@ -1,6 +1,13 @@
 // Most recently added nodes, newest first.
 // Add new entries here whenever nodes are added.
 export const NODE_CHANGELOG = [
+  // 2026-10-03
+  { id: 'toxido_mask',          label: 'Toxido Mask',               date: '2026-10-03' },
+  { id: 'idle_hands',           label: 'Idle Hands',                date: '2026-10-03' },
+  { id: 'vladimir_ivkovic',     label: 'Vladimir Ivkovic',          date: '2026-10-03' },
+  { id: 'swamp81',              label: 'Swamp81',                   date: '2026-10-03' },
+  { id: 'mad_miran',            label: 'Mad Miran',                 date: '2026-10-03' },
+  { id: 'upsammy',              label: 'Upsammy',                   date: '2026-10-03' },
   // 2026-10-02
   { id: 'gathaspar',            label: 'Gathaspar',                 date: '2026-10-02' },
   // 2026-09-30

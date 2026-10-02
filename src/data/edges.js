@@ -3410,4 +3410,33 @@
   // -- PRIORI ----------------------------------------------------------------
   { from:'art_department',    to:'priori',              strength:1, type:'aesthetic' },
   { from:'yu_su',             to:'priori',              strength:1, type:'aesthetic' },
+
+  // -- TOXIDO MASK -----------------------------------------------------------
+  { from:'tresor_club',       to:'toxido_mask',         strength:3, type:'roster' },
+  { from:'tresor_records',    to:'toxido_mask',         strength:2, type:'roster' },
+  { from:'berghain',          to:'toxido_mask',         strength:2, type:'aesthetic' },
+
+  // -- IDLE HANDS ------------------------------------------------------------
+  { from:'peverelist',        to:'idle_hands',          strength:3, type:'lineage' },
+  { from:'livity_sound',      to:'idle_hands',          strength:2, type:'aesthetic' },
+  { from:'shanti_celeste',    to:'idle_hands',          strength:3, type:'roster' },
+  { from:'dubstep',           to:'idle_hands',          strength:2, type:'influence' },
+
+  // -- VLADIMIR IVKOVIC -------------------------------------------------------
+  { from:'salon_des_amateurs', to:'vladimir_ivkovic',   strength:3, type:'roster' },
+  { from:'lena_willikens',    to:'vladimir_ivkovic',    strength:2, type:'aesthetic' },
+
+  // -- SWAMP81 ---------------------------------------------------------------
+  { from:'loefah',            to:'swamp81',             strength:3, type:'lineage' },
+  { from:'dmz',               to:'swamp81',             strength:2, type:'lineage' },
+  { from:'dubstep',           to:'swamp81',             strength:2, type:'lineage' },
+
+  // -- MAD MIRAN --------------------------------------------------------------
+  { from:'idle_hands',        to:'mad_miran',           strength:3, type:'roster' },
+  { from:'swamp81',           to:'mad_miran',           strength:2, type:'roster' },
+  { from:'wisdom_teeth',      to:'mad_miran',           strength:2, type:'aesthetic' },
+
+  // -- UPSAMMY ---------------------------------------------------------------
+  { from:'dekmantel',         to:'upsammy',             strength:3, type:'roster' },
+  { from:'interstellar_funk', to:'upsammy',             strength:1, type:'aesthetic' },
 ];
