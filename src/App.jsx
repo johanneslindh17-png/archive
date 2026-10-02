@@ -2111,6 +2111,9 @@ export default function App() {
             selectNode(null);
             setPanelOnLeft(false);
             setPanelX(null);
+          } else if (selectedSet.includes(n.id) && n.id !== selected) {
+            // Already in set but not active — switch to it without closing
+            jumpToTab(n.id);
           } else {
             if (!selectedSet.includes(n.id)) {
               positionPanel(n.id, d3.zoomTransform(svgRef.current));
