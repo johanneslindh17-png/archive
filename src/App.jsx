@@ -3029,6 +3029,29 @@ export default function App() {
         })()}
 
 
+        {/* Spine shelf — collapsed panels for non-active selectedSet nodes */}
+        {selectedSet.filter(id => id !== selected).length > 0 && (
+          <div className="spine-shelf">
+            {selectedSet.filter(id => id !== selected).map(id => {
+              const nd = NODE_BY_ID.get(id);
+              if (!nd) return null;
+              const tc = colorTheme === 'type' ? (darkMode ? TYPE_COLORS[nd.type]?.dark : TYPE_COLORS[nd.type]?.light) : null;
+              const col = tc ? tc.stroke : getThemeColors(nd, colorTheme, darkMode)?.stroke;
+              return (
+                <div
+                  key={`spine-${id}`}
+                  className="spine"
+                  style={col ? { borderColor: col } : undefined}
+                  onClick={() => jumpToTab(id)}
+                >
+                  <span className="spine-label" style={col ? { color: col } : undefined}>{nd.label}</span>
+                  <button className="spine-x" onClick={e => { e.stopPropagation(); removeFromSet(id); }}>×</button>
+                </div>
+              );
+            })}
+          </div>
+        )}
+
         {/* Hover tip */}
         {hovNode && (
           <div className="htip on" style={{ left: hovPos.x + 14, top: hovPos.y + 14 }}>
