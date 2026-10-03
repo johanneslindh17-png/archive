@@ -3617,4 +3617,62 @@
   { from:'sandwell_district', to:'vatican_shadow',      strength:2, type:'aesthetic' },
   { from:'techno',            to:'vatican_shadow',      strength:2, type:'lineage'  },
   { from:'silent_servant',    to:'vatican_shadow',      strength:2, type:'aesthetic' },
+
+  // -- DILLINJA --------------------------------------------------------------
+  { from:'metalheadz',        to:'dillinja',            strength:3, type:'roster'   },
+  { from:'jungle',            to:'dillinja',            strength:3, type:'lineage'  },
+
+  // -- V RECORDINGS ----------------------------------------------------------
+  { from:'ltj_bukem',         to:'v_recordings',        strength:2, type:'aesthetic' },
+  { from:'jungle',            to:'v_recordings',        strength:3, type:'lineage'  },
+  { from:'roni_size',         to:'v_recordings',        strength:2, type:'aesthetic' },
+
+  // -- HEADLESS HORSEMAN -----------------------------------------------------
+  { from:'rs_records',        to:'headless_horseman',   strength:2, type:'aesthetic' },
+  { from:'techno',            to:'headless_horseman',   strength:3, type:'lineage'  },
+  { from:'acid_house',        to:'headless_horseman',   strength:2, type:'influence' },
+
+  // -- LOCKED GROOVE ---------------------------------------------------------
+  { from:'rs_records',        to:'locked_groove',       strength:2, type:'aesthetic' },
+  { from:'berghain',          to:'locked_groove',       strength:2, type:'roster'   },
+  { from:'house',             to:'locked_groove',       strength:2, type:'lineage'  },
+
+  // -- HONEST JON'S ----------------------------------------------------------
+  { from:'ninja_tune',        to:'honest_jons',         strength:2, type:'aesthetic' },
+  { from:'theo_parrish',      to:'honest_jons',         strength:2, type:'roster'   },
+
+  // -- GUS GUS ---------------------------------------------------------------
+  { from:'house',             to:'gus_gus',             strength:2, type:'influence' },
+  { from:'techno',            to:'gus_gus',             strength:2, type:'influence' },
+
+  // -- BAMBOUNOU -------------------------------------------------------------
+  { from:'pan_label',         to:'bambounou',           strength:3, type:'roster'   },
+  { from:'dubstep',           to:'bambounou',           strength:2, type:'influence' },
+  { from:'footwork',          to:'bambounou',           strength:2, type:'influence' },
+
+  // -- KANGDING RAY ----------------------------------------------------------
+  { from:'techno',            to:'kangding_ray',        strength:2, type:'lineage'  },
+  { from:'ambient',           to:'kangding_ray',        strength:2, type:'influence' },
+
+  // -- COSMIN TRG ------------------------------------------------------------
+  { from:'techno',            to:'cosmin_trg',          strength:3, type:'lineage'  },
+  { from:'berghain',          to:'cosmin_trg',          strength:2, type:'roster'   },
+
+  // -- ORPHX -----------------------------------------------------------------
+  { from:'sandwell_district', to:'orphx',               strength:2, type:'aesthetic' },
+  { from:'techno',            to:'orphx',               strength:2, type:'lineage'  },
+  { from:'silent_servant',    to:'orphx',               strength:2, type:'aesthetic' },
+
+  // -- PIONAL ----------------------------------------------------------------
+  { from:'hivern_discs',      to:'pional',              strength:3, type:'roster'   },
+  { from:'john_talabot',      to:'pional',              strength:3, type:'collaboration' },
+  { from:'house',             to:'pional',              strength:2, type:'lineage'  },
+
+  // -- KRUDER & DORFMEISTER --------------------------------------------------
+  { from:'ambient',           to:'kruder_dorfmeister',  strength:2, type:'influence' },
+  { from:'house',             to:'kruder_dorfmeister',  strength:2, type:'influence' },
+
+  // -- MAX COOPER ------------------------------------------------------------
+  { from:'techno',            to:'max_cooper',          strength:2, type:'lineage'  },
+  { from:'ambient',           to:'max_cooper',          strength:2, type:'influence' },
 ];

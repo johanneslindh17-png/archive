@@ -1,6 +1,20 @@
 // Most recently added nodes, newest first.
 // Add new entries here whenever nodes are added.
 export const NODE_CHANGELOG = [
+  // 2026-10-03 batch 5
+  { id: 'max_cooper',           label: 'Max Cooper',                date: '2026-10-03' },
+  { id: 'kruder_dorfmeister',   label: 'Kruder & Dorfmeister',      date: '2026-10-03' },
+  { id: 'pional',               label: 'Pional',                    date: '2026-10-03' },
+  { id: 'orphx',                label: 'Orphx',                     date: '2026-10-03' },
+  { id: 'cosmin_trg',           label: 'Cosmin TRG',                date: '2026-10-03' },
+  { id: 'kangding_ray',         label: 'Kangding Ray',              date: '2026-10-03' },
+  { id: 'bambounou',            label: 'Bambounou',                 date: '2026-10-03' },
+  { id: 'gus_gus',              label: 'Gus Gus',                   date: '2026-10-03' },
+  { id: 'honest_jons',          label: 'Honest Jon\'s',             date: '2026-10-03' },
+  { id: 'locked_groove',        label: 'Locked Groove',             date: '2026-10-03' },
+  { id: 'headless_horseman',    label: 'Headless Horseman',         date: '2026-10-03' },
+  { id: 'v_recordings',         label: 'V Recordings',              date: '2026-10-03' },
+  { id: 'dillinja',             label: 'Dillinja',                  date: '2026-10-03' },
   // 2026-10-03 batch 4
   { id: 'vatican_shadow',       label: 'Vatican Shadow',            date: '2026-10-03' },
   { id: 'rrose',                label: 'Rrose',                     date: '2026-10-03' },

@@ -642,6 +642,21 @@ export const NODES = [
       { title: '"Camo & Krooked: Zeitgeist" (RAM)', year: 2012 },
     ]},
 
+  { id:'dillinja', label:'Dillinja', type:'artist', genre:'techno', era:1993, city:'London', country:'UK',
+    desc:'Dillinja (Karl Francis) is a South London-born producer and founder of Valve Records who was among the most technically influential figures in drum and bass in the mid-to-late 1990s. His productions combined precision with extreme bass weight and rhythmic complexity — dense, physical tracks that became benchmarks for the genre\'s technical development. His work defined what heavy drum and bass sounded like and influenced producers across the genre.',
+    releases:[
+      { title:'"Deep Love" (Metalheadz)', year:1994 },
+      { title:'"Ja Know Ya Can\'t" (Valve)', year:1998 },
+      { title:'"The Angels Fell" (Valve)', year:2003 },
+    ]},
+
+  { id:'v_recordings', label:'V Recordings', type:'label', genre:'techno', era:1993, city:'Bristol', country:'UK',
+    desc:'V Recordings was founded in Bristol in 1993 by Bryan Gee and Jumping Jack Frost. It became one of the most important labels in the liquid and soulful strand of drum and bass, releasing music that drew on jazz, soul, and R&B influences. Key artists include Marcus Intalex, Total Science, and Cause 4 Concern. The label has been consistently active for over three decades.',
+    releases:[
+      { title:'V Recordings Vol. 1 (compilation)', year:1994 },
+      { title:'"Stardust" — Marcus Intalex (V Recordings)', year:2001 },
+    ]},
+
   // ── BELGIUM ───────────────────────────────────────────────────────────────
   { id:'token', label:'Token Records', type:'label', genre:'techno', era:2007, city:'Antwerp', country:'BE',
     desc:'Token Records was founded in Belgium in 2007 by Kr!z. The label releases dark, precise techno at a deliberate pace, prioritising quality over volume. Its core artists include Inigo Kennedy, Ø [Phase], Xhin, and Rødhåd. Token is part of a continuing Belgian engagement with techno that extends back to R&S Records in the 1980s and 1990s.',
@@ -677,6 +692,20 @@ export const NODES = [
       { title: '"Subsonic" — Beltram (Warp)', year: 1992 },
       { title: '"New York City" (R&S)', year: 1992 },
     ], spotify:'4OW0w5K2UNaWtbpRqzWqI0', },
+
+  { id:'headless_horseman', label:'Headless Horseman', type:'artist', genre:'techno', era:2010, city:'Antwerp', country:'BE',
+    desc:'Headless Horseman (Christian Wicky) is a Belgian DJ and producer whose music occupies the intersection of techno and acid house. He releases on his own HHREC and Subway labels, and his DJ sets — driven by extended acid basslines and rhythmic accumulation — have made him one of Belgium\'s most distinctive contemporary techno exports.',
+    releases:[
+      { title:'"Meltdown Warrior" (HHREC)', year:2013 },
+      { title:'"Body Tremors" (HHREC)', year:2017 },
+    ]},
+
+  { id:'locked_groove', label:'Locked Groove', type:'artist', genre:'house', era:2012, city:'Brussels', country:'BE',
+    desc:'Locked Groove (Lukas Milasauskas) is a Belgian-born, Berlin-based producer who releases on his own Locked Groove label and on Hotflush. His productions blend deep house and techno with a spatial, atmospheric quality — music that moves between the cerebral and the sensuous and has made him a regular presence at major European clubs.',
+    releases:[
+      { title:'"Better Run" (Hotflush)', year:2013 },
+      { title:'"Waiting" (Locked Groove)', year:2016 },
+    ]},
 
   // ── GERMANY — BERLIN ────────────────────────────────────────────────────
   { id:'hardwax', label:'Hard Wax', type:'venue', genre:'detroit', era:1989, city:'Berlin', country:'DE',
@@ -2094,6 +2123,27 @@ export const NODES = [
       {title:'Amnesia Scanner – Another Life (PAN)', year:2018},
     ]},
 
+  { id:'bambounou', label:'Bambounou', type:'artist', genre:'experimental', era:2012, city:'Paris', country:'FR',
+    desc:'Bambounou (Jeremy Barbe) is a Parisian producer and DJ who releases on 50 Weapons and PAN. His music blends techno, house, and experimental bass in a style that is technically accomplished and emotionally direct. He has been an important figure in Paris\'s post-dubstep club scene and in the city\'s engagement with the wider European underground.',
+    releases:[
+      { title:'Orbiting EP (50 Weapons)', year:2012 },
+      { title:'Centrum (50 Weapons)', year:2013 },
+    ]},
+
+  { id:'kangding_ray', label:'Kangding Ray', type:'artist', genre:'experimental', era:2008, city:'Berlin', country:'DE',
+    desc:'Kangding Ray (David Letellier) is a French-born, Berlin-based electronic musician who releases on Stroboscopic Artefacts. His productions combine noise, ambient, and techno in compositions that value structural rigour over genre fidelity — music that draws from academic electroacoustics while remaining connected to the dancefloor. He has also developed work in installation art and spatial audio.',
+    releases:[
+      { title:'Stabil (Stroboscopic Artefacts)', year:2009 },
+      { title:'Solens Arc (Stroboscopic Artefacts)', year:2013 },
+    ]},
+
+  { id:'cosmin_trg', label:'Cosmin TRG', type:'artist', genre:'techno', era:2011, city:'Berlin', country:'DE',
+    desc:'Cosmin TRG (Cosmin Nicolae) is a Romanian-born, Berlin-based producer who has released on 50 Weapons, Mobilee, and his own label. His productions are precise and percussive, drawing on the harsh energy of industrial techno while maintaining groove and dancefloor function. He emerged from the Eastern European techno scene and established himself in Berlin through a focused and disciplined body of work.',
+    releases:[
+      { title:'Drift (50 Weapons)', year:2012 },
+      { title:'"Body Without Organs" EP (Mobilee)', year:2013 },
+    ]},
+
   { id:'len_faki', label:'Len Faki', type:'artist', genre:'techno', era:2005, city:'Berlin', country:'DE',
     desc:'Len Faki is a Berlin DJ, producer, and long-serving Berghain resident who founded the Figure label. His productions are dark and driving, fusing industrial techno with acid and a distinctive physicality. He has released on Blueprint, Tresor, and Figure. The Figure label has released music by Answer Code Request, Truncate, Shifted, and Paula Temple, and is one of the central imprints defining hard Berlin techno of the 2010s–2020s.',
     releases: [
@@ -2379,6 +2429,13 @@ export const NODES = [
       { title:'Ghosts of Chechnya (Downwards)', year:2016 },
     ]},
 
+  { id:'orphx', label:'Orphx', type:'artist', genre:'techno', era:1993, city:'Hamilton', country:'CA',
+    desc:'Orphx (Christina Sealey and Rich Oddie) are a Hamilton, Ontario duo who have been recording industrial techno and electro-industrial since the early 1990s. Their album Pain Threshold (Sonic Groove, 2016) brought their aggressive, harsh electronics to a wider techno audience. They represent the North American industrial tradition feeding directly into contemporary club music, connecting early EBM and power electronics to techno.',
+    releases:[
+      { title:'Pitch Black Mirror (Sonic Groove)', year:2013 },
+      { title:'Pain Threshold (Sonic Groove)', year:2016 },
+    ]},
+
   { id:'perc', label:'Perc', type:'artist', genre:'techno', era:2009, city:'London', country:'UK',
     desc:'Perc (Ali Wells) is a London-based DJ, producer, and founder of Perc Trax. His music is characterised by aggressive, industrial-influenced techno — compressed, relentless, and deliberately confrontational. He has released on Stroboscopic Artefacts and his own label, and Perc Trax has issued work from Truss and others working in the harder end of the UK techno spectrum.',
     releases:[
@@ -2447,6 +2504,14 @@ export const NODES = [
       { title: 'Swept (Erased Tapes)', year: 2023 },
     ], spotify:'6X8lhZ7YaRUBlOsOYimlyD', },
 
+  { id:'gus_gus', label:'Gus Gus', type:'artist', genre:'experimental', era:1995, city:'Reykjavik', country:'IS',
+    desc:'Gus Gus are an Icelandic collective formed in Reykjavik in 1995, initially comprising filmmakers, artists, and musicians. Their music combined house and techno structures with pop song forms and Icelandic sensibility, releasing on 4AD and later Kompakt. This Is Normal (4AD, 1999) is their most celebrated work — melodic, slightly melancholic electronic pop with deep house and techno influence. Their longevity and willingness to evolve has made them one of Iceland\'s most significant electronic music exports.',
+    releases:[
+      { title:'Polydistortion (4AD)', year:1997 },
+      { title:'This Is Normal (4AD)', year:1999 },
+      { title:'Arabian Horse (Kompakt)', year:2011 },
+    ]},
+
   { id:'lies_records', label:'L.I.E.S. Records', type:'label', genre:'experimental', era:2010, city:'New York', country:'US',
     desc:'Long Island Electrical Systems, founded by Ron Morelli in New York in 2010. L.I.E.S. became the defining label of a raw, lo-fi strain of American house and techno — deliberately rough-textured, anti-glossy, rooted in the grit of the city rather than European club perfectionism. Its catalogue spans mutant house, industrial techno and tape-damaged electronics, with key releases from Prostitutes, Gunnar Haslam, Beau Wanzer and Bookworms. It shaped a global aesthetic that pushed back against the over-produced mainstream of the early 2010s.',
     releases:[
@@ -2454,6 +2519,12 @@ export const NODES = [
       {title:'Prostitutes – L.I.E.S. 007 (L.I.E.S.)', year:2011},
       {title:'Various – American Noise (L.I.E.S.)', year:2012},
       {title:'Ron Morelli – Spit (L.I.E.S.)', year:2013},
+    ]},
+
+  { id:'honest_jons', label:'Honest Jon\'s', type:'label', genre:'experimental', era:1999, city:'London', country:'UK',
+    desc:'Honest Jon\'s is a Notting Hill record shop and label whose shop arm dates to the 1970s and whose label releases began in the late 1990s. The label has released a remarkably eclectic range — jazz, African music, dub, soul, electronic — unified by an attention to overlooked music from global traditions. Theo Parrish, Jaki Liebezeit, and various compilations of obscure African music have appeared on it. The label occupies a rare position as a genuine collector\'s imprint with both scholarly and dancefloor credibility.',
+    releases:[
+      { title:'Theo Parrish — Rewind the Bassline (Honest Jon\'s)', year:2013 },
     ]},
 
   { id:'djsprinkles', label:'DJ Sprinkles', type:'artist', genre:'experimental', era:2009, city:'New York', country:'US',
@@ -3323,6 +3394,13 @@ export const NODES = [
       { title: 'Families EP (Hivern Discs)', year: 2009 },
       { title: '∞ (Fin) (Permanent Vacation / Young Turks)', year: 2012 },
     ], spotify:'1YvN5uOGQkHVUUlZUcnotD', },
+
+  { id:'pional', label:'Pional', type:'artist', genre:'deep', era:2009, city:'Barcelona', country:'ES',
+    desc:'Pional (Marc Piñol) is a Barcelona-based producer and co-founder of Hivern Discs alongside John Talabot. His productions blend house and pop influences with a Mediterranean quality — warm, slightly melancholic, rooted in the Balearic tradition while looking forward. His album Palinopsia (Hivern Discs, 2014) is a key document of Barcelona\'s independent electronic scene.',
+    releases:[
+      { title:'So Will Be Now (Hivern Discs)', year:2012 },
+      { title:'Palinopsia (Hivern Discs)', year:2014 },
+    ]},
 
   { id:'jamie_xx', label:'Jamie xx', type:'artist', genre:'disco', era:2011, city:'London', country:'UK', bandcamp:'jamiexx', bandcamp_album:'150871303',
     desc:'Jamie Smith records as Jamie xx and is a member of The xx. What his solo work did — on In Colour (Young Turks, 2015) — was compress London\'s underground history into something pop-scaled: UK garage, house, and grime folded into tracks that felt simultaneously intimate and enormous. The album became one of the most critically celebrated British electronic records of the decade, making the case that club-adjacent music could be emotionally coherent pop. He has also produced for Rihanna and Gil Scott-Heron.',
@@ -4922,6 +5000,21 @@ export const NODES = [
       { title: 'Parquet (Macro)', year: 2012 },
       { title: 'Polyester (Macro)', year: 2015 },
     ], spotify:'7k5umNvyeiiTV0xxw5Qr8s', },
+
+  { id:'kruder_dorfmeister', label:'Kruder & Dorfmeister', type:'artist', genre:'ambient', era:1993, city:'Vienna', country:'AT',
+    desc:'Kruder & Dorfmeister are a Vienna duo — Peter Kruder and Richard Dorfmeister — who developed trip-hop in the 1990s: slow-tempo electronic music combining downtempo beats, dub bass, and jazz and soul samples. Their K&D Sessions (Studio !K7, 1998) is among the most cited remix compilations in electronic music. They represent a distinctly Central European contribution to 1990s electronic culture, channelling Vienna\'s café culture through hip-hop and dub.',
+    releases:[
+      { title:'G-Stoned EP (G-Stone)', year:1993 },
+      { title:'K&D Sessions (Studio !K7)', year:1998 },
+    ]},
+
+  { id:'max_cooper', label:'Max Cooper', type:'artist', genre:'experimental', era:2011, city:'London', country:'UK',
+    desc:'Max Cooper is a Belfast-born, London-based producer and PhD in computational biology who has developed a distinctive approach at the intersection of techno, ambient, and contemporary composition. He releases on Mesh and his own label. His productions develop over long arcs and he performs with visuals specifically designed for his music, occupying the space between club music and audio-visual art.',
+    releases:[
+      { title:'Emergence (Mesh)', year:2012 },
+      { title:'Human (Mesh)', year:2014 },
+      { title:'Unspoken Words (Mesh)', year:2016 },
+    ]},
 
   // ── SOUTH KOREA EXPANDED ─────────────────────────────────────────────────
   { id:'yaeji', label:'Yaeji', type:'artist', genre:'house', era:2017, city:'New York', country:'KR',
