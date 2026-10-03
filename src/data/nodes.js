@@ -2144,6 +2144,48 @@ export const NODES = [
       { title:'"Body Without Organs" EP (Mobilee)', year:2013 },
     ]},
 
+  { id:'nils_frahm', label:'Nils Frahm', type:'artist', genre:'ambient', era:2009, city:'Berlin', country:'DE',
+    desc:'Nils Frahm is a Hamburg-born, Berlin-based pianist, composer, and recording engineer who has developed an approach bridging neo-classical composition, ambient music, and electronic production. Records on Erased Tapes including Felt (2011), Spaces (2013), and All Melody (2018) reached large audiences while maintaining compositional depth. His use of prepared piano alongside synthesizers created a distinctive aesthetic.',
+    releases:[
+      { title:'Felt (Erased Tapes)', year:2011 },
+      { title:'Spaces (Erased Tapes)', year:2013 },
+      { title:'All Melody (Erased Tapes)', year:2018 },
+    ], spotify:'5hW4L92KnC6dX9t7tYM4Ve', },
+
+  { id:'christian_loffler', label:'Christian Löffler', type:'artist', genre:'melodic', era:2013, city:'Rügen', country:'DE',
+    desc:'Christian Löffler is a German producer based on the island of Rügen who releases on Ki Records. His melodic house and ambient electronic music is defined by organic sound design, melancholic melodies, and a strongly visual aesthetic. His album Mare (Ki Records, 2013) established him as a distinctive voice in European melodic electronic music.',
+    releases:[
+      { title:'Mare (Ki Records)', year:2013 },
+      { title:'Kelr (Ki Records)', year:2015 },
+    ], spotify:'6bmlMHgSheBauioMgKv9sZ', },
+
+  { id:'zenker_brothers', label:'Zenker Brothers', type:'artist', genre:'minimal', era:2013, city:'Berlin', country:'DE',
+    desc:'Zenker Brothers (Dario and Marco Zenker) are a Munich-born, Berlin-based production duo who co-run Ilian Tape with their brother Alex Zenker. Their music occupies a distinctive space between minimal techno, house, and Detroit influences — rhythmically loose and texturally varied compared to the harder end of European techno.',
+    releases:[
+      { title:'Immersion (Ilian Tape)', year:2013 },
+      { title:'Cosmic Octet (Ilian Tape)', year:2018 },
+    ]},
+
+  { id:'amnesia_scanner', label:'Amnesia Scanner', type:'artist', genre:'experimental', era:2014, city:'Berlin', country:'DE',
+    desc:'Amnesia Scanner is a Berlin-based duo (Ville Haimala and Martti Kalliala) who release on PAN. Their music uses club structures as a framework for something more disruptive — harsh, compressed, formally radical electronic music that draws on online aesthetics and pop structure. Their album Another Life (PAN, 2018) brought them significant critical attention.',
+    releases:[
+      { title:'AS (PAN)', year:2016 },
+      { title:'Another Life (PAN)', year:2018 },
+    ]},
+
+  { id:'newa', label:'Newa', type:'artist', genre:'experimental', era:2016, city:'Berlin', country:'DE',
+    desc:'Newa (Klara Schreiber) is a Berlin-based DJ and producer associated with the Janus collective and events. Her music and DJ sets blend experimental club music, industrial, and rave, occupying a post-internet aesthetic shared with other Berlin-based artists of her generation exploring the territory between digital culture and physical dance floors.',
+    releases:[
+      { title:'"Kette" EP', year:2016 },
+    ]},
+
+  { id:'gantz', label:'Gantz', type:'artist', genre:'techno', era:2013, city:'Berlin', country:'DE',
+    desc:'Gantz is a Belgrade-born, Berlin-based producer and DJ known for extremely fast tempos and a hard, confrontational approach to techno. He releases on Berceuse Heroique and his own imprints. His DJ sets and productions push physical endurance and are among the most aggressive in contemporary club music.',
+    releases:[
+      { title:'"Deep East" EP (Berceuse Heroique)', year:2013 },
+      { title:'Gantz (Berceuse Heroique)', year:2019 },
+    ]},
+
   { id:'len_faki', label:'Len Faki', type:'artist', genre:'techno', era:2005, city:'Berlin', country:'DE',
     desc:'Len Faki is a Berlin DJ, producer, and long-serving Berghain resident who founded the Figure label. His productions are dark and driving, fusing industrial techno with acid and a distinctive physicality. He has released on Blueprint, Tresor, and Figure. The Figure label has released music by Answer Code Request, Truncate, Shifted, and Paula Temple, and is one of the central imprints defining hard Berlin techno of the 2010s–2020s.',
     releases: [
@@ -2469,6 +2511,13 @@ export const NODES = [
       { title:'A Fractured Smile (Mote-Evolver)', year:2014 },
     ]},
 
+  { id:'truss', label:'Truss', type:'artist', genre:'techno', era:2011, city:'London', country:'UK',
+    desc:'Truss (Tom Marshallsay) is a Birmingham-born, London-based producer who releases primarily on Perc Trax and Figure. His techno is industrial and functional, rooted in Birmingham\'s manufacturing heritage — compressed and relentless. He is one of the core artists in the UK hard techno scene that Perc\'s label has defined.',
+    releases:[
+      { title:'"Mutagen" (Perc Trax)', year:2012 },
+      { title:'"Surge" (Figure)', year:2014 },
+    ]},
+
   // ── US — MINIMAL / TECHNO ─────────────────────────────────────────────────
   { id:'mike_parker', label:'Mike Parker', type:'artist', genre:'minimal', era:2000, city:'Buffalo', country:'US', bandcamp:'mikeparker', bandcamp_album:'1490032319',
     desc:'Mike Parker is a Buffalo-based producer and label owner whose work has appeared almost exclusively on his own Geophone label since 2000. His techno is minimal and hypnotic — long tracks built from densely layered rhythmic textures with minimal melodic content. He has maintained a low public profile and does not perform live frequently. His catalogue is regarded as one of the most consistently rigorous in American minimal techno.',
@@ -2477,6 +2526,38 @@ export const NODES = [
       { title: '"GPH14" (Geophone)', year: 2014 },
       { title: 'Voiceprint (Geophone)', year: 2015 },
     ], spotify:'09CEhdsMmOdtetLfiqxFlh', },
+
+  { id:'truncate', label:'Truncate', type:'artist', genre:'techno', era:2010, city:'New York', country:'US',
+    desc:'Truncate (Brad Rouleau) is a New York-based DJ and producer who releases on Figure and his own Hospital Productions imprint. His techno is driving and precisely machined, closely aligned with the industrial-influenced sound of Perc Trax and the harder wing of European techno. He has performed at Berghain and other major European venues.',
+    releases:[
+      { title:'"Drift" (Figure)', year:2012 },
+      { title:'"Fabric 77" mix (Fabric)', year:2014 },
+    ]},
+
+  { id:'acronym', label:'Acronym', type:'artist', genre:'techno', era:2013, city:'New York', country:'US',
+    desc:'Acronym (Wil Bankhead) is a New York-based DJ and producer who releases on Jealous God, Stroboscopic Artefacts, and other labels. His techno draws heavily on EBM and industrial body music from the 1980s, building hard, functional club music with clear roots in that tradition. He has been an important figure in connecting the historical industrial scene to contemporary techno.',
+    releases:[
+      { title:'"Meridians of Bliss" (Jealous God)', year:2013 },
+    ]},
+
+  { id:'container', label:'Container', type:'artist', genre:'techno', era:2013, city:'Providence', country:'US',
+    desc:'Container (Ren Schofield) is a Providence, Rhode Island-based producer and live performer who makes noise-influenced, extremely raw club music — fast, abrasive, and structurally reduced. He releases on Diagonal and UNO NYC, and his sets are among the most physically confrontational in contemporary electronic music.',
+    releases:[
+      { title:'LP (Diagonal)', year:2014 },
+      { title:'Adhesive (Diagonal)', year:2016 },
+    ]},
+
+  { id:'identified_patient', label:'Identified Patient', type:'artist', genre:'techno', era:2015, city:'Rotterdam', country:'NL',
+    desc:'Identified Patient (Tjaart van der Walt) is a Rotterdam-based DJ and producer associated with Motorik, Vault Series, and other labels in the Dutch and European underground. His productions sit at the intersection of techno and EBM, with a directness and energy that reflects Rotterdam\'s long tradition of hard club music.',
+    releases:[
+      { title:'"Barbed Wire" EP (Motorik)', year:2018 },
+    ]},
+
+  { id:'jensen_interceptor', label:'Jensen Interceptor', type:'artist', genre:'techno', era:2017, city:'Melbourne', country:'AU',
+    desc:'Jensen Interceptor is a Melbourne-based DJ and producer who has become one of the most internationally visible artists to emerge from Australia\'s contemporary club scene. He releases on Running Back and other labels, and his music crosses between industrial techno and harder forms of house with a restless energy. His DJ sets draw on a wide breadth of underground electronic music.',
+    releases:[
+      { title:'"Speedrun" (Running Back)', year:2019 },
+    ]},
 
   // ── INTERNATIONAL — VARIOUS ───────────────────────────────────────────────
   { id:'floating_points', label:'Floating Points', type:'artist', genre:'experimental', era:2009, city:'London', country:'UK', bandcamp:'floatingpoints', bandcamp_album:'2214058814',
@@ -2512,6 +2593,13 @@ export const NODES = [
       { title:'Arabian Horse (Kompakt)', year:2011 },
     ]},
 
+  { id:'klara_lewis', label:'Klara Lewis', type:'artist', genre:'experimental', era:2014, city:'Stockholm', country:'SE',
+    desc:'Klara Lewis is a Stockholm-based electronic musician who releases on Editions Mego. Her music uses processed field recordings, synthesis, and electronics in compositions that resist genre categorisation — ambient and electronic with a strong visual and spatial quality. She is the daughter of Wire guitarist Bruce Gilbert.',
+    releases:[
+      { title:'Ett (Editions Mego)', year:2014 },
+      { title:'Too (Editions Mego)', year:2016 },
+    ]},
+
   { id:'lies_records', label:'L.I.E.S. Records', type:'label', genre:'experimental', era:2010, city:'New York', country:'US',
     desc:'Long Island Electrical Systems, founded by Ron Morelli in New York in 2010. L.I.E.S. became the defining label of a raw, lo-fi strain of American house and techno — deliberately rough-textured, anti-glossy, rooted in the grit of the city rather than European club perfectionism. Its catalogue spans mutant house, industrial techno and tape-damaged electronics, with key releases from Prostitutes, Gunnar Haslam, Beau Wanzer and Bookworms. It shaped a global aesthetic that pushed back against the over-produced mainstream of the early 2010s.',
     releases:[
@@ -2525,6 +2613,27 @@ export const NODES = [
     desc:'Honest Jon\'s is a Notting Hill record shop and label whose shop arm dates to the 1970s and whose label releases began in the late 1990s. The label has released a remarkably eclectic range — jazz, African music, dub, soul, electronic — unified by an attention to overlooked music from global traditions. Theo Parrish, Jaki Liebezeit, and various compilations of obscure African music have appeared on it. The label occupies a rare position as a genuine collector\'s imprint with both scholarly and dancefloor credibility.',
     releases:[
       { title:'Theo Parrish — Rewind the Bassline (Honest Jon\'s)', year:2013 },
+    ]},
+
+  { id:'uiq', label:'UIQ', type:'label', genre:'experimental', era:2013, city:'Milan', country:'IT',
+    desc:'UIQ was founded in Milan in 2013 by Lorenzo Senni as a platform for experimental electronic music at the intersection of techno, noise, and contemporary composition. It has released work by Raime, Matrixxman, and others working at the edge of club and experimental music. The label maintains a minimal aesthetic and a focus on sonic exploration over genre allegiance.',
+    releases:[
+      { title:'Raime — "Ghosts of the New City" (UIQ)', year:2014 },
+    ]},
+
+  { id:'patten', label:'Patten', type:'artist', genre:'experimental', era:2011, city:'London', country:'UK',
+    desc:'Patten are a UK-based production project signed to PAN who make electronic music drawing on club structures, ambient, and conceptual approaches. Their albums Glaqjo Xaaros (2011) and ESTOILE NAIANT (2014) are distinctive contributions to the PAN label\'s eclecticism, resisting easy genre placement while engaging with rave and techno aesthetics.',
+    releases:[
+      { title:'Glaqjo Xaaros (PAN)', year:2011 },
+      { title:'ESTOILE NAIANT (PAN)', year:2014 },
+    ]},
+
+  { id:'rival_consoles', label:'Rival Consoles', type:'artist', genre:'ambient', era:2010, city:'London', country:'UK',
+    desc:'Rival Consoles (Ryan Lee West) is a London-based producer who releases on Erased Tapes. His music blends ambient, electronic, and minimalist composition — connecting the contemporary classical world with club-adjacent electronics. He has performed at major venues and developed close visual collaborations for his live work.',
+    releases:[
+      { title:'Odyssey (Erased Tapes)', year:2012 },
+      { title:'Howl (Erased Tapes)', year:2015 },
+      { title:'Persona (Erased Tapes)', year:2018 },
     ]},
 
   { id:'djsprinkles', label:'DJ Sprinkles', type:'artist', genre:'experimental', era:2009, city:'New York', country:'US',
@@ -2760,6 +2869,18 @@ export const NODES = [
       { title: 'Bluebird / Bird Of Paradise (FHUO Records)', year: 2018 },
     ]},
 
+  { id:'azu_tiwaline', label:'Azu Tiwaline', type:'artist', genre:'experimental', era:2019, city:'Tunis', country:'DZ',
+    desc:'Azu Tiwaline is an Algerian-French producer and DJ who grew up in France and integrates Amazigh and North African musical traditions into electronic music. Her debut album Draw Me A Silence (I.O.T. Records, 2021) combines synthesizers with field recordings from the Algerian desert and elements of Chaabi and Berber music. She is one of the most distinctive voices working at the intersection of global heritage and contemporary club music.',
+    releases:[
+      { title:'Draw Me A Silence (I.O.T. Records)', year:2021 },
+    ]},
+
+  { id:'umwelt', label:'Umwelt', type:'artist', genre:'techno', era:1999, city:'Paris', country:'FR',
+    desc:'Umwelt is a French producer and DJ who has been releasing electronic music since the late 1990s. Associated with the harder and more industrial end of French techno, he releases on Industrial Complexx and other labels. His productions are characterised by aggression, density, and an uncompromising approach to rhythm.',
+    releases:[
+      { title:'"Doomsday Device" (Industrial Complexx)', year:2012 },
+    ]},
+
   // ── UK — BRISTOL (SKULL DISCO / LIVITY SOUND / TIMEDANCE) ────────────────
   { id:'skull_disco', label:'Skull Disco', type:'label', genre:'experimental', era:2005, city:'Bristol', country:'UK',
     desc:'Skull Disco was an independent label founded in 2005 by Sam Shackleton and Laurie "Appleblim" Osborne, operating between London and Bristol. Active for only three years and a dozen releases before dissolving in 2008, it nonetheless became one of the most influential imprints in the post-dubstep underground. Its sound fused the heavy sub-bass and fractured rhythms of dubstep with African and Middle Eastern percussion, ethnic vocals, and the dub processing of Basic Channel — producing music that was percussive, ritualistic, and utterly distinct from anything around it. Its dissolution was a catalyst: artists including Scuba, Martyn, and the emerging Bristol scene absorbed its logic, and the label is now regarded as a direct upstream source of Bristol\'s subsequent experimental techno and bass lineage.',
@@ -2832,6 +2953,25 @@ export const NODES = [
     desc:'Ctrls is a Bristol-based DJ and producer who releases on Livity Sound. His music draws on Chicago house, Bristol bass weight, and techno, and he has been a resident at Livity Sound events and an important figure in maintaining Bristol\'s approach to club music.',
     releases:[
       { title:'Livity Sound 009 (Livity Sound)', year:2014 },
+    ]},
+
+  { id:'giant_swan', label:'Giant Swan', type:'artist', genre:'experimental', era:2016, city:'Bristol', country:'UK',
+    desc:'Giant Swan (Robin Stewart and Harry Wright) are a Bristol-based duo making noise-influenced, industrial-adjacent electronic music. Their live performances are intense and confrontational — dense, heavily effected club music that pushes the physical limits of the form. They release on Big Dada and their own imprint.',
+    releases:[
+      { title:'Giant Swan (Big Dada)', year:2019 },
+    ]},
+
+  { id:'commodo', label:'Commodo', type:'artist', genre:'experimental', era:2012, city:'Bristol', country:'UK',
+    desc:'Commodo is a Bristol-based producer who emerged from the post-dubstep bass music scene and has developed a style that blends UK grime and dubstep with more abstract, cinematic qualities. He releases on Deep Medi, Metalheadz, and his own Fiction imprint. His music occupies a space between bass music\'s physical impact and something more compositional.',
+    releases:[
+      { title:'"Wave" (Deep Medi)', year:2012 },
+      { title:'"Grit" (Deep Medi)', year:2014 },
+    ]},
+
+  { id:'lurka', label:'Lurka', type:'artist', genre:'experimental', era:2016, city:'Bristol', country:'UK',
+    desc:'Lurka is a Bristol-based producer who has released on Swamp81 and Wisdom Teeth. Their music occupies the harder end of UK bass — industrial-influenced club music that draws equally on grime, techno, and dubstep without fully committing to any of them.',
+    releases:[
+      { title:'Lurka (Swamp81)', year:2017 },
     ]},
 
   // ── US — DJ STINGRAY ─────────────────────────────────────────────────────
@@ -3971,6 +4111,26 @@ export const NODES = [
       { title:'Take Time (Tectonic)', year:2013 },
       { title:'Fabric 98 (Fabric)', year:2018 },
     ], spotify:'7AqtQ161yX7B1509Pq0F6V', },
+
+  { id:'scratcha_dva', label:'Scratcha DVA', type:'artist', genre:'experimental', era:2011, city:'London', country:'UK',
+    desc:'Scratcha DVA (Andrew Pearce) is a London DJ and producer whose music crosses grime, footwork, and UK bass. He has released on Night Slugs and Tectonic, and his DJ sets are defined by an encyclopaedic command of UK and US underground music. He is one of the connective figures linking the grime and Night Slugs scenes.',
+    releases:[
+      { title:'"When the Bass Drops" (Night Slugs)', year:2012 },
+    ]},
+
+  { id:'object_blue', label:'Object Blue', type:'artist', genre:'experimental', era:2016, city:'London', country:'UK',
+    desc:'Object Blue (Sherwin Lin) is a London-based producer and DJ whose music draws on Chinese pop, UK club music, and experimental electronics. They release on Object Blue and on Fade to Mind, and have developed a distinctive voice that places personal and diasporic narratives within contemporary club structures.',
+    releases:[
+      { title:'You\'ll Get It When You\'re Older (self-released)', year:2019 },
+      { title:'Sports (Object Blue)', year:2022 },
+    ]},
+
+  { id:'helm', label:'Helm', type:'artist', genre:'experimental', era:2012, city:'London', country:'UK',
+    desc:'Helm (Luke Younger) is a London-based producer who releases on PAN and Alter. His work spans industrial noise, drone, and experimental electronics with close connections to post-punk and musique concrète. His productions are uncompromising and texturally dense, occupying the zone between music and sound art.',
+    releases:[
+      { title:'Olympic Mess (PAN)', year:2013 },
+      { title:'Chemical Flowers (PAN)', year:2015 },
+    ]},
 
   // ── ITALIAN SCENE ────────────────────────────────────────────────────────
   { id:'giorgio_moroder', label:'Giorgio Moroder', type:'artist', genre:'disco', era:1969, city:'Munich', country:'IT',
