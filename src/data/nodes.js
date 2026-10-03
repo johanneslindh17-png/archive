@@ -272,6 +272,28 @@ export const NODES = [
       { title: 'Closer (as Plastikman, M_nus)', year: 2003 },
     ]},
 
+  { id:'minus', label:'M_nus', type:'label', genre:'minimal', era:1998, city:'Windsor', country:'CA',
+    desc:'M_nus was founded by Richie Hawtin in Windsor/Detroit in 1998 and became the central platform for the minimalist techno he was developing. Artists including Magda, Troy Pierce, and Hawtin himself released on M_nus and defined the stripped, acid-influenced minimal sound of the early 2000s. The label\'s operations moved to Berlin as Hawtin relocated, cementing its role as a transatlantic conduit between Detroit and European minimal techno.',
+    releases:[
+      { title:'Consumed — Plastikman (M_nus)', year:1998 },
+      { title:'DE9: Closer to the Edit — Richie Hawtin (M_nus)', year:2001 },
+    ]},
+
+  { id:'magda', label:'Magda', type:'artist', genre:'minimal', era:2002, city:'Detroit', country:'US',
+    desc:'Magda (Magdalena Kuczkowska) is a Polish-born, Detroit-raised DJ and producer who released on M_nus and her own T+1 label. She was a central figure in the minimal techno scene of the early 2000s, releasing twelve-inches that defined the Detroit-meets-Berlin minimal sound. Her DJ sets were known for their precision and long structural development.',
+    releases:[
+      { title:'"M Is for..." (M_nus)', year:2005 },
+      { title:'There Is No Other... (M_nus)', year:2009 },
+    ]},
+
+  { id:'matthew_dear', label:'Matthew Dear', type:'artist', genre:'minimal', era:2003, city:'Michigan', country:'US',
+    desc:'Matthew Dear is an American producer and singer who releases on Ghostly International and its techno subsidiary Spectral Sound. His work spans minimal techno (as Audion), post-punk-influenced electronic pop, and experimental territory. His album Asa Breed (Ghostly, 2007) brought him wider attention with its combination of club-derived structures and personal vocal delivery.',
+    releases:[
+      { title:'Leave Luck to Heaven (Spectral Sound)', year:2003 },
+      { title:'Asa Breed (Ghostly International)', year:2007 },
+      { title:'Beams (Ghostly International)', year:2012 },
+    ]},
+
   { id:'fredeverything', label:'Fred Everything', type:'artist', genre:'soul', era:1999, city:'Montreal', country:'CA',
     desc:'Fred Everything is a Montreal-based producer and DJ who has been releasing music since the late 1990s. His work is rooted in the soulful, gospel-influenced deep house tradition of Chicago and New York rather than European minimalism. He has released on his own Lazy Days Recordings and on Smallville, Classic, and Rebirth, among others.',
     releases: [
@@ -737,6 +759,34 @@ export const NODES = [
       { title: 'Chicago (Dial)', year: 2011 },
       { title: 'Decay (Ostgut Ton)', year: 2015 },
     ], spotify:'6hjRjVNLWTCPYci9nxhI1G', },
+
+  { id:'rebekah', label:'Rebekah', type:'artist', genre:'techno', era:2010, city:'Berlin', country:'DE',
+    desc:'Rebekah (Rachel Shiloh) is a British DJ and producer who moved to Berlin and became a resident at Berghain and its satellite events. She releases on her own Crime imprint and is one of the most distinctive voices in contemporary dark techno, combining industrial influences with an uncompromising club sensibility.',
+    releases:[
+      { title:'"The Warrior" (Crime)', year:2012 },
+      { title:'Belief System (Crime)', year:2019 },
+    ]},
+
+  { id:'phase_fatale', label:'Phase Fatale', type:'artist', genre:'techno', era:2015, city:'Berlin', country:'DE',
+    desc:'Phase Fatale (Haydn Payne) is an LA-born, Berlin-based DJ and producer who has been a resident at Berghain since the mid-2010s. He releases on his own Methkin label and on Ostgut Ton. His productions are technical and dark, influenced by industrial techno and the classic Detroit sound.',
+    releases:[
+      { title:'"Return to Nowhere" (Methkin)', year:2017 },
+      { title:'Alcatraz (Ostgut Ton)', year:2020 },
+    ]},
+
+  { id:'etapp_kyle', label:'Etapp Kyle', type:'artist', genre:'techno', era:2013, city:'Berlin', country:'DE',
+    desc:'Etapp Kyle (Kirill Tarasov) is a Kiev-born, Berlin-based DJ and producer who has released on Klockworks, Mote-Evolver, and his own imprints. He emerged from the Eastern European techno scene and established a presence in Berlin through precise, atmospheric productions that draw on industrial techno and dark ambient.',
+    releases:[
+      { title:'Lena EP (Klockworks)', year:2013 },
+      { title:'Nayt EP (Mote-Evolver)', year:2016 },
+    ]},
+
+  { id:'kim_ann_foxman', label:'Kim Ann Foxman', type:'artist', genre:'house', era:2013, city:'Berlin', country:'DE',
+    desc:'Kim Ann Foxman is a San Francisco-born, Berlin-based DJ and founder of the Firehouse label. She released music as part of Hercules & Love Affair before developing a solo career defined by hypnotic DJ sets blending house, techno, and rave music. She has been a resident at Berghain and other major European venues.',
+    releases:[
+      { title:'"Creature" (Firehouse)', year:2013 },
+      { title:'"Be Your Own" (Firehouse)', year:2016 },
+    ]},
 
   { id:'panorama_bar', label:'Panorama Bar', type:'venue', genre:'deep', era:2004, city:'Berlin', country:'DE',
     desc:'Panorama Bar is the upper floor of Berghain, operating simultaneously with the main floor on weekends. It presents a programme of house, deep house, and garage music, distinct from the techno of the floor below. Long-term residents have included Cassy, Steffi, Nick Höppner, and Virginia. It functions as a separate cultural space within the same building as Berghain.' },
@@ -2306,6 +2356,27 @@ export const NODES = [
       { title: '"Surveillance" — Function (SD-05)', year: 2007 },
       { title: '"Feed Forward" — Function (SD-10)', year: 2009 },
       { title: '"Cascades" — Silent Servant (SD-11)', year: 2010 },
+    ]},
+
+  { id:'silent_servant', label:'Silent Servant', type:'artist', genre:'techno', era:2006, city:'Los Angeles', country:'US',
+    desc:'Silent Servant (Juan Mendez) is a Los Angeles-based producer who co-founded Sandwell District alongside Function and Regis. His productions on Sandwell District and on Jealous God are among the darkest and most industrially influenced in contemporary techno. He also records ambient and experimental work, and his DJ sets are characterised by a sustained, hypnotic intensity.',
+    releases:[
+      { title:'"Cascades" (Sandwell District)', year:2010 },
+      { title:'Negative Fascination (Jealous God)', year:2012 },
+    ]},
+
+  { id:'rrose', label:'Rrose', type:'artist', genre:'techno', era:2011, city:'US', country:'US',
+    desc:'Rrose is a US-based producer and DJ associated with Eaux Records and connected to the former Sandwell District circle. Their music sits at the boundary between minimalist techno and drone — rhythmically functional, tonally sustained, and compositionally rigorous. The identity has been maintained deliberately as non-specific.',
+    releases:[
+      { title:'Without (Eaux)', year:2012 },
+      { title:'Ciphers (Eaux)', year:2014 },
+    ]},
+
+  { id:'vatican_shadow', label:'Vatican Shadow', type:'artist', genre:'techno', era:2011, city:'New York', country:'US',
+    desc:'Vatican Shadow (Dominick Fernow) is a New York-based producer who also records as Prurient (harsh noise). Vatican Shadow makes militaristic industrial techno with dense layering and political iconography. The project was associated with the Sandwell District aesthetic and with Downwards Records, combining functional club music with confrontational imagery.',
+    releases:[
+      { title:'Kneel Before Religious Icons (Hospital Productions)', year:2011 },
+      { title:'Ghosts of Chechnya (Downwards)', year:2016 },
     ]},
 
   { id:'perc', label:'Perc', type:'artist', genre:'techno', era:2009, city:'London', country:'UK',

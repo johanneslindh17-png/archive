@@ -3571,4 +3571,50 @@
   // -- MR. G -----------------------------------------------------------------
   { from:'house',             to:'mr_g',                strength:3, type:'lineage'  },
   { from:'chicago_scene',     to:'mr_g',                strength:2, type:'influence' },
+
+  // -- MINUS (M_NUS LABEL) --------------------------------------------------
+  { from:'hawtin',            to:'minus',               strength:3, type:'lineage'  },
+  { from:'minus',             to:'magda',               strength:3, type:'roster'   },
+  { from:'detroit_scene',     to:'minus',               strength:2, type:'lineage'  },
+
+  // -- MAGDA -----------------------------------------------------------------
+  { from:'minus',             to:'magda',               strength:3, type:'roster'   },
+  { from:'detroit_scene',     to:'magda',               strength:2, type:'lineage'  },
+  { from:'techno',            to:'magda',               strength:3, type:'lineage'  },
+
+  // -- MATTHEW DEAR ----------------------------------------------------------
+  { from:'techno',            to:'matthew_dear',        strength:2, type:'lineage'  },
+  { from:'detroit_scene',     to:'matthew_dear',        strength:2, type:'influence' },
+
+  // -- REBEKAH ---------------------------------------------------------------
+  { from:'berghain',          to:'rebekah',             strength:3, type:'roster'   },
+  { from:'techno',            to:'rebekah',             strength:3, type:'lineage'  },
+  { from:'sandwell_district', to:'rebekah',             strength:2, type:'aesthetic' },
+
+  // -- PHASE FATALE ----------------------------------------------------------
+  { from:'berghain',          to:'phase_fatale',        strength:3, type:'roster'   },
+  { from:'ostgut_ton',        to:'phase_fatale',        strength:2, type:'roster'   },
+  { from:'detroit_scene',     to:'phase_fatale',        strength:2, type:'influence' },
+
+  // -- ETAPP KYLE ------------------------------------------------------------
+  { from:'berghain',          to:'etapp_kyle',          strength:2, type:'roster'   },
+  { from:'techno',            to:'etapp_kyle',          strength:3, type:'lineage'  },
+
+  // -- KIM ANN FOXMAN --------------------------------------------------------
+  { from:'berghain',          to:'kim_ann_foxman',      strength:3, type:'roster'   },
+  { from:'house',             to:'kim_ann_foxman',      strength:2, type:'lineage'  },
+
+  // -- SILENT SERVANT --------------------------------------------------------
+  { from:'sandwell_district', to:'silent_servant',      strength:3, type:'roster'   },
+  { from:'sandwell_district', to:'silent_servant',      strength:3, type:'lineage'  },
+  { from:'techno',            to:'silent_servant',      strength:3, type:'lineage'  },
+
+  // -- RROSE -----------------------------------------------------------------
+  { from:'sandwell_district', to:'rrose',               strength:2, type:'aesthetic' },
+  { from:'techno',            to:'rrose',               strength:3, type:'lineage'  },
+
+  // -- VATICAN SHADOW --------------------------------------------------------
+  { from:'sandwell_district', to:'vatican_shadow',      strength:2, type:'aesthetic' },
+  { from:'techno',            to:'vatican_shadow',      strength:2, type:'lineage'  },
+  { from:'silent_servant',    to:'vatican_shadow',      strength:2, type:'aesthetic' },
 ];

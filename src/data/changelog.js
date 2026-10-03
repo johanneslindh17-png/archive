@@ -1,6 +1,17 @@
 // Most recently added nodes, newest first.
 // Add new entries here whenever nodes are added.
 export const NODE_CHANGELOG = [
+  // 2026-10-03 batch 4
+  { id: 'vatican_shadow',       label: 'Vatican Shadow',            date: '2026-10-03' },
+  { id: 'rrose',                label: 'Rrose',                     date: '2026-10-03' },
+  { id: 'silent_servant',       label: 'Silent Servant',            date: '2026-10-03' },
+  { id: 'kim_ann_foxman',       label: 'Kim Ann Foxman',            date: '2026-10-03' },
+  { id: 'etapp_kyle',           label: 'Etapp Kyle',                date: '2026-10-03' },
+  { id: 'phase_fatale',         label: 'Phase Fatale',              date: '2026-10-03' },
+  { id: 'rebekah',              label: 'Rebekah',                   date: '2026-10-03' },
+  { id: 'matthew_dear',         label: 'Matthew Dear',              date: '2026-10-03' },
+  { id: 'magda',                label: 'Magda',                     date: '2026-10-03' },
+  { id: 'minus',                label: 'M_nus',                     date: '2026-10-03' },
   // 2026-10-03 batch 3
   { id: 'mr_g',                 label: 'Mr. G',                     date: '2026-10-03' },
   { id: 'kelly_lee_owens',      label: 'Kelly Lee Owens',           date: '2026-10-03' },
