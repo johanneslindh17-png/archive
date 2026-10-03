@@ -1,6 +1,32 @@
 // Most recently added nodes, newest first.
 // Add new entries here whenever nodes are added.
 export const NODE_CHANGELOG = [
+  // 2026-10-04 batch 6
+  { id: 'ziur',                 label: 'Ziur',                      date: '2026-10-04' },
+  { id: 'nils_frahm',          label: 'Nils Frahm',                date: '2026-10-04' },
+  { id: 'christian_loffler',   label: 'Christian Löffler',         date: '2026-10-04' },
+  { id: 'zenker_brothers',     label: 'Zenker Brothers',           date: '2026-10-04' },
+  { id: 'amnesia_scanner',     label: 'Amnesia Scanner',           date: '2026-10-04' },
+  { id: 'newa',                label: 'Newa',                      date: '2026-10-04' },
+  { id: 'gantz',               label: 'Gantz',                     date: '2026-10-04' },
+  { id: 'klara_lewis',         label: 'Klara Lewis',               date: '2026-10-04' },
+  { id: 'uiq',                 label: 'UIQ',                       date: '2026-10-04' },
+  { id: 'patten',              label: 'Patten',                    date: '2026-10-04' },
+  { id: 'rival_consoles',      label: 'Rival Consoles',            date: '2026-10-04' },
+  { id: 'azu_tiwaline',        label: 'Azu Tiwaline',              date: '2026-10-04' },
+  { id: 'umwelt',              label: 'Umwelt',                    date: '2026-10-04' },
+  { id: 'truss',               label: 'Truss',                     date: '2026-10-04' },
+  { id: 'giant_swan',          label: 'Giant Swan',                date: '2026-10-04' },
+  { id: 'commodo',             label: 'Commodo',                   date: '2026-10-04' },
+  { id: 'lurka',               label: 'Lurka',                     date: '2026-10-04' },
+  { id: 'scratcha_dva',        label: 'Scratcha DVA',              date: '2026-10-04' },
+  { id: 'object_blue',         label: 'Object Blue',               date: '2026-10-04' },
+  { id: 'helm',                label: 'Helm',                      date: '2026-10-04' },
+  { id: 'truncate',            label: 'Truncate',                  date: '2026-10-04' },
+  { id: 'acronym',             label: 'Acronym',                   date: '2026-10-04' },
+  { id: 'container',           label: 'Container',                 date: '2026-10-04' },
+  { id: 'identified_patient',  label: 'Identified Patient',        date: '2026-10-04' },
+  { id: 'jensen_interceptor',  label: 'Jensen Interceptor',        date: '2026-10-04' },
   // 2026-10-03 batch 5
   { id: 'max_cooper',           label: 'Max Cooper',                date: '2026-10-03' },
   { id: 'kruder_dorfmeister',   label: 'Kruder & Dorfmeister',      date: '2026-10-03' },

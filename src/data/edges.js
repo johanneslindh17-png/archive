@@ -3675,4 +3675,111 @@
   // -- MAX COOPER ------------------------------------------------------------
   { from:'techno',            to:'max_cooper',          strength:2, type:'lineage'  },
   { from:'ambient',           to:'max_cooper',          strength:2, type:'influence' },
+
+  // -- NILS FRAHM ------------------------------------------------------------
+  { from:'ambient',           to:'nils_frahm',          strength:3, type:'lineage'  },
+  { from:'berghain',          to:'nils_frahm',          strength:2, type:'roster'   },
+
+  // -- CHRISTIAN LÖFFLER -----------------------------------------------------
+  { from:'ambient',           to:'christian_loffler',   strength:3, type:'lineage'  },
+  { from:'house',             to:'christian_loffler',   strength:2, type:'influence' },
+
+  // -- ZENKER BROTHERS -------------------------------------------------------
+  { from:'techno',            to:'zenker_brothers',     strength:3, type:'lineage'  },
+  { from:'ilian_tape',        to:'zenker_brothers',     strength:3, type:'roster'   },
+
+  // -- AMNESIA SCANNER -------------------------------------------------------
+  { from:'pan_label',         to:'amnesia_scanner',     strength:3, type:'roster'   },
+  { from:'arca',              to:'amnesia_scanner',     strength:2, type:'aesthetic' },
+  { from:'ziur',              to:'amnesia_scanner',     strength:2, type:'aesthetic' },
+
+  // -- NEWA ------------------------------------------------------------------
+  { from:'techno',            to:'newa',                strength:2, type:'lineage'  },
+  { from:'pan_label',         to:'newa',                strength:2, type:'aesthetic' },
+
+  // -- GANTZ -----------------------------------------------------------------
+  { from:'techno',            to:'gantz',               strength:2, type:'lineage'  },
+  { from:'hessle_audio',      to:'gantz',               strength:2, type:'aesthetic' },
+  { from:'dubstep',           to:'gantz',               strength:2, type:'influence' },
+
+  // -- KLARA LEWIS -----------------------------------------------------------
+  { from:'pan_label',         to:'klara_lewis',         strength:3, type:'roster'   },
+  { from:'arca',              to:'klara_lewis',         strength:2, type:'aesthetic' },
+
+  // -- UIQ -------------------------------------------------------------------
+  { from:'pan_label',         to:'uiq',                 strength:3, type:'roster'   },
+  { from:'techno',            to:'uiq',                 strength:2, type:'influence' },
+
+  // -- PATTEN ----------------------------------------------------------------
+  { from:'warp',              to:'patten',              strength:3, type:'roster'   },
+  { from:'techno',            to:'patten',              strength:2, type:'influence' },
+  { from:'ambient',           to:'patten',              strength:2, type:'influence' },
+
+  // -- RIVAL CONSOLES --------------------------------------------------------
+  { from:'ambient',           to:'rival_consoles',      strength:3, type:'lineage'  },
+  { from:'techno',            to:'rival_consoles',      strength:2, type:'influence' },
+
+  // -- AZU TIWALINE ----------------------------------------------------------
+  { from:'demdike_stare',     to:'azu_tiwaline',        strength:2, type:'aesthetic' },
+  { from:'techno',            to:'azu_tiwaline',        strength:2, type:'influence' },
+  { from:'ambient',           to:'azu_tiwaline',        strength:2, type:'influence' },
+
+  // -- UMWELT ----------------------------------------------------------------
+  { from:'techno',            to:'umwelt',              strength:3, type:'lineage'  },
+  { from:'sandwell_district', to:'umwelt',              strength:2, type:'aesthetic' },
+
+  // -- TRUSS -----------------------------------------------------------------
+  { from:'techno',            to:'truss',               strength:3, type:'lineage'  },
+  { from:'detroit_scene',     to:'truss',               strength:2, type:'influence' },
+
+  // -- GIANT SWAN ------------------------------------------------------------
+  { from:'techno',            to:'giant_swan',          strength:2, type:'lineage'  },
+  { from:'livity_sound',      to:'giant_swan',          strength:2, type:'aesthetic' },
+
+  // -- COMMODO ---------------------------------------------------------------
+  { from:'dubstep',           to:'commodo',             strength:3, type:'lineage'  },
+  { from:'hessle_audio',      to:'commodo',             strength:2, type:'aesthetic' },
+
+  // -- LURKA -----------------------------------------------------------------
+  { from:'dubstep',           to:'lurka',               strength:3, type:'lineage'  },
+  { from:'livity_sound',      to:'lurka',               strength:2, type:'aesthetic' },
+
+  // -- SCRATCHA DVA ----------------------------------------------------------
+  { from:'dubstep',           to:'scratcha_dva',        strength:2, type:'lineage'  },
+  { from:'grime',             to:'scratcha_dva',        strength:2, type:'influence' },
+  { from:'hyperdub',          to:'scratcha_dva',        strength:2, type:'aesthetic' },
+
+  // -- OBJECT BLUE -----------------------------------------------------------
+  { from:'pc_music',          to:'object_blue',         strength:2, type:'aesthetic' },
+  { from:'footwork',          to:'object_blue',         strength:2, type:'influence' },
+  { from:'grime',             to:'object_blue',         strength:2, type:'influence' },
+
+  // -- HELM ------------------------------------------------------------------
+  { from:'pan_label',         to:'helm',                strength:3, type:'roster'   },
+  { from:'techno',            to:'helm',                strength:2, type:'influence' },
+
+  // -- TRUNCATE --------------------------------------------------------------
+  { from:'techno',            to:'truncate',            strength:3, type:'lineage'  },
+  { from:'detroit_scene',     to:'truncate',            strength:2, type:'influence' },
+
+  // -- ACRONYM ---------------------------------------------------------------
+  { from:'techno',            to:'acronym',             strength:3, type:'lineage'  },
+  { from:'detroit_scene',     to:'acronym',             strength:2, type:'influence' },
+
+  // -- CONTAINER -------------------------------------------------------------
+  { from:'techno',            to:'container',           strength:2, type:'lineage'  },
+  { from:'grime',             to:'container',           strength:2, type:'influence' },
+
+  // -- IDENTIFIED PATIENT ----------------------------------------------------
+  { from:'techno',            to:'identified_patient',  strength:3, type:'lineage'  },
+  { from:'berghain',          to:'identified_patient',  strength:2, type:'roster'   },
+
+  // -- JENSEN INTERCEPTOR ----------------------------------------------------
+  { from:'techno',            to:'jensen_interceptor',  strength:3, type:'lineage'  },
+  { from:'electro',           to:'jensen_interceptor',  strength:2, type:'lineage'  },
+
+  // -- ZIUR ------------------------------------------------------------------
+  { from:'arca',              to:'ziur',                strength:2, type:'aesthetic' },
+  { from:'pan_label',         to:'ziur',                strength:2, type:'aesthetic' },
+  { from:'amnesia_scanner',   to:'ziur',                strength:2, type:'aesthetic' },
 ];

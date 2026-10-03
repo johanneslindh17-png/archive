@@ -3759,6 +3759,14 @@ export const NODES = [
       { title: 'KiCk i (XL)', year: 2020 },
     ], spotify:'4SQdUpG4f7UbkJG3cJ2Iyj', },
 
+  // ── ZIUR ─────────────────────────────────────────────────────────────────
+  { id:'ziur', label:'Ziur', type:'artist', genre:'experimental', era:2015, city:'Berlin', country:'DE',
+    desc:'Ziur (Zoë Mc Pherson) was born in New York and moved to Berlin, where she emerged from the city\'s experimental club underground as a producer, DJ, and visual artist. Her music dissolves the boundary between club functionality and avant-garde composition — tracks built from shattered percussion, distorted bass, and hyperreal digital textures that resist genre classification while still moving bodies. She released on her own imprint and on Other People (Nicolas Jaar\'s label), and her debut album "I Recommend Resistance" (2019) established her as one of the defining voices of the post-internet experimental club scene alongside Arca, Amnesia Scanner, and Foodman. She plays live and as a DJ, often incorporating performance elements and visual design into her sets.',
+    releases: [
+      { title: 'I Recommend Resistance (Other People)', year: 2019 },
+      { title: 'Antifate (Ziur)', year: 2022 },
+    ], spotify:'0GkZFKMBlUSXn0JTdGbO8n', },
+
   // ── CHICAGO — RON HARDY / PHUTURE ────────────────────────────────────────
   { id:'ron_hardy', label:'Ron Hardy', type:'artist', genre:'chicago', era:1982, city:'Chicago', country:'US',
     desc:'Ron Hardy (1958–1992) ran the Music Box on South Michigan Avenue from 1983 to 1987, alongside Frankie Knuckles at the Warehouse and Paradise Garage as one of the three defining DJ environments of early house music. His approach was rawer and more confrontational than Knuckles — he played at higher tempos, mixed in industrial and experimental records alongside house and disco, and built sets of sustained physical intensity. He was the first DJ to play Phuture\'s "Acid Tracks" (1985), playing an acetate of the track repeatedly before its official release on Trax in 1987. He passed away in 1992.',
