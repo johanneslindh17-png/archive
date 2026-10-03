@@ -3498,4 +3498,77 @@
   { from:'chicago_scene',     to:'anz',                 strength:2, type:'influence' },
   { from:'ninja_tune',        to:'anz',                 strength:3, type:'roster'   },
   { from:'house',             to:'anz',                 strength:2, type:'lineage'  },
+
+  // -- PERC ------------------------------------------------------------------
+  { from:'sandwell_district', to:'perc',                strength:2, type:'aesthetic' },
+  { from:'techno',            to:'perc',                strength:3, type:'lineage'  },
+
+  // -- RAIME -----------------------------------------------------------------
+  { from:'blackest_ever_black', to:'raime',             strength:3, type:'roster'   },
+  { from:'sandwell_district', to:'raime',               strength:2, type:'aesthetic' },
+  { from:'dubstep',           to:'raime',               strength:2, type:'influence' },
+
+  // -- THE BUG ---------------------------------------------------------------
+  { from:'ninja_tune',        to:'the_bug',             strength:3, type:'roster'   },
+  { from:'dubstep',           to:'the_bug',             strength:2, type:'aesthetic' },
+
+  // -- THE HAXAN CLOAK -------------------------------------------------------
+  { from:'blackest_ever_black', to:'the_haxan_cloak',   strength:2, type:'aesthetic' },
+  { from:'raime',             to:'the_haxan_cloak',     strength:2, type:'aesthetic' },
+
+  // -- SHIFTED ---------------------------------------------------------------
+  { from:'sandwell_district', to:'shifted',             strength:2, type:'aesthetic' },
+  { from:'techno',            to:'shifted',             strength:3, type:'lineage'  },
+  { from:'fabric',            to:'shifted',             strength:2, type:'roster'   },
+
+  // -- HEMLOCK ---------------------------------------------------------------
+  { from:'untold',            to:'hemlock',             strength:3, type:'lineage'  },
+  { from:'actress',           to:'hemlock',             strength:3, type:'roster'   },
+  { from:'dubstep',           to:'hemlock',             strength:2, type:'lineage'  },
+
+  // -- BLACKEST EVER BLACK ---------------------------------------------------
+  { from:'raime',             to:'blackest_ever_black', strength:3, type:'roster'   },
+  { from:'sandwell_district', to:'blackest_ever_black', strength:2, type:'aesthetic' },
+
+  // -- DIAGONAL --------------------------------------------------------------
+  { from:'techno',            to:'diagonal',            strength:2, type:'lineage'  },
+
+  // -- KOWTON ----------------------------------------------------------------
+  { from:'idle_hands',        to:'kowton',              strength:3, type:'roster'   },
+  { from:'livity_sound',      to:'kowton',              strength:3, type:'roster'   },
+  { from:'chicago_scene',     to:'kowton',              strength:2, type:'influence' },
+
+  // -- HODGE -----------------------------------------------------------------
+  { from:'swamp81',           to:'hodge',               strength:2, type:'roster'   },
+  { from:'idle_hands',        to:'hodge',               strength:2, type:'aesthetic' },
+
+  // -- ADDISON GROOVE --------------------------------------------------------
+  { from:'swamp81',           to:'addison_groove',      strength:3, type:'roster'   },
+  { from:'footwork',          to:'addison_groove',      strength:3, type:'influence' },
+  { from:'dubstep',           to:'addison_groove',      strength:2, type:'lineage'  },
+
+  // -- CTRLS -----------------------------------------------------------------
+  { from:'livity_sound',      to:'ctrls',               strength:3, type:'roster'   },
+  { from:'idle_hands',        to:'ctrls',               strength:2, type:'aesthetic' },
+  { from:'chicago_scene',     to:'ctrls',               strength:2, type:'influence' },
+
+  // -- DARKSTAR --------------------------------------------------------------
+  { from:'hyperdub',          to:'darkstar',            strength:3, type:'roster'   },
+  { from:'dubstep',           to:'darkstar',            strength:2, type:'lineage'  },
+
+  // -- TESSELA ---------------------------------------------------------------
+  { from:'acid_house',        to:'tessela',             strength:3, type:'influence' },
+  { from:'hessle_audio',      to:'tessela',             strength:2, type:'roster'   },
+
+  // -- RANDOMER --------------------------------------------------------------
+  { from:'acid_house',        to:'randomer',            strength:2, type:'influence' },
+  { from:'house',             to:'randomer',            strength:2, type:'lineage'  },
+
+  // -- KELLY LEE OWENS -------------------------------------------------------
+  { from:'techno',            to:'kelly_lee_owens',     strength:2, type:'influence' },
+  { from:'ambient',           to:'kelly_lee_owens',     strength:2, type:'influence' },
+
+  // -- MR. G -----------------------------------------------------------------
+  { from:'house',             to:'mr_g',                strength:3, type:'lineage'  },
+  { from:'chicago_scene',     to:'mr_g',                strength:2, type:'influence' },
 ];

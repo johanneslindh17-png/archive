@@ -1,6 +1,24 @@
 // Most recently added nodes, newest first.
 // Add new entries here whenever nodes are added.
 export const NODE_CHANGELOG = [
+  // 2026-10-03 batch 3
+  { id: 'mr_g',                 label: 'Mr. G',                     date: '2026-10-03' },
+  { id: 'kelly_lee_owens',      label: 'Kelly Lee Owens',           date: '2026-10-03' },
+  { id: 'randomer',             label: 'Randomer',                  date: '2026-10-03' },
+  { id: 'tessela',              label: 'Tessela',                   date: '2026-10-03' },
+  { id: 'darkstar',             label: 'Darkstar',                  date: '2026-10-03' },
+  { id: 'diagonal',             label: 'Diagonal',                  date: '2026-10-03' },
+  { id: 'blackest_ever_black',  label: 'Blackest Ever Black',       date: '2026-10-03' },
+  { id: 'hemlock',              label: 'Hemlock Recordings',        date: '2026-10-03' },
+  { id: 'ctrls',                label: 'Ctrls',                     date: '2026-10-03' },
+  { id: 'addison_groove',       label: 'Addison Groove',            date: '2026-10-03' },
+  { id: 'hodge',                label: 'Hodge',                     date: '2026-10-03' },
+  { id: 'kowton',               label: 'Kowton',                    date: '2026-10-03' },
+  { id: 'shifted',              label: 'Shifted',                   date: '2026-10-03' },
+  { id: 'the_haxan_cloak',      label: 'The Haxan Cloak',           date: '2026-10-03' },
+  { id: 'the_bug',              label: 'The Bug',                   date: '2026-10-03' },
+  { id: 'raime',                label: 'Raime',                     date: '2026-10-03' },
+  { id: 'perc',                 label: 'Perc',                      date: '2026-10-03' },
   // 2026-10-03 batch 2
   { id: 'anz',                  label: 'Anz',                       date: '2026-10-03' },
   { id: 'untold',               label: 'Untold',                    date: '2026-10-03' },

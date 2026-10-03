@@ -1916,6 +1916,26 @@ export const NODES = [
       { title: 'Dark Energy — Jlin (Hyperdub)', year: 2015 },
     ]},
 
+  { id:'hemlock', label:'Hemlock Recordings', type:'label', genre:'experimental', era:2008, city:'London', country:'UK',
+    desc:'Hemlock Recordings is a London label founded by Untold in 2008. It was a key vehicle for the intersection of UK bass music and techno, releasing early work from Actress alongside Untold\'s own productions. Its output helped define the aesthetic of London\'s post-dubstep underground in the late 2000s and early 2010s.',
+    releases:[
+      { title:'Untold — Black Light Spiral (Hemlock)', year:2011 },
+      { title:'Actress — Hazyville (Hemlock)', year:2008 },
+    ]},
+
+  { id:'blackest_ever_black', label:'Blackest Ever Black', type:'label', genre:'experimental', era:2010, city:'London', country:'UK',
+    desc:'Blackest Ever Black was a London label founded by Kiran Sande in 2010. It became the primary home for the UK post-industrial and dark electronic moment — releasing Raime\'s Tooth, Tropic of Cancer, Married in Beira, and Pessimist among others. The label maintained a carefully curated identity defined by minimalism and austerity. It wound down activity around 2016.',
+    releases:[
+      { title:'Raime — Tooth (Blackest Ever Black)', year:2012 },
+      { title:'Tropic of Cancer — Restless Idylls (Blackest Ever Black)', year:2013 },
+    ]},
+
+  { id:'diagonal', label:'Diagonal', type:'label', genre:'experimental', era:2012, city:'London', country:'UK',
+    desc:'Diagonal is a London label founded by Powell (Oscar Powell) in 2012. It releases techno and industrial-influenced music with a strong DIY aesthetic drawing on post-punk and electronic body music. Powell\'s own productions and releases from Container and others have defined its unconventional approach to club music.',
+    releases:[
+      { title:'Powell — "Sport" (Diagonal)', year:2014 },
+    ]},
+
   { id:'loraine_james', label:'Loraine James', type:'artist', genre:'experimental', era:2017, city:'London', country:'UK',
     desc:'Loraine James is a London-based producer signed to Hyperdub, whose albums For You and I (2020) and Reflection (2021) brought broken beat, jazz, and post-grime textures into an emotionally direct and formally rigorous body of work. Raised in Enfield, she began producing as a teenager and has cited James Blake, Actress, and UK garage as key references. Her releases on Hyperdub place her in direct lineage with the label\'s founding commitment to experimental club music rooted in London sound culture.',
     releases: [
@@ -2288,6 +2308,39 @@ export const NODES = [
       { title: '"Cascades" — Silent Servant (SD-11)', year: 2010 },
     ]},
 
+  { id:'perc', label:'Perc', type:'artist', genre:'techno', era:2009, city:'London', country:'UK',
+    desc:'Perc (Ali Wells) is a London-based DJ, producer, and founder of Perc Trax. His music is characterised by aggressive, industrial-influenced techno — compressed, relentless, and deliberately confrontational. He has released on Stroboscopic Artefacts and his own label, and Perc Trax has issued work from Truss and others working in the harder end of the UK techno spectrum.',
+    releases:[
+      { title:'The Power and the Glory (Perc Trax)', year:2014 },
+    ]},
+
+  { id:'raime', label:'Raime', type:'artist', genre:'experimental', era:2012, city:'London', country:'UK',
+    desc:'Raime is the project of Joe Andrews and Tom Halstead, a London duo who released Tooth (Blackest Ever Black, 2012) — one of the defining records of the UK industrial/dark electronic moment. Their music draws on dub techno, industrial, and post-punk, creating something slower and darker than most club music of the period. Subsequent releases on Blackest Ever Black developed an increasingly reduced approach.',
+    releases:[
+      { title:'Tooth (Blackest Ever Black)', year:2012 },
+      { title:'Quarter Turns Over a Terrible Tonic (Blackest Ever Black)', year:2015 },
+    ]},
+
+  { id:'the_bug', label:'The Bug', type:'artist', genre:'experimental', era:2003, city:'London', country:'UK',
+    desc:'The Bug (Kevin Martin) is a London producer and noise artist whose work collides Jamaican sound system culture with industrial noise and drone. His album London Zoo (Ninja Tune, 2008) brought together ragga vocalists including Flowdan and Warrior Queen with distorted, heavyweight productions and stands as a benchmark for bass music\'s confrontational possibilities. He has released ambient and noise work as King Midas Sound and in collaboration with various vocalists.',
+    releases:[
+      { title:'London Zoo (Ninja Tune)', year:2008 },
+      { title:'Angels & Devils (Ninja Tune)', year:2014 },
+    ]},
+
+  { id:'the_haxan_cloak', label:'The Haxan Cloak', type:'artist', genre:'ambient', era:2011, city:'London', country:'UK',
+    desc:'The Haxan Cloak (Bobby Krlic) is a London-based composer whose self-titled debut (2011) and Excavation (Tri Angle, 2013) are landmarks of dark ambient and bass music. His work builds sustained low-frequency pressure and texture across long-form compositions that resist classification as either club music or ambient. He has since moved into film scoring, contributing to Midsommar (2019) and other major projects.',
+    releases:[
+      { title:'The Haxan Cloak (Aurora Borealis)', year:2011 },
+      { title:'Excavation (Tri Angle)', year:2013 },
+    ]},
+
+  { id:'shifted', label:'Shifted', type:'artist', genre:'techno', era:2011, city:'London', country:'UK',
+    desc:'Shifted (Alexander Merdecian) is a London-based DJ and producer associated with his own Mote-Evolver label and the Fabric resident circuit. His techno is functional and precise — dark and driven without theatrical industrial gestures. He has also recorded under the name Covered in Sand.',
+    releases:[
+      { title:'A Fractured Smile (Mote-Evolver)', year:2014 },
+    ]},
+
   // ── US — MINIMAL / TECHNO ─────────────────────────────────────────────────
   { id:'mike_parker', label:'Mike Parker', type:'artist', genre:'minimal', era:2000, city:'Buffalo', country:'US', bandcamp:'mikeparker', bandcamp_album:'1490032319',
     desc:'Mike Parker is a Buffalo-based producer and label owner whose work has appeared almost exclusively on his own Geophone label since 2000. His techno is minimal and hypnotic — long tracks built from densely layered rhythmic textures with minimal melodic content. He has maintained a low public profile and does not perform live frequently. His catalogue is regarded as one of the most consistently rigorous in American minimal techno.',
@@ -2611,6 +2664,32 @@ export const NODES = [
     releases: [
       { title: 'Idle Hands 001 — Peverelist', year: 2009 },
       { title: 'Idle Hands 010 — Kowton', year: 2012 },
+    ]},
+
+  { id:'kowton', label:'Kowton', type:'artist', genre:'house', era:2011, city:'Bristol', country:'UK',
+    desc:'Kowton (Joe Cowton) is a Bristol-based producer and DJ who emerged on Idle Hands in the early 2010s. His music bridges Chicago jacking house rhythms with the bass-heavy approach of Bristol, maintaining dancefloor function while drawing on a breadth of electronic music references. He releases on Idle Hands and Livity Sound.',
+    releases:[
+      { title:'Idle Hands 010 (Idle Hands)', year:2012 },
+      { title:'Nothing But Time (Livity Sound)', year:2016 },
+    ]},
+
+  { id:'hodge', label:'Hodge', type:'artist', genre:'techno', era:2014, city:'Bristol', country:'UK',
+    desc:'Hodge is a Bristol-based DJ and producer who releases on Timedance, Swamp81, and Hessle Audio. His productions sit at the intersection of techno and UK bass music, with a characteristic rhythmic directness and bass weight that reflects Bristol\'s long engagement with sound system culture.',
+    releases:[
+      { title:'Shadows in Blue (Timedance)', year:2019 },
+    ]},
+
+  { id:'addison_groove', label:'Addison Groove', type:'artist', genre:'experimental', era:2011, city:'Bristol', country:'UK',
+    desc:'Addison Groove (Anthony Williams) is a Bristol-based producer associated with Swamp81 whose track "Footcrab" (2011) was one of the first to bring footwork\'s rhythmic language to a UK bass context — a direct application of juke rhythms to the club music developing in Bristol and London. He releases on Swamp81 and his own labels.',
+    releases:[
+      { title:'"Footcrab" (Swamp81)', year:2011 },
+      { title:'Presents Transistor Rhythm (50 Weapons)', year:2012 },
+    ]},
+
+  { id:'ctrls', label:'Ctrls', type:'artist', genre:'house', era:2014, city:'Bristol', country:'UK',
+    desc:'Ctrls is a Bristol-based DJ and producer who releases on Livity Sound. His music draws on Chicago house, Bristol bass weight, and techno, and he has been a resident at Livity Sound events and an important figure in maintaining Bristol\'s approach to club music.',
+    releases:[
+      { title:'Livity Sound 009 (Livity Sound)', year:2014 },
     ]},
 
   // ── US — DJ STINGRAY ─────────────────────────────────────────────────────
@@ -3667,6 +3746,40 @@ export const NODES = [
     desc:'Anz (Ann Clue) is a Manchester-based DJ and producer who emerged in the late 2010s with a style blending jacking Chicago house, breakbeat, and rave music with a warmth distinctly her own. She has released on Ninja Tune, performed at fabric and Boiler Room, and toured major European festivals. Her debut album All Hours (Ninja Tune, 2022) was received as a distinctive statement within contemporary UK club music.',
     releases:[
       { title:'All Hours (Ninja Tune)', year:2022 },
+    ]},
+
+  { id:'darkstar', label:'Darkstar', type:'artist', genre:'experimental', era:2009, city:'London', country:'UK',
+    desc:'Darkstar (James Young and Aiden Whalley, later Young solo) emerged with "Aidy\'s Girl\'s a Computer" on Hyperdub (2009), applying UK bass aesthetics to something closer to electronic pop. Their album North (Hyperdub, 2010) developed this territory further with a distinctly melancholic, Northern English register. Subsequent work has pushed into ambient and song territory, expanding beyond the club context while retaining a strong emotional directness.',
+    releases:[
+      { title:'North (Hyperdub)', year:2010 },
+      { title:'News From Nowhere (Warp)', year:2013 },
+    ]},
+
+  { id:'tessela', label:'Tessela', type:'artist', genre:'house', era:2013, city:'Manchester', country:'UK',
+    desc:'Tessela (Tom Dent) is a Manchester-based producer associated with Hot Flush Recordings. His track "Hackney Parrot" (2013) was one of the most widely played tracks in UK clubs that year — a relentless, UK rave-influenced house track that captured something specific about early 2010s British club energy. He releases on Polytechnic Youth and Hessle Audio and is the brother of Objekt.',
+    releases:[
+      { title:'"Hackney Parrot" (Hot Flush)', year:2013 },
+      { title:'Perspex EP (Hessle Audio)', year:2016 },
+    ]},
+
+  { id:'randomer', label:'Randomer', type:'artist', genre:'house', era:2012, city:'London', country:'UK',
+    desc:'Randomer is a London-based producer whose releases on L.I.E.S., Pansoul, and his own imprints occupy the raw, hardware-focused end of house and acid techno. His music is made quickly and released without ceremony, and he has been a regular presence in London\'s DIY club circuit.',
+    releases:[
+      { title:'"Woke & Broke" (L.I.E.S.)', year:2013 },
+    ]},
+
+  { id:'kelly_lee_owens', label:'Kelly Lee Owens', type:'artist', genre:'experimental', era:2017, city:'London', country:'UK',
+    desc:'Kelly Lee Owens is a Welsh-born, London-based electronic musician whose debut self-titled album (Smalltown Supersound, 2017) synthesised techno and ambient influences with vocals in a way that reached audiences beyond the club context. Her subsequent albums have continued to develop this territory, drawing on the emotional vocabulary of electronic pop without losing the dance floor as a reference point.',
+    releases:[
+      { title:'Kelly Lee Owens (Smalltown Supersound)', year:2017 },
+      { title:'Inner Song (Smalltown Supersound)', year:2020 },
+    ]},
+
+  { id:'mr_g', label:'Mr. G', type:'artist', genre:'house', era:1998, city:'London', country:'UK',
+    desc:'Mr. G (Colin McBean) is a London-born Jamaican-British DJ and producer who has been releasing music since the late 1990s but became more widely recognised in the 2010s through acclaimed releases on his own Phoenix G label and on Rush Hour. His productions are deep and rhythmically sophisticated, informed by house, reggae, soul, and jazz. His DJ sets draw on a comprehensive knowledge of Black music traditions that roots house music in its wider cultural context.',
+    releases:[
+      { title:'Sunlight Chant (Phoenix G)', year:2012 },
+      { title:'Trust No One, Love Everyone (Rush Hour)', year:2016 },
     ]},
 
   { id:'plaid', label:'Plaid', type:'artist', genre:'experimental', era:1991, city:'London', country:'UK',
