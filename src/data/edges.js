@@ -3439,4 +3439,63 @@
   // -- UPSAMMY ---------------------------------------------------------------
   { from:'dekmantel',         to:'upsammy',             strength:3, type:'roster' },
   { from:'interstellar_funk', to:'upsammy',             strength:1, type:'aesthetic' },
+
+  // -- DJ SPINN --------------------------------------------------------------
+  { from:'teklife',           to:'dj_spinn',            strength:3, type:'roster'   },
+  { from:'footwork',          to:'dj_spinn',            strength:3, type:'lineage'  },
+  { from:'dj_rashad',         to:'dj_spinn',            strength:3, type:'collaboration' },
+  { from:'chicago_scene',     to:'dj_spinn',            strength:2, type:'lineage'  },
+
+  // -- RP BOO ----------------------------------------------------------------
+  { from:'footwork',          to:'rp_boo',              strength:3, type:'lineage'  },
+  { from:'chicago_scene',     to:'rp_boo',              strength:3, type:'lineage'  },
+  { from:'planet_mu',         to:'rp_boo',              strength:3, type:'roster'   },
+  { from:'teklife',           to:'rp_boo',              strength:2, type:'aesthetic' },
+
+  // -- GENE FARRIS -----------------------------------------------------------
+  { from:'chicago_scene',     to:'gene_farris',         strength:3, type:'lineage'  },
+  { from:'green_velvet',      to:'gene_farris',         strength:2, type:'collaboration' },
+  { from:'house',             to:'gene_farris',         strength:3, type:'lineage'  },
+
+  // -- MIKE DUNN -------------------------------------------------------------
+  { from:'chicago_scene',     to:'mike_dunn',           strength:3, type:'lineage'  },
+  { from:'trax',              to:'mike_dunn',           strength:3, type:'roster'   },
+  { from:'acid_house',        to:'mike_dunn',           strength:2, type:'lineage'  },
+  { from:'house',             to:'mike_dunn',           strength:3, type:'lineage'  },
+
+  // -- NIGHT SLUGS -----------------------------------------------------------
+  { from:'night_slugs',       to:'girl_unit',           strength:3, type:'roster'   },
+  { from:'night_slugs',       to:'bok_bok',             strength:3, type:'roster'   },
+  { from:'night_slugs',       to:'l_vis_1990',          strength:3, type:'roster'   },
+  { from:'night_slugs',       to:'jam_city',            strength:3, type:'roster'   },
+  { from:'bok_bok',           to:'night_slugs',         strength:3, type:'lineage'  },
+  { from:'l_vis_1990',        to:'night_slugs',         strength:3, type:'lineage'  },
+  { from:'footwork',          to:'night_slugs',         strength:2, type:'influence' },
+  { from:'dubstep',           to:'night_slugs',         strength:2, type:'influence' },
+  { from:'numbers',           to:'night_slugs',         strength:2, type:'aesthetic' },
+
+  // -- GIRL UNIT -------------------------------------------------------------
+  { from:'footwork',          to:'girl_unit',           strength:2, type:'influence' },
+  { from:'grime',             to:'girl_unit',           strength:2, type:'influence' },
+
+  // -- BOK BOK ---------------------------------------------------------------
+  { from:'swamp81',           to:'bok_bok',             strength:2, type:'roster'   },
+  { from:'uk_garage',         to:'bok_bok',             strength:2, type:'influence' },
+
+  // -- L-VIS 1990 ------------------------------------------------------------
+  { from:'acid_house',        to:'l_vis_1990',          strength:2, type:'influence' },
+
+  // -- JAM CITY --------------------------------------------------------------
+  { from:'hyperdub',          to:'jam_city',            strength:2, type:'roster'   },
+  { from:'girl_unit',         to:'jam_city',            strength:2, type:'aesthetic' },
+
+  // -- UNTOLD ----------------------------------------------------------------
+  { from:'dubstep',           to:'untold',              strength:2, type:'lineage'  },
+  { from:'actress',           to:'untold',              strength:2, type:'aesthetic' },
+  { from:'night_slugs',       to:'untold',              strength:2, type:'aesthetic' },
+
+  // -- ANZ -------------------------------------------------------------------
+  { from:'chicago_scene',     to:'anz',                 strength:2, type:'influence' },
+  { from:'ninja_tune',        to:'anz',                 strength:3, type:'roster'   },
+  { from:'house',             to:'anz',                 strength:2, type:'lineage'  },
 ];

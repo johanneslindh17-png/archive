@@ -2105,6 +2105,19 @@ export const NODES = [
       { title: 'Embryo (Planet Mu)', year: 2019 },
     ], spotify:'23QKqAkKwti9zBiac6RFBA', },
 
+  { id:'dj_spinn', label:'DJ Spinn', type:'artist', genre:'experimental', era:2010, city:'Chicago', country:'US',
+    desc:'DJ Spinn (Jared Foote) was one of the central figures of Chicago footwork alongside DJ Rashad, with whom he maintained a creative partnership spanning two decades. Together they released the "We Beefin?!" EP on Teklife in 2013 and were both resident at the Battle Loft. A core member of the Teklife crew, Spinn\'s sets were built for the footwork dance battle context. After Rashad\'s death in 2014 he continued to perform and curate the tradition, maintaining its connection to Chicago\'s South Side dance culture.',
+    releases:[
+      { title: '"We Beefin?!" — with DJ Rashad (Teklife)', year: 2013 },
+    ]},
+
+  { id:'rp_boo', label:'RP Boo', type:'artist', genre:'experimental', era:2009, city:'Chicago', country:'US',
+    desc:'RP Boo (Kavain Wayne Space) is a Chicago producer widely credited as one of the originators of footwork, developing its rapid-fire rhythmic language on the South Side in the 1990s. His debut album Balance (Planet Mu, 2013) introduced him to a wider audience — tracks harder and more abstract than much of the Teklife output, built on years of production in relative obscurity. Subsequent records on Planet Mu developed a style that sits between footwork\'s competitive dance battle origins and something stranger and more personal.',
+    releases:[
+      { title: 'Balance (Planet Mu)', year: 2013 },
+      { title: 'I\'ll Tell You What! (Planet Mu)', year: 2016 },
+    ]},
+
   // ── INSTRUMENTS & MANUFACTURERS ──────────────────────────────────────────
   { id:'roland', label:'Roland', type:'label', genre:'experimental', era:1972, city:'Osaka', country:'JP',
     desc:'Roland Corporation was founded in Osaka in 1972 by Ikutaro Kakehashi. Its drum machines and synthesizers became the primary physical substrate of electronic dance music. The TR-808 (1980), TR-909 (1981), TB-303 (1981), and SH-101 (1982) were commercial failures on release and sold cheaply on the secondhand market, where they were adopted by Chicago house and Detroit techno producers for purposes their designers had not intended. No other single company has had a comparable impact on the material production of electronic music.',
@@ -3611,6 +3624,51 @@ export const NODES = [
       { title:'Rustie — Glass Swords (Numbers)', year:2011 },
     ]},
 
+  { id:'night_slugs', label:'Night Slugs', type:'label', genre:'experimental', era:2009, city:'London', country:'UK',
+    desc:'Night Slugs was founded in London in 2009 by Bok Bok and L-Vis 1990. It became one of the defining labels of the post-dubstep UK club music moment — releasing music from Girl Unit, Kingdom, Jam City, and others that blended Chicago footwork, ballroom, grime, and industrial rhythms into something without an established genre name. Night Slugs challenged house and techno as default frameworks for UK electronic music and created space for a club aesthetic rooted in queerness and bass weight. The label wound down activity around 2016.',
+    releases:[
+      { title:'Girl Unit — "Wut" (Night Slugs)', year:2010 },
+      { title:'Jam City — Classical Curves (Night Slugs)', year:2012 },
+    ]},
+
+  { id:'girl_unit', label:'Girl Unit', type:'artist', genre:'experimental', era:2010, city:'London', country:'UK',
+    desc:'Girl Unit (Ian Eastwood) is a London producer associated with Night Slugs whose 2010 track "Wut" crystallised the label\'s aesthetic — a compressed, fast, industrial take on bass music referencing footwork, juke, and grime without fully belonging to any of them. His productions influenced a wide range of contemporary club music and established a sonic vocabulary that circulated well beyond the UK underground.',
+    releases:[
+      { title:'"Wut" (Night Slugs)', year:2010 },
+      { title:'Showerhead EP (Night Slugs)', year:2013 },
+    ]},
+
+  { id:'bok_bok', label:'Bok Bok', type:'artist', genre:'experimental', era:2010, city:'London', country:'UK',
+    desc:'Bok Bok (Alex Sushon) co-founded Night Slugs and developed a solo production practice pushing into the eclectic territory the label established — drawing from UK garage, ballroom, footwork, and grime. He has also DJ\'d extensively and contributed to UK bass music\'s relationship with queer club culture, releasing on Night Slugs and Swamp81.',
+    releases:[
+      { title:'Your Charizmatic Self EP (Night Slugs)', year:2016 },
+    ]},
+
+  { id:'l_vis_1990', label:'L-Vis 1990', type:'artist', genre:'experimental', era:2010, city:'London', country:'UK',
+    desc:'L-Vis 1990 (James Connolly) co-founded Night Slugs and produces music that bridges UK rave, early house, and contemporary club music. His solo work is more melodic and rave-influenced than much of the Night Slugs catalogue, drawing on the emotive energy of early 1990s UK rave in a post-dubstep context.',
+    releases:[
+      { title:'Neon Dreams EP (Night Slugs)', year:2012 },
+    ]},
+
+  { id:'jam_city', label:'Jam City', type:'artist', genre:'experimental', era:2012, city:'London', country:'UK',
+    desc:'Jam City is a London-based producer associated with Night Slugs whose debut album Classical Curves (2012) was one of the most discussed electronic releases of that year — a cold, post-punk take on club music drawing on industrial and new wave in ways that felt genuinely new. Subsequent releases including Dream A Garden (Hyperdub, 2015) have developed a distinctive voice that pushes beyond the club context.',
+    releases:[
+      { title:'Classical Curves (Night Slugs)', year:2012 },
+      { title:'Dream A Garden (Hyperdub)', year:2015 },
+    ]},
+
+  { id:'untold', label:'Untold', type:'artist', genre:'experimental', era:2009, city:'London', country:'UK',
+    desc:'Untold (Jack Dunbar) is a London producer and founder of Hemlock Recordings. His music crosses between UK bass, techno, and industrial — his 2011 album Black Light Spiral developed the harder, more mechanical aspects of his sound. Hemlock released early work from Actress and other key figures of the London underground, bridging post-dubstep bass weight with techno rhythmic austerity.',
+    releases:[
+      { title:'Black Light Spiral (Hemlock)', year:2011 },
+    ]},
+
+  { id:'anz', label:'Anz', type:'artist', genre:'house', era:2019, city:'Manchester', country:'UK',
+    desc:'Anz (Ann Clue) is a Manchester-based DJ and producer who emerged in the late 2010s with a style blending jacking Chicago house, breakbeat, and rave music with a warmth distinctly her own. She has released on Ninja Tune, performed at fabric and Boiler Room, and toured major European festivals. Her debut album All Hours (Ninja Tune, 2022) was received as a distinctive statement within contemporary UK club music.',
+    releases:[
+      { title:'All Hours (Ninja Tune)', year:2022 },
+    ]},
+
   { id:'plaid', label:'Plaid', type:'artist', genre:'experimental', era:1991, city:'London', country:'UK',
     desc:'Andy Turner and Ed Handley formed Plaid in London, initially as part of the Black Dog Productions collective. Their music on Warp Records is among the most harmonically complex in IDM — detailed, melodic, with an almost narrative quality. Albums like Not for Threes and Spokes represent peak-period Warp at its most compositionally sophisticated.',
     releases:[
@@ -4572,6 +4630,19 @@ export const NODES = [
       { title: '"La La Land" (Relief)', year: 1997 },
       { title: '"Flash" (Green Velvet)', year: 2012 },
     ], spotify:'3ABaec4jjl95VqmG1iD4k2', },
+
+  { id:'gene_farris', label:'Gene Farris', type:'artist', genre:'house', era:1995, city:'Chicago', country:'US',
+    desc:'Gene Farris is a Chicago DJ and producer who emerged from the city\'s house scene in the mid-1990s and has since become one of its most internationally recognised ambassadors. He co-runs Farris Wheel Recordings and has released on Relief, Defected, and Nervous. His productions draw on Chicago jacking rhythms and deep house, and his DJ sets reflect decades of immersion in the city\'s music. He collaborated closely with Green Velvet and has been a fixture at major European clubs and festivals.',
+    releases:[
+      { title:'"Shake It Up" (Farris Wheel)', year:2001 },
+    ]},
+
+  { id:'mike_dunn', label:'Mike Dunn', type:'artist', genre:'house', era:1988, city:'Chicago', country:'US',
+    desc:'Mike Dunn is a Chicago house DJ and producer active since the late 1980s, contributing to both acid house and ghetto house. His production "Magic Feet" (Trax, 1987) is an early example of acid house, building its bassline manipulation before many of the genre\'s more cited records. He has continued recording and performing for decades, contributing to Chicago house culture as both practitioner and oral historian of its founding years.',
+    releases:[
+      { title:'"Magic Feet" (Trax)', year:1987 },
+      { title:'"God Made Me Phunky" (Clubhouse)', year:1991 },
+    ]},
 
   { id:'daniel_bell', label:'Daniel Bell', type:'artist', genre:'minimal', era:1993, city:'Detroit', country:'US',
     desc:'Daniel Bell is a Detroit-born producer whose early releases under the DBX alias in the 1990s were foundational for minimal tech-house. His stripped, hypnotic productions — released on Tresor, Harmonie Park, and his own Accelerate label — applied Detroit\'s rhythmic discipline to the minimal aesthetics developing simultaneously in Chicago and Europe. Bell was an early proponent of the looped, detail-focused approach to techno that would come to define the Cologne minimal scene, and his influence on producers including Ricardo Villalobos and Marco Carola is well documented.',

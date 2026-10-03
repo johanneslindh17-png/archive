@@ -1,7 +1,19 @@
 // Most recently added nodes, newest first.
 // Add new entries here whenever nodes are added.
 export const NODE_CHANGELOG = [
-  // 2026-10-03
+  // 2026-10-03 batch 2
+  { id: 'anz',                  label: 'Anz',                       date: '2026-10-03' },
+  { id: 'untold',               label: 'Untold',                    date: '2026-10-03' },
+  { id: 'jam_city',             label: 'Jam City',                  date: '2026-10-03' },
+  { id: 'l_vis_1990',           label: 'L-Vis 1990',                date: '2026-10-03' },
+  { id: 'bok_bok',              label: 'Bok Bok',                   date: '2026-10-03' },
+  { id: 'girl_unit',            label: 'Girl Unit',                 date: '2026-10-03' },
+  { id: 'night_slugs',          label: 'Night Slugs',               date: '2026-10-03' },
+  { id: 'mike_dunn',            label: 'Mike Dunn',                 date: '2026-10-03' },
+  { id: 'gene_farris',          label: 'Gene Farris',               date: '2026-10-03' },
+  { id: 'rp_boo',               label: 'RP Boo',                    date: '2026-10-03' },
+  { id: 'dj_spinn',             label: 'DJ Spinn',                  date: '2026-10-03' },
+  // 2026-10-03 batch 1
   { id: 'toxido_mask',          label: 'Toxido Mask',               date: '2026-10-03' },
   { id: 'idle_hands',           label: 'Idle Hands',                date: '2026-10-03' },
   { id: 'vladimir_ivkovic',     label: 'Vladimir Ivkovic',          date: '2026-10-03' },
