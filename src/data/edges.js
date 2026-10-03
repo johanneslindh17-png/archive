@@ -1057,6 +1057,7 @@
   { from:'axis_records',          to:'robert_hood',           strength:3, type:'roster' },
   { from:'tresor_records',        to:'jeff_mills',            strength:3, type:'roster' },
   { from:'berghain',              to:'jeff_mills',            strength:2, type:'roster' },
+  { from:'detroit_scene',         to:'jeff_mills',            strength:3, type:'lineage'  },
   { from:'detroit_scene',         to:'robert_hood',           strength:3, type:'roster' },
   { from:'carl_craig',            to:'planet_e',              strength:3, type:'lineage' },
   { from:'planet_e',              to:'carl_craig',            strength:3, type:'roster' },

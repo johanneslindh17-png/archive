@@ -451,6 +451,8 @@ export default function App() {
       el.setAttribute('stroke-width', '1.5');
       el.setAttribute('stroke-dasharray', '2 11');
       el.style.animation = `nd-march-ants ${speed}s linear infinite`;
+      const marchIdx = marchOverlayRef.current.length;
+      el.style.animationDelay = `${-((marchIdx * 0.31) % 1) * speed}s`;
       el.style.pointerEvents = 'none';
       svgGRef.current.appendChild(el);
       marchOverlayRef.current.push(el);
@@ -1948,9 +1950,9 @@ export default function App() {
   const hovPathEls = useMemo(() => {
     if (!hovNode || trialExhausted) return null;
     const stroke = darkMode ? 'rgba(255,255,255,0.45)' : 'rgba(0,0,0,0.38)';
-    // Sync all paths to the global 1s animation clock so switching nodes
-    // never causes a visible phase jump — dots continue from where they were.
-    const animDelay = `${-((Date.now() % 1000) / 1000).toFixed(3)}s`;
+    // Sync paths to the global 1s animation clock; each edge gets a small
+    // deterministic phase offset so dots on busy nodes don't all spawn together.
+    const clockPhase = (Date.now() % 1000) / 1000;
     const els = [];
     for (const e of visibleEdges) {
       if (e.type === 'aesthetic') continue;
@@ -1959,6 +1961,8 @@ export default function App() {
       if (hlEdges?.has(key)) continue;
       const d = edgeGeom.paths.get(key);
       if (!d) continue;
+      const perEdgeOffset = (els.length * 0.31) % 1;
+      const animDelay = `${-(((clockPhase + perEdgeOffset) % 1)).toFixed(3)}s`;
       els.push(
         <path key={key} d={d} fill="none" strokeWidth={1} strokeDasharray="2 11"
           className={e.from === hovNode.id ? 'hov-flow-out' : 'hov-flow-in'}

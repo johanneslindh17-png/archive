@@ -154,7 +154,7 @@ const VoiceCol = memo(function VoiceCol({
   onVParam, onFilter, onVol, onPan, onDly, onRvb, onToggleMute,
 }) {
   return (
-    <div className={`gv-col${muted ? ' gv-col--muted' : ''}`}>
+    <div className={`gv-col${muted ? ' gv-col--muted' : ''}`} data-voice={id}>
       <div
         className={`gv-col-label${muted ? ' gv-col-label--muted' : ''}`}
         onClick={() => onToggleMute(id)}
@@ -952,7 +952,7 @@ const toggleDrum = useCallback((id, step) =>
         <div className="groove-seq-divider" />
 
         {SYNTH_TRACKS.map(t => (
-          <div key={t.id} className="groove-row">
+          <div key={t.id} className="groove-row" data-voice={t.id}>
             <span className="groove-label">{t.label}</span>
             <div className="groove-steps">
               {(seqLen === 32 ? GROUPS_32 : GROUPS).map((g, gi) => (
