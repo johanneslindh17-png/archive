@@ -1,6 +1,8 @@
 // Most recently added nodes, newest first.
 // Add new entries here whenever nodes are added.
 export const NODE_CHANGELOG = [
+  // 2026-10-04 concept node
+  { id: 'unknown_artist',      label: 'Unknown Artist',            date: '2026-10-04' },
   // 2026-10-04 batch 6
   { id: 'ziur',                 label: 'Ziur',                      date: '2026-10-04' },
   { id: 'nils_frahm',          label: 'Nils Frahm',                date: '2026-10-04' },

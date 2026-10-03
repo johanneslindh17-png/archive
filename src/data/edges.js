@@ -3778,6 +3778,13 @@
   { from:'techno',            to:'jensen_interceptor',  strength:3, type:'lineage'  },
   { from:'electro',           to:'jensen_interceptor',  strength:2, type:'lineage'  },
 
+  // -- UNKNOWN ARTIST --------------------------------------------------------
+  { from:'burial',            to:'unknown_artist',      strength:3, type:'aesthetic' },
+  { from:'basic_channel',     to:'unknown_artist',      strength:3, type:'aesthetic' },
+  { from:'trax',              to:'unknown_artist',      strength:2, type:'lineage'   },
+  { from:'hyperdub',          to:'unknown_artist',      strength:2, type:'aesthetic' },
+  { from:'dmz',               to:'unknown_artist',      strength:2, type:'aesthetic' },
+
   // -- ZIUR ------------------------------------------------------------------
   { from:'arca',              to:'ziur',                strength:2, type:'aesthetic' },
   { from:'pan_label',         to:'ziur',                strength:2, type:'aesthetic' },
