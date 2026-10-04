@@ -577,7 +577,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .dark .nbc-tab-x{ color:#2a2a3c; }
 .dark .nbc-tab-x:hover{ color:#c8c8e0; }
 
-.canvas{flex:1;min-height:0;position:relative;z-index:1;overflow:hidden;background:var(--canvas-bg);transition:background 0.2s}
+.canvas{flex:1;min-height:0;position:relative;z-index:1;overflow:hidden;clip-path:inset(0);background:var(--canvas-bg);transition:background 0.2s}
 .year-strip{
   position:absolute;top:0;left:0;bottom:0;width:54px;z-index:20;
   pointer-events:none;background:var(--tb-bg);
