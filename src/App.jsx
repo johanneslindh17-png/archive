@@ -251,7 +251,7 @@ const _LABEL_MAP = {};
 NODES.forEach(n => { _LABEL_MAP[n.label] = n.id; });
 const _SORTED_LABELS = Object.keys(_LABEL_MAP).sort((a, b) => b.length - a.length);
 const _DESC_REGEX = _SORTED_LABELS.length
-  ? new RegExp(_SORTED_LABELS.map(l => l.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|'), 'g')
+  ? new RegExp(_SORTED_LABELS.map(l => `(?<![\\w'\\-])${l.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\w'\\-])`).join('|'), 'g')
   : null;
 
 /**
@@ -309,6 +309,17 @@ async function samplePhotoColors(url) {
       return `rgb(${Math.round(r/S)},${Math.round(g/S)},${Math.round(b/S)})`;
     });
   } catch (e) { return null; }
+}
+
+function avgPhotoColor(colors) {
+  if (!colors?.length) return null;
+  let r = 0, g = 0, b = 0;
+  colors.forEach(c => {
+    const m = c.match(/rgb\((\d+),(\d+),(\d+)\)/);
+    if (m) { r += +m[1]; g += +m[2]; b += +m[3]; }
+  });
+  const n = colors.length;
+  return `${Math.round(r/n)},${Math.round(g/n)},${Math.round(b/n)}`;
 }
 
 // Returns where the line (x1,y1)→(x2,y2) enters a rect, backed off by `gap` px.
@@ -2913,32 +2924,16 @@ export default function App() {
                 if (!imgUrl) return null;
                 return (
                   <div className="dp-photo-wrap">
-                    <div className="dp-photo-inner">
+                    <div
+                      className="dp-photo-inner"
+                      style={photoColors ? { '--photo-glow': avgPhotoColor(photoColors) } : undefined}
+                    >
                       <img
                         className={`dp-photo${coverRelease ? ' dp-photo--cover' : ''}`}
                         src={imgUrl}
                         alt={selNode.label}
                         loading="lazy"
                       />
-                      <svg className="dp-photo-frame" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                        {photoColors && (
-                          <defs>
-                            <linearGradient id="dp-pg" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
-                              {photoColors.flatMap((color, i, arr) => {
-                                const pct = n => `${(n / arr.length * 100).toFixed(2)}%`;
-                                return [
-                                  <stop key={`${i}a`} offset={pct(i)}   stopColor={color} />,
-                                  <stop key={`${i}b`} offset={pct(i+1)} stopColor={color} />,
-                                ];
-                              })}
-                            </linearGradient>
-                          </defs>
-                        )}
-                        <rect
-                          className="dp-frame-dots"
-                          style={photoColors ? { stroke: 'url(#dp-pg)' } : undefined}
-                        />
-                      </svg>
                     </div>
                     <div className="dp-photo-credit">
                       {photoEntry ? (

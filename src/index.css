@@ -715,36 +715,18 @@ path.eg.dim{opacity:0.055}
 .dp-meta{font-family:'Syne Mono',monospace;font-size:0.6rem;color:#999;margin-bottom:16px;line-height:1.9;letter-spacing:0.04em;}
 .dp-meta-row{display:flex;align-items:center;gap:6px;}
 .dp-cdot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
-.dp-photo-wrap{margin-top:16px;margin-bottom:16px;}
-.dp-photo-inner{position:relative;display:block;line-height:0;}
+.dp-photo-wrap{margin-top:16px;margin-bottom:24px;}
+.dp-photo-inner{
+  position:relative;
+  display:block;
+  line-height:0;
+  box-shadow:
+    0 0 18px 6px  rgba(var(--photo-glow, 100,100,140), 0.28),
+    0 0 48px 18px rgba(var(--photo-glow, 100,100,140), 0.14),
+    0 0 90px 36px rgba(var(--photo-glow, 100,100,140), 0.07);
+  transition: box-shadow 0.6s ease;
+}
 .dp-photo{width:100%;display:block;object-fit:cover;max-height:260px;}
-
-/* Animated dot border â€” sits just outside the photo */
-.dp-photo-frame{
-  position:absolute;
-  inset:-5px;
-  width:calc(100% + 10px);
-  height:calc(100% + 10px);
-  pointer-events:none;
-  overflow:visible;
-}
-.dp-frame-dots{
-  x:0.5px;y:0.5px;
-  width:calc(100% - 1px);
-  height:calc(100% - 1px);
-  fill:none;
-  stroke:rgba(80,80,110,0.45);
-  stroke-width:1px;
-  stroke-dasharray:7 16;
-  animation:dp-dots-march 30s linear infinite;
-}
-.dark .dp-frame-dots{stroke:rgba(180,180,220,0.45);}
-
-@keyframes dp-dots-march{ to{stroke-dashoffset:-115;} }
-
-@media(prefers-reduced-motion:reduce){
-  .dp-frame-dots{animation:none;}
-}
 
 .dp-photo-credit{font-size:0.65rem;color:#888;margin-top:10px;line-height:1.4;}
 .dp-photo-credit a{color:inherit;text-decoration:underline;}
