@@ -1758,6 +1758,7 @@
   { from:'fabric',              to:'the_black_madonna',   strength:2, type:'roster'    },
   { from:'lies_records',        to:'umfang',              strength:2, type:'aesthetic' },
   { from:'chicago_scene',       to:'umfang',              strength:2, type:'influence' },
+  { from:'ghostly_international', to:'avalon_emerson',    strength:2, type:'roster'    },
   { from:'chicago_scene',       to:'avalon_emerson',      strength:2, type:'influence' },
   { from:'lobster_theremin',    to:'avalon_emerson',      strength:2, type:'aesthetic' },
   { from:'dekmantel',           to:'avalon_emerson',      strength:2, type:'roster'    },
@@ -3583,6 +3584,7 @@
   { from:'techno',            to:'magda',               strength:3, type:'lineage'  },
 
   // -- MATTHEW DEAR ----------------------------------------------------------
+  { from:'ghostly_international', to:'matthew_dear',    strength:3, type:'roster'   },
   { from:'techno',            to:'matthew_dear',        strength:2, type:'lineage'  },
   { from:'detroit_scene',     to:'matthew_dear',        strength:2, type:'influence' },
 
