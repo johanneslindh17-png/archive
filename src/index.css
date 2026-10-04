@@ -1360,14 +1360,22 @@ path.eg.dim{opacity:0.055}
   display:flex;justify-content:space-between;align-items:center;
   margin-top:2px;
 }
-.tour-v2-skip{
+.tour-v2-back{
   background:none;border:none;cursor:pointer;
   font-family:'Syne Mono',monospace;
   font-size:0.6rem;letter-spacing:0.1em;
   text-transform:uppercase;color:var(--tb-text-dim);padding:0;
   transition:color 0.15s;
 }
-.tour-v2-skip:hover{color:var(--tb-text-mid);}
+.tour-v2-back:hover{color:var(--tb-text-mid);}
+.tour-v2-close{
+  position:absolute;top:10px;right:12px;
+  background:none;border:none;cursor:pointer;
+  font-size:1rem;line-height:1;
+  color:var(--tb-text-dim);padding:2px 4px;
+  transition:color 0.15s;
+}
+.tour-v2-close:hover{color:var(--tb-text);}
 .tour-v2-next{
   padding:8px 16px;
   background:var(--tb-text);color:var(--tb-bg);

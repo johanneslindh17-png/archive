@@ -977,6 +977,12 @@ export default function App() {
       setOnboardStep(s => (typeof s === 'number' ? s + 1 : 0));
     }
   };
+  const prevTour  = () => {
+    if (typeof onboardStep === 'number' && onboardStep > 0) {
+      setTourHL(prev => prev ? { ...prev, ready: false } : null);
+      setOnboardStep(s => (typeof s === 'number' ? s - 1 : 0));
+    }
+  };
 
   useEffect(() => {
     if (typeof onboardStep !== 'number') { setTourHL(null); return; }
@@ -3443,6 +3449,7 @@ export default function App() {
             style={tourHL.cardStyle}
             onClick={e => e.stopPropagation()}
           >
+            <button className="tour-v2-close" onClick={dismissOnboard}>×</button>
             <div className="tour-v2-progress">
               {TOUR_STEPS.map((_, i) => (
                 <div key={i} className={`tour-v2-pip${i <= onboardStep ? ' active' : ''}`} />
@@ -3454,7 +3461,9 @@ export default function App() {
               <div className="tour-v2-body">{TOUR_STEPS[onboardStep].body}</div>
             </div>
             <div className="tour-v2-nav">
-              <button className="tour-v2-skip" onClick={dismissOnboard}>Skip</button>
+              {onboardStep > 0
+                ? <button className="tour-v2-back" onClick={prevTour}>← Back</button>
+                : <span />}
               <button className="tour-v2-next" onClick={nextTour}>
                 {onboardStep === TOUR_STEPS.length - 1 ? 'Start exploring' : 'Next →'}
               </button>
