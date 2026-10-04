@@ -66,14 +66,14 @@ export const REGION_COUNT = Object.keys(REGIONS).length;
 
 export const COUNTRY_REGION = {
   US:'US', CA:'CA',
-  UK:'UK', IE:'UK',
+  UK:'UK', GB:'UK', IE:'UK',
   BE:'BENELUX', NL:'BENELUX',
   FR:'FR',
   DE:'DE',
   ES:'WEUR', PT:'WEUR',
   CH:'SEUR', AT:'SEUR', IT:'SEUR', GR:'SEUR',
   SE:'SCAND', NO:'SCAND', DK:'SCAND', FI:'SCAND', IS:'SCAND',
-  RU:'EEUR', PL:'EEUR', CZ:'EEUR', UA:'EEUR', RO:'EEUR', GE:'EEUR', HU:'EEUR', PS:'EEUR', RS:'EEUR',
+  RU:'EEUR', PL:'EEUR', CZ:'EEUR', UA:'EEUR', RO:'EEUR', GE:'EEUR', HU:'EEUR', PS:'EEUR', RS:'EEUR', LB:'EEUR', TR:'EEUR',
   JP:'ASIA', AU:'ASIA', KR:'ASIA', NZ:'ASIA', CN:'ASIA', HK:'ASIA',
   BR:'LATAM', AR:'LATAM', CL:'LATAM', CO:'LATAM', MX:'LATAM', PE:'LATAM', JM:'LATAM',
   ZA:'AFRICA', NG:'AFRICA', KE:'AFRICA', AO:'AFRICA', CD:'AFRICA',
@@ -90,7 +90,7 @@ export const CITY_BANDS = {
   'DE':     ['Berlin','Hamburg','Frankfurt','Cologne','Munich','Weimar','Stuttgart','Düsseldorf','Heidelberg','Chemnitz','Dresden'],
   'UK':     ['London','Manchester','Glasgow','Birmingham','Sheffield','Edinburgh','Nottingham','Wolverhampton','Bristol','Dublin'],
   'SCAND':  ['Stockholm','Gothenburg','Malmö','Copenhagen','Aarhus','Oslo','Helsinki','Reykjavik','Tromsø','Turku','Various'],
-  'EEUR':   ['Moscow','Warsaw','Bucharest','Tbilisi','Kyiv','Budapest','Kraków','Prague','Ramallah','Belgrade','Novi Sad'],
+  'EEUR':   ['Moscow','Warsaw','Bucharest','Tbilisi','Kyiv','Budapest','Kraków','Prague','Ramallah','Belgrade','Novi Sad','Beirut','Istanbul'],
   'AFRICA': ['Johannesburg','Cape Town','Durban','Lagos'],
   'ASIA':   ['Tokyo','Osaka','Seoul','Sydney','Melbourne','Shanghai','Hong Kong'],
 };

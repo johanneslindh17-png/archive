@@ -2162,7 +2162,7 @@ export const NODES = [
     desc:'Nuno dos Santos is a Portuguese DJ and producer working in the deep house tradition. His productions draw on the American garage house lineage — warm chord progressions, soulful rhythmic structures, careful use of space — filtered through a Southern European sensibility. He has released on independent deep house labels across Europe and maintained a consistent presence in the underground without wide commercial breakthrough, as a representative of the Portuguese contribution to the European deep house circuit.',
     releases:[] },
 
-  { id:'aleksandir', label:'Aleksandir', type:'artist', genre:'melodic', era:2018, city:'London', country:'GB',
+  { id:'aleksandir', label:'Aleksandir', type:'artist', genre:'melodic', era:2018, city:'London', country:'UK',
     desc:'Istanbul-born, London-based DJ and producer. His 2018 debut \'Yamaha\' on Tesselate — a soft-focus melodic house track built around warm arpeggios and a gentle groove — drew attention from Dixon and Tycho and accumulated millions of plays. His music combines house rhythms with melodic, emotionally charged synthesis, shaped by Nicolas Jaar\'s \'Space Is Only Noise\' and romantic piano tradition. Releases on Seb Wildblood\'s Church label, Omena and his own Artesian Sounds imprint. His 2020 debut album \'Skin\' and subsequent releases have established him as a leading voice in contemporary melodic and emotional club music.',
     releases:[] },
 
@@ -3840,7 +3840,7 @@ export const NODES = [
       { title:'Mãe do Baile (self-released)', year:2023 },
     ]},
 
-  { id:'nour_sokhon', label:'Nour Sokhon', type:'artist', genre:'experimental', era:2018, city:'Beirut', country:'LB',
+  { id:'nour_sokhon', label:'Nour Sokhon', type:'artist', genre:'experimental', era:2018, city:'Berlin', country:'DE',
     desc:'Nour Sokhon is a Lebanese musician and producer based between Beirut and Berlin, and the founder of Morphine Records. Her electronic music incorporates Arabic musical scales, Eastern Mediterranean rhythmic structures, and Western synthesis into a form that resists easy genre placement — it functions as club music but carries harmonic and modal material not native to European dance traditions. She has played at Berghain, Corsica Studios, and venues across the Middle East and Europe. Morphine Records has positioned Beirut as a node in the global underground — a city where a local music scene has maintained activity through severe political and economic disruption, partly because its underground operated on the margins of mainstream Lebanese culture long before the crises of the 2020s made that marginality literal.',
     releases:[] },
 
@@ -4390,7 +4390,7 @@ export const NODES = [
       { title:'Groove La Chord (Transmat)', year:1998 },
     ], spotify:'2eDkVPd82dQhBibh3YNQF3' },
 
-  { id:'daniel_bortz', label:'Daniel Bortz', type:'artist', genre:'techno', era:2010, city:'Stockholm', country:'SE',
+  { id:'daniel_bortz', label:'Daniel Bortz', type:'artist', genre:'techno', era:2010, city:'Munich', country:'DE',
     desc:'Daniel Bortz is a Stockholm-based producer and DJ whose music occupies the melodic end of techno — polished, driving, with a Scandinavian clarity of production that sits naturally alongside the Drumcode aesthetic. He has released on Drumcode, Rekids, and various European labels, building a reputation within the European techno underground for consistency and quality. His work reflects the Stockholm techno scene\'s particular synthesis of Detroit influence and Nordic musical temperament — technically accomplished, rarely austere.',
     releases:[
       { title:'Inward (Rekids)', year:2014 },
