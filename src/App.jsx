@@ -2185,13 +2185,20 @@ export default function App() {
         }}
         onMouseEnter={ev => {
           if (isScrollingRef.current) return;
-          // Don't activate hover when cursor is in topbar / regionlabel chrome
+          // Block hover when cursor or node is in / near the topbar / regionlabel chrome.
+          // The glow overlay extends PAD_SVG*k px above the node rect, so we guard
+          // against that bleed distance as well.
           const chrome = document.querySelector('.regionlabel') ?? document.querySelector('.topbar');
           const chromeBottom = chrome ? chrome.getBoundingClientRect().bottom : 0;
           if (chromeBottom && ev.clientY <= chromeBottom) return;
-          // Skip hover if the node itself is mostly behind the chrome bar
           const nodeRect = ev.currentTarget.getBoundingClientRect();
-          if (chromeBottom && nodeRect.bottom <= chromeBottom + 2) return;
+          if (chromeBottom) {
+            const gXform = svgGRef.current?.style.transform || '';
+            const km2 = gXform.match(/scale\(([\d.]+)\)/);
+            const k2 = km2 ? parseFloat(km2[1]) : 1;
+            const PAD_SCREEN = 18 * k2; // glow extends this many px above node rect
+            if (nodeRect.top - PAD_SCREEN < chromeBottom) return;
+          }
           // Cancel any pending leave-cleanup so there's no blank frame between nodes
           clearTimeout(leaveTimerRef.current);
           if (!isDim) {
@@ -2228,9 +2235,7 @@ export default function App() {
               const PAD_SVG = 18;           // extra SVG-unit padding for glow
 
               const ov = document.createElement('div');
-              // clip-path trims any glow that would bleed above the chrome bar
-              const clipTop = Math.max(0, chromeBottom - nr.top);
-              ov.style.cssText = `position:fixed;left:${nr.left}px;top:${nr.top}px;width:${nr.width}px;height:${nr.height}px;pointer-events:none;z-index:900;overflow:visible;${clipTop > 0 ? `clip-path:inset(${clipTop}px 0 0 0);` : ''}`;
+              ov.style.cssText = `position:fixed;left:${nr.left}px;top:${nr.top}px;width:${nr.width}px;height:${nr.height}px;pointer-events:none;z-index:900;overflow:visible;`;
               const miniSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
               miniSvg.setAttribute('viewBox', `${-svgW/2-PAD_SVG} ${-svgH/2-PAD_SVG} ${svgW+PAD_SVG*2} ${svgH+PAD_SVG*2}`);
               miniSvg.style.cssText = `width:${nr.width+PAD_SVG*k*2}px;height:${nr.height+PAD_SVG*k*2}px;position:absolute;left:${-PAD_SVG*k}px;top:${-PAD_SVG*k}px;overflow:visible;pointer-events:none;`;
