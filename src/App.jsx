@@ -359,8 +359,8 @@ function lineRectEntry(x1, y1, x2, y2, rL, rT, rR, rB, gap = 10) {
 const TOUR_STEPS = [
   {
     id: 'map',
-    title: 'A LIVING MAP',
-    body: 'A living map of electronic music — 1000+ artists, labels, clubs, and pivotal moments connected by documented lines of influence and lineage. Take your time.',
+    title: 'THE ARCHIVE',
+    body: '1000+ artists, labels, clubs, and events connected by documented lines of influence and lineage. Click any node to open its profile.',
     getTarget: () => null,
     cardSide: 'center',
     onEnter: null,
@@ -368,8 +368,8 @@ const TOUR_STEPS = [
   },
   {
     id: 'node',
-    title: 'EVERY NODE IS A STORY',
-    body: "I just opened Jeff Mills' profile — born in Detroit, he began DJing as \"The Wizard\" on WJLB radio, co-founded Underground Resistance, and launched Axis Records. \"The Bells\" (1996) is one of the most recognised records in techno history. Scroll the panel to see his connections, releases, and full context. Click any highlighted name to follow the thread.",
+    title: 'OPENING A NODE',
+    body: "This is Jeff Mills' profile. He started DJing as \"The Wizard\" on WJLB radio in Detroit, co-founded Underground Resistance, and ran Axis Records. Scroll the panel to see his connections and releases. Any highlighted name in the text is a link to another node.",
     getTarget: () => document.querySelector('.dp.open'),
     cardSide: 'persist',
     onEnter: ctx => {
@@ -382,8 +382,8 @@ const TOUR_STEPS = [
   },
   {
     id: 'multiselect',
-    title: 'GROW THE WEB',
-    body: "Any node that lights up is directly connected to the one you opened. Click a highlighted node to pull it into your view alongside Jeff Mills — the map keeps extending. Keep clicking to trace the web.",
+    title: 'FOLLOWING CONNECTIONS',
+    body: "Nodes that light up are directly connected to the one you have open. Click one to open it alongside the current node — you can keep multiple profiles open at once and navigate between them.",
     getTarget: () => document.querySelector('.dp.open'),
     cardSide: 'persist',
     onEnter: ctx => {
@@ -430,8 +430,8 @@ const TOUR_STEPS = [
   },
   {
     id: 'breadcrumb',
-    title: 'YOUR PATH, ALWAYS VISIBLE',
-    body: "The tab bar just above the map shows every node in your current view. Click any tab to jump back to it, click × to remove it, or hit ← ALL NODES to reset and see everything again. Click anywhere on the blank map to deselect.",
+    title: 'RECENTLY OPENED',
+    body: "The bar above the map keeps a tab for each node you have opened. Click a tab to go back to it, × to close it, or ← ALL NODES to clear everything and see the full map again.",
     getTarget: () => document.querySelector('.nbc-tab') ?? document.querySelector('.nodebreadcrumb'),
     getSecondTarget: () => document.querySelectorAll('.nbc-tab')[1] ?? null,
     cardSide: 'persist',
@@ -440,8 +440,8 @@ const TOUR_STEPS = [
   },
   {
     id: 'player',
-    title: 'HEAR THE HISTORY',
-    body: "When an artist has music on Bandcamp, the player is built right in. It keeps playing as you explore — the whole history, with a soundtrack. Or follow the link to their Spotify page.",
+    title: 'BUILT-IN PLAYER',
+    body: "When an artist has music on Bandcamp it plays directly in the panel. It keeps going as you browse other nodes. There's also a link to their Spotify page if one exists.",
     getTarget: () => document.querySelector('.player-inline'),
     getSecondTarget: () => document.querySelector('.dp-spotify-link'),
     cardSide: 'persist',
@@ -461,8 +461,8 @@ const TOUR_STEPS = [
   },
   {
     id: 'search',
-    title: 'FIND ANYTHING',
-    body: 'Type an artist, label, or venue and jump straight to it. The whole archive is searchable in seconds — try clicking the result above.',
+    title: 'SEARCH',
+    body: 'Type an artist, label, or venue name to find it. Click the result to open its node on the map.',
     getTarget: () => document.querySelector('.topbar input'),
     cardSide: 'persist',
     onEnter: ctx => {
@@ -477,8 +477,8 @@ const TOUR_STEPS = [
   },
   {
     id: 'regions',
-    title: 'DIVE INTO A SCENE',
-    body: "Click any region column on the map to expand it into city sub-scenes — Detroit splits into its clubs and eras, Chicago into its houses, London into its boroughs. The bar at the top shows you where you are; click ← ALL REGIONS to step back out.",
+    title: 'REGIONS',
+    body: "Click a region column to break it down by city. The bar at the top shows which region you're in. Click ← ALL REGIONS to go back to the full map.",
     getTarget: () => null,
     cardSide: 'center',
     onEnter: null,
