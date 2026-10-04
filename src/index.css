@@ -126,7 +126,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 /* Colorful mode â€” search bar bg applied via inline style; no pseudo needed */
 .yybtn.clr-on{opacity:1}
 .search-dropdown{
-  position:absolute;top:100%;left:0;right:0;z-index:300;
+  position:absolute;top:100%;left:0;right:0;z-index:1100;
   background:#fff;border:1px solid var(--tb-border);border-top:none;
   box-shadow:0 8px 24px rgba(0,0,0,0.10);max-height:320px;overflow-y:auto;
 }
