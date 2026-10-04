@@ -15,28 +15,51 @@ export default async function handler(req, res) {
   };
 
   try {
-    // Deactivate previous instance if we have one (re-entry after clearing storage)
+    // If the browser still has an instanceId (normal return visit after storage clear),
+    // validate it — no activation slot consumed.
     if (instanceId) {
-      await fetch('https://api.lemonsqueezy.com/v1/licenses/deactivate', {
+      const vRes = await fetch('https://api.lemonsqueezy.com/v1/licenses/validate', {
         method: 'POST',
         headers,
         body: JSON.stringify({ license_key: key.trim(), instance_id: instanceId }),
-      }).catch(() => {}); // ignore errors — old instance may already be gone
+      });
+      const vData = await vRes.json();
+      if (vData.valid) {
+        // Key + instance still good — just re-unlock, no new activation needed.
+        return res.json({ valid: true, instanceId });
+      }
+      // Instance no longer valid (revoked, expired) — fall through to activate below.
     }
 
-    // Activate a fresh instance
-    const response = await fetch('https://api.lemonsqueezy.com/v1/licenses/activate', {
+    // No instanceId (first time, or storage was fully wiped): try validate first.
+    // This handles users who cleared storage — the key is already activated somewhere
+    // so validate succeeds without burning another slot.
+    const valRes = await fetch('https://api.lemonsqueezy.com/v1/licenses/validate', {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({ license_key: key.trim() }),
+    });
+    const valData = await valRes.json();
+    if (valData.valid) {
+      // Key is valid and already has at least one activation — re-use without
+      // creating a new instance. We return null instanceId so the browser just
+      // stores the unlocked flag without tracking a specific instance.
+      return res.json({ valid: true, instanceId: null });
+    }
+
+    // Key has never been activated (brand new purchase) — create the first instance.
+    const actRes = await fetch('https://api.lemonsqueezy.com/v1/licenses/activate', {
       method: 'POST',
       headers,
       body: JSON.stringify({ license_key: key.trim(), instance_name: 'web' }),
     });
-    const data = await response.json();
+    const actData = await actRes.json();
 
-    if (data.activated) {
-      res.json({ valid: true, instanceId: data.instance?.id || null });
-    } else {
-      res.json({ valid: false });
+    if (actData.activated) {
+      return res.json({ valid: true, instanceId: actData.instance?.id || null });
     }
+
+    return res.json({ valid: false });
   } catch {
     res.status(500).json({ valid: false });
   }
