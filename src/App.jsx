@@ -2644,7 +2644,7 @@ export default function App() {
               setNewsItem(nextNewsItem());
             }}
           >
-            {'› ElectronicArchive.club — A free online resource for learning about the electronic music underground. Artists, labels, clubs, and pivotal moments — connected by documented lines of influence and lineage. Discover music, follow the Bandcamp links to support the artists directly. Have fun exploring! — TJ'}
+            {'› ElectronicArchive.club — A personal attempt to archive the electronic music underground, built by a DJ and collector from inside the scene. New nodes every week. Explore the connections, discover new music, follow the Bandcamp links to support the artists directly. — TJ'}
           </div>
         )}
         {!selectedSet.length && !pinned && welcomeDone && newsItem && (
@@ -3263,7 +3263,7 @@ export default function App() {
           <div className="onboard-modal">
             <div className="onboard-wordmark">ELECTRONICARCHIVE</div>
             <div className="onboard-pitch">
-              A living research map of the electronic music underground — built by a DJ, producer and collector who spent fifteen years inside the Dutch and German scenes. The connections, histories and lineages here come from that proximity: verified research grounded in first-hand knowledge of how the music actually developed. From Chicago and Detroit in the late 70s, through London, Berlin, Amsterdam, Tokyo and beyond. New nodes and connections are added every week.
+              A personal attempt to archive the electronic music underground — built by a DJ, collector and music fan from inside the scene. Artists, labels, venues, styles and pivotal moments, connected by lines of influence and lineage. From Chicago and Detroit in the late 70s, through London, Berlin, Amsterdam, Tokyo and beyond. New nodes are added every week. For anyone who loves underground electronic music and wants to go deeper.
             </div>
             <div className="onboard-btns">
               <button className="onboard-btn-primary" onClick={dismissOnboard}>Start exploring</button>
@@ -3374,28 +3374,30 @@ export default function App() {
             <div className="about-section">
               <div className="about-section-title">The Archive</div>
               <p className="about-body">
-                A living research map of the electronic music underground — documenting the origins,
-                migrations and mutations of house, techno and related forms since the late 1980s.
-                Every connection is based on verified research: interviews, biographies, liner notes
-                and academic sources. It is an ongoing documentation intended to evolve with the scene.
+                A personal, ongoing attempt to map and document the electronic music underground —
+                its artists, labels, venues, styles and pivotal moments, connected by documented lines
+                of influence and lineage. This is a living project: new nodes are added every week,
+                and the archive expands and evolves alongside the scene itself.
               </p>
             </div>
             <div className="about-section">
               <div className="about-section-title">Who Builds It</div>
               <p className="about-body">
-                Built and maintained by a DJ, producer and music collector who spent fifteen years
-                inside the Dutch and German underground — not observing the scene, but living it.
-                The connections here combine verified documented history with first-hand experience.
-                Not a personal blog. Not a database. Something in between.
+                Built by a DJ, collector and music fan from deep inside the underground — not
+                observing the scene from a distance, but living it. The knowledge here is intimate
+                and first-hand. A brave personal attempt to preserve something worth preserving,
+                and to share it with anyone willing to go looking.
               </p>
             </div>
             <div className="about-section">
-              <div className="about-section-title">Membership</div>
+              <div className="about-section-title">Membership &amp; Contributions</div>
               <p className="about-body">
-                The archive is free to explore for 25 views — after that, a membership is required.
-                As a member you get full access to the archive, weekly node updates, and every new
-                feature as it is built. You are also directly supporting the ongoing documentation
-                of a scene and a history that deserves to be preserved.
+                For €20 a year you become a member, get full access to the archive, and directly
+                support its ongoing documentation. Artist and node suggestions are welcome — if
+                you know something that should be here, reach out. The archive is for anyone who
+                loves underground electronic music and wants to learn more, discover new music,
+                and understand how it all connects. Personal, intimate access to knowledge from
+                the depths of the scene.
               </p>
             </div>
             <button className="about-cta" onClick={() => { setAboutOpen(false); setPaywallOpen(true); }}>
