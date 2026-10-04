@@ -2187,7 +2187,8 @@ export default function App() {
           if (isScrollingRef.current) return;
           // Don't activate hover when cursor is in topbar / regionlabel chrome
           const chrome = document.querySelector('.regionlabel') ?? document.querySelector('.topbar');
-          if (chrome && ev.clientY <= chrome.getBoundingClientRect().bottom) return;
+          const chromeBottom = chrome ? chrome.getBoundingClientRect().bottom : 0;
+          if (chromeBottom && ev.clientY <= chromeBottom) return;
           // Cancel any pending leave-cleanup so there's no blank frame between nodes
           clearTimeout(leaveTimerRef.current);
           if (!isDim) {
@@ -2224,7 +2225,9 @@ export default function App() {
               const PAD_SVG = 18;           // extra SVG-unit padding for glow
 
               const ov = document.createElement('div');
-              ov.style.cssText = `position:fixed;left:${nr.left}px;top:${nr.top}px;width:${nr.width}px;height:${nr.height}px;pointer-events:none;z-index:900;overflow:visible;`;
+              // clip-path trims any glow that would bleed above the chrome bar
+              const clipTop = Math.max(0, chromeBottom - nr.top);
+              ov.style.cssText = `position:fixed;left:${nr.left}px;top:${nr.top}px;width:${nr.width}px;height:${nr.height}px;pointer-events:none;z-index:900;overflow:visible;${clipTop > 0 ? `clip-path:inset(${clipTop}px 0 0 0);` : ''}`;
               const miniSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
               miniSvg.setAttribute('viewBox', `${-svgW/2-PAD_SVG} ${-svgH/2-PAD_SVG} ${svgW+PAD_SVG*2} ${svgH+PAD_SVG*2}`);
               miniSvg.style.cssText = `width:${nr.width+PAD_SVG*k*2}px;height:${nr.height+PAD_SVG*k*2}px;position:absolute;left:${-PAD_SVG*k}px;top:${-PAD_SVG*k}px;overflow:visible;pointer-events:none;`;
