@@ -211,8 +211,8 @@
   { from:'giegling',      to:'kettenkarussell',strength:3, type:'roster' },
   { from:'giegling',      to:'konstantin',     strength:3, type:'roster' },
   { from:'giegling',      to:'edward',         strength:3, type:'roster' },
-  { from:'konstantin',    to:'kettenkarussell',strength:3, type:'collab' },
-  { from:'leafar',        to:'kettenkarussell',strength:3, type:'collab' },
+  { from:'konstantin',    to:'kettenkarussell',strength:3, type:'influence' },
+  { from:'leafar',        to:'kettenkarussell',strength:3, type:'influence' },
   { from:'giegling',      to:'lbhonne',        strength:2, type:'influence' },
   { from:'giegling',      to:'projectindigo',  strength:2, type:'aesthetic' },
   { from:'leafar',        to:'lbhonne',        strength:2, type:'influence' },
@@ -774,7 +774,7 @@
   { from:'kompakt',       to:'aguayo',           strength:2, type:'roster' },
   { from:'aguayo',        to:'cómeme',           strength:3, type:'lineage' },
   { from:'aguayo',        to:'rebolledo',        strength:3, type:'aesthetic' },
-  { from:'rebolledo',     to:'pachanga_boys',    strength:3, type:'collab'    },
+  { from:'rebolledo',     to:'pachanga_boys',    strength:3, type:'influence'    },
   { from:'kompakt',       to:'pachanga_boys',    strength:2, type:'roster'    },
   { from:'cómeme',        to:'zzk_records',      strength:2, type:'aesthetic' },
 
@@ -1235,7 +1235,7 @@
 
   // Thomas Melchior + aliases + projects
   { from:'thomas_melchior',   to:'melchior_productions', strength:3, type:'lineage'  },  // Melchior Productions Ltd is his Clone alias
-  { from:'thomas_melchior',   to:'soul_capsule',         strength:3, type:'collab'   },  // co-founder of Soul Capsule (with Baby Ford + Tim Hutton)
+  { from:'thomas_melchior',   to:'soul_capsule',         strength:3, type:'influence'   },  // co-founder of Soul Capsule (with Baby Ford + Tim Hutton)
   { from:'thomas_melchior',   to:'yoni',                 strength:3, type:'lineage'  },  // Yoni is earlier duo (with Tim Hutton)
   { from:'clone',              to:'melchior_productions', strength:3, type:'roster'   },  // Releases on Clone Records (Rotterdam)
   { from:'clone',              to:'thomas_melchior',      strength:2, type:'roster'   },  // Thomas Melchior broadly associated with Clone
@@ -1641,7 +1641,7 @@
 
   // ── FJAAK ────────────────────────────────────────────────────────────────
   { from:'modeselektor',        to:'fjaak',               strength:2, type:'roster'    },
-  { from:'rodhad',              to:'fjaak',               strength:2, type:'collab'    },
+  { from:'rodhad',              to:'fjaak',               strength:2, type:'influence'    },
 
   // ── MODERAT ──────────────────────────────────────────────────────────────
   { from:'modeselektor',        to:'moderat',             strength:3, type:'lineage'   },
@@ -2432,7 +2432,7 @@
   { from:'marshall_jefferson', to:'dj_international', strength:2, type:'roster' },
   { from:'marshall_jefferson', to:'knuckles',      strength:2, type:'aesthetic' },
   { from:'marshall_jefferson', to:'heard',         strength:2, type:'aesthetic' },
-  { from:'marshall_jefferson', to:'robert_owens',  strength:3, type:'aesthetic' },
+  { from:'marshall_jefferson', to:'robert_owens',  strength:3, type:'influence' },
 
   // ── THE ORB ───────────────────────────────────────────────────────────────
   { from:'brian_eno',       to:'the_orb',       strength:3, type:'influence' },
@@ -2443,7 +2443,7 @@
   { from:'the_orb',         to:'biosphere',     strength:2, type:'aesthetic' },
 
   // ── JOHN DIGWEED ──────────────────────────────────────────────────────────
-  { from:'john_digweed',    to:'sasha',         strength:3, type:'aesthetic' },
+  { from:'john_digweed',    to:'sasha',         strength:3, type:'influence' },
   { from:'john_digweed',    to:'progressive_house', strength:3, type:'aesthetic' },
   { from:'john_digweed',    to:'fabric',        strength:2, type:'roster' },
 
@@ -2466,7 +2466,7 @@
 
   // ── MINISTRY OF SOUND ─────────────────────────────────────────────────────
   { from:'paradise_garage', to:'ministry_of_sound', strength:3, type:'influence' },
-  { from:'levan',           to:'ministry_of_sound', strength:2, type:'aesthetic' },
+  { from:'levan',           to:'ministry_of_sound', strength:2, type:'influence' },
   { from:'sasha',           to:'ministry_of_sound', strength:3, type:'roster' },
   { from:'danny_tenaglia',  to:'ministry_of_sound', strength:2, type:'roster' },
   { from:'carl_cox',        to:'ministry_of_sound', strength:2, type:'roster' },
@@ -2491,19 +2491,19 @@
   { from:'derrick_may',     to:'transmat',      strength:3, type:'roster' },
   { from:'kraftwerk',       to:'derrick_may',   strength:3, type:'influence' },
   { from:'derrick_may',     to:'detroit_scene', strength:3, type:'lineage' },
-  { from:'juan_atkins',     to:'derrick_may',   strength:3, type:'aesthetic' },
+  { from:'juan_atkins',     to:'derrick_may',   strength:3, type:'influence' },
 
   // ── KEVIN SAUNDERSON ──────────────────────────────────────────────────────
   { from:'kevin_saunderson', to:'belleville3',  strength:3, type:'lineage' },
   { from:'kevin_saunderson', to:'kms',          strength:3, type:'roster' },
   { from:'kraftwerk',        to:'kevin_saunderson', strength:3, type:'influence' },
   { from:'kevin_saunderson', to:'detroit_scene', strength:3, type:'lineage' },
-  { from:'juan_atkins',      to:'kevin_saunderson', strength:3, type:'aesthetic' },
+  { from:'juan_atkins',      to:'kevin_saunderson', strength:3, type:'influence' },
 
   // ── THE KLF ───────────────────────────────────────────────────────────────
   { from:'summer_of_love',  to:'the_klf',       strength:3, type:'lineage' },
   { from:'acid',            to:'the_klf',       strength:2, type:'influence' },
-  { from:'the_klf',         to:'the_orb',       strength:3, type:'aesthetic' },
+  { from:'the_klf',         to:'the_orb',       strength:3, type:'influence' },
   { from:'the_klf',         to:'ambient',       strength:2, type:'lineage' },
 
   // ── AFRIKA BAMBAATAA ──────────────────────────────────────────────────────
@@ -2533,13 +2533,13 @@
   { from:'summer_of_love',  to:'paul_oakenfold', strength:3, type:'lineage' },
   { from:'paul_oakenfold',  to:'hacienda',      strength:2, type:'roster' },
   { from:'paul_oakenfold',  to:'progressive_house', strength:2, type:'lineage' },
-  { from:'paul_oakenfold',  to:'danny_rampling', strength:3, type:'aesthetic' },
+  { from:'paul_oakenfold',  to:'danny_rampling', strength:3, type:'influence' },
 
   // ── DANNY RAMPLING ────────────────────────────────────────────────────────
   { from:'acid',            to:'danny_rampling', strength:3, type:'influence' },
   { from:'summer_of_love',  to:'danny_rampling', strength:3, type:'lineage' },
   { from:'danny_rampling',  to:'shoom',         strength:3, type:'roster' },
-  { from:'danny_rampling',  to:'paul_oakenfold', strength:3, type:'aesthetic' },
+  { from:'danny_rampling',  to:'paul_oakenfold', strength:3, type:'influence' },
 
   // ── SHOOM ─────────────────────────────────────────────────────────────────
   { from:'acid',            to:'shoom',         strength:3, type:'lineage' },
@@ -2548,9 +2548,9 @@
 
   // ── PRIMAL SCREAM ─────────────────────────────────────────────────────────
   { from:'acid',            to:'primal_scream', strength:3, type:'influence' },
-  { from:'weatherall',      to:'primal_scream', strength:3, type:'aesthetic' },
+  { from:'weatherall',      to:'primal_scream', strength:3, type:'influence' },
   { from:'summer_of_love',  to:'primal_scream', strength:2, type:'influence' },
-  { from:'primal_scream',   to:'weatherall',    strength:3, type:'aesthetic' },
+  { from:'primal_scream',   to:'weatherall',    strength:3, type:'influence' },
 
   // ── JESSE SAUNDERS ────────────────────────────────────────────────────────
   { from:'chicago_scene',   to:'jesse_saunders', strength:3, type:'lineage' },
@@ -2610,7 +2610,7 @@
   // ── LARRY HEARD (MR. FINGERS) ─────────────────────────────────────────────
   { from:'chicago_scene',  to:'larry_heard',     strength:3, type:'lineage' },
   { from:'trax',           to:'larry_heard',     strength:3, type:'roster' },
-  { from:'larry_heard',    to:'robert_owens',    strength:3, type:'aesthetic' },
+  { from:'larry_heard',    to:'robert_owens',    strength:3, type:'influence' },
   { from:'larry_heard',    to:'musicbox',        strength:2, type:'aesthetic' },
 
   // ── BASIC CHANNEL ─────────────────────────────────────────────────────────
@@ -2696,14 +2696,14 @@
 
   // ── LOEFAH ────────────────────────────────────────────────────────────────
   { from:'dmz',              to:'loefah',         strength:3, type:'roster' },
-  { from:'digital_mystikz',  to:'loefah',         strength:3, type:'aesthetic' },
+  { from:'digital_mystikz',  to:'loefah',         strength:3, type:'influence' },
   { from:'dubstep',          to:'loefah',         strength:3, type:'lineage' },
-  { from:'mala',             to:'loefah',         strength:3, type:'aesthetic' },
+  { from:'mala',             to:'loefah',         strength:3, type:'influence' },
 
   // ── ARTHUR RUSSELL ────────────────────────────────────────────────────────
   { from:'nyc_scene',        to:'arthur_russell', strength:3, type:'lineage' },
   { from:'west_end_records', to:'arthur_russell', strength:3, type:'roster' },
-  { from:'levan',            to:'arthur_russell', strength:3, type:'aesthetic' },
+  { from:'levan',            to:'arthur_russell', strength:3, type:'influence' },
   { from:'paradise_garage',  to:'arthur_russell', strength:2, type:'aesthetic' },
   { from:'disco',            to:'arthur_russell', strength:2, type:'lineage' },
 
@@ -2799,7 +2799,7 @@
 
   // -- MADLIB ------------------------------------------------------------
   { from:'stones_throw',    to:'madlib',            strength:3, type:'roster' },
-  { from:'madlib',          to:'mf_doom',           strength:3, type:'aesthetic' },
+  { from:'madlib',          to:'mf_doom',           strength:3, type:'influence' },
 
   // -- MF DOOM -----------------------------------------------------------
   { from:'stones_throw',    to:'mf_doom',           strength:3, type:'roster' },
@@ -2897,18 +2897,18 @@
   { from:'deep_house',      to:'david_morales',        strength:3, type:'lineage' },
   { from:'david_morales',   to:'joe_claussell',        strength:2, type:'aesthetic' },
   { from:'deep_house',      to:'joe_claussell',        strength:3, type:'lineage' },
-  { from:'joe_claussell',   to:'body_and_soul',        strength:3, type:'aesthetic' },
-  { from:'francois_k',      to:'body_and_soul',        strength:3, type:'aesthetic' },
+  { from:'joe_claussell',   to:'body_and_soul',        strength:3, type:'influence' },
+  { from:'francois_k',      to:'body_and_soul',        strength:3, type:'influence' },
   { from:'deep_house',      to:'body_and_soul',        strength:3, type:'lineage' },
   { from:'acid_house',      to:'junior_boys_own',      strength:2, type:'influence' },
-  { from:'weatherall',      to:'junior_boys_own',      strength:3, type:'aesthetic' },
+  { from:'weatherall',      to:'junior_boys_own',      strength:3, type:'influence' },
   { from:'junior_boys_own', to:'terry_farley',         strength:3, type:'roster' },
   { from:'acid_house',      to:'graeme_park',          strength:3, type:'influence' },
-  { from:'hacienda',        to:'graeme_park',          strength:3, type:'aesthetic' },
+  { from:'hacienda',        to:'graeme_park',          strength:3, type:'influence' },
   { from:'deep_house',      to:'junior_vasquez',       strength:3, type:'lineage' },
   { from:'junior_vasquez',  to:'sound_factory',        strength:3, type:'roster' },
   { from:'deep_house',      to:'ron_trent',            strength:3, type:'lineage' },
-  { from:'the_music_institute',to:'chez_damier',       strength:3, type:'aesthetic' },
+  { from:'the_music_institute',to:'chez_damier',       strength:3, type:'influence' },
   { from:'deep_house',      to:'chez_damier',          strength:3, type:'lineage' },
   { from:'ron_trent',       to:'prescription_records', strength:3, type:'roster' },
   { from:'chez_damier',     to:'prescription_records', strength:3, type:'roster' },
@@ -2924,12 +2924,12 @@
   { from:'jungle',           to:'moving_shadow',        strength:3, type:'lineage' },
   { from:'jungle',           to:'goldie',               strength:3, type:'lineage' },
   { from:'metalheadz',       to:'goldie',               strength:3, type:'roster' },
-  { from:'grooverider',      to:'metalheadz',           strength:2, type:'aesthetic' },
+  { from:'grooverider',      to:'metalheadz',           strength:2, type:'influence' },
   { from:'jungle',           to:'ltj_bukem',            strength:3, type:'lineage' },
   { from:'jungle',           to:'grooverider',          strength:3, type:'lineage' },
   { from:'jungle',           to:'fabio',                strength:3, type:'lineage' },
-  { from:'grooverider',      to:'fabio',                strength:3, type:'aesthetic' },
-  { from:'roni_size',        to:'reprazent',            strength:3, type:'aesthetic' },
+  { from:'grooverider',      to:'fabio',                strength:3, type:'influence' },
+  { from:'roni_size',        to:'reprazent',            strength:3, type:'influence' },
   { from:'drum_and_bass',    to:'reprazent',             strength:3, type:'lineage' },
   { from:'jungle',           to:'wiley',                strength:2, type:'influence' },
 
@@ -2937,7 +2937,7 @@
   { from:'disco',           to:'gomma_records',         strength:2, type:'influence' },
   { from:'gomma_records',   to:'toy_tonics',            strength:3, type:'lineage' },
   { from:'gomma_records',   to:'phenomenal_handclap_band', strength:3, type:'roster' },
-  { from:'dimitri_from_paris', to:'gomma_records',      strength:2, type:'aesthetic' },
+  { from:'dimitri_from_paris', to:'gomma_records',      strength:2, type:'influence' },
 
   // -- TOY TONICS ----------------------------------------------------------
   { from:'toy_tonics',      to:'kapote',                strength:3, type:'roster' },
@@ -2961,7 +2961,7 @@
   { from:'disco',           to:'felipe_gordon',         strength:2, type:'influence' },
 
   // -- LUKE SOLOMON --------------------------------------------------------
-  { from:'derrick_carter',  to:'luke_solomon',          strength:3, type:'aesthetic' },
+  { from:'derrick_carter',  to:'luke_solomon',          strength:3, type:'influence' },
 
   // -- PHENOMENAL HANDCLAP BAND -------------------------------------------
   { from:'disco',           to:'phenomenal_handclap_band', strength:3, type:'influence' },
@@ -3001,7 +3001,7 @@
   { from:'deep_house',      to:'jamie_jones',           strength:2, type:'influence' },
   { from:'jamie_jones',     to:'hot_creations',         strength:3, type:'roster'    },
   { from:'jamie_jones',     to:'patrick_topping',       strength:3, type:'lineage'   },
-  { from:'jamie_jones',     to:'eats_everything',       strength:2, type:'aesthetic' },
+  { from:'jamie_jones',     to:'eats_everything',       strength:2, type:'influence' },
   { from:'jamie_jones',     to:'richy_ahmed',           strength:2, type:'lineage'   },
 
   // -- PATRICK TOPPING -------------------------------------------------------
@@ -3037,7 +3037,7 @@
   { from:'tresor_club',     to:'chris_liebing',         strength:3, type:'aesthetic' },
   { from:'tresor_records',  to:'chris_liebing',         strength:2, type:'roster'    },
   { from:'hard_techno',     to:'chris_liebing',         strength:3, type:'lineage'   },
-  { from:'hawtin',          to:'chris_liebing',         strength:2, type:'aesthetic' },
+  { from:'hawtin',          to:'chris_liebing',         strength:2, type:'influence' },
 
   // -- DJ HARVEY -------------------------------------------------------------
   { from:'disco',           to:'dj_harvey',             strength:3, type:'influence' },
@@ -3128,9 +3128,9 @@
 
   // -- BARAC -----------------------------------------------------------------
   { from:'arpia_r',         to:'barac',                 strength:3, type:'roster'    },
-  { from:'rhadoo',          to:'barac',                 strength:2, type:'aesthetic' },
-  { from:'raresh',          to:'barac',                 strength:2, type:'aesthetic' },
-  { from:'petre_inspirescu', to:'barac',                strength:2, type:'aesthetic' },
+  { from:'rhadoo',          to:'barac',                 strength:2, type:'influence' },
+  { from:'raresh',          to:'barac',                 strength:2, type:'influence' },
+  { from:'petre_inspirescu', to:'barac',                strength:2, type:'influence' },
 
   // -- LEVON VINCENT ---------------------------------------------------------
   { from:'deep_house',      to:'levon_vincent',         strength:3, type:'influence' },
@@ -3178,7 +3178,7 @@
   { from:'deep_house',      to:'art_department',        strength:3, type:'influence' },
   { from:'ibiza',           to:'art_department',        strength:2, type:'aesthetic' },
   { from:'crosstown_rebels', to:'art_department',       strength:2, type:'roster'    },
-  { from:'damian_lazarus',  to:'art_department',        strength:2, type:'aesthetic' },
+  { from:'damian_lazarus',  to:'art_department',        strength:2, type:'influence' },
 
   // -- FRED P ----------------------------------------------------------------
   { from:'deep_house',      to:'fred_p',                strength:3, type:'influence' },
@@ -3262,7 +3262,7 @@
   { from:'drumcode',        to:'johannes_heil',         strength:2, type:'roster' },
 
   // -- OLIVER LIEB -----------------------------------------------------------
-  { from:'sven_vath',       to:'oliver_lieb',           strength:3, type:'collab' },
+  { from:'sven_vath',       to:'oliver_lieb',           strength:3, type:'influence' },
   { from:'hardfloor',       to:'oliver_lieb',           strength:1, type:'aesthetic' },
 
   // -- FATIMA YAMAHA ---------------------------------------------------------
@@ -3288,15 +3288,15 @@
 
   // -- COSMJN ----------------------------------------------------------------
   { from:'barac',           to:'cosmjn',                strength:2, type:'aesthetic' }, // Romanian minimal scene
-  { from:'lizz',            to:'cosmjn',                strength:3, type:'aesthetic' },
+  { from:'lizz',            to:'cosmjn',                strength:3, type:'influence' },
 
   // -- LIZZ ------------------------------------------------------------------
   { from:'barac',           to:'lizz',                  strength:2, type:'aesthetic' }, // Romanian minimal scene
-  { from:'cosmjn',          to:'lizz',                  strength:3, type:'aesthetic' },
+  { from:'cosmjn',          to:'lizz',                  strength:3, type:'influence' },
 
   // -- MARK FARINA -----------------------------------------------------------
   { from:'chicago_scene',   to:'mark_farina',           strength:3, type:'lineage' },
-  { from:'derrick_carter',  to:'mark_farina',           strength:3, type:'aesthetic' },
+  { from:'derrick_carter',  to:'mark_farina',           strength:3, type:'influence' },
   { from:'dj_sneak',        to:'mark_farina',           strength:2, type:'aesthetic' },
 
   // -- EDDY DE CLERCQ + CLUB ROXY -------------------------------------------
@@ -3322,21 +3322,21 @@
   // -- SUPERPITCHER ----------------------------------------------------------
   { from:'kompakt',           to:'superpitcher',        strength:3, type:'roster' },
   { from:'dj_koze',           to:'superpitcher',        strength:2, type:'aesthetic' },
-  { from:'superpitcher',      to:'rebolledo',           strength:3, type:'aesthetic' },
-  { from:'superpitcher',      to:'pachanga_boys',       strength:3, type:'aesthetic' },
+  { from:'superpitcher',      to:'rebolledo',           strength:3, type:'influence' },
+  { from:'superpitcher',      to:'pachanga_boys',       strength:3, type:'influence' },
 
   // -- HAMATSUKI -------------------------------------------------------------
   { from:'bassiani',          to:'hamatsuki',           strength:3, type:'roster' },
   { from:'deep_house',        to:'hamatsuki',           strength:2, type:'influence' },
 
   // -- JON HOPKINS -----------------------------------------------------------
-  { from:'brian_eno',         to:'jon_hopkins',         strength:3, type:'aesthetic' },
+  { from:'brian_eno',         to:'jon_hopkins',         strength:3, type:'influence' },
   { from:'ambient',           to:'jon_hopkins',         strength:2, type:'influence' },
   { from:'jon_hopkins',       to:'burial',              strength:2, type:'aesthetic' },
 
   // -- LINDSTRØM -------------------------------------------------------------
   { from:'disco',             to:'lindstrom',           strength:3, type:'influence' },
-  { from:'prins_thomas',      to:'lindstrom',           strength:3, type:'aesthetic' },
+  { from:'prins_thomas',      to:'lindstrom',           strength:3, type:'influence' },
   { from:'todd_terje',        to:'lindstrom',           strength:2, type:'aesthetic' },
 
   // -- LORAINE JAMES ---------------------------------------------------------
@@ -3359,7 +3359,7 @@
   // -- EQUIKNOXX -------------------------------------------------------------
   { from:'lee_scratch_perry', to:'equiknoxx',           strength:2, type:'influence' },
   { from:'king_tubby',        to:'equiknoxx',           strength:2, type:'influence' },
-  { from:'demdike_stare',     to:'equiknoxx',           strength:2, type:'aesthetic' },
+  { from:'demdike_stare',     to:'equiknoxx',           strength:2, type:'influence' },
 
   // -- DJ PYTHON -------------------------------------------------------------
   { from:'cumbia',            to:'dj_python',           strength:2, type:'influence' },
@@ -3445,7 +3445,7 @@
   // -- DJ SPINN --------------------------------------------------------------
   { from:'teklife',           to:'dj_spinn',            strength:3, type:'roster'   },
   { from:'footwork',          to:'dj_spinn',            strength:3, type:'lineage'  },
-  { from:'dj_rashad',         to:'dj_spinn',            strength:3, type:'aesthetic' },
+  { from:'dj_rashad',         to:'dj_spinn',            strength:3, type:'influence' },
   { from:'chicago_scene',     to:'dj_spinn',            strength:2, type:'lineage'  },
 
   // -- RP BOO ----------------------------------------------------------------
@@ -3456,7 +3456,7 @@
 
   // -- GENE FARRIS -----------------------------------------------------------
   { from:'chicago_scene',     to:'gene_farris',         strength:3, type:'lineage'  },
-  { from:'green_velvet',      to:'gene_farris',         strength:2, type:'aesthetic' },
+  { from:'green_velvet',      to:'gene_farris',         strength:2, type:'influence' },
   { from:'house',             to:'gene_farris',         strength:3, type:'lineage'  },
 
   // -- MIKE DUNN -------------------------------------------------------------
@@ -3666,7 +3666,7 @@
 
   // -- PIONAL ----------------------------------------------------------------
   { from:'hivern_discs',      to:'pional',              strength:3, type:'roster'   },
-  { from:'john_talabot',      to:'pional',              strength:3, type:'aesthetic' },
+  { from:'john_talabot',      to:'pional',              strength:3, type:'influence' },
   { from:'house',             to:'pional',              strength:2, type:'lineage'  },
 
   // -- KRUDER & DORFMEISTER --------------------------------------------------
@@ -3804,16 +3804,16 @@
   { from:'rinse_fm',          to:'boy_better_know',     strength:2, type:'lineage'   },
   { from:'wiley',             to:'kano',                strength:2, type:'lineage'   },
   { from:'rinse_fm',          to:'kano',                strength:2, type:'aesthetic' },
-  { from:'lord_of_the_mics',  to:'kano',                strength:3, type:'aesthetic' },
+  { from:'lord_of_the_mics',  to:'kano',                strength:3, type:'influence' },
   { from:'dizzee_rascal',     to:'kano',                strength:2, type:'aesthetic' },
   { from:'wiley',             to:'ghetts',              strength:2, type:'lineage'   },
   { from:'rinse_fm',          to:'ghetts',              strength:2, type:'aesthetic' },
   { from:'kano',              to:'ghetts',              strength:2, type:'aesthetic' },
   { from:'wiley',             to:'flowdan',             strength:3, type:'lineage'   },
-  { from:'burial',            to:'flowdan',             strength:3, type:'aesthetic' },
+  { from:'burial',            to:'flowdan',             strength:3, type:'influence' },
   { from:'rinse_fm',          to:'flowdan',             strength:2, type:'aesthetic' },
-  { from:'wiley',             to:'lord_of_the_mics',    strength:3, type:'aesthetic' },
-  { from:'kano',              to:'lord_of_the_mics',    strength:3, type:'aesthetic' },
+  { from:'wiley',             to:'lord_of_the_mics',    strength:3, type:'influence' },
+  { from:'kano',              to:'lord_of_the_mics',    strength:3, type:'influence' },
   { from:'grime',             to:'lord_of_the_mics',    strength:2, type:'aesthetic' },
   { from:'rinse_fm',          to:'lord_of_the_mics',    strength:2, type:'lineage'   },
 
@@ -3896,7 +3896,7 @@
   { from:'disco',                            to:'paradise_garage',                  strength:2, type:'lineage'   },
 
   // -- FUNK / SOUL --
-  { from:'funk',                             to:'kraftwerk',                        strength:1, type:'aesthetic'   },
+  { from:'funk',                             to:'kraftwerk',                        strength:1, type:'influence'   },
 
   // -- BLACK CLUB CULTURE --
   { from:'black_club_culture',               to:'musicbox',                         strength:2, type:'lineage'   },
@@ -3951,9 +3951,9 @@
   { from:'detroit_scene',                    to:'roland',                           strength:1, type:'influence'   },
 
   // -- BELLEVILLE THREE --
-  { from:'belleville3',                      to:'kraftwerk',                        strength:1, type:'aesthetic'   },
-  { from:'belleville3',                      to:'giorgio_moroder',                  strength:1, type:'aesthetic'   },
-  { from:'belleville3',                      to:'cosmic_venue',                     strength:1, type:'aesthetic'   },
+  { from:'belleville3',                      to:'kraftwerk',                        strength:1, type:'influence'   },
+  { from:'belleville3',                      to:'giorgio_moroder',                  strength:1, type:'influence'   },
+  { from:'belleville3',                      to:'cosmic_venue',                     strength:1, type:'influence'   },
   { from:'belleville3',                      to:'tr909',                            strength:1, type:'influence'   },
 
   // -- DEEPCHORD --
@@ -3971,7 +3971,7 @@
   { from:'acid_house',                       to:'summer_of_love',                   strength:2, type:'lineage'   },
 
   // -- THE HAÇIENDA --
-  { from:'hacienda',                         to:'factory_records',                  strength:1, type:'aesthetic'   },
+  { from:'hacienda',                         to:'factory_records',                  strength:1, type:'influence'   },
 
   // -- IBIZA CONNECTION --
   { from:'ibiza_moment',                     to:'danny_rampling',                   strength:2, type:'lineage'   },
@@ -4005,7 +4005,7 @@
   { from:'fuse_london',                      to:'fabric',                           strength:2, type:'lineage'   },
 
   // -- SLAM --
-  { from:'slam',                             to:'daft_punk',                        strength:1, type:'aesthetic'   },
+  { from:'slam',                             to:'daft_punk',                        strength:1, type:'influence'   },
 
   // -- UK GARAGE --
   { from:'uk_garage',                        to:'rinse_fm',                         strength:2, type:'lineage'   },
@@ -4014,16 +4014,16 @@
   { from:'2step',                            to:'todd_edwards',                     strength:2, type:'lineage'   },
 
   // -- RINSE FM --
-  { from:'rinse_fm',                         to:'wiley',                            strength:1, type:'aesthetic'   },
-  { from:'rinse_fm',                         to:'skream',                           strength:1, type:'aesthetic'   },
+  { from:'rinse_fm',                         to:'wiley',                            strength:1, type:'influence'   },
+  { from:'rinse_fm',                         to:'skream',                           strength:1, type:'influence'   },
 
   // -- MOVING SHADOW --
   { from:'moving_shadow',                    to:'dillinja',                         strength:2, type:'roster'   },
   { from:'moving_shadow',                    to:'roland',                           strength:1, type:'influence'   },
 
   // -- GOLDIE --
-  { from:'goldie',                           to:'inner_city',                       strength:1, type:'aesthetic'   },
-  { from:'goldie',                           to:'grooverider',                      strength:1, type:'aesthetic'   },
+  { from:'goldie',                           to:'inner_city',                       strength:1, type:'influence'   },
+  { from:'goldie',                           to:'grooverider',                      strength:1, type:'influence'   },
 
   // -- GOOD LOOKING RECORDS --
   { from:'good_looking_records',             to:'photek',                           strength:2, type:'roster'   },
@@ -4054,14 +4054,14 @@
   { from:'etapp_kyle',                       to:'klockworks',                       strength:2, type:'roster'   },
 
   // -- DIXON --
-  { from:'dixon',                            to:'resident_advisor',                 strength:1, type:'aesthetic'   },
+  { from:'dixon',                            to:'resident_advisor',                 strength:1, type:'influence'   },
 
   // -- DVS1 --
-  { from:'dvs1',                             to:'berghain',                         strength:1, type:'aesthetic'   },
+  { from:'dvs1',                             to:'berghain',                         strength:1, type:'influence'   },
   { from:'dvs1',                             to:'klockworks',                       strength:2, type:'roster'   },
 
   // -- RØDHÅD --
-  { from:'rodhad',                           to:'panorama_bar',                     strength:1, type:'aesthetic'   },
+  { from:'rodhad',                           to:'panorama_bar',                     strength:1, type:'influence'   },
 
   // -- DYSTOPIAN --
   { from:'dystopian',                        to:'berghain',                         strength:2, type:'lineage'   },
@@ -4069,18 +4069,18 @@
   { from:'dystopian',                        to:'funktion_one',                     strength:1, type:'influence'   },
 
   // -- WOLFGANG VOIGT --
-  { from:'wmvoigt',                          to:'gas',                              strength:1, type:'aesthetic'   },
+  { from:'wmvoigt',                          to:'gas',                              strength:1, type:'influence'   },
 
   // -- GAS --
-  { from:'gas',                              to:'wmvoigt',                          strength:1, type:'aesthetic'   },
+  { from:'gas',                              to:'wmvoigt',                          strength:1, type:'influence'   },
 
   // -- ZIP --
-  { from:'zip',                              to:'villalobos',                       strength:1, type:'aesthetic'   },
-  { from:'zip',                              to:'robertjohnson',                    strength:1, type:'aesthetic'   },
+  { from:'zip',                              to:'villalobos',                       strength:1, type:'influence'   },
+  { from:'zip',                              to:'robertjohnson',                    strength:1, type:'influence'   },
 
   // -- ROBERT JOHNSON --
-  { from:'robertjohnson',                    to:'villalobos',                       strength:1, type:'aesthetic'   },
-  { from:'robertjohnson',                    to:'zip',                              strength:1, type:'aesthetic'   },
+  { from:'robertjohnson',                    to:'villalobos',                       strength:1, type:'influence'   },
+  { from:'robertjohnson',                    to:'zip',                              strength:1, type:'influence'   },
 
   // -- PLAYHOUSE RECORDS --
   { from:'playhouse',                        to:'perlon',                           strength:2, type:'lineage'   },
@@ -4098,22 +4098,22 @@
   { from:'giegling',                         to:'vril',                             strength:2, type:'roster'   },
 
   // -- TRAUMPRINZ --
-  { from:'traumprinz',                       to:'djhealer',                         strength:1, type:'aesthetic'   },
+  { from:'traumprinz',                       to:'djhealer',                         strength:1, type:'influence'   },
 
   // -- DJ HEALER --
-  { from:'djhealer',                         to:'traumprinz',                       strength:1, type:'aesthetic'   },
+  { from:'djhealer',                         to:'traumprinz',                       strength:1, type:'influence'   },
 
   // -- LEAFAR LEGOV --
-  { from:'leafar',                           to:'konstantin',                       strength:1, type:'aesthetic'   },
+  { from:'leafar',                           to:'konstantin',                       strength:1, type:'influence'   },
 
   // -- KONSTANTIN --
-  { from:'konstantin',                       to:'leafar',                           strength:1, type:'aesthetic'   },
+  { from:'konstantin',                       to:'leafar',                           strength:1, type:'influence'   },
 
   // -- TOXIDO MASK --
   { from:'toxido_mask',                      to:'semantica',                        strength:2, type:'roster'   },
 
   // -- GATHASPAR --
-  { from:'gathaspar',                        to:'watergate',                        strength:1, type:'aesthetic'   },
+  { from:'gathaspar',                        to:'watergate',                        strength:1, type:'influence'   },
 
   // -- ORION RECORDS --
   { from:'orion',                            to:'benkaczor',                        strength:2, type:'roster'   },
@@ -4121,7 +4121,7 @@
   { from:'orion',                            to:'soela',                            strength:2, type:'roster'   },
 
   // -- ATEQ --
-  { from:'ateq',                             to:'berghain',                         strength:1, type:'aesthetic'   },
+  { from:'ateq',                             to:'berghain',                         strength:1, type:'influence'   },
 
   // -- STÓLAR --
   { from:'stolar',                           to:'benkaczor',                        strength:2, type:'roster'   },
@@ -4131,7 +4131,7 @@
   { from:'benkaczor',                        to:'dial',                             strength:2, type:'roster'   },
 
   // -- LUCIANO --
-  { from:'luciano',                          to:'panorama_bar',                     strength:1, type:'aesthetic'   },
+  { from:'luciano',                          to:'panorama_bar',                     strength:1, type:'influence'   },
 
   // -- CADENZA --
   { from:'cadenza',                          to:'ame',                              strength:2, type:'roster'   },
@@ -4147,10 +4147,10 @@
   { from:'french_touch',                     to:'justice',                          strength:2, type:'lineage'   },
 
   // -- CASSIUS --
-  { from:'cassius',                          to:'daft_punk',                        strength:1, type:'aesthetic'   },
+  { from:'cassius',                          to:'daft_punk',                        strength:1, type:'influence'   },
 
   // -- JUSTICE --
-  { from:'justice',                          to:'daft_punk',                        strength:1, type:'aesthetic'   },
+  { from:'justice',                          to:'daft_punk',                        strength:1, type:'influence'   },
 
   // -- BUSY P / ED BANGER --
   { from:'busy_p',                           to:'justice',                          strength:2, type:'roster'   },
@@ -4160,35 +4160,35 @@
 
   // -- YELLOW MAGIC ORCHESTRA --
   { from:'ymo',                              to:'roland',                           strength:1, type:'influence'   },
-  { from:'ymo',                              to:'juan_atkins',                      strength:1, type:'aesthetic'   },
-  { from:'ymo',                              to:'afrika_bambaataa',                 strength:1, type:'aesthetic'   },
+  { from:'ymo',                              to:'juan_atkins',                      strength:1, type:'influence'   },
+  { from:'ymo',                              to:'afrika_bambaataa',                 strength:1, type:'influence'   },
 
   // -- HARUOMI HOSONO --
-  { from:'haruomi_hosono',                   to:'the_orb',                          strength:1, type:'aesthetic'   },
+  { from:'haruomi_hosono',                   to:'the_orb',                          strength:1, type:'influence'   },
 
   // -- RYUICHI SAKAMOTO --
-  { from:'ryuichi_sakamoto',                 to:'alva_noto',                        strength:1, type:'aesthetic'   },
+  { from:'ryuichi_sakamoto',                 to:'alva_noto',                        strength:1, type:'influence'   },
 
   // -- HIROSHI YOSHIMURA --
   { from:'hiroshi_yoshimura',                to:'ambient',                          strength:2, type:'lineage'   },
 
   // -- SPACE LAB YELLOW --
-  { from:'space_lab_yellow',                 to:'francois_k',                       strength:1, type:'aesthetic'   },
-  { from:'space_lab_yellow',                 to:'larry_heard',                      strength:1, type:'aesthetic'   },
-  { from:'space_lab_yellow',                 to:'derrick_may',                      strength:1, type:'aesthetic'   },
-  { from:'space_lab_yellow',                 to:'theo_parrish',                     strength:1, type:'aesthetic'   },
-  { from:'space_lab_yellow',                 to:'moodymann',                        strength:1, type:'aesthetic'   },
-  { from:'space_lab_yellow',                 to:'jeff_mills',                       strength:1, type:'aesthetic'   },
-  { from:'space_lab_yellow',                 to:'laurent_garnier',                  strength:1, type:'aesthetic'   },
+  { from:'space_lab_yellow',                 to:'francois_k',                       strength:1, type:'influence'   },
+  { from:'space_lab_yellow',                 to:'larry_heard',                      strength:1, type:'influence'   },
+  { from:'space_lab_yellow',                 to:'derrick_may',                      strength:1, type:'influence'   },
+  { from:'space_lab_yellow',                 to:'theo_parrish',                     strength:1, type:'influence'   },
+  { from:'space_lab_yellow',                 to:'moodymann',                        strength:1, type:'influence'   },
+  { from:'space_lab_yellow',                 to:'jeff_mills',                       strength:1, type:'influence'   },
+  { from:'space_lab_yellow',                 to:'laurent_garnier',                  strength:1, type:'influence'   },
 
   // -- SOICHI TERADA --
-  { from:'soichi_terada',                    to:'paradise_garage',                  strength:1, type:'aesthetic'   },
-  { from:'soichi_terada',                    to:'levan',                            strength:1, type:'aesthetic'   },
-  { from:'soichi_terada',                    to:'shinichiro_yokota',                strength:1, type:'aesthetic'   },
+  { from:'soichi_terada',                    to:'paradise_garage',                  strength:1, type:'influence'   },
+  { from:'soichi_terada',                    to:'levan',                            strength:1, type:'influence'   },
+  { from:'soichi_terada',                    to:'shinichiro_yokota',                strength:1, type:'influence'   },
   { from:'soichi_terada',                    to:'rush_hour',                        strength:2, type:'roster'   },
 
   // -- SHINICHIRO YOKOTA --
-  { from:'shinichiro_yokota',                to:'soichi_terada',                    strength:1, type:'aesthetic'   },
+  { from:'shinichiro_yokota',                to:'soichi_terada',                    strength:1, type:'influence'   },
   { from:'shinichiro_yokota',                to:'rush_hour',                        strength:2, type:'roster'   },
 
   // -- FAR EAST RECORDING --
@@ -4199,8 +4199,8 @@
   { from:'ken_ishii',                        to:'transmat',                         strength:2, type:'roster'   },
 
   // -- FUMIYA TANAKA --
-  { from:'fumiya_tanaka',                    to:'berghain',                         strength:1, type:'aesthetic'   },
-  { from:'fumiya_tanaka',                    to:'panorama_bar',                     strength:1, type:'aesthetic'   },
+  { from:'fumiya_tanaka',                    to:'berghain',                         strength:1, type:'influence'   },
+  { from:'fumiya_tanaka',                    to:'panorama_bar',                     strength:1, type:'influence'   },
 
   // -- SUBLIME RECORDS --
   { from:'sublime_records_jp',               to:'speedy_j',                         strength:2, type:'roster'   },
@@ -4210,8 +4210,8 @@
 
   // -- WOMB --
   { from:'womb_tokyo',                       to:'berghain',                         strength:2, type:'lineage'   },
-  { from:'womb_tokyo',                       to:'villalobos',                       strength:1, type:'aesthetic'   },
-  { from:'womb_tokyo',                       to:'jeff_mills',                       strength:1, type:'aesthetic'   },
+  { from:'womb_tokyo',                       to:'villalobos',                       strength:1, type:'influence'   },
+  { from:'womb_tokyo',                       to:'jeff_mills',                       strength:1, type:'influence'   },
 
   // -- THE AVALANCHES --
   { from:'the_avalanches',                   to:'xl_recordings',                    strength:2, type:'roster'   },
@@ -4220,8 +4220,8 @@
   { from:'modular_recordings',               to:'xl_recordings',                    strength:2, type:'lineage'   },
 
   // -- CUT COPY --
-  { from:'cut_copy',                         to:'primal_scream',                    strength:1, type:'aesthetic'   },
-  { from:'cut_copy',                         to:'chemical_brothers',                strength:1, type:'aesthetic'   },
+  { from:'cut_copy',                         to:'primal_scream',                    strength:1, type:'influence'   },
+  { from:'cut_copy',                         to:'chemical_brothers',                strength:1, type:'influence'   },
 
   // -- FUTURE CLASSIC --
   { from:'future_classic',                   to:'kompakt',                          strength:2, type:'lineage'   },
@@ -4240,10 +4240,10 @@
   { from:'chicago_to_sa',                    to:'soulistic_music',                  strength:2, type:'lineage'   },
 
   // -- VINNY DA VINCI --
-  { from:'vinny_da_vinci',                   to:'dj_christos',                      strength:1, type:'aesthetic'   },
+  { from:'vinny_da_vinci',                   to:'dj_christos',                      strength:1, type:'influence'   },
 
   // -- DJ CHRISTOS --
-  { from:'dj_christos',                      to:'blackcoffee',                      strength:1, type:'aesthetic'   },
+  { from:'dj_christos',                      to:'blackcoffee',                      strength:1, type:'influence'   },
 
   // -- FUNK CARIOCA --
   { from:'funk_carioca',                     to:'baile_funk',                       strength:2, type:'lineage'   },
@@ -4252,7 +4252,7 @@
   { from:'gop_tun',                          to:'principe',                         strength:2, type:'lineage'   },
 
   // -- REBOLLEDO --
-  { from:'rebolledo',                        to:'panorama_bar',                     strength:1, type:'aesthetic'   },
+  { from:'rebolledo',                        to:'panorama_bar',                     strength:1, type:'influence'   },
 
   // -- PACHANGA BOYS --
   { from:'pachanga_boys',                    to:'cómeme',                           strength:2, type:'roster'   },
@@ -4261,31 +4261,31 @@
   { from:'pdj_warsaw',                       to:'smolna',                           strength:2, type:'lineage'   },
 
   // -- RHADOO --
-  { from:'rhadoo',                           to:'petre_inspirescu',                 strength:1, type:'aesthetic'   },
-  { from:'rhadoo',                           to:'raresh',                           strength:1, type:'aesthetic'   },
+  { from:'rhadoo',                           to:'petre_inspirescu',                 strength:1, type:'influence'   },
+  { from:'rhadoo',                           to:'raresh',                           strength:1, type:'influence'   },
 
   // -- PETRE INSPIRESCU --
-  { from:'petre_inspirescu',                 to:'rhadoo',                           strength:1, type:'aesthetic'   },
-  { from:'petre_inspirescu',                 to:'raresh',                           strength:1, type:'aesthetic'   },
-  { from:'petre_inspirescu',                 to:'robertjohnson',                    strength:1, type:'aesthetic'   },
+  { from:'petre_inspirescu',                 to:'rhadoo',                           strength:1, type:'influence'   },
+  { from:'petre_inspirescu',                 to:'raresh',                           strength:1, type:'influence'   },
+  { from:'petre_inspirescu',                 to:'robertjohnson',                    strength:1, type:'influence'   },
 
   // -- RARESH --
-  { from:'raresh',                           to:'rhadoo',                           strength:1, type:'aesthetic'   },
-  { from:'raresh',                           to:'petre_inspirescu',                 strength:1, type:'aesthetic'   },
+  { from:'raresh',                           to:'rhadoo',                           strength:1, type:'influence'   },
+  { from:'raresh',                           to:'petre_inspirescu',                 strength:1, type:'influence'   },
 
   // -- [A:RPIA:R] --
   { from:'arpia_r',                          to:'perlon',                           strength:2, type:'lineage'   },
   { from:'arpia_r',                          to:'robertjohnson',                    strength:2, type:'lineage'   },
 
   // -- BASSIANI --
-  { from:'bassiani',                         to:'resident_advisor',                 strength:1, type:'aesthetic'   },
+  { from:'bassiani',                         to:'resident_advisor',                 strength:1, type:'influence'   },
 
   // -- IRAKLI --
   { from:'irakli',                           to:'perlon',                           strength:2, type:'roster'   },
-  { from:'irakli',                           to:'rhadoo',                           strength:1, type:'aesthetic'   },
+  { from:'irakli',                           to:'rhadoo',                           strength:1, type:'influence'   },
 
   // -- SMOLNA --
-  { from:'smolna',                           to:'pdj_warsaw',                       strength:1, type:'aesthetic'   },
+  { from:'smolna',                           to:'pdj_warsaw',                       strength:1, type:'influence'   },
 
   // -- UNSOUND FESTIVAL --
   { from:'unsound',                          to:'burial',                           strength:2, type:'lineage'   },
@@ -4293,11 +4293,11 @@
   { from:'unsound',                          to:'actress',                          strength:2, type:'lineage'   },
 
   // -- JEFF MILLS --
-  { from:'jeff_mills',                       to:'mike_banks',                       strength:1, type:'aesthetic'   },
+  { from:'jeff_mills',                       to:'mike_banks',                       strength:1, type:'influence'   },
 
   // -- CARL CRAIG --
-  { from:'carl_craig',                       to:'derrick_may',                      strength:1, type:'aesthetic'   },
-  { from:'carl_craig',                       to:'moodymann',                        strength:1, type:'aesthetic'   },
+  { from:'carl_craig',                       to:'derrick_may',                      strength:1, type:'influence'   },
+  { from:'carl_craig',                       to:'moodymann',                        strength:1, type:'influence'   },
 
   // -- AXIS RECORDS --
   { from:'axis_records',                     to:'underground_resistance',           strength:2, type:'lineage'   },
@@ -4307,7 +4307,7 @@
   { from:'rex_club',                         to:'berghain',                         strength:2, type:'lineage'   },
 
   // -- LAURENT GARNIER --
-  { from:'laurent_garnier',                  to:'daft_punk',                        strength:1, type:'aesthetic'   },
+  { from:'laurent_garnier',                  to:'daft_punk',                        strength:1, type:'influence'   },
 
   // -- F COMMUNICATIONS --
   { from:'f_communications',                 to:'lil_louis',                        strength:2, type:'roster'   },
@@ -4319,25 +4319,25 @@
   { from:'diagonal',                         to:'container',                        strength:2, type:'roster'   },
 
   // -- LORAINE JAMES --
-  { from:'loraine_james',                    to:'actress',                          strength:1, type:'aesthetic'   },
+  { from:'loraine_james',                    to:'actress',                          strength:1, type:'influence'   },
 
   // -- PLANET MU --
   { from:'planet_mu',                        to:'idm',                              strength:2, type:'lineage'   },
 
   // -- BEN UFO --
-  { from:'ben_ufo',                          to:'pangaea',                          strength:1, type:'aesthetic'   },
-  { from:'ben_ufo',                          to:'blawan',                           strength:1, type:'aesthetic'   },
+  { from:'ben_ufo',                          to:'pangaea',                          strength:1, type:'influence'   },
+  { from:'ben_ufo',                          to:'blawan',                           strength:1, type:'influence'   },
 
   // -- PANGAEA --
-  { from:'pangaea',                          to:'ben_ufo',                          strength:1, type:'aesthetic'   },
-  { from:'pangaea',                          to:'blawan',                           strength:1, type:'aesthetic'   },
+  { from:'pangaea',                          to:'ben_ufo',                          strength:1, type:'influence'   },
+  { from:'pangaea',                          to:'blawan',                           strength:1, type:'influence'   },
 
   // -- CALL SUPER --
   { from:'call_super',                       to:'dekmantel',                        strength:2, type:'roster'   },
-  { from:'call_super',                       to:'optimo',                           strength:1, type:'aesthetic'   },
+  { from:'call_super',                       to:'optimo',                           strength:1, type:'influence'   },
 
   // -- PINCH --
-  { from:'pinch',                            to:'shackleton',                       strength:1, type:'aesthetic'   },
+  { from:'pinch',                            to:'shackleton',                       strength:1, type:'influence'   },
   { from:'pinch',                            to:'planet_mu',                        strength:2, type:'roster'   },
 
   // -- TECTONIC --
@@ -4345,7 +4345,7 @@
   { from:'tectonic',                         to:'digital_mystikz',                  strength:2, type:'roster'   },
 
   // -- BEN KLOCK --
-  { from:'ben_klock',                        to:'fabric',                           strength:1, type:'aesthetic'   },
+  { from:'ben_klock',                        to:'fabric',                           strength:1, type:'influence'   },
 
   // -- KLOCKWORKS --
   { from:'klockworks',                       to:'berghain',                         strength:2, type:'lineage'   },
@@ -4357,17 +4357,17 @@
   { from:'pan_label',                        to:'amnesia_ibiza',                    strength:2, type:'lineage'   },
 
   // -- ALEKSANDIR --
-  { from:'aleksandir',                       to:'dixon',                            strength:1, type:'aesthetic'   },
+  { from:'aleksandir',                       to:'dixon',                            strength:1, type:'influence'   },
 
   // -- LEN FAKI --
-  { from:'len_faki',                         to:'answer_code_request',              strength:1, type:'aesthetic'   },
-  { from:'len_faki',                         to:'truncate',                         strength:1, type:'aesthetic'   },
-  { from:'len_faki',                         to:'shifted',                          strength:1, type:'aesthetic'   },
-  { from:'len_faki',                         to:'paula_temple',                     strength:1, type:'aesthetic'   },
+  { from:'len_faki',                         to:'answer_code_request',              strength:1, type:'influence'   },
+  { from:'len_faki',                         to:'truncate',                         strength:1, type:'influence'   },
+  { from:'len_faki',                         to:'shifted',                          strength:1, type:'influence'   },
+  { from:'len_faki',                         to:'paula_temple',                     strength:1, type:'influence'   },
 
   // -- AMÉLIE LENS --
   { from:'amelie_lens',                      to:'drumcode',                         strength:2, type:'roster'   },
-  { from:'amelie_lens',                      to:'charlotte_de_witte',               strength:1, type:'aesthetic'   },
+  { from:'amelie_lens',                      to:'charlotte_de_witte',               strength:1, type:'influence'   },
 
   // -- CHARLOTTE DE WITTE --
   { from:'charlotte_de_witte',               to:'turbo_recordings',                 strength:2, type:'roster'   },
@@ -4398,10 +4398,10 @@
   { from:'four_tet',                         to:'idm',                              strength:2, type:'lineage'   },
 
   // -- ANDREW WEATHERALL --
-  { from:'weatherall',                       to:'lone',                             strength:1, type:'aesthetic'   },
+  { from:'weatherall',                       to:'lone',                             strength:1, type:'influence'   },
 
   // -- BLAWAN --
-  { from:'blawan',                           to:'pariah',                           strength:1, type:'aesthetic'   },
+  { from:'blawan',                           to:'pariah',                           strength:1, type:'influence'   },
 
   // -- LEON VYNEHALL --
   { from:'leon_vynehall',                    to:'ninja_tune',                       strength:2, type:'roster'   },
@@ -4413,14 +4413,14 @@
   { from:'ross_from_friends',                to:'brainfeeder',                      strength:2, type:'roster'   },
 
   // -- EJECA --
-  { from:'ejeca',                            to:'daft_punk',                        strength:1, type:'aesthetic'   },
+  { from:'ejeca',                            to:'daft_punk',                        strength:1, type:'influence'   },
 
   // -- SANDWELL DISTRICT --
   { from:'sandwell_district',                to:'basic_channel',                    strength:2, type:'lineage'   },
 
   // -- SILENT SERVANT --
-  { from:'silent_servant',                   to:'function',                         strength:1, type:'aesthetic'   },
-  { from:'silent_servant',                   to:'regis',                            strength:1, type:'aesthetic'   },
+  { from:'silent_servant',                   to:'function',                         strength:1, type:'influence'   },
+  { from:'silent_servant',                   to:'regis',                            strength:1, type:'influence'   },
 
   // -- VATICAN SHADOW --
   { from:'vatican_shadow',                   to:'downwards',                        strength:2, type:'roster'   },
@@ -4429,17 +4429,17 @@
   { from:'orphx',                            to:'ebm',                              strength:2, type:'lineage'   },
 
   // -- PERC --
-  { from:'perc',                             to:'truss',                            strength:1, type:'aesthetic'   },
+  { from:'perc',                             to:'truss',                            strength:1, type:'influence'   },
 
   // -- THE BUG --
-  { from:'the_bug',                          to:'flowdan',                          strength:1, type:'aesthetic'   },
+  { from:'the_bug',                          to:'flowdan',                          strength:1, type:'influence'   },
 
   // -- TRUSS --
-  { from:'truss',                            to:'perc',                             strength:1, type:'aesthetic'   },
+  { from:'truss',                            to:'perc',                             strength:1, type:'influence'   },
 
   // -- TRUNCATE --
-  { from:'truncate',                         to:'perc',                             strength:1, type:'aesthetic'   },
-  { from:'truncate',                         to:'berghain',                         strength:1, type:'aesthetic'   },
+  { from:'truncate',                         to:'perc',                             strength:1, type:'influence'   },
+  { from:'truncate',                         to:'berghain',                         strength:1, type:'influence'   },
 
   // -- ACRONYM --
   { from:'acronym',                          to:'ebm',                              strength:2, type:'lineage'   },
@@ -4469,7 +4469,7 @@
   { from:'minilogue',                        to:'crosstown_rebels',                 strength:2, type:'roster'   },
 
   // -- CARSTEN JOST --
-  { from:'carsten_jost',                     to:'lawrence',                         strength:1, type:'aesthetic'   },
+  { from:'carsten_jost',                     to:'lawrence',                         strength:1, type:'influence'   },
 
   // -- NORTHERN ELECTRONICS --
   { from:'northern_electronics',             to:'acronym',                          strength:2, type:'roster'   },
@@ -4484,21 +4484,21 @@
   // -- WISDOM TEETH --
   { from:'wisdom_teeth',                     to:'hodge',                            strength:2, type:'roster'   },
   { from:'wisdom_teeth',                     to:'lurka',                            strength:2, type:'roster'   },
-  { from:'wisdom_teeth',                     to:'resident_advisor',                 strength:1, type:'aesthetic'   },
+  { from:'wisdom_teeth',                     to:'resident_advisor',                 strength:1, type:'influence'   },
   { from:'wisdom_teeth',                     to:'timedance',                        strength:2, type:'lineage'   },
 
   // -- FACTA --
-  { from:'facta',                            to:'k_lone',                           strength:1, type:'aesthetic'   },
-  { from:'facta',                            to:'rinse_fm',                         strength:1, type:'aesthetic'   },
+  { from:'facta',                            to:'k_lone',                           strength:1, type:'influence'   },
+  { from:'facta',                            to:'rinse_fm',                         strength:1, type:'influence'   },
 
   // -- SHERELLE --
-  { from:'sherelle',                         to:'fabric',                           strength:1, type:'aesthetic'   },
+  { from:'sherelle',                         to:'fabric',                           strength:1, type:'influence'   },
 
   // -- OBJEKT --
   { from:'objekt',                           to:'idm',                              strength:2, type:'lineage'   },
 
   // -- CRYSTALLMESS --
-  { from:'crystallmess',                     to:'brian_eno',                        strength:1, type:'aesthetic'   },
+  { from:'crystallmess',                     to:'brian_eno',                        strength:1, type:'influence'   },
 
   // -- FOLAMOUR --
   { from:'folamour',                         to:'permanent_vacation',               strength:2, type:'roster'   },
@@ -4531,14 +4531,14 @@
 
   // -- DJ STINGRAY 313 --
   { from:'dj_stingray',                      to:'underground_resistance',           strength:2, type:'roster'   },
-  { from:'dj_stingray',                      to:'drexciya',                         strength:1, type:'aesthetic'   },
-  { from:'dj_stingray',                      to:'dopplereffekt',                    strength:1, type:'aesthetic'   },
+  { from:'dj_stingray',                      to:'drexciya',                         strength:1, type:'influence'   },
+  { from:'dj_stingray',                      to:'dopplereffekt',                    strength:1, type:'influence'   },
 
   // -- CHAIN REACTION --
   { from:'chain_reaction',                   to:'air',                              strength:2, type:'roster'   },
 
   // -- FLUXION --
-  { from:'fluxion',                          to:'monolake',                         strength:1, type:'aesthetic'   },
+  { from:'fluxion',                          to:'monolake',                         strength:1, type:'influence'   },
 
   // -- CLAUDIO PRC --
   { from:'claudio_prc',                      to:'kontra_musik',                     strength:2, type:'roster'   },
@@ -4559,30 +4559,30 @@
   { from:'helena_hauff',                     to:'boiler_room',                      strength:2, type:'lineage'   },
 
   // -- SAOIRSE --
-  { from:'saoirse',                          to:'berghain',                         strength:1, type:'aesthetic'   },
+  { from:'saoirse',                          to:'berghain',                         strength:1, type:'influence'   },
   { from:'saoirse',                          to:'dekmantel',                        strength:2, type:'roster'   },
 
   // -- PARRIS --
-  { from:'parris',                           to:'digital_mystikz',                  strength:1, type:'aesthetic'   },
-  { from:'parris',                           to:'fabric',                           strength:1, type:'aesthetic'   },
-  { from:'parris',                           to:'corsica_studios',                  strength:1, type:'aesthetic'   },
+  { from:'parris',                           to:'digital_mystikz',                  strength:1, type:'influence'   },
+  { from:'parris',                           to:'fabric',                           strength:1, type:'influence'   },
+  { from:'parris',                           to:'corsica_studios',                  strength:1, type:'influence'   },
   { from:'parris',                           to:'boiler_room',                      strength:2, type:'lineage'   },
 
   // -- CORSICA STUDIOS --
-  { from:'corsica_studios',                  to:'actress',                          strength:1, type:'aesthetic'   },
+  { from:'corsica_studios',                  to:'actress',                          strength:1, type:'influence'   },
 
   // -- IBIZA --
-  { from:'ibiza',                            to:'paul_oakenfold',                   strength:1, type:'aesthetic'   },
-  { from:'ibiza',                            to:'danny_rampling',                   strength:1, type:'aesthetic'   },
+  { from:'ibiza',                            to:'paul_oakenfold',                   strength:1, type:'influence'   },
+  { from:'ibiza',                            to:'danny_rampling',                   strength:1, type:'influence'   },
   { from:'ibiza',                            to:'amnesia_ibiza',                    strength:2, type:'lineage'   },
   { from:'ibiza',                            to:'shoom',                            strength:2, type:'lineage'   },
-  { from:'ibiza',                            to:'carl_cox',                         strength:1, type:'aesthetic'   },
+  { from:'ibiza',                            to:'carl_cox',                         strength:1, type:'influence'   },
 
   // -- DJ TENNIS --
   { from:'dj_tennis',                        to:'crosstown_rebels',                 strength:2, type:'roster'   },
 
   // -- FRANÇOIS K --
-  { from:'francois_k',                       to:'levan',                            strength:1, type:'aesthetic'   },
+  { from:'francois_k',                       to:'levan',                            strength:1, type:'influence'   },
 
   // -- MARTINOU --
   { from:'martinou',                         to:'turbo_recordings',                 strength:2, type:'roster'   },
@@ -4595,20 +4595,20 @@
   { from:'aphex_twin',                       to:'ambient',                          strength:2, type:'lineage'   },
 
   // -- ALVA NOTO --
-  { from:'alva_noto',                        to:'ryuichi_sakamoto',                 strength:1, type:'aesthetic'   },
+  { from:'alva_noto',                        to:'ryuichi_sakamoto',                 strength:1, type:'influence'   },
 
   // -- MOODYMANN --
-  { from:'moodymann',                        to:'dixon',                            strength:1, type:'aesthetic'   },
-  { from:'moodymann',                        to:'belleville3',                      strength:1, type:'aesthetic'   },
+  { from:'moodymann',                        to:'dixon',                            strength:1, type:'influence'   },
+  { from:'moodymann',                        to:'belleville3',                      strength:1, type:'influence'   },
 
   // -- BIOSPHERE --
-  { from:'biosphere',                        to:'aphex_twin',                       strength:1, type:'aesthetic'   },
+  { from:'biosphere',                        to:'aphex_twin',                       strength:1, type:'influence'   },
 
   // -- PAN SONIC --
   { from:'pan_sonic',                        to:'raster_noton',                     strength:2, type:'roster'   },
 
   // -- TODD TERJE --
-  { from:'todd_terje',                       to:'giorgio_moroder',                  strength:1, type:'aesthetic'   },
+  { from:'todd_terje',                       to:'giorgio_moroder',                  strength:1, type:'influence'   },
 
   // -- POSH ISOLATION --
   { from:'posh_isolation',                   to:'ebm',                              strength:2, type:'lineage'   },
@@ -4622,21 +4622,21 @@
 
   // -- SALON DES AMATEURS --
   { from:'salon_des_amateurs',               to:'ebm',                              strength:2, type:'lineage'   },
-  { from:'salon_des_amateurs',               to:'gerd_janson',                      strength:1, type:'aesthetic'   },
-  { from:'salon_des_amateurs',               to:'move_d',                           strength:1, type:'aesthetic'   },
+  { from:'salon_des_amateurs',               to:'gerd_janson',                      strength:1, type:'influence'   },
+  { from:'salon_des_amateurs',               to:'move_d',                           strength:1, type:'influence'   },
 
   // -- REGAL --
-  { from:'regal',                            to:'ellen_allien',                     strength:1, type:'aesthetic'   },
+  { from:'regal',                            to:'ellen_allien',                     strength:1, type:'influence'   },
 
   // -- DAFT PUNK --
-  { from:'daft_punk',                        to:'slam',                             strength:1, type:'aesthetic'   },
+  { from:'daft_punk',                        to:'slam',                             strength:1, type:'influence'   },
 
   // -- ÉTIENNE DE CRÉCY --
-  { from:'etienne_de_crecy',                 to:'motorbass',                        strength:1, type:'aesthetic'   },
+  { from:'etienne_de_crecy',                 to:'motorbass',                        strength:1, type:'influence'   },
   { from:'etienne_de_crecy',                 to:'french_touch',                     strength:2, type:'lineage'   },
 
   // -- STEVE BUG --
-  { from:'steve_bug',                        to:'ibiza',                            strength:1, type:'aesthetic'   },
+  { from:'steve_bug',                        to:'ibiza',                            strength:1, type:'influence'   },
   { from:'steve_bug',                        to:'love_parade',                      strength:2, type:'lineage'   },
 
   // -- COCOON RECORDS --
@@ -4653,15 +4653,15 @@
   { from:'metalheadz',                       to:'photek',                           strength:2, type:'roster'   },
 
   // -- SVEN VÄTH --
-  { from:'sven_vath',                        to:'amnesia_ibiza',                    strength:1, type:'aesthetic'   },
-  { from:'sven_vath',                        to:'ibiza',                            strength:1, type:'aesthetic'   },
+  { from:'sven_vath',                        to:'amnesia_ibiza',                    strength:1, type:'influence'   },
+  { from:'sven_vath',                        to:'ibiza',                            strength:1, type:'influence'   },
 
   // -- ELLEN ALLIEN --
-  { from:'ellen_allien',                     to:'apparat',                          strength:1, type:'aesthetic'   },
+  { from:'ellen_allien',                     to:'apparat',                          strength:1, type:'influence'   },
   { from:'ellen_allien',                     to:'ostgut_ton',                       strength:2, type:'roster'   },
 
   // -- DEETRON --
-  { from:'deetron',                          to:'fabric',                           strength:1, type:'aesthetic'   },
+  { from:'deetron',                          to:'fabric',                           strength:1, type:'influence'   },
   { from:'deetron',                          to:'kompakt',                          strength:2, type:'roster'   },
 
   // -- ILLIAN TAPE --
@@ -4675,29 +4675,29 @@
 
   // -- JOHN TALABOT --
   { from:'john_talabot',                     to:'permanent_vacation',               strength:2, type:'roster'   },
-  { from:'john_talabot',                     to:'larry_heard',                      strength:1, type:'aesthetic'   },
+  { from:'john_talabot',                     to:'larry_heard',                      strength:1, type:'influence'   },
 
   // -- MIKE BANKS --
-  { from:'mike_banks',                       to:'robert_hood',                      strength:1, type:'aesthetic'   },
-  { from:'mike_banks',                       to:'derrick_may',                      strength:1, type:'aesthetic'   },
-  { from:'mike_banks',                       to:'kevin_saunderson',                 strength:1, type:'aesthetic'   },
+  { from:'mike_banks',                       to:'robert_hood',                      strength:1, type:'influence'   },
+  { from:'mike_banks',                       to:'derrick_may',                      strength:1, type:'influence'   },
+  { from:'mike_banks',                       to:'kevin_saunderson',                 strength:1, type:'influence'   },
 
   // -- BLAKE BAXTER --
   { from:'blake_baxter',                     to:'transmat',                         strength:2, type:'roster'   },
 
   // -- SANTONIO ECHOLS --
-  { from:'santonio_echols',                  to:'belleville3',                      strength:1, type:'aesthetic'   },
+  { from:'santonio_echols',                  to:'belleville3',                      strength:1, type:'influence'   },
 
   // -- HAROLD BUDD --
-  { from:'harold_budd',                      to:'stars_of_the_lid',                 strength:1, type:'aesthetic'   },
+  { from:'harold_budd',                      to:'stars_of_the_lid',                 strength:1, type:'influence'   },
 
   // -- PAUL JOHNSON --
   { from:'paul_johnson',                     to:'trax',                             strength:2, type:'roster'   },
-  { from:'paul_johnson',                     to:'larry_heard',                      strength:1, type:'aesthetic'   },
+  { from:'paul_johnson',                     to:'larry_heard',                      strength:1, type:'influence'   },
 
   // -- DJ SNEAK --
-  { from:'dj_sneak',                         to:'derrick_carter',                   strength:1, type:'aesthetic'   },
-  { from:'dj_sneak',                         to:'ibiza',                            strength:1, type:'aesthetic'   },
+  { from:'dj_sneak',                         to:'derrick_carter',                   strength:1, type:'influence'   },
+  { from:'dj_sneak',                         to:'ibiza',                            strength:1, type:'influence'   },
 
   // -- BRITISH MURDER BOYS --
   { from:'british_murder_boys',              to:'ebm',                              strength:2, type:'lineage'   },
@@ -4715,10 +4715,10 @@
   { from:'arca',                             to:'mute_records',                     strength:2, type:'roster'   },
 
   // -- NOUR SOKHON --
-  { from:'nour_sokhon',                      to:'corsica_studios',                  strength:1, type:'aesthetic'   },
+  { from:'nour_sokhon',                      to:'corsica_studios',                  strength:1, type:'influence'   },
 
   // -- RON HARDY --
-  { from:'ron_hardy',                        to:'paradise_garage',                  strength:1, type:'aesthetic'   },
+  { from:'ron_hardy',                        to:'paradise_garage',                  strength:1, type:'influence'   },
 
   // -- PHUTURE --
   { from:'phuture',                          to:'roland',                           strength:1, type:'influence'   },
@@ -4734,7 +4734,7 @@
   { from:'orbital',                          to:'ffrr',                             strength:2, type:'roster'   },
 
   // -- CARL COX --
-  { from:'carl_cox',                         to:'ibiza',                            strength:1, type:'aesthetic'   },
+  { from:'carl_cox',                         to:'ibiza',                            strength:1, type:'influence'   },
 
   // -- BAILE FUNK --
   { from:'baile_funk',                       to:'funk_carioca',                     strength:2, type:'lineage'   },
@@ -4744,18 +4744,18 @@
   { from:'mount_kimbie',                     to:'hotflush',                         strength:2, type:'roster'   },
 
   // -- OCTO OCTA --
-  { from:'octo_octa',                        to:'larry_heard',                      strength:1, type:'aesthetic'   },
+  { from:'octo_octa',                        to:'larry_heard',                      strength:1, type:'influence'   },
 
   // -- ERIS DREW --
-  { from:'eris_drew',                        to:'paradise_garage',                  strength:1, type:'aesthetic'   },
-  { from:'eris_drew',                        to:'musicbox',                         strength:1, type:'aesthetic'   },
+  { from:'eris_drew',                        to:'paradise_garage',                  strength:1, type:'influence'   },
+  { from:'eris_drew',                        to:'musicbox',                         strength:1, type:'influence'   },
 
   // -- SOLOMUN --
-  { from:'solomun',                          to:'ibiza',                            strength:1, type:'aesthetic'   },
+  { from:'solomun',                          to:'ibiza',                            strength:1, type:'influence'   },
 
   // -- MARCUS WORGULL --
-  { from:'marcus_worgull',                   to:'dixon',                            strength:1, type:'aesthetic'   },
-  { from:'marcus_worgull',                   to:'ame',                              strength:1, type:'aesthetic'   },
+  { from:'marcus_worgull',                   to:'dixon',                            strength:1, type:'influence'   },
+  { from:'marcus_worgull',                   to:'ame',                              strength:1, type:'influence'   },
 
   // -- MODESELEKTOR --
   { from:'modeselektor',                     to:'idm',                              strength:2, type:'lineage'   },
@@ -4773,12 +4773,12 @@
   { from:'watergate',                        to:'berghain',                         strength:2, type:'lineage'   },
 
   // -- PEARSON SOUND --
-  { from:'pearson_sound',                    to:'ben_ufo',                          strength:1, type:'aesthetic'   },
-  { from:'pearson_sound',                    to:'pangaea',                          strength:1, type:'aesthetic'   },
+  { from:'pearson_sound',                    to:'ben_ufo',                          strength:1, type:'influence'   },
+  { from:'pearson_sound',                    to:'pangaea',                          strength:1, type:'influence'   },
 
   // -- JACKMASTER --
-  { from:'jackmaster',                       to:'girl_unit',                        strength:1, type:'aesthetic'   },
-  { from:'jackmaster',                       to:'actress',                          strength:1, type:'aesthetic'   },
+  { from:'jackmaster',                       to:'girl_unit',                        strength:1, type:'influence'   },
+  { from:'jackmaster',                       to:'actress',                          strength:1, type:'influence'   },
 
   // -- NUMBERS --
   { from:'numbers',                          to:'girl_unit',                        strength:2, type:'roster'   },
@@ -4788,7 +4788,7 @@
   { from:'anz',                              to:'boiler_room',                      strength:2, type:'lineage'   },
 
   // -- TESSELA --
-  { from:'tessela',                          to:'objekt',                           strength:1, type:'aesthetic'   },
+  { from:'tessela',                          to:'objekt',                           strength:1, type:'influence'   },
 
   // -- MR. G --
   { from:'mr_g',                             to:'rush_hour',                        strength:2, type:'roster'   },
@@ -4807,18 +4807,18 @@
   // -- MARCO CAROLA --
   { from:'marco_carola',                     to:'drumcode',                         strength:2, type:'roster'   },
   { from:'marco_carola',                     to:'perlon',                           strength:2, type:'roster'   },
-  { from:'marco_carola',                     to:'ibiza',                            strength:1, type:'aesthetic'   },
+  { from:'marco_carola',                     to:'ibiza',                            strength:1, type:'influence'   },
 
   // -- JOSEPH CAPRIATI --
-  { from:'joseph_capriati',                  to:'fabric',                           strength:1, type:'aesthetic'   },
-  { from:'joseph_capriati',                  to:'ibiza',                            strength:1, type:'aesthetic'   },
+  { from:'joseph_capriati',                  to:'fabric',                           strength:1, type:'influence'   },
+  { from:'joseph_capriati',                  to:'ibiza',                            strength:1, type:'influence'   },
 
   // -- AGENTS OF TIME --
-  { from:'agents_of_time',                   to:'taleofus',                         strength:1, type:'aesthetic'   },
-  { from:'agents_of_time',                   to:'fabric',                           strength:1, type:'aesthetic'   },
+  { from:'agents_of_time',                   to:'taleofus',                         strength:1, type:'influence'   },
+  { from:'agents_of_time',                   to:'fabric',                           strength:1, type:'influence'   },
 
   // -- ANYMA --
-  { from:'anyma',                            to:'taleofus',                         strength:1, type:'aesthetic'   },
+  { from:'anyma',                            to:'taleofus',                         strength:1, type:'influence'   },
 
   // -- BLACK LOOPS --
   { from:'black_loops',                      to:'deep_house',                       strength:2, type:'lineage'   },
@@ -4831,7 +4831,7 @@
   { from:'dino_sabatini',                    to:'semantica',                        strength:2, type:'roster'   },
 
   // -- KYLE HALL --
-  { from:'kyle_hall',                        to:'omar_s',                           strength:1, type:'aesthetic'   },
+  { from:'kyle_hall',                        to:'omar_s',                           strength:1, type:'influence'   },
 
   // -- COSMIC / AFRO --
   { from:'cosmic_disco_style',               to:'ibiza',                            strength:2, type:'lineage'   },
@@ -4839,7 +4839,7 @@
   { from:'cosmic_disco_style',               to:'paul_oakenfold',                   strength:2, type:'lineage'   },
 
   // -- CERRONE --
-  { from:'cerrone',                          to:'cosmic_venue',                     strength:1, type:'aesthetic'   },
+  { from:'cerrone',                          to:'cosmic_venue',                     strength:1, type:'influence'   },
 
   // -- EBM --
   { from:'ebm',                              to:'downwards',                        strength:2, type:'lineage'   },
@@ -4850,29 +4850,29 @@
   { from:'hard_techno',                      to:'downwards',                        strength:2, type:'lineage'   },
 
   // -- SCHWEFELGELB --
-  { from:'schwefelgelb',                     to:'front_242',                        strength:1, type:'aesthetic'   },
-  { from:'schwefelgelb',                     to:'nitzer_ebb',                       strength:1, type:'aesthetic'   },
+  { from:'schwefelgelb',                     to:'front_242',                        strength:1, type:'influence'   },
+  { from:'schwefelgelb',                     to:'nitzer_ebb',                       strength:1, type:'influence'   },
 
   // -- BOYS NOIZE --
-  { from:'boys_noize',                       to:'erol_alkan',                       strength:1, type:'aesthetic'   },
+  { from:'boys_noize',                       to:'erol_alkan',                       strength:1, type:'influence'   },
 
   // -- EMOTIONAL RESCUE --
   { from:'emotional_rescue',                 to:'john_talabot',                     strength:2, type:'roster'   },
 
   // -- DORISBURG --
-  { from:'dorisburg',                        to:'fabric',                           strength:1, type:'aesthetic'   },
+  { from:'dorisburg',                        to:'fabric',                           strength:1, type:'influence'   },
 
   // -- LFO --
   { from:'lfo',                              to:'roland',                           strength:1, type:'influence'   },
 
   // -- 808 STATE --
-  { from:'808_state',                        to:'a_guy_called_gerald',              strength:1, type:'aesthetic'   },
+  { from:'808_state',                        to:'a_guy_called_gerald',              strength:1, type:'influence'   },
   { from:'808_state',                        to:'summer_of_love',                   strength:2, type:'lineage'   },
 
   // -- Μ-ZIQ --
-  { from:'mu_ziq',                           to:'dj_rashad',                        strength:1, type:'aesthetic'   },
-  { from:'mu_ziq',                           to:'jlin',                             strength:1, type:'aesthetic'   },
-  { from:'mu_ziq',                           to:'venetian_snares',                  strength:1, type:'aesthetic'   },
+  { from:'mu_ziq',                           to:'dj_rashad',                        strength:1, type:'influence'   },
+  { from:'mu_ziq',                           to:'jlin',                             strength:1, type:'influence'   },
+  { from:'mu_ziq',                           to:'venetian_snares',                  strength:1, type:'influence'   },
 
   // -- GLOBAL COMMUNICATION --
   { from:'global_communication',             to:'basic_channel',                    strength:2, type:'roster'   },
@@ -4881,35 +4881,35 @@
   { from:'jay_daniel',                       to:'lobster_theremin',                 strength:2, type:'roster'   },
 
   // -- THE BLACK MADONNA --
-  { from:'the_black_madonna',                to:'larry_heard',                      strength:1, type:'aesthetic'   },
+  { from:'the_black_madonna',                to:'larry_heard',                      strength:1, type:'influence'   },
 
   // -- HONEY DIJON --
-  { from:'honey_dijon',                      to:'musicbox',                         strength:1, type:'aesthetic'   },
+  { from:'honey_dijon',                      to:'musicbox',                         strength:1, type:'influence'   },
 
   // -- VARG --
-  { from:'varg',                             to:'shxcxchcxsh',                      strength:1, type:'aesthetic'   },
+  { from:'varg',                             to:'shxcxchcxsh',                      strength:1, type:'influence'   },
 
   // -- AVIAN --
   { from:'avian',                            to:'british_murder_boys',              strength:2, type:'roster'   },
 
   // -- COURTESY --
-  { from:'courtesy',                         to:'fabric',                           strength:1, type:'aesthetic'   },
+  { from:'courtesy',                         to:'fabric',                           strength:1, type:'influence'   },
 
   // -- MARKO NASTIĆ --
-  { from:'marko_nastic',                     to:'berghain',                         strength:1, type:'aesthetic'   },
-  { from:'marko_nastic',                     to:'robertjohnson',                    strength:1, type:'aesthetic'   },
+  { from:'marko_nastic',                     to:'berghain',                         strength:1, type:'influence'   },
+  { from:'marko_nastic',                     to:'robertjohnson',                    strength:1, type:'influence'   },
   { from:'marko_nastic',                     to:'ostgut_ton',                       strength:2, type:'roster'   },
 
   // -- TIJANA T --
-  { from:'tijana_t',                         to:'panorama_bar',                     strength:1, type:'aesthetic'   },
-  { from:'tijana_t',                         to:'optimo',                           strength:1, type:'aesthetic'   },
+  { from:'tijana_t',                         to:'panorama_bar',                     strength:1, type:'influence'   },
+  { from:'tijana_t',                         to:'optimo',                           strength:1, type:'influence'   },
 
   // -- PRÍNCIPE --
   { from:'principe',                         to:'nuno_dos_santos',                  strength:2, type:'roster'   },
 
   // -- CONCRETE --
-  { from:'concrete_paris',                   to:'surgeon',                          strength:1, type:'aesthetic'   },
-  { from:'concrete_paris',                   to:'rhadoo',                           strength:1, type:'aesthetic'   },
+  { from:'concrete_paris',                   to:'surgeon',                          strength:1, type:'influence'   },
+  { from:'concrete_paris',                   to:'rhadoo',                           strength:1, type:'influence'   },
 
   // -- ANTINOTE --
   { from:'antinote',                         to:'pional',                           strength:2, type:'roster'   },
@@ -4917,20 +4917,20 @@
   { from:'antinote',                         to:'emotional_rescue',                 strength:2, type:'lineage'   },
 
   // -- WHITE --
-  { from:'white_shanghai',                   to:'jeff_mills',                       strength:1, type:'aesthetic'   },
-  { from:'white_shanghai',                   to:'dettmann',                         strength:1, type:'aesthetic'   },
-  { from:'white_shanghai',                   to:'ben_klock',                        strength:1, type:'aesthetic'   },
+  { from:'white_shanghai',                   to:'jeff_mills',                       strength:1, type:'influence'   },
+  { from:'white_shanghai',                   to:'dettmann',                         strength:1, type:'influence'   },
+  { from:'white_shanghai',                   to:'ben_klock',                        strength:1, type:'influence'   },
 
   // -- OVERMONO --
-  { from:'overmono',                         to:'truss',                            strength:1, type:'aesthetic'   },
-  { from:'overmono',                         to:'tessela',                          strength:1, type:'aesthetic'   },
+  { from:'overmono',                         to:'truss',                            strength:1, type:'influence'   },
+  { from:'overmono',                         to:'tessela',                          strength:1, type:'influence'   },
   { from:'overmono',                         to:'xl_recordings',                    strength:2, type:'roster'   },
 
   // -- BATU --
-  { from:'batu',                             to:'peverelist',                       strength:1, type:'aesthetic'   },
+  { from:'batu',                             to:'peverelist',                       strength:1, type:'influence'   },
 
   // -- HAAI --
-  { from:'haai',                             to:'panorama_bar',                     strength:1, type:'aesthetic'   },
+  { from:'haai',                             to:'panorama_bar',                     strength:1, type:'influence'   },
 
   // -- ILIAN TAPE --
   { from:'ilian_tape',                       to:'ancient_methods',                  strength:2, type:'roster'   },
@@ -4941,29 +4941,29 @@
 
   // -- MIRA SCHWARZWÄLDER --
   { from:'mira_schwarzwalder',               to:'correspondant',                    strength:2, type:'roster'   },
-  { from:'mira_schwarzwalder',               to:'fabric',                           strength:1, type:'aesthetic'   },
+  { from:'mira_schwarzwalder',               to:'fabric',                           strength:1, type:'influence'   },
 
   // -- CHAOS IN THE CBD --
   { from:'chaos_in_the_cbd',                 to:'correspondant',                    strength:2, type:'roster'   },
-  { from:'chaos_in_the_cbd',                 to:'larry_heard',                      strength:1, type:'aesthetic'   },
+  { from:'chaos_in_the_cbd',                 to:'larry_heard',                      strength:1, type:'influence'   },
 
   // -- ANJA SCHNEIDER --
-  { from:'anja_schneider',                   to:'berghain',                         strength:1, type:'aesthetic'   },
-  { from:'anja_schneider',                   to:'fabric',                           strength:1, type:'aesthetic'   },
-  { from:'anja_schneider',                   to:'rodriguez_jr',                     strength:1, type:'aesthetic'   },
-  { from:'anja_schneider',                   to:'sebo_k',                           strength:1, type:'aesthetic'   },
+  { from:'anja_schneider',                   to:'berghain',                         strength:1, type:'influence'   },
+  { from:'anja_schneider',                   to:'fabric',                           strength:1, type:'influence'   },
+  { from:'anja_schneider',                   to:'rodriguez_jr',                     strength:1, type:'influence'   },
+  { from:'anja_schneider',                   to:'sebo_k',                           strength:1, type:'influence'   },
 
   // -- PAVEL PETROV --
-  { from:'pavel_petrov',                     to:'berghain',                         strength:1, type:'aesthetic'   },
+  { from:'pavel_petrov',                     to:'berghain',                         strength:1, type:'influence'   },
 
   // -- FLOORPLAN --
-  { from:'floorplan',                        to:'musicbox',                         strength:1, type:'aesthetic'   },
+  { from:'floorplan',                        to:'musicbox',                         strength:1, type:'influence'   },
 
   // -- SEBO K --
   { from:'sebo_k',                           to:'running_back',                     strength:2, type:'roster'   },
 
   // -- DANNY TENAGLIA --
-  { from:'danny_tenaglia',                   to:'paradise_garage',                  strength:1, type:'aesthetic'   },
+  { from:'danny_tenaglia',                   to:'paradise_garage',                  strength:1, type:'influence'   },
 
   // -- MOR ELIAN --
   { from:'mor_elian',                        to:'basic_channel',                    strength:2, type:'roster'   },
@@ -4978,7 +4978,7 @@
   { from:'fantastic_man',                    to:'love_on_the_rocks',                strength:2, type:'roster'   },
 
   // -- ACIDALIA --
-  { from:'acidalia',                         to:'phuture',                          strength:1, type:'aesthetic'   },
+  { from:'acidalia',                         to:'phuture',                          strength:1, type:'influence'   },
 
   // -- RELIEF RECORDS --
   { from:'relief_records',                   to:'ffrr',                             strength:2, type:'lineage'   },
@@ -4989,32 +4989,32 @@
   { from:'josh_wink',                        to:'tb303',                            strength:1, type:'influence'   },
 
   // -- YAEJI --
-  { from:'yaeji',                            to:'berghain',                         strength:1, type:'aesthetic'   },
+  { from:'yaeji',                            to:'berghain',                         strength:1, type:'influence'   },
 
   // -- PARK HYE JIN --
   { from:'park_hye_jin',                     to:'boiler_room',                      strength:2, type:'lineage'   },
-  { from:'park_hye_jin',                     to:'fabric',                           strength:1, type:'aesthetic'   },
+  { from:'park_hye_jin',                     to:'fabric',                           strength:1, type:'influence'   },
 
   // -- PURE SCIENCE --
-  { from:'pure_science',                     to:'ministry_of_sound',                strength:1, type:'aesthetic'   },
+  { from:'pure_science',                     to:'ministry_of_sound',                strength:1, type:'influence'   },
 
   // -- EDDIE RICHARDS --
-  { from:'eddie_richards',                   to:'mr_c',                             strength:1, type:'aesthetic'   },
+  { from:'eddie_richards',                   to:'mr_c',                             strength:1, type:'influence'   },
 
   // -- TERRY FRANCIS --
-  { from:'terry_francis',                    to:'nathan_coles',                     strength:1, type:'aesthetic'   },
-  { from:'terry_francis',                    to:'eddie_richards',                   strength:1, type:'aesthetic'   },
+  { from:'terry_francis',                    to:'nathan_coles',                     strength:1, type:'influence'   },
+  { from:'terry_francis',                    to:'eddie_richards',                   strength:1, type:'influence'   },
 
   // -- NATHAN COLES --
-  { from:'nathan_coles',                     to:'terry_francis',                    strength:1, type:'aesthetic'   },
-  { from:'nathan_coles',                     to:'eddie_richards',                   strength:1, type:'aesthetic'   },
+  { from:'nathan_coles',                     to:'terry_francis',                    strength:1, type:'influence'   },
+  { from:'nathan_coles',                     to:'eddie_richards',                   strength:1, type:'influence'   },
 
   // -- MR. C --
-  { from:'mr_c',                             to:'eddie_richards',                   strength:1, type:'aesthetic'   },
-  { from:'mr_c',                             to:'phuture',                          strength:1, type:'aesthetic'   },
+  { from:'mr_c',                             to:'eddie_richards',                   strength:1, type:'influence'   },
+  { from:'mr_c',                             to:'phuture',                          strength:1, type:'influence'   },
 
   // -- MALA --
-  { from:'mala',                             to:'lawrence',                         strength:1, type:'aesthetic'   },
+  { from:'mala',                             to:'lawrence',                         strength:1, type:'influence'   },
 
   // -- JYOTY --
   { from:'jyoty',                            to:'boiler_room',                      strength:2, type:'lineage'   },
@@ -5025,39 +5025,39 @@
 
   // -- PARIAH --
   { from:'pariah',                           to:'rs_records',                       strength:2, type:'roster'   },
-  { from:'pariah',                           to:'blawan',                           strength:1, type:'aesthetic'   },
+  { from:'pariah',                           to:'blawan',                           strength:1, type:'influence'   },
 
   // -- KARENN --
   { from:'karenn',                           to:'boiler_room',                      strength:2, type:'lineage'   },
-  { from:'karenn',                           to:'berghain',                         strength:1, type:'aesthetic'   },
+  { from:'karenn',                           to:'berghain',                         strength:1, type:'influence'   },
 
   // -- JOB JOBSE --
-  { from:'job_jobse',                        to:'trouw',                            strength:1, type:'aesthetic'   },
+  { from:'job_jobse',                        to:'trouw',                            strength:1, type:'influence'   },
 
   // -- VERRACO --
-  { from:'verraco',                          to:'shackleton',                       strength:1, type:'aesthetic'   },
+  { from:'verraco',                          to:'shackleton',                       strength:1, type:'influence'   },
   { from:'verraco',                          to:'xl_recordings',                    strength:2, type:'roster'   },
 
   // -- JORIS VOORN --
-  { from:'joris_voorn',                      to:'derrick_may',                      strength:1, type:'aesthetic'   },
+  { from:'joris_voorn',                      to:'derrick_may',                      strength:1, type:'influence'   },
 
   // -- NOVAH --
-  { from:'novah',                            to:'fabric',                           strength:1, type:'aesthetic'   },
+  { from:'novah',                            to:'fabric',                           strength:1, type:'influence'   },
 
   // -- TAMA SUMO --
-  { from:'tama_sumo',                        to:'berghain',                         strength:1, type:'aesthetic'   },
+  { from:'tama_sumo',                        to:'berghain',                         strength:1, type:'influence'   },
 
   // -- ND_BAUMECKER --
-  { from:'nd_baumecker',                     to:'berghain',                         strength:1, type:'aesthetic'   },
+  { from:'nd_baumecker',                     to:'berghain',                         strength:1, type:'influence'   },
 
   // -- NORMAN NODGE --
   { from:'norman_nodge',                     to:'mdr',                              strength:2, type:'roster'   },
 
   // -- JANE FITZ --
-  { from:'jane_fitz',                        to:'concrete_paris',                   strength:1, type:'aesthetic'   },
+  { from:'jane_fitz',                        to:'concrete_paris',                   strength:1, type:'influence'   },
 
   // -- DC-10 --
-  { from:'dc10',                             to:'dj_harvey',                        strength:1, type:'aesthetic'   },
+  { from:'dc10',                             to:'dj_harvey',                        strength:1, type:'influence'   },
 
   // -- CIRCOLOCO --
   { from:'circoloco',                        to:'ibiza',                            strength:2, type:'lineage'   },
@@ -5066,10 +5066,10 @@
 
   // -- SETH TROXLER --
   { from:'seth_troxler',                     to:'crosstown_rebels',                 strength:2, type:'roster'   },
-  { from:'seth_troxler',                     to:'ibiza',                            strength:1, type:'aesthetic'   },
+  { from:'seth_troxler',                     to:'ibiza',                            strength:1, type:'influence'   },
 
   // -- TANIA VULCANO --
-  { from:'tania_vulcano',                    to:'ibiza',                            strength:1, type:'aesthetic'   },
+  { from:'tania_vulcano',                    to:'ibiza',                            strength:1, type:'influence'   },
 
   // -- MATADOR --
   { from:'matador',                          to:'ebm',                              strength:2, type:'lineage'   },
@@ -5078,47 +5078,47 @@
   { from:'ancient_methods',                  to:'ebm',                              strength:2, type:'lineage'   },
 
   // -- CINTHIE --
-  { from:'cinthie',                          to:'lawrence',                         strength:1, type:'aesthetic'   },
+  { from:'cinthie',                          to:'lawrence',                         strength:1, type:'influence'   },
   { from:'cinthie',                          to:'mule_musiq',                       strength:2, type:'roster'   },
 
   // -- THE PRODIGY --
-  { from:'the_prodigy',                      to:'justice',                          strength:1, type:'aesthetic'   },
+  { from:'the_prodigy',                      to:'justice',                          strength:1, type:'influence'   },
 
   // -- MARSHALL JEFFERSON --
-  { from:'marshall_jefferson',               to:'steve_silk_hurley',                strength:1, type:'aesthetic'   },
-  { from:'marshall_jefferson',               to:'farley_jackmaster_funk',           strength:1, type:'aesthetic'   },
-  { from:'marshall_jefferson',               to:'ten_city',                         strength:1, type:'aesthetic'   },
+  { from:'marshall_jefferson',               to:'steve_silk_hurley',                strength:1, type:'influence'   },
+  { from:'marshall_jefferson',               to:'farley_jackmaster_funk',           strength:1, type:'influence'   },
+  { from:'marshall_jefferson',               to:'ten_city',                         strength:1, type:'influence'   },
 
   // -- SPIRAL TRIBE --
   { from:'spiral_tribe',                     to:'justice',                          strength:2, type:'lineage'   },
 
   // -- TONY HUMPHRIES --
-  { from:'tony_humphries',                   to:'paradise_garage',                  strength:1, type:'aesthetic'   },
+  { from:'tony_humphries',                   to:'paradise_garage',                  strength:1, type:'influence'   },
 
   // -- CLUB ZANZIBAR --
   { from:'zanzibar',                         to:'musicbox',                         strength:2, type:'lineage'   },
 
   // -- DERRICK MAY --
-  { from:'derrick_may',                      to:'kevin_saunderson',                 strength:1, type:'aesthetic'   },
+  { from:'derrick_may',                      to:'kevin_saunderson',                 strength:1, type:'influence'   },
 
   // -- KEVIN SAUNDERSON --
-  { from:'kevin_saunderson',                 to:'derrick_may',                      strength:1, type:'aesthetic'   },
+  { from:'kevin_saunderson',                 to:'derrick_may',                      strength:1, type:'influence'   },
 
   // -- AFRIKA BAMBAATAA --
   { from:'afrika_bambaataa',                 to:'numbers',                          strength:2, type:'roster'   },
   { from:'afrika_bambaataa',                 to:'roland',                           strength:1, type:'influence'   },
-  { from:'afrika_bambaataa',                 to:'derrick_may',                      strength:1, type:'aesthetic'   },
-  { from:'afrika_bambaataa',                 to:'kevin_saunderson',                 strength:1, type:'aesthetic'   },
+  { from:'afrika_bambaataa',                 to:'derrick_may',                      strength:1, type:'influence'   },
+  { from:'afrika_bambaataa',                 to:'kevin_saunderson',                 strength:1, type:'influence'   },
 
   // -- SHOOM --
   { from:'shoom',                            to:'ibiza',                            strength:2, type:'lineage'   },
 
   // -- PRIMAL SCREAM --
-  { from:'primal_scream',                    to:'terry_farley',                     strength:1, type:'aesthetic'   },
+  { from:'primal_scream',                    to:'terry_farley',                     strength:1, type:'influence'   },
 
   // -- JESSE SAUNDERS --
-  { from:'jesse_saunders',                   to:'lawrence',                         strength:1, type:'aesthetic'   },
-  { from:'jesse_saunders',                   to:'ron_hardy',                        strength:1, type:'aesthetic'   },
+  { from:'jesse_saunders',                   to:'lawrence',                         strength:1, type:'influence'   },
+  { from:'jesse_saunders',                   to:'ron_hardy',                        strength:1, type:'influence'   },
 
   // -- LIL LOUIS --
   { from:'lil_louis',                        to:'ffrr',                             strength:2, type:'roster'   },
@@ -5131,54 +5131,54 @@
   { from:'larry_heard',                      to:'roland',                           strength:1, type:'influence'   },
 
   // -- CYBOTRON --
-  { from:'cybotron',                         to:'giorgio_moroder',                  strength:1, type:'aesthetic'   },
+  { from:'cybotron',                         to:'giorgio_moroder',                  strength:1, type:'influence'   },
   { from:'cybotron',                         to:'metroplex',                        strength:2, type:'roster'   },
 
   // -- HARDFLOOR --
   { from:'hardfloor',                        to:'tb303',                            strength:1, type:'influence'   },
 
   // -- NICKY SIANO --
-  { from:'nicky_siano',                      to:'paradise_garage',                  strength:1, type:'aesthetic'   },
-  { from:'nicky_siano',                      to:'the_loft',                         strength:1, type:'aesthetic'   },
+  { from:'nicky_siano',                      to:'paradise_garage',                  strength:1, type:'influence'   },
+  { from:'nicky_siano',                      to:'the_loft',                         strength:1, type:'influence'   },
 
   // -- FRONT 242 --
   { from:'front_242',                        to:'new_beat',                         strength:2, type:'lineage'   },
 
   // -- NITZER EBB --
-  { from:'nitzer_ebb',                       to:'depeche_mode',                     strength:1, type:'aesthetic'   },
-  { from:'nitzer_ebb',                       to:'cabaret_voltaire',                 strength:1, type:'aesthetic'   },
+  { from:'nitzer_ebb',                       to:'depeche_mode',                     strength:1, type:'influence'   },
+  { from:'nitzer_ebb',                       to:'cabaret_voltaire',                 strength:1, type:'influence'   },
 
   // -- AMNESIA --
   { from:'amnesia_ibiza',                    to:'ibiza',                            strength:2, type:'lineage'   },
 
   // -- LOEFAH --
-  { from:'loefah',                           to:'bok_bok',                          strength:1, type:'aesthetic'   },
+  { from:'loefah',                           to:'bok_bok',                          strength:1, type:'influence'   },
 
   // -- EDDIE FOWLKES --
-  { from:'eddie_fowlkes',                    to:'juan_atkins',                      strength:1, type:'aesthetic'   },
-  { from:'eddie_fowlkes',                    to:'derrick_may',                      strength:1, type:'aesthetic'   },
-  { from:'eddie_fowlkes',                    to:'kevin_saunderson',                 strength:1, type:'aesthetic'   },
+  { from:'eddie_fowlkes',                    to:'juan_atkins',                      strength:1, type:'influence'   },
+  { from:'eddie_fowlkes',                    to:'derrick_may',                      strength:1, type:'influence'   },
+  { from:'eddie_fowlkes',                    to:'kevin_saunderson',                 strength:1, type:'influence'   },
 
   // -- THE MUSIC INSTITUTE --
-  { from:'the_music_institute',              to:'juan_atkins',                      strength:1, type:'aesthetic'   },
-  { from:'the_music_institute',              to:'derrick_may',                      strength:1, type:'aesthetic'   },
-  { from:'the_music_institute',              to:'kevin_saunderson',                 strength:1, type:'aesthetic'   },
+  { from:'the_music_institute',              to:'juan_atkins',                      strength:1, type:'influence'   },
+  { from:'the_music_institute',              to:'derrick_may',                      strength:1, type:'influence'   },
+  { from:'the_music_institute',              to:'kevin_saunderson',                 strength:1, type:'influence'   },
 
   // -- AUX 88 --
-  { from:'aux_88',                           to:'drexciya',                         strength:1, type:'aesthetic'   },
+  { from:'aux_88',                           to:'drexciya',                         strength:1, type:'influence'   },
 
   // -- MOBY --
   { from:'moby',                             to:'ambient',                          strength:2, type:'lineage'   },
 
   // -- DEATH IN VEGAS --
-  { from:'death_in_vegas',                   to:'concrete_paris',                   strength:1, type:'aesthetic'   },
+  { from:'death_in_vegas',                   to:'concrete_paris',                   strength:1, type:'influence'   },
 
   // -- TODD EDWARDS --
-  { from:'todd_edwards',                     to:'daft_punk',                        strength:1, type:'aesthetic'   },
+  { from:'todd_edwards',                     to:'daft_punk',                        strength:1, type:'influence'   },
 
   // -- MOTORBASS --
-  { from:'motorbass',                        to:'etienne_de_crecy',                 strength:1, type:'aesthetic'   },
-  { from:'motorbass',                        to:'cassius',                          strength:1, type:'aesthetic'   },
+  { from:'motorbass',                        to:'etienne_de_crecy',                 strength:1, type:'influence'   },
+  { from:'motorbass',                        to:'cassius',                          strength:1, type:'influence'   },
 
   // -- BOB SINCLAR --
   { from:'bob_sinclar',                      to:'defected',                         strength:2, type:'roster'   },
@@ -5202,85 +5202,85 @@
   { from:'gomma_records',                    to:'daniel_avery',                     strength:2, type:'roster'   },
 
   // -- DAVID MORALES --
-  { from:'david_morales',                    to:'paradise_garage',                  strength:1, type:'aesthetic'   },
-  { from:'david_morales',                    to:'knuckles',                         strength:1, type:'aesthetic'   },
+  { from:'david_morales',                    to:'paradise_garage',                  strength:1, type:'influence'   },
+  { from:'david_morales',                    to:'knuckles',                         strength:1, type:'influence'   },
 
   // -- JOE CLAUSSELL --
-  { from:'joe_claussell',                    to:'francois_k',                       strength:1, type:'aesthetic'   },
-  { from:'joe_claussell',                    to:'cosmic_venue',                     strength:1, type:'aesthetic'   },
+  { from:'joe_claussell',                    to:'francois_k',                       strength:1, type:'influence'   },
+  { from:'joe_claussell',                    to:'cosmic_venue',                     strength:1, type:'influence'   },
 
   // -- JUNIOR BOY'S OWN --
   { from:'junior_boys_own',                  to:'chemical_brothers',                strength:2, type:'roster'   },
   { from:'junior_boys_own',                  to:'underworld',                       strength:2, type:'roster'   },
 
   // -- TERRY FARLEY --
-  { from:'terry_farley',                     to:'weatherall',                       strength:1, type:'aesthetic'   },
+  { from:'terry_farley',                     to:'weatherall',                       strength:1, type:'influence'   },
 
   // -- JUNIOR VASQUEZ --
-  { from:'junior_vasquez',                   to:'paradise_garage',                  strength:1, type:'aesthetic'   },
+  { from:'junior_vasquez',                   to:'paradise_garage',                  strength:1, type:'influence'   },
 
   // -- RON TRENT --
-  { from:'ron_trent',                        to:'chez_damier',                      strength:1, type:'aesthetic'   },
+  { from:'ron_trent',                        to:'chez_damier',                      strength:1, type:'influence'   },
 
   // -- CHEZ DAMIER --
-  { from:'chez_damier',                      to:'derrick_may',                      strength:1, type:'aesthetic'   },
-  { from:'chez_damier',                      to:'kevin_saunderson',                 strength:1, type:'aesthetic'   },
+  { from:'chez_damier',                      to:'derrick_may',                      strength:1, type:'influence'   },
+  { from:'chez_damier',                      to:'kevin_saunderson',                 strength:1, type:'influence'   },
   { from:'chez_damier',                      to:'kms',                              strength:2, type:'roster'   },
-  { from:'chez_damier',                      to:'ron_trent',                        strength:1, type:'aesthetic'   },
+  { from:'chez_damier',                      to:'ron_trent',                        strength:1, type:'influence'   },
 
   // -- TOY TONICS --
   { from:'toy_tonics',                       to:'black_loops',                      strength:2, type:'roster'   },
 
   // -- COEO --
-  { from:'coeo',                             to:'cody_currie',                      strength:1, type:'aesthetic'   },
+  { from:'coeo',                             to:'cody_currie',                      strength:1, type:'influence'   },
 
   // -- INSTITUT FUER ZUKUNFT --
-  { from:'institut_fuer_zukunft',            to:'shackleton',                       strength:1, type:'aesthetic'   },
-  { from:'institut_fuer_zukunft',            to:'objekt',                           strength:1, type:'aesthetic'   },
+  { from:'institut_fuer_zukunft',            to:'shackleton',                       strength:1, type:'influence'   },
+  { from:'institut_fuer_zukunft',            to:'objekt',                           strength:1, type:'influence'   },
 
   // -- JAYDA G --
   { from:'jayda_g',                          to:'ninja_tune',                       strength:2, type:'roster'   },
 
   // -- FELIPE GORDON --
-  { from:'felipe_gordon',                    to:'cassius',                          strength:1, type:'aesthetic'   },
+  { from:'felipe_gordon',                    to:'cassius',                          strength:1, type:'influence'   },
   { from:'felipe_gordon',                    to:'clone',                            strength:2, type:'roster'   },
 
   // -- LUKE SOLOMON --
-  { from:'luke_solomon',                     to:'dj_sneak',                         strength:1, type:'aesthetic'   },
+  { from:'luke_solomon',                     to:'dj_sneak',                         strength:1, type:'influence'   },
   { from:'luke_solomon',                     to:'defected',                         strength:2, type:'roster'   },
 
   // -- MAYA JANE COLES --
-  { from:'maya_jane_coles',                  to:'berghain',                         strength:1, type:'aesthetic'   },
+  { from:'maya_jane_coles',                  to:'berghain',                         strength:1, type:'influence'   },
 
   // -- MOTOR CITY DRUM ENSEMBLE --
   { from:'mcde',                             to:'permanent_vacation',               strength:2, type:'roster'   },
 
   // -- THE MARTINEZ BROTHERS --
-  { from:'martinez_brothers',                to:'ibiza',                            strength:1, type:'aesthetic'   },
+  { from:'martinez_brothers',                to:'ibiza',                            strength:1, type:'influence'   },
 
   // -- APOLLONIA --
-  { from:'apollonia',                        to:'concrete_paris',                   strength:1, type:'aesthetic'   },
-  { from:'apollonia',                        to:'ibiza',                            strength:1, type:'aesthetic'   },
+  { from:'apollonia',                        to:'concrete_paris',                   strength:1, type:'influence'   },
+  { from:'apollonia',                        to:'ibiza',                            strength:1, type:'influence'   },
 
   // -- EATS EVERYTHING --
-  { from:'eats_everything',                  to:'ibiza',                            strength:1, type:'aesthetic'   },
+  { from:'eats_everything',                  to:'ibiza',                            strength:1, type:'influence'   },
 
   // -- SCUBA --
-  { from:'scuba',                            to:'mount_kimbie',                     strength:1, type:'aesthetic'   },
-  { from:'scuba',                            to:'joy_orbison',                      strength:1, type:'aesthetic'   },
+  { from:'scuba',                            to:'mount_kimbie',                     strength:1, type:'influence'   },
+  { from:'scuba',                            to:'joy_orbison',                      strength:1, type:'influence'   },
 
   // -- TINI --
-  { from:'tini',                             to:'luciano',                          strength:1, type:'aesthetic'   },
+  { from:'tini',                             to:'luciano',                          strength:1, type:'influence'   },
 
   // -- ENZO SIRAGUSA --
   { from:'enzo_siragusa',                    to:'crosstown_rebels',                 strength:2, type:'roster'   },
 
   // -- WAFF --
   { from:'waff',                             to:'crosstown_rebels',                 strength:2, type:'roster'   },
-  { from:'waff',                             to:'ibiza',                            strength:1, type:'aesthetic'   },
+  { from:'waff',                             to:'ibiza',                            strength:1, type:'influence'   },
 
   // -- JASPER JAMES --
-  { from:'jasper_james',                     to:'optimo',                           strength:1, type:'aesthetic'   },
+  { from:'jasper_james',                     to:'optimo',                           strength:1, type:'influence'   },
 
   // -- BARAC --
   { from:'barac',                            to:'sunwaves',                         strength:2, type:'lineage'   },
@@ -5289,32 +5289,32 @@
   { from:'fur_coat',                         to:'crosstown_rebels',                 strength:2, type:'roster'   },
 
   // -- GEORGE FITZGERALD --
-  { from:'george_fitzgerald',                to:'mount_kimbie',                     strength:1, type:'aesthetic'   },
+  { from:'george_fitzgerald',                to:'mount_kimbie',                     strength:1, type:'influence'   },
 
   // -- FRED P --
   { from:'fred_p',                           to:'rush_hour',                        strength:2, type:'roster'   },
 
   // -- DAMIAN LAZARUS --
-  { from:'damian_lazarus',                   to:'rebolledo',                        strength:1, type:'aesthetic'   },
-  { from:'damian_lazarus',                   to:'jamie_jones',                      strength:1, type:'aesthetic'   },
+  { from:'damian_lazarus',                   to:'rebolledo',                        strength:1, type:'influence'   },
+  { from:'damian_lazarus',                   to:'jamie_jones',                      strength:1, type:'influence'   },
 
   // -- EROL ALKAN --
   { from:'erol_alkan',                       to:'phantasy_sound',                   strength:2, type:'roster'   },
-  { from:'erol_alkan',                       to:'daniel_avery',                     strength:1, type:'aesthetic'   },
-  { from:'erol_alkan',                       to:'daft_punk',                        strength:1, type:'aesthetic'   },
-  { from:'erol_alkan',                       to:'chemical_brothers',                strength:1, type:'aesthetic'   },
+  { from:'erol_alkan',                       to:'daniel_avery',                     strength:1, type:'influence'   },
+  { from:'erol_alkan',                       to:'daft_punk',                        strength:1, type:'influence'   },
+  { from:'erol_alkan',                       to:'chemical_brothers',                strength:1, type:'influence'   },
 
   // -- MARGARET DYGAS --
-  { from:'margaret_dygas',                   to:'zip',                              strength:1, type:'aesthetic'   },
+  { from:'margaret_dygas',                   to:'zip',                              strength:1, type:'influence'   },
 
   // -- ANSWER CODE REQUEST --
-  { from:'answer_code_request',              to:'fabric',                           strength:1, type:'aesthetic'   },
+  { from:'answer_code_request',              to:'fabric',                           strength:1, type:'influence'   },
 
   // -- DAX J --
   { from:'dax_j',                            to:'ebm',                              strength:2, type:'lineage'   },
 
   // -- ARTWORK --
-  { from:'artwork',                          to:'skream',                           strength:1, type:'aesthetic'   },
+  { from:'artwork',                          to:'skream',                           strength:1, type:'influence'   },
 
   // -- MALL GRAB --
   { from:'mall_grab',                        to:'boiler_room',                      strength:2, type:'lineage'   },
@@ -5335,8 +5335,8 @@
   { from:'crosstown_rebels',                 to:'enzo_siragusa',                    strength:2, type:'roster'   },
 
   // -- ANNA --
-  { from:'anna',                             to:'berghain',                         strength:1, type:'aesthetic'   },
-  { from:'anna',                             to:'fabric',                           strength:1, type:'aesthetic'   },
+  { from:'anna',                             to:'berghain',                         strength:1, type:'influence'   },
+  { from:'anna',                             to:'fabric',                           strength:1, type:'influence'   },
 
   // -- COSMJN --
   { from:'cosmjn',                           to:'sunwaves',                         strength:2, type:'lineage'   },
