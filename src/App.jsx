@@ -383,20 +383,19 @@ const TOUR_STEPS = [
   {
     id: 'multiselect',
     title: 'FOLLOWING CONNECTIONS',
-    body: "Nodes that light up are directly connected to the one you have open. Click one to open it alongside the current node — you can keep multiple profiles open at once and navigate between them.",
+    body: "Nodes that light up are directly connected to the one you have open. Click one to open it alongside the current node. Here Berghain is being opened from Jeff Mills — you can keep going from there.",
     getTarget: () => document.querySelector('.dp.open'),
     cardSide: 'persist',
     onEnter: ctx => {
-      ctx.scrollToNode('underground_resistance');
+      ctx.scrollToNode('berghain');
       const ripples = [];
       let t1, t2, t3;
 
-      // After scroll settles: show animated click on the UR node
       t1 = setTimeout(() => {
-        const nodeEl = document.querySelector('[data-nid="underground_resistance"]');
-        if (!nodeEl) { ctx.tourSelectNode('underground_resistance'); return; }
+        const nodeEl = document.querySelector('[data-nid="berghain"]');
+        if (!nodeEl) { ctx.tourSelectNode('berghain'); return; }
         const rect = nodeEl.getBoundingClientRect();
-        if (!rect.width && !rect.height) { ctx.tourSelectNode('underground_resistance'); return; }
+        if (!rect.width && !rect.height) { ctx.tourSelectNode('berghain'); return; }
         const cx = rect.left + rect.width / 2;
         const cy = rect.top + rect.height / 2;
 
@@ -413,20 +412,17 @@ const TOUR_STEPS = [
           document.body.appendChild(ring);
           ripples.push(ring);
         }
-      }, 300);
+      }, 500);
 
-      // Select Underground Resistance after the ripple plays
-      t2 = setTimeout(() => { ctx.tourSelectNode('underground_resistance'); }, 700);
-
-      // Remove ripple elements
-      t3 = setTimeout(() => { ripples.forEach(el => el.remove()); ripples.length = 0; }, 1300);
+      t2 = setTimeout(() => { ctx.tourSelectNode('berghain'); }, 900);
+      t3 = setTimeout(() => { ripples.forEach(el => el.remove()); ripples.length = 0; }, 1500);
 
       return () => {
         clearTimeout(t1); clearTimeout(t2); clearTimeout(t3);
         ripples.forEach(el => el.remove());
       };
     },
-    delay: 1000,
+    delay: 1200,
   },
   {
     id: 'breadcrumb',
@@ -448,14 +444,18 @@ const TOUR_STEPS = [
     onEnter: ctx => {
       ctx.tourSelectNode('jeff_mills');
       ctx.setPlayingNodeId('jeff_mills');
-      const panel   = document.querySelector('.dp.open');
-      const spotify = document.querySelector('.dp-spotify-link');
-      if (panel && spotify) {
-        const pRect = panel.getBoundingClientRect();
-        const sRect = spotify.getBoundingClientRect();
-        const target = panel.scrollTop + (sRect.top - pRect.top) - pRect.height * 0.55;
-        panel.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
-      }
+      // Delay scroll so the panel has time to open and render
+      const t = setTimeout(() => {
+        const panel  = document.querySelector('.dp.open');
+        const spotify = document.querySelector('.dp-spotify-link');
+        if (panel && spotify) {
+          const pRect = panel.getBoundingClientRect();
+          const sRect = spotify.getBoundingClientRect();
+          const target = panel.scrollTop + (sRect.top - pRect.top) - pRect.height * 0.4;
+          panel.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
+        }
+      }, 600);
+      return () => clearTimeout(t);
     },
     delay: 900,
   },
