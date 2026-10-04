@@ -3263,7 +3263,7 @@ export default function App() {
           <div className="onboard-modal">
             <div className="onboard-wordmark">ELECTRONICARCHIVE</div>
             <div className="onboard-pitch">
-              A personal attempt to archive the electronic music underground — built by a DJ, collector and music fan from inside the scene. Artists, labels, venues, styles and pivotal moments, connected by lines of influence and lineage. From Chicago and Detroit in the late 70s, through London, Berlin, Amsterdam, Tokyo and beyond. New nodes are added every week. For anyone who loves underground electronic music and wants to go deeper.
+              I share with you this ever-evolving archive of the electronic music underground — built by a DJ, collector and music fan from deep inside the scene. Artists, labels, venues, styles and pivotal moments, connected by lines of influence and lineage. From Chicago and Detroit in the late 70s, through London, Berlin, Amsterdam, Tokyo and beyond. New nodes every week. For anyone who loves underground electronic music and wants to go deeper.
             </div>
             <div className="onboard-btns">
               <button className="onboard-btn-primary" onClick={dismissOnboard}>Start exploring</button>

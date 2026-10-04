@@ -3579,7 +3579,6 @@
   { from:'detroit_scene',     to:'minus',               strength:2, type:'lineage'  },
 
   // -- MAGDA -----------------------------------------------------------------
-  { from:'minus',             to:'magda',               strength:3, type:'roster'   },
   { from:'detroit_scene',     to:'magda',               strength:2, type:'lineage'  },
   { from:'techno',            to:'magda',               strength:3, type:'lineage'  },
 
@@ -3606,7 +3605,6 @@
   { from:'house',             to:'kim_ann_foxman',      strength:2, type:'lineage'  },
 
   // -- SILENT SERVANT --------------------------------------------------------
-  { from:'sandwell_district', to:'silent_servant',      strength:3, type:'roster'   },
   { from:'sandwell_district', to:'silent_servant',      strength:3, type:'lineage'  },
   { from:'techno',            to:'silent_servant',      strength:3, type:'lineage'  },
 
