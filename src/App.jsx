@@ -1284,13 +1284,15 @@ export default function App() {
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Apply deep link once positions are ready
+  // Apply deep link once positions are ready — clear hash after consuming so
+  // it doesn't re-fire on every page reload.
   useEffect(() => {
     if (!deepLinkNodeRef.current || !Object.keys(positions).length) return;
     const id = deepLinkNodeRef.current;
     deepLinkNodeRef.current = null;
     selectNode(id);
     scrollToNode(id);
+    window.history.replaceState(null, '', location.pathname + location.search);
   }, [positions]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Mirror newsItem into a ref so navigation effect can read it without stale closure.
