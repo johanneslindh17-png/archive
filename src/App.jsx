@@ -391,6 +391,9 @@ const TOUR_STEPS = [
       const ripples = [];
       let t1, t2, t3;
 
+      // Shift card right so it doesn't cover Berghain as we scroll to it
+      const tShift = setTimeout(() => ctx.shiftTourCard(140), 250);
+
       t1 = setTimeout(() => {
         const nodeEl = document.querySelector('[data-nid="berghain"]');
         if (!nodeEl) { ctx.tourSelectNode('berghain'); return; }
@@ -418,8 +421,9 @@ const TOUR_STEPS = [
       t3 = setTimeout(() => { ripples.forEach(el => el.remove()); ripples.length = 0; }, 1500);
 
       return () => {
-        clearTimeout(t1); clearTimeout(t2); clearTimeout(t3);
+        clearTimeout(tShift); clearTimeout(t1); clearTimeout(t2); clearTimeout(t3);
         ripples.forEach(el => el.remove());
+        ctx.resetTourCardPos(); // reset so next step recalculates from center
       };
     },
     delay: 1200,
@@ -957,6 +961,19 @@ export default function App() {
     setPinned(null);
   }
 
+  function shiftTourCard(dx) {
+    setTourHL(prev => {
+      if (!prev?.cardStyle) return prev;
+      const newCs = { ...prev.cardStyle, left: prev.cardStyle.left + dx };
+      persistCardRef.current = newCs;
+      return { ...prev, cardStyle: newCs };
+    });
+  }
+
+  function resetTourCardPos() {
+    persistCardRef.current = null;
+  }
+
   const dismissOnboard = () => {
     localStorage.setItem('archiveOnboarded', '1');
     setOnboardStep(null);
@@ -989,7 +1006,7 @@ export default function App() {
 
     const step = TOUR_STEPS[onboardStep];
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    const ctx = { tourSelectNode, scrollToNode, setPlayingNodeId, setSearchQ, setSearchFocus, setPanelOnLeft, setPanelX };
+    const ctx = { tourSelectNode, scrollToNode, setPlayingNodeId, setSearchQ, setSearchFocus, setPanelOnLeft, setPanelX, shiftTourCard, resetTourCardPos };
     let onEnterCleanup;
     if (step.onEnter) onEnterCleanup = step.onEnter(ctx);
     const ms = step.delay ?? 80;
