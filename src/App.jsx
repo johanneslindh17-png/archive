@@ -313,13 +313,25 @@ async function samplePhotoColors(url) {
 
 function avgPhotoColor(colors) {
   if (!colors?.length) return null;
-  let r = 0, g = 0, b = 0;
-  colors.forEach(c => {
+  // Parse all samples and compute chroma so we can ignore white/grey backgrounds
+  const parsed = colors.map(c => {
     const m = c.match(/rgb\((\d+),(\d+),(\d+)\)/);
-    if (m) { r += +m[1]; g += +m[2]; b += +m[3]; }
-  });
-  const n = colors.length;
-  return `${Math.round(r/n)},${Math.round(g/n)},${Math.round(b/n)}`;
+    if (!m) return null;
+    const rv = +m[1], gv = +m[2], bv = +m[3];
+    return { r: rv, g: gv, b: bv, chroma: Math.max(rv, gv, bv) - Math.min(rv, gv, bv), bright: Math.max(rv, gv, bv) };
+  }).filter(Boolean);
+  if (!parsed.length) return null;
+  // Prefer colorful pixels; fall back to all if photo is fully desaturated/B&W
+  const colorful = parsed.filter(p => p.chroma > 18 && p.bright < 215 && p.bright > 25);
+  const samples = colorful.length > 0 ? colorful : parsed;
+  let r = 0, g = 0, b = 0;
+  samples.forEach(p => { r += p.r; g += p.g; b += p.b; });
+  const n = samples.length;
+  r /= n; g /= n; b /= n;
+  // Boost so the hue is always visible on dark backgrounds
+  const peak = Math.max(r, g, b, 1);
+  if (peak < 90) { const s = 90 / peak; r = Math.min(255, r * s); g = Math.min(255, g * s); b = Math.min(255, b * s); }
+  return { r: Math.round(r), g: Math.round(g), b: Math.round(b) };
 }
 
 // Returns where the line (x1,y1)→(x2,y2) enters a rect, backed off by `gap` px.
@@ -348,7 +360,7 @@ const TOUR_STEPS = [
   {
     id: 'map',
     title: 'A LIVING MAP',
-    body: 'A living map of electronic music — 835+ artists, labels, clubs, and pivotal moments connected by documented lines of influence and lineage. Take your time.',
+    body: 'A living map of electronic music — 1000+ artists, labels, clubs, and pivotal moments connected by documented lines of influence and lineage. Take your time.',
     getTarget: () => null,
     cardSide: 'center',
     onEnter: null,
@@ -2859,8 +2871,9 @@ export default function App() {
           const tc = colorTheme === 'type' && selNode ? (darkMode ? TYPE_COLORS[selNode.type]?.dark : TYPE_COLORS[selNode.type]?.light) : null;
           const panelStyle = {
             ...(panelX !== null ? { left: panelX, right: 'auto' } : {}),
-            ...(themeStyle && !tc ? { background: themeStyle.surface, borderLeftColor: themeStyle.border, borderRightColor: themeStyle.border } : {}),
-            ...(tc ? { background: tc.fill, borderLeftColor: tc.stroke, borderLeftWidth: panelOnLeft ? undefined : '3px', borderRightColor: panelOnLeft ? tc.stroke : undefined, borderRightWidth: panelOnLeft ? '3px' : undefined } : {}),
+            ...(themeStyle && !tc ? { backgroundColor: themeStyle.surface, borderLeftColor: themeStyle.border, borderRightColor: themeStyle.border } : {}),
+            ...(tc ? { backgroundColor: tc.fill, borderLeftColor: tc.stroke, borderLeftWidth: panelOnLeft ? undefined : '3px', borderRightColor: panelOnLeft ? tc.stroke : undefined, borderRightWidth: panelOnLeft ? '3px' : undefined } : {}),
+            ...(photoColors ? (() => { const c = avgPhotoColor(photoColors); return c ? { '--photo-r': c.r, '--photo-g': c.g, '--photo-b': c.b } : {}; })() : {}),
           };
           return (
         <div
@@ -2926,7 +2939,7 @@ export default function App() {
                   <div className="dp-photo-wrap">
                     <div
                       className="dp-photo-inner"
-                      style={photoColors ? { '--photo-glow': avgPhotoColor(photoColors) } : undefined}
+                      style={(() => { const c = avgPhotoColor(photoColors); return c ? { '--photo-r': c.r, '--photo-g': c.g, '--photo-b': c.b } : undefined; })()}
                     >
                       <img
                         className={`dp-photo${coverRelease ? ' dp-photo--cover' : ''}`}

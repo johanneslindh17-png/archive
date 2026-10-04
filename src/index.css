@@ -734,7 +734,7 @@ path.eg.dim{opacity:0.055}
     0 0 220px 120px rgb(var(--photo-r,100) var(--photo-g,100) var(--photo-b,140) / 0.06);
   transition: box-shadow 0.6s ease;
 }
-.dp-photo{width:100%;display:block;object-fit:cover;max-height:260px;}
+.dp-photo{width:100%;display:block;object-fit:cover;object-position:center top;max-height:260px;}
 
 .dp-photo-credit{font-size:0.65rem;color:#888;margin-top:10px;line-height:1.4;}
 .dp-photo-credit a{color:inherit;text-decoration:underline;}

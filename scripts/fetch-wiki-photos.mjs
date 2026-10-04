@@ -9,6 +9,7 @@ import { writeFileSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { NODES } from '../src/data/nodes.js';
+import { PHOTOS as EXISTING_PHOTOS } from '../src/data/photos.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -183,13 +184,33 @@ const WIKI_OVERRIDES = {
   'butch':              null,  // common name, pulls wrong person
   'denis_sulta':        null,  // no Wikipedia article
   'guy_gerber':         'Guy Gerber',
+
+  // Wrong photo confirmed — pulls unrelated image sharing the name
+  'headless_horseman':  null,  // pulls Washington Irving legend illustration
+  'truss':              null,  // pulls railroad bridge engineering photo
+  'acronym':            null,  // pulls NASA logo
+  'container':          null,  // pulls pottery stall in Kenya photo
+  'jensen_interceptor': null,  // pulls 1971 Jensen Interceptor car
+  'umwelt':             null,  // pulls Jakob von Uexküll biology diagram
+  'yoni':               null,  // pulls Hindu Shiva Lingam sculpture
+  'randomer':           null,  // pulls "The Stranger" book cover illustration
+  'giant_swan':         null,  // pulls extinct Cygnus falconeri fossil
+  'newa':               null,  // pulls Nepalese Ranjana script calligraphy
+  'calibre':            null,  // pulls rifle cartridge caliber comparison
+  'soela':              null,  // pulls "Soela sadam" (Estonian harbor), not the artist
+  'perila':             null,  // pulls "Gustav Ernesaks' birthplace" building
 };
 
 async function main() {
-  const artists = NODES.filter(n => n.type === 'artist');
-  console.log(`\nFetching Wikipedia photos for ${artists.length} artist nodes...\n`);
+  const refresh = process.argv.includes('--refresh');
+  const allArtists = NODES.filter(n => n.type === 'artist');
+  const artists = refresh
+    ? allArtists
+    : allArtists.filter(a => !(a.id in EXISTING_PHOTOS));
+  console.log(`\nFetching Wikipedia photos for ${artists.length} artist nodes (${refresh ? 'full refresh' : 'new only — skipping ' + Object.keys(EXISTING_PHOTOS).length + ' existing'})...\n`);
 
-  const photos = {};
+  // Start with existing photos so we don't lose them
+  const photos = refresh ? {} : { ...EXISTING_PHOTOS };
   const stats = { found: 0, blocked: 0, missing: 0, error: 0, skipped: 0 };
 
   for (const artist of artists) {
