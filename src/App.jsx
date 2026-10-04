@@ -2189,6 +2189,9 @@ export default function App() {
           const chrome = document.querySelector('.regionlabel') ?? document.querySelector('.topbar');
           const chromeBottom = chrome ? chrome.getBoundingClientRect().bottom : 0;
           if (chromeBottom && ev.clientY <= chromeBottom) return;
+          // Skip hover if the node itself is mostly behind the chrome bar
+          const nodeRect = ev.currentTarget.getBoundingClientRect();
+          if (chromeBottom && nodeRect.bottom <= chromeBottom + 2) return;
           // Cancel any pending leave-cleanup so there's no blank frame between nodes
           clearTimeout(leaveTimerRef.current);
           if (!isDim) {
