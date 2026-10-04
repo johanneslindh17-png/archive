@@ -387,19 +387,56 @@ const TOUR_STEPS = [
     getTarget: () => document.querySelector('.dp.open'),
     cardSide: 'persist',
     onEnter: ctx => {
-      // Select Underground Resistance — it's connected to Jeff Mills so it adds to the set
-      ctx.tourSelectNode('underground_resistance');
+      ctx.scrollToNode('underground_resistance');
+      const ripples = [];
+      let t1, t2, t3;
+
+      // After scroll settles: show animated click on the UR node
+      t1 = setTimeout(() => {
+        const nodeEl = document.querySelector('[data-nid="underground_resistance"]');
+        if (!nodeEl) { ctx.tourSelectNode('underground_resistance'); return; }
+        const rect = nodeEl.getBoundingClientRect();
+        if (!rect.width && !rect.height) { ctx.tourSelectNode('underground_resistance'); return; }
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+
+        const dot = document.createElement('div');
+        dot.className = 'tour-click-dot';
+        dot.style.cssText = `left:${cx}px;top:${cy}px`;
+        document.body.appendChild(dot);
+        ripples.push(dot);
+
+        for (let i = 0; i < 2; i++) {
+          const ring = document.createElement('div');
+          ring.className = 'tour-click-ring';
+          ring.style.cssText = `left:${cx}px;top:${cy}px;animation-delay:${i * 150}ms`;
+          document.body.appendChild(ring);
+          ripples.push(ring);
+        }
+      }, 300);
+
+      // Select Underground Resistance after the ripple plays
+      t2 = setTimeout(() => { ctx.tourSelectNode('underground_resistance'); }, 700);
+
+      // Remove ripple elements
+      t3 = setTimeout(() => { ripples.forEach(el => el.remove()); ripples.length = 0; }, 1300);
+
+      return () => {
+        clearTimeout(t1); clearTimeout(t2); clearTimeout(t3);
+        ripples.forEach(el => el.remove());
+      };
     },
-    delay: 600,
+    delay: 1000,
   },
   {
     id: 'breadcrumb',
     title: 'YOUR PATH, ALWAYS VISIBLE',
     body: "The tab bar just above the map shows every node in your current view. Click any tab to jump back to it, click × to remove it, or hit ← ALL NODES to reset and see everything again. Click anywhere on the blank map to deselect.",
-    getTarget: () => document.querySelector('.nodebreadcrumb'),
+    getTarget: () => document.querySelector('.nbc-tab') ?? document.querySelector('.nodebreadcrumb'),
+    getSecondTarget: () => document.querySelectorAll('.nbc-tab')[1] ?? null,
     cardSide: 'persist',
     onEnter: null,
-    delay: 200,
+    delay: 300,
   },
   {
     id: 'player',
@@ -915,6 +952,7 @@ export default function App() {
   const [tourHL, setTourHL] = useState(null);
 
   function tourSelectNode(id) {
+    setSelectedSet(prev => prev.includes(id) ? prev : [...prev, id]);
     setSelected(id);
     setPinned(null);
   }
