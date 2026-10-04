@@ -1,6 +1,15 @@
 // Most recently added nodes, newest first.
 // Add new entries here whenever nodes are added.
 export const NODE_CHANGELOG = [
+  // 2026-10-04 batch 8 — Aril Brikha, Ian Pooley, Jaydee, Detroit Swindle, Flight Facilities, Nuno dos Santos, Aleksandir, Daniel Bortz
+  { id: 'aril_brikha',        label: 'Aril Brikha',               date: '2026-10-04' },
+  { id: 'ian_pooley',         label: 'Ian Pooley',                date: '2026-10-04' },
+  { id: 'jaydee',             label: 'Jaydee',                    date: '2026-10-04' },
+  { id: 'detroit_swindle',    label: 'Detroit Swindle',           date: '2026-10-04' },
+  { id: 'flight_facilities',  label: 'Flight Facilities',         date: '2026-10-04' },
+  { id: 'nuno_dos_santos',    label: 'Nuno dos Santos',           date: '2026-10-04' },
+  { id: 'aleksandir',         label: 'Aleksandir',                date: '2026-10-04' },
+  { id: 'daniel_bortz',       label: 'Daniel Bortz',              date: '2026-10-04' },
   // 2026-10-04 batch 7 — grime, disco, Chicago, global 2020s, Germany
   { id: 'boy_better_know',     label: 'Boy Better Know',           date: '2026-10-04' },
   { id: 'kano',                label: 'Kano',                      date: '2026-10-04' },

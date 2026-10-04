@@ -676,6 +676,12 @@ export const NODES = [
       { title: '"Dominator" — Human Resource', year: 1991 },
     ]},
 
+  { id:'jaydee', label:'Jaydee', type:'artist', genre:'techno', era:1993, city:'Amsterdam', country:'NL',
+    desc:'Jaydee (Jan Bas Bron) is a Dutch producer whose track Plastic Dreams (R&S Records, 1993) became one of the most iconic records of the early European techno-trance era. The record — a soaring, piano-led melodic track with a hypnotic repetitive structure — captured the euphoric quality of the early 1990s Belgian and Dutch rave scene precisely. R&S, at that point the dominant European techno label, gave it wide distribution. Plastic Dreams remains in active circulation and continues to be played by DJs working in both trance and classic techno contexts. It is one of those records whose influence on the melodic, emotional end of European electronic music is difficult to overstate.',
+    releases:[
+      { title:'Plastic Dreams (R&S)', year:1993 },
+    ]},
+
   { id:'apollo_rec', label:'Apollo Records', type:'label', genre:'ambient', era:1992, city:'Ghent', country:'BE',
     desc:'Apollo Records was launched in 1992 as an ambient sub-label of R&S Records. It was conceived to release slower, more textural electronic music during a period when ambient techno and introspective electronic music were developing as distinct forms. Global Communication and Aphex Twin both appeared on the label. Apollo relaunched alongside R&S in 2009.',
     releases: [
@@ -997,6 +1003,12 @@ export const NODES = [
       { title: 'Yoyogi (Lawrence album)', year: 2012 },
     ]},
 
+  { id:'ian_pooley', label:'Ian Pooley', type:'artist', genre:'deep', era:1994, city:'Mainz', country:'DE',
+    desc:'Ian Pooley (Ian Pooley-Heindel) is a German producer and DJ from Mainz whose career extends from the early 1990s to the present. His music is rooted in American garage house and the Chicago deep house tradition, translated into a European production aesthetic. He released extensively on Force Inc. Music Works — the Frankfurt label central to Germany\'s early 1990s electronic underground — and later on V2 Records. His album Meridian (1997) combined deep house rhythms with a melodic sensibility influenced by New York house producers of the 1980s. He is among the German producers who absorbed American house music most directly and passed it back into the European underground without diluting its essential character.',
+    releases:[
+      { title:'Meridian (V2/Force Inc.)', year:1997 },
+    ], spotify:'5YU3ASuEFBSymonJXdJJT4' },
+
   { id:'smallville', label:'Smallville Records', type:'label', genre:'deep', era:2005, city:'Hamburg', country:'DE',
     desc:'Smallville Records was co-founded in Hamburg in 2005 by Lawrence and Move D. The label releases warm, introspective deep house rooted in the Chicago and New York gospel-house tradition. Artists include Lawrence, Move D, Prince of Denmark, LB Honne, and Fred Everything. It is regarded as one of the most consistently respected deep house labels in Europe.',
     releases: [
@@ -1285,6 +1297,12 @@ export const NODES = [
   { id:'trouw', label:'Trouw', type:'venue', genre:'deep', era:2010, city:'Amsterdam', country:'NL',
     desc:'Trouw was an Amsterdam club that operated from 2010 to 2015 in a former newspaper printing facility on Wibautstraat. It was regarded as one of the best-programmed clubs in Europe during its operation, with a consistent booking philosophy and strong acoustics. It closed in January 2015 when the building was redeveloped. Several of its regular bookers and booking relationships continue through the Dekmantel platform.' },
 
+  { id:'detroit_swindle', label:'Detroit Swindle', type:'artist', genre:'deep', era:2012, city:'Amsterdam', country:'NL',
+    desc:'Detroit Swindle are Lars Dales and Maarten Smeets, an Amsterdam duo who founded Heist Recordings in 2011. Their music combines deep house rhythms with soul, jazz, and funk influences — a distinctly Amsterdam sensibility that draws on the city\'s long relationship with Black American music while remaining rooted in club functionality. They have released on Defected and Hot Creations alongside their own Heist label, and their work reflects the eclectic taste of the Amsterdam deep house scene that developed around Trouw and Rush Hour in the early 2010s. The name references Detroit rather than a sound from there — it is an homage to a tradition rather than a direct transplant.',
+    releases:[
+      { title:'High Life (Dirt Crew)', year:2014 },
+    ], spotify:'2oV6aSTPzfkiVfJeG6rxYC' },
+
   { id:'eddy_de_clercq', label:'Eddy de Clercq', type:'artist', genre:'deep', era:1977, city:'Amsterdam', country:'NL',
     desc:'Eddy de Clercq was born in Ghent in 1955 and moved to Amsterdam at nineteen, where he began running club nights in 1977 — one of the first DJs in the city to build a following through programming rather than a commercial residency. His sets drew on disco, funk, soul and whatever was arriving from Chicago and New York. In 1987 he co-founded RoXY on the Singel with Arjen Schrama and artist Peter Giele, serving as artistic director and music programmer for its twelve-year run. He received the Gouden Harp award in 1999, the Dutch music industry\'s recognition of his founding role in Amsterdam club culture.' },
 
@@ -1531,6 +1549,13 @@ export const NODES = [
   { id:'future_classic', label:'Future Classic', type:'label', genre:'deep', era:2004, city:'Sydney', country:'AU',
     desc:'Future Classic was co-founded in 2004 by Nathan McLay and Jay Ryves from a Sydney terrace and has become one of the most globally significant Australian electronic labels, operating simultaneously as a record label, management firm, and booking agency. Its aesthetic leans toward warmth, melody, and precision — qualities associated with Kompakt or Dial rather than harder club music — and it discovered Flume through an artist competition, developing him into Australia\'s most internationally prominent electronic act. The label also developed Chet Faker (Nick Murphy), Flight Facilities, and SOPHIE\'s Australian-era releases; it remains independent and artist-led.',
     releases: []},
+
+  { id:'flight_facilities', label:'Flight Facilities', type:'artist', genre:'deep', era:2010, city:'Sydney', country:'AU',
+    desc:'Flight Facilities are Hugo Gruzman and James Lyell, a Sydney duo who first appeared in 2010 with Crave You featuring vocalist Giselle — a nu-disco track that reached audiences well outside the club circuit. Their subsequent releases and debut album Down to Earth (2014) developed a sound drawing equally on indie pop, French house, and classic disco. Both were released on Future Classic, the Sydney independent that also developed Flume and Chet Faker. Flight Facilities occupy the melodic, accessible end of the Sydney electronic scene — commercially successful by underground electronic standards, but rooted in a genuine knowledge of house and disco history.',
+    releases:[
+      { title:'"Crave You" feat. Giselle (Future Classic)', year:2010 },
+      { title:'Down to Earth (Future Classic)', year:2014 },
+    ], spotify:'4kI9JKGN8OqXnZJPVrKRhL' },
 
   // ── SOUTH KOREA ──────────────────────────────────────────────────────────
   { id:'cakeshop', label:'Cakeshop', type:'venue', genre:'deep', era:2012, city:'Seoul', country:'KR',
@@ -2132,6 +2157,14 @@ export const NODES = [
     releases:[
       { title:'Multitude (PAN)', year:2022 },
     ]},
+
+  { id:'nuno_dos_santos', label:'Nuno dos Santos', type:'artist', genre:'deep', era:2006, city:'Lisbon', country:'PT',
+    desc:'Nuno dos Santos is a Portuguese DJ and producer working in the deep house tradition. His productions draw on the American garage house lineage — warm chord progressions, soulful rhythmic structures, careful use of space — filtered through a Southern European sensibility. He has released on independent deep house labels across Europe and maintained a consistent presence in the underground without wide commercial breakthrough, as a representative of the Portuguese contribution to the European deep house circuit.',
+    releases:[] },
+
+  { id:'aleksandir', label:'Aleksandir', type:'artist', genre:'deep', era:2012, city:'Stockholm', country:'SE',
+    desc:'Aleksandir is a Stockholm-based electronic music producer and DJ working in the space between deep house, ambient techno, and melodic electronic music. His productions reflect the introspective, atmospheric sensibility that characterises the Stockholm underground — informed by the deep house tradition but oriented toward texture and mood as much as dance-floor function. He has released on independent European labels and is associated with the broader Scandinavian scene that emerged alongside Studio Barnhus and the northern European deep house revival of the 2010s.',
+    releases:[] },
 
   { id:'bambounou', label:'Bambounou', type:'artist', genre:'experimental', era:2012, city:'Paris', country:'FR',
     desc:'Bambounou (Jeremy Barbe) is a Parisian producer and DJ who releases on 50 Weapons and PAN. His music blends techno, house, and experimental bass in a style that is technically accomplished and emotionally direct. He has been an important figure in Paris\'s post-dubstep club scene and in the city\'s engagement with the wider European underground.',
@@ -4349,6 +4382,19 @@ export const NODES = [
     releases:[
       { title:'Drumcode A Sides Vol. 1 (Drumcode)', year:2009 },
     ], spotify:'1btv9qmIpbp7q1ixCYNdHu', },
+
+  { id:'aril_brikha', label:'Aril Brikha', type:'artist', genre:'techno', era:1998, city:'Stockholm', country:'SE',
+    desc:'Aril Brikha was born in Iran and grew up in Sweden. His two 1998 singles on Derrick May\'s Transmat label — Deeparture in Time and Groove La Chord — are among the most formally perfect records in the deep techno canon: melodic, spacious, and emotionally immediate in a way that most techno of the period was not. That May, who rarely signed European artists to Transmat, championed Brikha\'s work speaks to its quality. The records sit in a lineage between Detroit\'s melodic tradition and the emerging European synthesis of the late 1990s — Iranian-Swedish in origin, Transmat in pedigree, and entirely their own thing in character. His subsequent output has been sparse, with releases on Highgrade Records and occasional appearances, which has only increased the significance of the 1998 originals.',
+    releases:[
+      { title:'Deeparture in Time (Transmat)', year:1998 },
+      { title:'Groove La Chord (Transmat)', year:1998 },
+    ], spotify:'2eDkVPd82dQhBibh3YNQF3' },
+
+  { id:'daniel_bortz', label:'Daniel Bortz', type:'artist', genre:'techno', era:2010, city:'Stockholm', country:'SE',
+    desc:'Daniel Bortz is a Stockholm-based producer and DJ whose music occupies the melodic end of techno — polished, driving, with a Scandinavian clarity of production that sits naturally alongside the Drumcode aesthetic. He has released on Drumcode, Rekids, and various European labels, building a reputation within the European techno underground for consistency and quality. His work reflects the Stockholm techno scene\'s particular synthesis of Detroit influence and Nordic musical temperament — technically accomplished, rarely austere.',
+    releases:[
+      { title:'Inward (Rekids)', year:2014 },
+    ], spotify:'1B58bHiEUy3kAvEeHXGvP5' },
 
   // ── NEW STYLES ────────────────────────────────────────────────────────────
   { id:'cosmic_disco_style', label:'Cosmic / Afro', type:'style', genre:'disco', era:1979, city:'Lazise', country:'IT',
