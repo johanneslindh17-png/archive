@@ -1,6 +1,26 @@
 // Most recently added nodes, newest first.
 // Add new entries here whenever nodes are added.
 export const NODE_CHANGELOG = [
+  // 2026-10-04 batch 7 — grime, disco, Chicago, global 2020s, Germany
+  { id: 'boy_better_know',     label: 'Boy Better Know',           date: '2026-10-04' },
+  { id: 'kano',                label: 'Kano',                      date: '2026-10-04' },
+  { id: 'ghetts',              label: 'Ghetts',                    date: '2026-10-04' },
+  { id: 'flowdan',             label: 'Flowdan',                   date: '2026-10-04' },
+  { id: 'lord_of_the_mics',   label: 'Lord of the Mics',          date: '2026-10-04' },
+  { id: 'relief_records',      label: 'Relief Records',            date: '2026-10-04' },
+  { id: 'cerrone',             label: 'Cerrone',                   date: '2026-10-04' },
+  { id: 'chic',                label: 'Chic',                      date: '2026-10-04' },
+  { id: 'parris',              label: 'Parris',                    date: '2026-10-04' },
+  { id: 'klein',               label: 'Klein',                     date: '2026-10-04' },
+  { id: 'naafi',               label: 'NAAFI',                     date: '2026-10-04' },
+  { id: 'badsista',            label: 'Badsista',                  date: '2026-10-04' },
+  { id: 'nour_sokhon',         label: 'Nour Sokhon',               date: '2026-10-04' },
+  { id: 'schwefelgelb',        label: 'Schwefelgelb',              date: '2026-10-04' },
+  { id: 'perila',              label: 'Perila',                    date: '2026-10-04' },
+  { id: 'jessica_ekomane',     label: 'Jessica Ekomane',           date: '2026-10-04' },
+  { id: 'public_possession',   label: 'Public Possession',         date: '2026-10-04' },
+  { id: 'institut_fuer_zukunft', label: 'Institut fuer Zukunft',   date: '2026-10-04' },
+  { id: 'jayda_g',             label: 'Jayda G',                   date: '2026-10-04' },
   // 2026-10-04 Stockholm radio
   { id: 'sauna_radio',         label: 'Sauna Radio',               date: '2026-10-04' },
   // 2026-10-04 concept node

@@ -2127,6 +2127,12 @@ export const NODES = [
       {title:'Amnesia Scanner – Another Life (PAN)', year:2018},
     ]},
 
+  { id:'jessica_ekomane', label:'Jessica Ekomane', type:'artist', genre:'experimental', era:2018, city:'Berlin', country:'DE',
+    desc:'Jessica Ekomane was born in Cameroon, grew up in France, and is based in Berlin. She is an experimental electronic composer and sound artist whose work addresses resonance, psychoacoustics, and the physical properties of sound in space. Her music — released on PAN, including Multitude (2022) — uses synthesiser tones and frequency relationships to create pieces that are experienced as much in the body as through conventional listening. She operates in the overlap between electronic music and contemporary classical composition, and her work brings an African perspective into Berlin\'s experimental scene in a form that is compositionally rather than culturally hybrid: she does not incorporate African musical idioms but brings a different intellectual and experiential formation to a shared set of sonic tools.',
+    releases:[
+      { title:'Multitude (PAN)', year:2022 },
+    ]},
+
   { id:'bambounou', label:'Bambounou', type:'artist', genre:'experimental', era:2012, city:'Paris', country:'FR',
     desc:'Bambounou (Jeremy Barbe) is a Parisian producer and DJ who releases on 50 Weapons and PAN. His music blends techno, house, and experimental bass in a style that is technically accomplished and emotionally direct. He has been an important figure in Paris\'s post-dubstep club scene and in the city\'s engagement with the wider European underground.',
     releases:[
@@ -2155,6 +2161,13 @@ export const NODES = [
       { title:'Spaces (Erased Tapes)', year:2013 },
       { title:'All Melody (Erased Tapes)', year:2018 },
     ], spotify:'5hW4L92KnC6dX9t7tYM4Ve', },
+
+  { id:'perila', label:'Perila', type:'artist', genre:'ambient', era:2019, city:'Berlin', country:'DE',
+    desc:'Perila (Anastasia Vlasova) was born in Moscow and is based in Berlin. Her ambient electronic music works with long, slowly evolving textures — synthesiser drones, processed voice, and delicate electronics that move across extended durations without structural resolution. Her album How Much Time It Is Between You And Me (Tonal Union, 2022) established her as one of the more distinctive voices in the contemporary Berlin ambient scene. Her work sits in the lineage of German ambient music from the Cologne and Berlin schools but is shaped by a sensibility formed elsewhere — the Russian underground electronic scene of the 2010s, which produced its own experimenters largely invisible to the Western music press, is an audible influence.',
+    releases:[
+      { title:'How Much Time It Is Between You And Me (Tonal Union)', year:2022 },
+    ]},
+
 
   { id:'christian_loffler', label:'Christian Löffler', type:'artist', genre:'melodic', era:2013, city:'Rügen', country:'DE',
     desc:'Christian Löffler is a German producer based on the island of Rügen who releases on Ki Records. His melodic house and ambient electronic music is defined by organic sound design, melancholic melodies, and a strongly visual aesthetic. His album Mare (Ki Records, 2013) established him as a distinctive voice in European melodic electronic music.',
@@ -3132,6 +3145,18 @@ export const NODES = [
       { title: 'Ego Death with Four Tet (Hyperdub)', year: 2023 },
     ], spotify:'0uCCBpmg6MrPb1KY2msceF', },
 
+  { id:'parris', label:'Parris', type:'artist', genre:'experimental', era:2019, city:'London', country:'UK',
+    desc:'Parris (Julian Parris) is a South London DJ and producer whose debut album Soaked in Indigo Fluorescent (Houndstooth, 2021) extended the emotional vocabulary of deep house and dubstep into a more introspective, long-form direction. His productions share the harmonic density and physical bass weight of the South London sound associated with Burial and Digital Mystikz without directly imitating either — the reference points are absorbed rather than quoted. As a DJ he has played Fabric, Corsica Studios, and the Boiler Room, consolidating a reputation as one of the more thoughtful selectors to emerge from London\'s underground in the 2020s.',
+    releases:[
+      { title:'Soaked in Indigo Fluorescent (Houndstooth)', year:2021 },
+    ], spotify:'5yMh8MgVMFbIE5n0hStjgj' },
+
+  { id:'klein', label:'Klein', type:'artist', genre:'experimental', era:2016, city:'London', country:'UK',
+    desc:'Klein is a London-based electronic musician and vocalist whose work occupies the space between grime\'s MC tradition, experimental music, and contemporary R&B without settling into any of them. Her releases — including Tommy (Hyperdub, 2017) and subsequent work — use abstracted beats, clipped samples, and a vocal style that owes more to UK MC culture than to singing in any conventional sense. She has been a fixture of The Wire\'s coverage of adventurous UK music and has collaborated with producers who move between club music and art contexts. Her work is an example of grime\'s influence as an aesthetic rather than a genre — a way of approaching rhythm and vocal delivery that migrated into experimental music as grime itself became mainstream.',
+    releases:[
+      { title:'Tommy (Hyperdub)', year:2017 },
+    ], spotify:'0ERBIDiDCBjDEJRHqFkXm0' },
+
   // ── UNKNOWN ARTIST ────────────────────────────────────────────────────────
   { id:'unknown_artist', label:'Unknown Artist', type:'moment', genre:'experimental', era:1985, city:'Various', country:'XX',
     desc:'Unknown Artist is not a person — it is a practice, a philosophy, and sometimes an accident. Across electronic music\'s history, releasing music without attribution has served half a dozen distinct purposes, and understanding them illuminates how the underground has always understood its own relationship to identity, commerce, and art.\n\nThe oldest reason is the white label. From the early days of Chicago house through Detroit techno and UK rave, producers would press 300 to 500 copies of a track with no information on the sleeve — just a label colour and sometimes a catalogue number. These were functional objects: sent to trusted DJs to test on floors before committing to a full pressing. If the track destroyed the room, you pressed more. If it was met with silence, you didn\'t. The white label had no name because it didn\'t need one — the audience it was made for would find out who made it later, or not at all.\n\nThe second reason is contractual. Many of the most important tracks in the canon were released anonymously because their makers were already signed elsewhere. In the 1990s especially, an artist signed to a major or to a label that owned their name would release club music under pseudonyms or no name at all to avoid breach of contract. Sometimes the agreement explicitly prohibited certain genres; sometimes the artist simply knew the label would never approve a release that dark, that functional, that stripped-back. The tracks escaped into the world unnamed.\n\nThird is the bootleg. A re-edit or unofficial remix of a recognisable record cannot be attributed without inviting a cease and desist. The editor knows. The distributor knows. The DJs playing it know. But the track carries no name because a name would be an admission. Much of the remix culture of the 1990s and 2000s operated in this grey zone — the work is widely known and the identity of its maker is an open secret, but officially it goes out as Unknown Artist.\n\nFourth is the mystique position. Burial is the defining example. His anonymity was not accidental or contractual — it was a statement about what music is for. The work should be experienced without the distraction of biography, without the visual grammar of a face on a poster. Basic Channel maintained near-total anonymity for similar reasons: the architecture of the music was the point, and the names of its makers were beside the point. This strand of anonymity became a position within the aesthetics of electronic music — a refusal of the celebrity logic that defines mainstream music culture, and a claim that the music carries everything necessary.\n\nFifth is genuine loss. In the early years of digital distribution, metadata was fragile. Tracks were ripped from vinyl with no documentation, passed between DJs on DAT and later on CD-R, shared in the early internet in formats that stripped information. Tracks whose authorship was known in 1994 became Unknown Artist by 1998 simply through the entropy of circulation. Some of these tracks have since been identified through obsessive research. Others remain genuinely anonymous — made by a person who may still be alive and simply never told anyone.\n\nThe sixth reason is collaborative ambiguity. When a track emerges from a session involving two or three producers, all of whom contributed equally, and no one wants to have the conversation about whose name goes first, Unknown Artist is the easiest solution. The track exists. It belongs to all of them and none of them. The question of credit is deferred indefinitely.\n\nThese six reasons are often confused because the result is the same: a twelve-inch with no information. But they represent entirely different relationships to anonymity — one accidental, one tactical, one aesthetic, one legal, one forced by circumstance, one deliberately chosen as the most honest statement the music can make.',
@@ -3772,6 +3797,20 @@ export const NODES = [
       { title: 'KiCk i (XL)', year: 2020 },
     ], spotify:'4SQdUpG4f7UbkJG3cJ2Iyj', },
 
+  { id:'naafi', label:'NAAFI', type:'label', genre:'experimental', era:2012, city:'Mexico City', country:'MX',
+    desc:'NAAFI (No Assistance Afforded For Independence) is a Mexico City-based collective and label founded in 2012 that became the hub for the Latin American underground club scene. Its founders and associated artists — operating across Mexico, Colombia, and Argentina — worked in the space between techno, reggaeton, and experimental club music, refusing both the dominant commercial Latin music industry and the European underground\'s cultural assumptions. NAAFI staged events in Mexico City, Bogotá, and Berlin and maintained a presence in the global club circuit disproportionate to the scale of its operation. It represents a model for non-Western underground music networks that built themselves using the same digital infrastructure that European labels had developed — but oriented around different geographic and cultural centres. The archive has nothing from Mexico without it.',
+    releases:[] },
+
+  { id:'badsista', label:'Badsista', type:'artist', genre:'experimental', era:2016, city:'São Paulo', country:'BR',
+    desc:'Badsista (Flávia Pereira) is a São Paulo-based producer and DJ who works primarily with Brazilian baile funk — the sound that developed in Rio de Janeiro\'s favelas from Miami bass and electro funk in the early 1990s and became the sonic signature of Brazilian club culture. Her productions are heavy and confrontational, using 150 BPM rhythmic patterns, distorted vocals, and bass textures drawn from the Brazilian funk tradition alongside contemporary club electronics. As a DJ she has played across Europe and Brazil, and her work brings the Brazilian funk tradition into direct conversation with the European experimental club scene in a way both directions find productive.',
+    releases:[
+      { title:'Mãe do Baile (self-released)', year:2023 },
+    ]},
+
+  { id:'nour_sokhon', label:'Nour Sokhon', type:'artist', genre:'experimental', era:2018, city:'Beirut', country:'LB',
+    desc:'Nour Sokhon is a Lebanese musician and producer based between Beirut and Berlin, and the founder of Morphine Records. Her electronic music incorporates Arabic musical scales, Eastern Mediterranean rhythmic structures, and Western synthesis into a form that resists easy genre placement — it functions as club music but carries harmonic and modal material not native to European dance traditions. She has played at Berghain, Corsica Studios, and venues across the Middle East and Europe. Morphine Records has positioned Beirut as a node in the global underground — a city where a local music scene has maintained activity through severe political and economic disruption, partly because its underground operated on the margins of mainstream Lebanese culture long before the crises of the 2020s made that marginality literal.',
+    releases:[] },
+
   // ── ZIUR ─────────────────────────────────────────────────────────────────
   { id:'ziur', label:'Ziur', type:'artist', genre:'experimental', era:2015, city:'Berlin', country:'DE',
     desc:'Ziur (Zoë Mc Pherson) was born in New York and moved to Berlin, where she emerged from the city\'s experimental club underground as a producer, DJ, and visual artist. Her music dissolves the boundary between club functionality and avant-garde composition — tracks built from shattered percussion, distorted bass, and hyperreal digital textures that resist genre classification while still moving bodies. She released on her own imprint and on Other People (Nicolas Jaar\'s label), and her debut album "I Recommend Resistance" (2019) established her as one of the defining voices of the post-internet experimental club scene alongside Arca, Amnesia Scanner, and Foodman. She plays live and as a DJ, often incorporating performance elements and visual design into her sets.',
@@ -4120,6 +4159,34 @@ export const NODES = [
       { title:'Showtime (XL)', year:2004 },
     ], spotify:'0gusqTJKxtU1UTmNRMHZcv', },
 
+  { id:'boy_better_know', label:'Boy Better Know', type:'label', genre:'grime', era:2005, city:'London', country:'UK',
+    desc:'Boy Better Know is an independent collective and label founded in 2005 by JME (Joseph Adenuga) and Skepta. It began as a self-release operation when major labels showed no interest in grime, pressing records independently and distributing through specialist UK retailers. Its membership — which has included Jammer, Frisco, Shorty, D Double E, and DJ Maximum — operated as a unit, performing together and controlling the revenue entirely. BBK\'s independence was ideological as well as practical: it demonstrated that artists could build audiences, tour internationally, and sustain careers without label infrastructure at a time when that model had few precedents in UK music. The collective became a template for the wave of independent UK rap and grime artists that followed through the 2010s. Skepta\'s major breakthrough came while fully independent, making Boy Better Know\'s model as significant as its music.',
+    releases:[] },
+
+  { id:'kano', label:'Kano', type:'artist', genre:'grime', era:2004, city:'London', country:'UK',
+    desc:'Kano (Stephen Akintunde Ogunkoya) was born in Barking, East London in 1985 and is among the most consistently acclaimed MCs to emerge from grime. His debut album Home Sweet Home (679 Records, 2005), released when he was nineteen, demonstrated a lyrical sophistication and emotional range that set him apart from contemporaries — street narratives told without glorification, class and aspiration examined without sentimentality. Made in the Manor (Virgin EMI, 2016) was shortlisted for the Mercury Prize and is regarded as one of the finest British rap records of its decade. He later achieved mainstream recognition through his performance as Sully in the Netflix series Top Boy across multiple seasons. His career is unusual in British music for maintaining underground credibility alongside consistent crossover success across two decades.',
+    releases:[
+      { title:'Home Sweet Home (679/Relentless)', year:2005 },
+      { title:'Made in the Manor (Virgin EMI)', year:2016 },
+    ], spotify:'45dkTj5sMRSjrmBSBeiHym' },
+
+  { id:'ghetts', label:'Ghetts', type:'artist', genre:'grime', era:2004, city:'London', country:'UK',
+    desc:'Ghetts (Justin Clarke) was born in 1986 in Walthamstow, East London and developed his reputation through a series of mixtapes in the mid-2000s that established him as one of grime\'s most technically gifted MCs — fast, precise, and lyrically dense even within the genre\'s demanding rhythmic requirements. Where many grime artists moved toward hip hop as the genre evolved, Ghetts retained his MC-first identity. His major label debut Conflict of Interest (Warner, 2021), recorded with a live band and featuring collaborations across British rap and soul, was one of the most ambitious records to emerge from grime\'s second wave. The companion piece Ghetto Gospel: The New Testament was released the same year as a purer grime statement. His long career, mostly without mainstream breakthrough, made his late arrival unusually resonant.',
+    releases:[
+      { title:'Ghetto Gospel: The New Testament (Unorthodox)', year:2021 },
+      { title:'Conflict of Interest (Warner)', year:2021 },
+    ], spotify:'4iGLRmr5DjgBY3C0JJfHMR' },
+
+  { id:'flowdan', label:'Flowdan', type:'artist', genre:'grime', era:2002, city:'London', country:'UK',
+    desc:'Flowdan (Damien Samuels) is a founding member of Roll Deep, one of grime\'s formative collectives alongside Nasty Crew and More Fire. He is known for a bass-heavy delivery that suited collaboration beyond grime: his appearance on The Bug\'s album London Zoo (Ninja Tune, 2008) placed him within a record drawing on dub, dancehall, and industrial music, demonstrating grime\'s flexibility as a vocal aesthetic rather than a narrowly genre-bound form. Most unexpectedly, he featured on Burial\'s Rinsed Out EP (Hyperdub, 2012) — a pairing of two figures from opposite ends of London\'s underground that connected grime\'s vocal aggression with dubstep\'s deep, anonymous bass music. The collaboration remains one of the stranger and more productive crossings in British electronic music.',
+    releases:[
+      { title:'"Rinsed Out" with Burial (Hyperdub)', year:2012 },
+    ], spotify:'6yHNBsQXArGCu8rT3dBz4N' },
+
+  { id:'lord_of_the_mics', label:'Lord of the Mics', type:'moment', genre:'grime', era:2004, city:'London', country:'UK',
+    desc:'Lord of the Mics is a battle DVD series founded in 2004 by Jammer, a member of the Boy Better Know collective. It established the grime clash as a documented, reproducible cultural form: two MCs or crews competing in a freestyle battle before an audience, the exchange recorded and sold as a physical product. Volume 1 featured Wiley versus Kano — a clash that became canonical in grime history and circulated widely on pirate DVD. The series ran to multiple volumes through the 2010s, functioned as a talent showcase, and created a hierarchy of credibility within the scene. In its role as a competitive arena maintaining genre standards and producing recognised outcomes, it plays an analogous function in grime to the battle events of Chicago footwork culture.',
+    releases:[] },
+
   { id:'ninja_tune', label:'Ninja Tune', type:'label', genre:'experimental', era:1990, city:'London', country:'UK',
     desc:'Ninja Tune was founded in London in 1990 by Coldcut (Matt Black and Jonathan More) as an alternative to major label structures. It became one of the most important British independents, releasing music from Bonobo, Amon Tobin, Roots Manuva, Cinematic Orchestra, and many others. Ninja Tune\'s aesthetic sits between electronic, hip-hop, and jazz — consistently rooted in rhythm and sample culture.',
     releases:[
@@ -4290,6 +4357,20 @@ export const NODES = [
       { title:'Various — I Love Cosmic (Irma)', year:2002 },
     ]},
 
+  { id:'cerrone', label:'Cerrone', type:'artist', genre:'disco', era:1976, city:'Paris', country:'FR',
+    desc:'Jean-Marc Cerrone (born 1952, Vitry-sur-Seine) was a French drummer and producer central to the development of Euro disco and its synthesis with electronic production techniques. Love in C Minor (Malligator, 1976), his debut, established a template of long orchestral dance tracks built around a propulsive four-on-the-floor pattern — the title track ran to over fifteen minutes. Supernature (1977) extended this vocabulary with synthesiser textures; it was developed alongside Giorgio Moroder\'s parallel Munich experiments and shares the same ambition to use studio technology as the primary instrument. Cerrone\'s approach — disco as extended arrangement rather than song — anticipated the production scale of 1980s electronic pop. His records were central to the Italian cosmic disco tradition at clubs like Baldelli\'s Cosmic in Lazise, where they would be played stretched to even longer durations. The Supernature bassline and its associated drum patterns have appeared as samples in later electronic music across several decades.',
+    releases:[
+      { title:'Love in C Minor (Malligator)', year:1976 },
+      { title:'Supernature (Malligator)', year:1977 },
+    ], spotify:'5yOvfmf36bUGzJoRuLVFPo' },
+
+  { id:'chic', label:'Chic', type:'artist', genre:'disco', era:1977, city:'New York', country:'US',
+    desc:'Chic was a New York disco group formed in 1977 by guitarist Nile Rodgers and bassist Bernard Edwards. Their records — C\'est Chic (Atlantic, 1978), Risqué (Atlantic, 1979) — are among the most precisely constructed dance records ever made: Rodgers\'s clean funk guitar and Edwards\'s melodic bass locked into a rhythm section of unusual sophistication. Good Times (1979) is one of the most sampled records in popular music history; its bassline was reproduced note for note in Sugarhill Gang\'s Rapper\'s Delight the same year, inaugurating hip hop\'s sampling culture. After Chic, Rodgers became one of the most sought-after producers of the 1980s, making records with Diana Ross, David Bowie (Let\'s Dance, 1983), and Madonna (Like a Virgin, 1984) — a production lineage that carried disco\'s formal properties through a decade that otherwise rejected the genre\'s name.',
+    releases:[
+      { title:"C'est Chic (Atlantic)", year:1978 },
+      { title:'Risqué (Atlantic)', year:1979 },
+    ], spotify:'26gCcWFSeTkoXMXVgYFpyZ' },
+
   { id:'ebm', label:'EBM', type:'style', genre:'experimental', era:1981, city:'Brussels', country:'BE',
     desc:'Electronic Body Music — the term coined by Belgian band Front 242 — describes harsh, rhythmically aggressive electronic music fusing industrial noise with dancefloor functionality. Originating in Belgium and Germany in the early 1980s through Front 242, Nitzer Ebb, and DAF, EBM established the template for industrial dance music and many strains of hard techno. Its influence runs through Downwards, Surgeon, and the harder end of contemporary techno.',
     releases:[
@@ -4307,6 +4388,12 @@ export const NODES = [
     desc:'Hard techno re-emerged as a dominant club sound in Berlin from around 2018, led by artists like SPFDJ, KI/KI, and Alignment. Drawing on EBM, industrial, and the legacy of Surgeon and Downwards, it emphasises high tempos (135–145 BPM), distorted kicks, and a confrontational physical energy. Its rise was accelerated by social media and became one of the defining sounds of post-pandemic club culture globally.',
     releases:[
       { title:'SPFDJ — Crush EP', year:2020 },
+    ]},
+
+  { id:'schwefelgelb', label:'Schwefelgelb', type:'artist', genre:'techno', era:2015, city:'Berlin', country:'DE',
+    desc:'Schwefelgelb (Felix Wagner and Malte Seidel) are a Berlin duo whose music draws on EBM, industrial, and the harsher end of techno. Operating on their own Dalmata Daniel label since around 2015, they occupy a position between the electronic body music tradition of Front 242 and Nitzer Ebb and the contemporary Berlin techno scene — tracks with driving, repetitive structures, confrontational production, and tempos that acknowledge both the industrial era and the present. They represent a strand of the Berlin underground that maintains the city\'s industrial music history in an active rather than retro form, treating EBM as a living vocabulary rather than a period reference.',
+    releases:[
+      { title:'Wir Leben Nicht Wir Träumen Nur (Dalmata Daniel)', year:2017 },
     ]},
 
   { id:'footwork', label:'Footwork', type:'style', genre:'chicago', era:2010, city:'Chicago', country:'US',
@@ -5073,6 +5160,14 @@ export const NODES = [
       { title: '"La La Land" (Relief)', year: 1997 },
       { title: '"Flash" (Green Velvet)', year: 2012 },
     ], spotify:'3ABaec4jjl95VqmG1iD4k2', },
+
+  { id:'relief_records', label:'Relief Records', type:'label', genre:'chicago', era:1992, city:'Chicago', country:'US',
+    desc:'Relief Records was founded in 1992 in Chicago by Curtis Jones, who recorded as Cajmere and, under his more minimal productions, as Green Velvet. The label emerged from the second wave of Chicago house, after Trax and DJ International had established the form\'s commercial parameters, and defined a deeper, more soulful register. Its breakthrough record was Brighter Days (1992), featuring vocalist Dajae over warm chord progressions and 909 patterns — a record that became one of the most recognisable deep house tracks of the era and was widely distributed in Europe through FFRR. Relief continued releasing through the 1990s with Paul Johnson, Boo Williams, and others on the roster, and remained a reference point for Chicago\'s underground even as the city\'s commercial dance music moved in other directions.',
+    releases:[
+      { title:'"Brighter Days" — Cajmere feat. Dajae (Relief)', year:1992 },
+      { title:'"Get Into It" — Paul Johnson (Relief)', year:1997 },
+    ]},
+
 
   { id:'gene_farris', label:'Gene Farris', type:'artist', genre:'house', era:1995, city:'Chicago', country:'US',
     desc:'Gene Farris is a Chicago DJ and producer who emerged from the city\'s house scene in the mid-1990s and has since become one of its most internationally recognised ambassadors. He co-runs Farris Wheel Recordings and has released on Relief, Defected, and Nervous. His productions draw on Chicago jacking rhythms and deep house, and his DJ sets reflect decades of immersion in the city\'s music. He collaborated closely with Green Velvet and has been a fixture at major European clubs and festivals.',
@@ -6322,6 +6417,20 @@ export const NODES = [
   { id:'coeo', label:'COEO', type:'artist', genre:'disco', era:2013, city:'Munich', country:'DE',
     desc:'COEO is the Munich-based duo of Florian Vietz and Andreas Höpfl, producing a blend of disco-house built from chopped samples, programmed rhythm, and a melodic sensibility rooted in vintage American and European disco. The duo became one of the core acts of the Toy Tonics label alongside Rhode + Brown and Cody Currie, and have also released on Razor-N-Tape and Let\'s Play House. Their "Tonic Edits" series on Toy Tonics — sample-based reworkings of obscure funk and disco records — became some of the label\'s most in-demand releases, reaching multiple represses. COEO sits within a broader wave of European producers revisiting the dancefloor language of late-1970s disco through contemporary production techniques.',
     releases: [] , spotify:'1SwDFc5jX708XR3XtzLrRs', },
+
+  { id:'public_possession', label:'Public Possession', type:'label', genre:'deep', era:2012, city:'Munich', country:'DE',
+    desc:'Public Possession is a Munich-based record shop and label founded in 2012 by Valentino Mora and Marco Repetto. The shop operates as a cultural hub for the Munich underground; the label has released records across house, techno, and experimental music with a roster that has included Hieroglyphic Being, Jayda G (her early work), and various international figures. Public Possession\'s significance lies partly in what it has done for Munich specifically — establishing the city as a site of independent underground culture in a country whose electronic music story is otherwise dominated by Berlin and Hamburg — and partly in the particular taste the label brings, which is eclectic and cross-generational without being nostalgic.',
+    releases:[] },
+
+  { id:'institut_fuer_zukunft', label:'Institut fuer Zukunft', type:'venue', genre:'techno', era:2013, city:'Leipzig', country:'DE',
+    desc:'Institut fuer Zukunft (IfZ) is a Leipzig club that opened in 2013 in a former telephone exchange. It operates with an ethos of community organisation and improvised infrastructure: the space is used for music, art, and events with minimal formal hierarchy and without the commercial door policy that governs Berlin\'s better-known clubs. Leipzig\'s techno scene developed in the shadow of Berlin\'s international reputation, but IfZ helped establish the city as a destination in its own right — younger, less commercially developed, and retaining something of the post-reunification energy that Berlin itself has struggled to maintain as it became expensive and globally recognised. It has hosted Shackleton, Objekt, and figures from the broader European experimental underground.',
+    releases:[] },
+
+  { id:'jayda_g', label:'Jayda G', type:'artist', genre:'deep', era:2016, city:'Vancouver', country:'CA',
+    desc:'Jayda G (Jayda Gayle) was born in British Columbia, Canada and studied environmental toxicology at Simon Fraser University in Vancouver before her music career became her primary occupation. She is a deep house DJ and producer whose roots in the Frankie Knuckles and Larry Heard tradition are explicit — her sets move through gospel-influenced house, garage, and disco without irony or revival-mode nostalgia, treating the music as living material rather than historical artefact. Her debut album Significant Changes (Ninja Tune, 2019), which included collaborations across house and soul, brought her to wider attention while maintaining the warmth and physicality of her DJ reputation. She is a Black, queer Canadian artist in a scene that has historically erased the cultural origins of the music it plays, and has spoken publicly about that erasure. Early records on Munich\'s Public Possession gave her a foothold in the European underground before the Ninja Tune deal.',
+    releases:[
+      { title:'Significant Changes (Ninja Tune)', year:2019 },
+    ], spotify:'5WM8VDU1Fh0EBzrR4kqVhL' },
 
   { id:'cody_currie', label:'Cody Currie', type:'artist', genre:'deep', era:2015, city:'London', country:'UK',
     desc:'Cody Currie was born and raised in Leytonstone, East London, to a fashion designer father and a Spanish music writer mother, and studied music at Camberwell Art School before moving to Berlin. His music combines jazz-funk, broken beat, and deep house — shaped by an ear for retro disco licks, chopped keys, and live instrumentation. After meeting Toy Tonics founder Mathias Modica, Currie joined the label and released a sequence of EPs, culminating in his debut album "Lucas" (Toy Tonics, 2022). He has also released on Razor-N-Tape and Dan Shake\'s Shake Records. Currie belongs to a generation of UK-born producers who moved to Berlin and connected with the city\'s growing jazz-oriented club scene.',

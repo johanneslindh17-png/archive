@@ -3796,4 +3796,74 @@
   { from:'axel_boman',        to:'sauna_radio',         strength:2, type:'aesthetic' },
   { from:'northern_electronics', to:'sauna_radio',      strength:1, type:'aesthetic' },
   { from:'the_field',         to:'sauna_radio',         strength:1, type:'aesthetic' },
+
+  // -- GRIME EXPANSION -------------------------------------------------------
+  { from:'skepta',            to:'boy_better_know',     strength:3, type:'roster'    },
+  { from:'wiley',             to:'boy_better_know',     strength:2, type:'lineage'   },
+  { from:'grime',             to:'boy_better_know',     strength:2, type:'aesthetic' },
+  { from:'rinse_fm',          to:'boy_better_know',     strength:2, type:'lineage'   },
+  { from:'wiley',             to:'kano',                strength:2, type:'lineage'   },
+  { from:'rinse_fm',          to:'kano',                strength:2, type:'aesthetic' },
+  { from:'lord_of_the_mics',  to:'kano',                strength:3, type:'collaboration' },
+  { from:'dizzee_rascal',     to:'kano',                strength:2, type:'aesthetic' },
+  { from:'wiley',             to:'ghetts',              strength:2, type:'lineage'   },
+  { from:'rinse_fm',          to:'ghetts',              strength:2, type:'aesthetic' },
+  { from:'kano',              to:'ghetts',              strength:2, type:'aesthetic' },
+  { from:'wiley',             to:'flowdan',             strength:3, type:'lineage'   },
+  { from:'burial',            to:'flowdan',             strength:3, type:'collaboration' },
+  { from:'rinse_fm',          to:'flowdan',             strength:2, type:'aesthetic' },
+  { from:'wiley',             to:'lord_of_the_mics',    strength:3, type:'collaboration' },
+  { from:'kano',              to:'lord_of_the_mics',    strength:3, type:'collaboration' },
+  { from:'grime',             to:'lord_of_the_mics',    strength:2, type:'aesthetic' },
+  { from:'rinse_fm',          to:'lord_of_the_mics',    strength:2, type:'lineage'   },
+
+  // -- CHICAGO LABEL ---------------------------------------------------------
+  { from:'green_velvet',      to:'relief_records',      strength:3, type:'roster'    },
+  { from:'trax',              to:'relief_records',      strength:2, type:'lineage'   },
+  { from:'chicago_scene',     to:'relief_records',      strength:2, type:'aesthetic' },
+  { from:'larry_heard',       to:'relief_records',      strength:2, type:'aesthetic' },
+
+  // -- DISCO EXPANSION -------------------------------------------------------
+  { from:'cosmic_disco_style',to:'cerrone',             strength:3, type:'aesthetic' },
+  { from:'paradise_garage',   to:'cerrone',             strength:1, type:'aesthetic' },
+  { from:'nyc_scene',         to:'chic',                strength:3, type:'lineage'   },
+  { from:'levan',             to:'chic',                strength:2, type:'aesthetic' },
+  { from:'paradise_garage',   to:'chic',                strength:2, type:'aesthetic' },
+
+  // -- 2020s LONDON ----------------------------------------------------------
+  { from:'burial',            to:'parris',              strength:2, type:'aesthetic' },
+  { from:'dmz',               to:'parris',              strength:2, type:'aesthetic' },
+  { from:'hyperdub',          to:'parris',              strength:1, type:'aesthetic' },
+  { from:'hyperdub',          to:'klein',               strength:3, type:'roster'    },
+  { from:'pan_label',         to:'klein',               strength:2, type:'aesthetic' },
+  { from:'skepta',            to:'klein',               strength:1, type:'aesthetic' },
+
+  // -- LATIN AMERICA / GLOBAL ------------------------------------------------
+  { from:'arca',              to:'naafi',               strength:1, type:'aesthetic' },
+  { from:'chicago_scene',     to:'naafi',               strength:1, type:'influence' },
+  { from:'naafi',             to:'dj_python',           strength:2, type:'aesthetic' },
+  { from:'naafi',             to:'badsista',            strength:2, type:'aesthetic' },
+  { from:'amnesia_scanner',   to:'nour_sokhon',         strength:1, type:'aesthetic' },
+  { from:'ziur',              to:'nour_sokhon',         strength:1, type:'aesthetic' },
+  { from:'berghain',          to:'nour_sokhon',         strength:1, type:'aesthetic' },
+
+  // -- GERMANY NEW -----------------------------------------------------------
+  { from:'sandwell_district', to:'schwefelgelb',        strength:2, type:'aesthetic' },
+  { from:'hard_techno',       to:'schwefelgelb',        strength:2, type:'aesthetic' },
+  { from:'ebm',               to:'schwefelgelb',        strength:3, type:'lineage'   },
+  { from:'gas',               to:'perila',              strength:2, type:'aesthetic' },
+  { from:'pole',              to:'perila',              strength:2, type:'aesthetic' },
+  { from:'nils_frahm',        to:'perila',              strength:1, type:'aesthetic' },
+  { from:'pan_label',         to:'jessica_ekomane',     strength:3, type:'roster'    },
+  { from:'uiq',               to:'jessica_ekomane',     strength:1, type:'aesthetic' },
+  { from:'kompakt',           to:'public_possession',   strength:1, type:'aesthetic' },
+  { from:'public_possession', to:'hieroglyphic_being',  strength:2, type:'roster'    },
+  { from:'public_possession', to:'jayda_g',             strength:2, type:'roster'    },
+  { from:'berghain',          to:'institut_fuer_zukunft', strength:1, type:'aesthetic' },
+  { from:'tresor_club',       to:'institut_fuer_zukunft', strength:1, type:'lineage' },
+
+  // -- JAYDA G ---------------------------------------------------------------
+  { from:'larry_heard',       to:'jayda_g',             strength:2, type:'influence' },
+  { from:'levan',             to:'jayda_g',             strength:2, type:'influence' },
+  { from:'knuckles',          to:'jayda_g',             strength:2, type:'influence' },
 ];
