@@ -936,6 +936,7 @@ export default function App() {
     if (typeof onboardStep === 'number' && onboardStep >= TOUR_STEPS.length - 1) {
       dismissOnboard();
     } else {
+      setTourHL(prev => prev ? { ...prev, ready: false } : null);
       setOnboardStep(s => (typeof s === 'number' ? s + 1 : 0));
     }
   };
