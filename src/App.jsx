@@ -650,6 +650,7 @@ export default function App() {
   // Close panel — node stays in selectedSet so network stays highlighted
   function closePanel() {
     setSelected(null);
+    window.history.replaceState(null, '', location.pathname + location.search);
   }
 
   // Clear everything — selection, trail, pin
