@@ -3351,7 +3351,7 @@ export default function App() {
 
       {/* ── TOUR v2 ─────────────────────────────────────────────────────────── */}
       {typeof onboardStep === 'number' && (<>
-        <div className="tour-scrim" onClick={dismissOnboard} />
+        <div className={`tour-scrim${tourHL?.ready === false ? ' tour-scrim--dim' : ''}`} onClick={dismissOnboard} />
 
         {tourHL && (tourHL.tw > 0) && tourHL.side !== 'center' && (
           <div key={`hl-${onboardStep}`} className="tour-hl-box" style={{ left: tourHL.tx - 6, top: tourHL.ty - 6, width: tourHL.tw + 12, height: tourHL.th + 12 }}>

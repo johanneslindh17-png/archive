@@ -338,16 +338,16 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 }
 .legwrap:hover .legtrigger{color:var(--tb-text)}
 .legbox{
-  position:fixed;top:90px;left:50%;
-  transform:translateX(-50%) translateY(-6px);
+  position:fixed;top:50%;left:50%;
+  transform:translate(-50%,calc(-50% - 6px));
   background:#fafaf8;border:1px solid var(--tb-border);
   width:min(820px,calc(100vw - 24px));
-  max-height:calc(100vh - 90px);overflow-y:auto;
+  max-height:calc(100vh - 120px);overflow-y:auto;
   pointer-events:none;opacity:0;
   transition:opacity 0.25s 0.08s,transform 0.25s 0.08s;z-index:1002;
   box-shadow:0 12px 48px rgba(0,0,0,0.13);
 }
-.legwrap:hover .legbox{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:all}
+.legwrap:hover .legbox{opacity:1;transform:translate(-50%,-50%);pointer-events:all}
 
 /* Header row */
 .legbox-header{
@@ -1171,8 +1171,8 @@ path.eg.dim{opacity:0.055}
 }
 .aboutwrap:hover .abouttrigger{color:var(--tb-text);}
 .aboutbox{
-  position:fixed;top:90px;left:50%;
-  transform:translateX(-50%) translateY(-6px);
+  position:fixed;top:50%;left:50%;
+  transform:translate(-50%,calc(-50% - 6px));
   width:min(400px,calc(100vw - 24px));
   background:#fafaf8;border:1px solid var(--tb-border);
   padding:20px 22px 18px;
@@ -1181,7 +1181,7 @@ path.eg.dim{opacity:0.055}
   transition:opacity 0.25s 0.08s,transform 0.25s 0.08s;z-index:1002;
   box-shadow:0 12px 48px rgba(0,0,0,0.13);
 }
-.aboutwrap:hover .aboutbox{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:all;}
+.aboutwrap:hover .aboutbox{opacity:1;transform:translate(-50%,-50%);pointer-events:all;}
 .aboutbox-wordmark{
   font-family:'Syne Mono',monospace;font-size:0.78rem;
   letter-spacing:0.14em;text-transform:uppercase;color:#333;
@@ -1254,7 +1254,9 @@ path.eg.dim{opacity:0.055}
   position:fixed;inset:0;z-index:9994;
   background:rgba(0,0,0,0.42);
   pointer-events:all;
+  transition:background 0.25s;
 }
+.tour-scrim--dim{background:rgba(0,0,0,0.08);}
 .tour-hl-box{
   position:fixed;pointer-events:none;z-index:9995;
   box-sizing:border-box;
