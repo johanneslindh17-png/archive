@@ -3882,6 +3882,7 @@
   { from:'aril_brikha',       to:'daniel_bortz',        strength:1, type:'aesthetic' },
   { from:'smallville',        to:'nuno_dos_santos',     strength:1, type:'aesthetic' },
   { from:'larry_heard',       to:'nuno_dos_santos',     strength:2, type:'influence' },
-  { from:'studio_barnhus',    to:'aleksandir',          strength:2, type:'aesthetic' },
-  { from:'axel_boman',        to:'aleksandir',          strength:2, type:'aesthetic' },
+  { from:'nicolas_jaar',      to:'aleksandir',          strength:2, type:'influence' },
+  { from:'bicep',             to:'aleksandir',          strength:1, type:'aesthetic' },
+  { from:'george_fitzgerald', to:'aleksandir',          strength:1, type:'aesthetic' },
 ];
