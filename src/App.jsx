@@ -616,7 +616,7 @@ export default function App() {
   const [pathStep, setPathStep] = useState(null);
   const deepLinkNodeRef = useRef(null);
 
-  const TRIAL_LIMIT = 9999;
+  const TRIAL_LIMIT = 25;
 
   useEffect(() => {
     setPhotoColors(null);
@@ -961,6 +961,13 @@ export default function App() {
       const CARD_W = 300, CARD_H = 200;
       const vw = window.innerWidth, vh = window.innerHeight;
 
+      // Clear previous spotlit element now (inside delay) so there's no black
+      // screen gap between removing the old spotlit and applying the new one.
+      if (spotlitElRef.current) {
+        spotlitElRef.current.classList.remove('tour-spotlit');
+        spotlitElRef.current = null;
+      }
+
       // ── Step 0: centered welcome card ─────────────────────────────────────
       if (onboardStep === 0) {
         persistCardRef.current = null;
@@ -976,12 +983,6 @@ export default function App() {
         persistCardRef.current = pos;
       }
       const cp = persistCardRef.current;
-
-      // Clear previous spotlit element before applying a new one
-      if (spotlitElRef.current) {
-        spotlitElRef.current.classList.remove('tour-spotlit');
-        spotlitElRef.current = null;
-      }
 
       const el = step.getTarget?.();
       if (!el) {
@@ -2735,7 +2736,7 @@ export default function App() {
               setNewsItem(nextNewsItem());
             }}
           >
-            {'› ElectronicArchive.club — A personal attempt to archive the electronic music underground, built by a DJ and collector from inside the scene. New nodes every week. Explore the connections, discover new music, follow the Bandcamp links to support the artists directly. — TJ'}
+            {(unlocked ? 'Welcome back! ' : '') + '› ElectronicArchive.club — A personal attempt to archive the electronic music underground, built by a DJ and collector from inside the scene. New nodes every week. Explore the connections, discover new music, follow the Bandcamp links to support the artists directly.'}
           </div>
         )}
         {!selectedSet.length && !pinned && welcomeDone && newsItem && (
@@ -3329,7 +3330,6 @@ export default function App() {
             )}
           </div>
           <button className="tour-relaunch" onClick={() => setOnboardStep('welcome')} title="Relaunch intro">TOUR</button>
-          <span className="archive-credit">by TJ</span>
         </div>
       </div>
 
