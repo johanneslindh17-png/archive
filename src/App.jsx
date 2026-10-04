@@ -2234,8 +2234,12 @@ export default function App() {
               const svgH = nr.height / k;  // node height in SVG user units
               const PAD_SVG = 18;           // extra SVG-unit padding for glow
 
+              // Append overlay to canvas (not body) so canvas overflow:hidden
+              // clips it at the top/bottom edges — same as it clips SVG nodes.
+              const canvasEl = svgRef.current?.closest('.canvas') || document.body;
+              const canvasRect = canvasEl.getBoundingClientRect();
               const ov = document.createElement('div');
-              ov.style.cssText = `position:fixed;left:${nr.left}px;top:${nr.top}px;width:${nr.width}px;height:${nr.height}px;pointer-events:none;z-index:900;overflow:visible;`;
+              ov.style.cssText = `position:absolute;left:${nr.left - canvasRect.left}px;top:${nr.top - canvasRect.top}px;width:${nr.width}px;height:${nr.height}px;pointer-events:none;z-index:900;overflow:visible;`;
               const miniSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
               miniSvg.setAttribute('viewBox', `${-svgW/2-PAD_SVG} ${-svgH/2-PAD_SVG} ${svgW+PAD_SVG*2} ${svgH+PAD_SVG*2}`);
               miniSvg.style.cssText = `width:${nr.width+PAD_SVG*k*2}px;height:${nr.height+PAD_SVG*k*2}px;position:absolute;left:${-PAD_SVG*k}px;top:${-PAD_SVG*k}px;overflow:visible;pointer-events:none;`;
@@ -2245,7 +2249,7 @@ export default function App() {
               wG.appendChild(selfInnerEl.cloneNode(true));
               miniSvg.appendChild(wG);
               ov.appendChild(miniSvg);
-              document.body.appendChild(ov);
+              canvasEl.appendChild(ov);
               // no scale-up; overlay stays at natural size
               marchOverlayRef.current.push(ov);
             }
