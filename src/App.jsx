@@ -381,6 +381,27 @@ const TOUR_STEPS = [
     delay: 500,
   },
   {
+    id: 'multiselect',
+    title: 'GROW THE WEB',
+    body: "Any node that lights up is directly connected to the one you opened. Click a highlighted node to pull it into your view alongside Jeff Mills — the map keeps extending. Keep clicking to trace the web.",
+    getTarget: () => document.querySelector('.dp.open'),
+    cardSide: 'persist',
+    onEnter: ctx => {
+      // Select Underground Resistance — it's connected to Jeff Mills so it adds to the set
+      ctx.tourSelectNode('underground_resistance');
+    },
+    delay: 600,
+  },
+  {
+    id: 'breadcrumb',
+    title: 'YOUR PATH, ALWAYS VISIBLE',
+    body: "The tab bar just above the map shows every node in your current view. Click any tab to jump back to it, click × to remove it, or hit ← ALL NODES to reset and see everything again. Click anywhere on the blank map to deselect.",
+    getTarget: () => document.querySelector('.nodebreadcrumb'),
+    cardSide: 'persist',
+    onEnter: null,
+    delay: 200,
+  },
+  {
     id: 'player',
     title: 'HEAR THE HISTORY',
     body: "When an artist has music on Bandcamp, the player is built right in. It keeps playing as you explore — the whole history, with a soundtrack. Or follow the link to their Spotify page.",
@@ -388,6 +409,7 @@ const TOUR_STEPS = [
     getSecondTarget: () => document.querySelector('.dp-spotify-link'),
     cardSide: 'persist',
     onEnter: ctx => {
+      ctx.tourSelectNode('jeff_mills');
       ctx.setPlayingNodeId('jeff_mills');
       const panel   = document.querySelector('.dp.open');
       const spotify = document.querySelector('.dp-spotify-link');
@@ -415,6 +437,15 @@ const TOUR_STEPS = [
       return () => clearInterval(iv);
     },
     delay: 200,
+  },
+  {
+    id: 'regions',
+    title: 'DIVE INTO A SCENE',
+    body: "Click any region column on the map to expand it into city sub-scenes — Detroit splits into its clubs and eras, Chicago into its houses, London into its boroughs. The bar at the top shows you where you are; click ← ALL REGIONS to step back out.",
+    getTarget: () => null,
+    cardSide: 'center',
+    onEnter: null,
+    delay: 0,
   },
   {
     id: 'groovebox',
@@ -578,7 +609,7 @@ export default function App() {
   const [typePopOpen, setTypePopOpen] = useState(false);
   const chatRef = useRef(null);
   const [logOpen,    setLogOpen]    = useState(false);
-  const [aboutOpen,  setAboutOpen]  = useState(false);
+  // aboutOpen removed — About is now a hover popup like the ? guide
   const [eraYear,    setEraYear]    = useState(null);
   const [logHlDate,  setLogHlDate]  = useState(null);
   const [pathNodes, setPathNodes] = useState([]);
@@ -2153,6 +2184,9 @@ export default function App() {
         }}
         onMouseEnter={ev => {
           if (isScrollingRef.current) return;
+          // Don't activate hover when cursor is in topbar / regionlabel chrome
+          const chrome = document.querySelector('.regionlabel') ?? document.querySelector('.topbar');
+          if (chrome && ev.clientY <= chrome.getBoundingClientRect().bottom) return;
           // Cancel any pending leave-cleanup so there's no blank frame between nodes
           clearTimeout(leaveTimerRef.current);
           if (!isDim) {
@@ -2508,8 +2542,42 @@ export default function App() {
           )}
         </div>
 
-        {/* About */}
-        <button className="about-trigger" onClick={() => setAboutOpen(true)}>About</button>
+        {/* About — hover popup, same pattern as legwrap/? guide */}
+        <div className="aboutwrap">
+          <div className="abouttrigger">About</div>
+          <div className="aboutbox">
+            <div className="aboutbox-wordmark">ELECTRONICARCHIVE</div>
+            <div className="aboutbox-section">
+              <div className="aboutbox-title">The Archive</div>
+              <p className="aboutbox-body">
+                A personal, ongoing attempt to map and document the electronic music underground —
+                its artists, labels, venues, styles and pivotal moments, connected by documented lines
+                of influence and lineage. This is a living project: new nodes are added every week,
+                and the archive expands and evolves alongside the scene itself.
+              </p>
+            </div>
+            <div className="aboutbox-section">
+              <div className="aboutbox-title">Who Builds It</div>
+              <p className="aboutbox-body">
+                Built by a DJ, collector and music fan from deep inside the underground — not
+                observing the scene from a distance, but living it. The knowledge here is intimate
+                and first-hand. A brave personal attempt to preserve something worth preserving,
+                and to share it with anyone willing to go looking.
+              </p>
+            </div>
+            <div className="aboutbox-section">
+              <div className="aboutbox-title">Membership &amp; Contributions</div>
+              <p className="aboutbox-body">
+                For €20 a year you become a member, get full access to the archive, and directly
+                support its ongoing documentation. Artist and node suggestions are welcome — reach out
+                if you know something that should be here.
+              </p>
+            </div>
+            <button className="aboutbox-cta" onClick={() => setPaywallOpen(true)}>
+              Become a Member — €20 / year
+            </button>
+          </div>
+        </div>
 
         {/* Legend / Guide */}
         <div className="legwrap">
@@ -3374,46 +3442,6 @@ export default function App() {
         </div>
       )}
 
-      {aboutOpen && (
-        <div className="about-overlay" onClick={e => { if (e.target === e.currentTarget) setAboutOpen(false); }}>
-          <div className="about-modal">
-            <button className="about-close" onClick={() => setAboutOpen(false)}>✕</button>
-            <div className="about-wordmark">ELECTRONICARCHIVE</div>
-            <div className="about-section">
-              <div className="about-section-title">The Archive</div>
-              <p className="about-body">
-                A personal, ongoing attempt to map and document the electronic music underground —
-                its artists, labels, venues, styles and pivotal moments, connected by documented lines
-                of influence and lineage. This is a living project: new nodes are added every week,
-                and the archive expands and evolves alongside the scene itself.
-              </p>
-            </div>
-            <div className="about-section">
-              <div className="about-section-title">Who Builds It</div>
-              <p className="about-body">
-                Built by a DJ, collector and music fan from deep inside the underground — not
-                observing the scene from a distance, but living it. The knowledge here is intimate
-                and first-hand. A brave personal attempt to preserve something worth preserving,
-                and to share it with anyone willing to go looking.
-              </p>
-            </div>
-            <div className="about-section">
-              <div className="about-section-title">Membership &amp; Contributions</div>
-              <p className="about-body">
-                For €20 a year you become a member, get full access to the archive, and directly
-                support its ongoing documentation. Artist and node suggestions are welcome — if
-                you know something that should be here, reach out. The archive is for anyone who
-                loves underground electronic music and wants to learn more, discover new music,
-                and understand how it all connects. Personal, intimate access to knowledge from
-                the depths of the scene.
-              </p>
-            </div>
-            <button className="about-cta" onClick={() => { setAboutOpen(false); setPaywallOpen(true); }}>
-              Become a Member — €20 / year
-            </button>
-          </div>
-        </div>
-      )}
 
       {eraYear !== null && ERA_SUMMARIES[eraYear] && (() => {
         const era = ERA_SUMMARIES[eraYear];
