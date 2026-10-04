@@ -917,7 +917,6 @@ export default function App() {
   function tourSelectNode(id) {
     setSelected(id);
     setPinned(null);
-    setHistory([]);
   }
 
   const dismissOnboard = () => {
