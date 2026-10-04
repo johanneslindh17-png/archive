@@ -3790,4 +3790,10 @@
   { from:'arca',              to:'ziur',                strength:2, type:'aesthetic' },
   { from:'pan_label',         to:'ziur',                strength:2, type:'aesthetic' },
   { from:'amnesia_scanner',   to:'ziur',                strength:2, type:'aesthetic' },
+
+  // -- SAUNA RADIO -----------------------------------------------------------
+  { from:'studio_barnhus',    to:'sauna_radio',         strength:3, type:'aesthetic' },
+  { from:'axel_boman',        to:'sauna_radio',         strength:2, type:'aesthetic' },
+  { from:'northern_electronics', to:'sauna_radio',      strength:1, type:'aesthetic' },
+  { from:'the_field',         to:'sauna_radio',         strength:1, type:'aesthetic' },
 ];

@@ -1,6 +1,8 @@
 // Most recently added nodes, newest first.
 // Add new entries here whenever nodes are added.
 export const NODE_CHANGELOG = [
+  // 2026-10-04 Stockholm radio
+  { id: 'sauna_radio',         label: 'Sauna Radio',               date: '2026-10-04' },
   // 2026-10-04 concept node
   { id: 'unknown_artist',      label: 'Unknown Artist',            date: '2026-10-04' },
   // 2026-10-04 batch 6

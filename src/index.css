@@ -749,7 +749,7 @@ path.eg.dim{opacity:0.055}
 .dp-photo-credit{font-size:0.65rem;color:#888;margin-top:10px;line-height:1.4;}
 .dp-photo-credit a{color:inherit;text-decoration:underline;}
 .dark .dp-photo-credit{color:#555;}
-.dp-desc{font-size:0.8rem;line-height:1.8;color:#444;margin-bottom:8px;}
+.dp-desc{font-size:0.8rem;line-height:1.8;color:#444;margin-bottom:8px;white-space:pre-wrap;}
 .desc-node-link{
   cursor:pointer;
   border-bottom:1px dotted currentColor;
