@@ -5213,4 +5213,10 @@
   // -- COSMJN --
   { from:'cosmjn',                           to:'sunwaves',                         strength:2, type:'lineage'   },
 
+  // ── AJAKS / AJAJAJ / JO BUBBLES ──────────────────────────────────────────
+  { from:'ajaks',         to:'ajajaj',          strength:3, type:'founded'   },
+  { from:'running_back',  to:'ajaks',           strength:2, type:'roster'    },
+  { from:'studio_barnhus',to:'jo_bubbles',      strength:2, type:'roster'    },
+  { from:'axel_boman',    to:'jo_bubbles',      strength:2, type:'aesthetic' },
+
 ];

@@ -7032,6 +7032,20 @@ export const NODES = [
     desc:'Lizz (real name Petre Ionut Valentin, also known as Petre Vali) is a Romanian DJ and producer born in Buzau and based in Cluj-Napoca, where he has been a resident at Club Midi. His music sits within the rominimal tradition — minimal, hypnotic, and deeply groove-oriented — and he has released on Sleep is Commercial, Eastenderz, Valioso Recordings, and Playedby. He is closely associated with Cosmjn and the wider network of Romanian artists that includes Nu Zau, Priku, Mihigh, and Suciu, and has toured internationally across Europe, Asia, and Australia.',
     releases: [] },
 
+  { id:'ajaks', label:'Ajaks', type:'artist', genre:'minimal', era:2016, city:'Gothenburg', country:'SE',
+    desc:'Ajaks is the alias of Pontus Hansson, a DJ and producer based between Gothenburg and Stockholm. Active in the Swedish underground since 2016, he releases on Running Back and SORYUKA alongside his own AJAJAJ imprint, which he founded in 2021. His sets and productions move across minimal techno, micro house, and tech house, and he is closely associated with The Living Room, a Gothenburg party series that co-organises events under the AJAJAJ name.',
+    releases: [] },
+
+  { id:'ajajaj', label:'AJAJAJ', type:'label', genre:'minimal', era:2021, city:'Stockholm', country:'SE',
+    desc:'AJAJAJ is a Stockholm-based label founded in 2021 by Ajaks (Pontus Hansson). Its first release, AJAJAJ001, appeared in September 2021 as a various artists compilation featuring producers from the Scandinavian underground. The label\'s output sits within minimal, micro house, and tech house, and operates in connection with The Living Room party series in Gothenburg. The name mirrors the Swedish exclamation.',
+    releases: [
+      { title: 'AJAJAJ001 — Various Artists', year: 2021 },
+    ]},
+
+  { id:'jo_bubbles', label:'Jo Bubbles', type:'artist', genre:'deep', era:2010, city:'Stockholm', country:'SE',
+    desc:'Jo Bubbles is the alias of Jonas Dahlström (also known as Joey Beads), a Swedish DJ, producer, and dancer based between Stockholm and Gothenburg. He was a co-creator of the Hägring open air parties in Stockholm, which ran from 2010 to 2019 and became one of the city\'s most loved outdoor dance music events. His musical references span disco, proto-house, Italo, electro, and house, and he releases on Studio Barnhus, Parkway Records, and Västkransen Records. He plays regularly in Berlin and has appeared at Paloma, Under Bron, and Timebar among others.',
+    releases: [] },
+
   { id:'mark_farina', label:'Mark Farina', type:'artist', genre:'deep', era:1989, city:'Chicago', country:'US',
     desc:'Mark Farina is a Chicago-born DJ who relocated to San Francisco in the early 1990s and has since operated at the intersection of underground house and what he calls Mushroom Jazz — a blend of deep house with jazz, hip-hop, and downbeat influences that he developed into an ongoing mix series beginning in 1993. A longtime resident at Smartbar in Chicago and The Mighty in San Francisco, he has been one of the most active touring DJs in American underground dance music for over three decades. His releases appear on Om Records, Music For Freaks, and Robsoul Recordings. He is closely associated with Derrick Carter and DJ Sneak, the core of the Chicago house scene that bridged American funk traditions with European club culture.',
     releases: [
