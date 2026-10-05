@@ -3012,9 +3012,6 @@ export default function App() {
             {/* Global view */}
             {!expanded && (
               <g>
-                {/* Dim nodes go first — behind the grid lines */}
-                {hlIds && <g key="dim-nodes">{nodeEls.filter((el, i) => el && !hlIds.has(NODES[i].id))}</g>}
-
                 {/* Year grid */}
                 <g>
                   {YEAR_LINES.map(y => (
@@ -3037,8 +3034,7 @@ export default function App() {
                   <g key="dim-edges">{edgeEls.filter(el => el?.props?.className?.includes('dim'))}</g>
                   <g key="bright-edges">{edgeEls.filter(el => el && !el.props?.className?.includes('dim'))}</g>
                   {hovPathEls && <g key="hov-paths" style={{ pointerEvents:'none' }}>{hovPathEls}</g>}
-                  {!hlIds && <g key="nodes">{nodeEls}</g>}
-                  {hlIds && <g key="hl-nodes">{nodeEls.filter((el, i) => el && hlIds.has(NODES[i].id))}</g>}
+                  <g key="nodes">{nodeEls}</g>
                 </>
               </g>
             )}
@@ -3049,9 +3045,6 @@ export default function App() {
               const bw = (W - LEFT) / cities.length;
               return (
                 <>
-                  {/* Dim nodes go first — behind the grid lines */}
-                  {hlIds && <g key="dim-nodes">{nodeEls.filter((el, i) => el && !hlIds.has(NODES[i].id))}</g>}
-
                   {/* Year grid */}
                   <g>
                     {YEAR_LINES.map(y => (
@@ -3075,8 +3068,7 @@ export default function App() {
                     <g key="dim-edges">{edgeEls.filter(el => el?.props?.className?.includes('dim'))}</g>
                     <g key="bright-edges">{edgeEls.filter(el => el && !el.props?.className?.includes('dim'))}</g>
                     {hovPathEls && <g key="hov-paths" style={{ pointerEvents:'none' }}>{hovPathEls}</g>}
-                    {!hlIds && <g key="nodes">{nodeEls}</g>}
-                    {hlIds && <g key="hl-nodes">{nodeEls.filter((el, i) => el && hlIds.has(NODES[i].id))}</g>}
+                    <g key="nodes">{nodeEls}</g>
                   </>
                 </>
               );
