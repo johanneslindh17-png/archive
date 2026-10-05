@@ -826,7 +826,9 @@ export default function App() {
     const _iw2 = window.innerWidth;
     const _isTouch2 = window.matchMedia('(pointer:coarse)').matches;
     const _bz2 = (_iw2 >= 600 && _iw2 <= 1400 && _isTouch2) ? 68 : 0;
-    const k  = (_iw2 - _bz2) / W;
+    // Use screen width (same as initial load) so flyHome always returns
+    // to full-screen node size regardless of current window size.
+    const k  = Math.max(window.screen.width / W, 1.0);
     const vh = window.innerHeight;
     const live = d3.zoomTransform(svgRef.current);
     // Which SVG y is currently at the vertical centre of the viewport?
