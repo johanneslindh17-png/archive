@@ -2691,27 +2691,22 @@ export default function App() {
             <div className="aboutbox-section">
               <div className="aboutbox-title">The Archive</div>
               <p className="aboutbox-body">
-                A personal, ongoing attempt to map and document the electronic music underground —
-                its artists, labels, venues, styles and pivotal moments, connected by documented lines
-                of influence and lineage. This is a living project: new nodes are added every week,
-                and the archive expands and evolves alongside the scene itself.
+                A map of electronic music — artists, labels, venues, and the connections between them,
+                documented from primary sources. New nodes are added every week.
               </p>
             </div>
             <div className="aboutbox-section">
               <div className="aboutbox-title">Who Builds It</div>
               <p className="aboutbox-body">
-                Built by a DJ, collector and music fan from deep inside the underground — not
-                observing the scene from a distance, but living it. The knowledge here is intimate
-                and first-hand. A brave personal attempt to preserve something worth preserving,
-                and to share it with anyone willing to go looking.
+                Built and maintained by a DJ and collector. The knowledge here comes from years inside
+                the music, and is shared here as a reference for anyone who wants it.
               </p>
             </div>
             <div className="aboutbox-section">
               <div className="aboutbox-title">Membership &amp; Contributions</div>
               <p className="aboutbox-body">
-                For €20 a year you become a member, get full access to the archive, and directly
-                support its ongoing documentation. Artist and node suggestions are welcome — reach out
-                if you know something that should be here.
+                €20 a year gives full access and supports the ongoing work. If you know something
+                that should be here, get in touch.
               </p>
             </div>
             <button className="aboutbox-cta" onClick={() => setPaywallOpen(true)}>
@@ -2876,7 +2871,7 @@ export default function App() {
               setNewsItem(nextNewsItem());
             }}
           >
-            {(unlocked ? 'Welcome back! ' : '') + '› ElectronicArchive.club — A personal attempt to archive the electronic music underground, built by a DJ and collector from inside the scene. New nodes every week. Explore the connections, discover new music, follow the Bandcamp links to support the artists directly.'}
+            {(unlocked ? 'Welcome back. ' : '') + '› ElectronicArchive.club — A map of electronic music. Artists, labels, venues, and the connections between them. Built by a DJ and collector. New nodes every week.'}
           </div>
         )}
         {!selectedSet.length && !pinned && welcomeDone && newsItem && (
