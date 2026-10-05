@@ -75,15 +75,15 @@ body.svg-dragging .topbar{pointer-events:none;}
 .dark .dp-pill-culture { background:#1c0808;color:#ee6655; }
 .dark .dp-name{ color:#e0ddd8; }
 .dark .dp-era-track{ background:#1e1e2c; }
-.dark .dp-era-fill{ background:#3a3a50; }
-.dark .dp-era-dot{ background:#9090a8; }
+.dark .dp-era-fill{ background:rgb(var(--photo-r,58) var(--photo-g,58) var(--photo-b,80) / 0.85); }
+.dark .dp-era-dot{ background:rgb(var(--photo-r,144) var(--photo-g,144) var(--photo-b,168)); }
 .dark .dp-era-labels{ color:#505068; }
 .dark .dp-era-val{ color:#9090b8; }
 .dark .dp-meta{ color:#8080a0; }
 .dark .dp-desc{ color:#a0a0b8; }
-.dark .dp-sec{ color:#9090b8; border-color:var(--tb-border); }
+.dark .dp-sec{ color:#9090b8; border-color:rgb(var(--photo-r,30) var(--photo-g,30) var(--photo-b,50) / 0.95); }
 .dark .dp-sec-count{ background:#16161e; color:#505068; }
-.dark .dp-conn{ border-color:#141420; }
+.dark .dp-conn{ border-color:rgb(var(--photo-r,20) var(--photo-g,20) var(--photo-b,32) / 0.95); }
 .dark .dp-conn-name{ color:#c0c0d8; }
 .dark .dp-conn-sub{ color:#606080; }
 .dark .dp-conn-arrow{ color:#404058; }
@@ -710,10 +710,16 @@ path.eg.dim{opacity:0}
   position:relative;height:3px;background:#eeeeee;
   margin-bottom:5px;
 }
-.dp-era-fill{position:absolute;left:0;top:0;height:100%;background:#cccccc;}
+.dp-era-fill{
+  position:absolute;left:0;top:0;height:100%;
+  background:rgb(var(--photo-r,204) var(--photo-g,204) var(--photo-b,204) / 0.7);
+  transition:background 0.6s ease;
+}
 .dp-era-dot{
   position:absolute;top:50%;transform:translate(-50%,-50%);
-  width:8px;height:8px;border-radius:50%;background:#333;
+  width:8px;height:8px;border-radius:50%;
+  background:rgb(var(--photo-r,51) var(--photo-g,51) var(--photo-b,51));
+  transition:background 0.6s ease;
 }
 .dp-era-labels{
   display:flex;justify-content:space-between;align-items:center;
@@ -775,14 +781,15 @@ path.eg.dim{opacity:0}
 .dp-sec{
   font-family:'Syne Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;
   text-transform:uppercase;color:#888;
-  padding:8px 0 5px;border-top:1px solid #eee;
+  padding:8px 0 5px;border-top:1px solid rgb(var(--photo-r,238) var(--photo-g,238) var(--photo-b,238) / 0.85);
   display:flex;align-items:center;gap:6px;
+  transition:border-color 0.6s ease;
 }
 .dp-sec-count{
   background:#f0f0f0;color:#aaa;
   font-size:0.46rem;padding:1px 5px;letter-spacing:0.06em;
 }
-.dp-conn{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #f5f5f5;cursor:pointer;transition:opacity 0.12s;}
+.dp-conn{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgb(var(--photo-r,245) var(--photo-g,245) var(--photo-b,245) / 0.7);cursor:pointer;transition:opacity 0.12s,border-color 0.6s ease;}
 .dp-conn:hover{opacity:0.65;}
 .dp-conn-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
 .dp-conn-info{display:flex;flex-direction:column;flex:1;min-width:0;}
@@ -790,10 +797,10 @@ path.eg.dim{opacity:0}
 .dp-conn-sub{font-family:'Syne Mono',monospace;font-size:0.5rem;color:#bbb;letter-spacing:0.04em;margin-top:1px;}
 .dp-conn-arrow{font-size:0.65rem;color:#ccc;flex-shrink:0;}
 .dp-releases{margin-bottom:4px;}
-.dp-release{display:flex;align-items:baseline;justify-content:space-between;padding:5px 0;border-bottom:1px solid #f5f5f5;}
+.dp-release{display:flex;align-items:baseline;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgb(var(--photo-r,245) var(--photo-g,245) var(--photo-b,245) / 0.7);transition:border-color 0.6s ease;}
 .dp-release-title{font-size:0.74rem;color:#333;flex:1;padding-right:8px;}
 .dp-release-year{font-family:'Syne Mono',monospace;font-size:0.52rem;color:#bbb;flex-shrink:0;letter-spacing:0.06em;}
-.dark .dp-release{border-color:#0f0f18;}
+.dark .dp-release{border-color:rgb(var(--photo-r,15) var(--photo-g,15) var(--photo-b,24) / 0.95);}
 .dark .dp-release-title{color:#7a7a94;}
 .dark .dp-release-year{color:#2a2a40;}
 /* â”€â”€ Status bar color legend â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
