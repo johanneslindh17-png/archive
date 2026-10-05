@@ -2950,30 +2950,32 @@ export default function App() {
           <rect x={0} y={0} width="100%" height="100%" fill={themeStyle?.bg || (darkMode ? '#0c0c10' : '#ffffff')} onClick={() => { clearAll(); flyHome(); }} />
           <g ref={svgGRef} style={{ transformOrigin: '0 0' }}>
 
-            {/* Year grid */}
-            <g>
-              {YEAR_LINES.map(y => (
-                <line key={'y'+y} x1={0} y1={eraY(y)} x2={W} y2={eraY(y)}
-                  stroke={themeAccent
-                    ? YEAR_LABELS.includes(y) ? themeAccent + '44' : themeAccent + '1a'
-                    : YEAR_LABELS.includes(y) ? (darkMode ? '#252535' : '#cccccc') : (darkMode ? '#181828' : '#ebebeb')}
-                  strokeWidth={YEAR_LABELS.includes(y) ? 0.7 : 0.3} />
-              ))}
-            </g>
-
             {/* Global view */}
             {!expanded && (
               <g>
+                {/* Dim nodes go first — behind the grid lines */}
+                {hlIds && <g key="dim-nodes">{nodeEls.filter((el, i) => el && !hlIds.has(NODES[i].id))}</g>}
+
+                {/* Year grid */}
+                <g>
+                  {YEAR_LINES.map(y => (
+                    <line key={'y'+y} x1={0} y1={eraY(y)} x2={W} y2={eraY(y)}
+                      stroke={themeAccent
+                        ? YEAR_LABELS.includes(y) ? themeAccent + '44' : themeAccent + '1a'
+                        : YEAR_LABELS.includes(y) ? (darkMode ? '#252535' : '#cccccc') : (darkMode ? '#181828' : '#ebebeb')}
+                      strokeWidth={YEAR_LABELS.includes(y) ? 0.7 : 0.3} />
+                  ))}
+                </g>
+
                 {Object.entries(REGIONS).map(([key]) => {
                   const x = REGION_LEFTS[key] || LEFT;
-                  if (x <= LEFT) return null; // skip leftmost line — year strip covers that edge
+                  if (x <= LEFT) return null;
                   return <line key={key} x1={x} y1={0} x2={x} y2={H} stroke={themeAccent ? themeAccent + '55' : (darkMode ? '#252535' : '#e0e0e0')} strokeWidth={1} />;
                 })}
                 <>
-                  {/* dim edges → (search-dim nodes) → bright edges → nodes */}
+                  {/* dim edges → bright edges → nodes */}
                   {/* keys on every <g> so React never morphs one layer into another when hovPathEls mounts */}
                   <g key="dim-edges">{edgeEls.filter(el => el?.props?.className?.includes('dim'))}</g>
-                  {hlIds && <g key="dim-nodes">{nodeEls.filter((el, i) => el && !hlIds.has(NODES[i].id))}</g>}
                   <g key="bright-edges">{edgeEls.filter(el => el && !el.props?.className?.includes('dim'))}</g>
                   {hovPathEls && <g key="hov-paths" style={{ pointerEvents:'none' }}>{hovPathEls}</g>}
                   {!hlIds && <g key="nodes">{nodeEls}</g>}
@@ -2988,6 +2990,20 @@ export default function App() {
               const bw = (W - LEFT) / cities.length;
               return (
                 <>
+                  {/* Dim nodes go first — behind the grid lines */}
+                  {hlIds && <g key="dim-nodes">{nodeEls.filter((el, i) => el && !hlIds.has(NODES[i].id))}</g>}
+
+                  {/* Year grid */}
+                  <g>
+                    {YEAR_LINES.map(y => (
+                      <line key={'y'+y} x1={0} y1={eraY(y)} x2={W} y2={eraY(y)}
+                        stroke={themeAccent
+                          ? YEAR_LABELS.includes(y) ? themeAccent + '44' : themeAccent + '1a'
+                          : YEAR_LABELS.includes(y) ? (darkMode ? '#252535' : '#cccccc') : (darkMode ? '#181828' : '#ebebeb')}
+                        strokeWidth={YEAR_LABELS.includes(y) ? 0.7 : 0.3} />
+                    ))}
+                  </g>
+
                   <g className="expand-anim">
                     {cities.map((city, i) => {
                       const x = LEFT + bw * i;
@@ -2998,7 +3014,6 @@ export default function App() {
                   </g>
                   <>
                     <g key="dim-edges">{edgeEls.filter(el => el?.props?.className?.includes('dim'))}</g>
-                    {hlIds && <g key="dim-nodes">{nodeEls.filter((el, i) => el && !hlIds.has(NODES[i].id))}</g>}
                     <g key="bright-edges">{edgeEls.filter(el => el && !el.props?.className?.includes('dim'))}</g>
                     {hovPathEls && <g key="hov-paths" style={{ pointerEvents:'none' }}>{hovPathEls}</g>}
                     {!hlIds && <g key="nodes">{nodeEls}</g>}
