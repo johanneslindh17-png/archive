@@ -1571,8 +1571,12 @@ export default function App() {
     const _isTouch = window.matchMedia('(pointer:coarse)').matches;
     const _bezel = (_iw >= 600 && _iw <= 1400 && _isTouch) ? 68 : 0;
     const _fitK = (_iw - _bezel) / W;
+    // Minimum scale is always 1.0 (full-width equivalent) so nodes stay
+    // the same size regardless of window width at load time.
+    const _minK = Math.min(_fitK, 1.0);
+    const _initK = Math.max(_fitK, 1.0);
     const zoom = d3.zoom()
-      .scaleExtent([_fitK, 8])
+      .scaleExtent([_minK, 8])
       .translateExtent([[0, 0], [W, H]])  // single copy, bounded
       // Only zoom on ctrl+wheel or pinch — regular scroll pans
       .filter(event => {
@@ -1617,7 +1621,7 @@ export default function App() {
     zoomRef.current = zoom;
     const svg = d3.select(svgRef.current);
     svg.call(zoom);
-    svg.call(zoom.transform, d3.zoomIdentity.translate(0, 0).scale(_fitK));
+    svg.call(zoom.transform, d3.zoomIdentity.translate(0, 0).scale(_initK));
 
     // Regular scroll wheel → pan vertically
     const handleWheel = event => {
