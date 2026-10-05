@@ -499,6 +499,34 @@ const TOUR_STEPS = [
   },
 ];
 
+// Stable browser fingerprint — survives localStorage clears.
+// Cached in localStorage for convenience; the authoritative count lives server-side.
+async function getFingerprint() {
+  const cached = localStorage.getItem('archiveFP');
+  if (cached) return cached;
+  const parts = [
+    navigator.userAgent,
+    navigator.language,
+    `${screen.width}x${screen.height}x${screen.colorDepth}`,
+    Intl.DateTimeFormat().resolvedOptions().timeZone,
+    String(navigator.hardwareConcurrency || ''),
+    navigator.platform || '',
+  ];
+  try {
+    const c = document.createElement('canvas');
+    const ctx = c.getContext('2d');
+    ctx.textBaseline = 'top';
+    ctx.font = '13px monospace';
+    ctx.fillText('archive♫', 2, 2);
+    parts.push(c.toDataURL().slice(-40));
+  } catch {}
+  const raw = parts.join('|');
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(raw));
+  const fp = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 32);
+  try { localStorage.setItem('archiveFP', fp); } catch {}
+  return fp;
+}
+
 export default function App() {
   const svgRef = useRef(null);
   const pixelCanvasRef = useRef(null);
@@ -658,6 +686,29 @@ export default function App() {
   const deepLinkNodeRef = useRef(null);
 
   const TRIAL_LIMIT = 25;
+  const fpRef = useRef(null);
+
+  // On mount: compute fingerprint, then fetch server-side count.
+  // Use max(server, localStorage) so neither source can go backwards.
+  useEffect(() => {
+    if (unlocked) return;
+    getFingerprint().then(fp => {
+      fpRef.current = fp;
+      fetch(`/api/trial?fp=${fp}`)
+        .then(r => r.json())
+        .then(({ count }) => {
+          if (typeof count !== 'number') return; // KV not configured yet — stay on localStorage
+          const local = parseInt(localStorage.getItem('archiveTrialCount') || '0', 10);
+          const synced = Math.max(count, local);
+          if (synced !== local) {
+            localStorage.setItem('archiveTrialCount', synced);
+            setTrialCount(synced);
+          }
+        })
+        .catch(() => {}); // network failure — localStorage fallback is already loaded
+    });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     setPhotoColors(null);
@@ -685,6 +736,14 @@ export default function App() {
       const next = trialCount + 1;
       localStorage.setItem('archiveTrialCount', next);
       setTrialCount(next);
+      // Mirror to server so the count survives localStorage clears
+      if (fpRef.current) {
+        fetch('/api/trial', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ fp: fpRef.current }),
+        }).catch(() => {});
+      }
       if (next > TRIAL_LIMIT) { setPaywallOpen(true); return; }
     }
     if (selectedSet.includes(id)) {
