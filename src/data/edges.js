@@ -536,6 +536,8 @@
   { from:'berghain',      to:'love_parade',    strength:2, type:'lineage' },
   { from:'berghain',      to:'boiler_room',    strength:2, type:'roster' },
   { from:'fabric',        to:'boiler_room',    strength:2, type:'roster' },
+  { from:'boiler_room',   to:'hor',            strength:2, type:'lineage' },
+  { from:'berghain',      to:'hor',            strength:2, type:'aesthetic' },
   { from:'trouw',         to:'de_school',      strength:3, type:'lineage' },
   { from:'dekmantel',     to:'de_school',      strength:2, type:'aesthetic' },
 

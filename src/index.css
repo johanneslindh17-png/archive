@@ -1899,22 +1899,22 @@ path.eg.dim{opacity:0}
 .groove-panel:not(.dark) .gv-knob:hover .gv-knob-line { stroke: #a09abf; }
 
 /* Synth voice section backgrounds — dark mode */
-.dark .gv-col[data-voice="bass"] { background: rgba(18, 30, 62, 0.55); }
-.dark .gv-col[data-voice="lead"] { background: rgba(30, 18, 58, 0.55); }
-.dark .gv-col[data-voice="pad"]  { background: rgba(12, 22, 38, 0.55); }
+.dark .gv-col[data-voice="bass"] { background: rgba(18, 30, 62, 0.18); }
+.dark .gv-col[data-voice="lead"] { background: rgba(30, 18, 58, 0.18); }
+.dark .gv-col[data-voice="pad"]  { background: rgba(12, 22, 38, 0.18); }
 
-.dark .groove-row[data-voice="bass"] { background: rgba(18, 30, 62, 0.35); border-radius: 3px; }
-.dark .groove-row[data-voice="lead"] { background: rgba(30, 18, 58, 0.35); border-radius: 3px; }
-.dark .groove-row[data-voice="pad"]  { background: rgba(12, 22, 38, 0.35); border-radius: 3px; }
+.dark .groove-row[data-voice="bass"] { background: rgba(18, 30, 62, 0.10); border-radius: 3px; }
+.dark .groove-row[data-voice="lead"] { background: rgba(30, 18, 58, 0.10); border-radius: 3px; }
+.dark .groove-row[data-voice="pad"]  { background: rgba(12, 22, 38, 0.10); border-radius: 3px; }
 
 /* Synth voice section backgrounds — light mode */
-.groove-panel:not(.dark) .gv-col[data-voice="bass"] { background: rgba(180, 200, 230, 0.35); }
-.groove-panel:not(.dark) .gv-col[data-voice="lead"] { background: rgba(200, 185, 225, 0.35); }
-.groove-panel:not(.dark) .gv-col[data-voice="pad"]  { background: rgba(190, 190, 195, 0.35); }
+.groove-panel:not(.dark) .gv-col[data-voice="bass"] { background: rgba(180, 200, 230, 0.12); }
+.groove-panel:not(.dark) .gv-col[data-voice="lead"] { background: rgba(200, 185, 225, 0.12); }
+.groove-panel:not(.dark) .gv-col[data-voice="pad"]  { background: rgba(190, 190, 195, 0.12); }
 
-.groove-panel:not(.dark) .groove-row[data-voice="bass"] { background: rgba(180, 200, 230, 0.25); border-radius: 3px; }
-.groove-panel:not(.dark) .groove-row[data-voice="lead"] { background: rgba(200, 185, 225, 0.25); border-radius: 3px; }
-.groove-panel:not(.dark) .groove-row[data-voice="pad"]  { background: rgba(190, 190, 195, 0.25); border-radius: 3px; }
+.groove-panel:not(.dark) .groove-row[data-voice="bass"] { background: rgba(180, 200, 230, 0.08); border-radius: 3px; }
+.groove-panel:not(.dark) .groove-row[data-voice="lead"] { background: rgba(200, 185, 225, 0.08); border-radius: 3px; }
+.groove-panel:not(.dark) .groove-row[data-voice="pad"]  { background: rgba(190, 190, 195, 0.08); border-radius: 3px; }
 
 /* ADSR row: 4 vertical sliders + RES knob side by side */
 .gv-adsr-row {
