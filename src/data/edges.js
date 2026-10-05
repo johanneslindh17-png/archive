@@ -495,6 +495,10 @@
   { from:'mule_musiq',    to:'sebastian_mullaert', strength:2, type:'roster' },
   { from:'sebastian_mullaert', to:'johanna_knutsson', strength:2, type:'aesthetic' },
   { from:'kontra_musik',  to:'johanna_knutsson',   strength:1, type:'aesthetic' },
+  { from:'sebastian_mullaert', to:'circle_of_live', strength:3, type:'founded'  },
+  { from:'johanna_knutsson',   to:'circle_of_live', strength:3, type:'roster'   },
+  { from:'matthew_jonson',     to:'circle_of_live', strength:2, type:'roster'   },
+  { from:'dorisburg',          to:'circle_of_live', strength:2, type:'roster'   },
 
   // ── HAMBURG — CARSTEN JOST ────────────────────────────────────────────────
   { from:'dial',          to:'carsten_jost',   strength:3, type:'roster' },

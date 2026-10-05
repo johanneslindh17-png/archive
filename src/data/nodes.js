@@ -2727,6 +2727,10 @@ export const NODES = [
       { title: 'A Place Called Inkonst (Kontra Musik)', year: 2019 },
     ], spotify:'5cKPK8DCxX1R5PwQOU1huv', },
 
+  { id:'circle_of_live', label:'Circle of Live', type:'moment', genre:'melodic', era:2018, city:'Malmö', country:'SE',
+    desc:'Circle of Live is a live music collective and event series founded by Sebastian Mullaert in 2018. Its premise is unscripted, real-time collaborative performance: Mullaert invites a small group of live artists to perform together without rehearsal or predetermined structure, in spaces chosen for their acoustic and contextual qualities. The first event took place in Rostanga, Sweden, followed shortly by a performance at Baskerville Hall in Wales.\n\nThe collective has featured artists including Johanna Knutsson, Mathew Jonson, Dorisburg, Erika, Wayne Snow, and Barker, among others. Events typically run for several hours and are built around the process of listening and responding between performers rather than delivering a fixed set. The format reflects Mullaert\'s background in classical music and his long-standing interest in improvisation as both compositional method and social practice.\n\nIn 2023 Circle of Live launched In Bloom, an 11-week online mentorship programme for emerging artists developed in partnership with Resident Advisor, with Mullaert as the lead tutor.',
+    releases: [] },
+
   { id:'johanna_knutsson', label:'Johanna Knutsson', type:'artist', genre:'experimental', era:2012, city:'Berlin', country:'SE',
     desc:'Johanna Knutsson is a Swedish-born, Berlin-based producer and DJ who began collecting electronic music in 2006 before establishing herself on the Berlin underground circuit at the turn of the 2010s. Her sound builds outward from techno toward ambient and emotive electronics. She co-runs the UFO Station label with Hans Berg and the astrology-inspired Zodiac 44 imprint with Luca Lozano. She is a key member of Sebastian Mullaert\'s Circle of Live collective. Her album Dingsbums Homage (Patience, 2022) is a sweeping suite of drifting electronica.',
     releases:[
