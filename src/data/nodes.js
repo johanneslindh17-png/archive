@@ -2619,8 +2619,8 @@ export const NODES = [
       { title: 'Cascade (Pluto)', year: 2024 },
     ], spotify:'2AR42Ur9PcchQDtEdwkv4L', },
 
-  { id:'matthew_jonson', label:'Matthew Jonson', type:'artist', genre:'minimal', era:2003, city:'Toronto', country:'CA',
-    desc:'Matthew Jonson is a Toronto-born producer and live performer who has been based in Berlin for much of his career. He releases on Wagon Repair (a label he co-founded), Circus Company, and Crosstown Rebels. His live sets combine hardware synthesizers with sequenced patterns in extended performances. His track "Typerope" is among the most recognized records in melodic minimal techno.',
+  { id:'mathew_jonson', label:'Mathew Jonson', type:'artist', genre:'minimal', era:2003, city:'Toronto', country:'CA',
+    desc:'Mathew Jonson is a Toronto-born producer and live performer who has been based in Berlin for much of his career. He releases on Wagon Repair (a label he co-founded), Circus Company, and Crosstown Rebels. His live sets combine hardware synthesizers with sequenced patterns in extended performances. His track "Typerope" is among the most recognized records in melodic minimal techno.',
     releases: [
       { title: '"Typerope" (Wagon Repair)', year: 2004 },
       { title: '"The Motivator" (Wagon Repair)', year: 2006 },

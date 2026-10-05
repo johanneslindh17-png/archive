@@ -468,8 +468,8 @@
   { from:'kompakt',       to:'mike_parker',    strength:1, type:'aesthetic' },
 
   // ── FLOATING POINTS / MATTHEW JONSON ─────────────────────────────────────
-  { from:'kompakt',       to:'matthew_jonson', strength:2, type:'influence' },
-  { from:'perlon',        to:'matthew_jonson', strength:1, type:'aesthetic' },
+  { from:'kompakt',       to:'mathew_jonson', strength:2, type:'influence' },
+  { from:'perlon',        to:'mathew_jonson', strength:1, type:'aesthetic' },
 
   // ── KIASMOS / DJ SPRINKLES ────────────────────────────────────────────────
   // ── L.I.E.S. RECORDS ─────────────────────────────────────────────────────
@@ -497,7 +497,7 @@
   { from:'kontra_musik',  to:'johanna_knutsson',   strength:1, type:'aesthetic' },
   { from:'sebastian_mullaert', to:'circle_of_live', strength:3, type:'founded'  },
   { from:'johanna_knutsson',   to:'circle_of_live', strength:3, type:'roster'   },
-  { from:'matthew_jonson',     to:'circle_of_live', strength:2, type:'roster'   },
+  { from:'mathew_jonson',      to:'circle_of_live', strength:2, type:'roster'   },
   { from:'dorisburg',          to:'circle_of_live', strength:2, type:'roster'   },
 
   // ── HAMBURG — CARSTEN JOST ────────────────────────────────────────────────
@@ -4353,7 +4353,7 @@
   { from:'jensen_interceptor',               to:'running_back',                     strength:2, type:'roster'   },
 
   // -- MATTHEW JONSON --
-  { from:'matthew_jonson',                   to:'crosstown_rebels',                 strength:2, type:'roster'   },
+  { from:'mathew_jonson',                    to:'crosstown_rebels',                 strength:2, type:'roster'   },
 
   // -- GUS GUS --
   { from:'gus_gus',                          to:'kompakt',                          strength:2, type:'roster'   },
