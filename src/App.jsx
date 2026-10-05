@@ -1571,10 +1571,11 @@ export default function App() {
     const _isTouch = window.matchMedia('(pointer:coarse)').matches;
     const _bezel = (_iw >= 600 && _iw <= 1400 && _isTouch) ? 68 : 0;
     const _fitK = (_iw - _bezel) / W;
-    // Minimum scale is always 1.0 (full-width equivalent) so nodes stay
-    // the same size regardless of window width at load time.
-    const _minK = Math.min(_fitK, 1.0);
-    const _initK = Math.max(_fitK, 1.0);
+    // Use screen width (not window width) for the initial scale so nodes
+    // always render at the same size regardless of window size at load time.
+    const _screenK = Math.max(window.screen.width / W, 1.0);
+    const _minK = Math.min(_fitK, _screenK);
+    const _initK = _screenK;
     const zoom = d3.zoom()
       .scaleExtent([_minK, 8])
       .translateExtent([[0, 0], [W, H]])  // single copy, bounded
