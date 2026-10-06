@@ -482,11 +482,17 @@ const TOUR_STEPS = [
   {
     id: 'regions',
     title: 'REGIONS',
-    body: "The map is laid out by region and era. Click a column to zoom into a city scene. ← ALL REGIONS to step back out.",
-    getTarget: () => null,
-    cardSide: 'center',
-    onEnter: null,
-    delay: 0,
+    body: "The map is laid out by region and era. Click any column to zoom into a city scene — here we're inside Germany. ← ALL REGIONS to step back out.",
+    getTarget: () => document.querySelector('.regionlabel'),
+    cardSide: 'persist',
+    onEnter: ctx => {
+      const t = setTimeout(() => ctx.setExpanded('DE'), 300);
+      return () => {
+        clearTimeout(t);
+        ctx.setExpanded(null);
+      };
+    },
+    delay: 700,
   },
   {
     id: 'groovebox',
@@ -1041,6 +1047,8 @@ export default function App() {
     setTourHL(null);
     setSearchQ('');
     setSearchFocus(false);
+    clearAll();
+    setExpanded(null);
     if (spotlitElRef.current) {
       spotlitElRef.current.classList.remove('tour-spotlit');
       spotlitElRef.current = null;
@@ -1067,7 +1075,7 @@ export default function App() {
 
     const step = TOUR_STEPS[onboardStep];
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    const ctx = { tourSelectNode, scrollToNode, setPlayingNodeId, setSearchQ, setSearchFocus, setPanelOnLeft, setPanelX, shiftTourCard, resetTourCardPos };
+    const ctx = { tourSelectNode, scrollToNode, setPlayingNodeId, setSearchQ, setSearchFocus, setPanelOnLeft, setPanelX, shiftTourCard, resetTourCardPos, setExpanded, clearAll };
     let onEnterCleanup;
     if (step.onEnter) onEnterCleanup = step.onEnter(ctx);
     const ms = step.delay ?? 80;
@@ -3562,7 +3570,7 @@ export default function App() {
           <div className="paywall-modal">
             <div className="paywall-title">Become a Member</div>
             <div className="paywall-body">
-              ElectronicArchive is built by a DJ, producer and collector who spent fifteen years inside the Dutch and German underground — not observing the scene, but living it. The connections, histories and lineages here are verified research grounded in first-hand knowledge: not a personal blog, not a database, something in between.<br /><br />Membership keeps the archive growing. New nodes and connections are added every week, alongside ongoing research into artists, venues, labels and the scenes that connect them. Your support keeps it free and open for everyone.
+              Built by Johannes Lindh — DJ and collector. A membership supports the research and ongoing work on the archive, and gives you full access to the resource.
             </div>
             <a
               className="paywall-buy"
