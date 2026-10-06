@@ -392,7 +392,7 @@ const TOUR_STEPS = [
       let t1, t2, t3;
 
       // Shift card right so it doesn't cover Berghain as we scroll to it
-      const tShift = setTimeout(() => ctx.shiftTourCard(140), 250);
+      const tShift = setTimeout(() => ctx.shiftTourCard(260), 250);
 
       t1 = setTimeout(() => {
         const nodeEl = document.querySelector('[data-nid="berghain"]');
@@ -431,7 +431,7 @@ const TOUR_STEPS = [
   {
     id: 'breadcrumb',
     title: 'RECENTLY OPENED',
-    body: "Nodes you open stay in the bar above. Jump back to any of them, close the ones you're done with, or clear everything to start somewhere else.",
+    body: "Nodes you open stay in the bar above. Jump back to any of them, close the ones you're done with, or click an empty spot on the map to clear everything and start fresh.",
     getTarget: () => document.querySelector('.nbc-tab') ?? document.querySelector('.nodebreadcrumb'),
     getSecondTarget: () => document.querySelectorAll('.nbc-tab')[1] ?? null,
     cardSide: 'persist',
