@@ -1652,5 +1652,83 @@ export const PHOTOS = {
     "license": "CC BY-SA 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "author": "Futurec"
+  },
+  "tony_allen": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Tony_Allen_med_band_cropped_%28231308%29.jpg/500px-Tony_Allen_med_band_cropped_%28231308%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Tore Sætre"
+  },
+  "chic": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/NileRodgersCPBowl240825-49_%2854771656771%29_%28cropped%29.jpg/500px-NileRodgersCPBowl240825-49_%2854771656771%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "author": "Raph_PH"
+  },
+  "mike_banks": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Underground_Resistance_-_2010_-_10_Critics_in_Detroit_DSC_3747_%284719460035%29_%28cropped%29.jpg/500px-Underground_Resistance_-_2010_-_10_Critics_in_Detroit_DSC_3747_%284719460035%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "author": "Angie Linder from Detroit, USA"
+  },
+  "fabio": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/DJ_Fabio_Performs_-_2008.jpg/500px-DJ_Fabio_Performs_-_2008.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "Dilvie"
+  },
+  "sasha": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Sasha_%26_John_Digweed_Bristol_Ampitheatre_2025_2_%28cropped%29.png/500px-Sasha_%26_John_Digweed_Bristol_Ampitheatre_2025_2_%28cropped%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Lazz R"
+  },
+  "wiley": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Wiley_%28rappeur%29.jpg/500px-Wiley_%28rappeur%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "Lookwhoitis"
+  },
+  "kano": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Kano_%28crop_1%29_%E2%80%93_splash%21_Festival_20_%282017%29.jpg/500px-Kano_%28crop_1%29_%E2%80%93_splash%21_Festival_20_%282017%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Nicolas Völcker"
+  },
+  "the_bug": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Kevin-martin_DSC08049.jpg/500px-Kevin-martin_DSC08049.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Hreinn Gudlaugsson"
+  },
+  "daphni": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Daniel_Victor_Snaith_2005.jpg/500px-Daniel_Victor_Snaith_2005.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+    "author": "AlexReynolds at English Wikipedia"
+  },
+  "tiga": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Tiga_%283%29_%28cropped%29.jpg/500px-Tiga_%283%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "author": "luciane gomes"
+  },
+  "the_field": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Tauron_Nowa_Muzyka_2014_-_The_Field_%2801%29.jpg/500px-Tauron_Nowa_Muzyka_2014_-_The_Field_%2801%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "Yarl"
+  },
+  "lindstrom": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Hans-Peter_Lindstrom_live_2011.jpg/500px-Hans-Peter_Lindstrom_live_2011.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "author": "Harald Grönstrand"
+  },
+  "paul_johnson": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Paul_Johnson_2008.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "author": "djackson_photos"
   }
 };
