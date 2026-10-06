@@ -3167,6 +3167,7 @@ export default function App() {
                         src={imgUrl}
                         alt={selNode.label}
                         loading="lazy"
+                        style={photoEntry?.objectPosition ? { objectPosition: photoEntry.objectPosition } : undefined}
                       />
                     </div>
                     <div className="dp-photo-credit">
