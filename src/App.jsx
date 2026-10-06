@@ -3569,7 +3569,7 @@ export default function App() {
       {paywallOpen && (
         <div className="paywall-overlay" onClick={e => { if (e.target === e.currentTarget) setPaywallOpen(false); }}>
           <div className="paywall-modal">
-            <div className="paywall-title">Become a Member</div>
+            <div className="paywall-title">Support the Archive</div>
             <div className="paywall-body">
               Years of research and lived experience with the scene, turned into an interactive map. A membership supports the ongoing work and gives you full access to the resource.
             </div>
