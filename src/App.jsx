@@ -360,7 +360,7 @@ const TOUR_STEPS = [
   {
     id: 'map',
     title: 'THE ARCHIVE',
-    body: 'Everything here I\'ve researched and written myself — artists, labels, clubs, and the lines of influence between them. It took a while to build. Take your time.',
+    body: 'A personal archive of electronic music — artists, labels, venues, and the connections between them. Put together out of love for the music. Take your time.',
     getTarget: () => null,
     cardSide: 'center',
     onEnter: null,
