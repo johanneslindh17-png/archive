@@ -392,7 +392,7 @@ const TOUR_STEPS = [
       let t1, t2, t3;
 
       // Shift card right so it doesn't cover Berghain as we scroll to it
-      const tShift = setTimeout(() => ctx.shiftTourCard(260), 250);
+      const tShift = setTimeout(() => ctx.shiftTourCard(380), 250);
 
       t1 = setTimeout(() => {
         const nodeEl = document.querySelector('[data-nid="berghain"]');
@@ -491,7 +491,7 @@ const TOUR_STEPS = [
   {
     id: 'groovebox',
     title: 'MAKE YOUR OWN',
-    body: "Want to make some music yourself? Try the Electronic Archive Groovebox — a built-in drum machine and sequencer. Hit the button in the bottom-right corner to open it, then start programming beats.",
+    body: "Want to make some music yourself? Try the Electronic Archive Groovebox — a built-in drum machine and sequencer. Hit the button in the bottom-right corner to open it, then start programming some music.",
     getTarget: () => document.querySelector('[title="Groovebox"]'),
     cardSide: 'persist',
     onEnter: null,
