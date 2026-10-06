@@ -5443,6 +5443,10 @@ export const NODES = [
     desc:'Resident Advisor (RA) is an electronic music media platform and events guide founded in Sydney in 2001 by Paul Clement and Nick Sabine. Originally focused on the Australian dance music scene, it expanded globally and incorporated in the UK in 2006 with a Berlin office opening in 2007. It has become one of the most widely read publications covering electronic music internationally, running news, reviews, artist profiles, a podcast series, and RA Films from 2011.',
     releases: [] },
 
+  { id:'mixmag', label:'Mixmag', type:'channel', genre:'house', era:1983, city:'London', country:'UK',
+    desc:'Mixmag is a British dance music and club culture magazine founded on 1 February 1983 by the Disco Mix Club (DMC), initially a 16-page black-and-white DJ mailout. As house music arrived in the UK in the late 1980s, editor Dave Seaman transformed it into a full magazine covering dance culture broadly. At its peak it reached a circulation of around 70,000. The magazine passed through EMAP and Development Hell before landing at Wasted Talent Ltd. It ended its print edition in April 2020 during the COVID-19 pandemic and has operated as a digital publication since. Alongside Resident Advisor, Mixmag is one of the two most significant English-language institutions covering electronic music and club culture.',
+    releases: [] },
+
   // ── GERMANY — PARAMIDA / LOVE ON THE ROCKS ───────────────────────────────
   { id:'paramida', label:'PARAMIDA', type:'artist', genre:'deep', era:2015, city:'Berlin', country:'DE',
     desc:'PARAMIDA is a Berlin-based DJ and producer with German and Persian heritage. She first performed at Berghain\'s Panorama Bar in 2015 and became a resident DJ there in 2020. In 2014 she founded Love on the Rocks, a label releasing deep house, nu-disco, trance, and acid from producers across different countries. She received a BBC Radio 1 Essential Mix commission in 2024 and was named one of BBC\'s 100 Women in 2023.',
