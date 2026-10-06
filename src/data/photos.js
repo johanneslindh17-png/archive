@@ -1406,5 +1406,251 @@ export const PHOTOS = {
     "license": "CC BY-SA 2.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
     "author": "Nick Solari"
+  },
+  "berghain": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Berlin_Berghain.jpg/500px-Berlin_Berghain.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 3.0 de",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+    "author": "Arne Müseler"
+  },
+  "fabric": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Fabric_Club_London_2020.jpg/500px-Fabric_Club_London_2020.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "author": "Lolita Montana"
+  },
+  "paradise_garage": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Paradise_garage.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "Dpinnyc~commonswiki"
+  },
+  "amnesia_ibiza": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Amnesia_ibiza.jpeg/500px-Amnesia_ibiza.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "author": "Amnesia Ibiza from Ibiza, Spain"
+  },
+  "studio_54": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Studio_54_logo.svg/500px-Studio_54_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "Studio 49"
+  },
+  "tresor_club": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Tresor_logo.png/500px-Tresor_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Hubble84"
+  },
+  "derrick_may": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Derrick_May_of_Transmat_Records_Detroit_Techno_Pioneer.jpg/500px-Derrick_May_of_Transmat_Records_Detroit_Techno_Pioneer.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "ThatChickOverThere"
+  },
+  "dixon": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/DIXON_IMAGe_DAVIT_021.jpg/500px-DIXON_IMAGe_DAVIT_021.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Isabelle Winkler"
+  },
+  "amelie_lens": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Amelie_Lens_06_2022.jpg/500px-Amelie_Lens_06_2022.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Rayukk"
+  },
+  "james_holden": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/James_holden.jpg/500px-James_holden.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "author": "Peter Drier"
+  },
+  "arca": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Arca_Sonar_1.jpg/500px-Arca_Sonar_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "Verónica Estrada"
+  },
+  "apparat": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Apparat_%28musician%29_in_2009.jpg/500px-Apparat_%28musician%29_in_2009.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "author": "shiver_shi"
+  },
+  "plaid": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Plaid_Optronica.jpg/500px-Plaid_Optronica.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "Kowarisuki"
+  },
+  "cluster": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Cluster_live_2008_%28cropped%29.jpg/500px-Cluster_live_2008_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "author": "Seth Tisue"
+  },
+  "nortec_collective": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Nortec_Collective05.jpg/500px-Nortec_Collective05.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "author": "Festival Eurockéennes"
+  },
+  "bpitch": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Ellen_Allien_%28MAGMA_2006%2C_Tenerife%29.jpg/500px-Ellen_Allien_%28MAGMA_2006%2C_Tenerife%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "author": "Ventura Mendoza"
+  },
+  "tr808": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/TR-808_-_MIM%2C_Phoenix_%282019-08-30_14.59.26_by_Bryan_Pocius%29_%28cropped%29.jpg/500px-TR-808_-_MIM%2C_Phoenix_%282019-08-30_14.59.26_by_Bryan_Pocius%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "author": "Bryan Pocius from New York, USA"
+  },
+  "tr909": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Roland_TR-909_%28large%29.png/500px-Roland_TR-909_%28large%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "author": "Brandon Daniel / Clusternote"
+  },
+  "tb303": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Roland_TB-303_Panel.jpg/500px-Roland_TB-303_Panel.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Steve Sims"
+  },
+  "sh101": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/SH-101.jpg/500px-SH-101.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "author": "Wikipedia user 909 bd"
+  },
+  "monomachine": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Elektron_monomachine.jpg/500px-Elektron_monomachine.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "GeschnittenBrot / Clusternote"
+  },
+  "octatrack": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Elektron_Octatrack.jpg/500px-Elektron_Octatrack.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "Limpertus007 / Clusternote"
+  },
+  "technics_1200": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Technics_SL-1200MK2-2.jpg/500px-Technics_SL-1200MK2-2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+    "author": "Dydric / 32bitmaschine"
+  },
+  "funktion_one": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/22/021funktion1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "Badminton at English Wikipedia"
+  },
+  "trax": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Trax_Records_Logo.jpg/500px-Trax_Records_Logo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "Jorge Cruz"
+  },
+  "transmat": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Transmat_Logo.svg/500px-Transmat_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Nebulavariation"
+  },
+  "tresor_records": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Tresor_logo.png/500px-Tresor_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Hubble84"
+  },
+  "underground_resistance": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Underground_Resistance_Logo.svg/500px-Underground_Resistance_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "Unknown"
+  },
+  "basicchannel": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Rhythm%26sound2.jpg/500px-Rhythm%26sound2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "author": ""
+  },
+  "basic_channel": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Rhythm%26sound2.jpg/500px-Rhythm%26sound2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "author": ""
+  },
+  "mnuslabel": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Minus_%28record_label%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": ""
+  },
+  "minus": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Minus_%28record_label%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": ""
+  },
+  "planet_mu": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Mulogo.jpg/500px-Mulogo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Thomasplanetmu"
+  },
+  "raster_noton": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Raster-Noton_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "Martin Craciun"
+  },
+  "ed_banger": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Ed_Banger_Records.jpg/500px-Ed_Banger_Records.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "Bertrand Lagros de Langeron (So Me)"
+  },
+  "stones_throw": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Stones_Throw_logo.svg/500px-Stones_Throw_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "Stones Throw Records"
+  },
+  "xl_recordings": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/XL_Recordings_Logo.svg/500px-XL_Recordings_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "XL Recordings"
+  },
+  "brownswood_recordings": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Brownswood_Recordings_logo.svg/500px-Brownswood_Recordings_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "Brownswood Recordings"
+  },
+  "defected": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Defected_Logo.jpg/500px-Defected_Logo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "DefectedUpdates"
+  },
+  "boy_better_know": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/BBK_transparent.png/500px-BBK_transparent.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "license": "CC BY-SA 1.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/1.0",
+    "author": "Boy Better Know"
+  },
+  "future_classic": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Future_Classic_Logo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "Futurec"
   }
 };
