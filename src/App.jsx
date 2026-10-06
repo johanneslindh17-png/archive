@@ -3571,7 +3571,7 @@ export default function App() {
           <div className="paywall-modal">
             <div className="paywall-title">Become a Member</div>
             <div className="paywall-body">
-              Built by Johannes Lindh — DJ and collector. A membership supports the research and ongoing work on the archive, and gives you full access to the resource.
+              Years of research and lived experience with the scene, turned into an interactive map. A membership supports the ongoing work and gives you full access to the resource.
             </div>
             <a
               className="paywall-buy"
