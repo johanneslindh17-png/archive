@@ -478,7 +478,6 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 /* Text animations via hover class (replaces React-managed classNames) */
 .nd.hov-self .nd-inner text {
   animation: nd-self-text-pulse 2.6s ease-in-out infinite;
-  font-weight: 600 !important;
   opacity: 1 !important;
 }
 .nd.dim.hov-prev .nd-inner text { animation: nd-prev-text-pulse 4s ease-in-out -2s infinite; }
