@@ -1101,12 +1101,6 @@ export const PHOTOS = {
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "author": "Rohrm"
   },
-  "artful_dodger": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/7/76/Clarke-dodger.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "license": "Public domain",
-    "licenseUrl": "",
-    "author": "'Kyd' (Joseph Clayton Clark; 1857 — 8 August 1937)"
-  },
   "bob_sinclar": {
     "url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Bob_Sinclar_2011.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "license": "CC BY-SA 3.0",
