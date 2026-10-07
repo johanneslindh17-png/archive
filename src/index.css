@@ -1167,6 +1167,94 @@ path.eg.dim{opacity:0}
 .paywall-verify:hover:not(:disabled){border-color:var(--tb-text);}
 .paywall-verify:disabled{opacity:0.4;cursor:not-allowed;}
 /* -- ABOUT hover popup (mirrors legwrap/legbox pattern) -------------------- */
+/* ── ROUTES ── */
+.routesbtn{
+  background:transparent;border:none;border-left:1px solid var(--tb-border);
+  color:var(--tb-text-mid);font-family:'Syne Mono',monospace;font-size:0.7rem;
+  font-weight:700;padding:0 20px;height:50px;display:flex;align-items:center;
+  cursor:pointer;transition:color 0.15s;user-select:none;letter-spacing:0.06em;
+  text-transform:uppercase;flex-shrink:0;
+}
+.routesbtn:hover,.routesbtn.active{color:var(--tb-text);}
+
+.routes-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:3000;
+  display:flex;align-items:center;justify-content:center;
+}
+.routes-modal{
+  background:var(--tb-bg);border:1px solid var(--tb-border);
+  width:min(520px,92vw);max-height:80vh;overflow-y:auto;
+  padding:28px 28px 24px;
+}
+.routes-modal-header{display:flex;align-items:center;margin-bottom:10px;}
+.routes-modal-title{
+  font-family:'Syne Mono',monospace;font-size:0.78rem;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;color:var(--tb-text);flex:1;
+}
+.routes-modal-close{
+  background:none;border:none;cursor:pointer;color:var(--tb-text-mid);
+  font-size:0.9rem;padding:2px 4px;line-height:1;transition:color 0.15s;
+}
+.routes-modal-close:hover{color:var(--tb-text);}
+.routes-modal-sub{
+  font-size:0.68rem;color:var(--tb-text-mid);line-height:1.55;
+  margin-bottom:20px;letter-spacing:0.01em;
+}
+.routes-list{display:flex;flex-direction:column;gap:2px;}
+.routes-item{
+  padding:14px 16px;border:1px solid var(--tb-border);
+  cursor:pointer;transition:background 0.15s,border-color 0.15s;
+}
+.routes-item:hover{background:var(--tb-hover,rgba(0,0,0,0.04));}
+.routes-item.active{border-color:var(--tb-text-mid);}
+.routes-item-header{display:flex;align-items:baseline;gap:10px;margin-bottom:5px;}
+.routes-item-label{
+  font-family:'Syne Mono',monospace;font-size:0.72rem;font-weight:700;
+  letter-spacing:0.07em;text-transform:uppercase;color:var(--tb-text);
+}
+.routes-item-count{font-size:0.62rem;color:var(--tb-text-mid);letter-spacing:0.04em;}
+.routes-item-desc{font-size:0.67rem;color:var(--tb-text-mid);line-height:1.5;margin:0;}
+
+/* Route card — bottom centre */
+.route-card{
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+  width:min(560px,92vw);z-index:2000;
+  background:var(--tb-bg);border:1px solid var(--tb-border);
+  padding:16px 20px 14px;
+  box-shadow:0 4px 24px rgba(0,0,0,0.18);
+}
+.route-card-meta{
+  display:flex;align-items:center;gap:10px;margin-bottom:10px;
+}
+.route-card-name{
+  font-family:'Syne Mono',monospace;font-size:0.62rem;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;color:var(--tb-text);flex:1;
+}
+.route-card-step{
+  font-family:'Syne Mono',monospace;font-size:0.6rem;
+  color:var(--tb-text-mid);letter-spacing:0.06em;
+}
+.route-card-close{
+  background:none;border:none;cursor:pointer;color:var(--tb-text-mid);
+  font-size:0.8rem;padding:2px 4px;line-height:1;transition:color 0.15s;
+}
+.route-card-close:hover{color:var(--tb-text);}
+.route-card-text{
+  font-size:0.7rem;line-height:1.65;color:var(--tb-text);
+  margin:0 0 14px;letter-spacing:0.01em;
+}
+.route-card-nav{display:flex;justify-content:space-between;gap:8px;}
+.route-card-btn{
+  background:none;border:1px solid var(--tb-border);
+  font-family:'Syne Mono',monospace;font-size:0.62rem;font-weight:700;
+  letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--tb-text-mid);cursor:pointer;padding:6px 14px;
+  transition:color 0.15s,border-color 0.15s;
+}
+.route-card-btn:hover:not(:disabled){color:var(--tb-text);border-color:var(--tb-text-mid);}
+.route-card-btn:disabled{opacity:0.3;cursor:default;}
+.dark .routes-item:hover{background:rgba(255,255,255,0.04);}
+
 .aboutwrap{position:relative;flex-shrink:0;}
 .abouttrigger{
   background:transparent;border:none;border-left:1px solid var(--tb-border);

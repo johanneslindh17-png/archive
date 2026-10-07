@@ -15,6 +15,7 @@ import { PHOTOS } from './data/photos.js';
 import { NEWS_TICKER } from './data/newsTicker.js';
 import { ERA_SUMMARIES } from './data/eraSummaries.js';
 import { NODE_CHANGELOG } from './data/changelog.js';
+import { ROUTES } from './data/routes.js';
 
 const NODE_BY_ID = new Map(NODES.map(n => [n.id, n]));
 
@@ -679,6 +680,9 @@ export default function App() {
   const [verifying, setVerifying] = useState(false);
   const [verifyError, setVerifyError] = useState('');
   const [pathMode, setPathMode] = useState(false);
+  const [routesOpen, setRoutesOpen] = useState(false);
+  const [activeRoute, setActiveRoute] = useState(null);
+  const [routeStep, setRouteStep] = useState(0);
   const [grooveOpen, setGrooveOpen] = useState(false);
   const [chatOpen,   setChatOpen]   = useState(false);
   const [typePopOpen, setTypePopOpen] = useState(false);
@@ -1026,6 +1030,22 @@ export default function App() {
     setSelectedSet(prev => prev.includes(id) ? prev : [...prev, id]);
     setSelected(id);
     setPinned(null);
+  }
+
+  function startRoute(route) {
+    setRoutesOpen(false);
+    setActiveRoute(route);
+    setRouteStep(0);
+    tourSelectNode(route.steps[0].nodeId);
+    scrollToNode(route.steps[0].nodeId);
+  }
+
+  function goToRouteStep(step) {
+    if (!activeRoute) return;
+    const clamped = Math.max(0, Math.min(activeRoute.steps.length - 1, step));
+    setRouteStep(clamped);
+    tourSelectNode(activeRoute.steps[clamped].nodeId);
+    scrollToNode(activeRoute.steps[clamped].nodeId);
   }
 
   function shiftTourCard(dx) {
@@ -2693,6 +2713,12 @@ export default function App() {
           )}
         </div>
 
+        {/* Routes button */}
+        <button
+          className={`routesbtn${activeRoute ? ' active' : ''}`}
+          onClick={() => setRoutesOpen(v => !v)}
+        >Routes</button>
+
         {/* About — hover popup, same pattern as legwrap/? guide */}
         <div className="aboutwrap">
           <div className="abouttrigger">About</div>
@@ -3565,6 +3591,54 @@ export default function App() {
           </div>
         )}
       </>)}
+
+      {/* Routes picker modal */}
+      {routesOpen && (
+        <div className="routes-overlay" onClick={e => { if (e.target === e.currentTarget) setRoutesOpen(false); }}>
+          <div className="routes-modal">
+            <div className="routes-modal-header">
+              <span className="routes-modal-title">Routes</span>
+              <button className="routes-modal-close" onClick={() => setRoutesOpen(false)}>✕</button>
+            </div>
+            <p className="routes-modal-sub">Curated journeys through the archive. Each route navigates a sequence of key nodes with commentary written for that specific path.</p>
+            <div className="routes-list">
+              {ROUTES.map(route => (
+                <div key={route.id} className={`routes-item${activeRoute?.id === route.id ? ' active' : ''}`} onClick={() => startRoute(route)}>
+                  <div className="routes-item-header">
+                    <span className="routes-item-label">{route.label}</span>
+                    <span className="routes-item-count">{route.steps.length} stops</span>
+                  </div>
+                  <p className="routes-item-desc">{route.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Active route card — bottom centre */}
+      {activeRoute && (
+        <div className="route-card">
+          <div className="route-card-meta">
+            <span className="route-card-name">{activeRoute.label}</span>
+            <span className="route-card-step">{routeStep + 1} / {activeRoute.steps.length}</span>
+            <button className="route-card-close" onClick={() => setActiveRoute(null)}>✕</button>
+          </div>
+          <p className="route-card-text">{activeRoute.steps[routeStep].text}</p>
+          <div className="route-card-nav">
+            <button
+              className="route-card-btn"
+              disabled={routeStep === 0}
+              onClick={() => goToRouteStep(routeStep - 1)}
+            >← Prev</button>
+            <button
+              className="route-card-btn"
+              disabled={routeStep === activeRoute.steps.length - 1}
+              onClick={() => goToRouteStep(routeStep + 1)}
+            >Next →</button>
+          </div>
+        </div>
+      )}
 
       {paywallOpen && (
         <div className="paywall-overlay" onClick={e => { if (e.target === e.currentTarget) setPaywallOpen(false); }}>
