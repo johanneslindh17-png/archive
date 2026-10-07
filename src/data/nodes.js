@@ -3059,12 +3059,12 @@ export const NODES = [
   { id:'de_school', label:'De School', type:'venue', genre:'techno', era:2016, city:'Amsterdam', country:'NL',
     desc:'De School was an Amsterdam club that opened in January 2016 in a former technical school building on Dr. Jan van Breemenstraat in the west of the city. It operated alongside a restaurant, gallery, and gym in the building. Its programming was considered a successor to Trouw in both aesthetic and social approach. De School closed in January 2024, having extended its original planned lease through an extended second phase following the Covid-19 closure.' },
 
-  { id:'kann_records', label:'Kann Records', type:'label', genre:'deep', era:2012, city:'Munich', country:'DE',
+  { id:'kann_records', label:'Kann Records', type:'label', genre:'deep', era:2013, city:'Munich', country:'DE',
     desc:'Kann Records was founded in Munich by Map.ache and has become one of the most warmly regarded German deep house labels of the 2010s–2020s — releasing music that feels handcrafted and harmonically attentive, positioned between the Cologne and Hamburg traditions without belonging entirely to either. Its catalogue is small by design and consistently high in quality: the label that releases less, releases well.',
     releases: [] },
 
   // ── GERMANY — WEIMAR / GIEGLING (additional) ─────────────────────────────
-  { id:'wun_two', label:'Wun Two', type:'artist', genre:'experimental', era:2012, city:'Stuttgart', country:'DE',
+  { id:'wun_two', label:'Wun Two', type:'artist', genre:'experimental', era:2011, city:'Stuttgart', country:'DE',
     desc:'Wun Two is a German producer based in Stuttgart whose instrumental music draws on hip-hop sampling culture and lo-fi production aesthetics. His work is positioned between hip-hop beat culture and ambient electronic music, often described as beat music or lo-fi. He has released prolifically across digital and vinyl formats on his own label and others.',
     releases: [
       { title: 'Murasaki (own)', year: 2015 },
@@ -3225,7 +3225,7 @@ export const NODES = [
   },
 
   // ── NEW ADDITIONS ─────────────────────────────────────────────────────────
-  { id:'dj_tennis', label:'DJ Tennis', type:'artist', genre:'melodic', era:2012, city:'Berlin', country:'DE',
+  { id:'dj_tennis', label:'DJ Tennis', type:'artist', genre:'melodic', era:2011, city:'Berlin', country:'DE',
     desc:'Giorgio Li Calzi performs as DJ Tennis and was born in Sicily. He co-founded the Life and Death label in Berlin in 2011 alongside other Berlin-based figures. He is known for marathon DJ sets that build across house and techno without settling in either, drawing on a wide catalogue with a pronounced harmonic intelligence. He has released on Life and Death, Get Physical, and Crosstown Rebels, and performs globally at major clubs and festivals.',
     releases: [
       { title: '"Isobar" (Life and Death)', year: 2012 },
@@ -4057,7 +4057,7 @@ export const NODES = [
       { title:'Pulsing (Hotflush)', year:2015 },
     ], spotify:'1doQgXssRfKnLx70adszbK', },
 
-  { id:'kobosil', label:'Kobosil', type:'artist', genre:'techno', era:2012, city:'Berlin', country:'DE',
+  { id:'kobosil', label:'Kobosil', type:'artist', genre:'techno', era:2013, city:'Berlin', country:'DE',
     desc:'Kobosil is a key figure of the post-Berghain Berlin techno generation. His releases on Ostgut Ton have pushed the label\'s sound in a harder, more industrial direction — pounding kick drums, metallic percussion, and a confrontational energy. His live sets at Berghain are known for their physicality and resistance to easy melodic resolution.',
     releases:[
       { title:'RB1 (Ostgut Ton)', year:2015 },
@@ -4440,7 +4440,7 @@ export const NODES = [
       { title:'Nitzer Ebb — That Total Age (Mute)', year:1987 },
     ]},
 
-  { id:'melodic_techno', label:'Melodic Techno', type:'style', genre:'melodic', era:2012, city:'Berlin', country:'DE',
+  { id:'melodic_techno', label:'Melodic Techno', type:'style', genre:'melodic', era:2014, city:'Berlin', country:'DE',
     desc:'Melodic techno emerged as a widely recognised descriptor in the 2010s for electronic music combining techno\'s driving rhythms with extended harmonic development, emotional arcs, and a cinematic quality. Associated with Afterlife, Innervisions, and Diynamic, it draws roots from progressive house and trance as much as techno. Whether genre or marketing category, it represents one of the dominant sounds of 2010s–2020s club culture.',
     releases:[
       { title:'Tale of Us — Endless (Afterlife)', year:2017 },
@@ -6476,7 +6476,7 @@ export const NODES = [
     desc:'Toy Tonics was founded in Berlin in 2012 by Mathias Modica (Kapote) as a successor to his Gomma Records label, initially as a sub-label before becoming independent. The label specialises in house and disco infused with live instrumentation — Modica describes the approach as "real piano, guitar and bass, with complex chords and rhythms played by traditional musicians." Key artists include COEO, Rhode + Brown, Cody Currie, The Phenomenal Handclap Band, Luke Solomon, Black Loops, Mangabey, and Felipe Gordon. Toy Tonics releases exclusively on vinyl, with many records reaching thousands of copies sold and frequent represses. The label has developed a distinct visual identity through collaborations with Berlin-based artists, and has released over 100 records.',
     releases: [] },
 
-  { id:'kapote', label:'Kapote', type:'artist', genre:'disco', era:2012, city:'Berlin', country:'DE',
+  { id:'kapote', label:'Kapote', type:'artist', genre:'disco', era:2013, city:'Berlin', country:'DE',
     desc:'Kapote is the stage name of Mathias Modica, born 18 March 1977 in Rome, Italy, and based in Berlin. Under his earlier alias Munk, Modica co-founded Gomma Records in Munich in 2000 with Jonas Imbery, releasing records that combined indie disco, funk, and experimental electronics, and collaborating with Peaches, James Murphy and Nancy Whang of LCD Soundsystem, and Franz Ferdinand. He founded Toy Tonics in 2012 as an outlet for house and disco music built around live instrumentation and vinyl-only releases. As Kapote he produces and DJs, running the Toy Tonics label alongside his own recorded output. The Gomma and Toy Tonics catalogs represent two decades of label work connecting European club culture with American house and disco traditions.',
     releases: [] , spotify:'3sySIHNL0hqR7eOlm3LNTH', },
 
