@@ -3645,7 +3645,7 @@ export default function App() {
           <div className="paywall-modal">
             <div className="paywall-title">Support the Archive</div>
             <div className="paywall-body">
-              Years of research and lived experience with the scene, turned into an interactive map. A membership supports the ongoing work and gives you full access to the resource.
+              Weekly additions of new artists, labels and venues — and the connections between them — mapped and documented from primary sources. Exclusive insight into the underground that is hard to find in this depth or in this format, built for collectors, DJs and fans who want to go further than the surface. A membership gives you full access and directly supports the ongoing archiving work.
             </div>
             <a
               className="paywall-buy"
