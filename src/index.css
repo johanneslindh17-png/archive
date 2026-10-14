@@ -1491,12 +1491,12 @@ path.eg.dim{opacity:0}
        Row 1: ELECTRONIC ARCHIVE.  [dark] [color] [?]
        Row 2: full-width search bar
   ── */
-  .topbar{display:grid !important;grid-template-rows:44px 44px;grid-template-columns:1fr auto auto auto;grid-template-areas:"wm yy col leg" "sw sw sw sw";height:88px;padding:0;overflow:visible;}
+  .topbar{display:grid !important;grid-template-rows:44px 44px;grid-template-columns:1fr auto auto auto;grid-template-areas:"wm yy col leg" "sw sw sw sw";height:88px;padding:0;overflow:visible;align-items:center;}
   .wordmark{grid-area:wm;width:auto;height:44px;padding:0 10px;font-size:0.55rem;line-height:1;display:flex;flex-direction:row;align-items:center;gap:3px;border-bottom:none;border-right:none;}
   .wordmark-line1{display:inline;}
   .yybtn{grid-area:yy;width:32px;height:44px;margin:0;}
   .colorwrap{grid-area:col;height:44px;display:flex;align-items:center;}
-  .legwrap{grid-area:leg;height:44px;display:flex;align-items:center;margin-left:0;}
+  .legwrap{grid-area:leg;height:44px;display:flex;align-items:center;margin-left:0;padding-right:8px;}
   .sw{grid-area:sw;height:44px;flex:none;border-top:1px solid var(--tb-border);}
   .tbsep{display:none;}
   /* Compact row-1 buttons — smaller so wordmark breathes */
