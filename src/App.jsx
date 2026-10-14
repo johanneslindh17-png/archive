@@ -700,6 +700,22 @@ export default function App() {
   const TRIAL_LIMIT = 25;
   const fpRef = useRef(null);
 
+  // Prevent iOS auto-zoom on any input focus (iOS zooms when font-size < 16px)
+  useEffect(() => {
+    if (window.innerWidth >= 600) return;
+    const prevent = () => {
+      const mv = document.querySelector('meta[name=viewport]');
+      if (mv && !mv.content.includes('maximum-scale')) mv.content += ',maximum-scale=1.0';
+    };
+    const restore = () => {
+      const mv = document.querySelector('meta[name=viewport]');
+      if (mv) mv.content = mv.content.replace(/,?maximum-scale=1\.0/, '');
+    };
+    document.addEventListener('focusin', prevent);
+    document.addEventListener('focusout', restore);
+    return () => { document.removeEventListener('focusin', prevent); document.removeEventListener('focusout', restore); };
+  }, []);
+
   // On mount: compute fingerprint, then fetch server-side count.
   // Use max(server, localStorage) so neither source can go backwards.
   useEffect(() => {
@@ -979,6 +995,23 @@ export default function App() {
         if (svgRef.current) svgRef.current.__zoom = target;
         setTf(target);
       });
+  }
+
+  function panToMinimap(clientX, clientY, rect) {
+    if (!svgRef.current) return;
+    const sx = Math.max(0, Math.min(50, clientX - rect.left - 1));
+    const sy = Math.max(0, Math.min(88, clientY - rect.top - 1));
+    const wx = sx * W / 50;
+    const wy = sy * H / 88;
+    const k = tf.k;
+    const nx = window.innerWidth / 2 - wx * k;
+    const ny = window.innerHeight / 2 - wy * k;
+    const target = d3.zoomIdentity.translate(nx, ny).scale(k);
+    svgRef.current.__zoom = target;
+    if (svgGRef.current)
+      svgGRef.current.style.transform = `translate(${nx}px,${ny}px) scale(${k})`;
+    document.documentElement.style.setProperty('--tf-k', k);
+    setTf(target);
   }
 
   // Smart panel positioning — picks the less-crowded side and sits close to centre,
@@ -3763,7 +3796,10 @@ export default function App() {
         const rectStroke = darkMode ? 'rgba(255,255,255,0.95)' : 'rgba(0,0,0,0.85)';
         const rectFill   = darkMode ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)';
         return (
-          <div className="minimap" aria-hidden="true">
+          <div className="minimap"
+            onTouchStart={e => { e.preventDefault(); const t = e.touches[0]; panToMinimap(t.clientX, t.clientY, e.currentTarget.getBoundingClientRect()); }}
+            onTouchMove={e => { e.preventDefault(); const t = e.touches[0]; panToMinimap(t.clientX, t.clientY, e.currentTarget.getBoundingClientRect()); }}
+          >
             <svg width="50" height="88" xmlns="http://www.w3.org/2000/svg">
               {NODES.map(n => {
                 const p = positions[n.id];

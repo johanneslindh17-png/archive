@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&family=Syne:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&family=Syne:wght@400;600;700;800&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 /* During SVG pointer drag, lock out topbar so pointer-capture release
    can't accidentally fire a stray click on a button */
@@ -2797,10 +2797,9 @@ path.eg.dim{opacity:0}
 }
 @media(max-width:600px){
   .legbox{
-    /* Fit within grid area: clear year strip (18px) left, leave margin right */
-    left:26px;right:8px;width:auto;transform:none;
-    top:144px;
-    max-height:calc(100vh - 144px - 56px - env(safe-area-inset-bottom,0px));
+    left:18px;right:0;width:auto;transform:none;
+    top:116px;
+    max-height:calc(100vh - 116px - 44px - env(safe-area-inset-bottom,0px));
     overflow-y:auto;
   }
   /* On phones only the .open class shows/hides the legbox — hover disabled */
@@ -2809,7 +2808,7 @@ path.eg.dim{opacity:0}
   .leg-desktop-only{display:none !important;}
   .legbox-grid{grid-template-columns:1fr 1fr;}
   .legbox-col{padding:8px 10px;}
-  .legbox-header{padding:8px 10px 6px;gap:8px;position:sticky;top:0;z-index:5;background:transparent !important;}
+  .legbox-header{padding:8px 10px 6px;gap:8px;}
   .legbox-close{background:var(--tb-bg) !important;border:1px solid var(--tb-border) !important;border-radius:2px !important;box-shadow:0 1px 6px rgba(0,0,0,0.18) !important;}
   .legbox-title{font-size:0.62rem;}
   .legbox-subtitle{display:none;}
@@ -2825,7 +2824,7 @@ path.eg.dim{opacity:0}
   position:fixed;bottom:calc(44px + env(safe-area-inset-bottom,0px) + 6px);right:7px;
   width:52px;height:90px;border:1px solid var(--tb-border);
   background:var(--tb-bg);opacity:1;z-index:50;border-radius:2px;
-  overflow:hidden;pointer-events:none;
+  overflow:hidden;
   color:var(--tb-text-mid);
 }
 
