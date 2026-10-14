@@ -1487,13 +1487,21 @@ path.eg.dim{opacity:0}
 
 /* â”€â”€ Mobile responsive â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media(max-width:600px){
-  /* ── 2-row topbar on phones: wordmark row + search row ── */
-  .topbar{height:88px;flex-wrap:wrap;align-content:flex-start;padding:0;}
-  .wordmark{width:100%;height:44px;padding:0 12px;font-size:0.6rem;line-height:1.1;display:flex;align-items:center;border-bottom:1px solid var(--tb-border);}
-  .wordmark-line1{display:block;}
+  /* ── 2-row topbar on phones ─────────────────────────────
+       Row 1: ELECTRONIC ARCHIVE.  [yybtn] [colorwrap] [?]
+       Row 2: full-width search bar
+  ── */
+  .topbar{height:88px;flex-wrap:wrap;align-items:center;padding:0;overflow:visible;}
+  /* Wordmark: single line, flex:1 to fill row 1 */
+  .wordmark{order:1;flex:1;width:auto;height:44px;padding:0 10px;font-size:0.55rem;line-height:1;display:flex;flex-direction:row;align-items:center;gap:3px;border-bottom:none;border-right:none;}
+  .wordmark-line1{display:inline;}
+  /* Buttons stay in row 1, right-aligned */
+  .yybtn{order:2;width:32px;height:44px;}
+  .colorwrap{order:3;height:44px;display:flex;align-items:center;}
+  .legwrap{order:4;height:44px;display:flex;align-items:center;}
+  /* Search bar takes its own full-width row 2 */
+  .sw{order:5;width:100%;height:44px;border-top:1px solid var(--tb-border);}
   .tbsep{display:none;}
-  .sw{height:44px;align-self:center;}
-  .yybtn{width:32px;height:44px;align-self:center;}
   /* Hide routes, about, filter on phones — not needed at overview scale */
   .routesbtn{display:none !important;}
   .aboutwrap{display:none !important;}
@@ -1562,7 +1570,9 @@ path.eg.dim{opacity:0}
   .chat-panel{display:none !important;}
   .groove-trigger{display:none !important;}
 
-  /* Performance: prevent pull-to-refresh from hijacking map pans */
+  /* Search dropdown: full viewport width */
+  .search-dropdown{position:fixed;top:116px;left:0;right:0;max-height:50vh;z-index:1200;}
+    /* Performance: prevent pull-to-refresh from hijacking map pans */
   .canvas{overscroll-behavior:none;}
   .msv{-webkit-tap-highlight-color:transparent;}
 
