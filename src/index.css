@@ -1482,18 +1482,20 @@ path.eg.dim{opacity:0}
 @media(max-width:600px){
   /* ── Compact topbar: wordmark only + search + color ── */
   .topbar{height:44px;}
-  .wordmark{padding:0 10px;font-size:0.88rem;}
-  .wordmark-line1{display:none;}
+  .wordmark{padding:0 8px;font-size:0.6rem;line-height:1.1;}
+  .wordmark-line1{display:block;}
   /* Hide routes, about, filter on phones — not needed at overview scale */
   .routesbtn{display:none !important;}
   .aboutwrap{display:none !important;}
   .filterwrap{display:none !important;}
   .filterbtn{display:none !important;}
   .yybtn{width:32px;}
+  .sw input{font-size:16px !important;}
 
   /* ── Year strip: narrower so more graph is visible ── */
-  .year-strip{width:28px;}
-  .year-label-fixed{font-size:8px;padding:0 3px;}
+  .year-strip{width:28px;overflow:visible;}
+  .year-label-fixed{font-size:7px;padding:0 3px;letter-spacing:0;}
+  .year-label-fixed::after{content:'';position:absolute;right:-5px;top:50%;transform:translateY(-50%);width:4px;height:1px;background:var(--tb-border);}
   /* Right strip: hide entirely, nodes don't go there anyway */
   .right-strip{display:none;}
 
@@ -1538,6 +1540,9 @@ path.eg.dim{opacity:0}
   }
   .statusbar-end{gap:6px;padding-left:8px;margin-left:4px;}
   .trial-counter{height:28px;padding:0 8px;font-size:0.5rem;white-space:nowrap;}
+  /* Shorten support button on phones */
+  .trial-counter:not(.trial-counter--views){font-size:0 !important;}
+  .trial-counter:not(.trial-counter--views)::before{content:'♥ SUPPORT';font-size:0.5rem;font-family:'Syne Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;}
   .sb-contact-wrap{display:none !important;}
   .trial-counter--views{display:none !important;}
   .tour-relaunch{display:none !important;}
@@ -1575,7 +1580,7 @@ path.eg.dim{opacity:0}
   .dp.left{left:0 !important;right:0 !important;}
   .dp::before{display:none;}
   .dp-close{width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;padding:0;}
-  .dp-toprow{margin-bottom:6px;}
+  .dp-toprow{margin-bottom:6px;position:sticky;top:0;z-index:5;background:inherit;margin-top:-4px;padding-top:4px;}
   .dp-name{font-size:1.2rem;margin-bottom:10px;}
   .dp-move-hint{display:none;}
 
@@ -2760,4 +2765,32 @@ path.eg.dim{opacity:0}
   .groove-mute-btn { height: 18px; }
   .gv-panel { overflow-x: auto; padding: 8px 8px 6px 8px; }
   .gv-col { min-width: 54px; }
+}
+
+/* Portrait orientation lock on phones */
+@media screen and (orientation:landscape) and (max-height:600px){
+  .app{display:none !important;}
+  body{background:#0c0c10;display:flex;align-items:center;justify-content:center;}
+  body::before{content:'rotate to portrait';font-family:''Syne Mono'',monospace;font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:#505060;}
+}
+@media(max-width:600px){
+  .legbox{
+    width:calc(100vw - 16px);
+    max-height:calc(100vh - 72px);
+    top:36px;left:50%;
+    transform:translateX(-50%);
+    overflow-y:auto;
+  }
+  .legwrap:hover .legbox{transform:translateX(-50%);}
+  .legbox-grid{grid-template-columns:1fr 1fr;}
+  .legbox-col{padding:8px 10px;}
+  .legbox-header{padding:10px 12px 8px;gap:8px;}
+  .legbox-title{font-size:0.62rem;}
+  .legbox-subtitle{display:none;}
+  .legbox-section{font-size:0.48rem;margin-bottom:4px;}
+  .leg-prose{font-size:0.52rem;margin-bottom:4px;}
+  .leg-kv{grid-template-columns:72px 1fr;gap:4px;margin-bottom:3px;}
+  .leg-key{font-size:0.46rem;}
+  .leg-val{font-size:0.5rem;}
+  .leg-type-row{margin-bottom:4px;}
 }

@@ -1640,6 +1640,8 @@ export default function App() {
         if (svgGRef.current) {
           const { x, y, k } = e.transform;
           svgGRef.current.style.transform = `translate(${x}px,${y}px) scale(${k})`;
+          // CSS variable lets column-header-label font-size track zoom level
+          document.documentElement.style.setProperty('--tf-k', k);
         }
         // Update React state for HTML overlays — throttled to one update per animation frame
         if (!animatingRef.current) {
