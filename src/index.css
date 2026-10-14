@@ -1498,16 +1498,28 @@ path.eg.dim{opacity:0}
   .right-strip{display:none;}
 
   /* ── Column headers: show but compact at overview zoom ── */
-  .column-header-strip{display:flex;}
+  .column-header-strip{display:flex;position:relative;}
+  /* Scroll-hint arrows: left fade + chevron, right fade + chevron */
+  .column-header-strip::before,.column-header-strip::after{
+    content:'';position:absolute;top:0;bottom:0;width:28px;z-index:3;pointer-events:none;
+  }
+  .column-header-strip::before{left:0;background:linear-gradient(to right,var(--tb-bg) 40%,transparent);}
+  .column-header-strip::after{right:0;background:linear-gradient(to left,var(--tb-bg) 40%,transparent);}
   .column-header-label{font-size:0.38rem;letter-spacing:0.06em;min-width:0;}
   .chl-line{display:block;white-space:nowrap;}
 
   /* ── Statusbar: NODE TYPE toggle + support only ── */
-  .statusbar{min-height:44px;padding:0 10px;padding-bottom:env(safe-area-inset-bottom,0px);}
+  .statusbar{min-height:44px;padding:0 8px;padding-bottom:env(safe-area-inset-bottom,0px);}
   .statusbar-item--log{display:none !important;}
   .statusbar-scroll .statusbar-item{display:none !important;}
   .statusbar-scroll .statusbar-sep{display:none !important;}
-  .player-inline{display:none !important;}
+  /* Show Bandcamp player on mobile — iframe only */
+  .player-inline{display:flex !important;flex:1;min-width:0;max-width:none;gap:4px;}
+  .player-sep{display:none !important;}
+  .player-name{display:none !important;}
+  .player-btn--show{display:none !important;}
+  .player-btn--bandcamp{display:none !important;}
+  .player-iframe-wrap{flex:1;min-width:0;}
   .sb-type-label{display:none;}
   .sb-type-toggle{
     display:flex;align-items:center;height:28px;padding:0 10px;
@@ -1529,9 +1541,16 @@ path.eg.dim{opacity:0}
   .sb-contact-wrap{display:none !important;}
   .trial-counter--views{display:none !important;}
   .tour-relaunch{display:none !important;}
+  .pathbtn{display:none !important;}
+  .pathbar{display:none !important;}
   .groove-ctrl-btn{display:none !important;}
   .groove-panel{display:none !important;}
+  .chat-panel{display:none !important;}
   .groove-trigger{display:none !important;}
+
+  /* Performance: prevent pull-to-refresh from hijacking map pans */
+  .canvas{overscroll-behavior:none;}
+  .msv{-webkit-tap-highlight-color:transparent;}
 
   /* ── Detail panel: full graph area (top of canvas → statusbar) ── */
   .dp{

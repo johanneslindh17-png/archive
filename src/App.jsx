@@ -1606,8 +1606,9 @@ export default function App() {
     // always render at the same size regardless of window size at load time.
     const _screenK = Math.max(window.screen.width / W, 1.0);
     const _minK = Math.min(_fitK, _screenK);
-    // Phones start at fit-all zoom so every node is immediately visible
-    const _initK = _isPhone ? _fitK : _screenK;
+    // Phones start at ~4-region zoom (0.65) — zoomed enough to read labels,
+    // but not overwhelming. User pinches to zoom in or out to fit-all.
+    const _initK = _isPhone ? Math.min(0.65, _screenK) : _screenK;
     const zoom = d3.zoom()
       .scaleExtent([_minK, 8])
       .translateExtent([[0, 0], [W, H]])  // single copy, bounded
