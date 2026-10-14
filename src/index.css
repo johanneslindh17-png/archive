@@ -1490,11 +1490,11 @@ path.eg.dim{opacity:0}
   .filterwrap{display:none !important;}
   .filterbtn{display:none !important;}
   .yybtn{width:32px;}
-  .sw input{font-size:16px !important;}
+  /* iOS zoom prevented via viewport meta in JS — no font-size override needed */
 
   /* ── Year strip: narrower so more graph is visible ── */
-  .year-strip{width:28px;overflow:visible;}
-  .year-label-fixed{font-size:7px;padding:0 3px;letter-spacing:0;}
+  .year-strip{width:18px;overflow:visible;}
+  .year-label-fixed{writing-mode:vertical-lr;font-size:7px;padding:0;letter-spacing:0;justify-content:center;align-items:center;}
   .year-label-fixed::after{content:'';position:absolute;right:-5px;top:50%;transform:translateY(-50%);width:4px;height:1px;background:var(--tb-border);}
   /* Right strip: hide entirely, nodes don't go there anyway */
   .right-strip{display:none;}
@@ -1507,7 +1507,7 @@ path.eg.dim{opacity:0}
   }
   .column-header-strip::before{left:0;background:linear-gradient(to right,var(--tb-bg) 40%,transparent);}
   .column-header-strip::after{right:0;background:linear-gradient(to left,var(--tb-bg) 40%,transparent);}
-  .column-header-label{font-size:0.38rem;letter-spacing:0.06em;min-width:0;}
+  .column-header-label{font-size:calc(var(--tf-k,0.65)*0.58rem);letter-spacing:0.06em;min-width:0;}
   .chl-line{display:block;white-space:nowrap;}
 
   /* ── Statusbar: NODE TYPE toggle + support only ── */

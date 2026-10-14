@@ -949,6 +949,36 @@ export default function App() {
       });
   }
 
+  // On phones: zoom and center the map on a search result (animates x, y, and k together).
+  function centerOnNode(id, targetK = 1.5) {
+    const p = positions[id];
+    if (!p || !zoomRef.current || !svgRef.current) { scrollToNode(id); return; }
+    const live = d3.zoomTransform(svgRef.current);
+    const k0 = live.k, x0 = live.x, y0 = live.y;
+    const k1 = Math.max(targetK, k0);
+    const x1 = window.innerWidth  / 2 - p.x * k1;
+    const y1 = window.innerHeight / 2 - p.y * k1;
+    const target = d3.zoomIdentity.translate(x1, y1).scale(k1);
+    positionPanel(id, target);
+    animatingRef.current = true;
+    d3.select(svgRef.current)
+      .transition().duration(600).ease(d3.easeCubicInOut)
+      .tween('center-on-node', () => t => {
+        const x = x0 + (x1 - x0) * t;
+        const y = y0 + (y1 - y0) * t;
+        const k = k0 + (k1 - k0) * t;
+        svgRef.current.__zoom = d3.zoomIdentity.translate(x, y).scale(k);
+        if (svgGRef.current)
+          svgGRef.current.style.transform = `translate(${x}px,${y}px) scale(${k})`;
+        document.documentElement.style.setProperty('--tf-k', k);
+      })
+      .on('end', () => {
+        animatingRef.current = false;
+        if (svgRef.current) svgRef.current.__zoom = target;
+        setTf(target);
+      });
+  }
+
   // Smart panel positioning — picks the less-crowded side and sits close to centre,
   // nudging outward (up to MAX_NUDGE px) to clear any directly-connected node.
   // liveTf must be the transform AT which the graph will be displayed
@@ -1018,7 +1048,11 @@ export default function App() {
     }
     setPanelX(null);
     selectNode(id);
-    scrollToNode(id);
+    if (window.innerWidth < 600) {
+      centerOnNode(id, 1.5);
+    } else {
+      scrollToNode(id);
+    }
   }
 
   const [onboardStep, setOnboardStep] = useState(() =>
@@ -2572,8 +2606,17 @@ export default function App() {
             ref={searchInputRef}
             placeholder="Search artist, label, club, city, style…" value={searchQ}
             onChange={e => { setSearchQ(e.target.value); setSearchActiveIdx(-1); clearAll(); }}
-            onFocus={() => setSearchFocus(true)}
-            onBlur={() => setTimeout(() => setSearchFocus(false), 150)}
+            onFocus={() => {
+              setSearchFocus(true);
+              // Prevent iOS viewport zoom on input focus without forcing a large font-size
+              const mv = document.querySelector('meta[name=viewport]');
+              if (mv) { mv._ovc = mv.content; mv.content = mv.content + ',maximum-scale=1.0'; }
+            }}
+            onBlur={() => {
+              setTimeout(() => setSearchFocus(false), 150);
+              const mv = document.querySelector('meta[name=viewport]');
+              if (mv && mv._ovc) { mv.content = mv._ovc; delete mv._ovc; }
+            }}
             onKeyDown={e => {
               if (e.key === 'ArrowDown') {
                 e.preventDefault();
