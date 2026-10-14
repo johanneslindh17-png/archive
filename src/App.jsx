@@ -1599,16 +1599,21 @@ export default function App() {
     if (!svgRef.current) return;
     const _iw = window.innerWidth;
     const _isTouch = window.matchMedia('(pointer:coarse)').matches;
+    const _isPhone = _iw < 600 && _isTouch;
     const _bezel = (_iw >= 600 && _iw <= 1400 && _isTouch) ? 68 : 0;
     const _fitK = (_iw - _bezel) / W;
     // Use screen width (not window width) for the initial scale so nodes
     // always render at the same size regardless of window size at load time.
     const _screenK = Math.max(window.screen.width / W, 1.0);
     const _minK = Math.min(_fitK, _screenK);
-    const _initK = _screenK;
+    // Phones start at fit-all zoom so every node is immediately visible
+    const _initK = _isPhone ? _fitK : _screenK;
     const zoom = d3.zoom()
       .scaleExtent([_minK, 8])
       .translateExtent([[0, 0], [W, H]])  // single copy, bounded
+      // On touch screens, raise the click-distance threshold so small finger
+      // movements don't accidentally start a pan instead of a node tap.
+      .clickDistance(_isTouch ? 8 : 3)
       // Only zoom on ctrl+wheel or pinch — regular scroll pans
       .filter(event => {
         if (event.type === 'wheel') return event.ctrlKey;
