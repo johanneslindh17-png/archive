@@ -3754,24 +3754,38 @@ export default function App() {
       <Chat ref={chatRef} open={chatOpen} onSelectNode={id => { selectNode(id); scrollToNode(id); }} darkMode={darkMode} />
 
       {/* Minimap — game-style overview, phones only */}
-      {window.innerWidth < 600 && !selNode && (
-        <div className="minimap" aria-hidden="true">
-          <svg width="50" height="88" xmlns="http://www.w3.org/2000/svg">
-            {NODES.map(n => {
-              const p = positions[n.id];
-              if (!p) return null;
-              return <circle key={n.id} cx={p.x * (50 / W)} cy={p.y * (88 / H)} r={0.8} fill="currentColor" opacity={0.55} />;
-            })}
-            <rect
-              x={Math.max(0, Math.min(48, (-tf.x / tf.k) * (50 / W)))}
-              y={Math.max(0, Math.min(86, (-tf.y / tf.k) * (88 / H)))}
-              width={Math.max(3, Math.min(50, (window.innerWidth / tf.k) * (50 / W)))}
-              height={Math.max(3, Math.min(88, (window.innerHeight / tf.k) * (88 / H)))}
-              fill="none" stroke="currentColor" strokeWidth={1.2} opacity={0.8}
-            />
-          </svg>
-        </div>
-      )}
+      {window.innerWidth < 600 && !selNode && (() => {
+        const mmScX = 50 / W, mmScY = 88 / H;
+        const vx = Math.max(0, (-tf.x / tf.k) * mmScX);
+        const vy = Math.max(0, (-tf.y / tf.k) * mmScY);
+        const vw = Math.max(3, Math.min(50 - vx, (window.innerWidth  / tf.k) * mmScX));
+        const vh = Math.max(3, Math.min(88 - vy, (window.innerHeight / tf.k) * mmScY));
+        const rectStroke = darkMode ? 'rgba(255,255,255,0.95)' : 'rgba(0,0,0,0.85)';
+        const rectFill   = darkMode ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)';
+        return (
+          <div className="minimap" aria-hidden="true">
+            <svg width="50" height="88" xmlns="http://www.w3.org/2000/svg">
+              {NODES.map(n => {
+                const p = positions[n.id];
+                if (!p) return null;
+                let fill = 'currentColor';
+                if (colorTheme === 'type') {
+                  const tc = TYPE_COLORS[n.type];
+                  fill = tc ? (darkMode ? tc.dark.stroke : tc.light.stroke) : fill;
+                } else if (colorTheme === 'genre') {
+                  const gc = n.genre && GENRE_COLORS[n.genre];
+                  fill = gc ? (darkMode ? gc.dark.stroke : gc.light.stroke) : fill;
+                } else if (colorTheme === 'void') fill = '#18c8d0';
+                else if (colorTheme === 'acid') fill = '#a8e000';
+                else if (colorTheme === 'rust') fill = '#e05828';
+                return <circle key={n.id} cx={p.x * mmScX} cy={p.y * mmScY} r={0.8} fill={fill} opacity={0.7} />;
+              })}
+              <rect x={vx} y={vy} width={vw} height={vh}
+                fill={rectFill} stroke={rectStroke} strokeWidth={1.5} />
+            </svg>
+          </div>
+        );
+      })()}
 
       {/* Pan/zoom hint — shown briefly on first mobile load */}
       {mapHint && (
