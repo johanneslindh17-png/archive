@@ -1525,7 +1525,8 @@ path.eg.dim{opacity:0}
   }
   .column-header-strip::before{left:0;background:linear-gradient(to right,var(--tb-bg) 40%,transparent);}
   .column-header-strip::after{right:0;background:linear-gradient(to left,var(--tb-bg) 40%,transparent);}
-  .column-header-label{font-size:min(calc(var(--tf-k,0.65)*0.58rem),0.55rem);letter-spacing:0.06em;min-width:0;}
+  .column-header-strip{height:28px;}
+  .column-header-label{font-size:min(calc(var(--tf-k,0.65)*0.58rem),0.55rem);letter-spacing:0.06em;min-width:0;padding:3px 8px;line-height:1.3;}
   .chl-line{display:block;white-space:nowrap;}
 
   /* ── Statusbar: NODE TYPE toggle + support only ── */
