@@ -2614,7 +2614,7 @@ export default function App() {
           <input
             ref={searchInputRef}
             placeholder="Search…" value={searchQ}
-            onChange={e => { setSearchQ(e.target.value); setSearchActiveIdx(-1); clearAll(); }}
+            onChange={e => { setSearchQ(e.target.value); setSearchActiveIdx(-1); }}
             onFocus={() => {
               setSearchFocus(true);
               // Prevent iOS viewport zoom on input focus without forcing a large font-size
