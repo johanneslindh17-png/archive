@@ -685,6 +685,7 @@ export default function App() {
   const [routeStep, setRouteStep] = useState(0);
   const [grooveOpen, setGrooveOpen] = useState(false);
   const [chatOpen,   setChatOpen]   = useState(false);
+  const [mapHint, setMapHint] = useState(() => window.innerWidth < 600);
   const [typePopOpen, setTypePopOpen] = useState(false);
   const chatRef = useRef(null);
   const [logOpen,    setLogOpen]    = useState(false);
@@ -1694,7 +1695,14 @@ export default function App() {
     zoomRef.current = zoom;
     const svg = d3.select(svgRef.current);
     svg.call(zoom);
-    svg.call(zoom.transform, d3.zoomIdentity.translate(0, 0).scale(_initK));
+    // Dismiss the pan/zoom hint on first interaction
+    if (_isPhone) setTimeout(() => setMapHint(false), 3000);
+
+    // On phones: center the view between the Germany and UK columns
+    const _initX = _isPhone
+      ? window.innerWidth / 2 - ((REGION_LEFTS['DE'] + REGION_WIDTHS['DE'] / 2 + REGION_LEFTS['UK'] + REGION_WIDTHS['UK'] / 2) / 2) * _initK
+      : 0;
+    svg.call(zoom.transform, d3.zoomIdentity.translate(_initX, 0).scale(_initK));
 
     // Regular scroll wheel → pan vertically
     const handleWheel = event => {
@@ -2604,7 +2612,7 @@ export default function App() {
           <span className="si">⌕</span>
           <input
             ref={searchInputRef}
-            placeholder="Search artist, label, club, city, style…" value={searchQ}
+            placeholder="Search…" value={searchQ}
             onChange={e => { setSearchQ(e.target.value); setSearchActiveIdx(-1); clearAll(); }}
             onFocus={() => {
               setSearchFocus(true);
@@ -3741,6 +3749,34 @@ export default function App() {
 
       <Groovebox open={grooveOpen} onClose={() => setGrooveOpen(false)} darkMode={darkMode} />
       <Chat ref={chatRef} open={chatOpen} onSelectNode={id => { selectNode(id); scrollToNode(id); }} darkMode={darkMode} />
+
+      {/* Minimap — game-style overview, phones only */}
+      {window.innerWidth < 600 && !selNode && (
+        <div className="minimap" aria-hidden="true">
+          <svg width="50" height="88" xmlns="http://www.w3.org/2000/svg">
+            {NODES.map(n => {
+              const p = positions[n.id];
+              if (!p) return null;
+              return <circle key={n.id} cx={p.x * (50 / W)} cy={p.y * (88 / H)} r={0.8} fill="currentColor" opacity={0.55} />;
+            })}
+            <rect
+              x={Math.max(0, Math.min(48, (-tf.x / tf.k) * (50 / W)))}
+              y={Math.max(0, Math.min(86, (-tf.y / tf.k) * (88 / H)))}
+              width={Math.max(3, Math.min(50, (window.innerWidth / tf.k) * (50 / W)))}
+              height={Math.max(3, Math.min(88, (window.innerHeight / tf.k) * (88 / H)))}
+              fill="none" stroke="currentColor" strokeWidth={1.2} opacity={0.8}
+            />
+          </svg>
+        </div>
+      )}
+
+      {/* Pan/zoom hint — shown briefly on first mobile load */}
+      {mapHint && (
+        <div className="map-hint" onTouchStart={() => setMapHint(false)}>
+          <span className="map-hint-lr">← →</span>
+          <span className="map-hint-zoom">⊕ pinch</span>
+        </div>
+      )}
     </div>
   );
 }
