@@ -1492,17 +1492,17 @@ path.eg.dim{opacity:0}
        Row 2: full-width search bar
   ── */
   .topbar{display:grid !important;grid-template-rows:44px 44px;grid-template-columns:1fr auto auto auto;grid-template-areas:"wm yy col leg" "sw sw sw sw";height:88px;padding:0;overflow:visible;align-items:center;}
-  .wordmark{grid-area:wm;width:auto;height:44px;padding:0 10px;font-size:0.55rem;line-height:1;display:flex;flex-direction:row;align-items:center;gap:3px;border-bottom:none;border-right:none;}
+  .wordmark{grid-area:wm;width:auto;height:44px;padding:0 12px;font-size:0.65rem;line-height:1;display:flex;flex-direction:row;align-items:center;gap:3px;border-bottom:none;border-right:none;}
   .wordmark-line1{display:inline;}
-  .yybtn{grid-area:yy;width:32px;height:44px;margin:0;}
+  .yybtn{grid-area:yy;}
   .colorwrap{grid-area:col;height:44px;display:flex;align-items:center;}
   .legwrap{grid-area:leg;height:44px;display:flex;align-items:center;margin-left:0;padding-right:8px;}
   .sw{grid-area:sw;height:44px;flex:none;border-top:1px solid var(--tb-border);}
   .tbsep{display:none;}
-  /* Compact row-1 buttons — smaller so wordmark breathes */
-  .yybtn{width:28px;height:28px;margin:0 2px;border-radius:2px;}
-  .colorbtn,.colorwrap .colorbtn{width:28px;height:28px;font-size:0.5rem;}
-  .legtrigger{width:28px;height:28px;font-size:0.65rem;padding:0;line-height:28px;}
+  /* Row-1 buttons: fill full 44px cell height, subtle appearance */
+  .yybtn{width:36px;height:44px;margin:0;}
+  .colorwrap .colorbtn{width:36px;height:44px;align-self:stretch;}
+  .legtrigger{height:44px;padding:0 10px;font-size:0.6rem;border-left:1px solid var(--tb-border);display:flex;align-items:center;justify-content:center;}
   /* Hide routes, about, filter on phones — not needed at overview scale */
   .routesbtn{display:none !important;}
   .aboutwrap{display:none !important;}
