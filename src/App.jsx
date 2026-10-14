@@ -686,6 +686,7 @@ export default function App() {
   const [grooveOpen, setGrooveOpen] = useState(false);
   const [chatOpen,   setChatOpen]   = useState(false);
   const [mapHint, setMapHint] = useState(() => window.innerWidth < 600);
+  const [legOpen, setLegOpen] = useState(false);
   const [typePopOpen, setTypePopOpen] = useState(false);
   const chatRef = useRef(null);
   const [logOpen,    setLogOpen]    = useState(false);
@@ -2811,12 +2812,13 @@ export default function App() {
         </div>
 
         {/* Legend / Guide */}
-        <div className="legwrap">
-          <div className="legtrigger">?</div>
+        <div className={`legwrap${legOpen ? ' open' : ''}`}>
+          <div className="legtrigger" onClick={() => setLegOpen(v => !v)}>?</div>
           <div className="legbox">
             <div className="legbox-header">
               <span className="legbox-title">Archive Guide</span>
               <span className="legbox-subtitle">A map of electronic music — origins, migrations, mutations</span>
+              <button className="legbox-close" onClick={() => setLegOpen(false)}>✕</button>
             </div>
 
             <div className="legbox-grid">
@@ -2854,10 +2856,10 @@ export default function App() {
                 <div className="legbox-section" style={{ marginTop: 12 }}>Detail Panel</div>
                 {[
                   { key: 'name in text', desc: 'Click any highlighted name to navigate to that node' },
-                  { key: 'drag header', desc: 'Reposition the panel freely' },
+                  { key: 'drag header', desc: 'Reposition the panel freely', desktopOnly: true },
                   { key: '✕',                 desc: 'Close panel but keep node highlighted' },
-                ].map(({ key, desc }) => (
-                  <div key={key} className="leg-kv">
+                ].map(({ key, desc, desktopOnly }) => (
+                  <div key={key} className={`leg-kv${desktopOnly ? ' leg-desktop-only' : ''}`}>
                     <span className="leg-key">{key}</span>
                     <span className="leg-val">{desc}</span>
                   </div>
@@ -2904,7 +2906,7 @@ export default function App() {
                   The node type chips in the status bar toggle visibility of each type —
                   both on the map and in search results. Click any chip to hide or reveal that layer.
                 </p>
-                <p className="leg-prose">
+                <p className="leg-prose leg-desktop-only">
                   The search bar (top left) filters by name in real time. Arrow keys navigate results;
                   Enter or click to select.
                 </p>
