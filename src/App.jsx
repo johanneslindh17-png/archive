@@ -2733,6 +2733,7 @@ export default function App() {
           <button
             className={`colorbtn${colorTheme ? ' on' : ''}`}
             style={btnGradient ? { background: btnGradient } : undefined}
+            onClick={() => setColorMenuOpen(v => !v)}
           />
           {colorMenuOpen && (
             <div className="colordrop">
@@ -2754,7 +2755,7 @@ export default function App() {
                   <div
                     key={String(key)}
                     className={`colordrop-item${colorTheme === key ? ' active' : ''}`}
-                    onClick={() => setColorTheme(key)}
+                    onClick={() => { setColorTheme(key); setColorMenuOpen(false); }}
                   >
                     <div className="colordrop-text">
                       <span className="colordrop-label">{label}</span>
