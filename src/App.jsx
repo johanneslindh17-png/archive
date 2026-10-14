@@ -3493,7 +3493,7 @@ export default function App() {
           <div className="statusbar-sep" />
           <button className="trial-counter" onClick={() => setPaywallOpen(true)}>♥ support the archive</button>
           {!unlocked && (
-            <span className="trial-counter" onClick={() => setPaywallOpen(true)}>
+            <span className="trial-counter trial-counter--views" onClick={() => setPaywallOpen(true)}>
               {`${Math.max(0, TRIAL_LIMIT - trialCount)} views`}
             </span>
           )}

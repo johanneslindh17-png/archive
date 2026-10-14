@@ -1480,31 +1480,90 @@ path.eg.dim{opacity:0}
 
 /* â”€â”€ Mobile responsive â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media(max-width:600px){
-  .wordmark{padding:0 14px;}
+  /* ── Compact topbar ── */
+  .topbar{height:44px;}
+  .wordmark{padding:0 12px;font-size:0.9rem;}
+  .wordmark-line1{display:none;}
+  .routesbtn,.abouttrigger{padding:0 14px;height:44px;font-size:0.62rem;}
+  .filterbtn{padding:0 12px;height:44px;font-size:0.5rem;}
+  .yybtn{width:36px;}
 
   /* Column headers: unreadable when compressed, hide them */
   .column-header-strip{display:none;}
 
-  /* Statusbar: scroll horizontally so all chips are reachable */
-  .statusbar{overflow-x:auto;flex-wrap:nowrap;padding:0 12px;gap:10px;}
-  .statusbar::-webkit-scrollbar{display:none;}
+  /* ── Statusbar: minimal on phones ── */
+  .statusbar{min-height:44px;padding:0 10px;padding-bottom:env(safe-area-inset-bottom,0px);}
+  /* Hide heavy items */
+  .statusbar-item--log{display:none !important;}
+  .statusbar-scroll .statusbar-item{display:none !important;}
+  .statusbar-scroll .statusbar-sep{display:none !important;}
+  .player-inline{display:none !important;}
+  .sb-type-label{display:none;}
+  /* Compact type-toggle */
+  .sb-type-toggle{
+    display:flex;align-items:center;height:28px;padding:0 10px;
+    border:1px solid var(--tb-border);background:transparent;
+    color:var(--tb-text-mid);cursor:pointer;border-radius:2px;
+    font-family:'Syne Mono',monospace;font-size:0.5rem;letter-spacing:0.1em;
+    text-transform:uppercase;transition:color 0.15s,background 0.15s;flex-shrink:0;
+  }
+  .sb-type-toggle:hover,.sb-type-toggle.open{color:var(--tb-text);background:var(--tb-hover);}
+  .sb-type-filter{display:none;}
+  .sb-type-filter.pop{
+    display:flex;flex-wrap:wrap;gap:8px;
+    position:fixed;bottom:calc(44px + env(safe-area-inset-bottom,0px));left:0;right:0;
+    background:var(--tb-bg);border-top:1px solid var(--tb-border);
+    padding:14px 16px;z-index:300;box-shadow:0 -4px 16px rgba(0,0,0,0.07);
+  }
+  /* Statusbar end: compact */
+  .statusbar-end{gap:6px;padding-left:8px;margin-left:4px;}
+  .trial-counter{height:28px;padding:0 8px;font-size:0.5rem;}
+  .sb-contact-wrap{display:none !important;}
+  .trial-counter--views{display:none !important;}
+  .tour-relaunch{display:none !important;}
+  .groove-ctrl-btn--groove{display:none !important;}
+  .groove-panel{display:none !important;}
+  .groove-trigger{display:none !important;}
 
-  /* Detail panel: bottom sheet instead of side panel */
+  /* ── Detail panel: bottom sheet ── */
   .dp{
     position:fixed !important;
-    left:0 !important;right:0 !important;bottom:44px !important;top:auto !important;
-    width:100% !important;height:62vh;
-    border-radius:16px 16px 0 0;
+    left:0 !important;right:0 !important;
+    bottom:calc(44px + env(safe-area-inset-bottom,0px)) !important;
+    top:auto !important;
+    width:100% !important;height:55vh;
+    border-radius:14px 14px 0 0;
     border-left:none !important;border-right:none !important;border-bottom:none !important;
     border-top:1px solid var(--tb-border) !important;
     box-shadow:0 -4px 32px rgba(0,0,0,0.35) !important;
   }
   .dp.left{left:0 !important;right:0 !important;}
-
-  /* Hide the drag-to-reposition hint â€” not applicable on mobile */
+  .dp::before{
+    content:'';display:block;
+    width:40px;height:4px;border-radius:2px;
+    background:var(--tb-border);
+    margin:8px auto 4px;
+  }
+  .dp-close{width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;padding:0;}
+  .dp-toprow{margin-bottom:8px;}
   .dp-move-hint{display:none;}
-}
 
+  /* ── Route card: sit above statusbar ── */
+  .route-card{
+    bottom:calc(54px + env(safe-area-inset-bottom,0px)) !important;
+    left:8px !important;right:8px !important;
+    transform:none !important;width:auto !important;
+    padding:12px 14px 10px;
+  }
+  .route-card-text{font-size:0.65rem;margin-bottom:10px;}
+  .route-card-btn{padding:5px 10px;font-size:0.58rem;}
+
+  /* ── Routes modal: full width on phones ── */
+  .routes-modal{width:100%;max-height:90vh;padding:20px 16px 16px;}
+
+  /* ── Paywall/onboard modals ── */
+  .paywall-modal,.onboard-modal{width:calc(100vw - 24px) !important;padding:24px 20px 20px !important;}
+}
 @media(max-width:900px){
   /* Tablet: just make the statusbar scrollable */
   .statusbar{overflow-x:auto;flex-wrap:nowrap;}
