@@ -103,11 +103,11 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 }
 .topbar > *{flex-shrink:0;}
 .wordmark{
-  font-weight:800;font-size:1.18rem;letter-spacing:0.1em;
+  font-weight:800;font-size:1.9rem;letter-spacing:0.07em;
   text-transform:uppercase;color:var(--tb-text);flex-shrink:0;
-  padding:0 11px;height:100%;white-space:nowrap;
-  display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
-  border-right:1px solid var(--tb-border);line-height:1.15;
+  padding:0 13px;height:100%;white-space:nowrap;
+  display:flex;flex-direction:row;align-items:center;gap:5px;
+  border-right:1px solid var(--tb-border);
 }
 .wordmark-line1{ display:block; }
 .wordmark-line2{ display:block; }
