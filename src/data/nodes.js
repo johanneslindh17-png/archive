@@ -4407,7 +4407,7 @@ export const NODES = [
     ], spotify:'2eDkVPd82dQhBibh3YNQF3' },
 
   { id:'daniel_bortz', label:'Daniel Bortz', type:'artist', genre:'techno', era:2010, city:'Munich', country:'DE',
-    desc:'Daniel Bortz is a Stockholm-based producer and DJ whose music occupies the melodic end of techno — polished, driving, with a Scandinavian clarity of production that sits naturally alongside the Drumcode aesthetic. He has released on Drumcode, Rekids, and various European labels, building a reputation within the European techno underground for consistency and quality. His work reflects the Stockholm techno scene\'s particular synthesis of Detroit influence and Nordic musical temperament — technically accomplished, rarely austere.',
+    desc:'Daniel Bortz is a Munich-based producer and DJ whose music occupies the melodic end of techno — polished, driving, with a clarity of production that sits naturally alongside the Drumcode aesthetic. He has released on Drumcode, Rekids, and various European labels, building a reputation within the European techno underground for consistency and quality. His work reflects a particular synthesis of Detroit influence and contemporary European sensibility — technically accomplished, rarely austere.',
     releases:[
       { title:'Inward (Rekids)', year:2014 },
     ], spotify:'1B58bHiEUy3kAvEeHXGvP5' },
