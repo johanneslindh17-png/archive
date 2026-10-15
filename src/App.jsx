@@ -3294,13 +3294,15 @@ export default function App() {
           className={`dp${selected ? ' open' : ''}${isDragging ? ' dragging' : ''}${panelOnLeft && panelX === null ? ' left' : ''}`}
           style={panelStyle}
           onMouseDown={handlePanelDragStart}
-          onTouchStart={e => { dpSwipeStartRef.current = e.touches[0].clientY; }}
+          onTouchStart={e => {
+            dpSwipeStartRef.current = { y: e.touches[0].clientY, scrollTop: e.currentTarget.scrollTop };
+          }}
           onTouchEnd={e => {
             const start = dpSwipeStartRef.current;
             dpSwipeStartRef.current = null;
-            if (start === null) return;
-            const deltaY = e.changedTouches[0].clientY - start;
-            if (deltaY > 60 && e.currentTarget.scrollTop === 0) closePanel();
+            if (!start) return;
+            const deltaY = e.changedTouches[0].clientY - start.y;
+            if (deltaY > 60 && start.scrollTop <= 2) closePanel();
           }}
         >
 
