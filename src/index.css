@@ -630,7 +630,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   letter-spacing:0.14em;text-transform:uppercase;color:var(--tb-text);
 }
 .era-body{
-  font-size:0.78rem;color:var(--tb-text-mid);line-height:1.7;margin:0;
+  font-size:0.68rem;color:var(--tb-text-mid);line-height:1.7;margin:0;
 }
 svg.msv{width:100%;height:100%;cursor:grab;background:var(--canvas-bg);transition:background 0.2s;contain:layout style;will-change:transform;overflow:hidden}
 svg.msv:active{cursor:grabbing}
@@ -1141,7 +1141,7 @@ path.eg.dim{opacity:0}
   font-family:'Syne Mono',monospace;font-size:0.85rem;
   letter-spacing:0.12em;text-transform:uppercase;color:var(--tb-text);
 }
-.paywall-body{font-size:0.78rem;color:var(--tb-text-mid);line-height:1.6;}
+.paywall-body{font-size:0.68rem;color:var(--tb-text-mid);line-height:1.6;}
 .paywall-buy{
   display:block;text-align:center;padding:12px;
   background:var(--tb-text);color:var(--tb-bg);
@@ -1195,7 +1195,7 @@ path.eg.dim{opacity:0}
 }
 .routes-modal-header{display:flex;align-items:center;margin-bottom:10px;}
 .routes-modal-title{
-  font-family:'Syne Mono',monospace;font-size:0.78rem;font-weight:700;
+  font-family:'Syne Mono',monospace;font-size:0.68rem;font-weight:700;
   letter-spacing:0.1em;text-transform:uppercase;color:var(--tb-text);flex:1;
 }
 .routes-modal-close{
@@ -1284,7 +1284,7 @@ path.eg.dim{opacity:0}
 }
 .aboutwrap:hover .aboutbox{opacity:1;transform:translate(-50%,-50%);pointer-events:all;}
 .aboutbox-wordmark{
-  font-family:'Syne Mono',monospace;font-size:0.78rem;
+  font-family:'Syne Mono',monospace;font-size:0.68rem;
   letter-spacing:0.14em;text-transform:uppercase;color:#333;
   padding-bottom:12px;border-bottom:1px solid #eeeee8;
 }
@@ -1453,7 +1453,7 @@ path.eg.dim{opacity:0}
   margin-top:2px;
 }
 .tour-v2-body{
-  font-size:0.78rem;line-height:1.65;
+  font-size:0.68rem;line-height:1.65;
   color:var(--tb-text-mid);
 }
 .tour-v2-nav{
@@ -1492,7 +1492,7 @@ path.eg.dim{opacity:0}
        Row 2: full-width search bar
   ── */
   .topbar{display:grid !important;grid-template-rows:44px 44px;grid-template-columns:1fr auto auto auto;grid-template-areas:"wm yy col leg" "sw sw sw sw";height:88px;padding:0;overflow:visible;align-items:center;}
-  .wordmark{grid-area:wm;width:auto;height:44px;padding:0 8px;font-size:0.78rem;line-height:1;display:flex;flex-direction:row;align-items:center;gap:3px;border-bottom:none;border-right:none;min-width:0;overflow:hidden;}
+  .wordmark{grid-area:wm;width:auto;height:44px;padding:0 8px;font-size:0.68rem;line-height:1;display:flex;flex-direction:row;align-items:center;gap:3px;border-bottom:none;border-right:none;min-width:0;overflow:hidden;}
   .wordmark-line1{display:inline;}
   .yybtn{grid-area:yy;}
   .colorwrap{grid-area:col;height:44px;display:flex;align-items:center;}
