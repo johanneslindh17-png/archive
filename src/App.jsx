@@ -674,7 +674,7 @@ export default function App() {
     return NEWS_TICKER[next];
   }
   const [photoColors, setPhotoColors] = useState(null);
-  const [unlocked, setUnlocked] = useState(() => localStorage.getItem('archiveUnlocked') === '1');
+  const [unlocked, setUnlocked] = useState(true); // TEMP: unlocked for testing
   const [trialCount, setTrialCount] = useState(() => parseInt(localStorage.getItem('archiveTrialCount') || '0', 10));
   const [paywallOpen, setPaywallOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
