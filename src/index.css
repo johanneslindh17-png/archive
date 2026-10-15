@@ -1507,7 +1507,7 @@ path.eg.dim{opacity:0}
        Row 2: full-width search bar
   ── */
   .topbar{display:grid !important;grid-template-rows:40px 44px;grid-template-columns:1fr auto auto auto;grid-template-areas:"wm yy col leg" "sw sw sw sw";height:84px;padding:0;overflow:visible;align-items:center;}
-  .wordmark{grid-area:wm;width:auto;padding:0 8px;font-size:0.70rem;line-height:1;height:40px;display:flex;flex-direction:row;align-items:center;gap:3px;border-bottom:none;border-right:none;min-width:0;overflow:hidden;}
+  .wordmark{grid-area:wm;width:auto;padding:0 8px;font-size:0.62rem;line-height:1;height:40px;display:flex;flex-direction:row;align-items:center;gap:3px;border-bottom:none;border-right:none;min-width:0;overflow:hidden;}
   .wordmark-line1{display:inline;}
   .yybtn{grid-area:yy;}
   .colorwrap{grid-area:col;height:40px;display:flex;align-items:center;border-left:1px solid var(--tb-border);}
@@ -1525,7 +1525,7 @@ path.eg.dim{opacity:0}
   .filterwrap{display:none !important;}
   .filterbtn{display:none !important;}
   .sw input{font-size:16px !important;border-left:1px solid var(--tb-border);}
-  .wordmark-club{display:inline;font-size:0.58rem;}
+  .wordmark-club{display:inline;}
 
   /* ── Year strip: narrower so more graph is visible ── */
   .year-strip{width:18px;overflow:visible;}
