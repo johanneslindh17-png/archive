@@ -47,19 +47,19 @@ export const GENRES = {
 };
 
 export const REGIONS = {
-  'LATAM': {label:'L.America',    order:0},
-  'CA':    {label:'Canada',        order:1},
-  'US':    {label:'United States', order:2},
-  'WEUR':  {label:'W.Europe',      order:3},
-  'SEUR':  {label:'S.Europe',      order:4},
-  'FR':    {label:'France',        order:5},
-  'BENELUX':{label:'Benelux',      order:6},
-  'DE':    {label:'Germany',       order:7},
-  'UK':    {label:'United Kingdom',order:8},
-  'SCAND': {label:'Scandinavia',   order:9},
-  'EEUR':  {label:'E.Europe',      order:10},
-  'AFRICA':{label:'Africa',        order:11},
-  'ASIA':  {label:'Asia Pacific',  order:12},
+  'LATAM': {label:'Latin\nAmerica',   shortLabel:'L.America',    order:0},
+  'CA':    {label:'Canada',           shortLabel:'Canada',        order:1},
+  'US':    {label:'United\nStates',   shortLabel:'United States', order:2},
+  'WEUR':  {label:'Western\nEurope',  shortLabel:'W.Europe',      order:3},
+  'SEUR':  {label:'Southern\nEurope', shortLabel:'S.Europe',      order:4},
+  'FR':    {label:'France',           shortLabel:'France',        order:5},
+  'BENELUX':{label:'Benelux',         shortLabel:'Benelux',       order:6},
+  'DE':    {label:'Germany',          shortLabel:'Germany',       order:7},
+  'UK':    {label:'United\nKingdom',  shortLabel:'United Kingdom',order:8},
+  'SCAND': {label:'Scandinavia',      shortLabel:'Scandinavia',   order:9},
+  'EEUR':  {label:'Eastern\nEurope',  shortLabel:'E.Europe',      order:10},
+  'AFRICA':{label:'Africa',           shortLabel:'Africa',        order:11},
+  'ASIA':  {label:'Asia\nPacific',    shortLabel:'Asia Pacific',  order:12},
 };
 
 export const REGION_COUNT = Object.keys(REGIONS).length;

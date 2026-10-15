@@ -2699,7 +2699,7 @@ export default function App() {
           title="Return to home"
         >
           <span className="wordmark-line1">Electronic</span>
-          <span className="wordmark-line2">Archive.club</span>
+          <span className="wordmark-line2">Archive<span className="wordmark-club">.club</span></span>
         </div>
         <div className="tbsep" />
         <div className="sw">
@@ -3177,9 +3177,10 @@ export default function App() {
                 className="column-header-label"
                 style={{ left: screenX, cursor: 'pointer', visibility: (screenX < -300 || screenX > window.innerWidth + 300) ? 'hidden' : undefined }}
                 onClick={() => doExpand(key)}>
-                {r.label.split('\n').map((line, i) => (
-                  <span key={i} className="chl-line">{line.toUpperCase()}</span>
-                ))}
+                {window.innerWidth < 600
+                  ? <span className="chl-line">{(r.shortLabel || r.label).toUpperCase()}</span>
+                  : r.label.split('\n').map((line, i) => <span key={i} className="chl-line">{line.toUpperCase()}</span>)
+                }
               </div>
             );
           })}
