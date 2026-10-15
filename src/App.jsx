@@ -689,6 +689,7 @@ export default function App() {
   const [grooveOpen, setGrooveOpen] = useState(false);
   const [chatOpen,   setChatOpen]   = useState(false);
   const [mapHint, setMapHint] = useState(() => window.innerWidth < 600);
+  const [mapHintLeaving, setMapHintLeaving] = useState(false);
   const [legOpen, setLegOpen] = useState(false);
   const [typePopOpen, setTypePopOpen] = useState(false);
   const chatRef = useRef(null);
@@ -1804,7 +1805,13 @@ export default function App() {
       svg.call(zoom.translateBy, 0, -event.deltaY * 0.8);
     };
     svgRef.current.addEventListener('wheel', handleWheel, { passive: false });
-    const dismissHint = () => setMapHint(false);
+    let hintDismissed = false;
+    const dismissHint = () => {
+      if (hintDismissed) return;
+      hintDismissed = true;
+      setMapHintLeaving(true);
+      setTimeout(() => { setMapHint(false); setMapHintLeaving(false); }, 560);
+    };
     svgRef.current.addEventListener('touchmove', dismissHint, { passive: true, capture: true });
 
     return () => {
@@ -3912,8 +3919,8 @@ export default function App() {
       })()}
 
       {/* Pan/zoom hint — stays until user touches the grid */}
-      {mapHint && (
-        <div className="map-hint">
+      {(mapHint || mapHintLeaving) && (
+        <div className={`map-hint${mapHintLeaving ? ' map-hint--out' : ''}`}>
           <span className="map-hint-arrows">← ↑ ↓ →</span>
           <span>navigate</span>
         </div>
