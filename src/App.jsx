@@ -2695,7 +2695,7 @@ export default function App() {
           <span className="si">⌕</span>
           <input
             ref={searchInputRef}
-            placeholder="Search…" value={searchQ}
+            placeholder="Search artist, label, genre…" value={searchQ}
             onChange={e => { setSearchQ(e.target.value); setSearchActiveIdx(-1); }}
             onFocus={() => {
               setSearchFocus(true);
