@@ -1631,6 +1631,9 @@ export default function App() {
   const zoomRef = useRef(null);
   const svgGRef = useRef(null);       // ref to the main <g> — d3 owns its transform directly
   const animatingRef = useRef(false); // true during flyHome — suppresses per-frame setTf
+  const yearStripRef = useRef(null);  // direct DOM updates during zoom
+  const colHeaderRef = useRef(null);
+  const minimapRectRef = useRef(null);
   // Create glow layer as a non-React DOM element so React's reconciler never touches it
   useEffect(() => {
     if (!svgGRef.current) return;
@@ -1705,20 +1708,45 @@ export default function App() {
         }
       })
       .on('zoom', e => {
-        // Always update the DOM directly — d3 owns the <g> transform, not React
-        if (svgGRef.current) {
-          const { x, y, k } = e.transform;
+        const { x, y, k } = e.transform;
+        // SVG main transform — direct DOM, no React
+        if (svgGRef.current)
           svgGRef.current.style.transform = `translate(${x}px,${y}px) scale(${k})`;
-          // CSS variable lets column-header-label font-size track zoom level
-          document.documentElement.style.setProperty('--tf-k', k);
+        document.documentElement.style.setProperty('--tf-k', k);
+        // Year labels — direct DOM, no React re-render
+        if (yearStripRef.current) {
+          const h = window.innerHeight;
+          yearStripRef.current.querySelectorAll('[data-year]').forEach(el => {
+            const sy = Number(el.dataset.eray) * k + y;
+            el.style.top = sy + 'px';
+            el.style.visibility = (sy < -20 || sy > h) ? 'hidden' : '';
+          });
         }
-        // Update React state for HTML overlays — throttled to one update per animation frame
-        if (!animatingRef.current) {
-          if (tfRafRef.current) cancelAnimationFrame(tfRafRef.current);
-          tfRafRef.current = requestAnimationFrame(() => setTf(e.transform));
+        // Column headers — direct DOM, no React re-render
+        if (colHeaderRef.current) {
+          const w = window.innerWidth;
+          colHeaderRef.current.querySelectorAll('[data-region]').forEach(el => {
+            const sx = Number(el.dataset.svgx) * k + x;
+            el.style.left = sx + 'px';
+            el.style.visibility = (sx < -300 || sx > w + 300) ? 'hidden' : '';
+          });
+        }
+        // Minimap viewport rect — direct DOM
+        if (minimapRectRef.current) {
+          const msx = 50 / W, msy = 88 / H;
+          const vx = Math.max(0, (-x / k) * msx);
+          const vy = Math.max(0, (-y / k) * msy);
+          const vw = Math.max(3, Math.min(50 - vx, (window.innerWidth  / k) * msx));
+          const vh = Math.max(3, Math.min(88 - vy, (window.innerHeight / k) * msy));
+          minimapRectRef.current.setAttribute('x', vx);
+          minimapRectRef.current.setAttribute('y', vy);
+          minimapRectRef.current.setAttribute('width', vw);
+          minimapRectRef.current.setAttribute('height', vh);
         }
       })
-      .on('end', () => {
+      .on('end', e => {
+        // Sync React state once zoom settles (we skip per-frame setTf above)
+        setTf(e.transform);
         // Keep topbar locked briefly so the stray click (which fires async after
         // pointer-capture release) is still swallowed by the CSS block.
         setTimeout(() => {
@@ -2628,6 +2656,27 @@ export default function App() {
     );
   }), [positions, expandedPositions, expanded, filteredIds, deferredHlIds, selected, selectedSet, selectedSetObj, darkMode, colorTheme, pathMode, setPathNodes, setPathStep, selectNode, scrollToNode]);
 
+  // Minimap node dots — memoized, only recompute when theme/data changes (not on zoom)
+  const minimapDots = useMemo(() => {
+    if (window.innerWidth >= 600) return null;
+    const mmScX = 50 / W, mmScY = 88 / H;
+    return NODES.map(n => {
+      const p = positions[n.id];
+      if (!p) return null;
+      let fill = 'currentColor';
+      if (colorTheme === 'type') {
+        const tc = TYPE_COLORS[n.type];
+        fill = tc ? (darkMode ? tc.dark.stroke : tc.light.stroke) : fill;
+      } else if (colorTheme === 'genre') {
+        const gc = n.genre && GENRE_COLORS[n.genre];
+        fill = gc ? (darkMode ? gc.dark.stroke : gc.light.stroke) : fill;
+      } else if (colorTheme === 'void') fill = '#18c8d0';
+      else if (colorTheme === 'acid') fill = '#a8e000';
+      else if (colorTheme === 'rust') fill = '#e05828';
+      return <circle key={n.id} cx={p.x * mmScX} cy={p.y * mmScY} r={0.8} fill={fill} opacity={0.7} />;
+    });
+  }, [positions, colorTheme, darkMode]);
+
   return (
     <div className="app">
       {/* TOPBAR */}
@@ -3080,13 +3129,15 @@ export default function App() {
 
         {/* Fixed year strip (left) + matching border strip (right) */}
         <div className="right-strip" style={themeStyle ? { background: themeStyle.surface, borderLeftColor: themeStyle.border } : undefined} />
-        <div className="year-strip" style={themeStyle ? { background: themeStyle.surface, borderRightColor: themeStyle.border } : undefined}>
+        <div ref={yearStripRef} className="year-strip" style={themeStyle ? { background: themeStyle.surface, borderRightColor: themeStyle.border } : undefined}>
           {YEAR_LABELS.map(y => {
-            const screenY = eraY(y) * tf.k + tf.y;
-            if (screenY < -20 || screenY > window.innerHeight) return null;
+            const svgY = eraY(y);
+            const screenY = svgY * tf.k + tf.y;
             return (
-              <div key={y} className={`year-label-fixed${ERA_SUMMARIES[y] ? ' year-label-clickable' : ''}`}
-                style={{ top: screenY }}
+              <div key={y}
+                data-year={y} data-eray={svgY}
+                className={`year-label-fixed${ERA_SUMMARIES[y] ? ' year-label-clickable' : ''}`}
+                style={{ top: screenY, visibility: (screenY < -20 || screenY > window.innerHeight) ? 'hidden' : undefined }}
                 onClick={() => ERA_SUMMARIES[y] && setEraYear(y)}>
                 {String(y)}
               </div>
@@ -3095,16 +3146,16 @@ export default function App() {
         </div>
 
         {/* Pinned column header strip */}
-        <div className="column-header-strip" style={themeStyle ? { background: themeStyle.surface, borderBottomColor: themeStyle.border } : undefined}>
+        <div ref={colHeaderRef} className="column-header-strip" style={themeStyle ? { background: themeStyle.surface, borderBottomColor: themeStyle.border } : undefined}>
           {!expanded && Object.entries(REGIONS).map(([key, r]) => {
             const svgCenterX = (REGION_LEFTS[key] || LEFT) + (REGION_WIDTHS[key] || 0) / 2;
-            const hasNodes = REGIONS_WITH_NODES.has(key);
-            if (!hasNodes) return null;
+            if (!REGIONS_WITH_NODES.has(key)) return null;
             const screenX = svgCenterX * tf.k + tf.x;
-            if (screenX < -300 || screenX > window.innerWidth + 300) return null;
             return (
-              <div key={key} className="column-header-label"
-                style={{ left: screenX, cursor: 'pointer' }}
+              <div key={key}
+                data-region={key} data-svgx={svgCenterX}
+                className="column-header-label"
+                style={{ left: screenX, cursor: 'pointer', visibility: (screenX < -300 || screenX > window.innerWidth + 300) ? 'hidden' : undefined }}
                 onClick={() => doExpand(key)}>
                 {r.label.split('\n').map((line, i) => (
                   <span key={i} className="chl-line">{line.toUpperCase()}</span>
@@ -3119,7 +3170,8 @@ export default function App() {
               const svgCenterX = LEFT + bw * i + bw / 2;
               const screenX = svgCenterX * tf.k + tf.x;
               return (
-                <div key={city} className="column-header-label" style={{ left: screenX }}>
+                <div key={city} data-region={city} data-svgx={svgCenterX}
+                  className="column-header-label" style={{ left: screenX }}>
                   {city.toUpperCase()}
                 </div>
               );
@@ -3801,22 +3853,8 @@ export default function App() {
             onTouchMove={e => { e.preventDefault(); const t = e.touches[0]; panToMinimap(t.clientX, t.clientY, e.currentTarget.getBoundingClientRect()); }}
           >
             <svg width="50" height="88" xmlns="http://www.w3.org/2000/svg">
-              {NODES.map(n => {
-                const p = positions[n.id];
-                if (!p) return null;
-                let fill = 'currentColor';
-                if (colorTheme === 'type') {
-                  const tc = TYPE_COLORS[n.type];
-                  fill = tc ? (darkMode ? tc.dark.stroke : tc.light.stroke) : fill;
-                } else if (colorTheme === 'genre') {
-                  const gc = n.genre && GENRE_COLORS[n.genre];
-                  fill = gc ? (darkMode ? gc.dark.stroke : gc.light.stroke) : fill;
-                } else if (colorTheme === 'void') fill = '#18c8d0';
-                else if (colorTheme === 'acid') fill = '#a8e000';
-                else if (colorTheme === 'rust') fill = '#e05828';
-                return <circle key={n.id} cx={p.x * mmScX} cy={p.y * mmScY} r={0.8} fill={fill} opacity={0.7} />;
-              })}
-              <rect x={vx} y={vy} width={vw} height={vh}
+              {minimapDots}
+              <rect ref={minimapRectRef} x={vx} y={vy} width={vw} height={vh}
                 fill={rectFill} stroke={rectStroke} strokeWidth={1.5} />
             </svg>
           </div>
