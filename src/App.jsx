@@ -3061,6 +3061,12 @@ export default function App() {
             style={{ animationPlayState: newsHovered ? 'paused' : 'running', animationDelay: newsDelayRef.current }}
             onMouseEnter={() => setNewsHovered(true)}
             onMouseLeave={() => setNewsHovered(false)}
+            onTouchStart={() => setNewsHovered(true)}
+            onTouchEnd={e => {
+              e.preventDefault();
+              setNewsHovered(false);
+              if (newsItem.nodeId) { selectNode(newsItem.nodeId); scrollToNode(newsItem.nodeId); }
+            }}
             onClick={() => {
               if (newsItem.nodeId) {
                 selectNode(newsItem.nodeId);
