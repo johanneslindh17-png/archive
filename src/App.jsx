@@ -1367,6 +1367,7 @@ export default function App() {
   const [panelOnLeft, setPanelOnLeft] = useState(false); // panel flips left when clicked node is in right half
   const [panelX, setPanelX] = useState(null); // null = CSS default (right/left edge)
   const [isDragging, setIsDragging] = useState(false);
+  const [dpClosing, setDpClosing] = useState(false);
   const panelXRef = useRef(null);       // live ref so momentum loop reads current value
   const animFrameRef = useRef(null);    // ongoing momentum rAF handle
   const tfRef = useRef({ k: 1, x: 0, y: 0 }); // always-current transform for click handlers
@@ -3199,7 +3200,7 @@ export default function App() {
           })()}
         </div>
 
-        <svg ref={svgRef} className="msv" onTouchStart={() => { if (mapHint) setMapHint(false); }} onMouseLeave={() => {
+        <svg ref={svgRef} className="msv" onTouchMove={() => { if (mapHint) setMapHint(false); }} onMouseLeave={() => {
           clearTimeout(leaveTimerRef.current);
           clearMarchOverlay();
           hovPrevRef.current.forEach(({ el, txt, orig }) => {
@@ -3291,7 +3292,7 @@ export default function App() {
           };
           return (
         <div
-          className={`dp${selected ? ' open' : ''}${isDragging ? ' dragging' : ''}${panelOnLeft && panelX === null ? ' left' : ''}`}
+          className={`dp${selected ? ' open' : ''}${isDragging ? ' dragging' : ''}${panelOnLeft && panelX === null ? ' left' : ''}${dpClosing ? ' dp-closing' : ''}`}
           style={panelStyle}
           onMouseDown={handlePanelDragStart}
           onTouchStart={e => {
@@ -3302,7 +3303,10 @@ export default function App() {
             dpSwipeStartRef.current = null;
             if (!start) return;
             const deltaY = e.changedTouches[0].clientY - start.y;
-            if (deltaY > 60 && start.scrollTop <= 2) closePanel();
+            if (deltaY > 60 && start.scrollTop <= 2) {
+              setDpClosing(true);
+              setTimeout(() => { setDpClosing(false); closePanel(); }, 300);
+            }
           }}
         >
 
@@ -3893,7 +3897,7 @@ export default function App() {
       {/* Pan/zoom hint — stays until user touches the grid */}
       {mapHint && (
         <div className="map-hint">
-          <span className="map-hint-arrows">← →</span>
+          <span className="map-hint-arrows">← ↑ ↓ →</span>
           <span>navigate</span>
         </div>
       )}

@@ -1525,7 +1525,7 @@ path.eg.dim{opacity:0}
   .filterwrap{display:none !important;}
   .filterbtn{display:none !important;}
   .sw input{font-size:16px !important;border-left:1px solid var(--tb-border);}
-  .wordmark-club{display:inline;}
+  .wordmark-club{display:none;}
 
   /* ── Year strip: narrower so more graph is visible ── */
   .year-strip{width:18px;overflow:visible;}
@@ -1616,6 +1616,11 @@ path.eg.dim{opacity:0}
   .dp.open{
     transform:translateY(0) !important;
     opacity:1 !important;visibility:visible !important;
+  }
+  .dp.dp-closing{
+    transform:translateY(100vh) !important;
+    opacity:1 !important;
+    transition:transform 0.3s ease-in !important;
   }
   .dp.left{left:0 !important;right:0 !important;}
   .dp::before{display:none;}
