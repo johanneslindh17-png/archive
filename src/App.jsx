@@ -1779,11 +1779,10 @@ export default function App() {
     svg.call(zoom);
     // Dismiss the pan/zoom hint when the user first touches the grid
 
-    // On phones: center the view between the Germany and UK columns
-    const _initX = _isPhone
-      ? window.innerWidth / 2 - ((REGION_LEFTS['DE'] + REGION_WIDTHS['DE'] / 2 + REGION_LEFTS['UK'] + REGION_WIDTHS['UK'] / 2) / 2) * _initK
-      : 0;
-    svg.call(zoom.transform, d3.zoomIdentity.translate(_initX, 0).scale(_initK));
+    // Center the initial view on Germany column, year 2010
+    const _initX = window.innerWidth / 2 - (REGION_LEFTS['DE'] + REGION_WIDTHS['DE'] / 2) * _initK;
+    const _initY = window.innerHeight / 2 - eraY(2010) * _initK;
+    svg.call(zoom.transform, d3.zoomIdentity.translate(_initX, _initY).scale(_initK));
 
     // Regular scroll wheel → pan vertically
     const handleWheel = event => {
