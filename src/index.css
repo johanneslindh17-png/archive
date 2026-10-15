@@ -1498,6 +1498,7 @@ path.eg.dim{opacity:0}
   .colorwrap{grid-area:col;height:30px;display:flex;align-items:center;}
   .legwrap{grid-area:leg;height:30px;display:flex;align-items:center;margin-left:0;padding-right:8px;}
   .sw{grid-area:sw;height:44px;flex:none;border-top:1px solid var(--tb-border);}
+  .si{font-size:1.1rem;}
   .tbsep{display:none;}
   /* Row-1 buttons: fill full 44px cell height, subtle appearance */
   .yybtn{width:30px;height:30px;margin:0;}
