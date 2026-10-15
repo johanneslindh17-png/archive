@@ -634,6 +634,7 @@ export default function App() {
   const [newsKey, setNewsKey] = useState(0);
   const [newsHovered, setNewsHovered] = useState(false);
   const [nbcHasMore, setNbcHasMore] = useState(false);
+  const [nbcHasLeft, setNbcHasLeft] = useState(false);
   const nbcScrollRef = useRef(null);
   const newsGapTimerRef  = useRef(null);
   const newsStartRef     = useRef(null);  // Date.now() when current animation began
@@ -834,7 +835,8 @@ export default function App() {
   function checkNbcMore() {
     const el = nbcScrollRef.current;
     if (!el) return;
-    setNbcHasMore(el.scrollWidth > el.clientWidth + 2);
+    setNbcHasMore(el.scrollLeft + el.clientWidth < el.scrollWidth - 2);
+    setNbcHasLeft(el.scrollLeft > 2);
   }
 
   // Close panel — node stays in selectedSet so network stays highlighted
@@ -1363,7 +1365,11 @@ export default function App() {
   }, [onboardStep]);
 
   const [pinned, setPinned] = useState(null); // highlighted but panel closed
-  useEffect(() => { setTimeout(checkNbcMore, 0); }, [selectedSet, pinned]);
+  useEffect(() => {
+    const el = nbcScrollRef.current;
+    if (el) el.scrollLeft = el.scrollWidth;
+    setTimeout(checkNbcMore, 0);
+  }, [selectedSet, pinned]);
   const [panelOnLeft, setPanelOnLeft] = useState(false); // panel flips left when clicked node is in right half
   const [panelX, setPanelX] = useState(null); // null = CSS default (right/left edge)
   const [isDragging, setIsDragging] = useState(false);
@@ -1647,6 +1653,7 @@ export default function App() {
   const colHeaderRef = useRef(null);
   const minimapRectRef = useRef(null);
   const dpSwipeStartRef = useRef(null);
+  const dpRef = useRef(null);
   // Create glow layer as a non-React DOM element so React's reconciler never touches it
   useEffect(() => {
     if (!svgGRef.current) return;
@@ -1807,6 +1814,8 @@ export default function App() {
     };
   }, []);
 
+  // Scroll info panel to top when a new node is selected
+  useEffect(() => { if (selected) dpRef.current?.scrollTo({ top: 0 }); }, [selected]);
 
   // Row-pack layout for expanded region view — same algorithm as the main page,
   // but columns are cities instead of regions.
@@ -2733,6 +2742,7 @@ export default function App() {
                 const target = searchActiveIdx >= 0 ? searchMatches[searchActiveIdx] : searchMatches[0];
                 pickSearchResult(target.id);
                 setSearchActiveIdx(-1);
+                searchInputRef.current?.blur();
               } else if (e.key === 'Escape') {
                 setSearchQ(''); setSearchFocus(false); setSearchActiveIdx(-1);
               }
@@ -3108,31 +3118,34 @@ export default function App() {
         {(selectedSet.length > 0 || pinned) && <>
           <div className="nbc-home" onClick={() => { clearAll(); flyHome(); }}>← ALL NODES</div>
           <div className="nbc-sep" />
-          <div ref={nbcScrollRef} className="nbc-tabs-scroll" onScroll={checkNbcMore}>
-            {selectedSet.map(id => {
-              const nd = NODE_BY_ID.get(id);
-              if (!nd) return null;
-              const col = getThemeColors(nd, colorTheme, darkMode)?.stroke;
-              const isActive = id === selected;
-              return (
-                <div key={`tab-${id}`} className={`nbc-tab${isActive ? ' nbc-tab--active' : ''}`} style={col ? { color: col } : undefined}>
-                  <span className="nbc-tab-label" onClick={() => jumpToTab(id)}>{nd.label}</span>
-                  <button className="nbc-tab-x" onClick={e => { e.stopPropagation(); removeFromSet(id); }}>×</button>
-                </div>
-              );
-            })}
-            {pinned && !selectedSet.length && (() => {
-              const nd = NODE_BY_ID.get(pinned);
-              const col = nd ? getThemeColors(nd, colorTheme, darkMode)?.stroke : null;
-              return (
-                <div className="nbc-tab nbc-tab--active" style={col ? { color: col } : undefined}>
-                  <span className="nbc-tab-label" onClick={() => jumpToTab(pinned)}>{nd?.label}</span>
-                  <button className="nbc-tab-x" onClick={() => clearAll()}>×</button>
-                </div>
-              );
-            })()}
+          <div className="nbc-scroll-wrap">
+            <div ref={nbcScrollRef} className="nbc-tabs-scroll" onScroll={checkNbcMore}>
+              {selectedSet.map(id => {
+                const nd = NODE_BY_ID.get(id);
+                if (!nd) return null;
+                const col = getThemeColors(nd, colorTheme, darkMode)?.stroke;
+                const isActive = id === selected;
+                return (
+                  <div key={`tab-${id}`} className={`nbc-tab${isActive ? ' nbc-tab--active' : ''}`} style={col ? { color: col } : undefined}>
+                    <span className="nbc-tab-label" onClick={() => jumpToTab(id)}>{nd.label}</span>
+                    <button className="nbc-tab-x" onClick={e => { e.stopPropagation(); removeFromSet(id); }}>×</button>
+                  </div>
+                );
+              })}
+              {pinned && !selectedSet.length && (() => {
+                const nd = NODE_BY_ID.get(pinned);
+                const col = nd ? getThemeColors(nd, colorTheme, darkMode)?.stroke : null;
+                return (
+                  <div className="nbc-tab nbc-tab--active" style={col ? { color: col } : undefined}>
+                    <span className="nbc-tab-label" onClick={() => jumpToTab(pinned)}>{nd?.label}</span>
+                    <button className="nbc-tab-x" onClick={() => clearAll()}>×</button>
+                  </div>
+                );
+              })()}
+            </div>
+            {nbcHasLeft && <div className="nbc-more-arrow nbc-more-arrow--left" onClick={() => nbcScrollRef.current?.scrollBy({ left: -120, behavior: 'smooth' })}>‹</div>}
+            {nbcHasMore && <div className="nbc-more-arrow" onClick={() => nbcScrollRef.current?.scrollBy({ left: 120, behavior: 'smooth' })}>›</div>}
           </div>
-          {nbcHasMore && <div className="nbc-more-arrow">›</div>}
         </>}
       </div>
 
@@ -3295,6 +3308,7 @@ export default function App() {
           };
           return (
         <div
+          ref={dpRef}
           className={`dp${selected ? ' open' : ''}${isDragging ? ' dragging' : ''}${panelOnLeft && panelX === null ? ' left' : ''}${dpClosing ? ' dp-closing' : ''}`}
           style={panelStyle}
           onMouseDown={handlePanelDragStart}
