@@ -1402,9 +1402,11 @@ export default function App() {
     return v === null ? null : v === 'true';
   });
   const darkMode = manualDark !== null ? manualDark : sunIsDark;
-  const [colorTheme, setColorTheme] = useState(
-    () => localStorage.getItem('colorTheme') || null
-  );
+  const [colorTheme, setColorTheme] = useState(() => {
+    const s = localStorage.getItem('colorTheme');
+    if (s === 'bw') return null;           // explicit B&W stored
+    return s || 'type';                    // default to type colors
+  });
   const [colorMenuOpen, setColorMenuOpen] = useState(false);
 
   // Keep localStorage in sync whenever these change
@@ -1413,8 +1415,7 @@ export default function App() {
     else localStorage.setItem('manualDark', manualDark);
   }, [manualDark]);
   useEffect(() => {
-    if (colorTheme) localStorage.setItem('colorTheme', colorTheme);
-    else localStorage.removeItem('colorTheme');
+    localStorage.setItem('colorTheme', colorTheme ?? 'bw');
   }, [colorTheme]);
 
   const [typeFilters, setTypeFilters] = useState({ artist: true, label: true, venue: true, moment: true, style: true, culture: true, channel: true });
