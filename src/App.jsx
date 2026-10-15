@@ -1636,6 +1636,7 @@ export default function App() {
   const yearStripRef = useRef(null);  // direct DOM updates during zoom
   const colHeaderRef = useRef(null);
   const minimapRectRef = useRef(null);
+  const dpSwipeStartRef = useRef(null);
   // Create glow layer as a non-React DOM element so React's reconciler never touches it
   useEffect(() => {
     if (!svgGRef.current) return;
@@ -3281,6 +3282,14 @@ export default function App() {
           className={`dp${selected ? ' open' : ''}${isDragging ? ' dragging' : ''}${panelOnLeft && panelX === null ? ' left' : ''}`}
           style={panelStyle}
           onMouseDown={handlePanelDragStart}
+          onTouchStart={e => { dpSwipeStartRef.current = e.touches[0].clientY; }}
+          onTouchEnd={e => {
+            const start = dpSwipeStartRef.current;
+            dpSwipeStartRef.current = null;
+            if (start === null) return;
+            const deltaY = e.changedTouches[0].clientY - start;
+            if (deltaY > 60 && e.currentTarget.scrollTop === 0) closePanel();
+          }}
         >
 
           {/* Drag indicator — aligned with × button, always pulsing */}
