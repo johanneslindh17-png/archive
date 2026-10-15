@@ -1491,18 +1491,18 @@ path.eg.dim{opacity:0}
        Row 1: ELECTRONIC ARCHIVE.  [dark] [color] [?]
        Row 2: full-width search bar
   ── */
-  .topbar{display:grid !important;grid-template-rows:44px 44px;grid-template-columns:1fr auto auto auto;grid-template-areas:"wm yy col leg" "sw sw sw sw";height:88px;padding:0;overflow:visible;align-items:center;}
-  .wordmark{grid-area:wm;width:auto;height:44px;padding:0 8px;font-size:0.68rem;line-height:1;display:flex;flex-direction:row;align-items:center;gap:3px;border-bottom:none;border-right:none;min-width:0;overflow:hidden;}
+  .topbar{display:grid !important;grid-template-rows:32px 44px;grid-template-columns:1fr auto auto auto;grid-template-areas:"wm yy col leg" "sw sw sw sw";height:76px;padding:0;overflow:visible;align-items:center;}
+  .wordmark{grid-area:wm;width:auto;height:44px;padding:0 8px;font-size:0.68rem;line-height:1;height:32px;display:flex;flex-direction:row;align-items:center;gap:3px;border-bottom:none;border-right:none;min-width:0;overflow:hidden;}
   .wordmark-line1{display:inline;}
   .yybtn{grid-area:yy;}
-  .colorwrap{grid-area:col;height:44px;display:flex;align-items:center;}
-  .legwrap{grid-area:leg;height:44px;display:flex;align-items:center;margin-left:0;padding-right:8px;}
+  .colorwrap{grid-area:col;height:32px;display:flex;align-items:center;}
+  .legwrap{grid-area:leg;height:32px;display:flex;align-items:center;margin-left:0;padding-right:8px;}
   .sw{grid-area:sw;height:44px;flex:none;border-top:1px solid var(--tb-border);}
   .tbsep{display:none;}
   /* Row-1 buttons: fill full 44px cell height, subtle appearance */
-  .yybtn{width:36px;height:44px;margin:0;}
-  .colorwrap .colorbtn{width:36px;height:44px;align-self:stretch;}
-  .legtrigger{height:44px;padding:0 10px;font-size:0.6rem;border-left:1px solid var(--tb-border);display:flex;align-items:center;justify-content:center;}
+  .yybtn{width:32px;height:32px;margin:0;}
+  .colorwrap .colorbtn{width:32px;height:32px;align-self:center;}
+  .legtrigger{height:32px;padding:0 8px;font-size:0.6rem;border-left:1px solid var(--tb-border);display:flex;align-items:center;justify-content:center;}
   /* Hide routes, about, filter on phones — not needed at overview scale */
   .routesbtn{display:none !important;}
   .aboutwrap{display:none !important;}
@@ -1573,7 +1573,7 @@ path.eg.dim{opacity:0}
   .groove-trigger{display:none !important;}
 
   /* Search dropdown: full viewport width */
-  .search-dropdown{position:fixed;top:116px;left:0;right:0;max-height:50vh;z-index:1200;}
+  .search-dropdown{position:fixed;top:104px;left:0;right:0;max-height:50vh;z-index:1200;}
     /* Performance: prevent pull-to-refresh from hijacking map pans */
   .canvas{overscroll-behavior:none;}
   .msv{-webkit-tap-highlight-color:transparent;}
@@ -1582,7 +1582,7 @@ path.eg.dim{opacity:0}
   .dp{
     position:fixed !important;
     left:0 !important;right:0 !important;
-    top:116px !important;  /* topbar(88) + breadcrumb(28) */
+    top:104px !important;  /* topbar(76) + breadcrumb(28) */
     bottom:calc(44px + env(safe-area-inset-bottom,0px)) !important;
     width:100% !important;height:auto !important;
     border-radius:0 !important;
@@ -2798,9 +2798,9 @@ path.eg.dim{opacity:0}
 @media(max-width:600px){
   .legbox{
     left:18px;right:0;width:auto;transform:none;
-    top:116px;
-    max-height:calc(100vh - 116px - 44px - env(safe-area-inset-bottom,0px));
-    max-height:calc(100dvh - 116px - 44px - env(safe-area-inset-bottom,0px));
+    top:104px;
+    max-height:calc(100vh - 104px - 44px - env(safe-area-inset-bottom,0px));
+    max-height:calc(100dvh - 104px - 44px - env(safe-area-inset-bottom,0px));
     overflow-y:auto;
   }
   /* On phones only the .open class shows/hides the legbox — hover disabled */
