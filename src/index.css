@@ -1492,7 +1492,7 @@ path.eg.dim{opacity:0}
        Row 2: full-width search bar
   ── */
   .topbar{display:grid !important;grid-template-rows:44px 44px;grid-template-columns:1fr auto auto auto;grid-template-areas:"wm yy col leg" "sw sw sw sw";height:88px;padding:0;overflow:visible;align-items:center;}
-  .wordmark{grid-area:wm;width:auto;height:44px;padding:0 8px;font-size:0.58rem;line-height:1;display:flex;flex-direction:row;align-items:center;gap:3px;border-bottom:none;border-right:none;min-width:0;overflow:hidden;}
+  .wordmark{grid-area:wm;width:auto;height:44px;padding:0 8px;font-size:clamp(0.6rem,calc((100vw - 126px) / 16.7),1.1rem);line-height:1;display:flex;flex-direction:row;align-items:center;gap:3px;border-bottom:none;border-right:none;min-width:0;overflow:hidden;}
   .wordmark-line1{display:inline;}
   .yybtn{grid-area:yy;}
   .colorwrap{grid-area:col;height:44px;display:flex;align-items:center;}
