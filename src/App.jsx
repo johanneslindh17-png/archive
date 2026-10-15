@@ -1810,7 +1810,7 @@ export default function App() {
       if (hintDismissed) return;
       hintDismissed = true;
       setMapHintLeaving(true);
-      setTimeout(() => { setMapHint(false); setMapHintLeaving(false); }, 560);
+      setTimeout(() => { setMapHint(false); setMapHintLeaving(false); }, 1010);
     };
     svgRef.current.addEventListener('touchmove', dismissHint, { passive: true, capture: true });
 

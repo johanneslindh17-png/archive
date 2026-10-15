@@ -1529,7 +1529,7 @@ path.eg.dim{opacity:0}
   .aboutwrap{display:none !important;}
   .filterwrap{display:none !important;}
   .filterbtn{display:none !important;}
-  .sw input{font-size:13px !important;border-left:1px solid var(--tb-border);}
+  .sw input{font-size:16px !important;border-left:1px solid var(--tb-border);}
   .wordmark-club{display:inline;}
 
   /* ── Year strip: narrower so more graph is visible ── */
@@ -2872,7 +2872,7 @@ path.eg.dim{opacity:0}
 .map-hint-arrows{animation:map-hint-blink 0.8s ease infinite alternate;font-size:0.75rem;}
 @keyframes map-hint-blink{from{opacity:0.25}to{opacity:1}}
 @keyframes map-hint-in{from{opacity:0;transform:translateX(-50%) translateY(6px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
-.map-hint--out{animation:map-hint-out 0.55s ease forwards;}
+.map-hint--out{animation:map-hint-out 1s ease forwards;}
 .map-hint--out .map-hint-arrows{animation:none;}
 @keyframes map-hint-out{
   0%  {opacity:1;  transform:translateX(-50%) scale(1)    translateY(0);    filter:blur(0px);}
