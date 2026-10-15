@@ -937,7 +937,7 @@ export default function App() {
   // Smoothly navigate to node `id` — vertical scroll only, no horizontal pan.
   // centerFactor: kept for call-site compatibility but no longer affects x.
   // When centerFactor < 1, skip movement if the node's era is already on screen.
-  function scrollToNode(id, centerFactor = 1.0) {
+  function scrollToNode(id, centerFactor = 1.0, onEnd = null) {
     const p = positions[id];
     if (!p || !zoomRef.current || !svgRef.current) return;
     const live = d3.zoomTransform(svgRef.current);
@@ -975,11 +975,12 @@ export default function App() {
         animatingRef.current = false;
         if (svgRef.current) svgRef.current.__zoom = target;
         setTf(target);
+        if (onEnd) onEnd();
       });
   }
 
   // On phones: zoom and center the map on a search result (animates x, y, and k together).
-  function centerOnNode(id, targetK = 1.5) {
+  function centerOnNode(id, targetK = 1.5, onEnd = null) {
     const p = positions[id];
     if (!p || !zoomRef.current || !svgRef.current) { scrollToNode(id); return; }
     const live = d3.zoomTransform(svgRef.current);
@@ -1005,6 +1006,7 @@ export default function App() {
         animatingRef.current = false;
         if (svgRef.current) svgRef.current.__zoom = target;
         setTf(target);
+        if (onEnd) onEnd();
       });
   }
 
@@ -1083,23 +1085,29 @@ export default function App() {
     setPanelX(panelLeft);
   }
 
-  // Called when user picks a suggestion — select the node and fly to it
+  // Called when user picks a suggestion — scroll to node, then open panel
   function pickSearchResult(id) {
     setSearchQ('');
     setSearchFocus(false);
     const p = positions[id];
     if (p) {
-      // After scroll the node will be near centre, so panel goes on whichever side
-      // it currently sits; default to right unless already on the right half
       const screenX = p.x * tf.k + tf.x;
       setPanelOnLeft(screenX > window.innerWidth / 2);
     }
     setPanelX(null);
-    selectNode(id);
+
+    // If node has no position yet fall back to instant select
+    if (!p || !zoomRef.current || !svgRef.current) {
+      selectNode(id);
+      return;
+    }
+
+    // Sequence: scroll/zoom → brief pause → open panel
+    const openPanel = () => setTimeout(() => selectNode(id), 120);
     if (window.innerWidth < 600) {
-      centerOnNode(id, 1.5);
+      centerOnNode(id, 1.5, openPanel);
     } else {
-      scrollToNode(id);
+      scrollToNode(id, 1.0, openPanel);
     }
   }
 
