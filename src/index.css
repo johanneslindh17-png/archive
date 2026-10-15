@@ -1525,7 +1525,7 @@ path.eg.dim{opacity:0}
   .filterwrap{display:none !important;}
   .filterbtn{display:none !important;}
   .sw input{font-size:16px !important;border-left:1px solid var(--tb-border);}
-  .wordmark-club{display:none;}
+  .wordmark-club{display:inline;font-size:0.58rem;}
 
   /* ── Year strip: narrower so more graph is visible ── */
   .year-strip{width:18px;overflow:visible;}
