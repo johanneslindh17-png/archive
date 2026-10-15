@@ -633,6 +633,8 @@ export default function App() {
   const [newsItem, setNewsItem] = useState(null);
   const [newsKey, setNewsKey] = useState(0);
   const [newsHovered, setNewsHovered] = useState(false);
+  const [nbcHasMore, setNbcHasMore] = useState(false);
+  const nbcScrollRef = useRef(null);
   const newsGapTimerRef  = useRef(null);
   const newsStartRef     = useRef(null);  // Date.now() when current animation began
   const newsPausedAtRef  = useRef(0);     // ms elapsed when user navigated away
@@ -828,6 +830,13 @@ export default function App() {
     }
     setVerifying(false);
   }
+
+  function checkNbcMore() {
+    const el = nbcScrollRef.current;
+    if (!el) return;
+    setNbcHasMore(el.scrollWidth > el.clientWidth + 2);
+  }
+  useEffect(() => { setTimeout(checkNbcMore, 0); }, [selectedSet, pinned]);
 
   // Close panel — node stays in selectedSet so network stays highlighted
   function closePanel() {
@@ -3096,28 +3105,31 @@ export default function App() {
         {(selectedSet.length > 0 || pinned) && <>
           <div className="nbc-home" onClick={() => { clearAll(); flyHome(); }}>← ALL NODES</div>
           <div className="nbc-sep" />
-          {selectedSet.map(id => {
-            const nd = NODE_BY_ID.get(id);
-            if (!nd) return null;
-            const col = getThemeColors(nd, colorTheme, darkMode)?.stroke;
-            const isActive = id === selected;
-            return (
-              <div key={`tab-${id}`} className={`nbc-tab${isActive ? ' nbc-tab--active' : ''}`} style={col ? { color: col } : undefined}>
-                <span className="nbc-tab-label" onClick={() => jumpToTab(id)}>{nd.label}</span>
-                <button className="nbc-tab-x" onClick={e => { e.stopPropagation(); removeFromSet(id); }}>×</button>
-              </div>
-            );
-          })}
-          {pinned && !selectedSet.length && (() => {
-            const nd = NODE_BY_ID.get(pinned);
-            const col = nd ? getThemeColors(nd, colorTheme, darkMode)?.stroke : null;
-            return (
-              <div className="nbc-tab nbc-tab--active" style={col ? { color: col } : undefined}>
-                <span className="nbc-tab-label" onClick={() => jumpToTab(pinned)}>{nd?.label}</span>
-                <button className="nbc-tab-x" onClick={() => clearAll()}>×</button>
-              </div>
-            );
-          })()}
+          <div ref={nbcScrollRef} className="nbc-tabs-scroll" onScroll={checkNbcMore}>
+            {selectedSet.map(id => {
+              const nd = NODE_BY_ID.get(id);
+              if (!nd) return null;
+              const col = getThemeColors(nd, colorTheme, darkMode)?.stroke;
+              const isActive = id === selected;
+              return (
+                <div key={`tab-${id}`} className={`nbc-tab${isActive ? ' nbc-tab--active' : ''}`} style={col ? { color: col } : undefined}>
+                  <span className="nbc-tab-label" onClick={() => jumpToTab(id)}>{nd.label}</span>
+                  <button className="nbc-tab-x" onClick={e => { e.stopPropagation(); removeFromSet(id); }}>×</button>
+                </div>
+              );
+            })}
+            {pinned && !selectedSet.length && (() => {
+              const nd = NODE_BY_ID.get(pinned);
+              const col = nd ? getThemeColors(nd, colorTheme, darkMode)?.stroke : null;
+              return (
+                <div className="nbc-tab nbc-tab--active" style={col ? { color: col } : undefined}>
+                  <span className="nbc-tab-label" onClick={() => jumpToTab(pinned)}>{nd?.label}</span>
+                  <button className="nbc-tab-x" onClick={() => clearAll()}>×</button>
+                </div>
+              );
+            })()}
+          </div>
+          {nbcHasMore && <div className="nbc-more-arrow">›</div>}
         </>}
       </div>
 
