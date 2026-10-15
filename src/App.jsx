@@ -1797,10 +1797,13 @@ export default function App() {
       svg.call(zoom.translateBy, 0, -event.deltaY * 0.8);
     };
     svgRef.current.addEventListener('wheel', handleWheel, { passive: false });
+    const dismissHint = () => setMapHint(false);
+    svgRef.current.addEventListener('touchmove', dismissHint, { passive: true, capture: true });
 
     return () => {
       svg.on('.zoom', null);
       svgRef.current?.removeEventListener('wheel', handleWheel);
+      svgRef.current?.removeEventListener('touchmove', dismissHint, { capture: true });
     };
   }, []);
 
@@ -3200,7 +3203,7 @@ export default function App() {
           })()}
         </div>
 
-        <svg ref={svgRef} className="msv" onTouchMove={() => { if (mapHint) setMapHint(false); }} onMouseLeave={() => {
+        <svg ref={svgRef} className="msv" onMouseLeave={() => {
           clearTimeout(leaveTimerRef.current);
           clearMarchOverlay();
           hovPrevRef.current.forEach(({ el, txt, orig }) => {
