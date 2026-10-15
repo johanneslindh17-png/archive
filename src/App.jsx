@@ -1691,7 +1691,7 @@ export default function App() {
     const _screenK = Math.max(window.screen.width / W, 1.0);
     // On phones, allow pinching out to fit-to-screen; initial zoom stays at 0.65.
     const _minK = _isPhone ? _fitK : Math.min(_fitK, _screenK);
-    const _initK = _isPhone ? Math.min(0.65, _screenK) : _screenK;
+    const _initK = _isPhone ? Math.min(0.85, _screenK) : _screenK;
     const zoom = d3.zoom()
       .scaleExtent([_minK, 8])
       .translateExtent([[0, 0], [W, H]])  // single copy, bounded
@@ -1768,8 +1768,7 @@ export default function App() {
     zoomRef.current = zoom;
     const svg = d3.select(svgRef.current);
     svg.call(zoom);
-    // Dismiss the pan/zoom hint on first interaction
-    if (_isPhone) setTimeout(() => setMapHint(false), 3000);
+    // Dismiss the pan/zoom hint when the user first touches the grid
 
     // On phones: center the view between the Germany and UK columns
     const _initX = _isPhone
@@ -3200,7 +3199,7 @@ export default function App() {
           })()}
         </div>
 
-        <svg ref={svgRef} className="msv" onMouseLeave={() => {
+        <svg ref={svgRef} className="msv" onTouchStart={() => { if (mapHint) setMapHint(false); }} onMouseLeave={() => {
           clearTimeout(leaveTimerRef.current);
           clearMarchOverlay();
           hovPrevRef.current.forEach(({ el, txt, orig }) => {
@@ -3891,11 +3890,11 @@ export default function App() {
         );
       })()}
 
-      {/* Pan/zoom hint — shown briefly on first mobile load */}
+      {/* Pan/zoom hint — stays until user touches the grid */}
       {mapHint && (
-        <div className="map-hint" onTouchStart={() => setMapHint(false)}>
-          <span className="map-hint-lr">← →</span>
-          <span className="map-hint-zoom">⊕ pinch</span>
+        <div className="map-hint">
+          <span className="map-hint-arrows">← →</span>
+          <span>navigate</span>
         </div>
       )}
     </div>

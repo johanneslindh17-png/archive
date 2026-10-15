@@ -762,7 +762,7 @@ path.eg.dim{opacity:0}
     0 0 220px 120px rgb(var(--photo-r,100) var(--photo-g,100) var(--photo-b,140) / 0.06);
   transition: box-shadow 0.6s ease;
 }
-.dp-photo{width:100%;display:block;object-fit:cover;object-position:center top;max-height:260px;}
+.dp-photo{width:100%;display:block;object-fit:cover;object-position:center 20%;max-height:260px;}
 
 .dp-photo-credit{font-size:0.65rem;color:#888;margin-top:10px;line-height:1.4;}
 .dp-photo-credit a{color:inherit;text-decoration:underline;}
@@ -1506,19 +1506,19 @@ path.eg.dim{opacity:0}
        Row 1: ELECTRONIC ARCHIVE.  [dark] [color] [?]
        Row 2: full-width search bar
   ── */
-  .topbar{display:grid !important;grid-template-rows:30px 44px;grid-template-columns:1fr auto auto auto;grid-template-areas:"wm yy col leg" "sw sw sw sw";height:74px;padding:0;overflow:visible;align-items:center;}
-  .wordmark{grid-area:wm;width:auto;height:44px;padding:0 8px;font-size:0.70rem;line-height:1;height:30px;display:flex;flex-direction:row;align-items:center;gap:3px;border-bottom:none;border-right:none;min-width:0;overflow:hidden;}
+  .topbar{display:grid !important;grid-template-rows:40px 44px;grid-template-columns:1fr auto auto auto;grid-template-areas:"wm yy col leg" "sw sw sw sw";height:84px;padding:0;overflow:visible;align-items:center;}
+  .wordmark{grid-area:wm;width:auto;padding:0 8px;font-size:0.70rem;line-height:1;height:40px;display:flex;flex-direction:row;align-items:center;gap:3px;border-bottom:none;border-right:none;min-width:0;overflow:hidden;}
   .wordmark-line1{display:inline;}
   .yybtn{grid-area:yy;}
-  .colorwrap{grid-area:col;height:30px;display:flex;align-items:center;}
-  .legwrap{grid-area:leg;height:30px;display:flex;align-items:center;margin-left:0;padding-right:8px;}
+  .colorwrap{grid-area:col;height:40px;display:flex;align-items:center;border-left:1px solid var(--tb-border);}
+  .legwrap{grid-area:leg;height:40px;display:flex;align-items:center;margin-left:0;padding-right:0;}
   .sw{grid-area:sw;height:44px;flex:none;border-top:1px solid var(--tb-border);}
   .si{font-size:1.1rem;}
   .tbsep{display:none;}
-  /* Row-1 buttons: fill full 44px cell height, subtle appearance */
-  .yybtn{width:30px;height:30px;margin:0;}
-  .colorwrap .colorbtn{width:30px;height:30px;align-self:center;}
-  .legtrigger{height:30px;padding:0 8px;font-size:0.6rem;border-left:1px solid var(--tb-border);display:flex;align-items:center;justify-content:center;}
+  /* Row-1 buttons: equal width, full row height, clear dividers */
+  .yybtn{width:40px;height:40px;margin:0;}
+  .colorwrap .colorbtn{width:40px;height:40px;align-self:center;}
+  .legtrigger{height:40px;width:40px;padding:0;font-size:0.6rem;border-left:1px solid var(--tb-border);display:flex;align-items:center;justify-content:center;}
   /* Hide routes, about, filter on phones — not needed at overview scale */
   .routesbtn{display:none !important;}
   .aboutwrap{display:none !important;}
@@ -1592,7 +1592,7 @@ path.eg.dim{opacity:0}
   .groove-trigger{display:none !important;}
 
   /* Search dropdown: full viewport width */
-  .search-dropdown{position:fixed;top:102px;left:0;right:0;max-height:50vh;z-index:1200;}
+  .search-dropdown{position:fixed;top:112px;left:0;right:0;max-height:50vh;z-index:1200;}
     /* Performance: prevent pull-to-refresh from hijacking map pans */
   .canvas{overscroll-behavior:none;}
   .msv{-webkit-tap-highlight-color:transparent;}
@@ -1601,7 +1601,7 @@ path.eg.dim{opacity:0}
   .dp{
     position:fixed !important;
     left:0 !important;right:0 !important;
-    top:102px !important;  /* topbar(74) + breadcrumb(28) */
+    top:112px !important;  /* topbar(84) + breadcrumb(28) */
     bottom:calc(44px + env(safe-area-inset-bottom,0px)) !important;
     width:100% !important;height:auto !important;
     border-radius:0 !important;
@@ -2817,9 +2817,9 @@ path.eg.dim{opacity:0}
 @media(max-width:600px){
   .legbox{
     left:18px;right:0;width:auto;transform:none;
-    top:102px;
-    max-height:calc(100vh - 102px - 44px - env(safe-area-inset-bottom,0px));
-    max-height:calc(100dvh - 102px - 44px - env(safe-area-inset-bottom,0px));
+    top:112px;
+    max-height:calc(100vh - 112px - 44px - env(safe-area-inset-bottom,0px));
+    max-height:calc(100dvh - 112px - 44px - env(safe-area-inset-bottom,0px));
     overflow-y:auto;
   }
   /* On phones only the .open class shows/hides the legbox — hover disabled */
@@ -2852,14 +2852,13 @@ path.eg.dim{opacity:0}
 .map-hint{
   position:fixed;bottom:calc(44px + env(safe-area-inset-bottom,0px) + 70px);
   left:50%;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:4px;
+  display:flex;align-items:center;gap:8px;
   background:var(--tb-bg);border:1px solid var(--tb-border);
-  padding:6px 14px;border-radius:2px;pointer-events:none;
-  animation:map-hint-fade 3s ease forwards;z-index:200;
-  font-family:'Syne Mono',monospace;font-size:0.5rem;letter-spacing:0.1em;
+  padding:8px 16px;border-radius:2px;pointer-events:none;
+  animation:map-hint-in 0.4s ease both;z-index:200;
+  font-family:'Syne Mono',monospace;font-size:0.5rem;letter-spacing:0.12em;
   text-transform:uppercase;color:var(--tb-text-mid);
 }
-.map-hint-lr{animation:map-hint-blink 0.7s ease infinite alternate;font-size:0.75rem;}
-.map-hint-zoom{font-size:0.45rem;}
-@keyframes map-hint-blink{from{opacity:0.3}to{opacity:1}}
-@keyframes map-hint-fade{0%{opacity:1}70%{opacity:1}100%{opacity:0}}
+.map-hint-arrows{animation:map-hint-blink 0.8s ease infinite alternate;font-size:0.75rem;}
+@keyframes map-hint-blink{from{opacity:0.25}to{opacity:1}}
+@keyframes map-hint-in{from{opacity:0;transform:translateX(-50%) translateY(6px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
