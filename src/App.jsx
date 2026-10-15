@@ -2688,7 +2688,7 @@ export default function App() {
           title="Return to home"
         >
           <span className="wordmark-line1">Electronic</span>
-          <span className="wordmark-line2">Archive.</span>
+          <span className="wordmark-line2">Archive.club</span>
         </div>
         <div className="tbsep" />
         <div className="sw">
