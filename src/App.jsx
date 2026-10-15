@@ -1103,7 +1103,10 @@ export default function App() {
     }
 
     // Sequence: scroll/zoom → brief pause → open panel
-    const openPanel = () => setTimeout(() => selectNode(id), 120);
+    const openPanel = () => {
+      setPinned(id);                         // spider web lights up immediately
+      setTimeout(() => selectNode(id), 500); // panel slides in after a beat
+    };
     if (window.innerWidth < 600) {
       centerOnNode(id, 1.5, openPanel);
     } else {
