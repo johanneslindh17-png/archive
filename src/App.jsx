@@ -836,7 +836,6 @@ export default function App() {
     if (!el) return;
     setNbcHasMore(el.scrollWidth > el.clientWidth + 2);
   }
-  useEffect(() => { setTimeout(checkNbcMore, 0); }, [selectedSet, pinned]);
 
   // Close panel — node stays in selectedSet so network stays highlighted
   function closePanel() {
@@ -1364,6 +1363,7 @@ export default function App() {
   }, [onboardStep]);
 
   const [pinned, setPinned] = useState(null); // highlighted but panel closed
+  useEffect(() => { setTimeout(checkNbcMore, 0); }, [selectedSet, pinned]);
   const [panelOnLeft, setPanelOnLeft] = useState(false); // panel flips left when clicked node is in right half
   const [panelX, setPanelX] = useState(null); // null = CSS default (right/left edge)
   const [isDragging, setIsDragging] = useState(false);
