@@ -1004,8 +1004,10 @@ export default function App() {
     const wx = sx * W / 50;
     const wy = sy * H / 88;
     const k = tf.k;
-    const nx = window.innerWidth / 2 - wx * k;
-    const ny = window.innerHeight / 2 - wy * k;
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const nx = Math.min(0, Math.max(vw - W * k, vw / 2 - wx * k));
+    const ny = Math.min(0, Math.max(vh - H * k, vh / 2 - wy * k));
     const target = d3.zoomIdentity.translate(nx, ny).scale(k);
     svgRef.current.__zoom = target;
     if (svgGRef.current)
