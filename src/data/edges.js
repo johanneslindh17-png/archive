@@ -5219,6 +5219,12 @@
   // -- COSMJN --
   { from:'cosmjn',                           to:'sunwaves',                         strength:2, type:'lineage'   },
 
+  // ── BALTRA ────────────────────────────────────────────────────────────────
+  { from:'deep_house',        to:'baltra', strength:2, type:'influence' }, // deep house foundation
+  { from:'ross_from_friends', to:'baltra', strength:1, type:'aesthetic' }, // lo-fi house contemporaries
+  { from:'dj_seinfeld',       to:'baltra', strength:1, type:'aesthetic' }, // lo-fi house contemporaries
+  { from:'mall_grab',         to:'baltra', strength:1, type:'aesthetic' }, // lo-fi house contemporaries
+
   // ── AJAKS / AJAJAJ / JO BUBBLES ──────────────────────────────────────────
   { from:'ajaks',         to:'ajajaj',          strength:3, type:'founded'   },
   { from:'running_back',  to:'ajaks',           strength:2, type:'roster'    },

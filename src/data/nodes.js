@@ -6600,6 +6600,14 @@ export const NODES = [
       { title: '"Rude Boy" (Carvd in Stone)', year: 2014 },
     ], spotify:'7B1LLuCQk13H4Mb6CFBftU', },
 
+  // ── US — BALTRA ────────────────────────────────────────────────────────
+  { id:'baltra', label:'Baltra', type:'artist', genre:'deep', era:2016, city:'New York', country:'US',
+    desc:'Baltra is a Philadelphia-born, New York-based producer who emerged in the mid-2010s as part of the lo-fi house movement alongside Mall Grab, Ross From Friends, and DJ Seinfeld. His productions blend warm, romantic melodies with melancholy, often featuring his own vocals rather than samples. He released his debut album Ted in 2019 and has released on Local Action (as Ambition), Shall Not Fade (Dreaming Of A Disco), and his own 96 and Forever Records imprint.',
+    releases: [
+      { title: "'Ted' (96 and Forever Records)", year: 2019 },
+      { title: "'Ambition' EP (Local Action)", year: 2021 },
+    ], spotify:'2tEyBfwGBfQgLXeAJW0MgC', },
+
   // ── FR — APOLLONIA ──────────────────────────────────────────────────────
   { id:'apollonia', label:'Apollonia', type:'artist', genre:'house', era:2007, city:'Paris', country:'FR',
     desc:'Apollonia is a collective of three French DJs: Dan Ghenacia, Shonky, and Dyed Soundorom. Formed in Paris, they built their reputation through long, exploratory b2b2b sets at clubs including Rex Club and Concrete, and on the Ibiza circuit. Their label Apollonia Records documents a sound rooted in Chicago and Detroit, filtered through deep French house tradition.',

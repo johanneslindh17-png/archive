@@ -699,7 +699,7 @@ export default function App() {
   const [pathStep, setPathStep] = useState(null);
   const deepLinkNodeRef = useRef(null);
 
-  const TRIAL_LIMIT = 25;
+  const TRIAL_LIMIT = 1000;
   const fpRef = useRef(null);
 
   // Prevent iOS auto-zoom on any input focus (iOS zooms when font-size < 16px)

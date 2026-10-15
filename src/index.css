@@ -111,7 +111,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 }
 .wordmark-line1{ display:block; }
 .wordmark-line2{ display:block; }
-.wordmark-club{ display:none; }
+.wordmark-club{ display:inline; }
 .tbsep{width:1px;height:100%;background:var(--tb-border);flex-shrink:0}
 .sw{position:relative;flex:1;height:100%}
 .sw input{
