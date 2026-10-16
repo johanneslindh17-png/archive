@@ -2174,8 +2174,9 @@ export default function App() {
   const hlEdges = useMemo(() => {
     if (pathHlEdges) return pathHlEdges;
     if (pathMode) return null;
-    const roots = selectedSet.length ? selectedSetObj : pinned ? new Set([pinned]) : null;
-    if (!roots) return null;
+    const roots = new Set(selectedSetObj);
+    if (pinned) roots.add(pinned);
+    if (!roots.size) return null;
     return new Set(visibleEdges.filter(e => roots.has(e.from) || roots.has(e.to)).map(e => `${e.from}|${e.to}`));
   }, [pathHlEdges, pathMode, selectedSet, selectedSetObj, pinned, visibleEdges]);
 
