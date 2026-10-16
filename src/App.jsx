@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback, useMemo, startTransition, useDeferredValue } from 'react';
+import { flushSync } from 'react-dom';
 import { useSunMode } from './hooks/useSunMode.js';
 import { Groovebox } from './Groovebox.jsx';
 import { Chat } from './Chat.jsx';
@@ -846,6 +847,18 @@ export default function App() {
     window.history.replaceState(null, '', location.pathname + location.search);
   }
 
+  // Animated close: slide panel down, then close (mobile only; falls back to instant on desktop)
+  function slideClosePanel(onDone) {
+    if (window.innerWidth >= 600 || !selected) { closePanel(); onDone?.(); return; }
+    flushSync(() => setDpClosing(true));
+    setTimeout(() => {
+      setDpClosing(false);
+      setSelected(null);
+      window.history.replaceState(null, '', location.pathname + location.search);
+      onDone?.();
+    }, 310);
+  }
+
   // Clear everything — selection, trail, pin
   function clearAll() {
     window.history.replaceState(null, '', location.pathname + location.search);
@@ -1103,14 +1116,9 @@ export default function App() {
     }
 
     if (window.innerWidth < 600) {
-      // Mobile: slide panel down first, then navigate
+      // Mobile: slide panel down first (if open), then navigate
       const navigate = () => { setPinned(id); centerOnNode(id, 1.5); };
-      if (selected && dpRef.current) {
-        dpRef.current.classList.add('dp-closing');
-        setTimeout(() => { dpRef.current?.classList.remove('dp-closing'); setSelected(null); navigate(); }, 300);
-      } else {
-        navigate();
-      }
+      slideClosePanel(navigate);
     } else {
       // Desktop: scroll then auto-open panel after brief pause
       scrollToNode(id, 1.0, () => {
@@ -3369,7 +3377,7 @@ export default function App() {
           {selNode && (
             <>
               <div className="dp-toprow">
-                <button className="dp-close" onClick={closePanel}>×</button>
+                <button className="dp-close" onClick={() => slideClosePanel()}>×</button>
               </div>
 
               {/* Type pill */}
@@ -3499,12 +3507,7 @@ export default function App() {
                           <div key={c.node.id} className="dp-conn" onClick={() => {
                             if (window.innerWidth < 600) {
                               const nid = c.node.id;
-                              if (dpRef.current) {
-                                dpRef.current.classList.add('dp-closing');
-                                setTimeout(() => { dpRef.current?.classList.remove('dp-closing'); setSelected(null); setPinned(nid); centerOnNode(nid, 1.5); }, 300);
-                              } else {
-                                setSelected(null); setPinned(nid); centerOnNode(nid, 1.5);
-                              }
+                              slideClosePanel(() => { setPinned(nid); centerOnNode(nid, 1.5); });
                             } else {
                               selectNode(c.node.id); scrollToNode(c.node.id, 0.2);
                             }
