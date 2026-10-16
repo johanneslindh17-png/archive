@@ -1103,8 +1103,9 @@ export default function App() {
     }
 
     if (window.innerWidth < 600) {
-      // Mobile: center the node and show spider web — user taps to open panel
-      centerOnNode(id, 1.5, () => setPinned(id));
+      // Mobile: pin immediately so the node is visible during the animation
+      setPinned(id);
+      centerOnNode(id, 1.5);
     } else {
       // Desktop: scroll then auto-open panel after brief pause
       scrollToNode(id, 1.0, () => {
