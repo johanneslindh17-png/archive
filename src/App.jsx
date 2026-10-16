@@ -687,6 +687,11 @@ export default function App() {
   const [routesOpen, setRoutesOpen] = useState(false);
   const [activeRoute, setActiveRoute] = useState(null);
   const [routeStep, setRouteStep] = useState(0);
+  const [nodesOpen, setNodesOpen] = useState(false);
+  const [nodesTypeFilter, setNodesTypeFilter] = useState('all');
+  const [nodesSearch, setNodesSearch] = useState('');
+  const nodesScrollRef = useRef(null);
+  const nodesScrollPosRef = useRef(0);
   const [grooveOpen, setGrooveOpen] = useState(false);
   const [chatOpen,   setChatOpen]   = useState(false);
   const [mapHint, setMapHint] = useState(() => window.innerWidth < 600);
@@ -2856,6 +2861,17 @@ export default function App() {
           </div>
         )}
 
+        {/* Nodes browser button */}
+        <button
+          className={`nodesbtn${nodesOpen ? ' active' : ''}`}
+          onClick={() => {
+            if (!nodesOpen && nodesScrollRef.current) {
+              nodesScrollRef.current.scrollTop = nodesScrollPosRef.current;
+            }
+            setNodesOpen(v => !v);
+          }}
+        >Nodes</button>
+
         {/* Dark mode toggle — auto follows sun, click to override */}
         <button
           className="yybtn"
@@ -3874,6 +3890,67 @@ export default function App() {
           </div>
         </div>
       )}
+
+      {/* Nodes browser panel */}
+      <div className={`nodes-panel${nodesOpen ? ' open' : ''}`}>
+        <div className="nodes-panel-header">
+          <span className="nodes-panel-title">Nodes</span>
+          <button className="nodes-panel-close" onClick={() => setNodesOpen(false)}>✕</button>
+        </div>
+        <div className="nodes-panel-search">
+          <span className="si">⌕</span>
+          <input
+            className="nodes-panel-input"
+            placeholder="Filter…"
+            value={nodesSearch}
+            onChange={e => setNodesSearch(e.target.value)}
+          />
+        </div>
+        <div className="nodes-panel-filters">
+          {['all', 'artist', 'label', 'venue', 'moment', 'style', 'culture', 'channel'].map(t => (
+            <button
+              key={t}
+              className={`npt-pill${nodesTypeFilter === t ? ' active' : ''}`}
+              onClick={() => setNodesTypeFilter(t)}
+            >{t === 'all' ? 'All' : t.charAt(0).toUpperCase() + t.slice(1)}</button>
+          ))}
+        </div>
+        <div
+          className="nodes-panel-list"
+          ref={nodesScrollRef}
+          onScroll={e => { nodesScrollPosRef.current = e.currentTarget.scrollTop; }}
+        >
+          {NODES
+            .filter(n => {
+              if (nodesTypeFilter !== 'all' && n.type !== nodesTypeFilter) return false;
+              if (nodesSearch.trim()) {
+                const q = nodesSearch.toLowerCase();
+                return n.label.toLowerCase().includes(q) || (n.city||'').toLowerCase().includes(q);
+              }
+              return true;
+            })
+            .sort((a, b) => a.label.localeCompare(b.label))
+            .map(n => (
+              <div
+                key={n.id}
+                className="npl-item"
+                onClick={() => {
+                  setNodesOpen(false);
+                  pickSearchResult(n.id);
+                }}
+              >
+                <span className="npl-label">{n.label}</span>
+                <span className="npl-meta">
+                  <span className={`npl-type-tag npl-type-${n.type}`}>{n.type}</span>
+                  {n.city ? ` ${n.city} · ` : ' '}{n.era}
+                  {n.genre && GENRES[n.genre] ? ` · ${GENRES[n.genre].label}` : ''}
+                </span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      {nodesOpen && <div className="nodes-backdrop" onClick={() => setNodesOpen(false)} />}
 
       {paywallOpen && (
         <div className="paywall-overlay" onClick={e => { if (e.target === e.currentTarget) setPaywallOpen(false); }}>
