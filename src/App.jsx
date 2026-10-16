@@ -3492,8 +3492,9 @@ export default function App() {
                         {group.map(c => (
                           <div key={c.node.id} className="dp-conn" onClick={() => {
                             if (window.innerWidth < 600) {
-                              selectNode(null);
-                              centerOnNode(c.node.id, 1.5, () => setPinned(c.node.id));
+                              setSelected(null);   // close panel, keep breadcrumb intact
+                              setPinned(c.node.id);
+                              centerOnNode(c.node.id, 1.5);
                             } else {
                               selectNode(c.node.id); scrollToNode(c.node.id, 0.2);
                             }
