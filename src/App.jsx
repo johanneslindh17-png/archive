@@ -1103,7 +1103,8 @@ export default function App() {
     }
 
     if (window.innerWidth < 600) {
-      // Mobile: pin immediately so the node is visible during the animation
+      // Mobile: close any open panel, pin immediately so the node is visible during the animation
+      setSelected(null);
       setPinned(id);
       centerOnNode(id, 1.5);
     } else {
@@ -2688,6 +2689,7 @@ export default function App() {
           }, 20);
         }}
       >
+        <rect x={-hw - 10} y={-hh - 10} width={bw + 20} height={bh + 20} fill="transparent" stroke="none" style={{pointerEvents:'all'}} />
         <g className="nd-inner">
           {renderBg()}
           {renderBorder()}
