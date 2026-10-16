@@ -1103,10 +1103,14 @@ export default function App() {
     }
 
     if (window.innerWidth < 600) {
-      // Mobile: close any open panel, pin immediately so the node is visible during the animation
-      setSelected(null);
-      setPinned(id);
-      centerOnNode(id, 1.5);
+      // Mobile: slide panel down first, then navigate
+      const navigate = () => { setPinned(id); centerOnNode(id, 1.5); };
+      if (selected) {
+        setDpClosing(true);
+        setTimeout(() => { setDpClosing(false); setSelected(null); navigate(); }, 300);
+      } else {
+        navigate();
+      }
     } else {
       // Desktop: scroll then auto-open panel after brief pause
       scrollToNode(id, 1.0, () => {
@@ -3494,9 +3498,9 @@ export default function App() {
                         {group.map(c => (
                           <div key={c.node.id} className="dp-conn" onClick={() => {
                             if (window.innerWidth < 600) {
-                              setSelected(null);   // close panel, keep breadcrumb intact
-                              setPinned(c.node.id);
-                              centerOnNode(c.node.id, 1.5);
+                              setDpClosing(true);
+                              const nid = c.node.id;
+                              setTimeout(() => { setDpClosing(false); setSelected(null); setPinned(nid); centerOnNode(nid, 1.5); }, 300);
                             } else {
                               selectNode(c.node.id); scrollToNode(c.node.id, 0.2);
                             }
