@@ -942,9 +942,11 @@ export default function App() {
         if (as_ !== bs_) return as_ ? -1 : 1;
         const ai = al.includes(q), bi = bl.includes(q);
         if (ai !== bi) return ai ? -1 : 1;
+        const ac = (a.city || '').toLowerCase().includes(q), bc = (b.city || '').toLowerCase().includes(q);
+        if (ac !== bc) return ac ? -1 : 1;
         return al.localeCompare(bl);
       })
-      .slice(0, 10);
+      .slice(0, 30);
   }, [searchQ]);
 
   // Smoothly navigate to node `id` — vertical scroll only, no horizontal pan.
