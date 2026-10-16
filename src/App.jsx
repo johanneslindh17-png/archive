@@ -3260,7 +3260,7 @@ export default function App() {
               <g>
                 {/* Year grid */}
                 <g>
-                  {YEAR_LINES.map(y => (
+                  {[...Array.from({length:5},(_,i)=>ERA_MIN-5+i), ...YEAR_LINES, ...Array.from({length:5},(_,i)=>ERA_MAX+1+i)].map(y => (
                     <line key={'y'+y} x1={0} y1={eraY(y)} x2={W} y2={eraY(y)}
                       stroke={themeAccent
                         ? YEAR_LABELS.includes(y) ? themeAccent + '44' : themeAccent + '1a'
@@ -3293,7 +3293,7 @@ export default function App() {
                 <>
                   {/* Year grid */}
                   <g>
-                    {YEAR_LINES.map(y => (
+                    {[...Array.from({length:5},(_,i)=>ERA_MIN-5+i), ...YEAR_LINES, ...Array.from({length:5},(_,i)=>ERA_MAX+1+i)].map(y => (
                       <line key={'y'+y} x1={0} y1={eraY(y)} x2={W} y2={eraY(y)}
                         stroke={themeAccent
                           ? YEAR_LABELS.includes(y) ? themeAccent + '44' : themeAccent + '1a'
