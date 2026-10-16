@@ -956,7 +956,7 @@ export default function App() {
 
     // Only move vertically — x stays exactly where it is.
     const x1 = live.x;
-    const tyFull = window.innerHeight / 2 - p.y * k1;
+    const tyFull = window.innerHeight * 0.30 - p.y * k1;
     const y1 = live.y + (tyFull - live.y) * 1.0;
     const target = d3.zoomIdentity.translate(x1, y1).scale(k1);
     positionPanel(id, target);
@@ -987,7 +987,7 @@ export default function App() {
     const k0 = live.k, x0 = live.x, y0 = live.y;
     const k1 = Math.max(targetK, k0);
     const x1 = window.innerWidth  / 2 - p.x * k1;
-    const y1 = window.innerHeight / 2 - p.y * k1;
+    const y1 = window.innerHeight * 0.30 - p.y * k1;
     const target = d3.zoomIdentity.translate(x1, y1).scale(k1);
     positionPanel(id, target);
     animatingRef.current = true;
