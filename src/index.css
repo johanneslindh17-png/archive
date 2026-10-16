@@ -1602,9 +1602,9 @@ path.eg.dim{opacity:0}
   .aboutwrap{display:none !important;}
   .filterwrap{display:none !important;}
   .filterbtn{display:none !important;}
-  /* Nodes button: put it in row 1, before the dark toggle */
-  .nodesbtn{grid-area:nd;height:40px;border-left:1px solid var(--tb-border);padding:0 10px;font-size:0.55rem;}
-  .topbar{grid-template-columns:1fr auto auto auto auto;grid-template-areas:"wm nd yy col leg";}
+  /* Nodes button: right side of the search bar row */
+  .nodesbtn{grid-area:nd;height:44px;border-left:1px solid var(--tb-border);padding:0 14px;font-size:0.55rem;}
+  .topbar{grid-template-columns:1fr auto auto auto;grid-template-areas:"wm yy col leg" "sw sw sw nd";}
   .sw input{font-size:16px !important;border-left:1px solid var(--tb-border);}
   /* Nodes panel: full-width bottom sheet on mobile */
   .nodes-panel{top:auto;bottom:0;right:0;left:0;width:100%;height:80vh;border-left:none;border-top:1px solid var(--tb-border);transform:translateY(100%);border-radius:12px 12px 0 0;}
