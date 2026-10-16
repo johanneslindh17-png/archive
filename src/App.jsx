@@ -1105,9 +1105,9 @@ export default function App() {
     if (window.innerWidth < 600) {
       // Mobile: slide panel down first, then navigate
       const navigate = () => { setPinned(id); centerOnNode(id, 1.5); };
-      if (selected) {
-        setDpClosing(true);
-        setTimeout(() => { setDpClosing(false); setSelected(null); navigate(); }, 300);
+      if (selected && dpRef.current) {
+        dpRef.current.classList.add('dp-closing');
+        setTimeout(() => { dpRef.current?.classList.remove('dp-closing'); setSelected(null); navigate(); }, 300);
       } else {
         navigate();
       }
@@ -3498,9 +3498,13 @@ export default function App() {
                         {group.map(c => (
                           <div key={c.node.id} className="dp-conn" onClick={() => {
                             if (window.innerWidth < 600) {
-                              setDpClosing(true);
                               const nid = c.node.id;
-                              setTimeout(() => { setDpClosing(false); setSelected(null); setPinned(nid); centerOnNode(nid, 1.5); }, 300);
+                              if (dpRef.current) {
+                                dpRef.current.classList.add('dp-closing');
+                                setTimeout(() => { dpRef.current?.classList.remove('dp-closing'); setSelected(null); setPinned(nid); centerOnNode(nid, 1.5); }, 300);
+                              } else {
+                                setSelected(null); setPinned(nid); centerOnNode(nid, 1.5);
+                              }
                             } else {
                               selectNode(c.node.id); scrollToNode(c.node.id, 0.2);
                             }
