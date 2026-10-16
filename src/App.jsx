@@ -1107,7 +1107,7 @@ export default function App() {
     // Sequence: scroll/zoom → brief pause → open panel
     const openPanel = () => {
       setPinned(id);                         // spider web lights up immediately
-      setTimeout(() => selectNode(id), 500); // panel slides in after a beat
+      setTimeout(() => selectNode(id), 800); // panel slides in after a beat
     };
     if (window.innerWidth < 600) {
       centerOnNode(id, 1.5, openPanel);
@@ -1730,7 +1730,7 @@ export default function App() {
       // click that fires on pointer-capture release can never hit a topbar button.
       // Also clear any stuck hover overlays (touch-pan never fires onMouseLeave).
       .on('start', () => {
-        document.body.classList.add('svg-dragging');
+        document.body.classList.add('svg-dragging', 'zooming');
         if (!isScrollingRef.current) {
           isScrollingRef.current = true;
           clearTimeout(leaveTimerRef.current);
@@ -1746,7 +1746,7 @@ export default function App() {
         // SVG main transform — direct DOM, no React
         if (svgGRef.current)
           svgGRef.current.style.transform = `translate(${x}px,${y}px) scale(${k})`;
-        document.documentElement.style.setProperty('--tf-k', k);
+        if (!_isPhone) document.documentElement.style.setProperty('--tf-k', k);
         // Year labels — direct DOM, no React re-render
         if (yearStripRef.current) {
           const h = window.innerHeight;
@@ -1765,8 +1765,8 @@ export default function App() {
             el.style.visibility = (sx < -300 || sx > w + 300) ? 'hidden' : '';
           });
         }
-        // Minimap viewport rect — direct DOM
-        if (minimapRectRef.current) {
+        // Minimap viewport rect — direct DOM (desktop only)
+        if (!_isPhone && minimapRectRef.current) {
           const msx = 50 / W, msy = 88 / H;
           const vx = Math.max(0, (-x / k) * msx);
           const vy = Math.max(0, (-y / k) * msy);
@@ -1784,7 +1784,7 @@ export default function App() {
         // Keep topbar locked briefly so the stray click (which fires async after
         // pointer-capture release) is still swallowed by the CSS block.
         setTimeout(() => {
-          document.body.classList.remove('svg-dragging');
+          document.body.classList.remove('svg-dragging', 'zooming');
           isScrollingRef.current = false;
         }, 150);
       });
