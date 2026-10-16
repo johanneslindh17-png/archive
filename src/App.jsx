@@ -2689,7 +2689,6 @@ export default function App() {
           }, 20);
         }}
       >
-        <rect x={-hw - 10} y={-hh - 10} width={bw + 20} height={bh + 20} fill="transparent" stroke="none" style={{pointerEvents:'all'}} />
         <g className="nd-inner">
           {renderBg()}
           {renderBorder()}
