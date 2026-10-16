@@ -1102,15 +1102,15 @@ export default function App() {
       return;
     }
 
-    // Sequence: scroll/zoom → brief pause → open panel
-    const openPanel = () => {
-      setPinned(id);                         // spider web lights up immediately
-      setTimeout(() => selectNode(id), 800); // panel slides in after a beat
-    };
     if (window.innerWidth < 600) {
-      centerOnNode(id, 1.5, openPanel);
+      // Mobile: center the node and show spider web — user taps to open panel
+      centerOnNode(id, 1.5, () => setPinned(id));
     } else {
-      scrollToNode(id, 1.0, openPanel);
+      // Desktop: scroll then auto-open panel after brief pause
+      scrollToNode(id, 1.0, () => {
+        setPinned(id);
+        setTimeout(() => selectNode(id), 800);
+      });
     }
   }
 
@@ -3488,7 +3488,14 @@ export default function App() {
                       <div key={`${type}-${dir}`}>
                         <div className="dp-sec">{label} <span className="dp-sec-count">{group.length}</span></div>
                         {group.map(c => (
-                          <div key={c.node.id} className="dp-conn" onClick={() => { selectNode(c.node.id); scrollToNode(c.node.id, 0.2); }}>
+                          <div key={c.node.id} className="dp-conn" onClick={() => {
+                            if (window.innerWidth < 600) {
+                              selectNode(null);
+                              centerOnNode(c.node.id, 1.5, () => setPinned(c.node.id));
+                            } else {
+                              selectNode(c.node.id); scrollToNode(c.node.id, 0.2);
+                            }
+                          }}>
                             <div className="dp-conn-dot" style={{ background: COUNTRIES[c.node.country]?.color || '#555' }} />
                             <div className="dp-conn-info">
                               <span className="dp-conn-name">{c.node.label}</span>
