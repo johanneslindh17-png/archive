@@ -2158,7 +2158,8 @@ export default function App() {
     if (pathHlIds) return pathHlIds;
     if (pathMode) return null;
     if (!selectedSet.length && !pinned) return logHlIds || null;
-    const roots = selectedSet.length ? selectedSetObj : new Set([pinned]);
+    const roots = new Set(selectedSetObj);
+    if (pinned) roots.add(pinned);
     const s = new Set(roots);
     visibleEdges.forEach(e => {
       if (roots.has(e.from) && NODE_BY_ID.has(e.to))   s.add(e.to);
