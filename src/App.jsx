@@ -2916,11 +2916,6 @@ export default function App() {
           )}
         </div>
 
-        {/* Routes button */}
-        <button
-          className={`routesbtn${activeRoute ? ' active' : ''}`}
-          onClick={() => setRoutesOpen(v => !v)}
-        >Routes</button>
 
         {/* About — hover popup, same pattern as legwrap/? guide */}
         <div className="aboutwrap">
