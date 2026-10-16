@@ -1103,8 +1103,7 @@ export default function App() {
     }
 
     if (window.innerWidth < 600) {
-      // Mobile: close any open panel first, then center and show spider web
-      if (selected) selectNode(null);
+      // Mobile: center the node and show spider web — user taps to open panel
       centerOnNode(id, 1.5, () => setPinned(id));
     } else {
       // Desktop: scroll then auto-open panel after brief pause
