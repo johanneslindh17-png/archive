@@ -1163,7 +1163,7 @@ path.eg.dim{opacity:0}
 /* â”€â”€ Inline player (lives inside the status bar) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .player-inline{
   display:flex;align-items:center;gap:6px;
-  min-width:0;max-width:520px;
+  min-width:0;max-width:380px;
 }
 .player-sep{
   width:1px;height:12px;background:var(--tb-border);flex-shrink:0;
@@ -1227,6 +1227,44 @@ path.eg.dim{opacity:0}
   padding-bottom:3px;
 }
 .contact-email:hover{color:var(--tb-text);border-bottom-color:var(--tb-text);}
+
+.submit-dropdown{
+  position:fixed;bottom:60px;right:20px;
+  background:var(--tb-bg);border:1px solid var(--tb-border);
+  padding:22px 24px;width:340px;z-index:500;
+  font-family:'Syne Mono',monospace;
+}
+.submit-title{
+  font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--tb-text);font-weight:700;margin-bottom:8px;
+}
+.submit-body{
+  font-size:0.66rem;letter-spacing:0.04em;line-height:1.8;
+  color:var(--tb-text-mid);margin-bottom:18px;
+}
+.submit-field{display:flex;flex-direction:column;gap:4px;margin-bottom:12px;}
+.submit-label{
+  font-size:0.52rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--tb-text-mid);
+}
+.submit-optional{font-size:0.48rem;opacity:0.6;}
+.submit-select,.submit-input,.submit-textarea{
+  font-family:'Syne Mono',monospace;font-size:0.62rem;letter-spacing:0.04em;
+  background:var(--tb-bg);color:var(--tb-text);
+  border:1px solid var(--tb-border);padding:6px 8px;
+  outline:none;border-radius:2px;
+  transition:border-color 0.15s;
+}
+.submit-select:focus,.submit-input:focus,.submit-textarea:focus{border-color:var(--tb-text-mid);}
+.submit-textarea{resize:none;line-height:1.7;}
+.submit-send{
+  display:block;margin-top:16px;
+  font-size:0.60rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--tb-text);text-decoration:none;
+  border:1px solid var(--tb-border);padding:8px 12px;text-align:center;
+  transition:color 0.15s,border-color 0.15s,background 0.15s;
+}
+.submit-send:hover{background:var(--tb-text);color:var(--tb-bg);}
 
 .paywall-overlay{
   position:fixed;inset:0;z-index:9999;
@@ -1676,6 +1714,7 @@ path.eg.dim{opacity:0}
   .trial-counter:not(.trial-counter--views){font-size:0 !important;}
   .trial-counter:not(.trial-counter--views)::before{content:'♥ SUPPORT';font-size:0.5rem;font-family:'Syne Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;}
   .sb-contact-wrap{display:none !important;}
+  .sb-submit-wrap{display:none !important;}
   .trial-counter--views{display:none !important;}
   .tour-relaunch{display:none !important;}
   .pathbtn{display:none !important;}

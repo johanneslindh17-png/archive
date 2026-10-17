@@ -680,6 +680,10 @@ export default function App() {
   const [trialCount, setTrialCount] = useState(() => parseInt(localStorage.getItem('archiveTrialCount') || '0', 10));
   const [paywallOpen, setPaywallOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
+  const [submitOpen, setSubmitOpen] = useState(false);
+  const [submitType, setSubmitType] = useState('artist');
+  const [submitName, setSubmitName] = useState('');
+  const [submitNote, setSubmitNote] = useState('');
   const [licenseKey, setLicenseKey] = useState('');
   const [verifying, setVerifying] = useState(false);
   const [verifyError, setVerifyError] = useState('');
@@ -1673,6 +1677,14 @@ export default function App() {
     document.addEventListener('click', close);
     return () => document.removeEventListener('click', close);
   }, [contactOpen]);
+
+  // Close submit dropdown on outside click
+  useEffect(() => {
+    if (!submitOpen) return;
+    const close = () => setSubmitOpen(false);
+    document.addEventListener('click', close);
+    return () => document.removeEventListener('click', close);
+  }, [submitOpen]);
 
   // Close node-type popup on outside click
   useEffect(() => {
@@ -3754,6 +3766,38 @@ export default function App() {
               {`${Math.max(0, TRIAL_LIMIT - trialCount)} views`}
             </span>
           )}
+          <div className="sb-submit-wrap" style={{ position: 'relative' }}>
+            <button className="trial-counter sb-submit-btn" onClick={e => { e.stopPropagation(); setSubmitOpen(o => !o); }}>submit a node</button>
+            {submitOpen && (
+              <div className="submit-dropdown" onClick={e => e.stopPropagation()}>
+                <div className="submit-title">Submit a node</div>
+                <div className="submit-body">Know an artist, label, venue or moment that belongs in the archive? Send it our way and we'll review it.</div>
+                <div className="submit-field">
+                  <label className="submit-label">Type</label>
+                  <select className="submit-select" value={submitType} onChange={e => setSubmitType(e.target.value)}>
+                    {['artist','label','venue','moment','style','culture','channel'].map(t => (
+                      <option key={t} value={t}>{t.charAt(0).toUpperCase()+t.slice(1)}</option>
+                    ))}
+                  </select>
+                </div>
+                <div className="submit-field">
+                  <label className="submit-label">Name</label>
+                  <input className="submit-input" type="text" placeholder="e.g. Underground Resistance" value={submitName} onChange={e => setSubmitName(e.target.value)} />
+                </div>
+                <div className="submit-field">
+                  <label className="submit-label">Notes <span className="submit-optional">(optional)</span></label>
+                  <textarea className="submit-textarea" placeholder="Any context, links, or why it fits…" value={submitNote} onChange={e => setSubmitNote(e.target.value)} rows={3} />
+                </div>
+                <a
+                  className="submit-send"
+                  href={`mailto:electronicarchive@gmail.com?subject=${encodeURIComponent(`Node submission: ${submitName || '(unnamed)'}`)}&body=${encodeURIComponent(`Type: ${submitType}\nName: ${submitName}\n\n${submitNote}`)}`}
+                  onClick={() => { setTimeout(() => { setSubmitOpen(false); setSubmitName(''); setSubmitNote(''); setSubmitType('artist'); }, 400); }}
+                >
+                  Send submission ↗
+                </a>
+              </div>
+            )}
+          </div>
           <div className="sb-contact-wrap" style={{ position: 'relative' }}>
             <button className="trial-counter" onClick={e => { e.stopPropagation(); setContactOpen(o => !o); }}>contact</button>
             {contactOpen && (
