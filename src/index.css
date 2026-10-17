@@ -232,8 +232,8 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .npl-item:hover{background:rgba(0,0,0,0.03)}
 .dark .npl-item:hover{background:rgba(255,255,255,0.03)}
 .npl-label{font-family:'Syne Mono',monospace;font-size:0.65rem;color:var(--tb-text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex-shrink:0;max-width:45%}
-.npl-meta{font-family:'Syne Mono',monospace;font-size:0.52rem;color:#aaa;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:0.04em}
-.dark .npl-meta{color:#8080a0}
+.npl-meta{font-family:'Syne Mono',monospace;font-size:0.57rem;color:#888;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:0.04em}
+.dark .npl-meta{color:#9090b0}
 .npl-type-tag{
   display:inline-block;font-size:0.48rem;letter-spacing:0.08em;text-transform:uppercase;
   padding:1px 5px;border-radius:3px;margin-right:4px;
