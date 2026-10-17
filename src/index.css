@@ -1711,10 +1711,11 @@ path.eg.dim{opacity:0}
   .player-btn{height:38px;width:38px;}
   .statusbar-end{border-left:none;padding-left:0;margin-left:0;}
   /* Shorten support button on phones */
-  .trial-counter:not(.trial-counter--views){font-size:0 !important;}
-  .trial-counter:not(.trial-counter--views)::before{content:'♥ SUPPORT';font-size:0.5rem;font-family:'Syne Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;}
+  .trial-counter:not(.trial-counter--views):not(.sb-submit-btn){font-size:0 !important;}
+  .trial-counter:not(.trial-counter--views):not(.sb-submit-btn)::before{content:'♥ SUPPORT';font-size:0.5rem;font-family:'Syne Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;}
+  .sb-submit-btn{font-size:0 !important;}
+  .sb-submit-btn::before{content:'+ NODE';font-size:0.5rem;font-family:'Syne Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;}
   .sb-contact-wrap{display:none !important;}
-  .sb-submit-wrap{display:none !important;}
   .trial-counter--views{display:none !important;}
   .tour-relaunch{display:none !important;}
   .pathbtn{display:none !important;}
