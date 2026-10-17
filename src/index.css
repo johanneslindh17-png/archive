@@ -164,7 +164,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .dark .nodesbtn.active{color:#0c0c10;background:#d0d0e8;border-color:#d0d0e8}
 
 /* ── Nodes browser panel ── */
-.nodes-backdrop{position:fixed;inset:0;z-index:18;background:transparent}
+.nodes-backdrop{position:fixed;inset:0;z-index:18;background:transparent;pointer-events:none;}
 .nodes-panel{
   position:absolute;top:0;right:46px;width:360px;bottom:0;
   background:var(--tb-bg);border-left:1px solid var(--tb-border);
@@ -1666,7 +1666,7 @@ path.eg.dim{opacity:0}
   /* Nodes panel: full-width bottom sheet on mobile, sits above statusbar */
   .nodes-panel{position:fixed !important;left:0 !important;right:0 !important;top:118px;bottom:calc(44px + env(safe-area-inset-bottom,0px));width:auto !important;height:auto;border-left:none;border-radius:0;border-top:1px solid var(--tb-border);transform:translateY(100vh);z-index:80 !important;}
   .nodes-panel.open{transform:translateY(0);}
-  .nodes-backdrop{background:rgba(0,0,0,0.3);z-index:18;}
+  .nodes-backdrop{background:rgba(0,0,0,0.3);z-index:18;pointer-events:all;}
   .wordmark-club{display:inline;}
 
   /* ── Year strip: narrower so more graph is visible ── */
