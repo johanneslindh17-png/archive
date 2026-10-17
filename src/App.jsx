@@ -1841,8 +1841,13 @@ export default function App() {
     svg.call(zoom);
     // Dismiss the pan/zoom hint when the user first touches the grid
 
-    // Center the initial view between Germany and UK, year 2010
-    const _initX = window.innerWidth / 2 - ((REGION_LEFTS['DE'] + REGION_WIDTHS['DE'] / 2 + REGION_LEFTS['UK'] + REGION_WIDTHS['UK'] / 2) / 2) * _initK;
+    // Center the initial view between Germany and UK, year 2010.
+    // Clamp to the translateExtent bounds so D3 doesn't need to snap on the
+    // first scroll (which would cause a visible jump).
+    const _txMin = window.innerWidth - W * _initK;
+    const _initX = Math.min(0, Math.max(_txMin,
+      window.innerWidth / 2 - ((REGION_LEFTS['DE'] + REGION_WIDTHS['DE'] / 2 + REGION_LEFTS['UK'] + REGION_WIDTHS['UK'] / 2) / 2) * _initK
+    ));
     const _initY = window.innerHeight / 2 - eraY(2010) * _initK;
     svg.call(zoom.transform, d3.zoomIdentity.translate(_initX, _initY).scale(_initK));
 
