@@ -1179,7 +1179,7 @@ path.eg.dim{opacity:0}
 /* â”€â”€ Inline player (lives inside the status bar) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .player-inline{
   display:flex;align-items:center;gap:6px;
-  min-width:0;max-width:380px;
+  min-width:0;max-width:520px;
 }
 .player-sep{
   width:1px;height:12px;background:var(--tb-border);flex-shrink:0;
