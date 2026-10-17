@@ -2946,7 +2946,9 @@ path.eg.dim{opacity:0}
   background:var(--tb-bg);opacity:1;z-index:50;border-radius:2px;
   overflow:hidden;
   color:var(--tb-text-mid);
+  transition:opacity 0.2s,visibility 0.2s;
 }
+.minimap.hidden{opacity:0;visibility:hidden;pointer-events:none;}
 
 /* ── Map pan/zoom hint ──────────────────────────────────── */
 .map-hint{

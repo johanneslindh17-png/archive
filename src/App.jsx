@@ -4027,7 +4027,7 @@ export default function App() {
         const rectStroke = darkMode ? 'rgba(255,255,255,0.95)' : 'rgba(0,0,0,0.85)';
         const rectFill   = darkMode ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)';
         return (
-          <div className="minimap"
+          <div className={`minimap${nodesOpen ? ' hidden' : ''}`}
             onTouchStart={e => { e.preventDefault(); const t = e.touches[0]; panToMinimap(t.clientX, t.clientY, e.currentTarget.getBoundingClientRect()); }}
             onTouchMove={e => { e.preventDefault(); const t = e.touches[0]; panToMinimap(t.clientX, t.clientY, e.currentTarget.getBoundingClientRect()); }}
           >
