@@ -406,6 +406,9 @@ export const NODE_CHANGELOG = [
   { id: 'konstantin',           label: 'Konstantin',               date: '2026-08-08' },
   { id: 'edward',               label: 'Edward',                   date: '2026-08-08' },
 
+  // 2026-10-17
+  { id: 'yansima',              label: 'Yansima',                  date: '2026-10-17' },
+
   // 2026-08-06
   { id: 'jane_fitz',            label: 'Jane Fitz',                date: '2026-08-06' },
   { id: 'tama_sumo',            label: 'Tama Sumo',                date: '2026-08-06' },

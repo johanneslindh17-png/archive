@@ -7080,6 +7080,14 @@ export const NODES = [
       { title: '\'Mushroom Jazz\' series (OM Records)', year: 1994 },
     ]},
 
+  { id:'yansima', label:'Yansima', type:'artist', genre:'techno', era:2020, city:'Kyiv', country:'UA',
+    bandcamp:'yansima', bandcamp_album:'3304101037',
+    desc:'Yansima is the alias of Ilya Pokazieiev, a Kyiv-based sound designer, DJ, and musician who emerged from the Ukrainian underground. His "Tweede Cans" EP (R&S Records, 2020) announced him to an international audience: three tracks of hypnagogic, off-kilter techno that drew equally from the patient rhythmic architecture of Romanian minimal techno and the low-slung bass weight of UK Garage. The release marked R&S\'s recognition of a distinctly Eastern European sensibility entering the broader techno conversation.',
+    releases: [
+      { title: '\'Tweede Cans\' EP (R&S Records)', year: 2020 },
+      { title: '\'Criminal Tape\' EP', year: 2025 },
+    ]},
+
   { id:'muslimgauze', label:'Muslimgauze', type:'artist', genre:'experimental', era:1982, city:'Manchester', country:'UK',
     desc:'Muslimgauze was the recording name of Bryn Jones (1961–1999), a Manchester-based musician who began making music in 1982 as a direct response to the Israeli invasion of Lebanon. He never visited the Middle East — stating that you cannot visit an occupied land — but channelled a sustained political engagement with the region into an output of extraordinary scale: over a hundred albums across his lifetime, released on Staalplaat, Soleilmoon, Extreme, and dozens of other labels, with further posthumous releases continuing after his death in January 1999.\n\nThe music itself drew on Arabic percussion, tape manipulation, industrial noise, and electronic drone, built in his bedroom studio without collaborators. It was not dance music and not ambient music in any conventional sense — closer to a private documentary practice, each record another chapter in an obsessive, unclassifiable project. Jones was reportedly difficult to reach, rarely gave interviews, and refused to perform live.\n\nHis death from a fungal bloodstream infection, aged 37, left behind an archive whose full scope has continued to emerge in the years since. His work sits at the edges of experimental electronic music and remains genuinely difficult to categorise — politically committed, formally strange, and entirely unlike anything made in parallel.',
     releases: [

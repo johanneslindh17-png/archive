@@ -5225,6 +5225,11 @@
   { from:'dj_seinfeld',       to:'baltra', strength:1, type:'aesthetic' }, // lo-fi house contemporaries
   { from:'mall_grab',         to:'baltra', strength:1, type:'aesthetic' }, // lo-fi house contemporaries
 
+  // ── YANSIMA ──────────────────────────────────────────────────────────────
+  { from:'rs_records',  to:'yansima',  strength:2, type:'roster'    },
+  { from:'uk_garage',   to:'yansima',  strength:1, type:'influence' },
+  { from:'rhadoo',      to:'yansima',  strength:1, type:'influence' },
+
   // ── AJAKS / AJAJAJ / JO BUBBLES ──────────────────────────────────────────
   { from:'ajaks',         to:'ajajaj',          strength:3, type:'founded'   },
   { from:'running_back',  to:'ajaks',           strength:2, type:'roster'    },
