@@ -633,7 +633,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   font-family:'Syne Mono',monospace;font-size:0.75rem;color:var(--tb-text-mid);
   flex-shrink:0;
 }
-.nbc-more-arrow--left{left:0;right:auto;width:40px;background:linear-gradient(to right,var(--tb-bg) 35%,transparent);justify-content:flex-start;padding-right:0;padding-left:6px;}
+.nbc-more-arrow--left{left:0;right:auto;width:40px;background:linear-gradient(to right,var(--tb-bg) 35%,transparent);justify-content:flex-start;padding-right:0;padding-left:1px;}
 .dark .nbc-more-arrow{background:linear-gradient(to left,var(--tb-bg) 50%,transparent);}
 .dark .nbc-more-arrow--left{background:linear-gradient(to right,var(--tb-bg) 35%,transparent);}
 @keyframes nbc-ticker {
