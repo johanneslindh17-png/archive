@@ -2775,7 +2775,7 @@ export default function App() {
           <span className="si">⌕</span>
           <input
             ref={searchInputRef}
-            placeholder={nodesOpen ? 'Search node list…' : 'Search artist, label, genre…'} value={searchQ}
+            placeholder="Search artist, label, genre…" value={searchQ}
             onChange={e => { setSearchQ(e.target.value); setSearchActiveIdx(-1); }}
             onFocus={() => {
               setSearchFocus(true);
@@ -3570,7 +3570,85 @@ export default function App() {
             <div className="htip-meta">{hovNode.type} · {hovNode.era}</div>
           </div>
         )}
+
+        {/* Nodes browser panel — lives inside canvas so it's bounded by the grid area */}
+        {(() => {
+          const SORT_OPTS = [
+            { key:'label', label:'A → Z' },
+            { key:'type',  label:'Type' },
+            { key:'city',  label:'City' },
+            { key:'year',  label:'Year' },
+            { key:'genre', label:'Style' },
+          ];
+          const nlQ = nlSearch.trim().toLowerCase();
+          const filtered = NODES.filter(n => {
+            if (nodesTypeFilter !== 'all' && n.type !== nodesTypeFilter) return false;
+            if (nlQ) return n.label.toLowerCase().includes(nlQ) || (n.city||'').toLowerCase().includes(nlQ) || n.type.toLowerCase().includes(nlQ) || (n.genre||'').toLowerCase().includes(nlQ);
+            return true;
+          }).sort((a, b) => {
+            if (nodesSort === 'type')  return a.type.localeCompare(b.type) || a.label.localeCompare(b.label);
+            if (nodesSort === 'city')  return (a.city||'').localeCompare(b.city||'') || a.label.localeCompare(b.label);
+            if (nodesSort === 'year')  return (a.era||0) - (b.era||0) || a.label.localeCompare(b.label);
+            if (nodesSort === 'genre') return (a.genre||'').localeCompare(b.genre||'') || a.label.localeCompare(b.label);
+            return a.label.localeCompare(b.label);
+          });
+          return (
+            <div className={`nodes-panel${nodesOpen ? ' open' : ''}`}>
+              <div className="nodes-panel-header">
+                <span className="nodes-panel-title">Node List</span>
+                <div className="nodes-panel-header-right">
+                  <div className="nodes-sort-wrap">
+                    {SORT_OPTS.map(o => (
+                      <button key={o.key} className={`npt-sort${nodesSort === o.key ? ' active' : ''}`} onClick={() => setNodesSort(o.key)}>{o.label}</button>
+                    ))}
+                  </div>
+                  <button className="nodes-panel-close" onClick={() => setNodesOpen(false)}>✕</button>
+                </div>
+              </div>
+              <div className="nodes-panel-search">
+                <input
+                  className="nodes-search-input"
+                  type="text"
+                  placeholder="Search list…"
+                  value={nlSearch}
+                  onChange={e => setNlSearch(e.target.value)}
+                />
+              </div>
+              <div className="nodes-panel-filters">
+                <div className="npt-pills-grid">
+                  {['all', 'artist', 'label', 'venue', 'moment', 'style', 'culture', 'channel'].map(t => (
+                    <button key={t} className={`npt-pill${nodesTypeFilter === t ? ' active' : ''}`} onClick={() => setNodesTypeFilter(t)}>
+                      {t === 'all' ? 'All' : t.charAt(0).toUpperCase() + t.slice(1)}
+                    </button>
+                  ))}
+                </div>
+                <span className="npl-count">{filtered.length}</span>
+              </div>
+              <div className="nodes-panel-list" ref={nodesScrollRef} onScroll={e => { nodesScrollPosRef.current = e.currentTarget.scrollTop; }}>
+                {filtered.map(n => (
+                  <div key={n.id} className="npl-item" onClick={() => {
+                    returnToNodesRef.current = true;
+                    setNodesOpen(false);
+                    selectNode(n.id);
+                    if (window.innerWidth < 600) centerOnNode(n.id, 1.5);
+                    else scrollToNode(n.id, 0.2);
+                  }}>
+                    <span className="npl-label">{n.label}</span>
+                    <span className="npl-meta">
+                      <span className={`npl-type-tag npl-type-${n.type}`}>{n.type}</span>
+                      {n.city ? ` ${n.city} · ` : ' '}{n.era}
+                      {n.genre && GENRES[n.genre] ? ` · ${GENRES[n.genre].label}` : ''}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })()}
       </div>
+
+      {/* Nodes backdrop — root level so it covers full viewport */}
+      {nodesOpen && <div className="nodes-backdrop" onClick={() => setNodesOpen(false)} />}
 
       {/* Status bar */}
       <div className="statusbar" style={themeStyle ? { background: themeStyle.surface, borderTopColor: themeStyle.border } : undefined}>
@@ -3943,83 +4021,6 @@ export default function App() {
         </div>
       )}
 
-      {/* Nodes browser panel */}
-      {(() => {
-        const SORT_OPTS = [
-          { key:'label', label:'A → Z' },
-          { key:'type',  label:'Type' },
-          { key:'city',  label:'City' },
-          { key:'year',  label:'Year' },
-          { key:'genre', label:'Style' },
-        ];
-        const nlQ = nlSearch.trim().toLowerCase();
-        const filtered = NODES.filter(n => {
-          if (nodesTypeFilter !== 'all' && n.type !== nodesTypeFilter) return false;
-          if (nlQ) return n.label.toLowerCase().includes(nlQ) || (n.city||'').toLowerCase().includes(nlQ) || n.type.toLowerCase().includes(nlQ) || (n.genre||'').toLowerCase().includes(nlQ);
-          return true;
-        }).sort((a, b) => {
-          if (nodesSort === 'type')  return a.type.localeCompare(b.type) || a.label.localeCompare(b.label);
-          if (nodesSort === 'city')  return (a.city||'').localeCompare(b.city||'') || a.label.localeCompare(b.label);
-          if (nodesSort === 'year')  return (a.era||0) - (b.era||0) || a.label.localeCompare(b.label);
-          if (nodesSort === 'genre') return (a.genre||'').localeCompare(b.genre||'') || a.label.localeCompare(b.label);
-          return a.label.localeCompare(b.label);
-        });
-        return (
-          <>
-            <div className={`nodes-panel${nodesOpen ? ' open' : ''}`}>
-              <div className="nodes-panel-header">
-                <span className="nodes-panel-title">Node List</span>
-                <div className="nodes-panel-header-right">
-                  <div className="nodes-sort-wrap">
-                    {SORT_OPTS.map(o => (
-                      <button key={o.key} className={`npt-sort${nodesSort === o.key ? ' active' : ''}`} onClick={() => setNodesSort(o.key)}>{o.label}</button>
-                    ))}
-                  </div>
-                  <button className="nodes-panel-close" onClick={() => setNodesOpen(false)}>✕</button>
-                </div>
-              </div>
-              <div className="nodes-panel-search">
-                <input
-                  className="nodes-search-input"
-                  type="text"
-                  placeholder="Search nodes…"
-                  value={nlSearch}
-                  onChange={e => setNlSearch(e.target.value)}
-                />
-              </div>
-              <div className="nodes-panel-filters">
-                <div className="npt-pills-grid">
-                  {['all', 'artist', 'label', 'venue', 'moment', 'style', 'culture', 'channel'].map(t => (
-                    <button key={t} className={`npt-pill${nodesTypeFilter === t ? ' active' : ''}`} onClick={() => setNodesTypeFilter(t)}>
-                      {t === 'all' ? 'All' : t.charAt(0).toUpperCase() + t.slice(1)}
-                    </button>
-                  ))}
-                </div>
-                <span className="npl-count">{filtered.length}</span>
-              </div>
-              <div className="nodes-panel-list" ref={nodesScrollRef} onScroll={e => { nodesScrollPosRef.current = e.currentTarget.scrollTop; }}>
-                {filtered.map(n => (
-                  <div key={n.id} className="npl-item" onClick={() => {
-                    returnToNodesRef.current = true;
-                    setNodesOpen(false);
-                    selectNode(n.id);
-                    if (window.innerWidth < 600) centerOnNode(n.id, 1.5);
-                    else scrollToNode(n.id, 0.2);
-                  }}>
-                    <span className="npl-label">{n.label}</span>
-                    <span className="npl-meta">
-                      <span className={`npl-type-tag npl-type-${n.type}`}>{n.type}</span>
-                      {n.city ? ` ${n.city} · ` : ' '}{n.era}
-                      {n.genre && GENRES[n.genre] ? ` · ${GENRES[n.genre].label}` : ''}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            {nodesOpen && <div className="nodes-backdrop" onClick={() => setNodesOpen(false)} />}
-          </>
-        );
-      })()}
 
       {paywallOpen && (
         <div className="paywall-overlay" onClick={e => { if (e.target === e.currentTarget) setPaywallOpen(false); }}>
