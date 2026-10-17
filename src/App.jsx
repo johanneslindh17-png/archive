@@ -1144,7 +1144,7 @@ export default function App() {
   }
 
   const [onboardStep, setOnboardStep] = useState(() =>
-    localStorage.getItem('archiveOnboarded') ? null : 'welcome'
+    (localStorage.getItem('archiveOnboarded') || window.innerWidth < 600) ? null : 'welcome'
   );
   const [tourHL, setTourHL] = useState(null);
 
