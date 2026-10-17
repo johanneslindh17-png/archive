@@ -3627,11 +3627,13 @@ export default function App() {
               <div className="nodes-panel-list" ref={nodesScrollRef} onScroll={e => { nodesScrollPosRef.current = e.currentTarget.scrollTop; }}>
                 {filtered.map(n => (
                   <div key={n.id} className="npl-item" onClick={() => {
-                    returnToNodesRef.current = true;
-                    setNodesOpen(false);
                     selectNode(n.id);
-                    if (window.innerWidth < 600) centerOnNode(n.id, 1.5);
-                    else scrollToNode(n.id, 0.2);
+                    if (window.innerWidth < 600) {
+                      setNodesOpen(false);
+                      centerOnNode(n.id, 1.5);
+                    } else {
+                      scrollToNode(n.id, 0.2);
+                    }
                   }}>
                     <span className="npl-label">{n.label}</span>
                     <span className="npl-meta">
@@ -3648,7 +3650,7 @@ export default function App() {
       </div>
 
       {/* Nodes backdrop — root level so it covers full viewport */}
-      {nodesOpen && <div className="nodes-backdrop" onClick={() => setNodesOpen(false)} />}
+      {nodesOpen && <div className="nodes-backdrop" onClick={() => { if (window.innerWidth < 600) setNodesOpen(false); }} />}
 
       {/* Status bar */}
       <div className="statusbar" style={themeStyle ? { background: themeStyle.surface, borderTopColor: themeStyle.border } : undefined}>
