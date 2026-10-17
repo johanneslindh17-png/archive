@@ -694,6 +694,7 @@ export default function App() {
   const [nodesOpen, setNodesOpen] = useState(false);
   const [nodesTypeFilter, setNodesTypeFilter] = useState('all');
   const [nodesSort, setNodesSort] = useState('label');
+  const [nlSearch, setNlSearch] = useState('');
   const nodesScrollRef = useRef(null);
   const nodesScrollPosRef = useRef(0);
   const returnToNodesRef = useRef(false);
@@ -3367,6 +3368,7 @@ export default function App() {
           const tc = colorTheme === 'type' && selNode ? (darkMode ? TYPE_COLORS[selNode.type]?.dark : TYPE_COLORS[selNode.type]?.light) : null;
           const panelStyle = {
             ...(panelX !== null ? { left: panelX, right: 'auto' } : {}),
+            ...(nodesOpen && panelX === null && !panelOnLeft ? { right: '374px' } : {}),
             ...(themeStyle && !tc ? { backgroundColor: themeStyle.surface, borderLeftColor: themeStyle.border, borderRightColor: themeStyle.border } : {}),
             ...(tc ? { backgroundColor: tc.fill, borderLeftColor: tc.stroke, borderLeftWidth: panelOnLeft ? undefined : '3px', borderRightColor: panelOnLeft ? tc.stroke : undefined, borderRightWidth: panelOnLeft ? '3px' : undefined } : {}),
             ...(photoColors ? (() => { const c = avgPhotoColor(photoColors); return c ? { '--photo-r': c.r, '--photo-g': c.g, '--photo-b': c.b } : {}; })() : {}),
@@ -3950,10 +3952,10 @@ export default function App() {
           { key:'year',  label:'Year' },
           { key:'genre', label:'Style' },
         ];
-        const q = searchQ.trim().toLowerCase();
+        const nlQ = nlSearch.trim().toLowerCase();
         const filtered = NODES.filter(n => {
           if (nodesTypeFilter !== 'all' && n.type !== nodesTypeFilter) return false;
-          if (q) return n.label.toLowerCase().includes(q) || (n.city||'').toLowerCase().includes(q) || n.type.toLowerCase().includes(q) || (n.genre||'').toLowerCase().includes(q);
+          if (nlQ) return n.label.toLowerCase().includes(nlQ) || (n.city||'').toLowerCase().includes(nlQ) || n.type.toLowerCase().includes(nlQ) || (n.genre||'').toLowerCase().includes(nlQ);
           return true;
         }).sort((a, b) => {
           if (nodesSort === 'type')  return a.type.localeCompare(b.type) || a.label.localeCompare(b.label);
@@ -3975,6 +3977,15 @@ export default function App() {
                   </div>
                   <button className="nodes-panel-close" onClick={() => setNodesOpen(false)}>✕</button>
                 </div>
+              </div>
+              <div className="nodes-panel-search">
+                <input
+                  className="nodes-search-input"
+                  type="text"
+                  placeholder="Search nodes…"
+                  value={nlSearch}
+                  onChange={e => setNlSearch(e.target.value)}
+                />
               </div>
               <div className="nodes-panel-filters">
                 <div className="npt-pills-grid">
