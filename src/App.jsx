@@ -2762,7 +2762,7 @@ export default function App() {
           <span className="si">⌕</span>
           <input
             ref={searchInputRef}
-            placeholder={nodesOpen ? 'Filter node list…' : 'Search artist, label, genre…'} value={searchQ}
+            placeholder={nodesOpen ? 'Search node list…' : 'Search artist, label, genre…'} value={searchQ}
             onChange={e => { setSearchQ(e.target.value); setSearchActiveIdx(-1); }}
             onFocus={() => {
               setSearchFocus(true);
@@ -3933,11 +3933,14 @@ export default function App() {
                 </div>
               </div>
               <div className="nodes-panel-filters">
-                {['all', 'artist', 'label', 'venue', 'moment', 'style', 'culture', 'channel'].map(t => (
-                  <button key={t} className={`npt-pill${nodesTypeFilter === t ? ' active' : ''}`} onClick={() => setNodesTypeFilter(t)}>
-                    {t === 'all' ? 'All' : t.charAt(0).toUpperCase() + t.slice(1)}
-                  </button>
-                ))}
+                <div className="npt-pills-grid">
+                  {['all', 'artist', 'label', 'venue', 'moment', 'style', 'culture', 'channel'].map(t => (
+                    <button key={t} className={`npt-pill${nodesTypeFilter === t ? ' active' : ''}`} onClick={() => setNodesTypeFilter(t)}>
+                      {t === 'all' ? 'All' : t.charAt(0).toUpperCase() + t.slice(1)}
+                    </button>
+                  ))}
+                </div>
+                <span className="npl-count">{filtered.length}</span>
               </div>
               <div className="nodes-panel-list" ref={nodesScrollRef} onScroll={e => { nodesScrollPosRef.current = e.currentTarget.scrollTop; }}>
                 {filtered.map(n => (
