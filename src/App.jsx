@@ -692,6 +692,7 @@ export default function App() {
   const [activeRoute, setActiveRoute] = useState(null);
   const [routeStep, setRouteStep] = useState(0);
   const [nodesOpen, setNodesOpen] = useState(false);
+  const [nodesOnLeft, setNodesOnLeft] = useState(false);
   const [nodesTypeFilter, setNodesTypeFilter] = useState('all');
   const [nodesSort, setNodesSort] = useState('label');
   const [nlSearch, setNlSearch] = useState('');
@@ -1005,6 +1006,18 @@ export default function App() {
         setTf(target);
         if (onEnd) onEnd();
       });
+  }
+
+  // If the node list is open and the target node falls under the panel, slide the panel
+  // to the opposite side so the node is visible.
+  function shiftNodeListIfNeeded(id) {
+    if (window.innerWidth < 600 || !nodesOpen) return;
+    const p = positions[id];
+    if (!p || !svgRef.current) return;
+    const live = d3.zoomTransform(svgRef.current);
+    const screenX = p.x * live.k + live.x;
+    const canvasW = svgRef.current.getBoundingClientRect().width;
+    setNodesOnLeft(screenX > canvasW - 406);
   }
 
   // On phones: zoom and center the map on a search result (animates x, y, and k together).
@@ -3368,8 +3381,8 @@ export default function App() {
           const tc = colorTheme === 'type' && selNode ? (darkMode ? TYPE_COLORS[selNode.type]?.dark : TYPE_COLORS[selNode.type]?.light) : null;
           const panelStyle = {
             ...(panelX !== null && (!nodesOpen || panelOnLeft) ? { left: panelX, right: 'auto' } : {}),
-            ...(nodesOpen && !panelOnLeft ? { right: '420px' } : {}),
-            ...(nodesOpen && !panelOnLeft && panelX !== null ? { left: 'auto' } : {}),
+            ...(nodesOpen && !panelOnLeft && !nodesOnLeft ? { right: '420px' } : {}),
+            ...(nodesOpen && !panelOnLeft && !nodesOnLeft && panelX !== null ? { left: 'auto' } : {}),
             ...(themeStyle && !tc ? { backgroundColor: themeStyle.surface, borderLeftColor: themeStyle.border, borderRightColor: themeStyle.border } : {}),
             ...(tc ? { backgroundColor: tc.fill, borderLeftColor: tc.stroke, borderLeftWidth: panelOnLeft ? undefined : '3px', borderRightColor: panelOnLeft ? tc.stroke : undefined, borderRightWidth: panelOnLeft ? '3px' : undefined } : {}),
             ...(photoColors ? (() => { const c = avgPhotoColor(photoColors); return c ? { '--photo-r': c.r, '--photo-g': c.g, '--photo-b': c.b } : {}; })() : {}),
@@ -3594,7 +3607,7 @@ export default function App() {
             return a.label.localeCompare(b.label);
           });
           return (
-            <div className={`nodes-panel${nodesOpen ? ' open' : ''}`}>
+            <div className={`nodes-panel${nodesOpen ? ' open' : ''}${nodesOnLeft ? ' on-left' : ''}`}>
               <div className="nodes-panel-header">
                 <span className="nodes-panel-title">Node List</span>
                 <div className="nodes-panel-header-right">
@@ -3604,7 +3617,7 @@ export default function App() {
                       <button key={o.key} className={`npt-sort${nodesSort === o.key ? ' active' : ''}`} onClick={() => setNodesSort(o.key)}>{o.label}</button>
                     ))}
                   </div>
-                  <button className="nodes-panel-close" onClick={() => setNodesOpen(false)}>✕</button>
+                  <button className="nodes-panel-close" onClick={() => { setNodesOpen(false); setNodesOnLeft(false); }}>✕</button>
                 </div>
               </div>
               <div className="nodes-panel-search">
@@ -3635,6 +3648,7 @@ export default function App() {
                       centerOnNode(n.id, 1.5);
                     } else {
                       scrollToNode(n.id, 0.2);
+                      shiftNodeListIfNeeded(n.id);
                     }
                   }}>
                     <span className="npl-label">{n.label}</span>
