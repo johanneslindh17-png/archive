@@ -3368,7 +3368,7 @@ export default function App() {
           const tc = colorTheme === 'type' && selNode ? (darkMode ? TYPE_COLORS[selNode.type]?.dark : TYPE_COLORS[selNode.type]?.light) : null;
           const panelStyle = {
             ...(panelX !== null ? { left: panelX, right: 'auto' } : {}),
-            ...(nodesOpen && panelX === null && !panelOnLeft ? { right: '374px' } : {}),
+            ...(nodesOpen && panelX === null && !panelOnLeft ? { right: '420px' } : {}),
             ...(themeStyle && !tc ? { backgroundColor: themeStyle.surface, borderLeftColor: themeStyle.border, borderRightColor: themeStyle.border } : {}),
             ...(tc ? { backgroundColor: tc.fill, borderLeftColor: tc.stroke, borderLeftWidth: panelOnLeft ? undefined : '3px', borderRightColor: panelOnLeft ? tc.stroke : undefined, borderRightWidth: panelOnLeft ? '3px' : undefined } : {}),
             ...(photoColors ? (() => { const c = avgPhotoColor(photoColors); return c ? { '--photo-r': c.r, '--photo-g': c.g, '--photo-b': c.b } : {}; })() : {}),
