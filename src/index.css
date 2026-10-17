@@ -1713,8 +1713,9 @@ path.eg.dim{opacity:0}
   /* Shorten support button on phones */
   .trial-counter:not(.trial-counter--views):not(.sb-submit-btn){font-size:0 !important;}
   .trial-counter:not(.trial-counter--views):not(.sb-submit-btn)::before{content:'♥ SUPPORT';font-size:0.5rem;font-family:'Syne Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;}
-  .sb-submit-btn{font-size:0 !important;line-height:1.3;}
-  .sb-submit-btn::before{content:'SUBMIT\A A NODE';white-space:pre;font-size:0.5rem;font-family:'Syne Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;text-align:center;}
+  .sb-submit-btn{font-size:0 !important;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;}
+  .sb-submit-btn::before{content:'SUBMIT';font-size:0.5rem;font-family:'Syne Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;line-height:1;}
+  .sb-submit-btn::after{content:'A NODE';font-size:0.5rem;font-family:'Syne Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;line-height:1;}
   .sb-contact-wrap{display:none !important;}
   .trial-counter--views{display:none !important;}
   .tour-relaunch{display:none !important;}
