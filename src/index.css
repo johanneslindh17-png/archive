@@ -167,15 +167,15 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .nodes-backdrop{position:fixed;inset:0;z-index:18;background:transparent;pointer-events:none;}
 .nodes-panel{
   position:absolute;top:44px;right:46px;width:360px;bottom:0;
-  background:var(--tb-bg);border-left:1px solid var(--tb-border);
+  background:color-mix(in srgb, var(--tb-bg) 88%, transparent);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border-left:1px solid var(--tb-border);
   z-index:19;display:flex;flex-direction:column;
   transform:translateX(110%);transition:transform 0.25s cubic-bezier(0.4,0,0.2,1);
   box-shadow:-4px 0 24px rgba(0,0,0,0.08);
   pointer-events:none;
 }
 .nodes-panel.open{transform:translateX(0);pointer-events:all;}
-.nodes-panel.on-left{right:auto;left:0;border-left:none;border-right:1px solid var(--tb-border);box-shadow:4px 0 24px rgba(0,0,0,0.08);transform:translateX(-110%);}
-.nodes-panel.on-left.open{transform:translateX(0);}
 .nodes-panel-header{
   display:flex;align-items:center;justify-content:space-between;
   padding:0 10px 0 14px;height:44px;flex-shrink:0;
