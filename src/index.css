@@ -624,19 +624,18 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   overflow-x:auto;scrollbar-width:none;
 }
 .nbc-tabs-scroll::-webkit-scrollbar{display:none;}
-.nbc-scroll-wrap{position:relative;flex:1;min-width:0;display:flex;}
+.nbc-scroll-wrap{position:relative;flex:1;min-width:0;display:flex;overflow:hidden;}
 .nbc-more-arrow{
-  position:absolute;right:0;top:0;bottom:0;width:44px;
-  background:linear-gradient(to right,transparent,var(--tb-bg) 55%);
+  position:absolute;right:0;top:0;bottom:0;width:60px;
+  background:linear-gradient(to left,var(--tb-bg) 50%,transparent);
   display:flex;align-items:center;justify-content:flex-end;
-  cursor:pointer;pointer-events:auto;
   padding-right:10px;pointer-events:none;
   font-family:'Syne Mono',monospace;font-size:0.75rem;color:var(--tb-text-mid);
   flex-shrink:0;
 }
-.nbc-more-arrow--left{left:0;right:auto;background:linear-gradient(to left,transparent,var(--tb-bg) 55%);justify-content:flex-start;padding-right:0;padding-left:4px;}
-.dark .nbc-more-arrow{background:linear-gradient(to right,transparent,var(--tb-bg) 55%);}
-.dark .nbc-more-arrow--left{background:linear-gradient(to left,transparent,var(--tb-bg) 55%);}
+.nbc-more-arrow--left{left:0;right:auto;width:56px;background:linear-gradient(to right,var(--tb-bg) 60%,transparent);justify-content:flex-start;padding-right:0;padding-left:6px;}
+.dark .nbc-more-arrow{background:linear-gradient(to left,var(--tb-bg) 50%,transparent);}
+.dark .nbc-more-arrow--left{background:linear-gradient(to right,var(--tb-bg) 60%,transparent);}
 @keyframes nbc-ticker {
   from { transform: translateX(100vw); }
   to   { transform: translateX(-100%); }
@@ -684,7 +683,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .dark .nbc-tab-x{ color:#2a2a3c; }
 .dark .nbc-tab-x:hover{ color:#c8c8e0; }
 
-.canvas{flex:1;min-height:0;position:relative;z-index:1;overflow:hidden;clip-path:inset(0);background:var(--canvas-bg);transition:background 0.2s}
+.canvas{flex:1;min-height:0;position:relative;overflow:hidden;background:var(--canvas-bg);transition:background 0.2s}
 .zooming .nd rect,.zooming .nd text,.zooming path.eg{transition:none!important}
 .year-strip{
   position:absolute;top:0;left:0;bottom:0;width:54px;z-index:20;
@@ -1130,7 +1129,7 @@ path.eg.dim{opacity:0}
 .column-header-label{
   position:absolute;top:50%;
   transform:translate(-50%,-50%);
-  font-family:'Syne Mono',monospace;font-size:0.55rem;
+  font-family:'Syne Mono',monospace;font-size:min(calc(var(--tf-k,1)*0.84rem),0.55rem);
   letter-spacing:0.18em;text-transform:uppercase;
   color:#555555;pointer-events:auto;
   transition:color 0.15s;

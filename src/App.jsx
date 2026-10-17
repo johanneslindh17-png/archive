@@ -3197,8 +3197,8 @@ export default function App() {
               })()}
             </div>
             {nbcHasLeft && <div className="nbc-more-arrow nbc-more-arrow--left" onClick={() => nbcScrollRef.current?.scrollBy({ left: -120, behavior: 'smooth' })}>‹</div>}
-            {nbcHasMore && <div className="nbc-more-arrow" onClick={() => nbcScrollRef.current?.scrollBy({ left: 120, behavior: 'smooth' })}>›</div>}
           </div>
+          {nbcHasMore && <div className="nbc-more-arrow" onClick={() => nbcScrollRef.current?.scrollBy({ left: 120, behavior: 'smooth' })}>›</div>}
         </>}
       </div>
 
