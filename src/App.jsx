@@ -3367,8 +3367,9 @@ export default function App() {
         {(() => {
           const tc = colorTheme === 'type' && selNode ? (darkMode ? TYPE_COLORS[selNode.type]?.dark : TYPE_COLORS[selNode.type]?.light) : null;
           const panelStyle = {
-            ...(panelX !== null ? { left: panelX, right: 'auto' } : {}),
-            ...(nodesOpen && panelX === null && !panelOnLeft ? { right: '420px' } : {}),
+            ...(panelX !== null && (!nodesOpen || panelOnLeft) ? { left: panelX, right: 'auto' } : {}),
+            ...(nodesOpen && !panelOnLeft ? { right: '420px' } : {}),
+            ...(nodesOpen && !panelOnLeft && panelX !== null ? { left: 'auto' } : {}),
             ...(themeStyle && !tc ? { backgroundColor: themeStyle.surface, borderLeftColor: themeStyle.border, borderRightColor: themeStyle.border } : {}),
             ...(tc ? { backgroundColor: tc.fill, borderLeftColor: tc.stroke, borderLeftWidth: panelOnLeft ? undefined : '3px', borderRightColor: panelOnLeft ? tc.stroke : undefined, borderRightWidth: panelOnLeft ? '3px' : undefined } : {}),
             ...(photoColors ? (() => { const c = avgPhotoColor(photoColors); return c ? { '--photo-r': c.r, '--photo-g': c.g, '--photo-b': c.b } : {}; })() : {}),
@@ -3598,6 +3599,7 @@ export default function App() {
                 <span className="nodes-panel-title">Node List</span>
                 <div className="nodes-panel-header-right">
                   <div className="nodes-sort-wrap">
+                    <span className="nodes-sort-label">SORT:</span>
                     {SORT_OPTS.map(o => (
                       <button key={o.key} className={`npt-sort${nodesSort === o.key ? ' active' : ''}`} onClick={() => setNodesSort(o.key)}>{o.label}</button>
                     ))}
