@@ -3622,11 +3622,19 @@ export default function App() {
               </div>
               <div className="nodes-panel-filters">
                 <div className="npt-pills-grid">
-                  {['all', 'artist', 'label', 'venue', 'moment', 'style', 'culture', 'channel'].map(t => (
-                    <button key={t} className={`npt-pill${nodesTypeFilter === t ? ' active' : ''}`} onClick={() => setNodesTypeFilter(t)}>
-                      {t === 'all' ? 'All' : t.charAt(0).toUpperCase() + t.slice(1)}
-                    </button>
-                  ))}
+                  {['all', 'artist', 'label', 'venue', 'moment', 'style', 'culture', 'channel'].map(t => {
+                    const tc = colorTheme === 'type' && t !== 'all' ? (darkMode ? TYPE_COLORS[t]?.dark : TYPE_COLORS[t]?.light) : null;
+                    const isActive = nodesTypeFilter === t;
+                    return (
+                      <button key={t}
+                        className={`npt-pill${isActive ? ' active' : ''}`}
+                        onClick={() => setNodesTypeFilter(t)}
+                        style={tc ? { color: tc.text, borderColor: tc.stroke, background: isActive ? tc.fill : undefined } : undefined}
+                      >
+                        {t === 'all' ? 'All' : t.charAt(0).toUpperCase() + t.slice(1)}
+                      </button>
+                    );
+                  })}
                 </div>
                 <span className="npl-count">{filtered.length}</span>
               </div>
@@ -3643,7 +3651,10 @@ export default function App() {
                   }}>
                     <span className="npl-label">{n.label}</span>
                     <span className="npl-meta">
-                      <span className={`npl-type-tag npl-type-${n.type}`}>{n.type}</span>
+                      <span
+                      className={`npl-type-tag npl-type-${n.type}`}
+                      style={colorTheme === 'type' ? (() => { const tc = darkMode ? TYPE_COLORS[n.type]?.dark : TYPE_COLORS[n.type]?.light; return tc ? { color: tc.text, background: tc.fill, borderColor: tc.stroke } : undefined; })() : undefined}
+                    >{n.type}</span>
                       {n.city ? ` ${n.city} · ` : ' '}{n.era}
                       {n.genre && GENRES[n.genre] ? ` · ${GENRES[n.genre].label}` : ''}
                     </span>

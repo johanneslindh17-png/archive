@@ -242,6 +242,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .npl-type-tag{
   display:inline-block;font-size:0.48rem;letter-spacing:0.08em;text-transform:uppercase;
   padding:1px 5px;border-radius:3px;margin-right:4px;
+  border:1px solid transparent;
   background:var(--tb-border);color:var(--tb-text-mid);
 }
 
