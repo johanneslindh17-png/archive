@@ -3599,22 +3599,25 @@ export default function App() {
         {/* Nodes browser panel — lives inside canvas so it's bounded by the grid area */}
         {(() => {
           const SORT_OPTS = [
-            { key:'label', label:'A → Z' },
-            { key:'type',  label:'Type' },
-            { key:'city',  label:'City' },
-            { key:'year',  label:'Year' },
-            { key:'genre', label:'Style' },
+            { key:'label',  label:'A → Z' },
+            { key:'type',   label:'Type' },
+            { key:'city',   label:'City' },
+            { key:'year',   label:'Year' },
+            { key:'genre',  label:'Style' },
+            { key:'newest', label:'Newest' },
           ];
+          const nodeIndexMap = new Map(NODES.map((n, i) => [n.id, i]));
           const nlQ = nlSearch.trim().toLowerCase();
           const filtered = NODES.filter(n => {
             if (nodesTypeFilter !== 'all' && n.type !== nodesTypeFilter) return false;
             if (nlQ) return n.label.toLowerCase().includes(nlQ) || (n.city||'').toLowerCase().includes(nlQ) || n.type.toLowerCase().includes(nlQ) || (n.genre||'').toLowerCase().includes(nlQ);
             return true;
           }).sort((a, b) => {
-            if (nodesSort === 'type')  return a.type.localeCompare(b.type) || a.label.localeCompare(b.label);
-            if (nodesSort === 'city')  return (a.city||'').localeCompare(b.city||'') || a.label.localeCompare(b.label);
-            if (nodesSort === 'year')  return (a.era||0) - (b.era||0) || a.label.localeCompare(b.label);
-            if (nodesSort === 'genre') return (a.genre||'').localeCompare(b.genre||'') || a.label.localeCompare(b.label);
+            if (nodesSort === 'type')   return a.type.localeCompare(b.type) || a.label.localeCompare(b.label);
+            if (nodesSort === 'city')   return (a.city||'').localeCompare(b.city||'') || a.label.localeCompare(b.label);
+            if (nodesSort === 'year')   return (a.era||0) - (b.era||0) || a.label.localeCompare(b.label);
+            if (nodesSort === 'genre')  return (a.genre||'').localeCompare(b.genre||'') || a.label.localeCompare(b.label);
+            if (nodesSort === 'newest') return nodeIndexMap.get(b.id) - nodeIndexMap.get(a.id);
             return a.label.localeCompare(b.label);
           });
           return (
