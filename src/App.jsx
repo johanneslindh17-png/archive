@@ -3652,7 +3652,7 @@ export default function App() {
                     const isActive = nodesTypeFilter === t;
                     if (colorTheme === 'type' && t === 'all') {
                       const grad = darkMode
-                        ? 'linear-gradient(90deg,#7aaade,#d99050,#6aaa80,#aa77dd,#d4a020,#ee6655,#44aaaa)'
+                        ? 'linear-gradient(90deg,#94c8f0,#e8a866,#88c89e,#c490f4,#eccc30,#ff8877,#5ccece)'
                         : 'linear-gradient(90deg,#4a7fc1,#c87828,#3a9a50,#8844cc,#b07800,#bb3333,#1a8888)';
                       const fillGrad = darkMode
                         ? 'linear-gradient(90deg,#162038,#2a1800,#0d2818,#1e0e3a,#261e00,#280e0e,#061818)'
