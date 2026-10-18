@@ -3627,7 +3627,7 @@ export default function App() {
                       <button key={t}
                         className={`npt-pill${isActive ? ' active' : ''}`}
                         onClick={() => setNodesTypeFilter(t)}
-                        style={tc && isActive ? { color: tc.text, borderColor: tc.stroke, background: tc.fill } : undefined}
+                        style={tc ? (isActive ? { color: tc.text, borderColor: tc.stroke, background: tc.fill } : { color: tc.stroke, borderColor: tc.stroke, opacity: 0.45 }) : undefined}
                       >
                         {t === 'all' ? 'All' : t.charAt(0).toUpperCase() + t.slice(1)}
                       </button>
