@@ -3852,9 +3852,6 @@ export default function App() {
             <div className="player-inline">
               <div className="player-sep" />
               <span className="player-name">{pNode.label}</span>
-              {playerNodes.length > 1 && (
-                <button className="player-btn player-btn--nav" onClick={() => setPlayingNodeId(prev.id)} title={`Previous: ${prev.label}`}>‹</button>
-              )}
               <div className="player-iframe-wrap">
                 <iframe
                   key={pNode.id}
@@ -3864,7 +3861,10 @@ export default function App() {
                 />
               </div>
               {playerNodes.length > 1 && (
-                <button className="player-btn player-btn--nav" onClick={() => setPlayingNodeId(next.id)} title={`Next: ${next.label}`}>›</button>
+                <>
+                  <button className="player-btn" onClick={() => setPlayingNodeId(prev.id)} title={`Previous: ${prev.label}`}>‹</button>
+                  <button className="player-btn" onClick={() => setPlayingNodeId(next.id)} title={`Next: ${next.label}`}>›</button>
+                </>
               )}
               <button className="player-btn player-btn--show" onClick={() => { selectNode(pNode.id); scrollToNode(pNode.id); }}>show node</button>
               <a className="player-btn player-btn--show player-btn--bandcamp" href={`https://${pNode.bandcamp}.bandcamp.com`} target="_blank" rel="noopener noreferrer">bandcamp ↗</a>
