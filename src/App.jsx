@@ -3893,7 +3893,6 @@ export default function App() {
             title="Chat"
             style={{ fontSize: '0.7rem', letterSpacing: '0.06em', padding: '0 8px', fontFamily: 'inherit' }}
           >CHAT</button>
-          <div className="statusbar-sep" />
           <button className="trial-counter" onClick={() => setPaywallOpen(true)}>♥ support the archive</button>
           {!unlocked && (
             <span className="trial-counter trial-counter--views" onClick={() => setPaywallOpen(true)}>
