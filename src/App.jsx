@@ -3634,7 +3634,7 @@ export default function App() {
                       const panelBg = darkMode ? '#0c0c10' : '#ffffff';
                       const borderGrad = `linear-gradient(90deg,${strokes.join(',')})`;
                       const fillGrad = isActive ? `linear-gradient(90deg,${fills.join(',')})` : `linear-gradient(${panelBg},${panelBg})`;
-                      pillStyle = { border: '1.5px solid transparent', backgroundImage: `${fillGrad},${borderGrad}`, backgroundOrigin: 'padding-box,border-box', backgroundClip: 'padding-box,border-box', opacity: isActive ? 1 : 0.45, color: 'transparent' };
+                      pillStyle = { border: '1.5px solid transparent', backgroundColor: 'transparent', backgroundImage: `${fillGrad},${borderGrad}`, backgroundOrigin: 'padding-box,border-box', backgroundClip: 'padding-box,border-box', opacity: isActive ? 1 : 0.45, color: 'transparent' };
                       rainbowLabel = <span style={{backgroundImage:`linear-gradient(90deg,${strokes.join(',')})`,WebkitBackgroundClip:'text',backgroundClip:'text',color:'transparent',opacity:isActive?1:1}}>All</span>;
                     } else {
                       pillStyle = tc ? (isActive ? { color: tc.text, borderColor: tc.stroke, background: tc.fill } : { color: tc.stroke, borderColor: tc.stroke, opacity: 0.45 }) : undefined;
