@@ -3266,10 +3266,7 @@ export default function App() {
                 className="column-header-label"
                 style={{ left: screenX, cursor: 'pointer', visibility: (screenX < -300 || screenX > window.innerWidth + 300) ? 'hidden' : undefined }}
                 onClick={() => doExpand(key)}>
-                {window.innerWidth < 600
-                  ? <span className="chl-line">{(r.shortLabel || r.label).toUpperCase()}</span>
-                  : r.label.split('\n').map((line, i) => <span key={i} className="chl-line">{line.toUpperCase()}</span>)
-                }
+                <span className="chl-line">{(r.shortLabel || r.label).toUpperCase()}</span>
               </div>
             );
           })}
