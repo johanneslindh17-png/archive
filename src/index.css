@@ -1737,7 +1737,7 @@ path.eg.dim{opacity:0}
   .sb-submit-btn::before{content:'SUBMIT';font-size:0.5rem;font-family:'Syne Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;line-height:1;}
   .sb-submit-btn::after{content:'A NODE';font-size:0.5rem;font-family:'Syne Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;line-height:1;}
   .sb-contact-wrap{display:none !important;}
-  .submit-dropdown{left:50% !important;right:auto !important;bottom:auto !important;top:124px;transform:translate(-50%,0);width:calc(100vw - 32px);max-width:340px;}
+  .submit-dropdown{left:50% !important;right:auto !important;bottom:auto !important;top:148px;transform:translate(-50%,0);width:calc(100vw - 32px);max-width:340px;}
   .nodes-panel-search{display:none !important;}
   .trial-counter--views{display:none !important;}
   .tour-relaunch{display:none !important;}
