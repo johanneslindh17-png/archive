@@ -1774,9 +1774,9 @@ export default function App() {
     // Use screen width (not window width) for the initial scale so nodes
     // always render at the same size regardless of window size at load time.
     const _screenK = Math.max(window.screen.width / W, 1.0);
-    // On phones, allow pinching out to fit-to-screen; initial zoom stays at 0.65.
-    const _minK = _isPhone ? _fitK : Math.min(_fitK, _screenK);
     const _initK = _isPhone ? Math.min(0.85, _screenK) : _screenK;
+    // Limit zoom-out to 85% of initial so region labels never overlap.
+    const _minK = _initK * 0.85;
     const zoom = d3.zoom()
       .scaleExtent([_minK, 8])
       .translateExtent([[0, 0], [W, H]])  // single copy, bounded
