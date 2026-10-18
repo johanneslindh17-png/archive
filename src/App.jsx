@@ -3604,7 +3604,7 @@ export default function App() {
             { key:'city',   label:'City' },
             { key:'year',   label:'Year' },
             { key:'genre',  label:'Style' },
-            { key:'newest', label:'Newest' },
+            { key:'newest', label:'Added' },
           ];
           const nodeIndexMap = new Map(NODES.map((n, i) => [n.id, i]));
           const nlQ = nlSearch.trim().toLowerCase();
