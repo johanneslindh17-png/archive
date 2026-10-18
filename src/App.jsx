@@ -3629,8 +3629,8 @@ export default function App() {
                         : 'linear-gradient(90deg,#4a7fc1,#c87828,#3a9a50,#8844cc,#b07800,#bb3333,#1a8888)';
                       const fillBg = isActive ? (darkMode ? 'rgba(100,100,140,0.22)' : 'rgba(100,100,160,0.12)') : (darkMode ? '#0c0c10' : '#ffffff');
                       return (
-                        <div key={t} style={{background:grad,padding:'1.5px',borderRadius:'99px',opacity:isActive?1:0.45,flexShrink:0,cursor:'pointer'}} onClick={() => setNodesTypeFilter(t)}>
-                          <div style={{background:fillBg,borderRadius:'99px',padding:'3px 9px',display:'flex',alignItems:'center',justifyContent:'center'}}>
+                        <div key={t} style={{background:grad,padding:'1.5px',borderRadius:'99px',opacity:isActive?1:0.45,flexShrink:0,display:'inline-flex',cursor:'pointer'}} onClick={() => setNodesTypeFilter(t)}>
+                          <div style={{background:fillBg,borderRadius:'97px',padding:'2px 8px',display:'flex',alignItems:'center',justifyContent:'center'}}>
                             <span style={{backgroundImage:grad,WebkitBackgroundClip:'text',backgroundClip:'text',color:'transparent',fontFamily:"'Syne Mono',monospace",fontSize:'0.55rem',letterSpacing:'0.06em',textTransform:'uppercase',lineHeight:1}}>All</span>
                           </div>
                         </div>
