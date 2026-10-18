@@ -3693,11 +3693,14 @@ export default function App() {
                     <span className="npl-label">{n.label}</span>
                     <span className="npl-meta">
                       <span
-                      className={`npl-type-tag npl-type-${n.type}`}
-                      style={colorTheme === 'type' ? (() => { const tc = darkMode ? TYPE_COLORS[n.type]?.dark : TYPE_COLORS[n.type]?.light; return tc ? { color: tc.text, background: tc.fill, borderColor: tc.stroke } : undefined; })() : undefined}
-                    >{n.type}</span>
-                      {n.city ? ` ${n.city} · ` : ' '}{n.era}
-                      {n.genre && GENRES[n.genre] ? ` · ${GENRES[n.genre].label}` : ''}
+                        className={`npl-type-tag npl-type-${n.type}${nodesSort === 'type' ? ' npl-hl-tag' : ''}`}
+                        style={colorTheme === 'type' ? (() => { const tc = darkMode ? TYPE_COLORS[n.type]?.dark : TYPE_COLORS[n.type]?.light; return tc ? { color: tc.text, background: tc.fill, borderColor: tc.stroke } : undefined; })() : undefined}
+                      >{n.type}</span>
+                      {' '}
+                      {n.city ? <span className={nodesSort === 'city' ? 'npl-hl' : undefined}>{n.city}</span> : null}
+                      {n.city ? ' · ' : ''}
+                      <span className={nodesSort === 'year' ? 'npl-hl' : undefined}>{n.era}</span>
+                      {n.genre && GENRES[n.genre] ? <> · <span className={nodesSort === 'genre' ? 'npl-hl' : undefined}>{GENRES[n.genre].label}</span></> : ''}
                     </span>
                   </div>
                 ))}
