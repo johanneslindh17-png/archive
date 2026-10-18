@@ -3629,9 +3629,9 @@ export default function App() {
                         ? ['#7aaade','#d99050','#6aaa80','#aa77dd','#d4a020','#ee6655','#44aaaa','#7aaade']
                         : ['#4a7fc1','#c87828','#3a9a50','#8844cc','#b07800','#bb3333','#1a8888','#4a7fc1'];
                       const panelBg = darkMode ? '#0c0c10' : '#ffffff';
-                      const fillBg = isActive ? (darkMode ? 'rgba(50,50,60,0.25)' : 'rgba(128,128,128,0.13)') : panelBg;
+                      const fillBg = isActive ? (darkMode ? 'rgba(50,50,60,0.10)' : 'rgba(128,128,128,0.07)') : panelBg;
                       const grad = `linear-gradient(90deg,${stops.join(',')})`;
-                      pillStyle = { border: '1px solid transparent', background: `linear-gradient(${fillBg},${fillBg}) padding-box,${grad} border-box`, opacity: isActive ? 1 : 0.45, color: isActive ? (darkMode ? '#ffffff' : '#111111') : undefined };
+                      pillStyle = { border: '1.5px solid transparent', background: `linear-gradient(${fillBg},${fillBg}) padding-box,${grad} border-box`, opacity: isActive ? 1 : 0.45, color: isActive ? (darkMode ? '#ffffff' : '#111111') : undefined };
                     } else {
                       pillStyle = tc ? (isActive ? { color: tc.text, borderColor: tc.stroke, background: tc.fill } : { color: tc.stroke, borderColor: tc.stroke, opacity: 0.45 }) : undefined;
                     }
