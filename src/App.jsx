@@ -3627,7 +3627,10 @@ export default function App() {
                       const grad = darkMode
                         ? 'linear-gradient(90deg,#7aaade,#d99050,#6aaa80,#aa77dd,#d4a020,#ee6655,#44aaaa)'
                         : 'linear-gradient(90deg,#4a7fc1,#c87828,#3a9a50,#8844cc,#b07800,#bb3333,#1a8888)';
-                      const fillBg = isActive ? (darkMode ? '#141420' : '#eeeef8') : (darkMode ? '#0c0c10' : '#ffffff');
+                      const fillGrad = darkMode
+                        ? 'linear-gradient(90deg,#0d1828,#1e1100,#081a0d,#14082a,#1a1400,#1c0808,#040f0f)'
+                        : 'linear-gradient(90deg,#ddeeff,#fff3e0,#e0f5e4,#f4e0ff,#fffbe0,#fce8e0,#d8f5f5)';
+                      const fillBg = isActive ? fillGrad : (darkMode ? '#0c0c10' : '#ffffff');
                       return (
                         <div key={t} style={{background:grad,padding:'1.5px',borderRadius:'99px',opacity:isActive?1:0.45,flexShrink:0,display:'inline-flex',cursor:'pointer'}} onClick={() => setNodesTypeFilter(t)}>
                           <div style={{background:fillBg,borderRadius:'97px',padding:'2px 22px',display:'flex',alignItems:'center',justifyContent:'center'}}>
