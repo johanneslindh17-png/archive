@@ -224,7 +224,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all 0.12s;
 }
 .npt-pill:hover{color:var(--tb-text);border-color:var(--tb-text-mid)}
-.npt-pill.active{background:var(--tb-text);color:var(--tb-bg);border-color:var(--tb-text)}
+.npt-pill.active{background:rgba(128,128,128,0.13);color:var(--tb-text);border-color:var(--tb-text)}
 .nodes-panel-list{flex:1;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--tb-border) transparent;}
 .nodes-panel-list::-webkit-scrollbar{width:3px;}
 .nodes-panel-list::-webkit-scrollbar-track{background:transparent;}
