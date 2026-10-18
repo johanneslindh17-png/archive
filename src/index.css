@@ -1015,7 +1015,7 @@ path.eg.dim{opacity:0}
 
 .statusbar{
   min-height:54px;border-top:1px solid var(--tb-border);border-bottom:1px solid var(--tb-border);background:var(--tb-bg);
-  display:flex;align-items:center;padding:0 20px;padding-bottom:env(safe-area-inset-bottom,0px);gap:0;flex-shrink:0;
+  display:flex;align-items:stretch;padding:0 0 0 20px;padding-bottom:env(safe-area-inset-bottom,0px);gap:0;flex-shrink:0;
   position:relative;z-index:20;
   font-family:'Syne Mono',monospace;font-size:0.54rem;letter-spacing:0.1em;color:var(--tb-text-mid);
   transition:background 0.2s,border-color 0.2s;
@@ -1178,21 +1178,22 @@ path.eg.dim{opacity:0}
 
 /* â”€â”€ Inline player (lives inside the status bar) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .player-inline{
-  display:flex;align-items:center;gap:6px;
+  display:flex;align-items:stretch;gap:0;align-self:stretch;
   min-width:0;max-width:520px;
 }
 .player-sep{
-  width:1px;height:12px;background:var(--tb-border);flex-shrink:0;
+  width:1px;background:var(--tb-border);flex-shrink:0;align-self:stretch;
 }
 .player-name{
   font-family:'Syne Mono',monospace;font-size:0.54rem;
   letter-spacing:0.1em;text-transform:uppercase;
   color:var(--tb-text);white-space:nowrap;flex-shrink:0;
+  display:flex;align-items:center;padding:0 10px;
 }
 .player-btn--bandcamp{ color:#1da0c3;border-color:#1da0c3;text-decoration:none; }
 .player-btn--bandcamp:hover{ color:#fff;background:#1da0c3;border-color:#1da0c3; }
 .player-iframe-wrap{
-  flex:1;min-width:0;height:42px;overflow:hidden;
+  flex:1;min-width:0;height:42px;overflow:hidden;align-self:center;
 }
 .player-iframe-wrap iframe{
   border:0;width:100%;height:42px;display:block;
@@ -1704,7 +1705,7 @@ path.eg.dim{opacity:0}
   .statusbar-scroll .statusbar-item{display:none !important;}
   .statusbar-scroll .statusbar-sep{display:none !important;}
   /* Show Bandcamp player on mobile — iframe only */
-  .player-inline{display:flex !important;flex:1;min-width:0;max-width:none;gap:4px;}
+  .player-inline{display:flex !important;flex:1;min-width:0;max-width:none;gap:0;align-items:stretch;align-self:stretch;}
   .player-sep{display:none !important;}
   .player-name{display:none !important;}
   .player-btn--show{display:none !important;}
