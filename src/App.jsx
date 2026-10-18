@@ -3623,26 +3623,33 @@ export default function App() {
                   {['all', 'artist', 'label', 'venue', 'moment', 'style', 'culture', 'channel'].map(t => {
                     const tc = colorTheme === 'type' && t !== 'all' ? (darkMode ? TYPE_COLORS[t]?.dark : TYPE_COLORS[t]?.light) : null;
                     const isActive = nodesTypeFilter === t;
-                    let pillStyle, rainbowLabel = null;
                     if (colorTheme === 'type' && t === 'all') {
                       const strokes = darkMode
                         ? ['#7aaade','#d99050','#6aaa80','#aa77dd','#d4a020','#ee6655','#44aaaa','#7aaade']
                         : ['#4a7fc1','#c87828','#3a9a50','#8844cc','#b07800','#bb3333','#1a8888','#4a7fc1'];
                       const panelBg = darkMode ? '#0c0c10' : '#ffffff';
                       const fillBg = isActive ? (darkMode ? 'rgba(50,50,60,0.22)' : 'rgba(128,128,128,0.15)') : panelBg;
-                      const grad = `linear-gradient(90deg,${strokes.join(',')})`;
-                      pillStyle = { border: '1.5px solid transparent', background: `linear-gradient(${fillBg},${fillBg}) padding-box,${grad} border-box`, opacity: isActive ? 1 : 0.45, color: 'transparent' };
-                      rainbowLabel = <span style={{backgroundImage:`linear-gradient(90deg,${strokes.join(',')})`,WebkitBackgroundClip:'text',backgroundClip:'text',color:'transparent'}}>All</span>;
-                    } else {
-                      pillStyle = tc ? (isActive ? { color: tc.text, borderColor: tc.stroke, background: tc.fill } : { color: tc.stroke, borderColor: tc.stroke, opacity: 0.45 }) : undefined;
+                      const gradStr = `linear-gradient(90deg,${strokes.join(',')})`;
+                      return (
+                        <div key={t} style={{background:gradStr,padding:'1.5px',borderRadius:'99px',opacity:isActive?1:0.45,flexShrink:0}}>
+                          <button
+                            className="npt-pill"
+                            onClick={() => setNodesTypeFilter(t)}
+                            style={{background:fillBg,border:'none',borderRadius:'99px',color:'transparent',margin:0}}
+                          >
+                            <span style={{backgroundImage:gradStr,WebkitBackgroundClip:'text',backgroundClip:'text',color:'transparent'}}>All</span>
+                          </button>
+                        </div>
+                      );
                     }
+                    const pillStyle = tc ? (isActive ? { color: tc.text, borderColor: tc.stroke, background: tc.fill } : { color: tc.stroke, borderColor: tc.stroke, opacity: 0.45 }) : undefined;
                     return (
                       <button key={t}
                         className={`npt-pill${isActive ? ' active' : ''}`}
                         onClick={() => setNodesTypeFilter(t)}
                         style={pillStyle}
                       >
-                        {rainbowLabel ?? (t === 'all' ? 'All' : t.charAt(0).toUpperCase() + t.slice(1))}
+                        {t.charAt(0).toUpperCase() + t.slice(1)}
                       </button>
                     );
                   })}
