@@ -1015,7 +1015,7 @@ path.eg.dim{opacity:0}
 
 .statusbar{
   min-height:54px;border-top:1px solid var(--tb-border);border-bottom:1px solid var(--tb-border);background:var(--tb-bg);
-  display:flex;align-items:stretch;padding:0 0 0 20px;padding-bottom:env(safe-area-inset-bottom,0px);gap:0;flex-shrink:0;
+  display:flex;align-items:stretch;padding:0 0 0 10px;padding-bottom:env(safe-area-inset-bottom,0px);gap:0;flex-shrink:0;
   position:relative;z-index:20;
   font-family:'Syne Mono',monospace;font-size:0.54rem;letter-spacing:0.1em;color:var(--tb-text-mid);
   transition:background 0.2s,border-color 0.2s;
@@ -1051,6 +1051,7 @@ path.eg.dim{opacity:0}
   font-variant-numeric:tabular-nums;overflow:visible;
 }
 .statusbar-sep{width:1px;height:12px;background:var(--tb-border);}
+.sb-submit-wrap{display:flex;align-self:stretch;position:relative;}
 
 /* Node log — click-triggered popup */
 .statusbar-item--log { position: relative; }
@@ -1198,7 +1199,7 @@ path.eg.dim{opacity:0}
 .player-iframe-wrap iframe{
   border:0;width:100%;height:42px;display:block;
 }
-/* prev / next â€” match the Bandcamp player button height */
+/* prev / next — match the Bandcamp player button height */
 .player-btn{
   background:transparent;border:none;
   border-left:1px solid var(--tb-border);
@@ -1209,6 +1210,7 @@ path.eg.dim{opacity:0}
   padding:0 10px;line-height:1;
   align-self:stretch;
 }
+.player-btn--nav{ border-left:none; }
 .player-btn:hover{ color:var(--tb-text); }
 .player-btn--show{
   padding:0 12px;

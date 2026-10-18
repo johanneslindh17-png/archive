@@ -3853,7 +3853,7 @@ export default function App() {
               <div className="player-sep" />
               <span className="player-name">{pNode.label}</span>
               {playerNodes.length > 1 && (
-                <button className="player-btn" onClick={() => setPlayingNodeId(prev.id)} title={`Previous: ${prev.label}`}>‹</button>
+                <button className="player-btn player-btn--nav" onClick={() => setPlayingNodeId(prev.id)} title={`Previous: ${prev.label}`}>‹</button>
               )}
               <div className="player-iframe-wrap">
                 <iframe
@@ -3864,7 +3864,7 @@ export default function App() {
                 />
               </div>
               {playerNodes.length > 1 && (
-                <button className="player-btn" onClick={() => setPlayingNodeId(next.id)} title={`Next: ${next.label}`}>›</button>
+                <button className="player-btn player-btn--nav" onClick={() => setPlayingNodeId(next.id)} title={`Next: ${next.label}`}>›</button>
               )}
               <button className="player-btn player-btn--show" onClick={() => { selectNode(pNode.id); scrollToNode(pNode.id); }}>show node</button>
               <a className="player-btn player-btn--show player-btn--bandcamp" href={`https://${pNode.bandcamp}.bandcamp.com`} target="_blank" rel="noopener noreferrer">bandcamp ↗</a>
@@ -3899,7 +3899,7 @@ export default function App() {
               {`${Math.max(0, TRIAL_LIMIT - trialCount)} views`}
             </span>
           )}
-          <div className="sb-submit-wrap" style={{ position: 'relative' }}>
+          <div className="sb-submit-wrap">
             <button className="trial-counter sb-submit-btn" onClick={e => { e.stopPropagation(); setSubmitOpen(o => !o); }}>submit a node</button>
             {submitOpen && (
               <div className="submit-dropdown" onClick={e => e.stopPropagation()}>
