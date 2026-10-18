@@ -1763,6 +1763,7 @@ path.eg.dim{opacity:0}
     bottom:calc(44px + env(safe-area-inset-bottom,0px)) !important;
     width:100% !important;height:auto !important;
     border-radius:0 !important;
+    z-index:85 !important;
     border:none !important;
     border-top:1px solid var(--tb-border) !important;
     box-shadow:none !important;

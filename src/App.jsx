@@ -3685,8 +3685,6 @@ export default function App() {
                   <div key={n.id} className="npl-item" onClick={() => {
                     selectNode(n.id);
                     if (window.innerWidth < 600) {
-                      returnToNodesRef.current = true;
-                      setNodesOpen(false);
                       centerOnNode(n.id, 1.5);
                     } else {
                       scrollToNode(n.id, 0.2);
