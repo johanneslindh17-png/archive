@@ -3601,15 +3601,13 @@ export default function App() {
             <div className={`nodes-panel${nodesOpen ? ' open' : ''}`}>
               <div className="nodes-panel-header">
                 <span className="nodes-panel-title">Node List</span>
-                <div className="nodes-panel-header-right">
-                  <div className="nodes-sort-wrap">
-                    <span className="nodes-sort-label">SORT:</span>
-                    {SORT_OPTS.map(o => (
-                      <button key={o.key} className={`npt-sort${nodesSort === o.key ? ' active' : ''}`} onClick={() => setNodesSort(o.key)}>{o.label}</button>
-                    ))}
-                  </div>
-                  <button className="nodes-panel-close" onClick={() => setNodesOpen(false)}>✕</button>
+                <div className="nodes-sort-wrap">
+                  <span className="nodes-sort-label">SORT:</span>
+                  {SORT_OPTS.map(o => (
+                    <button key={o.key} className={`npt-sort${nodesSort === o.key ? ' active' : ''}`} onClick={() => setNodesSort(o.key)}>{o.label}</button>
+                  ))}
                 </div>
+                <div className="nodes-panel-close-wrap"><button className="nodes-panel-close" onClick={() => setNodesOpen(false)}>✕</button></div>
               </div>
               <div className="nodes-panel-search">
                 <input
