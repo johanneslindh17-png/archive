@@ -1786,7 +1786,7 @@ path.eg.dim{opacity:0}
   .dp-toprow{display:flex !important;align-items:flex-start !important;justify-content:space-between !important;margin-bottom:14px !important;margin-top:0 !important;padding-top:0 !important;background:transparent !important;}
   .dp-close{background:var(--tb-bg) !important;border:1px solid var(--tb-border) !important;border-radius:2px !important;box-shadow:0 1px 6px rgba(0,0,0,0.18) !important;}
   .dp-toprow-meta{display:flex;flex-direction:column;min-width:0;flex:1;gap:4px;}
-  .dp-toprow-meta .dp-pill{margin-bottom:0;}
+  .dp-toprow-meta .dp-pill{margin-bottom:0;align-self:flex-start;}
   .dp-toprow-meta .dp-name{font-size:1.2rem;margin-bottom:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .dp-pill-below,.dp-name-below{display:none !important;}
   .nodes-panel-close{width:32px;height:32px;padding:0;display:flex;align-items:center;justify-content:center;background:var(--tb-bg);border:1px solid var(--tb-border) !important;border-radius:2px;box-shadow:0 1px 6px rgba(0,0,0,0.18);font-size:0.9rem;}
