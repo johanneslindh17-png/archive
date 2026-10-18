@@ -130,7 +130,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .search-dropdown{
   position:absolute;top:100%;left:0;right:0;z-index:1100;
   background:#fff;border:1px solid var(--tb-border);border-top:none;
-  box-shadow:0 8px 24px rgba(0,0,0,0.10);max-height:320px;overflow-y:auto;
+  box-shadow:0 8px 24px rgba(0,0,0,0.10);max-height:160px;overflow-y:auto;
 }
 .search-drop-item{
   display:flex;justify-content:space-between;align-items:center;
@@ -1751,7 +1751,7 @@ path.eg.dim{opacity:0}
   .groove-trigger{display:none !important;}
 
   /* Search dropdown: full viewport width */
-  .search-dropdown{position:fixed;top:118px;left:0;right:0;max-height:50vh;z-index:1200;}
+  .search-dropdown{position:fixed;top:118px;left:0;right:0;max-height:25vh;z-index:1200;}
     /* Performance: prevent pull-to-refresh from hijacking map pans */
   .canvas{overscroll-behavior:none;}
   .msv{-webkit-tap-highlight-color:transparent;}
