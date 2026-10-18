@@ -3629,8 +3629,8 @@ export default function App() {
                         ? ['#7aaade','#d99050','#6aaa80','#aa77dd','#d4a020','#ee6655','#44aaaa','#7aaade']
                         : ['#4a7fc1','#c87828','#3a9a50','#8844cc','#b07800','#bb3333','#1a8888','#4a7fc1'];
                       const fills = darkMode
-                        ? ['#0d1828','#1e1100','#081a0d','#14082a','#1a1400','#1c0808','#040f0f','#0d1828']
-                        : ['#ddeeff','#fff3e0','#e0f5e4','#f4e0ff','#fffbe0','#fce8e0','#d8f5f5','#ddeeff'];
+                        ? ['rgba(122,170,222,0.28)','rgba(217,144,80,0.28)','rgba(106,170,128,0.28)','rgba(170,119,221,0.28)','rgba(212,160,32,0.28)','rgba(238,102,85,0.28)','rgba(68,170,170,0.28)','rgba(122,170,222,0.28)']
+                        : ['rgba(74,127,193,0.22)','rgba(200,120,40,0.22)','rgba(58,154,80,0.22)','rgba(136,68,204,0.22)','rgba(176,120,0,0.22)','rgba(187,51,51,0.22)','rgba(26,136,136,0.22)','rgba(74,127,193,0.22)'];
                       const panelBg = darkMode ? '#0c0c10' : '#ffffff';
                       const borderGrad = `linear-gradient(90deg,${strokes.join(',')})`;
                       const fillGrad = isActive ? `linear-gradient(90deg,${fills.join(',')})` : `linear-gradient(${panelBg},${panelBg})`;
