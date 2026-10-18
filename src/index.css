@@ -1015,7 +1015,7 @@ path.eg.dim{opacity:0}
 
 .statusbar{
   min-height:54px;border-top:1px solid var(--tb-border);border-bottom:1px solid var(--tb-border);background:var(--tb-bg);
-  display:flex;align-items:stretch;padding:0 0 0 10px;padding-bottom:env(safe-area-inset-bottom,0px);gap:0;flex-shrink:0;
+  display:flex;align-items:stretch;padding:0 0 0 2px;padding-bottom:env(safe-area-inset-bottom,0px);gap:0;flex-shrink:0;
   position:relative;z-index:20;
   font-family:'Syne Mono',monospace;font-size:0.54rem;letter-spacing:0.1em;color:var(--tb-text-mid);
   transition:background 0.2s,border-color 0.2s;
