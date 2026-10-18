@@ -3435,14 +3435,18 @@ export default function App() {
           {selNode && (
             <>
               <div className="dp-toprow">
+                <div className="dp-toprow-meta">
+                  <div className={`dp-pill dp-pill-${selNode.type}`}>{selNode.type}</div>
+                  <div className="dp-name">{selNode.label}</div>
+                </div>
                 <button className="dp-close" onClick={() => slideClosePanel()}>×</button>
               </div>
 
-              {/* Type pill */}
-              <div className={`dp-pill dp-pill-${selNode.type}`}>{selNode.type}</div>
+              {/* Type pill - hidden on mobile (shown in toprow) */}
+              <div className={`dp-pill dp-pill-${selNode.type} dp-pill-below`}>{selNode.type}</div>
 
-              {/* Name */}
-              <div className="dp-name">{selNode.label}</div>
+              {/* Name - hidden on mobile (shown in toprow) */}
+              <div className="dp-name dp-name-below">{selNode.label}</div>
 
               {/* Era bar */}
               <div className="dp-era-wrap">
