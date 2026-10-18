@@ -3628,14 +3628,11 @@ export default function App() {
                       const strokes = darkMode
                         ? ['#7aaade','#d99050','#6aaa80','#aa77dd','#d4a020','#ee6655','#44aaaa','#7aaade']
                         : ['#4a7fc1','#c87828','#3a9a50','#8844cc','#b07800','#bb3333','#1a8888','#4a7fc1'];
-                      const fills = darkMode
-                        ? ['rgba(122,170,222,0.28)','rgba(217,144,80,0.28)','rgba(106,170,128,0.28)','rgba(170,119,221,0.28)','rgba(212,160,32,0.28)','rgba(238,102,85,0.28)','rgba(68,170,170,0.28)','rgba(122,170,222,0.28)']
-                        : ['rgba(74,127,193,0.22)','rgba(200,120,40,0.22)','rgba(58,154,80,0.22)','rgba(136,68,204,0.22)','rgba(176,120,0,0.22)','rgba(187,51,51,0.22)','rgba(26,136,136,0.22)','rgba(74,127,193,0.22)'];
                       const panelBg = darkMode ? '#0c0c10' : '#ffffff';
-                      const borderGrad = `linear-gradient(90deg,${strokes.join(',')})`;
-                      const fillGrad = isActive ? `linear-gradient(90deg,${fills.join(',')})` : `linear-gradient(${panelBg},${panelBg})`;
-                      pillStyle = { border: '1.5px solid transparent', backgroundColor: 'transparent', backgroundImage: `${fillGrad},${borderGrad}`, backgroundOrigin: 'padding-box,border-box', backgroundClip: 'padding-box,border-box', opacity: isActive ? 1 : 0.45, color: 'transparent' };
-                      rainbowLabel = <span style={{backgroundImage:`linear-gradient(90deg,${strokes.join(',')})`,WebkitBackgroundClip:'text',backgroundClip:'text',color:'transparent',opacity:isActive?1:1}}>All</span>;
+                      const fillBg = isActive ? (darkMode ? 'rgba(50,50,60,0.22)' : 'rgba(128,128,128,0.15)') : panelBg;
+                      const grad = `linear-gradient(90deg,${strokes.join(',')})`;
+                      pillStyle = { border: '1.5px solid transparent', background: `linear-gradient(${fillBg},${fillBg}) padding-box,${grad} border-box`, opacity: isActive ? 1 : 0.45, color: 'transparent' };
+                      rainbowLabel = <span style={{backgroundImage:`linear-gradient(90deg,${strokes.join(',')})`,WebkitBackgroundClip:'text',backgroundClip:'text',color:'transparent'}}>All</span>;
                     } else {
                       pillStyle = tc ? (isActive ? { color: tc.text, borderColor: tc.stroke, background: tc.fill } : { color: tc.stroke, borderColor: tc.stroke, opacity: 0.45 }) : undefined;
                     }
