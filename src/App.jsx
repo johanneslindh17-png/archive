@@ -3623,15 +3623,19 @@ export default function App() {
                   {['all', 'artist', 'label', 'venue', 'moment', 'style', 'culture', 'channel'].map(t => {
                     const tc = colorTheme === 'type' && t !== 'all' ? (darkMode ? TYPE_COLORS[t]?.dark : TYPE_COLORS[t]?.light) : null;
                     const isActive = nodesTypeFilter === t;
-                    let pillStyle;
+                    let pillStyle, rainbowLabel = null;
                     if (colorTheme === 'type' && t === 'all') {
-                      const stops = darkMode
+                      const strokes = darkMode
                         ? ['#7aaade','#d99050','#6aaa80','#aa77dd','#d4a020','#ee6655','#44aaaa','#7aaade']
                         : ['#4a7fc1','#c87828','#3a9a50','#8844cc','#b07800','#bb3333','#1a8888','#4a7fc1'];
+                      const fills = darkMode
+                        ? ['#0d1828','#1e1100','#081a0d','#14082a','#1a1400','#1c0808','#040f0f','#0d1828']
+                        : ['#ddeeff','#fff3e0','#e0f5e4','#f4e0ff','#fffbe0','#fce8e0','#d8f5f5','#ddeeff'];
                       const panelBg = darkMode ? '#0c0c10' : '#ffffff';
-                      const fillBg = isActive ? (darkMode ? 'rgba(50,50,60,0.10)' : 'rgba(128,128,128,0.07)') : panelBg;
-                      const grad = `linear-gradient(90deg,${stops.join(',')})`;
-                      pillStyle = { border: '1.5px solid transparent', background: `linear-gradient(${fillBg},${fillBg}) padding-box,${grad} border-box`, opacity: isActive ? 1 : 0.45 };
+                      const borderGrad = `linear-gradient(90deg,${strokes.join(',')})`;
+                      const fillGrad = isActive ? `linear-gradient(90deg,${fills.join(',')})` : `linear-gradient(${panelBg},${panelBg})`;
+                      pillStyle = { border: '1.5px solid transparent', background: `${fillGrad} padding-box,${borderGrad} border-box`, opacity: isActive ? 1 : 0.45, color: 'transparent' };
+                      rainbowLabel = <span style={{backgroundImage:`linear-gradient(90deg,${strokes.join(',')})`,WebkitBackgroundClip:'text',backgroundClip:'text',color:'transparent',opacity:isActive?1:1}}>All</span>;
                     } else {
                       pillStyle = tc ? (isActive ? { color: tc.text, borderColor: tc.stroke, background: tc.fill } : { color: tc.stroke, borderColor: tc.stroke, opacity: 0.45 }) : undefined;
                     }
@@ -3641,7 +3645,7 @@ export default function App() {
                         onClick={() => setNodesTypeFilter(t)}
                         style={pillStyle}
                       >
-                        {t === 'all' ? 'All' : t.charAt(0).toUpperCase() + t.slice(1)}
+                        {rainbowLabel ?? (t === 'all' ? 'All' : t.charAt(0).toUpperCase() + t.slice(1))}
                       </button>
                     );
                   })}
