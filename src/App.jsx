@@ -3627,16 +3627,13 @@ export default function App() {
                       const grad = darkMode
                         ? 'linear-gradient(90deg,#7aaade,#d99050,#6aaa80,#aa77dd,#d4a020,#ee6655,#44aaaa)'
                         : 'linear-gradient(90deg,#4a7fc1,#c87828,#3a9a50,#8844cc,#b07800,#bb3333,#1a8888)';
-                      const borderCol = darkMode ? '#9090c0' : '#8888aa';
-                      const fillCol = isActive ? (darkMode ? 'rgba(100,100,140,0.22)' : 'rgba(100,100,160,0.12)') : undefined;
+                      const fillBg = isActive ? (darkMode ? 'rgba(100,100,140,0.22)' : 'rgba(100,100,160,0.12)') : (darkMode ? '#0c0c10' : '#ffffff');
                       return (
-                        <button key={t}
-                          className={`npt-pill${isActive ? ' active' : ''}`}
-                          onClick={() => setNodesTypeFilter(t)}
-                          style={{ borderColor: borderCol, background: fillCol, opacity: isActive ? 1 : 0.45, color: 'transparent' }}
-                        >
-                          <span style={{backgroundImage:grad,WebkitBackgroundClip:'text',backgroundClip:'text',color:'transparent',display:'block'}}>All</span>
-                        </button>
+                        <div key={t} style={{background:grad,padding:'1.5px',borderRadius:'99px',opacity:isActive?1:0.45,flexShrink:0,cursor:'pointer'}} onClick={() => setNodesTypeFilter(t)}>
+                          <div style={{background:fillBg,borderRadius:'99px',padding:'3px 9px',display:'flex',alignItems:'center',justifyContent:'center'}}>
+                            <span style={{backgroundImage:grad,WebkitBackgroundClip:'text',backgroundClip:'text',color:'transparent',fontFamily:"'Syne Mono',monospace",fontSize:'0.55rem',letterSpacing:'0.06em',textTransform:'uppercase',lineHeight:1}}>All</span>
+                          </div>
+                        </div>
                       );
                     }
                     const pillStyle = tc ? (isActive ? { color: tc.text, borderColor: tc.stroke, background: tc.fill } : { color: tc.stroke, borderColor: tc.stroke, opacity: 0.45 }) : undefined;
