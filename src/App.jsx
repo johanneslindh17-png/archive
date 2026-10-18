@@ -2782,8 +2782,8 @@ export default function App() {
           <span className="si">⌕</span>
           <input
             ref={searchInputRef}
-            placeholder={window.innerWidth < 600 ? (nodesOpen ? "> Search list" : "> Search map") : "Search artist, label, genre…"} value={searchQ}
-            onChange={e => { setSearchQ(e.target.value); setSearchActiveIdx(-1); }}
+            placeholder={window.innerWidth < 600 ? (nodesOpen ? "> Search list" : "> Search map") : "Search artist, label, genre…"} value={window.innerWidth < 600 && nodesOpen ? nlSearch : searchQ}
+            onChange={e => { if (window.innerWidth < 600 && nodesOpen) { setNlSearch(e.target.value); } else { setSearchQ(e.target.value); setSearchActiveIdx(-1); } }}
             onFocus={() => {
               setSearchFocus(true);
               // Prevent iOS viewport zoom on input focus without forcing a large font-size
