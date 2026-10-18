@@ -702,6 +702,13 @@ export default function App() {
   const [chatOpen,   setChatOpen]   = useState(false);
   const [mapHint, setMapHint] = useState(() => window.innerWidth < 600);
   const [mapHintLeaving, setMapHintLeaving] = useState(false);
+  const hintDismissedRef = useRef(false);
+  const dismissMapHint = useCallback(() => {
+    if (hintDismissedRef.current) return;
+    hintDismissedRef.current = true;
+    setMapHintLeaving(true);
+    setTimeout(() => { setMapHint(false); setMapHintLeaving(false); }, 3010);
+  }, []);
   const [legOpen, setLegOpen] = useState(false);
   const [typePopOpen, setTypePopOpen] = useState(false);
   const chatRef = useRef(null);
@@ -1858,19 +1865,14 @@ export default function App() {
       svg.call(zoom.translateBy, 0, -event.deltaY * 0.8);
     };
     svgRef.current.addEventListener('wheel', handleWheel, { passive: false });
-    let hintDismissed = false;
-    const dismissHint = () => {
-      if (hintDismissed) return;
-      hintDismissed = true;
-      setMapHintLeaving(true);
-      setTimeout(() => { setMapHint(false); setMapHintLeaving(false); }, 3010);
-    };
-    svgRef.current.addEventListener('touchmove', dismissHint, { passive: true, capture: true });
+    svgRef.current.addEventListener('touchmove', dismissMapHint, { passive: true, capture: true });
+    document.addEventListener('pointerdown', dismissMapHint, { once: true });
 
     return () => {
       svg.on('.zoom', null);
       svgRef.current?.removeEventListener('wheel', handleWheel);
-      svgRef.current?.removeEventListener('touchmove', dismissHint, { capture: true });
+      svgRef.current?.removeEventListener('touchmove', dismissMapHint, { capture: true });
+      document.removeEventListener('pointerdown', dismissMapHint);
     };
   }, []);
 
