@@ -648,10 +648,30 @@ export default function App() {
   const newsRecentRef = useRef(() => {
     try { return JSON.parse(localStorage.getItem('archiveNewsRecent') || '[]'); } catch { return []; }
   });
+  const newsCountRef = useRef(0);
+  const installShownRef = useRef(false);
   function nextNewsItem() {
     // Unwrap lazy-init refs on first call
     if (typeof newsQueueRef.current === 'function') newsQueueRef.current = newsQueueRef.current();
     if (typeof newsRecentRef.current === 'function') newsRecentRef.current = newsRecentRef.current();
+
+    const count = newsCountRef.current;
+    newsCountRef.current++;
+
+    // Inject home-screen install prompt as the 3rd item on mobile when not already installed
+    if (count === 2 && window.innerWidth < 600 && !installShownRef.current) {
+      const isStandalone = window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
+      if (!isStandalone) {
+        installShownRef.current = true;
+        const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+        return {
+          text: isIOS
+            ? 'Save the archive to your home screen — tap the Share button then "Add to Home Screen"'
+            : 'Save the archive to your home screen — tap the browser menu then "Add to Home Screen"',
+          nodeId: null,
+        };
+      }
+    }
 
     if (newsQueueRef.current.length === 0) {
       const recent = new Set(newsRecentRef.current);
