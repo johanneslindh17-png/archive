@@ -1700,7 +1700,8 @@ path.eg.dim{opacity:0}
   .chl-line{display:block;white-space:nowrap;}
 
   /* ── Statusbar: NODE TYPE toggle + support only ── */
-  .statusbar{min-height:44px;padding:0 8px;padding-bottom:env(safe-area-inset-bottom,0px);overflow:hidden;max-width:100vw;}
+  .statusbar{min-height:44px;padding:0 8px;padding-bottom:env(safe-area-inset-bottom,0px);overflow:hidden;max-width:100vw;border-bottom:none;}
+  .statusbar::after{content:'';position:absolute;bottom:env(safe-area-inset-bottom,0px);left:0;right:0;height:1px;background:var(--tb-border);}
   .statusbar-item--log{display:none !important;}
   .statusbar-scroll .statusbar-item{display:none !important;}
   .statusbar-scroll .statusbar-sep{display:none !important;}
