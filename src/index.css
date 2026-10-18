@@ -1667,7 +1667,7 @@ path.eg.dim{opacity:0}
   .filterwrap{display:none !important;}
   .filterbtn{display:none !important;}
   /* Nodes button: right side of search row, spanning same width as the 3 top buttons */
-  .nodesbtn{grid-area:nd;height:44px;border-left:1px solid var(--tb-border);border-top:1px solid var(--tb-border);padding:0 14px;font-size:0.55rem;}
+  .nodesbtn{grid-area:nd;height:44px !important;max-height:44px;align-self:center;overflow:hidden;border-left:1px solid var(--tb-border);border-top:1px solid var(--tb-border);padding:0 14px;font-size:0.55rem;}
   /* sw takes col 1, nd spans cols 2-4 (same width as yy+col+leg above) */
   .topbar{grid-template-columns:1fr auto auto auto;grid-template-areas:"wm yy col leg" "sw nd nd nd";}
   .sw input{font-size:16px !important;border-left:1px solid var(--tb-border);}
