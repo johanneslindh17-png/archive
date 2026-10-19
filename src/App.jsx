@@ -715,6 +715,7 @@ export default function App() {
   const [nodeLogOpen, setNodeLogOpen] = useState(false);
   const [nodeHistory, setNodeHistory] = useState([]);
   const prevSelRef = useRef(null);
+  const prevSetRef = useRef([]);
   const goingBackRef = useRef(false);
   const [nodesTypeFilter, setNodesTypeFilter] = useState('all');
   const [nodesSort, setNodesSort] = useState('label');
@@ -838,12 +839,13 @@ export default function App() {
   }
 
   useEffect(() => {
-    if (goingBackRef.current) { goingBackRef.current = false; prevSelRef.current = selected; return; }
+    if (goingBackRef.current) { goingBackRef.current = false; prevSelRef.current = selected; prevSetRef.current = selectedSet; return; }
     if (prevSelRef.current && prevSelRef.current !== selected) {
-      const toPush = prevSelRef.current;
+      const toPush = { selected: prevSelRef.current, selectedSet: prevSetRef.current };
       setNodeHistory(h => [...h.slice(-29), toPush]);
     }
     prevSelRef.current = selected;
+    prevSetRef.current = selectedSet;
   }, [selected]);
 
   function goBack() {
@@ -851,12 +853,11 @@ export default function App() {
     const prev = nodeHistory[nodeHistory.length - 1];
     setNodeHistory(h => h.slice(0, -1));
     goingBackRef.current = true;
-    // Bypass selectNode to avoid the toggle-off behaviour when node is still in selectedSet
-    setSelected(prev);
-    setSelectedSet([prev]);
-    window.history.replaceState(null, '', '#node=' + prev);
-    if (window.innerWidth < 600) centerOnNode(prev, 1.5);
-    else scrollToNode(prev, 0.2);
+    setSelected(prev.selected);
+    setSelectedSet(prev.selectedSet);
+    window.history.replaceState(null, '', '#node=' + prev.selected);
+    if (window.innerWidth < 600) centerOnNode(prev.selected, 1.5);
+    else scrollToNode(prev.selected, 0.2);
   }
 
   function removeFromSet(id) {
