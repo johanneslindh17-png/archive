@@ -3471,10 +3471,6 @@ export default function App() {
             }
           }}
         >
-          {/* Frosted glass layer — position:fixed inside a transformed parent
-              is fixed to the parent's bounds, so it covers the full visible
-              panel area and moves with the transform (not stuck at layout pos) */}
-          <div className="dp-glass" />
 
           {/* Drag indicator — aligned with × button, always pulsing */}
           <div className="dp-move-hint">
