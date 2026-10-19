@@ -1807,12 +1807,17 @@ path.eg.dim{opacity:0}
     border:none !important;
     box-shadow:none !important;
     padding:14px 14px 20px !important;
-    background:var(--tb-bg) !important;
+    background:transparent !important;
     touch-action:pan-y;
     transform:translateY(100vh);
     transition:transform 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, visibility 0.3s ease !important;
   }
-  .dark .dp{background:#0c0c10 !important;}
+  .dp-bg{
+    position:absolute;inset:0;
+    background:var(--tb-bg);
+    pointer-events:none;
+  }
+  .dark .dp-bg{background:#0c0c10;}
   .dp::after{
     content:'';
     position:absolute;inset:0;

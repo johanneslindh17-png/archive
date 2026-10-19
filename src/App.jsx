@@ -3458,7 +3458,6 @@ export default function App() {
           style={panelStyle}
           onMouseDown={handlePanelDragStart}
           onTouchStart={e => {
-            e.stopPropagation();
             dpSwipeStartRef.current = { y: e.touches[0].clientY, scrollTop: e.currentTarget.scrollTop };
           }}
           onTouchEnd={e => {
@@ -3472,6 +3471,8 @@ export default function App() {
             }
           }}
         >
+
+          <div className="dp-bg" aria-hidden="true" />
 
           {/* Drag indicator — aligned with × button, always pulsing */}
           <div className="dp-move-hint">
