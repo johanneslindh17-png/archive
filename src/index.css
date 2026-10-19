@@ -1807,34 +1807,27 @@ path.eg.dim{opacity:0}
     border:none !important;
     box-shadow:none !important;
     padding:14px 14px 20px !important;
-    background:rgba(255,255,255,0.75) !important;
-    -webkit-backdrop-filter:blur(14px) saturate(1.15);
-    backdrop-filter:blur(14px) saturate(1.15);
-    /* Slide up from below the breadcrumb */
+    background:transparent !important;
     transform:translateY(100vh);
     transition:transform 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, visibility 0.3s ease !important;
   }
-  .dark .dp{background:rgba(12,12,16,0.75) !important;}
-  /* Border only — background is on .dp directly alongside backdrop-filter */
   .dp::after{
     content:'';
     position:absolute;inset:0;
+    background-color:var(--tb-bg);
     border-top:0.5px solid var(--tb-border);
+    z-index:-1;
     pointer-events:none;
-    background:none;
   }
+  .dark .dp::after{background-color:#0c0c10;}
   .dp.open{
     transform:translateY(0) !important;
     opacity:1 !important;visibility:visible !important;
   }
   .dp.dp-closing{
-    transform:none !important;
-    top:100vh !important;
+    transform:translateY(100vh) !important;
     opacity:1 !important;
-    background:transparent !important;
-    -webkit-backdrop-filter:none !important;
-    backdrop-filter:none !important;
-    transition:top 0.3s ease-in !important;
+    transition:transform 0.3s ease-in !important;
   }
   .dp.left{left:0 !important;right:0 !important;}
   .dp::before{display:none;}
