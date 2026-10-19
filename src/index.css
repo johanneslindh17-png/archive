@@ -1807,24 +1807,23 @@ path.eg.dim{opacity:0}
     border:none !important;
     box-shadow:none !important;
     padding:14px 14px 20px !important;
-    background:transparent !important;
+    /* backdrop-filter forces a GPU compositing layer that moves with transform,
+       so background-color here avoids the iOS Safari fixed+transform paint bug */
+    background:rgba(255,255,255,0.88) !important;
     -webkit-backdrop-filter:blur(14px) saturate(1.15);
     backdrop-filter:blur(14px) saturate(1.15);
     /* Slide up from below the breadcrumb */
     transform:translateY(100vh);
     transition:transform 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, visibility 0.3s ease !important;
   }
-  /* Background on a child pseudo-element so it moves with the transform layer,
-     not rendered at the fixed layout position (iOS Safari compositing quirk) */
+  .dark .dp{background:rgba(12,12,16,0.88) !important;}
   .dp::after{
     content:'';
     position:absolute;inset:0;
-    background-color:rgba(255,255,255,0.92);
     border-top:0.5px solid var(--tb-border);
-    z-index:-1;
     pointer-events:none;
+    background:none;
   }
-  .dark .dp::after{background-color:rgba(12,12,16,0.92);}
   .dp.open{
     transform:translateY(0) !important;
     opacity:1 !important;visibility:visible !important;
