@@ -1819,10 +1819,12 @@ path.eg.dim{opacity:0}
     box-sizing:border-box;
     overscroll-behavior:contain;
     -webkit-overflow-scrolling:touch;
-    background:var(--tb-bg);
+    background:color-mix(in srgb, var(--tb-bg) 75%, transparent);
+    -webkit-backdrop-filter:blur(20px) saturate(180%);
+    backdrop-filter:blur(20px) saturate(180%);
     border-top:0.5px solid var(--tb-border);
   }
-  .dark .dp-scroll{background:#0c0c10;}
+  .dark .dp-scroll{background:rgba(12,12,16,0.75);}
   .dp::after{content:none;}
   .dp.open{
     transform:translateY(0);
