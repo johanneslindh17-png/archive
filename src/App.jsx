@@ -3406,7 +3406,7 @@ export default function App() {
           })()}
         </div>
 
-        <svg ref={svgRef} className="msv" onMouseLeave={() => {
+        <svg ref={svgRef} className="msv" onClick={(e) => { if (nodesOpen && window.innerWidth < 600 && !e.target.closest('.nodes-panel')) setNodesOpen(false); }} onMouseLeave={() => {
           clearTimeout(leaveTimerRef.current);
           clearMarchOverlay();
           hovPrevRef.current.forEach(({ el, txt, orig }) => {
