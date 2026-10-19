@@ -840,7 +840,8 @@ export default function App() {
   useEffect(() => {
     if (goingBackRef.current) { goingBackRef.current = false; prevSelRef.current = selected; return; }
     if (prevSelRef.current && prevSelRef.current !== selected) {
-      setNodeHistory(h => [...h.slice(-29), prevSelRef.current]);
+      const toPush = prevSelRef.current;
+      setNodeHistory(h => [...h.slice(-29), toPush]);
     }
     prevSelRef.current = selected;
   }, [selected]);
@@ -854,8 +855,8 @@ export default function App() {
     setSelected(prev);
     setSelectedSet([prev]);
     window.history.replaceState(null, '', '#node=' + prev);
-    scrollToNode(prev, 0.2);
     if (window.innerWidth < 600) centerOnNode(prev, 1.5);
+    else scrollToNode(prev, 0.2);
   }
 
   function removeFromSet(id) {
@@ -2891,7 +2892,15 @@ export default function App() {
           onClick={() => { setPathMode(v => !v); setPathNodes([]); }}
           title="Find shortest path between two nodes"
         >
-          <span className="pathbtn-icon">⇢</span>
+          <span className="pathbtn-icon">
+            <svg viewBox="0 0 26 16" width="20" height="13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="3" cy="12" r="2.5" fill="currentColor"/>
+              <line x1="5.2" y1="10.5" x2="9.3" y2="5.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
+              <circle cx="12" cy="4" r="2.5" fill="currentColor"/>
+              <line x1="14.7" y1="5.5" x2="18.8" y2="10.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
+              <circle cx="23" cy="12" r="2.5" fill="currentColor"/>
+            </svg>
+          </span>
         </button>
         {pathMode && (
           <div className="pathbar">
