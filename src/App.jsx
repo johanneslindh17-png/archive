@@ -3458,6 +3458,7 @@ export default function App() {
           style={panelStyle}
           onMouseDown={handlePanelDragStart}
           onTouchStart={e => {
+            e.stopPropagation();
             dpSwipeStartRef.current = { y: e.touches[0].clientY, scrollTop: e.currentTarget.scrollTop };
           }}
           onTouchEnd={e => {

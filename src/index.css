@@ -1808,6 +1808,7 @@ path.eg.dim{opacity:0}
     box-shadow:none !important;
     padding:14px 14px 20px !important;
     background:var(--tb-bg) !important;
+    touch-action:pan-y;
     transform:translateY(100vh);
     transition:transform 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, visibility 0.3s ease !important;
   }
