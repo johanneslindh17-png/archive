@@ -1834,6 +1834,7 @@ path.eg.dim{opacity:0}
     -webkit-backdrop-filter:none !important;
     backdrop-filter:none !important;
   }
+  .dp.dp-closing::after{background-color:transparent !important;}
   .dp.left{left:0 !important;right:0 !important;}
   .dp::before{display:none;}
   .dp-close{width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;padding:0;flex-shrink:0;}
