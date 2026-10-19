@@ -4011,7 +4011,7 @@ export default function App() {
           >CHAT</button>
           <button className="trial-counter support-btn" onClick={() => setPaywallOpen(true)}>
             <span className="support-btn-label">♥ support the archive</span>
-            {!unlocked && <span className="support-btn-views">{Math.max(0, TRIAL_LIMIT - trialCount)} free views left</span>}
+            <span className="support-btn-views">{Math.max(0, TRIAL_LIMIT - trialCount)} free views left</span>
           </button>
           <div className="sb-submit-wrap">
             <button className="trial-counter sb-submit-btn" onClick={e => { e.stopPropagation(); setSubmitOpen(o => !o); }}>submit a node</button>
