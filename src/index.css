@@ -1827,12 +1827,13 @@ path.eg.dim{opacity:0}
     transform:translateY(0) !important;
     opacity:1 !important;visibility:visible !important;
   }
-  /* Closing: animate `top` instead of transform so backdrop-filter
-     moves with the layout position rather than staying stuck at 114px */
   .dp.dp-closing{
     transform:none !important;
     top:100vh !important;
     opacity:1 !important;
+    background:transparent !important;
+    -webkit-backdrop-filter:none !important;
+    backdrop-filter:none !important;
     transition:top 0.3s ease-in !important;
   }
   .dp.left{left:0 !important;right:0 !important;}
