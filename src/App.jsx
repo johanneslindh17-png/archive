@@ -912,6 +912,8 @@ export default function App() {
 
   // Close panel — node stays in selectedSet so network stays highlighted
   function closePanel() {
+    const el = dpRef.current;
+    if (el) { el.style.transform = ''; el.style.marginTop = ''; el.style.transition = ''; }
     setSelected(null);
     window.history.replaceState(null, '', location.pathname + location.search);
     if (returnToNodesRef.current) { returnToNodesRef.current = false; setNodesOpen(true); }
@@ -920,6 +922,8 @@ export default function App() {
   // Animated close: slide panel down, then close (mobile only; falls back to instant on desktop)
   function slideClosePanel(onDone) {
     if (window.innerWidth >= 600 || !selected) { closePanel(); onDone?.(); return; }
+    const el = dpRef.current;
+    if (el) el.style.transform = ''; // clear 'none' so dp-closing CSS transform takes over
     flushSync(() => setDpClosing(true));
     setTimeout(() => {
       setDpClosing(false);
@@ -1951,13 +1955,21 @@ export default function App() {
       if (deltaY <= 0) return; // swiping up
       e.preventDefault();
       el.classList.add('dp-swiping');
-      el.style.transform = 'translateY(' + deltaY + 'px)';
+      el.style.marginTop = deltaY + 'px';
+    };
+    const onTransitionEnd = (e) => {
+      if (e.propertyName !== 'transform') return;
+      if (el.classList.contains('open') && !el.classList.contains('dp-closing')) {
+        el.style.transform = 'none'; // remove transform → backdrop-filter activates on iOS
+      }
     };
     el.addEventListener('touchstart', onTouchStart, { passive: false });
     el.addEventListener('touchmove', onTouchMove, { passive: false });
+    el.addEventListener('transitionend', onTransitionEnd);
     return () => {
       el.removeEventListener('touchstart', onTouchStart);
       el.removeEventListener('touchmove', onTouchMove);
+      el.removeEventListener('transitionend', onTransitionEnd);
     };
   }, []);
 
@@ -3501,15 +3513,16 @@ export default function App() {
             if (wasSwiping) el.classList.remove('dp-swiping'); // re-enable transition
             if (deltaY > 60 && start.scrollTop <= 2) {
               if (wasSwiping) {
-                // Animate from current finger position to off-screen
-                el.style.transform = 'translateY(100vh)';
-                setTimeout(() => { if (el) el.style.transform = ''; closePanel(); }, 310);
+                // Animate from current finger position to off-screen via marginTop
+                el.style.transition = 'margin-top 0.3s ease-in';
+                el.style.marginTop = window.innerHeight + 'px';
+                setTimeout(() => { closePanel(); }, 310);
               } else {
                 setDpClosing(true);
                 setTimeout(() => { setDpClosing(false); closePanel(); }, 310);
               }
             } else if (wasSwiping) {
-              el.style.transform = ''; // snap back — transition fires to CSS open position
+              el.style.marginTop = ''; // snap back — CSS transition animates to 0
             }
           }}
         >
