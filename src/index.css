@@ -1694,7 +1694,7 @@ path.eg.dim{opacity:0}
        Row 1: ELECTRONIC ARCHIVE.  [dark] [color] [?]
        Row 2: full-width search bar
   ── */
-  .topbar{display:grid !important;grid-template-rows:40px 40px;grid-template-columns:1fr auto auto auto auto;grid-template-areas:"wm yy col leg leg" "sw bk nd nd nd";height:80px;padding:0;overflow:hidden;align-items:center;}
+  .topbar{display:grid !important;grid-template-rows:40px 40px;grid-template-columns:1fr auto auto auto auto;grid-template-areas:"wm yy col leg leg" "sw nd nd nd bk";height:80px;padding:0;overflow:hidden;align-items:center;}
   .wordmark{grid-area:wm;width:auto;padding:0 8px;font-size:0.62rem;line-height:1;height:40px;display:flex;flex-direction:row;align-items:center;gap:3px;border-bottom:none;border-right:none;min-width:0;overflow:hidden;}
   .wordmark-line1{display:inline;}
   .yybtn{grid-area:yy;}
