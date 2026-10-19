@@ -1773,8 +1773,8 @@ path.eg.dim{opacity:0}
   /* Support button: two-line layout on phones */
   .support-btn{display:flex !important;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:0 10px;}
   .support-btn-label{font-size:0 !important;}
-  .support-btn-label::before{content:'♥ SUPPORT';font-size:0.5rem;font-family:'Syne Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;line-height:1;}
-  .support-btn-views{font-size:0.42rem;letter-spacing:0.06em;text-transform:uppercase;font-family:'Syne Mono',monospace;color:var(--tb-text-dim);line-height:1;white-space:nowrap;}
+  .support-btn-label::before{content:'SUPPORT ♥';font-size:0.5rem;font-family:'Syne Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;line-height:1;}
+  .support-btn-views{font-size:0.42rem;letter-spacing:0.06em;text-transform:uppercase;font-family:'Syne Mono',monospace;color:var(--tb-text-mid);line-height:1;white-space:nowrap;margin-top:1px;}
   .sb-submit-btn{font-size:0 !important;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;}
   .sb-submit-btn::before{content:'SUBMIT';font-size:0.5rem;font-family:'Syne Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;line-height:1;}
   .sb-submit-btn::after{content:'A NODE';font-size:0.5rem;font-family:'Syne Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;line-height:1;}
