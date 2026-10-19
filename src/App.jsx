@@ -923,6 +923,7 @@ export default function App() {
     if (dpRef.current) { dpRef.current.style.backdropFilter = 'none'; dpRef.current.style.webkitBackdropFilter = 'none'; }
     flushSync(() => setDpClosing(true));
     setTimeout(() => {
+      if (dpRef.current) { dpRef.current.style.backdropFilter = ''; dpRef.current.style.webkitBackdropFilter = ''; }
       setDpClosing(false);
       setSelected(null);
       window.history.replaceState(null, '', location.pathname + location.search);
@@ -3469,7 +3470,11 @@ export default function App() {
             if (deltaY > 60 && start.scrollTop <= 2) {
               if (dpRef.current) { dpRef.current.style.backdropFilter = 'none'; dpRef.current.style.webkitBackdropFilter = 'none'; }
               setDpClosing(true);
-              setTimeout(() => { setDpClosing(false); closePanel(); }, 300);
+              setTimeout(() => {
+                if (dpRef.current) { dpRef.current.style.backdropFilter = ''; dpRef.current.style.webkitBackdropFilter = ''; }
+                setDpClosing(false);
+                closePanel();
+              }, 300);
             }
           }}
         >
