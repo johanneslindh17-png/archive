@@ -3013,34 +3013,53 @@ path.eg.dim{opacity:0}
 }
 
 /* Portrait orientation lock on phones */
+#landscape-lock{ display:none; }
 @media screen and (orientation:landscape) and (max-height:600px){
-  .app{display:none !important;}
+  .app{ display:none !important; }
   body{
-    background:#0c0c10;
+    background:var(--tb-bg);
     display:flex;flex-direction:column;
     align-items:center;justify-content:center;
-    gap:18px;
+    gap:14px;height:100vh;overflow:hidden;
   }
-  body::before{
-    content:'↻';
-    font-size:3.2rem;
-    color:#2a2a38;
+  #landscape-lock{
+    position:fixed;inset:0;
+    display:flex;flex-direction:column;
+    align-items:center;justify-content:center;
+    gap:14px;
+    background:var(--tb-bg);
+    z-index:99999;
+  }
+  .ll-icon{
+    font-size:clamp(1.4rem, 5vh, 2.4rem);
+    color:var(--tb-text-dim);
+    animation:ll-spin 3s ease-in-out infinite;
     line-height:1;
-    display:block;
-    animation:landscape-spin 3s ease-in-out infinite;
   }
-  body::after{
-    content:'rotate to portrait';
+  .ll-wordmark{
+    font-family:'Syne',sans-serif;
+    font-weight:800;
+    font-size:clamp(1rem, 3.6vw, 2.8rem);
+    letter-spacing:0.06em;
+    color:var(--tb-text);
+    text-transform:uppercase;
+    white-space:nowrap;
+    line-height:1;
+  }
+  .ll-club{
+    font-weight:400;
+    opacity:0.45;
+  }
+  .ll-hint{
     font-family:'Syne Mono',monospace;
-    font-size:0.62rem;
+    font-size:clamp(0.45rem, 1.4vw, 0.65rem);
     letter-spacing:0.22em;
     text-transform:uppercase;
-    color:#3a3a48;
-    display:block;
+    color:var(--tb-text-dim);
   }
-  @keyframes landscape-spin{
-    0%,70%{ transform:rotate(0deg); }
-    85%{ transform:rotate(90deg); }
+  @keyframes ll-spin{
+    0%,65%{ transform:rotate(0deg); }
+    82%{ transform:rotate(90deg); }
     100%{ transform:rotate(90deg); }
   }
 }
