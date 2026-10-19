@@ -245,6 +245,33 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .dark .npl-date-header{color:#6060a0;}
 .npl-date-header:first-child{border-top:none;margin-top:0;padding-top:4px;}
 .npl-hl-tag{outline:1px solid var(--tb-text-mid) !important;outline-offset:1px;}
+
+/* ── Node Log panel ── */
+.node-log-panel{
+  position:absolute;top:44px;right:46px;width:360px;bottom:0;
+  background:var(--tb-bg);border-left:1px solid var(--tb-border);
+  display:flex;flex-direction:column;overflow:hidden;
+  transform:translateX(110%);transition:transform 0.22s cubic-bezier(0.4,0,0.2,1);
+  pointer-events:none;z-index:20;
+}
+.node-log-panel.open{transform:translateX(0);pointer-events:all;}
+.nlp-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 10px;height:44px;flex-shrink:0;border-bottom:1px solid var(--tb-border);
+}
+.nlp-title{font-family:'Syne Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--tb-text);}
+.nlp-list{flex:1;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--tb-border) transparent;}
+.nlp-list::-webkit-scrollbar{width:3px;}
+.nlp-list::-webkit-scrollbar-thumb{background:var(--tb-border);}
+.nlg-date{
+  font-family:'Syne Mono',monospace;font-size:0.5rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:#999;padding:12px 12px 5px;border-top:1px solid var(--tb-border);
+  display:flex;align-items:center;gap:8px;
+}
+.dark .nlg-date{color:#6060a0;}
+.nlg-group:first-child .nlg-date{border-top:none;padding-top:8px;}
+.nlg-count{font-size:0.45rem;opacity:0.6;}
+
 .npl-type-tag{
   display:inline-block;font-size:0.48rem;letter-spacing:0.08em;text-transform:uppercase;
   padding:1px 5px;border-radius:3px;margin-right:4px;
@@ -2987,6 +3014,7 @@ path.eg.dim{opacity:0}
   body::before{content:'rotate to portrait';font-family:''Syne Mono'',monospace;font-size:0.70rem;letter-spacing:0.14em;text-transform:uppercase;color:#505060;}
 }
 @media(max-width:600px){
+  .nodelog-btn,.node-log-panel{display:none !important;}
   .legbox{
     left:18px;right:0;width:auto;transform:none;
     top:118px;

@@ -712,6 +712,7 @@ export default function App() {
   const [activeRoute, setActiveRoute] = useState(null);
   const [routeStep, setRouteStep] = useState(0);
   const [nodesOpen, setNodesOpen] = useState(false);
+  const [nodeLogOpen, setNodeLogOpen] = useState(false);
   const [nodesTypeFilter, setNodesTypeFilter] = useState('all');
   const [nodesSort, setNodesSort] = useState('label');
   const [nlSearch, setNlSearch] = useState('');
@@ -2910,6 +2911,7 @@ export default function App() {
           onClick={() => {
             if (!nodesOpen) {
               setSearchQ('');
+              setNodeLogOpen(false);
               if (nodesScrollRef.current) nodesScrollRef.current.scrollTop = nodesScrollPosRef.current;
             } else {
               setSearchQ('');
@@ -2917,6 +2919,15 @@ export default function App() {
             setNodesOpen(v => !v);
           }}
         >Node List</button>
+
+        {/* Node log button — desktop only */}
+        <button
+          className={`nodesbtn nodelog-btn${nodeLogOpen ? ' active' : ''}`}
+          onClick={() => {
+            setNodeLogOpen(v => !v);
+            if (!nodeLogOpen) setNodesOpen(false);
+          }}
+        >Node Log</button>
 
         {/* Dark mode toggle — auto follows sun, click to override */}
         <button
@@ -3723,6 +3734,49 @@ export default function App() {
 
       {/* Nodes backdrop — root level so it covers full viewport */}
       {nodesOpen && <div className="nodes-backdrop" onClick={() => { if (window.innerWidth < 600) setNodesOpen(false); }} />}
+
+      {/* Node Log panel — desktop only */}
+      {(() => {
+        const dateGroups = [];
+        let lastDate = null;
+        const sorted = [...NODES].sort((a, b) =>
+          (b.dateAdded||'').localeCompare(a.dateAdded||'') || a.label.localeCompare(b.label)
+        );
+        sorted.forEach(n => {
+          if (n.dateAdded !== lastDate) {
+            lastDate = n.dateAdded;
+            dateGroups.push({ date: n.dateAdded || '—', nodes: [] });
+          }
+          dateGroups[dateGroups.length - 1].nodes.push(n);
+        });
+        return (
+          <div className={`node-log-panel${nodeLogOpen ? ' open' : ''}`}>
+            <div className="nlp-header">
+              <span className="nlp-title">Node Log</span>
+              <button className="nodes-panel-close" onClick={() => setNodeLogOpen(false)}>✕</button>
+            </div>
+            <div className="nlp-list">
+              {dateGroups.map(g => (
+                <div key={g.date} className="nlg-group">
+                  <div className="nlg-date">{g.date} <span className="nlg-count">{g.nodes.length}</span></div>
+                  {g.nodes.map(n => (
+                    <div key={n.id} className="npl-item" onClick={() => { scrollToNode(n.id, 0.2); setNodeLogOpen(false); }}>
+                      <span className="npl-label">{n.label}</span>
+                      <span className="npl-meta">
+                        <span
+                          className={`npl-type-tag npl-type-${n.type}`}
+                          style={colorTheme === 'type' ? (() => { const tc = darkMode ? TYPE_COLORS[n.type]?.dark : TYPE_COLORS[n.type]?.light; return tc ? { color: tc.text, background: tc.fill, borderColor: tc.stroke } : undefined; })() : undefined}
+                        >{n.type}</span>
+                        {' '}{n.city}{n.city && n.era ? ' · ' : ''}{n.era}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })()}
 
       {/* Status bar */}
       <div className="statusbar" style={themeStyle ? { background: themeStyle.surface, borderTopColor: themeStyle.border } : undefined}>
