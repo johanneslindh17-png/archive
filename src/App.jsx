@@ -3379,14 +3379,12 @@ export default function App() {
             {/* Global view */}
             {!expanded && (
               <g>
-                {/* Year grid */}
+                {/* Year grid — lines only at 5-year marks to align with year strip labels */}
                 <g>
-                  {[...Array.from({length:5},(_,i)=>ERA_MIN-5+i), ...YEAR_LINES, ...Array.from({length:5},(_,i)=>ERA_MAX+1+i)].map(y => (
+                  {YEAR_LABELS.map(y => (
                     <line key={'y'+y} x1={0} y1={eraY(y)} x2={W} y2={eraY(y)}
-                      stroke={themeAccent
-                        ? YEAR_LABELS.includes(y) ? themeAccent + '44' : themeAccent + '1a'
-                        : YEAR_LABELS.includes(y) ? (darkMode ? '#252535' : '#cccccc') : (darkMode ? '#181828' : '#ebebeb')}
-                      strokeWidth={YEAR_LABELS.includes(y) ? 0.7 : 0.3} />
+                      stroke={themeAccent ? themeAccent + '44' : (darkMode ? '#252535' : '#cccccc')}
+                      strokeWidth={0.7} />
                   ))}
                 </g>
 
@@ -3412,14 +3410,12 @@ export default function App() {
               const bw = (W - LEFT) / cities.length;
               return (
                 <>
-                  {/* Year grid */}
+                  {/* Year grid — lines only at 5-year marks to align with year strip labels */}
                   <g>
-                    {[...Array.from({length:5},(_,i)=>ERA_MIN-5+i), ...YEAR_LINES, ...Array.from({length:5},(_,i)=>ERA_MAX+1+i)].map(y => (
+                    {YEAR_LABELS.map(y => (
                       <line key={'y'+y} x1={0} y1={eraY(y)} x2={W} y2={eraY(y)}
-                        stroke={themeAccent
-                          ? YEAR_LABELS.includes(y) ? themeAccent + '44' : themeAccent + '1a'
-                          : YEAR_LABELS.includes(y) ? (darkMode ? '#252535' : '#cccccc') : (darkMode ? '#181828' : '#ebebeb')}
-                        strokeWidth={YEAR_LABELS.includes(y) ? 0.7 : 0.3} />
+                        stroke={themeAccent ? themeAccent + '44' : (darkMode ? '#252535' : '#cccccc')}
+                        strokeWidth={0.7} />
                     ))}
                   </g>
 
