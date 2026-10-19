@@ -1812,31 +1812,27 @@ path.eg.dim{opacity:0}
     transform:translateY(100vh);
     transition:transform 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, visibility 0.3s ease !important;
   }
-  .dp-bg{
-    position:absolute;inset:0;
-    z-index:0;
-    background:var(--tb-bg);
-    border-top:0.5px solid var(--tb-border);
-    pointer-events:none;
-  }
-  .dark .dp-bg{background:#0c0c10;}
   .dp-scroll{
-    position:relative;
-    z-index:1;
     height:100%;
     overflow-y:auto;
     padding:14px 14px 20px;
     box-sizing:border-box;
     overscroll-behavior:contain;
     -webkit-overflow-scrolling:touch;
+    background:var(--tb-bg);
+    border-top:0.5px solid var(--tb-border);
   }
+  .dark .dp-scroll{background:#0c0c10;}
   .dp::after{content:none;}
   .dp.open{
-    transform:translateY(0) !important;
+    transform:translateY(0);
     opacity:1 !important;visibility:visible !important;
   }
+  .dp.dp-swiping{
+    transition:none !important;
+  }
   .dp.dp-closing{
-    transform:translateY(100vh) !important;
+    transform:translateY(100vh);
     opacity:1 !important;
     transition:transform 0.3s ease-in !important;
   }

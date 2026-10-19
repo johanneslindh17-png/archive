@@ -1929,10 +1929,10 @@ export default function App() {
   }, []);
 
   // Scroll info panel to top when a new node is selected
-  useEffect(() => { if (selected) dpRef.current?.scrollTo({ top: 0 }); }, [selected]);
+  useEffect(() => { if (selected) dpScrollRef.current?.scrollTo({ top: 0 }); }, [selected]);
 
-  // Non-passive touchstart on the panel: prevent browser gesture handling on
-  // non-scrollable panels so the CSS dp-closing transition plays uninterrupted.
+  // Non-passive touch listeners on the panel element so we can call preventDefault
+  // (React's synthetic touch events are passive and can't prevent browser gestures).
   useEffect(() => {
     const el = dpRef.current;
     if (!el) return;
@@ -1942,8 +1942,23 @@ export default function App() {
       el.style.touchAction = scrollable ? 'pan-y' : 'none';
       if (!scrollable) e.preventDefault();
     };
+    const onTouchMove = (e) => {
+      const start = dpSwipeStartRef.current;
+      if (!start) return;
+      const sc = dpScrollRef.current;
+      if (sc && sc.scrollTop > 2) return; // scrolled into content — not a close gesture
+      const deltaY = e.touches[0].clientY - start.y;
+      if (deltaY <= 0) return; // swiping up
+      e.preventDefault();
+      el.classList.add('dp-swiping');
+      el.style.transform = 'translateY(' + deltaY + 'px)';
+    };
     el.addEventListener('touchstart', onTouchStart, { passive: false });
-    return () => el.removeEventListener('touchstart', onTouchStart);
+    el.addEventListener('touchmove', onTouchMove, { passive: false });
+    return () => {
+      el.removeEventListener('touchstart', onTouchStart);
+      el.removeEventListener('touchmove', onTouchMove);
+    };
   }, []);
 
   // Row-pack layout for expanded region view — same algorithm as the main page,
@@ -3480,14 +3495,24 @@ export default function App() {
             const start = dpSwipeStartRef.current;
             dpSwipeStartRef.current = null;
             if (!start) return;
+            const el = dpRef.current;
             const deltaY = e.changedTouches[0].clientY - start.y;
+            const wasSwiping = el?.classList.contains('dp-swiping');
+            if (wasSwiping) el.classList.remove('dp-swiping'); // re-enable transition
             if (deltaY > 60 && start.scrollTop <= 2) {
-              setDpClosing(true);
-              setTimeout(() => { setDpClosing(false); closePanel(); }, 310);
+              if (wasSwiping) {
+                // Animate from current finger position to off-screen
+                el.style.transform = 'translateY(100vh)';
+                setTimeout(() => { if (el) el.style.transform = ''; closePanel(); }, 310);
+              } else {
+                setDpClosing(true);
+                setTimeout(() => { setDpClosing(false); closePanel(); }, 310);
+              }
+            } else if (wasSwiping) {
+              el.style.transform = ''; // snap back — transition fires to CSS open position
             }
           }}
         >
-          <div className="dp-bg" aria-hidden="true" />
           <div ref={dpScrollRef} className="dp-scroll">
           {/* Drag indicator — aligned with × button, always pulsing */}
           <div className="dp-move-hint">
@@ -3658,6 +3683,7 @@ export default function App() {
               )}
             </>
           )}
+          </div>{/* end dp-scroll */}
         </div>
           );
         })()}
@@ -3834,7 +3860,6 @@ export default function App() {
               ))}
             </div>
           </div>
-          </div>{/* end dp-scroll */}
         );
       })()}
 
