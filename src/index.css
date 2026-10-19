@@ -3031,7 +3031,7 @@ path.eg.dim{opacity:0}
     z-index:99999;
   }
   .ll-icon{
-    font-size:1.1em;
+    font-size:1.4em;
     animation:ll-spin 3s ease-in-out infinite;
     display:inline-block;
     line-height:1;
@@ -3058,8 +3058,8 @@ path.eg.dim{opacity:0}
   }
   @keyframes ll-spin{
     0%,65%{ transform:rotate(0deg); }
-    82%{ transform:rotate(90deg); }
-    100%{ transform:rotate(90deg); }
+    82%{ transform:rotate(-90deg); }
+    100%{ transform:rotate(-90deg); }
   }
 }
 @media(max-width:600px){
