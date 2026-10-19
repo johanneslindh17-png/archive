@@ -912,7 +912,6 @@ export default function App() {
 
   // Close panel — node stays in selectedSet so network stays highlighted
   function closePanel() {
-    dpRef.current?.classList.remove('dp-frosted');
     setSelected(null);
     window.history.replaceState(null, '', location.pathname + location.search);
     if (returnToNodesRef.current) { returnToNodesRef.current = false; setNodesOpen(true); }
@@ -921,7 +920,6 @@ export default function App() {
   // Animated close: slide panel down, then close (mobile only; falls back to instant on desktop)
   function slideClosePanel(onDone) {
     if (window.innerWidth >= 600 || !selected) { closePanel(); onDone?.(); return; }
-    dpRef.current?.classList.remove('dp-frosted');
     flushSync(() => setDpClosing(true));
     setTimeout(() => {
       setDpClosing(false);
@@ -1952,23 +1950,14 @@ export default function App() {
       const deltaY = e.touches[0].clientY - start.y;
       if (deltaY <= 0) return; // swiping up
       e.preventDefault();
-      el.classList.remove('dp-frosted'); // remove before transform moves element
       el.classList.add('dp-swiping');
       el.style.transform = 'translateY(' + deltaY + 'px)';
     };
-    const onTransitionEnd = (e) => {
-      if (e.propertyName !== 'transform') return;
-      if (el.classList.contains('open') && !el.classList.contains('dp-closing')) {
-        el.classList.add('dp-frosted');
-      }
-    };
     el.addEventListener('touchstart', onTouchStart, { passive: false });
     el.addEventListener('touchmove', onTouchMove, { passive: false });
-    el.addEventListener('transitionend', onTransitionEnd);
     return () => {
       el.removeEventListener('touchstart', onTouchStart);
       el.removeEventListener('touchmove', onTouchMove);
-      el.removeEventListener('transitionend', onTransitionEnd);
     };
   }, []);
 
@@ -3516,7 +3505,6 @@ export default function App() {
                 el.style.transform = 'translateY(100vh)';
                 setTimeout(() => { if (el) el.style.transform = ''; closePanel(); }, 310);
               } else {
-                el?.classList.remove('dp-frosted');
                 setDpClosing(true);
                 setTimeout(() => { setDpClosing(false); closePanel(); }, 310);
               }

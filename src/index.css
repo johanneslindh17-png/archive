@@ -1819,13 +1819,10 @@ path.eg.dim{opacity:0}
     box-sizing:border-box;
     overscroll-behavior:contain;
     -webkit-overflow-scrolling:touch;
-    background:var(--tb-bg);
+    background:rgba(255,255,255,0.72);
     border-top:0.5px solid var(--tb-border);
   }
-  .dark .dp-scroll{background:#0c0c10;}
-  /* Semi-transparent panel — only when fully open (dp-frosted added via JS after transitionend) */
-  .dp.dp-frosted .dp-scroll{background:rgba(255,255,255,0.72);}
-  .dark .dp.dp-frosted .dp-scroll{background:rgba(12,12,16,0.72);}
+  .dark .dp-scroll{background:rgba(12,12,16,0.72);}
   .dp::after{content:none;}
   .dp.open{
     transform:translateY(0);
