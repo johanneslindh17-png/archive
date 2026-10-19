@@ -3031,28 +3031,30 @@ path.eg.dim{opacity:0}
     z-index:99999;
   }
   .ll-icon{
-    font-size:clamp(4.5rem, 14vh, 7rem);
-    color:var(--tb-text-mid);
+    font-size:1.1em;
     animation:ll-spin 3s ease-in-out infinite;
+    display:inline-block;
     line-height:1;
   }
   .ll-wordmark{
     font-family:'Syne',sans-serif;
     font-weight:800;
-    font-size:clamp(1rem, 3.6vw, 2.8rem);
+    font-size:clamp(0.9rem, 3vw, 2.4rem);
     letter-spacing:0.06em;
     color:var(--tb-text);
     text-transform:uppercase;
     white-space:nowrap;
     line-height:1;
+    text-align:center;
   }
   .ll-club{}
   .ll-hint{
     font-family:'Syne Mono',monospace;
     font-size:clamp(0.6rem, 1.8vw, 0.9rem);
-    letter-spacing:0.22em;
+    letter-spacing:0.18em;
     text-transform:uppercase;
     color:var(--tb-text-mid);
+    display:flex;align-items:center;gap:8px;
   }
   @keyframes ll-spin{
     0%,65%{ transform:rotate(0deg); }
