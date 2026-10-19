@@ -1808,6 +1808,8 @@ path.eg.dim{opacity:0}
     box-shadow:none !important;
     padding:14px 14px 20px !important;
     background:transparent !important;
+    -webkit-backdrop-filter:blur(14px) saturate(1.15);
+    backdrop-filter:blur(14px) saturate(1.15);
     /* Slide up from below the breadcrumb */
     transform:translateY(100vh);
     transition:transform 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, visibility 0.3s ease !important;
@@ -1825,10 +1827,13 @@ path.eg.dim{opacity:0}
     transform:translateY(0) !important;
     opacity:1 !important;visibility:visible !important;
   }
+  /* Closing: animate `top` instead of transform so backdrop-filter
+     moves with the layout position rather than staying stuck at 114px */
   .dp.dp-closing{
-    transform:translateY(100vh) !important;
+    transform:none !important;
+    top:100vh !important;
     opacity:1 !important;
-    transition:transform 0.3s ease-in !important;
+    transition:top 0.3s ease-in !important;
   }
   .dp.left{left:0 !important;right:0 !important;}
   .dp::before{display:none;}
