@@ -1688,7 +1688,12 @@ path.eg.dim{opacity:0}
        Row 1: ELECTRONIC ARCHIVE.  [dark] [color] [?]
        Row 2: full-width search bar
   ── */
-  .topbar{display:grid !important;grid-template-rows:40px 40px;grid-template-columns:1fr auto auto auto auto;grid-template-areas:"wm yy col leg leg" "sw nd nd nd bk";height:80px;padding:0;overflow:hidden;align-items:center;}
+  :root{--chrome-h:calc(114px + env(safe-area-inset-top,0px));}
+  /* Canvas fills entire screen — bars float as frosted overlays on top */
+  .canvas{position:fixed !important;inset:0 !important;z-index:1 !important;}
+  /* Topbar: fixed overlay with frosted glass */
+  .topbar{display:grid !important;grid-template-rows:40px 40px;grid-template-columns:1fr auto auto auto auto;grid-template-areas:"wm yy col leg leg" "sw nd nd nd bk";height:80px;padding:0;overflow:hidden;align-items:center;position:fixed !important;top:env(safe-area-inset-top,0px) !important;left:0 !important;right:0 !important;z-index:1002 !important;background:rgba(255,255,255,0.72) !important;-webkit-backdrop-filter:blur(12px) saturate(160%);backdrop-filter:blur(12px) saturate(160%);}
+  .dark .topbar{background:rgba(12,12,16,0.72) !important;}
   .wordmark{grid-area:wm;width:auto;padding:0 8px;font-size:0.62rem;line-height:1;height:40px;display:flex;flex-direction:row;align-items:center;gap:3px;border-bottom:none;border-right:none;min-width:0;overflow:hidden;}
   .wordmark-line1{display:inline;}
   .yybtn{grid-area:yy;}
@@ -1700,7 +1705,7 @@ path.eg.dim{opacity:0}
   /* Row-1 buttons: equal width, full row height, clear dividers */
   .yybtn{width:40px;height:40px;margin:0;}
   .colorwrap .colorbtn{width:40px;height:40px;align-self:center;}
-  .colordrop{position:fixed;top:40px;right:0;z-index:1100;}
+  .colordrop{position:fixed;top:calc(40px + env(safe-area-inset-top,0px));right:0;z-index:1100;}
   .legtrigger{height:40px;width:40px;padding:0;font-size:0.6rem;border-left:1px solid var(--tb-border);display:flex;align-items:center;justify-content:center;}
   /* Hide routes, about, filter on phones — not needed at overview scale */
   .routesbtn{display:none !important;}
@@ -1711,12 +1716,22 @@ path.eg.dim{opacity:0}
   .nodesbtn{grid-area:nd;height:40px !important;max-height:40px;align-self:center;overflow:hidden;border-left:1px solid var(--tb-border);border-top:1px solid var(--tb-border);padding:0 14px;font-size:0.55rem;}
   .backbtn{grid-area:bk;width:40px;height:40px;align-self:stretch;border-top:1px solid var(--tb-border);border-left:1px solid var(--tb-border);border-right:none;padding:0;display:flex;align-items:center;justify-content:center;font-size:0.9rem;}
   .sw input{font-size:16px !important;border-left:none;border-right:none;}
+  /* Nodebreadcrumb: fixed frosted overlay below topbar */
+  .nodebreadcrumb{position:fixed !important;top:calc(80px + env(safe-area-inset-top,0px)) !important;left:0 !important;right:0 !important;z-index:1001 !important;background:rgba(255,255,255,0.72) !important;-webkit-backdrop-filter:blur(12px) saturate(160%);backdrop-filter:blur(12px) saturate(160%);}
+  .dark .nodebreadcrumb{background:rgba(12,12,16,0.72) !important;}
+  .nbc-more-arrow{background:linear-gradient(to left,rgba(255,255,255,0.72) 50%,transparent);}
+  .nbc-more-arrow--left{background:linear-gradient(to right,rgba(255,255,255,0.72) 35%,transparent);}
+  .dark .nbc-more-arrow{background:linear-gradient(to left,rgba(12,12,16,0.72) 50%,transparent);}
+  .dark .nbc-more-arrow--left{background:linear-gradient(to right,rgba(12,12,16,0.72) 35%,transparent);}
+  /* Statusbar: fixed frosted overlay at bottom */
+  .statusbar{position:fixed !important;bottom:0 !important;left:0 !important;right:0 !important;z-index:100 !important;background:rgba(255,255,255,0.72) !important;-webkit-backdrop-filter:blur(12px) saturate(160%);backdrop-filter:blur(12px) saturate(160%);}
+  .dark .statusbar{background:rgba(12,12,16,0.72) !important;}
   /* Nodes panel: full-width bottom sheet on mobile, sits above statusbar */
-  .nodes-panel{position:fixed !important;left:0 !important;right:0 !important;top:114px;bottom:calc(44px + env(safe-area-inset-bottom,0px));width:auto !important;height:auto;border-left:none;border-top:none;border-radius:0;transform:translateY(100vh);transition:transform 0.65s cubic-bezier(0.4,0,0.2,1);z-index:80 !important;}
+  .nodes-panel{position:fixed !important;left:0 !important;right:0 !important;top:var(--chrome-h);bottom:calc(44px + env(safe-area-inset-bottom,0px));width:auto !important;height:auto;border-left:none;border-top:none;border-radius:0;transform:translateY(100vh);transition:transform 0.65s cubic-bezier(0.4,0,0.2,1);z-index:80 !important;}
   .nodes-panel.open{transform:translateY(0);}
   .nodes-backdrop{background:rgba(0,0,0,0.3);z-index:18;pointer-events:all;}
   /* Archive guide: full-screen bottom sheet on mobile, same as dp/node list */
-  .legbox{position:fixed !important;left:0 !important;right:0 !important;top:114px !important;bottom:calc(44px + env(safe-area-inset-bottom,0px)) !important;width:auto !important;height:auto !important;max-height:none !important;transform:translateY(100vh) !important;opacity:1 !important;border-radius:0 !important;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1) !important;z-index:80 !important;overflow-y:auto !important;}
+  .legbox{position:fixed !important;left:0 !important;right:0 !important;top:var(--chrome-h) !important;bottom:calc(44px + env(safe-area-inset-bottom,0px)) !important;width:auto !important;height:auto !important;max-height:none !important;transform:translateY(100vh) !important;opacity:1 !important;border-radius:0 !important;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1) !important;z-index:80 !important;overflow-y:auto !important;}
   .legwrap.open .legbox{transform:translateY(0) !important;}
   .wordmark-club{display:inline;}
 
@@ -1790,7 +1805,7 @@ path.eg.dim{opacity:0}
   .groove-trigger{display:none !important;}
 
   /* Search dropdown: full viewport width */
-  .search-dropdown{position:fixed;top:114px;left:0;right:0;max-height:25vh;z-index:1200;}
+  .search-dropdown{position:fixed;top:var(--chrome-h);left:0;right:0;max-height:25vh;z-index:1200;}
     /* Performance: prevent pull-to-refresh from hijacking map pans */
   .canvas{overscroll-behavior:none;}
   .msv{-webkit-tap-highlight-color:transparent;}
@@ -1799,7 +1814,7 @@ path.eg.dim{opacity:0}
   .dp{
     position:fixed !important;
     left:0 !important;right:0 !important;
-    top:114px !important;  /* topbar(80) + breadcrumb(34) */
+    top:var(--chrome-h) !important;  /* topbar(80) + breadcrumb(34) + safe-area-inset-top */
     bottom:calc(44px + env(safe-area-inset-bottom,0px)) !important;
     width:100% !important;height:auto !important;
     border-radius:0 !important;
@@ -3085,9 +3100,9 @@ path.eg.dim{opacity:0}
   .nodelog-btn,.node-log-panel{display:none !important;}
   .legbox{
     left:18px;right:0;width:auto;transform:none;
-    top:114px;
-    max-height:calc(100vh - 114px - 44px - env(safe-area-inset-bottom,0px));
-    max-height:calc(100dvh - 114px - 44px - env(safe-area-inset-bottom,0px));
+    top:var(--chrome-h);
+    max-height:calc(100vh - var(--chrome-h) - 44px - env(safe-area-inset-bottom,0px));
+    max-height:calc(100dvh - var(--chrome-h) - 44px - env(safe-area-inset-bottom,0px));
     overflow-y:auto;
   }
   /* On phones only the .open class shows/hides the legbox — hover disabled */
