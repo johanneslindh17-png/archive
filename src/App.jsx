@@ -3466,8 +3466,10 @@ export default function App() {
             if (!start) return;
             const deltaY = e.changedTouches[0].clientY - start.y;
             if (deltaY > 60 && start.scrollTop <= 2) {
-              flushSync(() => setDpClosing(true));
-              setTimeout(() => { setDpClosing(false); closePanel(); }, 310);
+              requestAnimationFrame(() => {
+                setDpClosing(true);
+                setTimeout(() => { setDpClosing(false); closePanel(); }, 310);
+              });
             }
           }}
         >
