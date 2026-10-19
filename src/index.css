@@ -1770,15 +1770,17 @@ path.eg.dim{opacity:0}
   }
   .statusbar-end{gap:0;padding-left:0;margin-left:0;border-left:none;}
   .trial-counter{padding:0 8px;font-size:0.5rem;white-space:nowrap;}
-  /* Shorten support button on phones */
-  .trial-counter:not(.trial-counter--views):not(.sb-submit-btn){font-size:0 !important;}
-  .trial-counter:not(.trial-counter--views):not(.sb-submit-btn)::before{content:'♥ SUPPORT';font-size:0.5rem;font-family:'Syne Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;}
+  /* Support button: two-line layout on phones */
+  .support-btn{display:flex !important;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:0 10px;}
+  .support-btn-label{font-size:0 !important;}
+  .support-btn-label::before{content:'♥ SUPPORT';font-size:0.5rem;font-family:'Syne Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;line-height:1;}
+  .support-btn-views{font-size:0.42rem;letter-spacing:0.06em;text-transform:uppercase;font-family:'Syne Mono',monospace;color:var(--tb-text-dim);line-height:1;white-space:nowrap;}
   .sb-submit-btn{font-size:0 !important;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;}
   .sb-submit-btn::before{content:'SUBMIT';font-size:0.5rem;font-family:'Syne Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;line-height:1;}
   .sb-submit-btn::after{content:'A NODE';font-size:0.5rem;font-family:'Syne Mono',monospace;letter-spacing:0.1em;text-transform:uppercase;line-height:1;}
   .sb-contact-wrap{display:none !important;}
   .nodes-panel-search{display:none !important;}
-  .trial-counter--views{display:none !important;}
+
   .tour-relaunch{display:none !important;}
   .pathbtn{display:none !important;}
   .pathbar{display:none !important;}

@@ -4009,12 +4009,10 @@ export default function App() {
             title="Chat"
             style={{ fontSize: '0.7rem', letterSpacing: '0.06em', padding: '0 8px', fontFamily: 'inherit' }}
           >CHAT</button>
-          <button className="trial-counter" onClick={() => setPaywallOpen(true)}>♥ support the archive</button>
-          {!unlocked && (
-            <span className="trial-counter trial-counter--views" onClick={() => setPaywallOpen(true)}>
-              {`${Math.max(0, TRIAL_LIMIT - trialCount)} views`}
-            </span>
-          )}
+          <button className="trial-counter support-btn" onClick={() => setPaywallOpen(true)}>
+            <span className="support-btn-label">♥ support the archive</span>
+            {!unlocked && <span className="support-btn-views">{Math.max(0, TRIAL_LIMIT - trialCount)} free views left</span>}
+          </button>
           <div className="sb-submit-wrap">
             <button className="trial-counter sb-submit-btn" onClick={e => { e.stopPropagation(); setSubmitOpen(o => !o); }}>submit a node</button>
           </div>
