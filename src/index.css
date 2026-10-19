@@ -1819,12 +1819,17 @@ path.eg.dim{opacity:0}
     box-sizing:border-box;
     overscroll-behavior:contain;
     -webkit-overflow-scrolling:touch;
-    background:color-mix(in srgb, var(--tb-bg) 75%, transparent);
-    -webkit-backdrop-filter:blur(20px) saturate(180%);
-    backdrop-filter:blur(20px) saturate(180%);
+    background:var(--tb-bg);
     border-top:0.5px solid var(--tb-border);
   }
-  .dark .dp-scroll{background:rgba(12,12,16,0.75);}
+  .dark .dp-scroll{background:#0c0c10;}
+  /* Frosted glass — only active when panel is fully open (added via JS after transitionend) */
+  .dp.dp-frosted{
+    -webkit-backdrop-filter:blur(20px) saturate(180%);
+    backdrop-filter:blur(20px) saturate(180%);
+  }
+  .dp.dp-frosted .dp-scroll{background:rgba(255,255,255,0.72);}
+  .dark .dp.dp-frosted .dp-scroll{background:rgba(12,12,16,0.72);}
   .dp::after{content:none;}
   .dp.open{
     transform:translateY(0);
