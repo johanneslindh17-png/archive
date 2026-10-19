@@ -3468,10 +3468,15 @@ export default function App() {
             if (deltaY > 60 && start.scrollTop <= 2) {
               const el = dpRef.current;
               if (el) {
-                el.animate(
-                  [{ transform: 'translateY(0)' }, { transform: 'translateY(100vh)' }],
-                  { duration: 310, easing: 'ease-in', fill: 'forwards' }
-                ).finished.then(() => { el.getAnimations().forEach(a => a.cancel()); closePanel(); });
+                el.style.transform = 'translateY(0)';
+                void el.offsetHeight; // force reflow so browser registers start position
+                el.style.transition = 'transform 0.31s ease-in';
+                el.style.transform = 'translateY(100vh)';
+                setTimeout(() => {
+                  el.style.transition = '';
+                  el.style.transform = '';
+                  closePanel();
+                }, 320);
               } else {
                 closePanel();
               }
