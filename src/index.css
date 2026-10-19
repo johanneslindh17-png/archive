@@ -1818,11 +1818,10 @@ path.eg.dim{opacity:0}
     content:'';
     position:absolute;inset:0;
     background-color:var(--tb-bg);
-    border-top:1px solid var(--tb-border);
+    border-top:0.5px solid var(--tb-border);
     z-index:-1;
     pointer-events:none;
   }
-  .nodebreadcrumb{border-bottom:none !important;}
   .dp.open{
     transform:translateY(0) !important;
     opacity:1 !important;visibility:visible !important;
