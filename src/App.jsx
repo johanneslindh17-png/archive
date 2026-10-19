@@ -1930,6 +1930,20 @@ export default function App() {
   // Scroll info panel to top when a new node is selected
   useEffect(() => { if (selected) dpRef.current?.scrollTo({ top: 0 }); }, [selected]);
 
+  // Non-passive touchstart on the panel: prevent browser gesture handling on
+  // non-scrollable panels so the CSS dp-closing transition plays uninterrupted.
+  useEffect(() => {
+    const el = dpRef.current;
+    if (!el) return;
+    const onTouchStart = (e) => {
+      const scrollable = el.scrollHeight > el.clientHeight + 2;
+      el.style.touchAction = scrollable ? 'pan-y' : 'none';
+      if (!scrollable) e.preventDefault();
+    };
+    el.addEventListener('touchstart', onTouchStart, { passive: false });
+    return () => el.removeEventListener('touchstart', onTouchStart);
+  }, []);
+
   // Row-pack layout for expanded region view — same algorithm as the main page,
   // but columns are cities instead of regions.
   useEffect(() => {
@@ -3466,20 +3480,8 @@ export default function App() {
             if (!start) return;
             const deltaY = e.changedTouches[0].clientY - start.y;
             if (deltaY > 60 && start.scrollTop <= 2) {
-              const el = dpRef.current;
-              if (el) {
-                el.style.transform = 'translateY(0)';
-                void el.offsetHeight; // force reflow so browser registers start position
-                el.style.transition = 'transform 0.31s ease-in';
-                el.style.transform = 'translateY(100vh)';
-                setTimeout(() => {
-                  el.style.transition = '';
-                  el.style.transform = '';
-                  closePanel();
-                }, 320);
-              } else {
-                closePanel();
-              }
+              setDpClosing(true);
+              setTimeout(() => { setDpClosing(false); closePanel(); }, 310);
             }
           }}
         >
