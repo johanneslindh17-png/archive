@@ -1762,6 +1762,7 @@ export default function App() {
   const minimapRectRef = useRef(null);
   const dpSwipeStartRef = useRef(null);
   const dpRef = useRef(null);
+  const dpScrollRef = useRef(null);
   // Create glow layer as a non-React DOM element so React's reconciler never touches it
   useEffect(() => {
     if (!svgGRef.current) return;
@@ -1936,7 +1937,8 @@ export default function App() {
     const el = dpRef.current;
     if (!el) return;
     const onTouchStart = (e) => {
-      const scrollable = el.scrollHeight > el.clientHeight + 2;
+      const sc = dpScrollRef.current;
+      const scrollable = sc ? sc.scrollHeight > sc.clientHeight + 2 : false;
       el.style.touchAction = scrollable ? 'pan-y' : 'none';
       if (!scrollable) e.preventDefault();
     };
@@ -3472,7 +3474,7 @@ export default function App() {
           style={panelStyle}
           onMouseDown={handlePanelDragStart}
           onTouchStart={e => {
-            dpSwipeStartRef.current = { y: e.touches[0].clientY, scrollTop: e.currentTarget.scrollTop };
+            dpSwipeStartRef.current = { y: e.touches[0].clientY, scrollTop: dpScrollRef.current?.scrollTop ?? 0 };
           }}
           onTouchEnd={e => {
             const start = dpSwipeStartRef.current;
@@ -3486,6 +3488,7 @@ export default function App() {
           }}
         >
 
+          <div ref={dpScrollRef} className="dp-scroll">
           {/* Drag indicator — aligned with × button, always pulsing */}
           <div className="dp-move-hint">
             <svg width="18" height="8" viewBox="0 0 18 8" fill="none" className="dp-arrow-blink">
@@ -3831,6 +3834,7 @@ export default function App() {
               ))}
             </div>
           </div>
+          </div>{/* end dp-scroll */}
         );
       })()}
 
