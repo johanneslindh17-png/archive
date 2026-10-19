@@ -3031,8 +3031,8 @@ path.eg.dim{opacity:0}
     z-index:99999;
   }
   .ll-icon{
-    font-size:clamp(1.4rem, 5vh, 2.4rem);
-    color:var(--tb-text-dim);
+    font-size:clamp(4.5rem, 14vh, 7rem);
+    color:var(--tb-text-mid);
     animation:ll-spin 3s ease-in-out infinite;
     line-height:1;
   }
@@ -3046,16 +3046,13 @@ path.eg.dim{opacity:0}
     white-space:nowrap;
     line-height:1;
   }
-  .ll-club{
-    font-weight:400;
-    opacity:0.45;
-  }
+  .ll-club{}
   .ll-hint{
     font-family:'Syne Mono',monospace;
-    font-size:clamp(0.45rem, 1.4vw, 0.65rem);
+    font-size:clamp(0.6rem, 1.8vw, 0.9rem);
     letter-spacing:0.22em;
     text-transform:uppercase;
-    color:var(--tb-text-dim);
+    color:var(--tb-text-mid);
   }
   @keyframes ll-spin{
     0%,65%{ transform:rotate(0deg); }
