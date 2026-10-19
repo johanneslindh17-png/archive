@@ -1813,7 +1813,7 @@ path.eg.dim{opacity:0}
     transition:transform 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, visibility 0.3s ease !important;
   }
   .dp-scroll{
-    position:absolute;inset:0;
+    height:100%;
     overflow-y:auto;
     padding:14px 14px 20px;
     box-sizing:border-box;
