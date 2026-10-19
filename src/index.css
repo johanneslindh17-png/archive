@@ -1739,7 +1739,8 @@ path.eg.dim{opacity:0}
   .wordmark-club{display:inline;}
 
   /* ── Year strip: narrower so more graph is visible ── */
-  .year-strip{width:18px;overflow:visible;}
+  .year-strip{width:18px;overflow:visible;background:rgba(255,255,255,0.72) !important;-webkit-backdrop-filter:blur(12px) saturate(160%);backdrop-filter:blur(12px) saturate(160%);}
+  .dark .year-strip{background:rgba(12,12,16,0.72) !important;}
   .year-label-fixed{writing-mode:vertical-lr;font-size:7px;padding:0;letter-spacing:0;justify-content:center;align-items:center;}
   .year-label-fixed::after{content:'';position:absolute;right:-5px;top:50%;transform:translateY(-50%);width:4px;height:1px;background:var(--tb-border);}
   /* Right strip: hide entirely, nodes don't go there anyway */
