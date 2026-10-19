@@ -1719,6 +1719,9 @@ path.eg.dim{opacity:0}
   /* Nodebreadcrumb: fixed frosted overlay below topbar */
   .nodebreadcrumb{position:fixed !important;top:calc(80px + env(safe-area-inset-top,0px)) !important;left:0 !important;right:0 !important;z-index:1001 !important;background:rgba(255,255,255,0.72) !important;-webkit-backdrop-filter:blur(12px) saturate(160%);backdrop-filter:blur(12px) saturate(160%);}
   .dark .nodebreadcrumb{background:rgba(12,12,16,0.72) !important;}
+  /* Region label: fixed frosted overlay below nodebreadcrumb */
+  .regionlabel{position:fixed !important;top:var(--chrome-h) !important;left:0 !important;right:0 !important;z-index:1001 !important;background:rgba(255,255,255,0.72) !important;-webkit-backdrop-filter:blur(12px) saturate(160%);backdrop-filter:blur(12px) saturate(160%);}
+  .dark .regionlabel{background:rgba(12,12,16,0.72) !important;}
   .nbc-more-arrow{background:linear-gradient(to left,rgba(255,255,255,0.72) 50%,transparent);}
   .nbc-more-arrow--left{background:linear-gradient(to right,rgba(255,255,255,0.72) 35%,transparent);}
   .dark .nbc-more-arrow{background:linear-gradient(to left,rgba(12,12,16,0.72) 50%,transparent);}
