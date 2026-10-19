@@ -1746,7 +1746,8 @@ path.eg.dim{opacity:0}
   .right-strip{display:none;}
 
   /* ── Column headers: fixed overlay at bottom of chrome ── */
-  .column-header-strip{display:flex;position:fixed !important;top:var(--chrome-h) !important;left:0 !important;right:0 !important;z-index:50 !important;}
+  .column-header-strip{display:flex;position:fixed !important;top:var(--chrome-h) !important;left:0 !important;right:0 !important;z-index:50 !important;background:rgba(255,255,255,0.72) !important;-webkit-backdrop-filter:blur(12px) saturate(160%);backdrop-filter:blur(12px) saturate(160%);}
+  .dark .column-header-strip{background:rgba(12,12,16,0.72) !important;}
   /* Scroll-hint arrows: left fade + chevron, right fade + chevron */
   .column-header-strip::before,.column-header-strip::after{
     content:'';position:absolute;top:0;bottom:0;width:28px;z-index:3;pointer-events:none;
