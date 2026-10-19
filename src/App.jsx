@@ -3466,15 +3466,18 @@ export default function App() {
             if (!start) return;
             const deltaY = e.changedTouches[0].clientY - start.y;
             if (deltaY > 60 && start.scrollTop <= 2) {
-              requestAnimationFrame(() => {
-                setDpClosing(true);
-                setTimeout(() => { setDpClosing(false); closePanel(); }, 310);
-              });
+              const el = dpRef.current;
+              if (el) {
+                el.animate(
+                  [{ transform: 'translateY(0)' }, { transform: 'translateY(100vh)' }],
+                  { duration: 310, easing: 'ease-in', fill: 'forwards' }
+                ).finished.then(() => { el.getAnimations().forEach(a => a.cancel()); closePanel(); });
+              } else {
+                closePanel();
+              }
             }
           }}
         >
-
-          <div className="dp-bg" aria-hidden="true" />
 
           {/* Drag indicator — aligned with × button, always pulsing */}
           <div className="dp-move-hint">
