@@ -1745,8 +1745,8 @@ path.eg.dim{opacity:0}
   /* Right strip: hide entirely, nodes don't go there anyway */
   .right-strip{display:none;}
 
-  /* ── Column headers: show but compact at overview zoom ── */
-  .column-header-strip{display:flex;position:relative;}
+  /* ── Column headers: fixed overlay at bottom of chrome ── */
+  .column-header-strip{display:flex;position:fixed !important;top:var(--chrome-h) !important;left:0 !important;right:0 !important;z-index:50 !important;}
   /* Scroll-hint arrows: left fade + chevron, right fade + chevron */
   .column-header-strip::before,.column-header-strip::after{
     content:'';position:absolute;top:0;bottom:0;width:28px;z-index:3;pointer-events:none;
