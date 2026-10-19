@@ -838,7 +838,7 @@ export default function App() {
   }
 
   useEffect(() => {
-    if (goingBackRef.current) { goingBackRef.current = false; return; }
+    if (goingBackRef.current) { goingBackRef.current = false; prevSelRef.current = selected; return; }
     if (prevSelRef.current && prevSelRef.current !== selected) {
       setNodeHistory(h => [...h.slice(-29), prevSelRef.current]);
     }
@@ -850,7 +850,10 @@ export default function App() {
     const prev = nodeHistory[nodeHistory.length - 1];
     setNodeHistory(h => h.slice(0, -1));
     goingBackRef.current = true;
-    selectNode(prev);
+    // Bypass selectNode to avoid the toggle-off behaviour when node is still in selectedSet
+    setSelected(prev);
+    setSelectedSet([prev]);
+    window.history.replaceState(null, '', '#node=' + prev);
     scrollToNode(prev, 0.2);
     if (window.innerWidth < 600) centerOnNode(prev, 1.5);
   }
