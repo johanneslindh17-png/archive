@@ -1808,10 +1808,19 @@ path.eg.dim{opacity:0}
     border-top:1px solid var(--tb-border) !important;
     box-shadow:none !important;
     padding:14px 14px 20px !important;
-    background-image:none !important;
+    background:transparent !important;
     /* Slide up from below the breadcrumb */
     transform:translateY(100vh);
     transition:transform 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, visibility 0.3s ease !important;
+  }
+  /* Background on a child pseudo-element so it moves with the transform layer,
+     not rendered at the fixed layout position (iOS Safari compositing quirk) */
+  .dp::after{
+    content:'';
+    position:absolute;inset:0;
+    background-color:var(--tb-bg);
+    z-index:-1;
+    pointer-events:none;
   }
   .dp.open{
     transform:translateY(0) !important;
