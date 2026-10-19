@@ -1706,6 +1706,7 @@ path.eg.dim{opacity:0}
   /* Row-1 buttons: equal width, full row height, clear dividers */
   .yybtn{width:40px;height:40px;margin:0;}
   .colorwrap .colorbtn{width:40px;height:40px;align-self:center;}
+  .colordrop{position:fixed;top:40px;right:0;z-index:1100;}
   .legtrigger{height:40px;width:40px;padding:0;font-size:0.6rem;border-left:1px solid var(--tb-border);display:flex;align-items:center;justify-content:center;}
   /* Hide routes, about, filter on phones — not needed at overview scale */
   .routesbtn{display:none !important;}
