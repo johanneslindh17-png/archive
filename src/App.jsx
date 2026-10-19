@@ -840,7 +840,7 @@ export default function App() {
 
   useEffect(() => {
     if (goingBackRef.current) { goingBackRef.current = false; prevSelRef.current = selected; prevSetRef.current = selectedSet; return; }
-    if (prevSelRef.current && prevSelRef.current !== selected) {
+    if (prevSelRef.current !== selected) {
       const toPush = { selected: prevSelRef.current, selectedSet: prevSetRef.current };
       setNodeHistory(h => [...h.slice(-29), toPush]);
     }
@@ -855,9 +855,13 @@ export default function App() {
     goingBackRef.current = true;
     setSelected(prev.selected);
     setSelectedSet(prev.selectedSet);
-    window.history.replaceState(null, '', '#node=' + prev.selected);
-    if (window.innerWidth < 600) centerOnNode(prev.selected, 1.5);
-    else scrollToNode(prev.selected, 0.2);
+    if (prev.selected) {
+      window.history.replaceState(null, '', '#node=' + prev.selected);
+      if (window.innerWidth < 600) centerOnNode(prev.selected, 1.5);
+      else scrollToNode(prev.selected, 0.2);
+    } else {
+      window.history.replaceState(null, '', location.pathname + location.search);
+    }
   }
 
   function removeFromSet(id) {
@@ -2885,7 +2889,7 @@ export default function App() {
           onClick={goBack}
           disabled={!nodeHistory.length}
           title="Go back"
-        >←</button>
+        ><span className="backbtn-arrow">←</span></button>
 
         {/* Path finder button */}
         <button
