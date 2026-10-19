@@ -421,6 +421,17 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .dark .colordrop-label{ color:#b0b0c8; }
 .dark .colordrop-sub{ color:#404055; }
 
+/* ── Back button ──────────────────────────────────────────────────────────── */
+.backbtn{
+  border:none;background:transparent;padding:0 12px;height:100%;align-self:stretch;
+  cursor:pointer;user-select:none;flex-shrink:0;
+  font-family:'Syne Mono',monospace;font-size:1rem;line-height:1;
+  color:var(--tb-text-mid);transition:color 0.15s;border-right:1px solid var(--tb-border);
+}
+.backbtn:hover:not(:disabled){color:var(--tb-text);}
+.backbtn:disabled{opacity:0.25;cursor:default;}
+.dark .backbtn:disabled{opacity:0.2;}
+
 /* ── Path finder ──────────────────────────────────────────────────────────── */
 .pathbtn{
   border:none;background:transparent;padding:0 14px;height:100%;align-self:stretch;
@@ -1682,7 +1693,7 @@ path.eg.dim{opacity:0}
        Row 1: ELECTRONIC ARCHIVE.  [dark] [color] [?]
        Row 2: full-width search bar
   ── */
-  .topbar{display:grid !important;grid-template-rows:40px 44px;grid-template-columns:1fr auto auto auto;grid-template-areas:"wm yy col leg" "sw sw sw sw";height:84px;padding:0;overflow:hidden;align-items:center;}
+  .topbar{display:grid !important;grid-template-rows:40px 44px;grid-template-columns:1fr auto auto auto auto;grid-template-areas:"wm yy col leg leg" "sw bk nd nd nd";height:84px;padding:0;overflow:hidden;align-items:center;}
   .wordmark{grid-area:wm;width:auto;padding:0 8px;font-size:0.62rem;line-height:1;height:40px;display:flex;flex-direction:row;align-items:center;gap:3px;border-bottom:none;border-right:none;min-width:0;overflow:hidden;}
   .wordmark-line1{display:inline;}
   .yybtn{grid-area:yy;}
@@ -1702,8 +1713,7 @@ path.eg.dim{opacity:0}
   .filterbtn{display:none !important;}
   /* Nodes button: right side of search row, spanning same width as the 3 top buttons */
   .nodesbtn{grid-area:nd;height:44px !important;max-height:44px;align-self:center;overflow:hidden;border-left:1px solid var(--tb-border);border-top:1px solid var(--tb-border);padding:0 14px;font-size:0.55rem;}
-  /* sw takes col 1, nd spans cols 2-4 (same width as yy+col+leg above) */
-  .topbar{grid-template-columns:1fr auto auto auto;grid-template-areas:"wm yy col leg" "sw nd nd nd";}
+  .backbtn{grid-area:bk;height:44px !important;border-top:1px solid var(--tb-border);border-right:none;padding:0 14px;font-size:0.9rem;}
   .sw input{font-size:16px !important;border-left:none;}
   /* Nodes panel: full-width bottom sheet on mobile, sits above statusbar */
   .nodes-panel{position:fixed !important;left:0 !important;right:0 !important;top:118px;bottom:calc(44px + env(safe-area-inset-bottom,0px));width:auto !important;height:auto;border-left:none;border-top:none;border-radius:0;transform:translateY(100vh);z-index:80 !important;}

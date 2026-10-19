@@ -713,6 +713,9 @@ export default function App() {
   const [routeStep, setRouteStep] = useState(0);
   const [nodesOpen, setNodesOpen] = useState(false);
   const [nodeLogOpen, setNodeLogOpen] = useState(false);
+  const [nodeHistory, setNodeHistory] = useState([]);
+  const prevSelRef = useRef(null);
+  const goingBackRef = useRef(false);
   const [nodesTypeFilter, setNodesTypeFilter] = useState('all');
   const [nodesSort, setNodesSort] = useState('label');
   const [nlSearch, setNlSearch] = useState('');
@@ -832,6 +835,24 @@ export default function App() {
       setPinned(null);
       window.history.replaceState(null, '', '#node=' + id);
     }
+  }
+
+  useEffect(() => {
+    if (goingBackRef.current) { goingBackRef.current = false; return; }
+    if (prevSelRef.current && prevSelRef.current !== selected) {
+      setNodeHistory(h => [...h.slice(-29), prevSelRef.current]);
+    }
+    prevSelRef.current = selected;
+  }, [selected]);
+
+  function goBack() {
+    if (!nodeHistory.length) return;
+    const prev = nodeHistory[nodeHistory.length - 1];
+    setNodeHistory(h => h.slice(0, -1));
+    goingBackRef.current = true;
+    selectNode(prev);
+    scrollToNode(prev, 0.2);
+    if (window.innerWidth < 600) centerOnNode(prev, 1.5);
   }
 
   function removeFromSet(id) {
@@ -2852,6 +2873,14 @@ export default function App() {
           )}
         </div>
         <div className="tbsep" />
+
+        {/* Back button */}
+        <button
+          className="backbtn"
+          onClick={goBack}
+          disabled={!nodeHistory.length}
+          title="Go back"
+        >←</button>
 
         {/* Path finder button */}
         <button
