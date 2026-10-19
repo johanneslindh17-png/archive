@@ -1807,19 +1807,17 @@ path.eg.dim{opacity:0}
     border:none !important;
     box-shadow:none !important;
     padding:14px 14px 20px !important;
-    background:transparent !important;
+    background:var(--tb-bg) !important;
     transform:translateY(100vh);
     transition:transform 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, visibility 0.3s ease !important;
   }
+  .dark .dp{background:#0c0c10 !important;}
   .dp::after{
     content:'';
     position:absolute;inset:0;
-    background-color:var(--tb-bg);
     border-top:0.5px solid var(--tb-border);
-    z-index:-1;
     pointer-events:none;
   }
-  .dark .dp::after{background-color:#0c0c10;}
   .dp.open{
     transform:translateY(0) !important;
     opacity:1 !important;visibility:visible !important;
