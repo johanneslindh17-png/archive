@@ -3487,7 +3487,7 @@ export default function App() {
             }
           }}
         >
-
+          <div className="dp-bg" aria-hidden="true" />
           <div ref={dpScrollRef} className="dp-scroll">
           {/* Drag indicator — aligned with × button, always pulsing */}
           <div className="dp-move-hint">

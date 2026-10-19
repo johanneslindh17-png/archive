@@ -1812,7 +1812,17 @@ path.eg.dim{opacity:0}
     transform:translateY(100vh);
     transition:transform 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, visibility 0.3s ease !important;
   }
+  .dp-bg{
+    position:absolute;inset:0;
+    z-index:0;
+    background:var(--tb-bg);
+    border-top:0.5px solid var(--tb-border);
+    pointer-events:none;
+  }
+  .dark .dp-bg{background:#0c0c10;}
   .dp-scroll{
+    position:relative;
+    z-index:1;
     height:100%;
     overflow-y:auto;
     padding:14px 14px 20px;
@@ -1820,15 +1830,7 @@ path.eg.dim{opacity:0}
     overscroll-behavior:contain;
     -webkit-overflow-scrolling:touch;
   }
-  .dp::after{
-    content:'';
-    position:absolute;inset:0;
-    z-index:-1;
-    background:var(--tb-bg);
-    border-top:0.5px solid var(--tb-border);
-    pointer-events:none;
-  }
-  .dark .dp::after{background:#0c0c10;}
+  .dp::after{content:none;}
   .dp.open{
     transform:translateY(0) !important;
     opacity:1 !important;visibility:visible !important;
