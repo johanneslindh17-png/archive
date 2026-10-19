@@ -3621,7 +3621,7 @@ export default function App() {
             if (nodesSort === 'city')   return (a.city||'').localeCompare(b.city||'') || a.label.localeCompare(b.label);
             if (nodesSort === 'year')   return (a.era||0) - (b.era||0) || a.label.localeCompare(b.label);
             if (nodesSort === 'genre')  return (a.genre||'').localeCompare(b.genre||'') || a.label.localeCompare(b.label);
-            if (nodesSort === 'newest') return nodeIndexMap.get(b.id) - nodeIndexMap.get(a.id);
+            if (nodesSort === 'newest') return (b.dateAdded||'').localeCompare(a.dateAdded||'') || nodeIndexMap.get(b.id) - nodeIndexMap.get(a.id);
             return a.label.localeCompare(b.label);
           });
           return (
@@ -3681,29 +3681,40 @@ export default function App() {
                 <span className="npl-count">{filtered.length}</span>
               </div>
               <div className="nodes-panel-list" ref={nodesScrollRef} onScroll={e => { nodesScrollPosRef.current = e.currentTarget.scrollTop; }}>
-                {filtered.map(n => (
-                  <div key={n.id} className="npl-item" onClick={() => {
-                    selectNode(n.id);
-                    if (window.innerWidth < 600) {
-                      centerOnNode(n.id, 1.5);
-                    } else {
-                      scrollToNode(n.id, 0.2);
+                {(() => {
+                  const items = [];
+                  let lastDate = null;
+                  filtered.forEach(n => {
+                    if (nodesSort === 'newest' && n.dateAdded !== lastDate) {
+                      lastDate = n.dateAdded;
+                      items.push(<div key={`dh-${n.dateAdded}`} className="npl-date-header">{n.dateAdded || '—'}</div>);
                     }
-                  }}>
-                    <span className="npl-label">{n.label}</span>
-                    <span className="npl-meta">
-                      <span
-                        className={`npl-type-tag npl-type-${n.type}${nodesSort === 'type' ? ' npl-hl-tag' : ''}`}
-                        style={colorTheme === 'type' ? (() => { const tc = darkMode ? TYPE_COLORS[n.type]?.dark : TYPE_COLORS[n.type]?.light; return tc ? { color: tc.text, background: tc.fill, borderColor: tc.stroke } : undefined; })() : undefined}
-                      >{n.type}</span>
-                      {' '}
-                      {n.city ? <span className={nodesSort === 'city' ? 'npl-hl' : undefined}>{n.city}</span> : null}
-                      {n.city ? ' · ' : ''}
-                      <span className={nodesSort === 'year' ? 'npl-hl' : undefined}>{n.era}</span>
-                      {n.genre && GENRES[n.genre] ? <> · <span className={nodesSort === 'genre' ? 'npl-hl' : undefined}>{GENRES[n.genre].label}</span></> : ''}
-                    </span>
-                  </div>
-                ))}
+                    items.push(
+                      <div key={n.id} className="npl-item" onClick={() => {
+                        selectNode(n.id);
+                        if (window.innerWidth < 600) {
+                          centerOnNode(n.id, 1.5);
+                        } else {
+                          scrollToNode(n.id, 0.2);
+                        }
+                      }}>
+                        <span className="npl-label">{n.label}</span>
+                        <span className="npl-meta">
+                          <span
+                            className={`npl-type-tag npl-type-${n.type}${nodesSort === 'type' ? ' npl-hl-tag' : ''}`}
+                            style={colorTheme === 'type' ? (() => { const tc = darkMode ? TYPE_COLORS[n.type]?.dark : TYPE_COLORS[n.type]?.light; return tc ? { color: tc.text, background: tc.fill, borderColor: tc.stroke } : undefined; })() : undefined}
+                          >{n.type}</span>
+                          {' '}
+                          {n.city ? <span className={nodesSort === 'city' ? 'npl-hl' : undefined}>{n.city}</span> : null}
+                          {n.city ? ' · ' : ''}
+                          <span className={nodesSort === 'year' ? 'npl-hl' : undefined}>{n.era}</span>
+                          {n.genre && GENRES[n.genre] ? <> · <span className={nodesSort === 'genre' ? 'npl-hl' : undefined}>{GENRES[n.genre].label}</span></> : ''}
+                        </span>
+                      </div>
+                    );
+                  });
+                  return items;
+                })()}
               </div>
             </div>
           );

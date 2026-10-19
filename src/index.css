@@ -241,6 +241,9 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .dark .npl-meta{color:#9090b0}
 .npl-hl{color:#444;font-weight:600;}
 .dark .npl-hl{color:#d8d4ce;}
+.npl-date-header{font-family:'Syne Mono',monospace;font-size:0.5rem;letter-spacing:0.1em;text-transform:uppercase;color:#aaa;padding:10px 12px 4px;border-top:1px solid var(--tb-border);margin-top:2px;}
+.dark .npl-date-header{color:#6060a0;}
+.npl-date-header:first-child{border-top:none;margin-top:0;padding-top:4px;}
 .npl-hl-tag{outline:1px solid var(--tb-text-mid) !important;outline-offset:1px;}
 .npl-type-tag{
   display:inline-block;font-size:0.48rem;letter-spacing:0.08em;text-transform:uppercase;
