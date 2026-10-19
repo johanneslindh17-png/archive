@@ -920,10 +920,8 @@ export default function App() {
   // Animated close: slide panel down, then close (mobile only; falls back to instant on desktop)
   function slideClosePanel(onDone) {
     if (window.innerWidth >= 600 || !selected) { closePanel(); onDone?.(); return; }
-    if (dpRef.current) { dpRef.current.style.backdropFilter = 'none'; dpRef.current.style.webkitBackdropFilter = 'none'; }
     flushSync(() => setDpClosing(true));
     setTimeout(() => {
-      if (dpRef.current) { dpRef.current.style.backdropFilter = ''; dpRef.current.style.webkitBackdropFilter = ''; }
       setDpClosing(false);
       setSelected(null);
       window.history.replaceState(null, '', location.pathname + location.search);
@@ -3468,13 +3466,8 @@ export default function App() {
             if (!start) return;
             const deltaY = e.changedTouches[0].clientY - start.y;
             if (deltaY > 60 && start.scrollTop <= 2) {
-              if (dpRef.current) { dpRef.current.style.backdropFilter = 'none'; dpRef.current.style.webkitBackdropFilter = 'none'; }
               setDpClosing(true);
-              setTimeout(() => {
-                if (dpRef.current) { dpRef.current.style.backdropFilter = ''; dpRef.current.style.webkitBackdropFilter = ''; }
-                setDpClosing(false);
-                closePanel();
-              }, 300);
+              setTimeout(() => { setDpClosing(false); closePanel(); }, 300);
             }
           }}
         >

@@ -1808,8 +1808,6 @@ path.eg.dim{opacity:0}
     box-shadow:none !important;
     padding:14px 14px 20px !important;
     background:transparent !important;
-    -webkit-backdrop-filter:blur(14px) saturate(1.15);
-    backdrop-filter:blur(14px) saturate(1.15);
     /* Slide up from below the breadcrumb */
     transform:translateY(100vh);
     transition:transform 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, visibility 0.3s ease !important;
@@ -1831,8 +1829,6 @@ path.eg.dim{opacity:0}
     transform:translateY(100vh) !important;
     opacity:1 !important;
     transition:transform 0.3s ease-in !important;
-    -webkit-backdrop-filter:none !important;
-    backdrop-filter:none !important;
   }
   .dp.left{left:0 !important;right:0 !important;}
   .dp::before{display:none;}
