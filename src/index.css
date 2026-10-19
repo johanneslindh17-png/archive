@@ -1823,11 +1823,7 @@ path.eg.dim{opacity:0}
     border-top:0.5px solid var(--tb-border);
   }
   .dark .dp-scroll{background:#0c0c10;}
-  /* Frosted glass — only active when panel is fully open (added via JS after transitionend) */
-  .dp.dp-frosted{
-    -webkit-backdrop-filter:blur(20px) saturate(180%);
-    backdrop-filter:blur(20px) saturate(180%);
-  }
+  /* Semi-transparent panel — only when fully open (dp-frosted added via JS after transitionend) */
   .dp.dp-frosted .dp-scroll{background:rgba(255,255,255,0.72);}
   .dark .dp.dp-frosted .dp-scroll{background:rgba(12,12,16,0.72);}
   .dp::after{content:none;}
