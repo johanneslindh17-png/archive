@@ -1011,13 +1011,13 @@ export default function App() {
         if (e.propertyName !== 'transform') return;
         dp2.removeEventListener('transitionend', onSlideEnd);
         clip.remove();
-        // Clear inline transform so it doesn't override the !important peek transform
         dp2.style.transform = '';
-        // Force reflow — locks in translateY(calc(100%-76px)) from dp-slide-center !important
-        // as the "from" value before the transition starts
-        void dp2.offsetHeight;
-        // Single render: drop slide class and open together — no intermediate painted frame
-        flushSync(() => { setDpSlide(null); setDpMode('open'); });
+        // Drop slide class synchronously — dp-peek !important now holds peek position
+        flushSync(() => setDpSlide(null));
+        // One RAF: browser paints the settled peek position, then transition starts from there
+        requestAnimationFrame(() => {
+          flushSync(() => setDpMode('open'));
+        });
         scrollToNode(id, 1.0);
         window.history.replaceState(null, '', '#node=' + id);
       };
