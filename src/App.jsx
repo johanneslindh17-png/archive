@@ -3638,7 +3638,7 @@ export default function App() {
             // Peek mode: swipe up = expand, swipe down = close
             if (window.innerWidth < 600 && dpModeRef.current === 'peek') {
               if (wasSwiping) el.classList.remove('dp-swiping');
-              if (deltaY < -40) setDpMode('open');
+              if (deltaY < -40) flushSync(() => setDpMode('open'));
               else if (deltaY > 40) slideClosePanel();
               return;
             }
