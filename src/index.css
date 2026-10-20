@@ -1924,11 +1924,7 @@ path.eg.dim{opacity:0}
   .dp.dp-closing.dp-fast{
     transition:transform 0.3s ease-in !important;
   }
-  /* Peek node-switch: slide left → enter right → slide up */
-  .dp.dp-slide-exit{
-    transform:translateX(-110%) translateY(calc(100% - 76px)) !important;
-    transition:transform 0.24s ease-in !important;
-  }
+  /* Peek node-switch: new panel parks off-screen right, slides in, then up */
   .dp.dp-slide-enter{
     transform:translateX(110%) translateY(calc(100% - 76px)) !important;
     transition:none !important;

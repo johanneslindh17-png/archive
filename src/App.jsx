@@ -832,22 +832,7 @@ export default function App() {
           return;
         }
         if (dpModeRef.current === 'peek') {
-          // Different trail node — slide left, new node enters from right, then slides up
-          const el = dpRef.current;
-          if (!el) return;
-          el.style.transform = '';
-          flushSync(() => setDpSlide('exit'));
-          setTimeout(() => {
-            flushSync(() => { setDpSlide('enter'); setSelected(id); });
-            requestAnimationFrame(() => requestAnimationFrame(() => {
-              setDpSlide('center');
-              setTimeout(() => {
-                flushSync(() => { setDpSlide(null); setDpMode('open'); });
-                scrollToNode(id, 1.0);
-                window.history.replaceState(null, '', '#node=' + id);
-              }, 260);
-            }));
-          }, 260);
+          slidePeekSwitch(id, false);
           return;
         }
         // Panel open or null — switch to this trail node
@@ -865,24 +850,7 @@ export default function App() {
     } else {
       // On mobile in peek mode: slide left, new node enters from right, then opens
       if (window.innerWidth < 600 && dpModeRef.current === 'peek') {
-        const el = dpRef.current;
-        if (el) el.style.transform = '';
-        flushSync(() => setDpSlide('exit'));
-        setTimeout(() => {
-          flushSync(() => {
-            setDpSlide('enter');
-            setSelectedSet(prev => prev.includes(id) ? prev : [...prev, id]);
-            setSelected(id);
-          });
-          requestAnimationFrame(() => requestAnimationFrame(() => {
-            setDpSlide('center');
-            setTimeout(() => {
-              flushSync(() => { setDpSlide(null); setDpMode('open'); });
-              scrollToNode(id, 1.0);
-              window.history.replaceState(null, '', '#node=' + id);
-            }, 260);
-          }));
-        }, 260);
+        slidePeekSwitch(id, true);
         return;
       }
       // Add to trail
@@ -995,6 +963,57 @@ export default function App() {
   // Slide close from peek mode (delegates to regular panel close animation)
   function slideClosePeek() {
     slideClosePanel();
+  }
+
+  // Peek node-switch: clone exits left, new node enters from right simultaneously, then slides up
+  function slidePeekSwitch(id, addToTrail) {
+    const scroll = dpScrollRef.current;
+    const dp = dpRef.current;
+    if (!scroll || !dp) return;
+
+    const dpRect = dp.getBoundingClientRect();
+    const isDark = document.documentElement.classList.contains('dark');
+
+    const clip = document.createElement('div');
+    Object.assign(clip.style, {
+      position: 'fixed',
+      top: dpRect.top + 'px', left: dpRect.left + 'px',
+      width: dpRect.width + 'px', height: dpRect.height + 'px',
+      overflow: 'hidden', zIndex: '86', pointerEvents: 'none',
+      borderRadius: getComputedStyle(dp).borderRadius,
+      background: isDark ? 'rgba(12,12,16,0.72)' : 'rgba(255,255,255,0.72)',
+      backdropFilter: 'blur(12px) saturate(160%)',
+    });
+    document.body.appendChild(clip);
+
+    const clone = scroll.cloneNode(true);
+    Object.assign(clone.style, {
+      position: 'absolute', top: '0', left: '0',
+      width: '100%', height: '100%',
+      transform: 'translateX(0)', transition: 'none', overflowY: 'hidden',
+    });
+    clip.appendChild(clone);
+
+    // Force layout, then start clone exit and new panel enter simultaneously
+    clip.getBoundingClientRect();
+    clone.style.transition = 'transform 0.24s ease-in';
+    clone.style.transform = 'translateX(-110%)';
+
+    // New panel: park off-screen right, load content, then slide in
+    flushSync(() => {
+      setDpSlide('enter');
+      if (addToTrail) setSelectedSet(prev => prev.includes(id) ? prev : [...prev, id]);
+      setSelected(id);
+    });
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      setDpSlide('center');
+      setTimeout(() => {
+        clip.remove();
+        flushSync(() => { setDpSlide(null); setDpMode('open'); });
+        scrollToNode(id, 1.0);
+        window.history.replaceState(null, '', '#node=' + id);
+      }, 260);
+    }));
   }
 
   // Navigate from inside a panel: both panels slide simultaneously (clone exits left, new enters right)
