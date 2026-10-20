@@ -1011,15 +1011,16 @@ export default function App() {
         if (e.propertyName !== 'transform') return;
         dp2.removeEventListener('transitionend', onSlideEnd);
         clip.remove();
-        // Compute peek offset in absolute pixels now, before content changes
-        const peekY = dp2.getBoundingClientRect().height - 76;
-        dp2.style.transform = `translateY(${peekY}px)`;
-        // Commit both state changes; inline px value wins over dp.open CSS → no jump
-        flushSync(() => { setDpSlide(null); setDpMode('open'); });
-        // Clear inline: dp.open CSS (translateY(0)) takes over → 0.55s transition from peek
         dp2.style.transform = '';
-        scrollToNode(id, 1.0);
-        window.history.replaceState(null, '', '#node=' + id);
+        flushSync(() => setDpSlide(null));
+        // Defer to a fresh macrotask — Safari won't start a clean CSS transition
+        // from within a transitionend handler; setTimeout exits that context entirely
+        setTimeout(() => {
+          if (dpRef.current) dpRef.current.style.transform = '';
+          flushSync(() => setDpMode('open'));
+          scrollToNode(id, 1.0);
+          window.history.replaceState(null, '', '#node=' + id);
+        }, 0);
       };
       dp2.addEventListener('transitionend', onSlideEnd);
     }));
