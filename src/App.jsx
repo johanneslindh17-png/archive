@@ -963,32 +963,25 @@ export default function App() {
     clip.appendChild(clone);
     clone.scrollTop = scroll.scrollTop;
 
+    // Start clone exit animation immediately
+    clone.classList.add('dp-slide-out-left');
+
     // Pan map to new node (always move)
     scrollToNode(id, 1.0);
 
-    // Snap real scroll off-screen right, load new content
-    scroll.style.transition = 'none';
-    scroll.style.transform = 'translateX(100%)';
+    // Reset any previous slide-in animation, render new content, start entry animation
+    scroll.classList.remove('dp-slide-in-right');
+    void scroll.offsetHeight; // flush CSS animation state
     flushSync(() => {
       setSelectedSet(prev => prev.includes(id) ? prev : [...prev, id]);
       setSelected(id);
       window.history.replaceState(null, '', '#node=' + id);
     });
-
-    // Double-rAF: ensure browser paints the initial positions before transition fires
-    const ease = 'transform 0.3s cubic-bezier(0.4,0,0.2,1)';
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        clone.style.transition = ease;
-        clone.style.transform = 'translateX(-100%)';
-        scroll.style.transition = ease;
-        scroll.style.transform = '';
-      });
-    });
+    scroll.classList.add('dp-slide-in-right');
 
     setTimeout(() => {
       clip.remove();
-      scroll.style.transition = '';
+      scroll.classList.remove('dp-slide-in-right');
     }, 400);
   }
 
