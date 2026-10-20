@@ -981,7 +981,6 @@ export default function App() {
       width: dpRect.width + 'px', height: dpRect.height + 'px',
       overflow: 'hidden', zIndex: '84', pointerEvents: 'none',
       borderRadius: getComputedStyle(dp).borderRadius,
-      background: isDark ? 'rgba(12,12,16,0.95)' : 'rgba(255,255,255,0.95)',
     });
     document.body.appendChild(clip);
 
@@ -990,6 +989,7 @@ export default function App() {
       position: 'absolute', top: '0', left: '0',
       width: '100%', height: '100%',
       transform: 'translateX(0)', transition: 'none', overflowY: 'hidden',
+      background: isDark ? 'rgba(12,12,16,0.95)' : 'rgba(255,255,255,0.95)',
     });
     clip.appendChild(clone);
 
