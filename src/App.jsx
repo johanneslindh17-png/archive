@@ -934,33 +934,59 @@ export default function App() {
     }, 310);
   }
 
-  // Navigate from inside a panel: content slides left out, new content slides in from right
+  // Navigate from inside a panel: both panels slide simultaneously (clone exits left, new enters right)
   function selectNodeFromPanel(id) {
-    if (window.innerWidth >= 600) { selectNode(id); scrollToNode(id, 0.2); return; }
+    if (window.innerWidth >= 600) { selectNode(id); scrollToNode(id, 1.0); return; }
     const scroll = dpScrollRef.current;
-    if (!scroll) { selectNode(id); return; }
+    const dp = dpRef.current;
+    if (!scroll || !dp) { selectNode(id); return; }
 
-    // Exit: slide current content out to the left
-    scroll.style.transition = 'transform 0.3s cubic-bezier(0.4,0,0.2,1)';
-    scroll.style.transform = 'translateX(-100%)';
+    const dpRect = dp.getBoundingClientRect();
+    const isDark = document.documentElement.classList.contains('dark');
 
-    // Pan the map to the new node behind the panel
-    scrollToNode(id, 0.2);
+    // Clip container sized to the dp panel — prevents clone from bleeding outside
+    const clip = document.createElement('div');
+    Object.assign(clip.style, {
+      position: 'fixed', top: dpRect.top + 'px', left: dpRect.left + 'px',
+      width: dpRect.width + 'px', height: dpRect.height + 'px',
+      overflow: 'hidden', zIndex: '200', pointerEvents: 'none',
+    });
+    document.body.appendChild(clip);
+
+    // Visual clone of current content placed inside the clip container
+    const clone = scroll.cloneNode(true);
+    Object.assign(clone.style, {
+      position: 'absolute', top: '0', left: '0',
+      width: '100%', height: '100%', overflowY: 'hidden',
+      background: isDark ? 'rgba(12,12,16,0.9)' : 'rgba(255,255,255,0.9)',
+    });
+    clip.appendChild(clone);
+    clone.scrollTop = scroll.scrollTop;
+
+    // Pan map to new node (always move)
+    scrollToNode(id, 1.0);
+
+    // Snap real scroll off-screen right, load new content
+    scroll.style.transition = 'none';
+    scroll.style.transform = 'translateX(100%)';
+    flushSync(() => {
+      setSelectedSet(prev => prev.includes(id) ? prev : [...prev, id]);
+      setSelected(id);
+      window.history.replaceState(null, '', '#node=' + id);
+    });
+
+    // Commit positions, then animate both panels simultaneously
+    clip.getBoundingClientRect();
+    const ease = 'transform 0.3s cubic-bezier(0.4,0,0.2,1)';
+    clone.style.transition = ease;
+    clone.style.transform = 'translateX(-100%)';
+    scroll.style.transition = ease;
+    scroll.style.transform = '';
 
     setTimeout(() => {
-      // Snap off-screen right, load new content, then slide in
-      scroll.style.transition = 'none';
-      scroll.style.transform = 'translateX(100%)';
-      // Navigate directly — never toggle off a node already in the trail
-      flushSync(() => {
-        setSelectedSet(prev => prev.includes(id) ? prev : [...prev, id]);
-        setSelected(id);
-        window.history.replaceState(null, '', '#node=' + id);
-      });
-      scroll.getBoundingClientRect(); // commit snap before re-enabling transition
-      scroll.style.transition = 'transform 0.3s cubic-bezier(0.4,0,0.2,1)';
-      scroll.style.transform = '';
-    }, 300);
+      clip.remove();
+      scroll.style.transition = '';
+    }, 350);
   }
 
   // Clear everything — selection, trail, pin
