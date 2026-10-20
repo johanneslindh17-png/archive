@@ -3741,9 +3741,9 @@ export default function App() {
                 <div className="dp-toprow-meta">
                   <div className="dp-toprow-info">
                     <div className={`dp-pill dp-pill-${selNode.type}`}>{selNode.type}</div>
-                    {(selNode.city || selNode.genre) && (
+                    {(selNode.country || selNode.city || selNode.genre) && (
                       <span className="dp-toprow-place">
-                        {[selNode.city, GENRES[selNode.genre]?.label || selNode.genre].filter(Boolean).join(' · ')}
+                        {[COUNTRIES[selNode.country]?.label || selNode.country, selNode.city, GENRES[selNode.genre]?.label || selNode.genre].filter(Boolean).join(' · ')}
                       </span>
                     )}
                   </div>
@@ -3769,15 +3769,6 @@ export default function App() {
                   <span className="dp-era-val">{selNode.era}</span>
                   <span>{ERA_MAX}</span>
                 </div>
-              </div>
-
-              {/* Meta */}
-              <div className="dp-meta">
-                <div className="dp-meta-row">
-                  <div className="dp-cdot" style={{ background: COUNTRIES[selNode.country]?.color || '#555' }} />
-                  {`${COUNTRIES[selNode.country]?.label || selNode.country} · ${selNode.city || ''}`}
-                </div>
-                <div>{GENRES[selNode.genre]?.label || selNode.genre}</div>
               </div>
 
               {/* Photo / album art fallback */}
