@@ -1924,6 +1924,19 @@ path.eg.dim{opacity:0}
   .dp.dp-closing.dp-fast{
     transition:transform 0.3s ease-in !important;
   }
+  /* Peek node-switch: slide left → enter right → slide up */
+  .dp.dp-slide-exit{
+    transform:translateX(-110%) translateY(calc(100% - 76px)) !important;
+    transition:transform 0.24s ease-in !important;
+  }
+  .dp.dp-slide-enter{
+    transform:translateX(110%) translateY(calc(100% - 76px)) !important;
+    transition:none !important;
+  }
+  .dp.dp-slide-center{
+    transform:translateY(calc(100% - 76px)) !important;
+    transition:transform 0.24s ease-out !important;
+  }
   @keyframes dp-slide-in-right {
     from { transform: translateX(100%); }
     to   { transform: translateX(0); }

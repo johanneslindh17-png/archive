@@ -832,18 +832,26 @@ export default function App() {
           return;
         }
         if (dpModeRef.current === 'peek') {
-          // Different trail node — fast-close peek, then open that node
+          // Different trail node — slide left, new node enters from right, then slides up
           const el = dpRef.current;
-          if (el) { el.style.transform = ''; el.classList.add('dp-fast'); }
-          flushSync(() => setDpClosing(true));
+          if (!el) return;
+          el.style.transform = '';
+          el.classList.add('dp-slide-exit');
           setTimeout(() => {
-            if (el) el.classList.remove('dp-fast');
-            setDpClosing(false);
-            setSelected(id);
-            setDpMode('open');
-            scrollToNode(id, 1.0);
-            window.history.replaceState(null, '', '#node=' + id);
-          }, 320);
+            el.classList.remove('dp-slide-exit');
+            el.classList.add('dp-slide-enter');
+            flushSync(() => setSelected(id));
+            void el.offsetHeight;
+            el.classList.remove('dp-slide-enter');
+            el.classList.add('dp-slide-center');
+            setTimeout(() => {
+              el.classList.remove('dp-slide-center');
+              void el.offsetHeight;
+              flushSync(() => setDpMode('open'));
+              scrollToNode(id, 1.0);
+              window.history.replaceState(null, '', '#node=' + id);
+            }, 260);
+          }, 260);
           return;
         }
         // Panel open or null — switch to this trail node
