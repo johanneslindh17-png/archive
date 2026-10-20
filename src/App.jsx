@@ -823,7 +823,35 @@ export default function App() {
       if (next > TRIAL_LIMIT) { setPaywallOpen(true); return; }
     }
     if (selectedSet.includes(id)) {
-      // Toggle off — remove from trail
+      if (window.innerWidth < 600) {
+        // Mobile: clicking a trail/peek node opens it rather than toggling off
+        if (dpModeRef.current === 'peek' && id === selected) {
+          // Same node currently in peek — just expand
+          flushSync(() => setDpMode('open'));
+          return;
+        }
+        if (dpModeRef.current === 'peek') {
+          // Different trail node — fast-close peek, then open that node
+          const el = dpRef.current;
+          if (el) { el.style.transform = ''; el.classList.add('dp-fast'); }
+          flushSync(() => setDpClosing(true));
+          setTimeout(() => {
+            if (el) el.classList.remove('dp-fast');
+            setDpClosing(false);
+            setSelected(id);
+            setDpMode('open');
+            scrollToNode(id, 1.0);
+            window.history.replaceState(null, '', '#node=' + id);
+          }, 320);
+          return;
+        }
+        // Panel open or null — switch to this trail node
+        setSelected(id);
+        setDpMode('open');
+        window.history.replaceState(null, '', '#node=' + id);
+        return;
+      }
+      // Desktop: toggle off — remove from trail
       const newSet = selectedSet.filter(x => x !== id);
       setSelectedSet(newSet);
       const newActive = newSet.length ? newSet[newSet.length - 1] : null;
