@@ -1735,13 +1735,16 @@ path.eg.dim{opacity:0}
   .dark .nodes-panel{background:rgba(12,12,16,0.72) !important;}
   .nodes-panel.open{transform:translateY(0);}
   .nodes-backdrop{background:rgba(0,0,0,0.3);z-index:18;}
-  /* Node list: column layout — name | type | year | city | genre */
-  .npl-item{display:grid !important;grid-template-columns:minmax(0,1fr) 36px 24px 48px 76px;gap:0 4px;align-items:center;padding:7px 14px;}
+  /* Node list: shared grid — name sizes to widest entry, type/year/city/genre fixed */
+  .nodes-panel-list{display:grid !important;grid-template-columns:max-content 44px 24px 48px 76px;gap:0 4px;}
+  .npl-item{display:contents !important;}
+  .npl-date-header{grid-column:1/-1 !important;}
   .npl-meta{display:none !important;}
-  .npl-label{max-width:none !important;}
-  .npl-mc-type,.npl-mc-year,.npl-mc-city,.npl-mc-genre{display:block;font-family:'Syne Mono',monospace;font-size:0.5rem;color:#888;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:0.03em;text-align:left;border-left:1px solid var(--tb-border);padding-left:5px;}
+  .npl-label{max-width:none !important;padding:7px 0 7px 14px;border-bottom:1px solid var(--tb-border);}
+  .npl-mc-type,.npl-mc-year,.npl-mc-city,.npl-mc-genre{display:block;font-family:'Syne Mono',monospace;font-size:0.5rem;color:#888;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:0.03em;text-align:left;border-left:1px solid var(--tb-border);padding:7px 0 7px 5px;border-bottom:1px solid var(--tb-border);}
   .dark .npl-mc-year,.dark .npl-mc-city,.dark .npl-mc-genre{color:#9090b0;}
-  .npl-mc-type{font-size:0.43rem;padding:1px 3px 1px 5px;}
+  .npl-mc-type{font-size:0.43rem;}
+  .npl-mc-genre{padding-right:14px;}
   /* Archive guide: full-screen bottom sheet on mobile, same as dp/node list */
   .legbox{position:fixed !important;left:0 !important;right:0 !important;top:var(--chrome-h) !important;bottom:calc(44px + env(safe-area-inset-bottom,0px)) !important;width:auto !important;height:auto !important;max-height:none !important;transform:translateY(100vh) !important;opacity:1 !important;border-radius:0 !important;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1) !important;z-index:80 !important;overflow-y:auto !important;}
   .legwrap.open .legbox{transform:translateY(0) !important;}
