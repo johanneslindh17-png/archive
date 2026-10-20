@@ -830,9 +830,13 @@ export default function App() {
       setSelected(newActive);
       if (!newSet.length) { setPinned(null); setPanelOnLeft(false); setPanelX(null); }
     } else {
-      // On mobile in peek mode: peek bar slides down, full panel opens
+      // On mobile in peek mode: expand to full panel for this node
       if (window.innerWidth < 600 && dpModeRef.current === 'peek') {
-        selectNodeFromPeek(id);
+        setSelectedSet(prev => prev.includes(id) ? prev : [...prev, id]);
+        setSelected(id);
+        setDpMode('open');
+        scrollToNode(id, 1.0);
+        window.history.replaceState(null, '', '#node=' + id);
         return;
       }
       // Add to trail
@@ -942,33 +946,9 @@ export default function App() {
     }, 1050);
   }
 
-  // Slide peek bar away and close (swipe down from peek)
+  // Slide close from peek mode (delegates to regular panel close animation)
   function slideClosePeek() {
-    const el = peekBarRef.current;
-    if (el) {
-      el.style.transition = 'transform 0.5s ease-in';
-      el.style.transform = 'translateY(120px)';
-      setTimeout(() => { el.style.transition = ''; el.style.transform = ''; closePanel(); }, 520);
-    } else {
-      closePanel();
-    }
-  }
-
-  // Node tapped on map while in peek mode: peek bar slides down, full panel opens for new node
-  function selectNodeFromPeek(id) {
-    const peekEl = peekBarRef.current;
-    if (peekEl) {
-      peekEl.style.transition = 'transform 0.35s ease-in';
-      peekEl.style.transform = 'translateY(120px)';
-    }
-    setTimeout(() => {
-      if (peekEl) { peekEl.style.transition = ''; peekEl.style.transform = ''; }
-      setSelectedSet(prev => prev.includes(id) ? prev : [...prev, id]);
-      setSelected(id);
-      setDpMode('open');
-      scrollToNode(id, 1.0);
-      window.history.replaceState(null, '', '#node=' + id);
-    }, 300);
+    slideClosePanel();
   }
 
   // Navigate from inside a panel: both panels slide simultaneously (clone exits left, new enters right)
@@ -1015,6 +995,7 @@ export default function App() {
     flushSync(() => {
       setSelectedSet(prev => prev.includes(id) ? prev : [...prev, id]);
       setSelected(id);
+      if (window.innerWidth < 600) setDpMode('open');
       window.history.replaceState(null, '', '#node=' + id);
     });
 
@@ -2067,6 +2048,7 @@ export default function App() {
     const onTouchMove = (e) => {
       const start = dpSwipeStartRef.current;
       if (!start) return;
+      if (dpModeRef.current === 'peek') return; // no drag visual in peek mode
       const sc = dpScrollRef.current;
       if (sc && sc.scrollTop > 2) return; // scrolled into content — not a close gesture
       const deltaY = e.touches[0].clientY - start.y;
@@ -3615,7 +3597,7 @@ export default function App() {
           return (
         <div
           ref={dpRef}
-          className={`dp${(window.innerWidth < 600 ? dpMode === 'open' : !!selected) ? ' open' : ''}${isDragging ? ' dragging' : ''}${panelOnLeft && panelX === null ? ' left' : ''}${dpClosing ? ' dp-closing' : ''}`}
+          className={`dp${(window.innerWidth < 600 ? dpMode === 'open' : !!selected) ? ' open' : ''}${window.innerWidth < 600 && dpMode === 'peek' ? ' dp-peek' : ''}${isDragging ? ' dragging' : ''}${panelOnLeft && panelX === null ? ' left' : ''}${dpClosing ? ' dp-closing' : ''}`}
           style={panelStyle}
           onMouseDown={handlePanelDragStart}
           onTouchStart={e => {
@@ -3628,18 +3610,29 @@ export default function App() {
             const el = dpRef.current;
             const deltaY = e.changedTouches[0].clientY - start.y;
             const wasSwiping = el?.classList.contains('dp-swiping');
-            if (wasSwiping) el.classList.remove('dp-swiping'); // re-enable transition
+
+            // Peek mode: swipe up = expand, swipe down = close
+            if (window.innerWidth < 600 && dpModeRef.current === 'peek') {
+              if (wasSwiping) el.classList.remove('dp-swiping');
+              if (deltaY < -40) setDpMode('open');
+              else if (deltaY > 40) slideClosePanel();
+              return;
+            }
+
+            // Swipe down on mobile → go to peek (CSS transition takes it to peek position)
             if (deltaY > 60 && start.scrollTop <= 2 && window.innerWidth < 600) {
-              // First swipe down on mobile → go to peek (not fully close)
               if (wasSwiping) {
-                el.style.transition = 'margin-top 1s ease-in';
-                el.style.marginTop = window.innerHeight + 'px';
-                setTimeout(() => { el.style.transition = ''; el.style.marginTop = ''; setDpMode('peek'); }, 1050);
-              } else {
-                setDpClosing(true);
-                setTimeout(() => { setDpClosing(false); setDpMode('peek'); }, 1050);
+                el.style.marginTop = ''; // clear while dp-swiping still active (instant, no flash)
+                el.classList.remove('dp-swiping'); // now re-enable transitions
               }
-            } else if (deltaY > 60 && start.scrollTop <= 2) {
+              setDpMode('peek');
+              return;
+            }
+
+            // Re-enable transitions for all other cases
+            if (wasSwiping) el.classList.remove('dp-swiping');
+
+            if (deltaY > 60 && start.scrollTop <= 2) {
               // Desktop swipe → close fully
               if (wasSwiping) {
                 el.style.transition = 'margin-top 1s ease-in';
@@ -3824,32 +3817,6 @@ export default function App() {
           );
         })()}
 
-        {/* Peek bar — mobile only, shown when dpMode === 'peek' */}
-        {window.innerWidth < 600 && dpMode === 'peek' && selected && selNode && (() => {
-          const tc = colorTheme === 'type' ? (darkMode ? TYPE_COLORS[selNode.type]?.dark : TYPE_COLORS[selNode.type]?.light) : null;
-          return (
-            <div
-              ref={peekBarRef}
-              className="dp-peek-bar"
-              onClick={() => setDpMode('open')}
-              onTouchStart={e => { peekSwipeRef.current = { y: e.touches[0].clientY }; }}
-              onTouchEnd={e => {
-                const start = peekSwipeRef.current;
-                peekSwipeRef.current = null;
-                if (!start) return;
-                const delta = e.changedTouches[0].clientY - start.y;
-                if (delta < -40) setDpMode('open');       // swipe up → open
-                else if (delta > 40) slideClosePeek();    // swipe down → close
-              }}
-              style={tc ? { background: tc.fill, borderTopColor: tc.stroke } : undefined}
-            >
-              <div className={`dp-peek-dot dp-peek-dot-${selNode.type}`} style={tc ? { background: tc.stroke } : undefined} />
-              <span className="dp-peek-name">{selNode.label}</span>
-              <span className="dp-peek-year">{selNode.era}</span>
-              <span className="dp-peek-chevron">↑</span>
-            </div>
-          );
-        })()}
 
         {/* Hover tip */}
         {hovNode && (

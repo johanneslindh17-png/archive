@@ -1902,9 +1902,28 @@ path.eg.dim{opacity:0}
     transition:none !important;
   }
   .dp.dp-closing{
-    transform:translateY(100vh);
+    transform:translateY(100vh) !important;
     opacity:1 !important;
     transition:transform 1s ease-in !important;
+  }
+  .dp.dp-peek{
+    transform:translateY(calc(100% - 56px)) !important;
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:all !important;
+  }
+  .dp.dp-peek .dp-toprow{
+    align-items:center !important;
+    margin-bottom:0 !important;
+  }
+  .dp.dp-peek .dp-toprow-meta{
+    padding-top:0 !important;
+    flex-direction:row !important;
+    align-items:center !important;
+    gap:6px !important;
+  }
+  .dp.dp-peek .dp-toprow-meta .dp-pill{
+    display:none !important;
   }
   @keyframes dp-slide-in-right {
     from { transform: translateX(100%); }
