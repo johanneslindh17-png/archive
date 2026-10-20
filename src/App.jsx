@@ -830,9 +830,9 @@ export default function App() {
       setSelected(newActive);
       if (!newSet.length) { setPinned(null); setPanelOnLeft(false); setPanelX(null); }
     } else {
-      // On mobile in peek mode: slide peek bar, stay in peek
+      // On mobile in peek mode: peek bar slides down, full panel opens
       if (window.innerWidth < 600 && dpModeRef.current === 'peek') {
-        selectNodeInPeek(id);
+        selectNodeFromPeek(id);
         return;
       }
       // Add to trail
@@ -954,48 +954,21 @@ export default function App() {
     }
   }
 
-  // Node selected while in peek mode: slide peek bar content, stay in peek
-  function selectNodeInPeek(id) {
-    if (id === selected) { setDpMode('open'); return; }
+  // Node tapped on map while in peek mode: peek bar slides down, full panel opens for new node
+  function selectNodeFromPeek(id) {
     const peekEl = peekBarRef.current;
-    if (!peekEl) {
-      setSelectedSet(prev => prev.includes(id) ? prev : [...prev, id]);
-      setSelected(id);
-      window.history.replaceState(null, '', '#node=' + id);
-      return;
+    if (peekEl) {
+      peekEl.style.transition = 'transform 0.35s ease-in';
+      peekEl.style.transform = 'translateY(120px)';
     }
-    const isDark = document.documentElement.classList.contains('dark');
-    peekEl.style.animation = 'none';
-    peekEl.style.transform = 'translateX(100%)';
-    const rect = peekEl.getBoundingClientRect();
-    const clip = document.createElement('div');
-    Object.assign(clip.style, {
-      position: 'fixed', top: rect.top + 'px', left: '0',
-      width: window.innerWidth + 'px', height: rect.height + 'px',
-      overflow: 'hidden', zIndex: '300', pointerEvents: 'none',
-    });
-    document.body.appendChild(clip);
-    const clone = peekEl.cloneNode(true);
-    Object.assign(clone.style, {
-      position: 'absolute', top: '0', left: '0', width: '100%', height: '100%',
-      background: isDark ? 'rgba(12,12,16,0.95)' : 'rgba(255,255,255,0.95)',
-      animation: 'none', transform: 'none',
-    });
-    clip.appendChild(clone);
-    clip.getBoundingClientRect();
-    clone.style.animation = 'dp-slide-out-left 1s cubic-bezier(0.4,0,0.2,1) both';
-    flushSync(() => {
+    setTimeout(() => {
+      if (peekEl) { peekEl.style.transition = ''; peekEl.style.transform = ''; }
       setSelectedSet(prev => prev.includes(id) ? prev : [...prev, id]);
       setSelected(id);
+      setDpMode('open');
+      scrollToNode(id, 1.0);
       window.history.replaceState(null, '', '#node=' + id);
-    });
-    peekEl.getBoundingClientRect();
-    peekEl.style.animation = 'dp-slide-in-right 1s cubic-bezier(0.4,0,0.2,1) both';
-    setTimeout(() => {
-      clip.remove();
-      peekEl.style.animation = '';
-      peekEl.style.transform = '';
-    }, 1100);
+    }, 300);
   }
 
   // Navigate from inside a panel: both panels slide simultaneously (clone exits left, new enters right)
@@ -1170,22 +1143,25 @@ export default function App() {
       }
     }
 
-    // Only move vertically — x stays exactly where it is.
-    const x1 = live.x;
+    // Pan both axes so region bar always reflects the target node's region.
     const tyFull = window.innerHeight * 0.30 - p.y * k1;
-    const y1 = live.y + (tyFull - live.y) * 1.0;
+    const y1 = live.y + (tyFull - live.y) * centerFactor;
+    // Update x only enough to keep node horizontally visible (centre on node when centerFactor = 1).
+    const txFull = window.innerWidth * 0.5 - p.x * k1;
+    const x1 = live.x + (txFull - live.x) * centerFactor;
     const target = d3.zoomIdentity.translate(x1, y1).scale(k1);
     positionPanel(id, target);
 
-    const x0 = live.x, y0 = live.y, k0 = live.k;
+    const x0 = live.x, y0 = live.y;
     animatingRef.current = true;
     d3.select(svgRef.current)
       .transition().duration(480).ease(d3.easeCubicOut)
       .tween('scroll-to-node', () => t => {
-        const y  = y0 + (y1 - y0) * t;
-        svgRef.current.__zoom = d3.zoomIdentity.translate(x1, y).scale(k1);
+        const x = x0 + (x1 - x0) * t;
+        const y = y0 + (y1 - y0) * t;
+        svgRef.current.__zoom = d3.zoomIdentity.translate(x, y).scale(k1);
         if (svgGRef.current)
-          svgGRef.current.style.transform = `translate(${x1}px,${y}px) scale(${k1})`;
+          svgGRef.current.style.transform = `translate(${x}px,${y}px) scale(${k1})`;
       })
       .on('end', () => {
         animatingRef.current = false;
