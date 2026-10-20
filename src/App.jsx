@@ -1867,8 +1867,7 @@ export default function App() {
     const _iw = window.innerWidth;
     const _isTouch = window.matchMedia('(pointer:coarse)').matches;
     const _isPhone = _iw < 600 && _isTouch;
-    const _bezel = (_iw >= 600 && _iw <= 1400 && _isTouch) ? 68 : 0;
-    const _fitK = (_iw - _bezel) / W;
+    const _fitK = _iw / W;
     // Use screen width (not window width) for the initial scale so nodes
     // always render at the same size regardless of window size at load time.
     const _screenK = Math.max(window.screen.width / W, 1.0);
