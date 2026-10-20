@@ -1011,11 +1011,12 @@ export default function App() {
         if (e.propertyName !== 'transform') return;
         dp2.removeEventListener('transitionend', onSlideEnd);
         clip.remove();
-        // Step 1: drop slide class — dp-peek still holds peek position
+        // Drop slide class — dp-peek still holds peek position
         flushSync(() => setDpSlide(null));
-        // Force reflow so browser locks in peek as the transition start point
+        // Clear any inline transform (set by onTransitionEnd from prior open) so it
+        // doesn't override dp-peek and cause an instant jump instead of a transition
+        dp2.style.transform = '';
         void dp2.offsetHeight;
-        // Step 2: open — browser now transitions cleanly from peek to open
         flushSync(() => setDpMode('open'));
         scrollToNode(id, 1.0);
         window.history.replaceState(null, '', '#node=' + id);
