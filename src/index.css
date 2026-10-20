@@ -1878,8 +1878,10 @@ path.eg.dim{opacity:0}
     background:rgba(255,255,255,0.72) !important;
     -webkit-backdrop-filter:blur(12px) saturate(160%);
     backdrop-filter:blur(12px) saturate(160%);
+    opacity:1 !important;
+    visibility:visible !important;
     transform:translateY(100vh);
-    transition:transform 1s cubic-bezier(0.4,0,0.2,1), margin-top 1s cubic-bezier(0.4,0,0.2,1), opacity 1s ease, visibility 1s ease !important;
+    transition:transform 1s cubic-bezier(0.4,0,0.2,1), margin-top 1s cubic-bezier(0.4,0,0.2,1) !important;
   }
   .dark .dp{background:rgba(12,12,16,0.72) !important;}
   .dp-scroll{
@@ -1908,10 +1910,12 @@ path.eg.dim{opacity:0}
   }
   .dp.dp-peek{
     /* Stop just below the title: 10px scroll-padding + 10px meta-padding + ~18px pill + 8px gap + ~23px name + 7px margin = 76px */
-    transform:translateY(calc(100% - 76px)) !important;
-    opacity:1 !important;
-    visibility:visible !important;
+    transform:translateY(calc(100% - 76px));
     pointer-events:all !important;
+  }
+  .dp.dp-peek .dp-scroll{
+    overflow-y:hidden !important;
+    touch-action:none !important;
   }
   @keyframes dp-slide-in-right {
     from { transform: translateX(100%); }

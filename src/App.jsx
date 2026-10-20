@@ -830,13 +830,19 @@ export default function App() {
       setSelected(newActive);
       if (!newSet.length) { setPinned(null); setPanelOnLeft(false); setPanelX(null); }
     } else {
-      // On mobile in peek mode: expand to full panel for this node
+      // On mobile in peek mode: slide peek away, then open new panel
       if (window.innerWidth < 600 && dpModeRef.current === 'peek') {
-        setSelectedSet(prev => prev.includes(id) ? prev : [...prev, id]);
-        setSelected(id);
-        setDpMode('open');
-        scrollToNode(id, 1.0);
-        window.history.replaceState(null, '', '#node=' + id);
+        const el = dpRef.current;
+        if (el) el.style.transform = ''; // clear inline so dp-closing CSS wins
+        flushSync(() => setDpClosing(true));
+        setTimeout(() => {
+          setDpClosing(false);
+          setSelectedSet(prev => prev.includes(id) ? prev : [...prev, id]);
+          setSelected(id);
+          setDpMode('open');
+          scrollToNode(id, 1.0);
+          window.history.replaceState(null, '', '#node=' + id);
+        }, 1050);
         return;
       }
       // Add to trail
@@ -2039,6 +2045,12 @@ export default function App() {
     const el = dpRef.current;
     if (!el) return;
     const onTouchStart = (e) => {
+      // In peek mode: no scroll, only swipe gestures
+      if (dpModeRef.current === 'peek') {
+        el.style.touchAction = 'none';
+        if (!e.target.closest('button, a')) e.preventDefault();
+        return;
+      }
       const sc = dpScrollRef.current;
       const scrollable = sc ? sc.scrollHeight > sc.clientHeight + 2 : false;
       el.style.touchAction = scrollable ? 'pan-y' : 'none';
