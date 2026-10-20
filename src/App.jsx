@@ -3741,10 +3741,14 @@ export default function App() {
                 <div className="dp-toprow-meta">
                   <div className="dp-toprow-info">
                     <div className={`dp-pill dp-pill-${selNode.type}`}>{selNode.type}</div>
-                    {(selNode.country || selNode.city || selNode.genre) && (
-                      <span className="dp-toprow-place">
-                        {[COUNTRIES[selNode.country]?.label || selNode.country, selNode.city, GENRES[selNode.genre]?.label || selNode.genre].filter(Boolean).join(' · ')}
-                      </span>
+                    {(COUNTRIES[selNode.country]?.label || selNode.country) && (
+                      <span className="dp-toprow-place">{COUNTRIES[selNode.country]?.label || selNode.country}</span>
+                    )}
+                    {selNode.city && (
+                      <span className="dp-toprow-place">{selNode.city}</span>
+                    )}
+                    {selNode.genre && (
+                      <span className="dp-toprow-place">{GENRES[selNode.genre]?.label || selNode.genre}</span>
                     )}
                   </div>
                   <div className="dp-name">{selNode.label}</div>
