@@ -1011,13 +1011,12 @@ export default function App() {
         if (e.propertyName !== 'transform') return;
         dp2.removeEventListener('transitionend', onSlideEnd);
         clip.remove();
+        // Pin panel at peek via inline style — wins over all non-!important CSS
+        dp2.style.transform = 'translateY(calc(100% - 76px))';
+        // Commit both state changes; inline still holds → no jump during render
+        flushSync(() => { setDpSlide(null); setDpMode('open'); });
+        // Remove inline: dp.open CSS (translateY(0)) takes over → 0.55s transition from peek
         dp2.style.transform = '';
-        // Drop slide class synchronously — dp-peek !important now holds peek position
-        flushSync(() => setDpSlide(null));
-        // One RAF: browser paints the settled peek position, then transition starts from there
-        requestAnimationFrame(() => {
-          flushSync(() => setDpMode('open'));
-        });
         scrollToNode(id, 1.0);
         window.history.replaceState(null, '', '#node=' + id);
       };
