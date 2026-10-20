@@ -836,21 +836,17 @@ export default function App() {
           const el = dpRef.current;
           if (!el) return;
           el.style.transform = '';
-          el.classList.add('dp-slide-exit');
+          flushSync(() => setDpSlide('exit'));
           setTimeout(() => {
-            el.classList.remove('dp-slide-exit');
-            el.classList.add('dp-slide-enter');
-            flushSync(() => setSelected(id));
-            void el.offsetHeight;
-            el.classList.remove('dp-slide-enter');
-            el.classList.add('dp-slide-center');
-            setTimeout(() => {
-              el.classList.remove('dp-slide-center');
-              void el.offsetHeight;
-              flushSync(() => setDpMode('open'));
-              scrollToNode(id, 1.0);
-              window.history.replaceState(null, '', '#node=' + id);
-            }, 260);
+            flushSync(() => { setDpSlide('enter'); setSelected(id); });
+            requestAnimationFrame(() => requestAnimationFrame(() => {
+              setDpSlide('center');
+              setTimeout(() => {
+                flushSync(() => { setDpSlide(null); setDpMode('open'); });
+                scrollToNode(id, 1.0);
+                window.history.replaceState(null, '', '#node=' + id);
+              }, 260);
+            }));
           }, 260);
           return;
         }
@@ -867,24 +863,26 @@ export default function App() {
       setSelected(newActive);
       if (!newSet.length) { setPinned(null); setPanelOnLeft(false); setPanelX(null); }
     } else {
-      // On mobile in peek mode: slide peek away, then open new panel
+      // On mobile in peek mode: slide left, new node enters from right, then opens
       if (window.innerWidth < 600 && dpModeRef.current === 'peek') {
         const el = dpRef.current;
-        if (el) {
-          el.style.transform = ''; // clear inline so dp-closing CSS wins
-          el.classList.add('dp-fast'); // override dp-closing's 1s to 0.3s
-        }
-        flushSync(() => setDpClosing(true));
-        // 320ms = 0.3s animation + 20ms buffer; new panel opens instantly after
+        if (el) el.style.transform = '';
+        flushSync(() => setDpSlide('exit'));
         setTimeout(() => {
-          if (el) el.classList.remove('dp-fast');
-          setDpClosing(false);
-          setSelectedSet(prev => prev.includes(id) ? prev : [...prev, id]);
-          setSelected(id);
-          setDpMode('open');
-          scrollToNode(id, 1.0);
-          window.history.replaceState(null, '', '#node=' + id);
-        }, 320);
+          flushSync(() => {
+            setDpSlide('enter');
+            setSelectedSet(prev => prev.includes(id) ? prev : [...prev, id]);
+            setSelected(id);
+          });
+          requestAnimationFrame(() => requestAnimationFrame(() => {
+            setDpSlide('center');
+            setTimeout(() => {
+              flushSync(() => { setDpSlide(null); setDpMode('open'); });
+              scrollToNode(id, 1.0);
+              window.history.replaceState(null, '', '#node=' + id);
+            }, 260);
+          }));
+        }, 260);
         return;
       }
       // Add to trail
@@ -1610,6 +1608,7 @@ export default function App() {
   const [dpClosing, setDpClosing] = useState(false);
   const [dpScrollSliding, setDpScrollSliding] = useState(false);
   const [dpMode, setDpMode] = useState(null); // null | 'peek' | 'open' — mobile only
+  const [dpSlide, setDpSlide] = useState(null); // 'exit' | 'enter' | 'center' | null
   const dpModeRef = useRef(null); // mirrors dpMode for closures that can't react to state
   useEffect(() => { dpModeRef.current = dpMode; }, [dpMode]);
   const peekBarRef = useRef(null);
@@ -3665,7 +3664,7 @@ export default function App() {
           return (
         <div
           ref={dpRef}
-          className={`dp${(window.innerWidth < 600 ? dpMode === 'open' : !!selected) ? ' open' : ''}${window.innerWidth < 600 && dpMode === 'peek' ? ' dp-peek' : ''}${isDragging ? ' dragging' : ''}${panelOnLeft && panelX === null ? ' left' : ''}${dpClosing ? ' dp-closing' : ''}`}
+          className={`dp${(window.innerWidth < 600 ? dpMode === 'open' : !!selected) ? ' open' : ''}${window.innerWidth < 600 && dpMode === 'peek' ? ' dp-peek' : ''}${isDragging ? ' dragging' : ''}${panelOnLeft && panelX === null ? ' left' : ''}${dpClosing ? ' dp-closing' : ''}${dpSlide ? ` dp-slide-${dpSlide}` : ''}`}
           style={panelStyle}
           onMouseDown={handlePanelDragStart}
           onTouchStart={e => {
