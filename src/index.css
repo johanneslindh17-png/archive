@@ -1736,7 +1736,7 @@ path.eg.dim{opacity:0}
   .nodes-panel.open{transform:translateY(0);}
   .nodes-backdrop{background:rgba(0,0,0,0.3);z-index:18;}
   /* Node list: column layout — name | type | year | city | genre */
-  .npl-item{display:grid !important;grid-template-columns:minmax(0,1fr) 44px 24px 46px 72px;gap:0 4px;align-items:center;padding:7px 14px;}
+  .npl-item{display:grid !important;grid-template-columns:minmax(0,1fr) 36px 24px 48px 76px;gap:0 4px;align-items:center;padding:7px 14px;}
   .npl-meta{display:none !important;}
   .npl-label{max-width:none !important;}
   .npl-mc-type,.npl-mc-year,.npl-mc-city,.npl-mc-genre{display:block;font-family:'Syne Mono',monospace;font-size:0.5rem;color:#888;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:0.03em;text-align:left;border-left:1px solid var(--tb-border);padding-left:5px;}
