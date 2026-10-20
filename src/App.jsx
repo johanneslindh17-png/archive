@@ -981,8 +981,7 @@ export default function App() {
       width: dpRect.width + 'px', height: dpRect.height + 'px',
       overflow: 'hidden', zIndex: '86', pointerEvents: 'none',
       borderRadius: getComputedStyle(dp).borderRadius,
-      background: isDark ? 'rgba(12,12,16,0.72)' : 'rgba(255,255,255,0.72)',
-      backdropFilter: 'blur(12px) saturate(160%)',
+      background: isDark ? 'rgba(12,12,16,0.95)' : 'rgba(255,255,255,0.95)',
     });
     document.body.appendChild(clip);
 

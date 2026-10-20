@@ -1925,14 +1925,6 @@ path.eg.dim{opacity:0}
     transition:transform 0.3s ease-in !important;
   }
   /* Peek node-switch: new panel parks off-screen right, slides in, then up */
-  .dp.dp-slide-enter,.dp.dp-slide-center{
-    backdrop-filter:none !important;
-    -webkit-backdrop-filter:none !important;
-    background:rgba(255,255,255,0.97) !important;
-  }
-  .dark .dp.dp-slide-enter,.dark .dp.dp-slide-center{
-    background:rgba(12,12,16,0.97) !important;
-  }
   .dp.dp-slide-enter{
     transform:translateX(110%) translateY(calc(100% - 76px)) !important;
     transition:none !important;
