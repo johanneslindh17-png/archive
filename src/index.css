@@ -940,7 +940,7 @@ path.eg.dim{opacity:0}
   display:inline-block;font-family:'Syne Mono',monospace;font-size:0.6rem;
   letter-spacing:0.14em;text-transform:uppercase;color:#1da0c3;
   text-decoration:none;padding:5px 10px;border:1px solid #1da0c340;
-  border-radius:3px;transition:background 0.15s, color 0.15s;
+  border-radius:99px;transition:background 0.15s, color 0.15s;
 }
 .dp-bc-link:hover{ background:#1da0c312;color:#0f7a99; }
 .dark .dp-bc-link{ color:#5bc8e0;border-color:#5bc8e040; }
