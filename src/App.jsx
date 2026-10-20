@@ -3671,10 +3671,10 @@ export default function App() {
             const deltaY = e.changedTouches[0].clientY - start.y;
             const wasSwiping = el?.classList.contains('dp-swiping');
 
-            // Peek mode: swipe up = expand, swipe down = close
+            // Peek mode: swipe up = expand, tap = expand, swipe down = close
             if (window.innerWidth < 600 && dpModeRef.current === 'peek') {
-              if (deltaY < -40) {
-                // Clear inline transform so CSS dp.open transition starts from current position
+              if (deltaY < -40 || Math.abs(deltaY) < 10) {
+                // Swipe up or tap — expand to full
                 if (wasSwiping) el.classList.remove('dp-swiping');
                 el.style.transform = '';
                 flushSync(() => setDpMode('open'));
@@ -3682,7 +3682,7 @@ export default function App() {
                 if (wasSwiping) el.classList.remove('dp-swiping');
                 slideClosePanel();
               } else {
-                // Not enough — snap back to peek
+                // Incomplete swipe — snap back to peek
                 if (wasSwiping) el.classList.remove('dp-swiping');
                 el.style.transform = '';
               }
