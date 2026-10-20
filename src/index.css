@@ -1909,6 +1909,7 @@ path.eg.dim{opacity:0}
   .dp.dp-peek{
     /* Stop just below the title: 10px scroll-padding + 10px meta-padding + ~18px pill + 8px gap + ~23px name + 7px margin = 76px */
     transform:translateY(calc(100% - 76px)) !important;
+    opacity:1 !important;visibility:visible !important;
     pointer-events:all !important;
   }
   .dp.dp-peek .dp-scroll{
