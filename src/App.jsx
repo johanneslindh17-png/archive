@@ -3739,7 +3739,14 @@ export default function App() {
             <>
               <div className="dp-toprow">
                 <div className="dp-toprow-meta">
-                  <div className={`dp-pill dp-pill-${selNode.type}`}>{selNode.type}</div>
+                  <div className="dp-toprow-info">
+                    <div className={`dp-pill dp-pill-${selNode.type}`}>{selNode.type}</div>
+                    {(selNode.city || selNode.genre) && (
+                      <span className="dp-toprow-place">
+                        {[selNode.city, GENRES[selNode.genre]?.label || selNode.genre].filter(Boolean).join(' · ')}
+                      </span>
+                    )}
+                  </div>
                   <div className="dp-name">{selNode.label}</div>
                 </div>
                 <button className="dp-close" onClick={() => slideClosePanel()}>×</button>
