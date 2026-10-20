@@ -1882,7 +1882,7 @@ path.eg.dim{opacity:0}
     opacity:1 !important;
     visibility:visible !important;
     transform:translateY(100vh);
-    transition:transform 1s ease-out, margin-top 1s ease-out !important;
+    transition:transform 0.8s ease-out, margin-top 0.8s ease-out !important;
   }
   .dark .dp{background:rgba(12,12,16,0.72) !important;}
   .dp-scroll{
@@ -1918,7 +1918,7 @@ path.eg.dim{opacity:0}
   .dp.dp-closing{
     transform:translateY(100vh) !important;
     opacity:1 !important;
-    transition:transform 1s ease-in !important;
+    transition:transform 0.8s ease-in !important;
   }
   /* Higher specificity (3 classes) overrides dp-closing's 1s — used for fast peek dismissal */
   .dp.dp-closing.dp-fast{
