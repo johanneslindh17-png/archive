@@ -934,6 +934,35 @@ export default function App() {
     }, 310);
   }
 
+  // Navigate from inside a panel: content slides left out, new content slides in from right
+  function selectNodeFromPanel(id) {
+    if (window.innerWidth >= 600) { selectNode(id); scrollToNode(id, 0.2); return; }
+    const scroll = dpScrollRef.current;
+    if (!scroll) { selectNode(id); return; }
+
+    // Exit: slide current content out to the left
+    scroll.style.transition = 'transform 0.3s cubic-bezier(0.4,0,0.2,1)';
+    scroll.style.transform = 'translateX(-100%)';
+
+    // Pan the map to the new node behind the panel
+    scrollToNode(id, 0.2);
+
+    setTimeout(() => {
+      // Snap off-screen right, load new content, then slide in
+      scroll.style.transition = 'none';
+      scroll.style.transform = 'translateX(100%)';
+      // Navigate directly — never toggle off a node already in the trail
+      flushSync(() => {
+        setSelectedSet(prev => prev.includes(id) ? prev : [...prev, id]);
+        setSelected(id);
+        window.history.replaceState(null, '', '#node=' + id);
+      });
+      scroll.getBoundingClientRect(); // commit snap before re-enabling transition
+      scroll.style.transition = 'transform 0.3s cubic-bezier(0.4,0,0.2,1)';
+      scroll.style.transform = '';
+    }, 300);
+  }
+
   // Clear everything — selection, trail, pin
   function clearAll() {
     window.history.replaceState(null, '', location.pathname + location.search);
@@ -3617,7 +3646,7 @@ export default function App() {
               })()}
 
               {/* Description */}
-              <div className="dp-desc">{renderDesc(selNode.desc, selNode.id, id => { selectNode(id); scrollToNode(id); })}</div>
+              <div className="dp-desc">{renderDesc(selNode.desc, selNode.id, id => { selectNodeFromPanel(id); })}</div>
 
               {/* Bandcamp + Spotify + Share */}
               <div className="dp-bandcamp">
@@ -3675,12 +3704,7 @@ export default function App() {
                         <div className="dp-sec">{label} <span className="dp-sec-count">{group.length}</span></div>
                         {group.map(c => (
                           <div key={c.node.id} className="dp-conn" onClick={() => {
-                            if (window.innerWidth < 600) {
-                              const nid = c.node.id;
-                              slideClosePanel(() => { setPinned(nid); centerOnNode(nid, 1.5); });
-                            } else {
-                              selectNode(c.node.id); scrollToNode(c.node.id, 0.2);
-                            }
+                            selectNodeFromPanel(c.node.id);
                           }}>
                             <div className="dp-conn-dot" style={{ background: COUNTRIES[c.node.country]?.color || '#555' }} />
                             <div className="dp-conn-info">
