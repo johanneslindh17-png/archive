@@ -2780,8 +2780,8 @@ export default function App() {
             selectNode(null);
             setPanelOnLeft(false);
             setPanelX(null);
-          } else if (selectedSet.includes(n.id) && n.id !== selected) {
-            // Already in set but not active — switch to it without closing
+          } else if (selectedSet.includes(n.id) && n.id !== selected && window.innerWidth >= 600) {
+            // Desktop: already in set but not active — switch tab without closing panel
             jumpToTab(n.id);
           } else {
             if (!selectedSet.includes(n.id)) {
