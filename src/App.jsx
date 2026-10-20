@@ -992,6 +992,7 @@ export default function App() {
       background: isDark ? 'rgba(12,12,16,0.95)' : 'rgba(255,255,255,0.95)',
     });
     clip.appendChild(clone);
+    clone.scrollTop = scroll.scrollTop;
 
     // Force layout, then start clone exit and new panel enter simultaneously
     clip.getBoundingClientRect();
