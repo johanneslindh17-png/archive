@@ -1959,6 +1959,8 @@ path.eg.dim{opacity:0}
   .dp-toprow-place{font-family:'Syne Mono',monospace;font-size:0.48rem;letter-spacing:0.06em;color:var(--tb-text-mid);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;}
   .dark .dp-toprow-place{color:#7070a0;}
   .dp-toprow-meta .dp-name{font-size:1.2rem;margin-bottom:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .dp-toprow-meta .dp-name.dp-name-sm{font-size:1.0rem !important;}
+  .dp-toprow-meta .dp-name.dp-name-xs{font-size:0.85rem !important;}
   .dp-pill-below,.dp-name-below{display:none !important;}
   .nodes-panel-close{width:32px;height:32px;padding:0;display:flex;align-items:center;justify-content:center;background:var(--tb-bg);border:1px solid var(--tb-border) !important;border-radius:2px;box-shadow:0 1px 6px rgba(0,0,0,0.18);font-size:0.9rem;}
   .dp-move-hint{display:none;}

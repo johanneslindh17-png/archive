@@ -1218,6 +1218,14 @@ export default function App() {
         svgRef.current.__zoom = d3.zoomIdentity.translate(x, y).scale(k1);
         if (svgGRef.current)
           svgGRef.current.style.transform = `translate(${x}px,${y}px) scale(${k1})`;
+        if (colHeaderRef.current) {
+          const w = window.innerWidth;
+          colHeaderRef.current.querySelectorAll('[data-region]').forEach(el => {
+            const sx = Number(el.dataset.svgx) * k1 + x;
+            el.style.left = sx + 'px';
+            el.style.visibility = (sx < -300 || sx > w + 300) ? 'hidden' : '';
+          });
+        }
       })
       .on('end', () => {
         animatingRef.current = false;
@@ -1249,6 +1257,14 @@ export default function App() {
         if (svgGRef.current)
           svgGRef.current.style.transform = `translate(${x}px,${y}px) scale(${k})`;
         document.documentElement.style.setProperty('--tf-k', k);
+        if (colHeaderRef.current) {
+          const w = window.innerWidth;
+          colHeaderRef.current.querySelectorAll('[data-region]').forEach(el => {
+            const sx = Number(el.dataset.svgx) * k + x;
+            el.style.left = sx + 'px';
+            el.style.visibility = (sx < -300 || sx > w + 300) ? 'hidden' : '';
+          });
+        }
       })
       .on('end', () => {
         animatingRef.current = false;
@@ -3775,6 +3791,7 @@ export default function App() {
             <>
               <div className="dp-toprow">
                 <div className="dp-toprow-meta">
+                  <div className={`dp-name${selNode.label.length > 24 ? ' dp-name-sm' : ''}${selNode.label.length > 32 ? ' dp-name-xs' : ''}`}>{selNode.label}</div>
                   <div className="dp-toprow-info">
                     <div className={`dp-pill dp-pill-${selNode.type}`}>{selNode.type}</div>
                     {(COUNTRIES[selNode.country]?.label || selNode.country) && <>
@@ -3790,7 +3807,6 @@ export default function App() {
                       <span className="dp-toprow-place">{GENRES[selNode.genre]?.label || selNode.genre}</span>
                     </>}
                   </div>
-                  <div className="dp-name">{selNode.label}</div>
                 </div>
                 <button className="dp-close" onClick={() => slideClosePanel()}>×</button>
               </div>
