@@ -979,7 +979,7 @@ export default function App() {
     setTimeout(() => {
       clip.remove();
       setDpScrollSliding(false);
-    }, 400);
+    }, 1600);
   }
 
   // Clear everything — selection, trail, pin
