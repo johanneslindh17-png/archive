@@ -954,7 +954,7 @@ export default function App() {
       window.history.replaceState(null, '', location.pathname + location.search);
       if (returnToNodesRef.current) { returnToNodesRef.current = false; setNodesOpen(true); }
       onDone?.();
-    }, 850);
+    }, 600);
   }
 
   // Slide close from peek mode (delegates to regular panel close animation)
@@ -3658,12 +3658,12 @@ export default function App() {
             if (deltaY > 60 && start.scrollTop <= 2) {
               // Desktop swipe → close fully
               if (wasSwiping) {
-                el.style.transition = 'margin-top 0.8s ease-in';
+                el.style.transition = 'margin-top 0.55s ease-in';
                 el.style.marginTop = window.innerHeight + 'px';
-                setTimeout(() => { closePanel(); }, 850);
+                setTimeout(() => { closePanel(); }, 600);
               } else {
                 setDpClosing(true);
-                setTimeout(() => { setDpClosing(false); closePanel(); }, 850);
+                setTimeout(() => { setDpClosing(false); closePanel(); }, 600);
               }
             } else if (wasSwiping) {
               // Snap back: clear drag offset so CSS .dp.open (translateY 0) can re-assert
