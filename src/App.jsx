@@ -830,10 +830,16 @@ export default function App() {
       setSelected(newActive);
       if (!newSet.length) { setPinned(null); setPanelOnLeft(false); setPanelX(null); }
     } else {
+      // On mobile in peek mode: slide peek bar, stay in peek
+      if (window.innerWidth < 600 && dpModeRef.current === 'peek') {
+        selectNodeInPeek(id);
+        return;
+      }
       // Add to trail
       setSelectedSet(prev => [...prev, id]);
       setSelected(id);
       setPinned(null);
+      if (window.innerWidth < 600) setDpMode('open');
       window.history.replaceState(null, '', '#node=' + id);
     }
   }
@@ -915,6 +921,7 @@ export default function App() {
     const el = dpRef.current;
     if (el) { el.style.transform = ''; el.style.marginTop = ''; el.style.transition = ''; }
     setSelected(null);
+    setDpMode(null);
     window.history.replaceState(null, '', location.pathname + location.search);
     if (returnToNodesRef.current) { returnToNodesRef.current = false; setNodesOpen(true); }
   }
@@ -928,10 +935,67 @@ export default function App() {
     setTimeout(() => {
       setDpClosing(false);
       setSelected(null);
+      setDpMode(null);
       window.history.replaceState(null, '', location.pathname + location.search);
       if (returnToNodesRef.current) { returnToNodesRef.current = false; setNodesOpen(true); }
       onDone?.();
     }, 1050);
+  }
+
+  // Slide peek bar away and close (swipe down from peek)
+  function slideClosePeek() {
+    const el = peekBarRef.current;
+    if (el) {
+      el.style.transition = 'transform 0.5s ease-in';
+      el.style.transform = 'translateY(120px)';
+      setTimeout(() => { el.style.transition = ''; el.style.transform = ''; closePanel(); }, 520);
+    } else {
+      closePanel();
+    }
+  }
+
+  // Node selected while in peek mode: slide peek bar content, stay in peek
+  function selectNodeInPeek(id) {
+    if (id === selected) { setDpMode('open'); return; }
+    const peekEl = peekBarRef.current;
+    if (!peekEl) {
+      setSelectedSet(prev => prev.includes(id) ? prev : [...prev, id]);
+      setSelected(id);
+      window.history.replaceState(null, '', '#node=' + id);
+      return;
+    }
+    const isDark = document.documentElement.classList.contains('dark');
+    peekEl.style.animation = 'none';
+    peekEl.style.transform = 'translateX(100%)';
+    const rect = peekEl.getBoundingClientRect();
+    const clip = document.createElement('div');
+    Object.assign(clip.style, {
+      position: 'fixed', top: rect.top + 'px', left: '0',
+      width: window.innerWidth + 'px', height: rect.height + 'px',
+      overflow: 'hidden', zIndex: '300', pointerEvents: 'none',
+    });
+    document.body.appendChild(clip);
+    const clone = peekEl.cloneNode(true);
+    Object.assign(clone.style, {
+      position: 'absolute', top: '0', left: '0', width: '100%', height: '100%',
+      background: isDark ? 'rgba(12,12,16,0.95)' : 'rgba(255,255,255,0.95)',
+      animation: 'none', transform: 'none',
+    });
+    clip.appendChild(clone);
+    clip.getBoundingClientRect();
+    clone.style.animation = 'dp-slide-out-left 1s cubic-bezier(0.4,0,0.2,1) both';
+    flushSync(() => {
+      setSelectedSet(prev => prev.includes(id) ? prev : [...prev, id]);
+      setSelected(id);
+      window.history.replaceState(null, '', '#node=' + id);
+    });
+    peekEl.getBoundingClientRect();
+    peekEl.style.animation = 'dp-slide-in-right 1s cubic-bezier(0.4,0,0.2,1) both';
+    setTimeout(() => {
+      clip.remove();
+      peekEl.style.animation = '';
+      peekEl.style.transform = '';
+    }, 1100);
   }
 
   // Navigate from inside a panel: both panels slide simultaneously (clone exits left, new enters right)
@@ -999,6 +1063,7 @@ export default function App() {
     if (el) { el.style.transform = ''; el.style.marginTop = ''; }
     window.history.replaceState(null, '', location.pathname + location.search);
     setSelected(null);
+    setDpMode(null);
     setSelectedSet([]);
     setPinned(null);
     setPanelOnLeft(false);
@@ -1539,6 +1604,11 @@ export default function App() {
   const [isDragging, setIsDragging] = useState(false);
   const [dpClosing, setDpClosing] = useState(false);
   const [dpScrollSliding, setDpScrollSliding] = useState(false);
+  const [dpMode, setDpMode] = useState(null); // null | 'peek' | 'open' — mobile only
+  const dpModeRef = useRef(null); // mirrors dpMode for closures that can't react to state
+  useEffect(() => { dpModeRef.current = dpMode; }, [dpMode]);
+  const peekBarRef = useRef(null);
+  const peekSwipeRef = useRef(null);
   const panelXRef = useRef(null);       // live ref so momentum loop reads current value
   const animFrameRef = useRef(null);    // ongoing momentum rAF handle
   const tfRef = useRef({ k: 1, x: 0, y: 0 }); // always-current transform for click handlers
@@ -1998,11 +2068,11 @@ export default function App() {
 
   // Clear any inline transform left by onTransitionEnd ('none') so next open slides from edge
   useLayoutEffect(() => {
-    if (!selected) {
+    if (!selected || dpMode !== 'open') {
       const el = dpRef.current;
       if (el) { el.style.transform = ''; el.style.marginTop = ''; }
     }
-  }, [selected]);
+  }, [selected, dpMode]);
 
   // Non-passive touch listeners on the panel element so we can call preventDefault
   // (React's synthetic touch events are passive and can't prevent browser gestures).
@@ -3569,7 +3639,7 @@ export default function App() {
           return (
         <div
           ref={dpRef}
-          className={`dp${selected ? ' open' : ''}${isDragging ? ' dragging' : ''}${panelOnLeft && panelX === null ? ' left' : ''}${dpClosing ? ' dp-closing' : ''}`}
+          className={`dp${(window.innerWidth < 600 ? dpMode === 'open' : !!selected) ? ' open' : ''}${isDragging ? ' dragging' : ''}${panelOnLeft && panelX === null ? ' left' : ''}${dpClosing ? ' dp-closing' : ''}`}
           style={panelStyle}
           onMouseDown={handlePanelDragStart}
           onTouchStart={e => {
@@ -3583,9 +3653,19 @@ export default function App() {
             const deltaY = e.changedTouches[0].clientY - start.y;
             const wasSwiping = el?.classList.contains('dp-swiping');
             if (wasSwiping) el.classList.remove('dp-swiping'); // re-enable transition
-            if (deltaY > 60 && start.scrollTop <= 2) {
+            if (deltaY > 60 && start.scrollTop <= 2 && window.innerWidth < 600) {
+              // First swipe down on mobile → go to peek (not fully close)
               if (wasSwiping) {
-                // Animate from current finger position to off-screen via marginTop
+                el.style.transition = 'margin-top 1s ease-in';
+                el.style.marginTop = window.innerHeight + 'px';
+                setTimeout(() => { el.style.transition = ''; el.style.marginTop = ''; setDpMode('peek'); }, 1050);
+              } else {
+                setDpClosing(true);
+                setTimeout(() => { setDpClosing(false); setDpMode('peek'); }, 1050);
+              }
+            } else if (deltaY > 60 && start.scrollTop <= 2) {
+              // Desktop swipe → close fully
+              if (wasSwiping) {
                 el.style.transition = 'margin-top 1s ease-in';
                 el.style.marginTop = window.innerHeight + 'px';
                 setTimeout(() => { closePanel(); }, 1050);
@@ -3768,6 +3848,32 @@ export default function App() {
           );
         })()}
 
+        {/* Peek bar — mobile only, shown when dpMode === 'peek' */}
+        {window.innerWidth < 600 && dpMode === 'peek' && selected && selNode && (() => {
+          const tc = colorTheme === 'type' ? (darkMode ? TYPE_COLORS[selNode.type]?.dark : TYPE_COLORS[selNode.type]?.light) : null;
+          return (
+            <div
+              ref={peekBarRef}
+              className="dp-peek-bar"
+              onClick={() => setDpMode('open')}
+              onTouchStart={e => { peekSwipeRef.current = { y: e.touches[0].clientY }; }}
+              onTouchEnd={e => {
+                const start = peekSwipeRef.current;
+                peekSwipeRef.current = null;
+                if (!start) return;
+                const delta = e.changedTouches[0].clientY - start.y;
+                if (delta < -40) setDpMode('open');       // swipe up → open
+                else if (delta > 40) slideClosePeek();    // swipe down → close
+              }}
+              style={tc ? { background: tc.fill, borderTopColor: tc.stroke } : undefined}
+            >
+              <div className={`dp-peek-dot dp-peek-dot-${selNode.type}`} style={tc ? { background: tc.stroke } : undefined} />
+              <span className="dp-peek-name">{selNode.label}</span>
+              <span className="dp-peek-year">{selNode.era}</span>
+              <span className="dp-peek-chevron">↑</span>
+            </div>
+          );
+        })()}
 
         {/* Hover tip */}
         {hovNode && (
