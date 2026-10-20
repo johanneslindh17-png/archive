@@ -979,7 +979,7 @@ export default function App() {
     setTimeout(() => {
       clip.remove();
       setDpScrollSliding(false);
-    }, 1600);
+    }, 400);
   }
 
   // Clear everything — selection, trail, pin
@@ -3860,6 +3860,7 @@ export default function App() {
                         selectNode(n.id);
                         if (window.innerWidth < 600) {
                           centerOnNode(n.id, 1.5);
+                          setNodesOpen(false);
                         } else {
                           scrollToNode(n.id, 0.2);
                         }
