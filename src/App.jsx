@@ -1006,12 +1006,16 @@ export default function App() {
     });
     requestAnimationFrame(() => requestAnimationFrame(() => {
       setDpSlide('center');
-      setTimeout(() => {
+      const dp2 = dpRef.current;
+      const onSlideEnd = (e) => {
+        if (e.propertyName !== 'transform') return;
+        dp2.removeEventListener('transitionend', onSlideEnd);
         clip.remove();
         flushSync(() => { setDpSlide(null); setDpMode('open'); });
         scrollToNode(id, 1.0);
         window.history.replaceState(null, '', '#node=' + id);
-      }, 260);
+      };
+      dp2.addEventListener('transitionend', onSlideEnd);
     }));
   }
 
