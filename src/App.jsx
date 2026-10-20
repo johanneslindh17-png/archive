@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback, useMemo, startTransition, useDeferredValue } from 'react';
+import { useState, useEffect, useLayoutEffect, useRef, useCallback, useMemo, startTransition, useDeferredValue } from 'react';
 import { flushSync } from 'react-dom';
 import { useSunMode } from './hooks/useSunMode.js';
 import { Groovebox } from './Groovebox.jsx';
