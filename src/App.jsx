@@ -931,7 +931,7 @@ export default function App() {
       window.history.replaceState(null, '', location.pathname + location.search);
       if (returnToNodesRef.current) { returnToNodesRef.current = false; setNodesOpen(true); }
       onDone?.();
-    }, 310);
+    }, 1050);
   }
 
   // Navigate from inside a panel: both panels slide simultaneously (clone exits left, new enters right)
@@ -944,7 +944,12 @@ export default function App() {
     const dpRect = dp.getBoundingClientRect();
     const isDark = document.documentElement.classList.contains('dark');
 
-    // Clip container sized to the dp panel — prevents clone from bleeding outside
+    // Park new content off-screen NOW, before React renders new node — no flash at position 0
+    scroll.style.transition = 'none';
+    scroll.style.animation = 'none';
+    scroll.style.transform = 'translateX(100%)';
+
+    // Clip container sized to the dp panel
     const clip = document.createElement('div');
     Object.assign(clip.style, {
       position: 'fixed', top: dpRect.top + 'px', left: dpRect.left + 'px',
@@ -953,33 +958,39 @@ export default function App() {
     });
     document.body.appendChild(clip);
 
-    // Visual clone of current content placed inside the clip container
     const clone = scroll.cloneNode(true);
     Object.assign(clone.style, {
       position: 'absolute', top: '0', left: '0',
       width: '100%', height: '100%', overflowY: 'hidden',
-      background: isDark ? 'rgba(12,12,16,0.9)' : 'rgba(255,255,255,0.9)',
+      background: isDark ? 'rgba(12,12,16,0.95)' : 'rgba(255,255,255,0.95)',
+      willChange: 'transform',
+      animation: 'none', transform: 'none',
     });
     clip.appendChild(clone);
     clone.scrollTop = scroll.scrollTop;
 
-    // Start clone exit animation and pan map simultaneously
-    clone.classList.add('dp-slide-out-left');
+    // Force the clone to paint at position 0 before starting its exit animation
+    clip.getBoundingClientRect();
+    clone.style.animation = 'dp-slide-out-left 1s cubic-bezier(0.4,0,0.2,1) both';
+
     scrollToNode(id, 1.0);
 
-    // Render new content with animation reset, then React state drives the entry animation
     flushSync(() => {
       setSelectedSet(prev => prev.includes(id) ? prev : [...prev, id]);
       setSelected(id);
-      setDpScrollSliding(false); // clear class so React removes it before re-adding
       window.history.replaceState(null, '', '#node=' + id);
     });
-    setDpScrollSliding(true); // React adds dp-slide-in-right — survives any re-render
+
+    // New content is already at translateX(100%) — force reflow then animate in
+    scroll.getBoundingClientRect();
+    scroll.style.animation = 'dp-slide-in-right 1s cubic-bezier(0.4,0,0.2,1) both';
 
     setTimeout(() => {
       clip.remove();
-      setDpScrollSliding(false);
-    }, 400);
+      scroll.style.animation = '';
+      scroll.style.transform = '';
+      scroll.style.transition = '';
+    }, 1100);
   }
 
   // Clear everything — selection, trail, pin
@@ -3576,19 +3587,19 @@ export default function App() {
             if (deltaY > 60 && start.scrollTop <= 2) {
               if (wasSwiping) {
                 // Animate from current finger position to off-screen via marginTop
-                el.style.transition = 'margin-top 0.3s ease-in';
+                el.style.transition = 'margin-top 1s ease-in';
                 el.style.marginTop = window.innerHeight + 'px';
-                setTimeout(() => { closePanel(); }, 310);
+                setTimeout(() => { closePanel(); }, 1050);
               } else {
                 setDpClosing(true);
-                setTimeout(() => { setDpClosing(false); closePanel(); }, 310);
+                setTimeout(() => { setDpClosing(false); closePanel(); }, 1050);
               }
             } else if (wasSwiping) {
               el.style.marginTop = ''; // snap back — CSS transition animates to 0
             }
           }}
         >
-          <div ref={dpScrollRef} className={`dp-scroll${dpScrollSliding ? ' dp-slide-in-right' : ''}`}>
+          <div ref={dpScrollRef} className="dp-scroll">
           {/* Drag indicator — aligned with × button, always pulsing */}
           <div className="dp-move-hint">
             <svg width="18" height="8" viewBox="0 0 18 8" fill="none" className="dp-arrow-blink">
