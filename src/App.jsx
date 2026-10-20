@@ -826,7 +826,8 @@ export default function App() {
       if (window.innerWidth < 600) {
         // Mobile: clicking a trail/peek node opens it rather than toggling off
         if (dpModeRef.current === 'peek' && id === selected) {
-          // Same node currently in peek — just expand
+          // Clear inline transform so CSS dp.open transition runs cleanly from peek position
+          if (dpRef.current) dpRef.current.style.transform = '';
           flushSync(() => setDpMode('open'));
           return;
         }
