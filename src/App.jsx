@@ -1999,7 +1999,10 @@ export default function App() {
       const sc = dpScrollRef.current;
       const scrollable = sc ? sc.scrollHeight > sc.clientHeight + 2 : false;
       el.style.touchAction = scrollable ? 'pan-y' : 'none';
-      if (!scrollable) e.preventDefault();
+      // Don't preventDefault on interactive targets — iOS Safari won't synthesize click events
+      if (!scrollable && !e.target.closest('button, a, .dp-conn, .desc-node-link, .dp-close, .dp-back')) {
+        e.preventDefault();
+      }
     };
     const onTouchMove = (e) => {
       const start = dpSwipeStartRef.current;
