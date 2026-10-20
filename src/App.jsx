@@ -984,15 +984,15 @@ export default function App() {
     });
     document.body.appendChild(clip);
 
+    const scrollY = scroll.scrollTop;
     const clone = scroll.cloneNode(true);
     Object.assign(clone.style, {
-      position: 'absolute', top: '0', left: '0',
-      width: '100%', height: '100%',
+      position: 'absolute', top: -scrollY + 'px', left: '0',
+      width: '100%', height: 'calc(100% + ' + scrollY + 'px)',
       transform: 'translateX(0)', transition: 'none', overflowY: 'hidden',
       background: isDark ? 'rgba(12,12,16,0.95)' : 'rgba(255,255,255,0.95)',
     });
     clip.appendChild(clone);
-    clone.scrollTop = scroll.scrollTop;
 
     // Force layout, then start clone exit and new panel enter simultaneously
     clip.getBoundingClientRect();
@@ -1051,16 +1051,16 @@ export default function App() {
     });
     document.body.appendChild(clip);
 
+    const scrollY = scroll.scrollTop;
     const clone = scroll.cloneNode(true);
     Object.assign(clone.style, {
-      position: 'absolute', top: '0', left: '0',
-      width: '100%', height: '100%', overflowY: 'hidden',
+      position: 'absolute', top: -scrollY + 'px', left: '0',
+      width: '100%', height: 'calc(100% + ' + scrollY + 'px)', overflowY: 'hidden',
       background: isDark ? 'rgba(12,12,16,0.95)' : 'rgba(255,255,255,0.95)',
       willChange: 'transform',
       animation: 'none', transform: 'none',
     });
     clip.appendChild(clone);
-    clone.scrollTop = scroll.scrollTop;
 
     // Force the clone to paint at position 0 before starting its exit animation
     clip.getBoundingClientRect();
