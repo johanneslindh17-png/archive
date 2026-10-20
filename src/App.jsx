@@ -2067,10 +2067,17 @@ export default function App() {
     const onTouchMove = (e) => {
       const start = dpSwipeStartRef.current;
       if (!start) return;
-      if (dpModeRef.current === 'peek') return; // no drag visual in peek mode
+      const deltaY = e.touches[0].clientY - start.y;
+      if (dpModeRef.current === 'peek') {
+        if (deltaY >= 0) return; // downward swipe in peek — no drag visual, just wait for touchEnd
+        // Upward swipe from peek: follow finger live so release feels instant
+        e.preventDefault();
+        el.classList.add('dp-swiping');
+        el.style.transform = `translateY(calc(100% - 76px + ${deltaY}px))`;
+        return;
+      }
       const sc = dpScrollRef.current;
       if (sc && sc.scrollTop > 2) return; // scrolled into content — not a close gesture
-      const deltaY = e.touches[0].clientY - start.y;
       if (deltaY <= 0) return; // swiping up
       e.preventDefault();
       el.classList.add('dp-swiping');
@@ -3637,9 +3644,19 @@ export default function App() {
 
             // Peek mode: swipe up = expand, swipe down = close
             if (window.innerWidth < 600 && dpModeRef.current === 'peek') {
-              if (wasSwiping) el.classList.remove('dp-swiping');
-              if (deltaY < -40) flushSync(() => setDpMode('open'));
-              else if (deltaY > 40) slideClosePanel();
+              if (deltaY < -40) {
+                // Clear inline transform so CSS dp.open transition starts from current position
+                if (wasSwiping) el.classList.remove('dp-swiping');
+                el.style.transform = '';
+                flushSync(() => setDpMode('open'));
+              } else if (deltaY > 40) {
+                if (wasSwiping) el.classList.remove('dp-swiping');
+                slideClosePanel();
+              } else {
+                // Not enough — snap back to peek
+                if (wasSwiping) el.classList.remove('dp-swiping');
+                el.style.transform = '';
+              }
               return;
             }
 
