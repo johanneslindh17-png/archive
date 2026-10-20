@@ -975,22 +975,27 @@ export default function App() {
       window.history.replaceState(null, '', '#node=' + id);
     });
 
-    // Commit positions, then animate both panels simultaneously
-    clip.getBoundingClientRect();
+    // Double-rAF: ensure browser paints the initial positions before transition fires
     const ease = 'transform 0.3s cubic-bezier(0.4,0,0.2,1)';
-    clone.style.transition = ease;
-    clone.style.transform = 'translateX(-100%)';
-    scroll.style.transition = ease;
-    scroll.style.transform = '';
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        clone.style.transition = ease;
+        clone.style.transform = 'translateX(-100%)';
+        scroll.style.transition = ease;
+        scroll.style.transform = '';
+      });
+    });
 
     setTimeout(() => {
       clip.remove();
       scroll.style.transition = '';
-    }, 350);
+    }, 400);
   }
 
   // Clear everything — selection, trail, pin
   function clearAll() {
+    const el = dpRef.current;
+    if (el) { el.style.transform = ''; el.style.marginTop = ''; }
     window.history.replaceState(null, '', location.pathname + location.search);
     setSelected(null);
     setSelectedSet([]);
