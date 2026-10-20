@@ -754,12 +754,20 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 }
 .right-strip{display:none;}
 .year-label-fixed{
-  position:absolute;left:0;right:0;
-  display:flex;align-items:center;justify-content:flex-start;
-  padding:0 5px;font-family:'Syne Mono',monospace;
+  position:absolute;left:4px;
+  display:inline-flex;align-items:center;
+  padding:1px 5px 2px;font-family:'Syne Mono',monospace;
   font-size:10px;font-weight:600;letter-spacing:0.05em;
   color:var(--tb-text-mid);transform:translateY(-50%);
-  white-space:nowrap;
+  white-space:nowrap;border-radius:3px;
+  background:rgba(255,255,255,0.72);
+  -webkit-backdrop-filter:blur(8px) saturate(140%);
+  backdrop-filter:blur(8px) saturate(140%);
+  border:0.5px solid rgba(0,0,0,0.07);
+}
+.dark .year-label-fixed{
+  background:rgba(12,12,16,0.72);
+  border-color:rgba(255,255,255,0.07);
 }
 .year-label-clickable{cursor:pointer;}
 .year-label-clickable:hover{color:var(--tb-text);}
@@ -1742,7 +1750,7 @@ path.eg.dim{opacity:0}
 
   /* ── Year strip: transparent, labels float directly over map ── */
   .year-strip{width:36px;overflow:visible;background:transparent !important;-webkit-backdrop-filter:none !important;backdrop-filter:none !important;}
-  .year-label-fixed{font-size:8px;padding:0 3px;writing-mode:horizontal-tb;}
+  .year-label-fixed{font-size:8px;padding:1px 3px 2px;writing-mode:horizontal-tb;}
   .year-label-fixed::after{content:none;}
   /* Right strip: hide entirely, nodes don't go there anyway */
   .right-strip{display:none;}
