@@ -2023,9 +2023,11 @@ export default function App() {
   // Scroll info panel to top when a new node is selected
   useEffect(() => { if (selected) dpScrollRef.current?.scrollTo({ top: 0 }); }, [selected]);
 
-  // Clear any inline transform left by onTransitionEnd ('none') so next open slides from edge
+  // Clear any inline transform left by onTransitionEnd ('none') so next open slides from edge.
+  // When dpMode is 'peek' we DON'T clear — CSS dp-peek !important overrides the drag transform
+  // directly, giving a seamless swipe-to-peek continuation with no jump.
   useLayoutEffect(() => {
-    if (!selected || dpMode !== 'open') {
+    if (!selected || dpMode === null) {
       const el = dpRef.current;
       if (el) { el.style.transform = ''; el.style.marginTop = ''; }
     }
@@ -2055,7 +2057,12 @@ export default function App() {
       if (deltaY <= 0) return; // swiping up
       e.preventDefault();
       el.classList.add('dp-swiping');
-      el.style.marginTop = deltaY + 'px';
+      // Mobile: use transform so releasing into peek is a seamless CSS transition (no marginTop snap)
+      if (window.innerWidth < 600) {
+        el.style.transform = 'translateY(' + deltaY + 'px)';
+      } else {
+        el.style.marginTop = deltaY + 'px';
+      }
     };
     const onTransitionEnd = (e) => {
       if (e.propertyName !== 'transform') return;
@@ -3619,12 +3626,11 @@ export default function App() {
               return;
             }
 
-            // Swipe down on mobile → go to peek (CSS transition takes it to peek position)
+            // Swipe down on mobile → go to peek.
+            // Remove dp-swiping (re-enable transitions) WITHOUT clearing the drag transform —
+            // CSS .dp-peek !important then picks up from exactly where the drag left off.
             if (deltaY > 60 && start.scrollTop <= 2 && window.innerWidth < 600) {
-              if (wasSwiping) {
-                el.style.marginTop = ''; // clear while dp-swiping still active (instant, no flash)
-                el.classList.remove('dp-swiping'); // now re-enable transitions
-              }
+              if (wasSwiping) el.classList.remove('dp-swiping');
               setDpMode('peek');
               return;
             }
@@ -3643,7 +3649,12 @@ export default function App() {
                 setTimeout(() => { setDpClosing(false); closePanel(); }, 1050);
               }
             } else if (wasSwiping) {
-              el.style.marginTop = ''; // snap back — CSS transition animates to 0
+              // Snap back: clear drag offset so CSS .dp.open (translateY 0) can re-assert
+              if (window.innerWidth < 600) {
+                el.style.transform = ''; // clear mobile drag transform
+              } else {
+                el.style.marginTop = ''; // clear desktop drag marginTop
+              }
             }
           }}
         >
