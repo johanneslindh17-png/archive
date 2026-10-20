@@ -833,16 +833,21 @@ export default function App() {
       // On mobile in peek mode: slide peek away, then open new panel
       if (window.innerWidth < 600 && dpModeRef.current === 'peek') {
         const el = dpRef.current;
-        if (el) el.style.transform = ''; // clear inline so dp-closing CSS wins
+        if (el) {
+          el.style.transform = ''; // clear inline so dp-closing CSS wins
+          el.classList.add('dp-fast'); // override dp-closing's 1s to 0.3s
+        }
         flushSync(() => setDpClosing(true));
+        // 320ms = 0.3s animation + 20ms buffer; new panel opens instantly after
         setTimeout(() => {
+          if (el) el.classList.remove('dp-fast');
           setDpClosing(false);
           setSelectedSet(prev => prev.includes(id) ? prev : [...prev, id]);
           setSelected(id);
           setDpMode('open');
           scrollToNode(id, 1.0);
           window.history.replaceState(null, '', '#node=' + id);
-        }, 1050);
+        }, 320);
         return;
       }
       // Add to trail

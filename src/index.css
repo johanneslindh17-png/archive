@@ -1919,6 +1919,10 @@ path.eg.dim{opacity:0}
     opacity:1 !important;
     transition:transform 1s ease-in !important;
   }
+  /* Higher specificity (3 classes) overrides dp-closing's 1s — used for fast peek dismissal */
+  .dp.dp-closing.dp-fast{
+    transition:transform 0.3s ease-in !important;
+  }
   @keyframes dp-slide-in-right {
     from { transform: translateX(100%); }
     to   { transform: translateX(0); }
