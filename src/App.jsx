@@ -963,25 +963,22 @@ export default function App() {
     clip.appendChild(clone);
     clone.scrollTop = scroll.scrollTop;
 
-    // Start clone exit animation immediately
+    // Start clone exit animation and pan map simultaneously
     clone.classList.add('dp-slide-out-left');
-
-    // Pan map to new node (always move)
     scrollToNode(id, 1.0);
 
-    // Reset any previous slide-in animation, render new content, start entry animation
-    scroll.classList.remove('dp-slide-in-right');
-    void scroll.offsetHeight; // flush CSS animation state
+    // Render new content with animation reset, then React state drives the entry animation
     flushSync(() => {
       setSelectedSet(prev => prev.includes(id) ? prev : [...prev, id]);
       setSelected(id);
+      setDpScrollSliding(false); // clear class so React removes it before re-adding
       window.history.replaceState(null, '', '#node=' + id);
     });
-    scroll.classList.add('dp-slide-in-right');
+    setDpScrollSliding(true); // React adds dp-slide-in-right — survives any re-render
 
     setTimeout(() => {
       clip.remove();
-      scroll.classList.remove('dp-slide-in-right');
+      setDpScrollSliding(false);
     }, 400);
   }
 
@@ -1530,6 +1527,7 @@ export default function App() {
   const [panelX, setPanelX] = useState(null); // null = CSS default (right/left edge)
   const [isDragging, setIsDragging] = useState(false);
   const [dpClosing, setDpClosing] = useState(false);
+  const [dpScrollSliding, setDpScrollSliding] = useState(false);
   const panelXRef = useRef(null);       // live ref so momentum loop reads current value
   const animFrameRef = useRef(null);    // ongoing momentum rAF handle
   const tfRef = useRef({ k: 1, x: 0, y: 0 }); // always-current transform for click handlers
@@ -1987,6 +1985,14 @@ export default function App() {
 
   // Scroll info panel to top when a new node is selected
   useEffect(() => { if (selected) dpScrollRef.current?.scrollTo({ top: 0 }); }, [selected]);
+
+  // Clear any inline transform left by onTransitionEnd ('none') so next open slides from edge
+  useLayoutEffect(() => {
+    if (!selected) {
+      const el = dpRef.current;
+      if (el) { el.style.transform = ''; el.style.marginTop = ''; }
+    }
+  }, [selected]);
 
   // Non-passive touch listeners on the panel element so we can call preventDefault
   // (React's synthetic touch events are passive and can't prevent browser gestures).
@@ -3582,7 +3588,7 @@ export default function App() {
             }
           }}
         >
-          <div ref={dpScrollRef} className="dp-scroll">
+          <div ref={dpScrollRef} className={`dp-scroll${dpScrollSliding ? ' dp-slide-in-right' : ''}`}>
           {/* Drag indicator — aligned with × button, always pulsing */}
           <div className="dp-move-hint">
             <svg width="18" height="8" viewBox="0 0 18 8" fill="none" className="dp-arrow-blink">
