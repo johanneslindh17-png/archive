@@ -1699,7 +1699,11 @@ export default function App() {
   const [dpMode, setDpMode] = useState(null); // null | 'peek' | 'open' — mobile only
   const [dpSlide, setDpSlide] = useState(null); // 'exit' | 'enter' | 'center' | null
   const dpModeRef = useRef(null); // mirrors dpMode for closures that can't react to state
-  useEffect(() => { dpModeRef.current = dpMode; }, [dpMode]);
+  useEffect(() => {
+    dpModeRef.current = dpMode;
+    // Clear inline touch-action left over from peek mode so scroll works immediately
+    if (dpMode === 'open' && dpRef.current) dpRef.current.style.touchAction = '';
+  }, [dpMode]);
   // Only one overlay at a time: opening the panel fully dismisses the node list
   useEffect(() => { if (dpMode === 'open' && window.innerWidth < 600) setNodesOpen(false); }, [dpMode]);
   // Opening the node list minimizes any open panel to peek
