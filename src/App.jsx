@@ -3259,7 +3259,14 @@ export default function App() {
               setNodeLogOpen(false);
               if (nodesScrollRef.current) nodesScrollRef.current.scrollTop = nodesScrollPosRef.current;
               // Minimize any open panel to peek so only one layer shows at a time
-              if (window.innerWidth < 600 && dpModeRef.current === 'open') setDpMode('peek');
+              if (window.innerWidth < 600 && dpModeRef.current === 'open') {
+                if (dpRef.current) {
+                  dpRef.current.style.transition = 'transform 0.45s ease-out';
+                  dpRef.current.style.transform = 'translateY(calc(100% - 76px))';
+                  setTimeout(() => { if (dpRef.current) dpRef.current.style.transition = ''; }, 500);
+                }
+                setDpMode('peek');
+              }
             } else {
               setSearchQ('');
             }
