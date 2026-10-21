@@ -1042,6 +1042,10 @@ export default function App() {
     const dp = dpRef.current;
     if (!scroll || !dp) { selectNode(id); return; }
 
+    // Read scroll position BEFORE any DOM mutations — iOS resets scrollTop when
+    // an element is moved off-screen with transform
+    const scrollY = scroll.scrollTop;
+
     const dpRect = dp.getBoundingClientRect();
     const isDark = document.documentElement.classList.contains('dark');
 
@@ -1058,8 +1062,6 @@ export default function App() {
       overflow: 'hidden', zIndex: '200', pointerEvents: 'none',
     });
     document.body.appendChild(clip);
-
-    const scrollY = scroll.scrollTop;
     const clone = scroll.cloneNode(true);
     Object.assign(clone.style, {
       position: 'absolute', top: '0', left: '0',
