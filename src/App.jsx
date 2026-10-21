@@ -1,5 +1,5 @@
 import { useState, useEffect, useLayoutEffect, useRef, useCallback, useMemo, startTransition, useDeferredValue } from 'react';
-import { flushSync } from 'react-dom';
+import { flushSync, createPortal } from 'react-dom';
 import { useSunMode } from './hooks/useSunMode.js';
 import { Groovebox } from './Groovebox.jsx';
 import { Chat } from './Chat.jsx';
@@ -4411,18 +4411,21 @@ export default function App() {
         {playerListOpen && (() => {
           const playerNodes = NODES.filter(n => n.bandcamp_album);
           const pNode = playerNodes.find(n => n.id === playingNodeId) ?? playerNodes[0];
-          return <>
-            <div className="player-list-backdrop" onClick={() => setPlayerListOpen(false)} />
-            <div className="player-list" style={{ right: playerListPos.right, bottom: playerListPos.bottom }}>
-              {playerNodes.map(n => (
-                <div key={n.id}
-                  className={`player-list-item${n.id === pNode.id ? ' player-list-item--active' : ''}`}
-                  onClick={() => { setPlayingNodeId(n.id); setPlayerListOpen(false); }}>
-                  {n.label}
-                </div>
-              ))}
-            </div>
-          </>;
+          return createPortal(
+            <>
+              <div className="player-list-backdrop" onClick={() => setPlayerListOpen(false)} />
+              <div className="player-list" style={{ right: playerListPos.right, bottom: playerListPos.bottom }}>
+                {playerNodes.map(n => (
+                  <div key={n.id}
+                    className={`player-list-item${n.id === pNode.id ? ' player-list-item--active' : ''}`}
+                    onClick={() => { setPlayingNodeId(n.id); setPlayerListOpen(false); }}>
+                    {n.label}
+                  </div>
+                ))}
+              </div>
+            </>,
+            document.body
+          );
         })()}
         <div className="statusbar-end">
           <button
