@@ -1021,24 +1021,26 @@ export default function App() {
       clone.remove();
       scroll.style.transition = '';
       scroll.style.animation = '';
-      scroll.style.transform = '';
-      setTimeout(() => {
+      // Keep translateX(0) — DO NOT clear it yet. Clearing the inline transform
+      // demotes scroll off its GPU compositing layer; the async layer-merge runs
+      // during dp's upward animation and causes the mid-animation freeze.
+      // We clear it only after dp is fully open.
+      scroll.style.transform = 'translateX(0)';
+      // Two rAFs so the GPU finishes processing the clone removal and any
+      // pending compositing work before dp's animation starts.
+      requestAnimationFrame(() => requestAnimationFrame(() => {
         const dpEl = dpRef.current;
         if (!dpEl) return;
-        // Disable backdrop-filter while dp slides up — blurring a growing area
-        // each frame is expensive on iOS and causes a mid-animation stutter
-        dpEl.style.setProperty('-webkit-backdrop-filter', 'none');
-        dpEl.style.setProperty('backdrop-filter', 'none');
         flushSync(() => setDpMode('open'));
         const onOpenEnd = (ev) => {
           if (ev.propertyName !== 'transform') return;
           dpEl.removeEventListener('transitionend', onOpenEnd);
-          dpEl.style.removeProperty('-webkit-backdrop-filter');
-          dpEl.style.removeProperty('backdrop-filter');
+          // Now dp is fully open and static — safe to demote scroll's layer
+          scroll.style.transform = '';
           scrollToNode(id, 1.0);
         };
         dpEl.addEventListener('transitionend', onOpenEnd);
-      }, 0);
+      }));
     };
     scroll.addEventListener('transitionend', onSlideEnd);
   }
