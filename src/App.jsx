@@ -3595,17 +3595,21 @@ export default function App() {
           </div>
         )}
         {(selectedSet.length > 0 || pinned) && <>
-          <div className="nbc-home" onClick={() => { clearAll(); flyHome(); }}>← ALL NODES</div>
+          <div style={{display:'flex',alignItems:'center',flexShrink:0}}>
+            <div className="nbc-home" onClick={() => { clearAll(); flyHome(); }}>← ALL NODES</div>
+            {selectedSet.length > 1 && <span className="nbc-count">{selectedSet.length}</span>}
+          </div>
           <div className="nbc-sep" />
           <div className="nbc-scroll-wrap">
-            <div ref={nbcScrollRef} className="nbc-tabs-scroll" onScroll={checkNbcMore}>
+            <div ref={nbcScrollRef} className="nbc-tabs-scroll">
               {selectedSet.map(id => {
                 const nd = NODE_BY_ID.get(id);
                 if (!nd) return null;
                 const col = getThemeColors(nd, colorTheme, darkMode)?.stroke;
                 const isActive = id === selected;
                 return (
-                  <div key={`tab-${id}`} className={`nbc-tab${isActive ? ' nbc-tab--active' : ''}`} style={col ? { color: col } : undefined}>
+                  <div key={`tab-${id}`} className={`nbc-tab${isActive ? ' nbc-tab--active' : ''}`}
+                    style={col ? { color: col, background: col + '18' } : undefined}>
                     <span className="nbc-tab-label" onClick={() => jumpToTab(id)}>{nd.label}</span>
                     <button className="nbc-tab-x" onClick={e => { e.stopPropagation(); removeFromSet(id); }}>×</button>
                   </div>
@@ -3615,16 +3619,15 @@ export default function App() {
                 const nd = NODE_BY_ID.get(pinned);
                 const col = nd ? getThemeColors(nd, colorTheme, darkMode)?.stroke : null;
                 return (
-                  <div className="nbc-tab nbc-tab--active" style={col ? { color: col } : undefined}>
+                  <div className="nbc-tab nbc-tab--active"
+                    style={col ? { color: col, background: col + '18' } : undefined}>
                     <span className="nbc-tab-label" onClick={() => jumpToTab(pinned)}>{nd?.label}</span>
                     <button className="nbc-tab-x" onClick={() => clearAll()}>×</button>
                   </div>
                 );
               })()}
             </div>
-            {nbcHasLeft && <div className="nbc-more-arrow nbc-more-arrow--left" onClick={() => nbcScrollRef.current?.scrollBy({ left: -120, behavior: 'smooth' })}>‹</div>}
           </div>
-          {nbcHasMore && <div className="nbc-more-arrow" onClick={() => nbcScrollRef.current?.scrollBy({ left: 120, behavior: 'smooth' })}>›</div>}
         </>}
       </div>
 
