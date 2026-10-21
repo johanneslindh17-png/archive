@@ -1276,7 +1276,7 @@ path.eg.dim{opacity:0}
   position:fixed;inset:0;z-index:299;
 }
 .player-list{
-  position:absolute;bottom:calc(100% + 6px);right:0;
+  position:fixed;
   min-width:200px;max-width:280px;max-height:260px;
   overflow-y:auto;scrollbar-width:thin;
   background:var(--tb-bg);border:1px solid var(--tb-border);

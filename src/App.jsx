@@ -726,6 +726,8 @@ export default function App() {
   const [grooveOpen, setGrooveOpen] = useState(false);
   const [chatOpen,   setChatOpen]   = useState(false);
   const [playerListOpen, setPlayerListOpen] = useState(false);
+  const [playerListPos, setPlayerListPos] = useState({ right: 0, bottom: 0 });
+  const playerListBtnRef = useRef(null);
   const [mapHint, setMapHint] = useState(() => window.innerWidth < 600);
   const [mapHintLeaving, setMapHintLeaving] = useState(false);
   const hintDismissedRef = useRef(false);
@@ -4386,25 +4388,17 @@ export default function App() {
                 />
               </div>
               {playerNodes.length > 1 && (
-                <div style={{position:'relative'}}>
+                <div ref={playerListBtnRef} style={{position:'relative',alignSelf:'stretch',display:'flex'}}>
                   <button className={`player-btn player-btn--list${playerListOpen ? ' player-btn--on' : ''}`}
-                    onClick={() => setPlayerListOpen(v => !v)} title="Playlist">
+                    onClick={() => {
+                      if (!playerListOpen && playerListBtnRef.current) {
+                        const r = playerListBtnRef.current.getBoundingClientRect();
+                        setPlayerListPos({ right: window.innerWidth - r.right, bottom: window.innerHeight - r.top + 6 });
+                      }
+                      setPlayerListOpen(v => !v);
+                    }} title="Playlist">
                     ☰
                   </button>
-                  {playerListOpen && (
-                    <>
-                      <div className="player-list-backdrop" onClick={() => setPlayerListOpen(false)} />
-                      <div className="player-list">
-                        {playerNodes.map(n => (
-                          <div key={n.id}
-                            className={`player-list-item${n.id === pNode.id ? ' player-list-item--active' : ''}`}
-                            onClick={() => { setPlayingNodeId(n.id); setPlayerListOpen(false); }}>
-                            {n.label}
-                          </div>
-                        ))}
-                      </div>
-                    </>
-                  )}
                 </div>
               )}
               <button className="player-btn player-btn--show" onClick={() => { selectNode(pNode.id); scrollToNode(pNode.id); }}>show node</button>
@@ -4414,6 +4408,22 @@ export default function App() {
         })()}
 
         </div>{/* end statusbar-scroll */}
+        {playerListOpen && (() => {
+          const playerNodes = NODES.filter(n => n.bandcamp_album);
+          const pNode = playerNodes.find(n => n.id === playingNodeId) ?? playerNodes[0];
+          return <>
+            <div className="player-list-backdrop" onClick={() => setPlayerListOpen(false)} />
+            <div className="player-list" style={{ right: playerListPos.right, bottom: playerListPos.bottom }}>
+              {playerNodes.map(n => (
+                <div key={n.id}
+                  className={`player-list-item${n.id === pNode.id ? ' player-list-item--active' : ''}`}
+                  onClick={() => { setPlayingNodeId(n.id); setPlayerListOpen(false); }}>
+                  {n.label}
+                </div>
+              ))}
+            </div>
+          </>;
+        })()}
         <div className="statusbar-end">
           <button
             className={`groove-ctrl-btn groove-ctrl-btn--groove${grooveOpen ? ' open' : ''}`}
