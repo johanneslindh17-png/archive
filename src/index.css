@@ -1734,10 +1734,10 @@ path.eg.dim{opacity:0}
   /* Region label: fixed frosted overlay below nodebreadcrumb */
   .regionlabel{position:fixed !important;top:var(--chrome-h) !important;left:0 !important;right:0 !important;z-index:1001 !important;background:rgba(255,255,255,0.72) !important;-webkit-backdrop-filter:blur(12px) saturate(160%);backdrop-filter:blur(12px) saturate(160%);}
   .dark .regionlabel{background:rgba(12,12,16,0.72) !important;}
-  .nbc-more-arrow{background:linear-gradient(to left,rgba(255,255,255,0.72) 0%,transparent 100%);}
-  .nbc-more-arrow--left{background:linear-gradient(to right,rgba(255,255,255,0.72) 0%,transparent 100%);}
-  .dark .nbc-more-arrow{background:linear-gradient(to left,rgba(12,12,16,0.72) 0%,transparent 100%);}
-  .dark .nbc-more-arrow--left{background:linear-gradient(to right,rgba(12,12,16,0.72) 0%,transparent 100%);}
+  .nbc-more-arrow{background:linear-gradient(to left,#fff 0%,rgba(255,255,255,0) 100%);}
+  .nbc-more-arrow--left{background:linear-gradient(to right,#fff 0%,rgba(255,255,255,0) 100%);}
+  .dark .nbc-more-arrow{background:linear-gradient(to left,#0c0c10 0%,rgba(12,12,16,0) 100%);}
+  .dark .nbc-more-arrow--left{background:linear-gradient(to right,#0c0c10 0%,rgba(12,12,16,0) 100%);}
   /* Statusbar: fixed frosted overlay at bottom */
   .statusbar{position:fixed !important;bottom:0 !important;left:0 !important;right:0 !important;z-index:100 !important;background:rgba(255,255,255,0.72) !important;-webkit-backdrop-filter:blur(12px) saturate(160%);backdrop-filter:blur(12px) saturate(160%);}
   .dark .statusbar{background:rgba(12,12,16,0.72) !important;}
