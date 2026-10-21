@@ -1050,8 +1050,9 @@ export default function App() {
 
     const scrollY = scroll.scrollTop;
     const dpRect = dp.getBoundingClientRect();
-    const W = dpRect.width;
-    const H = dpRect.height;
+    const scrollRect = scroll.getBoundingClientRect();
+    const W = scrollRect.width;
+    const H = dpRect.height - (scrollRect.top - dpRect.top);
     const isDark = document.documentElement.classList.contains('dark');
     const bg = isDark ? 'rgba(12,12,16,0.95)' : 'rgba(255,255,255,0.95)';
 
@@ -1088,10 +1089,10 @@ export default function App() {
       overflowY: 'hidden', background: bg, transform: 'none', transition: 'none', animation: 'none',
     });
 
-    // Clip container exactly over the dp panel
+    // Clip container exactly over the scroll area (below the dp header)
     const clip = document.createElement('div');
     Object.assign(clip.style, {
-      position: 'fixed', top: dpRect.top + 'px', left: dpRect.left + 'px',
+      position: 'fixed', top: scrollRect.top + 'px', left: scrollRect.left + 'px',
       width: W + 'px', height: H + 'px',
       overflow: 'hidden', zIndex: '200', pointerEvents: 'none',
     });
