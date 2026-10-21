@@ -981,6 +981,23 @@ path.eg.dim{opacity:0}
 .dark .dp-yt-link{ color:#ff6666;border-color:#ff666640; }
 .dark .dp-yt-link:hover{ background:#ff666612; }
 .dark .dp-spotify-link:hover{ background:#1db95412; }
+
+/* ── B&W strict (level 0) — strip every non-gray color ──────────────── */
+.bw-strict .dp-bc-link,
+.bw-strict .dp-spotify-link,
+.bw-strict .dp-yt-link{ color:var(--tb-text-mid) !important;border-color:var(--tb-border) !important; }
+.bw-strict .dp-bc-link:hover,
+.bw-strict .dp-spotify-link:hover,
+.bw-strict .dp-yt-link:hover{ background:var(--tb-hover) !important;color:var(--tb-text) !important; }
+.bw-strict .dp-conn-dot{ background:var(--tb-text-dim,#bbb) !important; }
+/* Dark mode purple tints → pure gray in bw-strict */
+.dark.bw-strict .nbc-tab{ color:#555 !important; }
+.dark.bw-strict .dp-conn-name{ color:#a0a0a0 !important; }
+.dark.bw-strict .dp-conn-sub{ color:#505050 !important; }
+.dark.bw-strict .dp-sec{ color:#666 !important; }
+.dark.bw-strict .dp-desc{ color:#909090 !important; }
+.dark.bw-strict .dp-release-title{ color:#a0a0a0 !important; }
+
 .dp-conns-wrap{display:flex;flex-direction:column;gap:4px;}
 .dp-sec{
   font-family:'Syne Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;

@@ -1773,6 +1773,7 @@ export default function App() {
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', darkMode);
+    document.documentElement.classList.toggle('bw-strict', colorTheme === null);
     document.documentElement.classList.toggle('colorful-accent', colorTheme === 'accent');
     document.documentElement.classList.toggle('colorful', colorTheme === 'type');
   }, [darkMode, colorTheme]);
@@ -4124,7 +4125,7 @@ export default function App() {
                         <span className="npl-meta">
                           <span
                             className={`npl-type-tag npl-type-${n.type}${nodesSort === 'type' ? ' npl-hl-tag' : ''}`}
-                            style={colorTheme === 'type' ? (() => { const tc = darkMode ? TYPE_COLORS[n.type]?.dark : TYPE_COLORS[n.type]?.light; return tc ? { color: tc.text, background: tc.fill, borderColor: tc.stroke } : undefined; })() : undefined}
+                            style={(colorTheme === 'type' || colorTheme === 'accent') ? (() => { const tc = darkMode ? TYPE_COLORS[n.type]?.dark : TYPE_COLORS[n.type]?.light; return tc ? { color: tc.text, background: tc.fill, borderColor: tc.stroke } : undefined; })() : undefined}
                           >{n.type}</span>
                           {' '}
                           {n.city ? <span className={nodesSort === 'city' ? 'npl-hl' : undefined}>{n.city}</span> : null}
@@ -4132,7 +4133,7 @@ export default function App() {
                           <span className={nodesSort === 'year' ? 'npl-hl' : undefined}>{n.era}</span>
                           {n.genre && GENRES[n.genre] ? <> · <span className={nodesSort === 'genre' ? 'npl-hl' : undefined}>{GENRES[n.genre].label}</span></> : ''}
                         </span>
-                        <span className={`npl-mc-type npl-type-tag npl-type-${n.type}${nodesSort === 'type' ? ' npl-hl-tag' : ''}`} style={colorTheme === 'type' ? (() => { const tc = darkMode ? TYPE_COLORS[n.type]?.dark : TYPE_COLORS[n.type]?.light; return tc ? { color: tc.text, background: tc.fill, borderColor: tc.stroke } : undefined; })() : undefined}>{n.type}</span>
+                        <span className={`npl-mc-type npl-type-tag npl-type-${n.type}${nodesSort === 'type' ? ' npl-hl-tag' : ''}`} style={(colorTheme === 'type' || colorTheme === 'accent') ? (() => { const tc = darkMode ? TYPE_COLORS[n.type]?.dark : TYPE_COLORS[n.type]?.light; return tc ? { color: tc.text, background: tc.fill, borderColor: tc.stroke } : undefined; })() : undefined}>{n.type}</span>
                         <span className={`npl-mc-year${nodesSort === 'year' ? ' npl-hl' : ''}`}>{n.era}</span>
                         <span className={`npl-mc-city${nodesSort === 'city' ? ' npl-hl' : ''}`}>{n.city || ''}</span>
                         <span className={`npl-mc-genre${nodesSort === 'genre' ? ' npl-hl' : ''}`}>{n.genre && GENRES[n.genre] ? GENRES[n.genre].label : ''}</span>
@@ -4181,7 +4182,7 @@ export default function App() {
                       <span className="npl-meta">
                         <span
                           className={`npl-type-tag npl-type-${n.type}`}
-                          style={colorTheme === 'type' ? (() => { const tc = darkMode ? TYPE_COLORS[n.type]?.dark : TYPE_COLORS[n.type]?.light; return tc ? { color: tc.text, background: tc.fill, borderColor: tc.stroke } : undefined; })() : undefined}
+                          style={(colorTheme === 'type' || colorTheme === 'accent') ? (() => { const tc = darkMode ? TYPE_COLORS[n.type]?.dark : TYPE_COLORS[n.type]?.light; return tc ? { color: tc.text, background: tc.fill, borderColor: tc.stroke } : undefined; })() : undefined}
                         >{n.type}</span>
                         {' '}{n.city}{n.city && n.era ? ' · ' : ''}{n.era}
                       </span>
