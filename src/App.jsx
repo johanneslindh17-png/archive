@@ -824,7 +824,14 @@ export default function App() {
     }
     if (selectedSet.includes(id)) {
       if (window.innerWidth < 600) {
-        // Tapping the already-selected node deselects it fully
+        // Panel closed but node still highlighted — deselect everything
+        if (!dpModeRef.current) {
+          setSelectedSet([]);
+          setSelected(null);
+          setPinned(null);
+          return;
+        }
+        // Tapping the currently shown node → close and deselect
         if (id === selected) {
           slideClosePanel(() => { setSelectedSet([]); setPinned(null); });
           return;
