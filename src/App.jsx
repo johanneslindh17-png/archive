@@ -1089,7 +1089,7 @@ export default function App() {
     // Use inline transition (not CSS @keyframes) — fill-mode:both on CSS animations
     // triggers a compositing context switch on iOS that can reset child transforms
     clip.getBoundingClientRect();
-    clone.style.transition = 'transform 1s cubic-bezier(0.4,0,0.2,1)';
+    clone.style.transition = 'transform 0.7s cubic-bezier(0.4,0,0.2,1)';
     clone.style.transform = 'translateX(-100%)';
 
     scrollToNode(id, 1.0);
@@ -1103,14 +1103,14 @@ export default function App() {
 
     // New content is already at translateX(100%) — force reflow then animate in
     scroll.getBoundingClientRect();
-    scroll.style.animation = 'dp-slide-in-right 1s cubic-bezier(0.4,0,0.2,1) both';
+    scroll.style.animation = 'dp-slide-in-right 0.7s cubic-bezier(0.4,0,0.2,1) both';
 
     setTimeout(() => {
       clip.remove();
       scroll.style.animation = '';
       scroll.style.transform = '';
       scroll.style.transition = '';
-    }, 1100);
+    }, 800);
   }
 
   // Clear everything — selection, trail, pin
