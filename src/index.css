@@ -1931,8 +1931,8 @@ path.eg.dim{opacity:0}
     transition:none !important;
   }
   .dp.dp-slide-center{
-    transform:translateY(calc(100% - 76px)) !important;
-    transition:transform 0.24s ease-out !important;
+    transform:translateX(0) translateY(calc(100% - 76px)) !important;
+    transition:transform 0.24s ease-in-out !important;
   }
   @keyframes dp-slide-in-right {
     from { transform: translateX(100%); }
