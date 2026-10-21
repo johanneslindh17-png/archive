@@ -1024,13 +1024,33 @@ export default function App() {
       // Keep translateX(0) so scroll stays on its GPU compositing layer through
       // dp's upward animation — clearing it mid-animation causes a freeze.
       scroll.style.transform = 'translateX(0)';
-      // Two rAFs let the GPU finish processing the clone removal before dp animates.
+      // Two rAFs let the GPU finish processing the clone removal.
       requestAnimationFrame(() => requestAnimationFrame(() => {
-        // Flush any pending deferred React work (e.g. deferredHlIds SVG re-render)
-        // before dp animates. On mobile those deferred renders never get idle time
-        // during the side-slide; without this they fire mid-dp-animation and drop frames.
-        flushSync(() => {});
+        const dpEl = dpRef.current;
+        if (!dpEl) return;
+        // Compute peek offset in pixels before class change
+        const startY = dpEl.offsetHeight - 76;
+        // Suppress CSS transition (dp-swiping has transition:none !important)
+        // so the class change doesn't fire a CSS animation
+        dpEl.classList.add('dp-swiping');
         flushSync(() => setDpMode('open'));
+        // Override .dp.open { transform: translateY(0) } with our start position
+        dpEl.style.transform = `translateY(${startY}px)`;
+        // Drive the animation via rAF with timestamps so frame drops don't
+        // cause a visible freeze-and-pop — the animation just resumes correctly
+        const dur = 850;
+        const ease = p => 1 - (1 - p) ** 3; // cubic ease-out
+        const t0 = performance.now();
+        (function frame(now) {
+          const p = Math.min((now - t0) / dur, 1);
+          if (p < 1) {
+            dpEl.style.transform = `translateY(${startY * (1 - ease(p))}px)`;
+            requestAnimationFrame(frame);
+          } else {
+            dpEl.style.transform = '';
+            dpEl.classList.remove('dp-swiping');
+          }
+        }(performance.now()));
       }));
     };
     scroll.addEventListener('transitionend', onSlideEnd);
