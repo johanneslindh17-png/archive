@@ -3601,7 +3601,7 @@ export default function App() {
           </div>
           <div className="nbc-sep" />
           <div className="nbc-scroll-wrap">
-            <div ref={nbcScrollRef} className="nbc-tabs-scroll">
+            <div ref={nbcScrollRef} className="nbc-tabs-scroll" onScroll={checkNbcMore}>
               {selectedSet.map(id => {
                 const nd = NODE_BY_ID.get(id);
                 if (!nd) return null;
@@ -3627,7 +3627,9 @@ export default function App() {
                 );
               })()}
             </div>
+            {nbcHasLeft && <div className="nbc-more-arrow nbc-more-arrow--left" onClick={() => nbcScrollRef.current?.scrollBy({ left: -120, behavior: 'smooth' })}>‹</div>}
           </div>
+          {nbcHasMore && <div className="nbc-more-arrow" onClick={() => nbcScrollRef.current?.scrollBy({ left: 120, behavior: 'smooth' })}>›</div>}
         </>}
       </div>
 
