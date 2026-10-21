@@ -1927,7 +1927,7 @@ path.eg.dim{opacity:0}
   }
   /* Peek node-switch: new panel parks off-screen right, slides in, then up */
   .dp.dp-slide-enter{
-    transform:translateX(110%) translateY(calc(100% - 76px)) !important;
+    transform:translateX(100%) translateY(calc(100% - 76px)) !important;
     transition:none !important;
   }
   .dp.dp-slide-center{

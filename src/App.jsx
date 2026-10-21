@@ -1005,7 +1005,7 @@ export default function App() {
 
     clip.getBoundingClientRect();
     clone.style.transition = 'transform 0.24s ease-in';
-    clone.style.transform = 'translateX(-110%)';
+    clone.style.transform = 'translateX(-100%)';
 
     // New panel: park off-screen right, load content, then slide in
     flushSync(() => {
