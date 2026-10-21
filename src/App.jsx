@@ -3969,16 +3969,18 @@ export default function App() {
               {/* Description */}
               <div className="dp-desc">{renderDesc(selNode.desc, selNode.id, id => { selectNodeFromPanel(id); })}</div>
 
-              {/* Bandcamp + Spotify + Share */}
+              {/* Listen + external links */}
               <div className="dp-bandcamp">
                 {selNode.bandcamp_album && (
                   <button
                     className={`dp-play-btn${playingNodeId === selNode.id ? ' dp-play-btn--on' : ''}`}
                     onClick={() => setPlayingNodeId(selNode.id)}
                   >
-                    {playingNodeId === selNode.id ? '♪ now playing' : '▶ listen'}
+                    {playingNodeId === selNode.id ? '♪ playing' : '▶ play'}
                   </button>
                 )}
+              </div>
+              <div className="dp-ext-links">
                 {selNode.bandcamp && (
                   <a className="dp-bc-link" href={`https://${selNode.bandcamp}.bandcamp.com`} target="_blank" rel="noopener noreferrer">
                     Bandcamp ↗
@@ -3989,7 +3991,9 @@ export default function App() {
                     Spotify ↗
                   </a>
                 )}
-                <button className="dp-share-btn" style={{ marginLeft:'auto' }} onClick={() => { chatRef.current?.share(selNode.id, selNode.label); setChatOpen(true); }}>share in chat ↗</button>
+                <a className="dp-bc-link dp-yt-link" href={`https://www.youtube.com/results?search_query=${encodeURIComponent(selNode.label)}`} target="_blank" rel="noopener noreferrer">
+                  YouTube ↗
+                </a>
               </div>
 
               {/* Key Releases */}
