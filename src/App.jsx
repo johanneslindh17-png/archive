@@ -837,9 +837,9 @@ export default function App() {
           slidePeekSwitch(id, false);
           return;
         }
-        // Panel open, different trail node — switch to it
+        // Panel open, different trail node — switch to it (peek first)
         setSelected(id);
-        setDpMode('open');
+        setDpMode('peek');
         window.history.replaceState(null, '', '#node=' + id);
         return;
       }
@@ -855,11 +855,11 @@ export default function App() {
         slidePeekSwitch(id, true);
         return;
       }
-      // Add to trail
+      // Add to trail — peek first on mobile
       setSelectedSet(prev => [...prev, id]);
       setSelected(id);
       setPinned(null);
-      if (window.innerWidth < 600) setDpMode('open');
+      if (window.innerWidth < 600) setDpMode('peek');
       window.history.replaceState(null, '', '#node=' + id);
     }
   }
