@@ -1106,7 +1106,7 @@ export default function App() {
     // Both panels live in the same clip → same stacking context, no z-index gap.
     // Single reflow commits starting positions, then both animate together.
     clip.getBoundingClientRect();
-    const ease = '0.7s cubic-bezier(0.4,0,0.2,1)';
+    const ease = '0.38s cubic-bezier(0.25,0.1,0.25,1)';
     oldClone.style.transition = `transform ${ease}`;
     oldClone.style.transform = dir === 'right' ? 'translateX(-100%)' : 'translateX(100%)';
     newClone.style.transition = `transform ${ease}`;
@@ -1117,7 +1117,7 @@ export default function App() {
       scroll.style.transform = '';
       scroll.style.transition = '';
       scroll.style.animation = '';
-    }, 800);
+    }, 500);
   }
 
   // Clear everything — selection, trail, pin
