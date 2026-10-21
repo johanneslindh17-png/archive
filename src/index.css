@@ -1938,6 +1938,10 @@ path.eg.dim{opacity:0}
     from { transform: translateX(100%); }
     to   { transform: translateX(0); }
   }
+  @keyframes dp-slide-in-left {
+    from { transform: translateX(-100%); }
+    to   { transform: translateX(0); }
+  }
   @keyframes dp-slide-out-left {
     from { transform: translateX(0); }
     to   { transform: translateX(-100%); }

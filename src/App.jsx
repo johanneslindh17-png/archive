@@ -1042,7 +1042,7 @@ export default function App() {
   }
 
   // Navigate from inside a panel: both panels slide simultaneously (clone exits left, new enters right)
-  function selectNodeFromPanel(id) {
+  function selectNodeFromPanel(id, dir = 'right') {
     if (window.innerWidth >= 600) { selectNode(id); scrollToNode(id, 1.0); return; }
     const scroll = dpScrollRef.current;
     const dp = dpRef.current;
@@ -1055,10 +1055,10 @@ export default function App() {
     const dpRect = dp.getBoundingClientRect();
     const isDark = document.documentElement.classList.contains('dark');
 
-    // Park new content off-screen NOW, before React renders new node — no flash at position 0
+    // Park new content off-screen in the direction it will enter from
     scroll.style.transition = 'none';
     scroll.style.animation = 'none';
-    scroll.style.transform = 'translateX(100%)';
+    scroll.style.transform = dir === 'right' ? 'translateX(100%)' : 'translateX(-100%)';
 
     // Clip container sized to the dp panel
     const clip = document.createElement('div');
@@ -1086,11 +1086,10 @@ export default function App() {
       clone.appendChild(inner);
     }
 
-    // Use inline transition (not CSS @keyframes) — fill-mode:both on CSS animations
-    // triggers a compositing context switch on iOS that can reset child transforms
+    // Clone exits opposite to the direction new content enters
     clip.getBoundingClientRect();
     clone.style.transition = 'transform 0.7s cubic-bezier(0.4,0,0.2,1)';
-    clone.style.transform = 'translateX(-100%)';
+    clone.style.transform = dir === 'right' ? 'translateX(-100%)' : 'translateX(100%)';
 
     scrollToNode(id, 1.0);
 
@@ -1101,9 +1100,10 @@ export default function App() {
       window.history.replaceState(null, '', '#node=' + id);
     });
 
-    // New content is already at translateX(100%) — force reflow then animate in
+    // Animate new content in from the correct side
     scroll.getBoundingClientRect();
-    scroll.style.animation = 'dp-slide-in-right 0.7s cubic-bezier(0.4,0,0.2,1) both';
+    const slideAnim = dir === 'right' ? 'dp-slide-in-right' : 'dp-slide-in-left';
+    scroll.style.animation = `${slideAnim} 0.7s cubic-bezier(0.4,0,0.2,1) both`;
 
     setTimeout(() => {
       clip.remove();
@@ -2178,7 +2178,15 @@ export default function App() {
       const start = dpSwipeStartRef.current;
       if (!start) return;
       const deltaY = e.touches[0].clientY - start.y;
+      const deltaX = e.touches[0].clientX - start.x;
+
+      // Lock swipe direction once movement exceeds threshold
+      if (!start.dir && (Math.abs(deltaX) > 8 || Math.abs(deltaY) > 8)) {
+        start.dir = Math.abs(deltaX) > Math.abs(deltaY) ? 'h' : 'v';
+      }
+
       if (dpModeRef.current === 'peek') {
+        if (start.dir === 'h') return;
         if (deltaY >= 0) return; // downward swipe in peek — no drag visual, just wait for touchEnd
         // Upward swipe from peek: follow finger live so release feels instant
         e.preventDefault();
@@ -2186,6 +2194,13 @@ export default function App() {
         el.style.transform = `translateY(calc(100% - 76px + ${deltaY}px))`;
         return;
       }
+
+      // Horizontal swipe in open mode — block native scroll, navigate on touchEnd
+      if (start.dir === 'h' && dpModeRef.current === 'open' && window.innerWidth < 600) {
+        e.preventDefault();
+        return;
+      }
+
       const sc = dpScrollRef.current;
       if (sc && sc.scrollTop > 2) return; // scrolled into content — not a close gesture
       if (deltaY <= 0) return; // swiping up
@@ -3744,7 +3759,7 @@ export default function App() {
           style={panelStyle}
           onMouseDown={handlePanelDragStart}
           onTouchStart={e => {
-            dpSwipeStartRef.current = { y: e.touches[0].clientY, scrollTop: dpScrollRef.current?.scrollTop ?? 0 };
+            dpSwipeStartRef.current = { y: e.touches[0].clientY, x: e.touches[0].clientX, scrollTop: dpScrollRef.current?.scrollTop ?? 0, dir: null };
           }}
           onTouchEnd={e => {
             const start = dpSwipeStartRef.current;
@@ -3752,7 +3767,19 @@ export default function App() {
             if (!start) return;
             const el = dpRef.current;
             const deltaY = e.changedTouches[0].clientY - start.y;
+            const deltaX = e.changedTouches[0].clientX - start.x;
             const wasSwiping = el?.classList.contains('dp-swiping');
+
+            // Horizontal swipe in open mode — navigate between breadcrumbs
+            if (start.dir === 'h' && window.innerWidth < 600 && dpModeRef.current === 'open' && Math.abs(deltaX) > 55) {
+              const idx = selectedSet.indexOf(selected);
+              if (deltaX < 0 && idx < selectedSet.length - 1) {
+                selectNodeFromPanel(selectedSet[idx + 1], 'right');
+              } else if (deltaX > 0 && idx > 0) {
+                selectNodeFromPanel(selectedSet[idx - 1], 'left');
+              }
+              return;
+            }
 
             // Peek mode: swipe up = expand, tap = expand, swipe down = close
             if (window.innerWidth < 600 && dpModeRef.current === 'peek') {
