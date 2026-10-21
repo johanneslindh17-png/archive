@@ -1001,7 +1001,7 @@ export default function App() {
     }
 
     dp.getBoundingClientRect();
-    clone.style.transition = 'transform 2s cubic-bezier(0.4,0,0.2,1)';
+    clone.style.transition = 'transform 0.4s cubic-bezier(0.4,0,0.2,1)';
     clone.style.transform = 'translateX(-100%)';
 
     flushSync(() => {
@@ -1012,7 +1012,7 @@ export default function App() {
 
     // New content is at translateX(100%) — force reflow then animate in
     scroll.getBoundingClientRect();
-    scroll.style.transition = 'transform 2s cubic-bezier(0.4,0,0.2,1)';
+    scroll.style.transition = 'transform 0.4s cubic-bezier(0.4,0,0.2,1)';
     scroll.style.transform = 'translateX(0)';
 
     const onSlideEnd = (e) => {
@@ -1021,21 +1021,23 @@ export default function App() {
       clone.remove();
       scroll.style.transition = '';
       scroll.style.animation = '';
-      // Keep translateX(0) inline so scroll stays on its GPU compositing layer
-      // while dp slides up — clearing it demotes the layer mid-animation causing a bump
-      scroll.style.transform = 'translateX(0)';
-      // Defer to a fresh macrotask (Safari transitionend handler quirk)
+      scroll.style.transform = '';
       setTimeout(() => {
         const dpEl = dpRef.current;
         if (!dpEl) return;
-        // Clear scroll's inline transform before dp starts moving so the GPU
-        // layer demotion happens before the animation, not during it
-        scroll.style.transform = '';
+        // Disable backdrop-filter while dp slides up — blurring a growing area
+        // each frame is expensive on iOS and causes a mid-animation stutter
+        dpEl.style.setProperty('-webkit-backdrop-filter', 'none');
+        dpEl.style.setProperty('backdrop-filter', 'none');
         flushSync(() => setDpMode('open'));
-        // Start map scroll at the same time as dp slides up — concurrent
-        // animations feel smoother than sequential and avoid a stutter when
-        // scrollToNode's setTf re-render fires after dp is already open
-        scrollToNode(id, 1.0);
+        const onOpenEnd = (ev) => {
+          if (ev.propertyName !== 'transform') return;
+          dpEl.removeEventListener('transitionend', onOpenEnd);
+          dpEl.style.removeProperty('-webkit-backdrop-filter');
+          dpEl.style.removeProperty('backdrop-filter');
+          scrollToNode(id, 1.0);
+        };
+        dpEl.addEventListener('transitionend', onOpenEnd);
       }, 0);
     };
     scroll.addEventListener('transitionend', onSlideEnd);
