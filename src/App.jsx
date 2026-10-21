@@ -1021,18 +1021,23 @@ export default function App() {
       clone.remove();
       scroll.style.transition = '';
       scroll.style.animation = '';
-      scroll.style.transform = '';
-      // Defer to a fresh macrotask — Safari won't start a clean CSS transition
-      // from within a transitionend handler
+      // Keep translateX(0) inline so scroll stays on its GPU compositing layer
+      // while dp slides up — clearing it demotes the layer mid-animation causing a bump
+      scroll.style.transform = 'translateX(0)';
+      // Defer to a fresh macrotask (Safari transitionend handler quirk), then wait
+      // one rAF to let pending GPU compositing work flush before dp starts moving
       setTimeout(() => {
-        const dpEl = dpRef.current;
-        const onOpenEnd = (e) => {
-          if (e.propertyName !== 'transform') return;
-          dpEl.removeEventListener('transitionend', onOpenEnd);
-          scrollToNode(id, 1.0);
-        };
-        if (dpEl) dpEl.addEventListener('transitionend', onOpenEnd);
-        flushSync(() => setDpMode('open'));
+        requestAnimationFrame(() => {
+          const dpEl = dpRef.current;
+          const onOpenEnd = (ev) => {
+            if (ev.propertyName !== 'transform') return;
+            dpEl.removeEventListener('transitionend', onOpenEnd);
+            scroll.style.transform = '';
+            scrollToNode(id, 1.0);
+          };
+          if (dpEl) dpEl.addEventListener('transitionend', onOpenEnd);
+          flushSync(() => setDpMode('open'));
+        });
       }, 0);
     };
     scroll.addEventListener('transitionend', onSlideEnd);
