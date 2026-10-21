@@ -3569,7 +3569,7 @@ export default function App() {
               {selectedSet.map(id => {
                 const nd = NODE_BY_ID.get(id);
                 if (!nd) return null;
-                const col = colorTheme ? getThemeColors(nd, 'type', darkMode)?.stroke : null;
+                const col = colorTheme === 'type' ? getThemeColors(nd, 'type', darkMode)?.stroke : null;
                 const isActive = id === selected;
                 return (
                   <div key={`tab-${id}`} className={`nbc-tab${isActive ? ' nbc-tab--active' : ''}`}
@@ -3581,7 +3581,7 @@ export default function App() {
               })}
               {pinned && !selectedSet.length && (() => {
                 const nd = NODE_BY_ID.get(pinned);
-                const col = nd && colorTheme ? getThemeColors(nd, 'type', darkMode)?.stroke : null;
+                const col = nd && colorTheme === 'type' ? getThemeColors(nd, 'type', darkMode)?.stroke : null;
                 return (
                   <div className="nbc-tab nbc-tab--active"
                     style={col ? { color: col, background: col + '18' } : undefined}>
@@ -4262,7 +4262,7 @@ export default function App() {
             const on = typeFilters[key] !== false;
             // Match exact node colors for each type + theme
             let chipFill, chipStroke, chipText;
-            if (colorTheme === 'type' || colorTheme === 'accent') {
+            if (colorTheme === 'type') {
               const c = darkMode ? TYPE_COLORS[key]?.dark : TYPE_COLORS[key]?.light;
               chipFill   = c?.fill   ?? (darkMode ? '#0c0c10' : '#ffffff');
               chipStroke = c?.stroke ?? (darkMode ? 'rgba(255,255,255,0.9)' : '#000000');
