@@ -1403,8 +1403,15 @@ export default function App() {
     }
 
     if (window.innerWidth < 600) {
-      // Mobile: slide panel down first (if open), then navigate
-      const navigate = () => { setPinned(id); centerOnNode(id, 1.5); };
+      // Mobile: slide panel down first (if open), then center and open in peek
+      const navigate = () => {
+        setPinned(id);
+        centerOnNode(id, 1.5);
+        setSelectedSet([id]);
+        setSelected(id);
+        setDpMode('peek');
+        window.history.replaceState(null, '', '#node=' + id);
+      };
       slideClosePanel(navigate);
     } else {
       // Desktop: scroll then auto-open panel after brief pause
