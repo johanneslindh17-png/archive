@@ -1021,15 +1021,21 @@ export default function App() {
       clone.remove();
       scroll.style.transition = '';
       scroll.style.animation = '';
-      // Clear scroll's inline transform so it's no longer a composited sub-layer
-      // inside dp. Direct-click dp transitions are smooth because dp has no
-      // composited children — matching that here is the goal.
       scroll.style.transform = '';
-      // Three rAFs: gives the GPU time to complete the layer merge before dp's
-      // CSS transition starts. CSS is compositor-accelerated (off main thread);
-      // with deferredHlIds removed there's nothing left to block it.
       requestAnimationFrame(() => requestAnimationFrame(() => requestAnimationFrame(() => {
+        const dpEl = dpRef.current;
+        if (!dpEl) return;
+        // Suppress transition while we reset position
+        dpEl.classList.add('dp-swiping');
+        // Switch to open (removes dp-peek, adds open class) — no transition fires
         flushSync(() => setDpMode('open'));
+        // Override .dp.open { translateY(0) } with off-screen start position
+        dpEl.style.transform = 'translateY(100vh)';
+        // Commit this state so the browser knows the "from" value
+        dpEl.getBoundingClientRect();
+        // Re-enable transition + clear inline transform → identical to direct-click
+        dpEl.classList.remove('dp-swiping');
+        dpEl.style.transform = '';
       })));
     };
     scroll.addEventListener('transitionend', onSlideEnd);
