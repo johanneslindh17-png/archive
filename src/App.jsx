@@ -971,26 +971,33 @@ export default function App() {
     const dp = dpRef.current;
     if (!scroll || !dp) return;
 
+    // Read scroll position BEFORE any DOM mutations — iOS resets scrollTop when
+    // element is moved off-screen via transform
+    const scrollY = scroll.scrollTop;
+
     const dpRect = dp.getBoundingClientRect();
     const isDark = document.documentElement.classList.contains('dark');
 
+    // Park new content off-screen right within dp (dp's overflow:hidden clips it)
+    scroll.style.transition = 'none';
+    scroll.style.animation = 'none';
+    scroll.style.transform = 'translateX(100%)';
+
+    // Clip sized to dp's current peek position — sits above dp so both share same viewport
     const clip = document.createElement('div');
     Object.assign(clip.style, {
-      position: 'fixed',
-      top: dpRect.top + 'px', left: dpRect.left + 'px',
+      position: 'fixed', top: dpRect.top + 'px', left: dpRect.left + 'px',
       width: dpRect.width + 'px', height: dpRect.height + 'px',
-      overflow: 'hidden', zIndex: '84', pointerEvents: 'none',
-      borderRadius: getComputedStyle(dp).borderRadius,
+      overflow: 'hidden', zIndex: '200', pointerEvents: 'none',
     });
     document.body.appendChild(clip);
 
-    const scrollY = scroll.scrollTop;
     const clone = scroll.cloneNode(true);
     Object.assign(clone.style, {
       position: 'absolute', top: '0', left: '0',
-      width: '100%', height: '100%',
-      transform: 'translateX(0)', transition: 'none', overflowY: 'hidden',
+      width: '100%', height: '100%', overflowY: 'hidden',
       background: isDark ? 'rgba(12,12,16,0.95)' : 'rgba(255,255,255,0.95)',
+      animation: 'none', transform: 'translateX(0)', transition: 'none',
     });
     clip.appendChild(clone);
 
@@ -1004,35 +1011,35 @@ export default function App() {
     }
 
     clip.getBoundingClientRect();
-    clone.style.transition = 'transform 0.24s ease-in-out';
+    clone.style.transition = 'transform 0.4s cubic-bezier(0.4,0,0.2,1)';
     clone.style.transform = 'translateX(-100%)';
 
-    // New panel: park off-screen right, load content, then slide in
     flushSync(() => {
-      setDpSlide('enter');
       if (addToTrail) setSelectedSet(prev => prev.includes(id) ? prev : [...prev, id]);
       setSelected(id);
+      window.history.replaceState(null, '', '#node=' + id);
     });
-    requestAnimationFrame(() => requestAnimationFrame(() => {
-      setDpSlide('center');
-      const dp2 = dpRef.current;
-      const onSlideEnd = (e) => {
-        if (e.propertyName !== 'transform') return;
-        dp2.removeEventListener('transitionend', onSlideEnd);
-        clip.remove();
-        dp2.style.transform = '';
-        flushSync(() => setDpSlide(null));
-        // Defer to a fresh macrotask — Safari won't start a clean CSS transition
-        // from within a transitionend handler; setTimeout exits that context entirely
-        setTimeout(() => {
-          if (dpRef.current) dpRef.current.style.transform = '';
-          flushSync(() => setDpMode('open'));
-          scrollToNode(id, 1.0);
-          window.history.replaceState(null, '', '#node=' + id);
-        }, 0);
-      };
-      dp2.addEventListener('transitionend', onSlideEnd);
-    }));
+
+    // New content is at translateX(100%) — force reflow then animate in
+    scroll.getBoundingClientRect();
+    scroll.style.transition = 'transform 0.4s cubic-bezier(0.4,0,0.2,1)';
+    scroll.style.transform = 'translateX(0)';
+
+    const onSlideEnd = (e) => {
+      if (e.propertyName !== 'transform') return;
+      scroll.removeEventListener('transitionend', onSlideEnd);
+      clip.remove();
+      scroll.style.transition = '';
+      scroll.style.animation = '';
+      scroll.style.transform = '';
+      // Defer to a fresh macrotask — Safari won't start a clean CSS transition
+      // from within a transitionend handler
+      setTimeout(() => {
+        flushSync(() => setDpMode('open'));
+        scrollToNode(id, 1.0);
+      }, 0);
+    };
+    scroll.addEventListener('transitionend', onSlideEnd);
   }
 
   // Navigate from inside a panel: both panels slide simultaneously (clone exits left, new enters right)
