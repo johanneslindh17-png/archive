@@ -239,8 +239,8 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .npl-label{font-family:'Syne Mono',monospace;font-size:0.65rem;color:var(--tb-text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex-shrink:0;max-width:45%}
 .npl-meta{font-family:'Syne Mono',monospace;font-size:0.57rem;color:#888;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:0.04em}
 .dark .npl-meta{color:#9090b0}
-.npl-hl{color:#444;font-weight:600;}
-.dark .npl-hl{color:#d8d4ce;}
+.npl-hl{color:#222;font-weight:700;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;}
+.dark .npl-hl{color:#e8e4de;text-decoration-color:rgba(232,228,222,0.5);}
 .npl-mc-type,.npl-mc-year,.npl-mc-city,.npl-mc-genre{display:none;}
 .npl-date-header{font-family:'Syne Mono',monospace;font-size:0.5rem;letter-spacing:0.1em;text-transform:uppercase;color:#aaa;padding:10px 12px 4px;border-top:1px solid var(--tb-border);margin-top:2px;}
 .dark .npl-date-header{color:#6060a0;}
