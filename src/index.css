@@ -67,12 +67,15 @@ body.svg-dragging .topbar{pointer-events:none;}
 .dark .dp-close:hover{ color:var(--tb-text); }
 .dark .dp-back{ color:#505068; }
 .dark .dp-back:hover{ color:#a0a0c0; }
-.dark .dp-pill-artist{ background:#0f1a33;color:#6688dd; }
-.dark .dp-pill-label { background:#2a1800;color:#dd8833; }
-.dark .dp-pill-venue { background:#0a1f0f;color:#55bb66; }
-.dark .dp-pill-moment  { background:#14082a;color:#aa77dd; }
-.dark .dp-pill-style   { background:#1a1400;color:#d4a020; }
-.dark .dp-pill-culture { background:#1c0808;color:#ee6655; }
+.dark .dp-pill-artist,.dark .dp-pill-label,.dark .dp-pill-venue,.dark .dp-pill-moment,.dark .dp-pill-style,.dark .dp-pill-culture,.dark .dp-pill-channel{
+  background:#0e0e14;color:#666;
+}
+.dark.colorful .dp-pill-artist{ background:#0f1a33;color:#6688dd; }
+.dark.colorful .dp-pill-label { background:#2a1800;color:#dd8833; }
+.dark.colorful .dp-pill-venue { background:#0a1f0f;color:#55bb66; }
+.dark.colorful .dp-pill-moment  { background:#14082a;color:#aa77dd; }
+.dark.colorful .dp-pill-style   { background:#1a1400;color:#d4a020; }
+.dark.colorful .dp-pill-culture { background:#1c0808;color:#ee6655; }
 .dark .dp-name{ color:#e0ddd8; }
 .dark .dp-era-track{ background:#1e1e2c; }
 .dark .dp-era-fill{ background:rgb(var(--photo-r,58) var(--photo-g,58) var(--photo-b,80) / 0.85); }
@@ -886,12 +889,17 @@ path.eg.dim{opacity:0}
   font-size:0.48rem;letter-spacing:0.2em;text-transform:uppercase;
   padding:3px 8px;margin-bottom:10px;
 }
-.dp-pill-artist{background:#e8f0ff;color:#3355aa;}
-.dp-pill-label {background:#fff3e0;color:#aa5500;}
-.dp-pill-venue {background:#e8f5e9;color:#2a7a3a;}
-.dp-pill-moment  {background:#f4e0ff;color:#7733bb;}
-.dp-pill-style   {background:#fffbe0;color:#956600;}
-.dp-pill-culture {background:#fce8e0;color:#aa2222;}
+/* Mono default — no color */
+.dp-pill-artist,.dp-pill-label,.dp-pill-venue,.dp-pill-moment,.dp-pill-style,.dp-pill-culture,.dp-pill-channel{
+  background:#f0f0ec;color:#666;
+}
+/* Color-on — restore type hues */
+.colorful .dp-pill-artist{background:#e8f0ff;color:#3355aa;}
+.colorful .dp-pill-label {background:#fff3e0;color:#aa5500;}
+.colorful .dp-pill-venue {background:#e8f5e9;color:#2a7a3a;}
+.colorful .dp-pill-moment  {background:#f4e0ff;color:#7733bb;}
+.colorful .dp-pill-style   {background:#fffbe0;color:#956600;}
+.colorful .dp-pill-culture {background:#fce8e0;color:#aa2222;}
 .dp-name{font-size:1.4rem;font-weight:800;line-height:1.2;margin-bottom:14px;color:#111;letter-spacing:-0.01em;}
 .dp-era-wrap{margin-bottom:16px;}
 .dp-era-track{
