@@ -5482,7 +5482,7 @@ export const NODES = [
     desc:'La Fleur is a Stockholm-based producer and DJ who releases on Pampa Records, the Hamburg label founded by DJ Koze. Her productions work in a melodic, emotionally direct deep house style. She is among the Swedish artists who have developed an international profile through connections to the Hamburg and Berlin underground networks.',
     releases: [] , spotify:'5bt7DkWw4iHzjzRF2d9scU', },
 
-  { id:'matthias_el_mansouri', dateAdded:'2026-08-05', label:'Matthias El Mansouri', type:'artist', genre:'deep', era:2015, city:'', country:'SE',
+  { id:'matthias_el_mansouri', dateAdded:'2026-08-05', label:'Matthias El Mansouri', type:'artist', genre:'deep', era:2015, city:'Stockholm', country:'SE',
     desc:'Matthias El Mansouri is a Swedish producer who has performed at Panorama Bar in Berlin. Further details are limited in documented sources.',
     releases: [] , spotify:'6pNtdoHIGx5LR9iNY2XRxx', },
 
