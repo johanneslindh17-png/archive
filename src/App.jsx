@@ -2561,8 +2561,9 @@ export default function App() {
     return s;
   }, [pathHlIds, pathMode, selectedSet, selectedSetObj, pinned, logHlIds, visibleEdges]);
 
-  // Defer so nodeEls recompute never blocks a scroll paint frame
-  const deferredHlIds = useDeferredValue(hlIds);
+  // nodeEls already recomputes synchronously when `selected` changes (direct dep),
+  // so useDeferredValue only added a second expensive recompute mid-animation.
+  const deferredHlIds = hlIds;
 
   const hlEdges = useMemo(() => {
     if (pathHlEdges) return pathHlEdges;
