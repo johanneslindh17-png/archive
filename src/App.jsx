@@ -974,8 +974,6 @@ export default function App() {
     // Read scroll position BEFORE any DOM mutations — iOS resets scrollTop when
     // element is moved off-screen via transform
     const scrollY = scroll.scrollTop;
-
-    const dpRect = dp.getBoundingClientRect();
     const isDark = document.documentElement.classList.contains('dark');
 
     // Park new content off-screen right within dp (dp's overflow:hidden clips it)
@@ -983,15 +981,7 @@ export default function App() {
     scroll.style.animation = 'none';
     scroll.style.transform = 'translateX(100%)';
 
-    // Clip sized to dp's current peek position — sits above dp so both share same viewport
-    const clip = document.createElement('div');
-    Object.assign(clip.style, {
-      position: 'fixed', top: dpRect.top + 'px', left: dpRect.left + 'px',
-      width: dpRect.width + 'px', height: dpRect.height + 'px',
-      overflow: 'hidden', zIndex: '200', pointerEvents: 'none',
-    });
-    document.body.appendChild(clip);
-
+    // Clone goes INSIDE dp — clipped by dp's own overflow:hidden, no z-index issues
     const clone = scroll.cloneNode(true);
     Object.assign(clone.style, {
       position: 'absolute', top: '0', left: '0',
@@ -999,7 +989,7 @@ export default function App() {
       background: isDark ? 'rgba(12,12,16,0.95)' : 'rgba(255,255,255,0.95)',
       animation: 'none', transform: 'translateX(0)', transition: 'none',
     });
-    clip.appendChild(clone);
+    dp.appendChild(clone);
 
     // Replicate scroll position via translateY on a wrapper — scrollTop is
     // unreliable on overflow:hidden elements and gets reset by CSS animations
@@ -1010,7 +1000,7 @@ export default function App() {
       clone.appendChild(inner);
     }
 
-    clip.getBoundingClientRect();
+    dp.getBoundingClientRect();
     clone.style.transition = 'transform 2s cubic-bezier(0.4,0,0.2,1)';
     clone.style.transform = 'translateX(-100%)';
 
@@ -1028,7 +1018,7 @@ export default function App() {
     const onSlideEnd = (e) => {
       if (e.propertyName !== 'transform') return;
       scroll.removeEventListener('transitionend', onSlideEnd);
-      clip.remove();
+      clone.remove();
       scroll.style.transition = '';
       scroll.style.animation = '';
       scroll.style.transform = '';
