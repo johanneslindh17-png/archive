@@ -3627,7 +3627,6 @@ export default function App() {
             {nbcHasLeft && <div className="nbc-more-arrow nbc-more-arrow--left" onClick={() => nbcScrollRef.current?.scrollBy({ left: -120, behavior: 'smooth' })}>‹</div>}
           </div>
           {nbcHasMore && <div className="nbc-more-arrow" onClick={() => nbcScrollRef.current?.scrollBy({ left: 120, behavior: 'smooth' })}>›</div>}
-          {selectedSet.length > 1 && <span className="nbc-count" style={{marginRight:'12px'}}>{selectedSet.length}</span>}
         </>}
       </div>
 
