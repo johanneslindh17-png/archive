@@ -1067,8 +1067,7 @@ export default function App() {
       position: 'absolute', top: '0', left: '0',
       width: '100%', height: '100%', overflowY: 'hidden',
       background: isDark ? 'rgba(12,12,16,0.95)' : 'rgba(255,255,255,0.95)',
-      willChange: 'transform',
-      animation: 'none', transform: 'none',
+      animation: 'none', transform: 'translateX(0)', transition: 'none',
     });
     clip.appendChild(clone);
 
@@ -1081,8 +1080,11 @@ export default function App() {
       clone.appendChild(inner);
     }
 
+    // Use inline transition (not CSS @keyframes) — fill-mode:both on CSS animations
+    // triggers a compositing context switch on iOS that can reset child transforms
     clip.getBoundingClientRect();
-    clone.style.animation = 'dp-slide-out-left 1s cubic-bezier(0.4,0,0.2,1) both';
+    clone.style.transition = 'transform 1s cubic-bezier(0.4,0,0.2,1)';
+    clone.style.transform = 'translateX(-100%)';
 
     scrollToNode(id, 1.0);
 
