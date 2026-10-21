@@ -3148,23 +3148,6 @@ export default function App() {
               }
             }}
           />
-          {searchFocus && searchMatches.length > 0 && !nodesOpen && (
-            <div className="search-dropdown">
-              {searchMatches.map((n, i) => (
-                <div key={n.id}
-                  className={`search-drop-item${i === searchActiveIdx ? ' active' : ''}`}
-                  onMouseDown={() => { pickSearchResult(n.id); setSearchActiveIdx(-1); }}
-                  onMouseEnter={() => setSearchActiveIdx(i)}
-                >
-                  <span className="sdi-label">{n.label}</span>
-                  <span className="sdi-meta">
-                    {n.city ? `${n.city} · ` : ''}{n.era}
-                    {n.genre && GENRES[n.genre] ? ` · ${GENRES[n.genre].label}` : ''}
-                  </span>
-                </div>
-              ))}
-            </div>
-          )}
         </div>
         <div className="tbsep" />
 
@@ -3493,6 +3476,24 @@ export default function App() {
           </div>
         </div>
       </div>
+
+      {searchFocus && searchMatches.length > 0 && !nodesOpen && (
+        <div className="search-dropdown">
+          {searchMatches.map((n, i) => (
+            <div key={n.id}
+              className={`search-drop-item${i === searchActiveIdx ? ' active' : ''}`}
+              onMouseDown={() => { pickSearchResult(n.id); setSearchActiveIdx(-1); }}
+              onMouseEnter={() => setSearchActiveIdx(i)}
+            >
+              <span className="sdi-label">{n.label}</span>
+              <span className="sdi-meta">
+                {n.city ? `${n.city} · ` : ''}{n.era}
+                {n.genre && GENRES[n.genre] ? ` · ${GENRES[n.genre].label}` : ''}
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
 
       {/* Node breadcrumb bar — always rendered to avoid layout shift on selection */}
       <div className="nodebreadcrumb" style={themeStyle ? { background: themeStyle.surface, borderBottomColor: themeStyle.border } : undefined}>
