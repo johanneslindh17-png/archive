@@ -824,9 +824,13 @@ export default function App() {
     }
     if (selectedSet.includes(id)) {
       if (window.innerWidth < 600) {
-        // Tapping the already-selected node on the map closes the panel
-        if (id === selected && (dpModeRef.current === 'peek' || dpModeRef.current === 'open')) {
-          slideClosePanel();
+        // Tapping the already-selected node always deselects/closes
+        if (id === selected) {
+          if (dpModeRef.current === 'peek' || dpModeRef.current === 'open') {
+            slideClosePanel();
+          } else {
+            selectNode(null);
+          }
           return;
         }
         if (dpModeRef.current === 'peek') {
@@ -4174,6 +4178,7 @@ export default function App() {
 
       {/* Nodes backdrop — root level so it covers full viewport */}
       {nodesOpen && <div className="nodes-backdrop" onClick={() => { if (window.innerWidth < 600) setNodesOpen(false); }} />}
+
 
       {/* Node Log panel — desktop only */}
       {(() => {
