@@ -147,7 +147,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .dark .search-drop-item:hover{background:#14141e}
 .dark .search-drop-item.active{background:#1a1a2c}
 .dark .sdi-label{color:var(--tb-text)}
-.dark .sdi-meta{color:#8080a0}
+.dark .sdi-meta{color:#a0a0c0}
 
 /* ── Nodes browser button ── */
 .nodesbtn{
