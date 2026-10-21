@@ -1776,6 +1776,9 @@ export default function App() {
     document.documentElement.classList.toggle('bw-strict', colorTheme === null);
     document.documentElement.classList.toggle('colorful-accent', colorTheme === 'accent');
     document.documentElement.classList.toggle('colorful', colorTheme === 'type');
+    let meta = document.querySelector('meta[name="theme-color"]');
+    if (!meta) { meta = document.createElement('meta'); meta.name = 'theme-color'; document.head.appendChild(meta); }
+    meta.content = darkMode ? '#0c0c10' : '#ffffff';
   }, [darkMode, colorTheme]);
 
 
@@ -2731,7 +2734,7 @@ export default function App() {
       return (
         <path
           key={key} fill="none" d={d}
-          stroke={colorTheme ? EDGE_TYPE_COLORS[e.type] : (darkMode ? 'rgba(255,255,255,0.9)' : '#000000')}
+          stroke={colorTheme === 'type' ? EDGE_TYPE_COLORS[e.type] : (darkMode ? 'rgba(255,255,255,0.9)' : '#000000')}
           strokeWidth={sw} strokeDasharray={dash} opacity={opacity}
           className={`eg${isDim ? ' dim' : isHl ? ' lit' : ''}`}
         />
