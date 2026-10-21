@@ -824,20 +824,13 @@ export default function App() {
     }
     if (selectedSet.includes(id)) {
       if (window.innerWidth < 600) {
-        // Mobile: clicking a trail/peek node opens it rather than toggling off
-        if (dpModeRef.current === 'peek' && id === selected) {
-          // Clear inline transform so CSS dp.open transition runs cleanly from peek position
-          if (dpRef.current) dpRef.current.style.transform = '';
-          flushSync(() => setDpMode('open'));
+        // Tapping the already-selected node on the map closes the panel
+        if (id === selected && (dpModeRef.current === 'peek' || dpModeRef.current === 'open')) {
+          slideClosePanel();
           return;
         }
         if (dpModeRef.current === 'peek') {
           slidePeekSwitch(id, false);
-          return;
-        }
-        // Panel open + same node = close it
-        if (dpModeRef.current === 'open' && id === selected) {
-          slideClosePanel();
           return;
         }
         // Panel open, different trail node — switch to it
