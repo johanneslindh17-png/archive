@@ -725,6 +725,7 @@ export default function App() {
   const returnToNodesRef = useRef(false);
   const [grooveOpen, setGrooveOpen] = useState(false);
   const [chatOpen,   setChatOpen]   = useState(false);
+  const [playerListOpen, setPlayerListOpen] = useState(false);
   const [mapHint, setMapHint] = useState(() => window.innerWidth < 600);
   const [mapHintLeaving, setMapHintLeaving] = useState(false);
   const hintDismissedRef = useRef(false);
@@ -4385,10 +4386,26 @@ export default function App() {
                 />
               </div>
               {playerNodes.length > 1 && (
-                <>
-                  <button className="player-btn" onClick={() => setPlayingNodeId(prev.id)} title={`Previous: ${prev.label}`}>‹</button>
-                  <button className="player-btn" onClick={() => setPlayingNodeId(next.id)} title={`Next: ${next.label}`}>›</button>
-                </>
+                <div style={{position:'relative'}}>
+                  <button className={`player-btn player-btn--list${playerListOpen ? ' player-btn--on' : ''}`}
+                    onClick={() => setPlayerListOpen(v => !v)} title="Playlist">
+                    ☰
+                  </button>
+                  {playerListOpen && (
+                    <>
+                      <div className="player-list-backdrop" onClick={() => setPlayerListOpen(false)} />
+                      <div className="player-list">
+                        {playerNodes.map(n => (
+                          <div key={n.id}
+                            className={`player-list-item${n.id === pNode.id ? ' player-list-item--active' : ''}`}
+                            onClick={() => { setPlayingNodeId(n.id); setPlayerListOpen(false); }}>
+                            {n.label}
+                          </div>
+                        ))}
+                      </div>
+                    </>
+                  )}
+                </div>
               )}
               <button className="player-btn player-btn--show" onClick={() => { selectNode(pNode.id); scrollToNode(pNode.id); }}>show node</button>
               <a className="player-btn player-btn--show player-btn--bandcamp" href={`https://${pNode.bandcamp}.bandcamp.com`} target="_blank" rel="noopener noreferrer">bandcamp ↗</a>
