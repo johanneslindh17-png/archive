@@ -1699,6 +1699,8 @@ export default function App() {
   const [dpSlide, setDpSlide] = useState(null); // 'exit' | 'enter' | 'center' | null
   const dpModeRef = useRef(null); // mirrors dpMode for closures that can't react to state
   useEffect(() => { dpModeRef.current = dpMode; }, [dpMode]);
+  // Only one overlay at a time: opening the panel fully dismisses the node list
+  useEffect(() => { if (dpMode === 'open' && window.innerWidth < 600) setNodesOpen(false); }, [dpMode]);
   const peekBarRef = useRef(null);
   const peekSwipeRef = useRef(null);
   const panelXRef = useRef(null);       // live ref so momentum loop reads current value
@@ -3256,6 +3258,8 @@ export default function App() {
               setSearchQ('');
               setNodeLogOpen(false);
               if (nodesScrollRef.current) nodesScrollRef.current.scrollTop = nodesScrollPosRef.current;
+              // Minimize any open panel to peek so only one layer shows at a time
+              if (window.innerWidth < 600 && dpModeRef.current === 'open') setDpMode('peek');
             } else {
               setSearchQ('');
             }
@@ -4120,11 +4124,15 @@ export default function App() {
                     }
                     items.push(
                       <div key={n.id} className="npl-item" onClick={() => {
-                        selectNode(n.id);
                         if (window.innerWidth < 600) {
                           centerOnNode(n.id, 1.5);
                           setNodesOpen(false);
+                          setSelectedSet(prev => prev.includes(n.id) ? prev : [n.id]);
+                          setSelected(n.id);
+                          setDpMode('peek');
+                          window.history.replaceState(null, '', '#node=' + n.id);
                         } else {
+                          selectNode(n.id);
                           scrollToNode(n.id, 0.2);
                         }
                       }}>
