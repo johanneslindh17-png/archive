@@ -1051,16 +1051,26 @@ export default function App() {
     const scrollY = scroll.scrollTop;
     const dpRect = dp.getBoundingClientRect();
     const scrollRect = scroll.getBoundingClientRect();
-    const W = scrollRect.width;
-    const H = dpRect.height - (scrollRect.top - dpRect.top);
     const isDark = document.documentElement.classList.contains('dark');
     const bg = isDark ? 'rgba(12,12,16,0.95)' : 'rgba(255,255,255,0.95)';
 
-    // Clone old content before React re-renders it
+    // Clip container exactly over the scroll area — sized via scrollRect so
+    // width:100% on children equals the scroll element's natural width
+    const clip = document.createElement('div');
+    Object.assign(clip.style, {
+      position: 'fixed',
+      top: scrollRect.top + 'px', left: scrollRect.left + 'px',
+      width: scrollRect.width + 'px', height: (dpRect.bottom - scrollRect.top) + 'px',
+      overflow: 'hidden', zIndex: '200', pointerEvents: 'none',
+    });
+    document.body.appendChild(clip);
+
+    // Clone old content (before React re-renders) — exits in dir direction
     const oldClone = scroll.cloneNode(true);
     Object.assign(oldClone.style, {
-      position: 'absolute', top: '0', width: W + 'px', height: H + 'px',
-      overflowY: 'hidden', background: bg, transform: 'none', transition: 'none', animation: 'none',
+      position: 'absolute', top: '0', left: '0', width: '100%', height: '100%',
+      overflowY: 'hidden', background: bg,
+      transform: 'translateX(0)', transition: 'none', animation: 'none',
     });
     if (scrollY > 0) {
       const scrollWrap = document.createElement('div');
@@ -1068,6 +1078,7 @@ export default function App() {
       while (oldClone.firstChild) scrollWrap.appendChild(oldClone.firstChild);
       oldClone.appendChild(scrollWrap);
     }
+    clip.appendChild(oldClone);
 
     // Park the live scroll off-screen so React renders into it without flashing
     scroll.style.transition = 'none';
@@ -1082,42 +1093,24 @@ export default function App() {
       window.history.replaceState(null, '', '#node=' + id);
     });
 
-    // Clone new content after React has rendered it
+    // Clone new content (after React renders) — enters from opposite direction
     const newClone = scroll.cloneNode(true);
     Object.assign(newClone.style, {
-      position: 'absolute', top: '0', width: W + 'px', height: H + 'px',
-      overflowY: 'hidden', background: bg, transform: 'none', transition: 'none', animation: 'none',
+      position: 'absolute', top: '0', left: '0', width: '100%', height: '100%',
+      overflowY: 'hidden', background: bg,
+      transform: dir === 'right' ? 'translateX(100%)' : 'translateX(-100%)',
+      transition: 'none', animation: 'none',
     });
+    clip.appendChild(newClone);
 
-    // Clip container exactly over the scroll area (below the dp header)
-    const clip = document.createElement('div');
-    Object.assign(clip.style, {
-      position: 'fixed', top: scrollRect.top + 'px', left: scrollRect.left + 'px',
-      width: W + 'px', height: H + 'px',
-      overflow: 'hidden', zIndex: '200', pointerEvents: 'none',
-    });
-    document.body.appendChild(clip);
-
-    // Single inner slider: 2×W wide, holds both panels side by side in pixels
-    // dir=right: [old @ x=0 | new @ x=W], animate from 0 → -W
-    // dir=left:  [new @ x=0 | old @ x=W], animate from -W → 0
-    const slider = document.createElement('div');
-    Object.assign(slider.style, {
-      position: 'absolute', top: '0', left: '0',
-      width: (2 * W) + 'px', height: H + 'px',
-      transform: dir === 'right' ? 'translateX(0)' : `translateX(${-W}px)`,
-      transition: 'none',
-    });
-    oldClone.style.left = dir === 'right' ? '0' : W + 'px';
-    newClone.style.left = dir === 'right' ? W + 'px' : '0';
-    slider.appendChild(oldClone);
-    slider.appendChild(newClone);
-    clip.appendChild(slider);
-
-    // Single reflow → animate the whole slider as one solid mass
+    // Both panels live in the same clip → same stacking context, no z-index gap.
+    // Single reflow commits starting positions, then both animate together.
     clip.getBoundingClientRect();
-    slider.style.transition = 'transform 0.7s cubic-bezier(0.4,0,0.2,1)';
-    slider.style.transform = dir === 'right' ? `translateX(${-W}px)` : 'translateX(0)';
+    const ease = '0.7s cubic-bezier(0.4,0,0.2,1)';
+    oldClone.style.transition = `transform ${ease}`;
+    oldClone.style.transform = dir === 'right' ? 'translateX(-100%)' : 'translateX(100%)';
+    newClone.style.transition = `transform ${ease}`;
+    newClone.style.transform = 'translateX(0)';
 
     setTimeout(() => {
       clip.remove();
