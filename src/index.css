@@ -373,7 +373,9 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   background:linear-gradient(to right,#181818,#f5f5f5);
 }
 .colorbtn:hover{ opacity:0.82; }
-.colorbtn.on{ opacity:1; }
+/* on = color × type: neutral → artist blue */
+.colorbtn.on{ background:linear-gradient(to right,#e6e6e6 0%,#e6e6e6 20%,#4a7fc1 70%,#1e3a6a 100%); }
+.dark .colorbtn.on{ background:linear-gradient(to right,#181818 0%,#181818 20%,#4a7fc1 70%,#1e3a6a 100%); }
 .colordrop{
   position:absolute;top:calc(100% + 1px);right:0;
   background:#fff;border:1px solid var(--tb-border);
@@ -483,21 +485,30 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   border-left:1px solid var(--tb-border);letter-spacing:0.06em;
 }
 .legwrap:hover .legtrigger{color:var(--tb-text)}
+/* legbox is a portalled container — legbox-panel is the visible card */
 .legbox{
-  position:fixed;top:50%;left:50%;
+  position:fixed;inset:0;z-index:1200;
+  pointer-events:none;
+}
+.legbox.open{ pointer-events:all; }
+.legbox-backdrop{
+  position:absolute;inset:0;background:rgba(0,0,0,0.18);
+}
+.legbox-panel{
+  position:absolute;top:50%;left:50%;
   transform:translate(-50%,calc(-50% - 6px));
   background:#fafaf8;border:1px solid var(--tb-border);
-  width:min(820px,calc(100vw - 24px));
+  width:min(640px,calc(100vw - 24px));
   max-height:calc(100vh - 120px);overflow-y:auto;
-  pointer-events:none;opacity:0;
-  transition:opacity 0.25s 0.08s,transform 0.25s 0.08s;z-index:1002;
+  opacity:0;pointer-events:none;
+  transition:opacity 0.22s,transform 0.22s;
   box-shadow:0 12px 48px rgba(0,0,0,0.13);
 }
-.legwrap:hover .legbox,.legwrap.open .legbox{opacity:1;transform:translate(-50%,-50%);pointer-events:all}
+.legbox.open .legbox-panel{opacity:1;pointer-events:all;transform:translate(-50%,-50%);}
 
 /* Header row */
 .legbox-header{
-  display:flex;align-items:baseline;gap:16px;
+  display:flex;align-items:center;gap:16px;
   padding:18px 24px 14px;
   border-bottom:1px solid #eeeee8;
 }
@@ -566,10 +577,10 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .leg-sub{display:block;font-size:0.58rem;color:#999;margin-top:3px;line-height:1.6;letter-spacing:0.02em}
 
 /* â”€â”€ Dark mode â”€â”€ */
-.dark .legbox{ background:#0a0a0e;border-color:var(--tb-border); box-shadow:0 12px 48px rgba(0,0,0,0.55); }
+.dark .legbox-backdrop{ background:rgba(0,0,0,0.45); }
+.dark .legbox-panel{ background:#0a0a0e;border-color:var(--tb-border); box-shadow:0 12px 48px rgba(0,0,0,0.55); }
 .dark .legbox-header{ border-color:#1a1a24; }
 .dark .legbox-title{ color:#c0c0d8; }
-.dark .legbox-subtitle{ color:#8080a0; }
 .dark .legbox-section{ color:#606080;border-color:#141420; }
 .dark .leg-prose{ color:#9090aa; }
 .dark .leg-key{ color:#a0a0bc;background:#0e0e18;border-color:#1e1e28; }
@@ -1778,9 +1789,10 @@ path.eg.dim{opacity:0}
   .npl-mc-type,.npl-mc-year,.npl-mc-city,.npl-mc-genre{display:block;font-family:'Syne Mono',monospace;font-size:0.5rem;color:#888;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:0.03em;text-align:left;border-left:1px solid var(--tb-border);padding-left:5px;}
   .dark .npl-mc-year,.dark .npl-mc-city,.dark .npl-mc-genre{color:#9090b0;}
   .npl-mc-type{font-size:0.43rem;}
-  /* Archive guide: full-screen bottom sheet on mobile, same as dp/node list */
-  .legbox{position:fixed !important;left:0 !important;right:0 !important;top:var(--chrome-h) !important;bottom:calc(44px + env(safe-area-inset-bottom,0px)) !important;width:auto !important;height:auto !important;max-height:none !important;transform:translateY(100vh) !important;opacity:1 !important;border-radius:0 !important;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1) !important;z-index:80 !important;overflow-y:auto !important;}
-  .legwrap.open .legbox{transform:translateY(0) !important;}
+  /* Archive guide: full-screen bottom sheet on mobile */
+  .legbox-backdrop{display:none;}
+  .legbox-panel{position:fixed !important;left:0 !important;right:0 !important;top:var(--chrome-h) !important;bottom:calc(44px + env(safe-area-inset-bottom,0px)) !important;width:auto !important;height:auto !important;max-height:none !important;transform:translateY(100vh) !important;opacity:1 !important;border-radius:0 !important;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1) !important;z-index:90 !important;overflow-y:auto !important;pointer-events:all !important;}
+  .legbox.open .legbox-panel{transform:translateY(0) !important;}
   .wordmark-club{display:inline;}
 
   /* ── Year strip: transparent, labels float directly over map ── */
@@ -3236,16 +3248,6 @@ path.eg.dim{opacity:0}
 }
 @media(max-width:600px){
   .nodelog-btn,.node-log-panel{display:none !important;}
-  .legbox{
-    left:18px;right:0;width:auto;transform:none;
-    top:var(--chrome-h);
-    max-height:calc(100vh - var(--chrome-h) - 44px - env(safe-area-inset-bottom,0px));
-    max-height:calc(100dvh - var(--chrome-h) - 44px - env(safe-area-inset-bottom,0px));
-    overflow-y:auto;
-  }
-  /* On phones only the .open class shows/hides the legbox — hover disabled */
-  .legwrap:hover .legbox{opacity:0;pointer-events:none;transform:none;}
-  .legwrap.open .legbox{opacity:1;pointer-events:all;transform:none;}
   .leg-desktop-only{display:none !important;}
   .legbox-body{padding:10px 14px 16px;}
   .legbox-header{padding:10px 14px 8px;gap:8px;align-items:center;}

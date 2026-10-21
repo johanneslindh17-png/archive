@@ -1756,7 +1756,6 @@ export default function App() {
     if (s === 'bw') return null;           // explicit B&W stored
     return s || 'type';                    // default to type colors
   });
-  const [colorMenuOpen, setColorMenuOpen] = useState(false);
 
   // Keep localStorage in sync whenever these change
   useEffect(() => {
@@ -2464,14 +2463,6 @@ export default function App() {
   }, [colorTheme, darkMode]);
   const themeAccent = themeStyle?.accent || null;
 
-  const btnGradient = useMemo(() => {
-    if (!colorTheme) return null;
-    const sw = THEME_SWATCHES[colorTheme];
-    if (!sw) return null;
-    // Long neutral lead-in so color arrives as a soft wash, not a hard band
-    const neutral = darkMode ? '#181818' : '#e6e6e6';
-    return `linear-gradient(to right, ${neutral} 0%, ${neutral} 20%, ${sw[0]} 70%, ${sw[1]} 100%)`;
-  }, [colorTheme, darkMode]);
 
   const selNode = NODE_BY_ID.get(selected);
   const selConns = useMemo(() => {
@@ -3304,55 +3295,13 @@ export default function App() {
             : (darkMode ? 'Auto: night — click to override' : 'Auto: day — click to override')}
         />
 
-        {/* Color theme picker */}
-        <div
-          className={`colorwrap${colorTheme ? ' has-theme' : ''}`}
-          style={themeAccent ? { '--color-accent': themeAccent } : undefined}
-          onMouseEnter={() => setColorMenuOpen(true)}
-          onMouseLeave={() => setColorMenuOpen(false)}
-        >
+        {/* Color toggle — on = color × type, off = mono */}
+        <div className="colorwrap">
           <button
             className={`colorbtn${colorTheme ? ' on' : ''}`}
-            style={btnGradient ? { background: btnGradient } : undefined}
-            onClick={() => setColorMenuOpen(v => !v)}
+            onClick={() => setColorTheme(t => t ? null : 'type')}
+            title={colorTheme ? 'Color: on — click to turn off' : 'Color: off — click to turn on'}
           />
-          {colorMenuOpen && (
-            <div className="colordrop">
-              {[
-                { key: null,    label: 'Off',          sub: 'No color' },
-                { section: 'Functional' },
-                { key: 'type',  label: 'Color × type', sub: 'Artist · Label · Venue · Event', swatches: ['#4a7fc1','#c87828','#3a9a50','#8844cc'] },
-                { key: 'genre', label: 'Color × genre', sub: 'Disco · Techno · Ambient…',     gradient: true },
-                { section: 'Cosmetic' },
-                { key: 'void',  label: 'Void',         sub: 'Cyan on black — Berlin',   swatches: ['#b8e8f4','#44a8b8','#00c8c0','#061416'] },
-                { key: 'acid',  label: 'Acid',         sub: 'Lime on black — rave',     swatches: ['#d4f0a0','#80aa00','#aadd00','#0b1400'] },
-                { key: 'rust',  label: 'Rust',         sub: 'Iron orange — Detroit',    swatches: ['#fdd0b0','#cc7744','#dd5500','#1c0900'] },
-              ].map((item, i) => {
-                if (item.section !== undefined) return (
-                  <div key={`s${i}`} className="colordrop-section">{item.section}</div>
-                );
-                const { key, label, sub, swatches, gradient } = item;
-                return (
-                  <div
-                    key={String(key)}
-                    className={`colordrop-item${colorTheme === key ? ' active' : ''}`}
-                    onClick={() => { setColorTheme(key); setColorMenuOpen(false); }}
-                  >
-                    <div className="colordrop-text">
-                      <span className="colordrop-label">{label}</span>
-                      <span className="colordrop-sub">{sub}</span>
-                    </div>
-                    {swatches && (
-                      <div className="colordrop-swatches">
-                        {swatches.map(c => <span key={c} className="colordrop-swatch" style={{ background: c }} />)}
-                      </div>
-                    )}
-                    {gradient && <div className="colordrop-gradient" />}
-                  </div>
-                );
-              })}
-            </div>
-          )}
         </div>
 
 
@@ -3388,10 +3337,16 @@ export default function App() {
           </div>
         </div>
 
-        {/* Legend / Guide */}
-        <div className={`legwrap${legOpen ? ' open' : ''}`}>
+        {/* Legend / Guide — trigger stays in topbar, panel portalled to body to escape backdrop-filter stacking context */}
+        <div className="legwrap">
           <div className="legtrigger" onClick={() => setLegOpen(v => !v)}>?</div>
-          <div className="legbox">
+        </div>
+      </div>
+
+      {createPortal(
+        <div className={`legbox${legOpen ? ' open' : ''}`}>
+          {legOpen && <div className="legbox-backdrop" onClick={() => setLegOpen(false)} />}
+          <div className="legbox-panel">
             <div className="legbox-header">
               <span className="legbox-title">Archive Guide</span>
               <button className="legbox-close" onClick={() => setLegOpen(false)}>✕</button>
@@ -3526,7 +3481,7 @@ export default function App() {
             </div>
           </div>
         </div>
-      </div>
+      , document.body)}
 
       {searchFocus && searchMatches.length > 0 && !nodesOpen && (
         <div className="search-dropdown">
