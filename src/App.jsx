@@ -1703,12 +1703,13 @@ export default function App() {
   useEffect(() => { if (dpMode === 'open' && window.innerWidth < 600) setNodesOpen(false); }, [dpMode]);
   // Opening the node list minimizes any open panel to peek
   useEffect(() => {
-    if (!nodesOpen || dpMode !== 'open' || window.innerWidth >= 600) return;
+    if (!nodesOpen || dpModeRef.current !== 'open') return;
     const el = dpRef.current;
     if (el) {
+      el.getBoundingClientRect(); // commit current position as transition "from"
       el.style.transition = 'transform 0.45s ease-out';
       el.style.transform = 'translateY(calc(100% - 76px))';
-      setTimeout(() => { if (dpRef.current) dpRef.current.style.transition = ''; }, 500);
+      setTimeout(() => { if (dpRef.current) { dpRef.current.style.transition = ''; dpRef.current.style.transform = ''; } }, 500);
     }
     setDpMode('peek');
   // eslint-disable-next-line react-hooks/exhaustive-deps
