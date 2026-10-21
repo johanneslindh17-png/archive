@@ -3394,135 +3394,134 @@ export default function App() {
           <div className="legbox">
             <div className="legbox-header">
               <span className="legbox-title">Archive Guide</span>
-              <span className="legbox-subtitle">A map of electronic music — origins, migrations, mutations</span>
               <button className="legbox-close" onClick={() => setLegOpen(false)}>✕</button>
             </div>
 
-            <div className="legbox-grid">
+            <div className="legbox-body">
 
-              {/* Column 1 */}
-              <div className="legbox-col">
-                <div className="legbox-section">About</div>
-                <p className="leg-prose">
-                  This archive documents the genealogy of house, techno, and related electronic music forms.
-                  Every connection is based on documented history — interviews, biographies, liner notes, and academic sources.
-                  It is an ongoing documentation intended to evolve with the scene.
-                </p>
+              <div className="legbox-section">About</div>
+              <p className="leg-prose">
+                This is a personal project — a living map of house, techno, and related electronic music
+                that I've built to share the knowledge I've gathered over years of digging. Every node and
+                connection is sourced from interviews, liner notes, biographies, and documented history.
+              </p>
+              <p className="leg-prose">
+                New nodes are added weekly, taking the archive deeper into the roots and sub-cultures of
+                the music. Think of it as a reference for those who want to understand where this music
+                really comes from — and a different way to find new artists connected to the ones you
+                already know.
+              </p>
 
-                <div className="legbox-section" style={{ marginTop: 12 }}>The Map</div>
-                <p className="leg-prose">
-                  The vertical axis is time — nodes are placed at the year they became significant.
-                  The horizontal axis is geography — regions run left to right as columns.
-                </p>
+              <div className="legbox-section leg-section-gap">The Map</div>
+              <p className="leg-prose">
+                The vertical axis is time — nodes sit at the year they became significant.
+                The horizontal axis is geography — regions and cities run left to right as columns.
+              </p>
 
-                <div className="legbox-section" style={{ marginTop: 12 }}>Navigation</div>
-                {[
-                  { key: 'click node',    desc: 'Open detail panel — description, releases, and connections' },
-                  { key: 'scroll',        desc: 'Pan vertically through the timeline' },
-                  { key: 'click region',  desc: 'Expand into city sub-columns' },
-                  { key: '← all regions', desc: 'Return to the full map view' },
-                  { key: 'blank area',    desc: 'Deselect and return to all nodes view' },
-                  { key: 'breadcrumb',    desc: 'Jump back through your selection history' },
-                ].map(({ key, desc }) => (
-                  <div key={key} className="leg-kv">
-                    <span className="leg-key">{key}</span>
-                    <span className="leg-val">{desc}</span>
-                  </div>
-                ))}
+              <div className="legbox-section leg-section-gap">Navigation</div>
+              {[
+                { key: 'tap a node',      desc: 'Info panel slides up from the bottom with description, releases, and connections' },
+                { key: 'swipe up',        desc: 'Expand the info panel to full screen — scroll through all the details' },
+                { key: 'tap region',      desc: 'Expand that region into city sub-columns' },
+                { key: '← all regions',  desc: 'Return to the full map view' },
+                { key: 'tap blank area',  desc: 'Deselect and return to the full node view' },
+                { key: 'breadcrumb bar',  desc: 'The chips at the top show your path — tap any chip to jump back to that node' },
+              ].map(({ key, desc }) => (
+                <div key={key} className="leg-kv">
+                  <span className="leg-key">{key}</span>
+                  <span className="leg-val">{desc}</span>
+                </div>
+              ))}
 
-                <div className="legbox-section" style={{ marginTop: 12 }}>Detail Panel</div>
-                {[
-                  { key: 'name in text', desc: 'Click any highlighted name to navigate to that node' },
-                  { key: 'drag header', desc: 'Reposition the panel freely', desktopOnly: true },
-                  { key: '✕',                 desc: 'Close panel but keep node highlighted' },
-                ].map(({ key, desc, desktopOnly }) => (
-                  <div key={key} className={`leg-kv${desktopOnly ? ' leg-desktop-only' : ''}`}>
-                    <span className="leg-key">{key}</span>
-                    <span className="leg-val">{desc}</span>
-                  </div>
-                ))}
-              </div>
+              <div className="legbox-section leg-section-gap">Node List &amp; Search</div>
+              {[
+                { key: 'node list btn',   desc: 'Opens a full panel — browse all nodes, filter by type, or tap to select' },
+                { key: 'search bar',      desc: 'Type to filter nodes by name — tap a result to navigate and center on it' },
+                { key: 'type chips',      desc: 'Toggle visibility of each node type — on the map and in search results' },
+              ].map(({ key, desc }) => (
+                <div key={key} className="leg-kv">
+                  <span className="leg-key">{key}</span>
+                  <span className="leg-val">{desc}</span>
+                </div>
+              ))}
 
-              {/* Column 2 */}
-              <div className="legbox-col">
-                <div className="legbox-section">Node Types</div>
-                {[
-                  { type: 'artist',  swatch: '#4a7fc1', label: 'Artist',  desc: 'Individual producers, DJs, musicians, and groups' },
-                  { type: 'label',   swatch: '#c87828', label: 'Label',   desc: 'Record labels, distributors, and catalogue-holders' },
-                  { type: 'venue',   swatch: '#3a9a50', label: 'Venue',   desc: 'Clubs, warehouses, studios, and recurring parties' },
-                  { type: 'moment',  swatch: '#8844cc', label: 'Moment',  desc: 'Pivotal cultural or historical events in the scene' },
-                  { type: 'style',   swatch: '#b07800', label: 'Style',   desc: 'Musical subgenres and sound signatures' },
-                  { type: 'culture', swatch: '#bb3333', label: 'Culture', desc: 'Social, political, and community contexts that shaped the music' },
-                  { type: 'channel', swatch: '#1a8888', label: 'Channel', desc: 'YouTube channels and streaming platforms that curate and champion electronic music' },
-                ].map(({ type, swatch, label, desc }) => {
-                  const W = 28, H = 13, hw = W/2, hh = H/2, oc = 3, nd = 2, ni = 3, fc = 4;
-                  const shapeEl = type === 'artist'
-                    ? <rect x={1} y={1} width={W-2} height={H-2} rx={6} fill="none" stroke={swatch} strokeWidth={1.2} />
-                    : type === 'label'
-                    ? <polygon points={`${hw-oc+1},1 ${W-oc},1 ${W-1},${hh-oc+1} ${W-1},${hh+oc-1} ${W-oc},${H-1} ${hw-oc+1},${H-1} 1,${hh+oc-1} 1,${hh-oc+1}`} fill="none" stroke={swatch} strokeWidth={1.2} />
-                    : type === 'venue'
-                    ? <rect x={1} y={1} width={W-2} height={H-2} rx={1.5} fill="none" stroke={swatch} strokeWidth={1.2} />
-                    : type === 'channel'
-                    ? <polygon points={`1,1 ${W-1-fc},1 ${W-1},${1+fc} ${W-1},${H-1} 1,${H-1}`} fill="none" stroke={swatch} strokeWidth={1.2} />
-                    : type === 'moment'
-                    ? <polygon points={`1,1 ${W-1},1 ${W-1},${hh-ni} ${W-1-nd},${hh} ${W-1},${hh+ni} ${W-1},${H-1} 1,${H-1} 1,${hh+ni} ${1+nd},${hh} 1,${hh-ni}`} fill="none" stroke={swatch} strokeWidth={1.2} />
-                    : type === 'style'
-                    ? <polygon points={`1,1 ${W-1-fc},1 ${W-1},${hh} ${W-1-fc},${H-1} 1,${H-1}`} fill="none" stroke={swatch} strokeWidth={1.2} />
-                    : /* culture: leftward banner */
-                      <polygon points={`${1+fc},1 ${W-1},1 ${W-1},${H-1} ${1+fc},${H-1} 1,${hh}`} fill="none" stroke={swatch} strokeWidth={1.2} />;
-                  return (
-                    <div key={type} className="leg-type-row">
-                      <svg width={W} height={H} style={{ flexShrink:0, overflow:'visible' }}>{shapeEl}</svg>
-                      <span className="leg-label">{label}<span className="leg-sub">{desc}</span></span>
-                    </div>
-                  );
-                })}
+              <div className="legbox-section leg-section-gap">Info Panel</div>
+              {[
+                { key: 'linked name',     desc: 'Tap any highlighted name in the text to navigate to that node' },
+                { key: 'bandcamp',        desc: 'Stream releases directly in the panel — tap ☰ for the full track list' },
+                { key: 'spotify / yt',    desc: 'Links open the artist on Spotify, YouTube, or other connected platforms' },
+                { key: '✕',              desc: 'Close the panel — the node stays highlighted on the map' },
+              ].map(({ key, desc }) => (
+                <div key={key} className="leg-kv">
+                  <span className="leg-key">{key}</span>
+                  <span className="leg-val">{desc}</span>
+                </div>
+              ))}
 
-                <div className="legbox-section" style={{ marginTop: 12 }}>Filters</div>
-                <p className="leg-prose">
-                  The node type chips in the status bar toggle visibility of each type —
-                  both on the map and in search results. Click any chip to hide or reveal that layer.
-                </p>
-                <p className="leg-prose leg-desktop-only">
-                  The search bar (top left) filters by name in real time. Arrow keys navigate results;
-                  Enter or click to select.
-                </p>
-              </div>
-
-              {/* Column 3 */}
-              <div className="legbox-col">
-                <div className="legbox-section">Connection Types</div>
-                {[
-                  { dash: undefined, sw: 2.2, col: '#5577cc', label: 'Direct lineage',        desc: 'Documented origin — a label founding, a direct musical descent, or a venue that created a scene' },
-                  { dash: undefined, sw: 1.4, col: '#cc7700', label: 'Roster / release',      desc: 'An artist released on a label or held a residency at a venue' },
-                  { dash: '7 3',     sw: 1.1, col: '#009966', label: 'Acknowledged influence', desc: 'Cited in interviews, press, or documented statements' },
-                  { dash: '2 5',     sw: 0.9, col: '#cc44aa', label: 'Aesthetic kinship',      desc: 'Shared sensibility, scene overlap, or mutual osmosis' },
-                ].map(({ dash, sw, col, label, desc }) => (
-                  <div key={label} className="leg-conn-row">
-                    <div className="leg-line-wide">
-                      <svg width={44} height={14}>
-                        <line x1={0} y1={7} x2={44} y2={7} stroke={col} strokeWidth={sw} strokeDasharray={dash} strokeLinecap="round" />
-                      </svg>
-                    </div>
+              <div className="legbox-section leg-section-gap">Node Types</div>
+              {[
+                { type: 'artist',  swatch: '#4a7fc1', label: 'Artist',  desc: 'Individual producers, DJs, musicians, and groups' },
+                { type: 'label',   swatch: '#c87828', label: 'Label',   desc: 'Record labels, distributors, and catalogue-holders' },
+                { type: 'venue',   swatch: '#3a9a50', label: 'Venue',   desc: 'Clubs, warehouses, studios, and recurring parties' },
+                { type: 'moment',  swatch: '#8844cc', label: 'Moment',  desc: 'Pivotal cultural or historical events in the scene' },
+                { type: 'style',   swatch: '#b07800', label: 'Style',   desc: 'Musical subgenres and sound signatures' },
+                { type: 'culture', swatch: '#bb3333', label: 'Culture', desc: 'Social, political, and community contexts that shaped the music' },
+                { type: 'channel', swatch: '#1a8888', label: 'Channel', desc: 'YouTube channels and streaming platforms that curate and champion electronic music' },
+              ].map(({ type, swatch, label, desc }) => {
+                const W = 28, H = 13, hw = W/2, hh = H/2, oc = 3, nd = 2, ni = 3, fc = 4;
+                const shapeEl = type === 'artist'
+                  ? <rect x={1} y={1} width={W-2} height={H-2} rx={6} fill="none" stroke={swatch} strokeWidth={1.2} />
+                  : type === 'label'
+                  ? <polygon points={`${hw-oc+1},1 ${W-oc},1 ${W-1},${hh-oc+1} ${W-1},${hh+oc-1} ${W-oc},${H-1} ${hw-oc+1},${H-1} 1,${hh+oc-1} 1,${hh-oc+1}`} fill="none" stroke={swatch} strokeWidth={1.2} />
+                  : type === 'venue'
+                  ? <rect x={1} y={1} width={W-2} height={H-2} rx={1.5} fill="none" stroke={swatch} strokeWidth={1.2} />
+                  : type === 'channel'
+                  ? <polygon points={`1,1 ${W-1-fc},1 ${W-1},${1+fc} ${W-1},${H-1} 1,${H-1}`} fill="none" stroke={swatch} strokeWidth={1.2} />
+                  : type === 'moment'
+                  ? <polygon points={`1,1 ${W-1},1 ${W-1},${hh-ni} ${W-1-nd},${hh} ${W-1},${hh+ni} ${W-1},${H-1} 1,${H-1} 1,${hh+ni} ${1+nd},${hh} 1,${hh-ni}`} fill="none" stroke={swatch} strokeWidth={1.2} />
+                  : type === 'style'
+                  ? <polygon points={`1,1 ${W-1-fc},1 ${W-1},${hh} ${W-1-fc},${H-1} 1,${H-1}`} fill="none" stroke={swatch} strokeWidth={1.2} />
+                  : /* culture: leftward banner */
+                    <polygon points={`${1+fc},1 ${W-1},1 ${W-1},${H-1} ${1+fc},${H-1} 1,${hh}`} fill="none" stroke={swatch} strokeWidth={1.2} />;
+                return (
+                  <div key={type} className="leg-type-row">
+                    <svg width={W} height={H} style={{ flexShrink:0, overflow:'visible' }}>{shapeEl}</svg>
                     <span className="leg-label">{label}<span className="leg-sub">{desc}</span></span>
                   </div>
-                ))}
+                );
+              })}
 
-                <div className="legbox-section" style={{ marginTop: 12 }}>Colour &amp; Appearance</div>
-                {[
-                  { key: 'color × type',  desc: 'Colour each node by its type — artist, label, venue, etc.' },
-                  { key: 'color × genre', desc: 'Colour each node by its musical genre' },
-                  { key: 'void',          desc: 'Mono palette — cyan on black' },
-                  { key: 'acid',          desc: 'Mono palette — lime on black' },
-                  { key: 'rust',          desc: 'Mono palette — iron orange on black' },
-                  { key: 'dark / light',  desc: 'Toggle between dark and light mode — switches automatically with sunrise and sunset' },
-                ].map(({ key, desc }) => (
-                  <div key={key} className="leg-kv">
-                    <span className="leg-key">{key}</span>
-                    <span className="leg-val">{desc}</span>
+              <div className="legbox-section leg-section-gap">Connection Types</div>
+              {[
+                { dash: undefined, sw: 2.2, col: '#5577cc', label: 'Direct lineage',         desc: 'Documented origin — a label founding, a direct musical descent, or a venue that created a scene' },
+                { dash: undefined, sw: 1.4, col: '#cc7700', label: 'Roster / release',       desc: 'An artist released on a label or held a residency at a venue' },
+                { dash: '7 3',     sw: 1.1, col: '#009966', label: 'Acknowledged influence', desc: 'Cited in interviews, press, or documented statements' },
+                { dash: '2 5',     sw: 0.9, col: '#cc44aa', label: 'Aesthetic kinship',       desc: 'Shared sensibility, scene overlap, or mutual osmosis' },
+              ].map(({ dash, sw, col, label, desc }) => (
+                <div key={label} className="leg-conn-row">
+                  <div className="leg-line-wide">
+                    <svg width={44} height={14}>
+                      <line x1={0} y1={7} x2={44} y2={7} stroke={col} strokeWidth={sw} strokeDasharray={dash} strokeLinecap="round" />
+                    </svg>
                   </div>
-                ))}
-              </div>
+                  <span className="leg-label">{label}<span className="leg-sub">{desc}</span></span>
+                </div>
+              ))}
+
+              <div className="legbox-section leg-section-gap">Colour &amp; Appearance</div>
+              {[
+                { key: 'color × type',  desc: 'Colour each node by its type — artist, label, venue, etc.' },
+                { key: 'color × genre', desc: 'Colour each node by its musical genre' },
+                { key: 'void',          desc: 'Mono palette — cyan on black' },
+                { key: 'acid',          desc: 'Mono palette — lime on black' },
+                { key: 'rust',          desc: 'Mono palette — iron orange on black' },
+                { key: 'dark / light',  desc: 'Toggle between dark and light mode — switches automatically with sunrise and sunset' },
+              ].map(({ key, desc }) => (
+                <div key={key} className="leg-kv">
+                  <span className="leg-key">{key}</span>
+                  <span className="leg-val">{desc}</span>
+                </div>
+              ))}
 
             </div>
           </div>
