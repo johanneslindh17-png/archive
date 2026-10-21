@@ -1235,7 +1235,7 @@ export default function App() {
     // Pan both axes so region bar always reflects the target node's region.
     const topChrome = window.innerWidth < 600 ? 144 : 0; // chrome-h(116) + regionbar(28)
     const bottomChrome = window.innerWidth < 600 ? 120 : 0; // statusbar(44) + peek(76)
-    const gridCenterY = topChrome + (window.innerHeight - topChrome - bottomChrome) / 2;
+    const gridCenterY = topChrome + (window.innerHeight - topChrome - bottomChrome) / 2 - 15;
     const tyFull = gridCenterY - p.y * k1;
     const y1 = live.y + (tyFull - live.y) * centerFactor;
     // Update x only enough to keep node horizontally visible (centre on node when centerFactor = 1).
@@ -1282,7 +1282,7 @@ export default function App() {
     const k1 = Math.max(targetK, k0);
     const topChrome = 144; // chrome-h(116) + regionbar(28)
     const bottomChrome = 120; // statusbar(44) + peek(76)
-    const gridCenterY = topChrome + (window.innerHeight - topChrome - bottomChrome) / 2;
+    const gridCenterY = topChrome + (window.innerHeight - topChrome - bottomChrome) / 2 - 15;
     const x1 = window.innerWidth  / 2 - p.x * k1;
     const y1 = gridCenterY - p.y * k1;
     const target = d3.zoomIdentity.translate(x1, y1).scale(k1);
