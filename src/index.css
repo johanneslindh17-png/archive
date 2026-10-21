@@ -1209,15 +1209,15 @@ path.eg.dim{opacity:0}
 .column-header-label{
   position:absolute;top:50%;
   transform:translate(-50%,-50%);
-  font-family:'Syne Mono',monospace;font-size:calc(min(var(--tf-k,1),1)*0.55rem);
-  letter-spacing:0.18em;text-transform:uppercase;
+  font-family:'Syne Mono',monospace;font-size:calc(min(var(--tf-k,1),1)*0.75rem);
+  letter-spacing:0.14em;text-transform:uppercase;
   color:#555555;pointer-events:auto;
   transition:color 0.15s;
-  padding:12px 20px;
+  padding:12px 4px;
   display:flex;flex-direction:column;align-items:center;text-align:center;
-  line-height:1.6;
+  line-height:1.6;overflow:hidden;
 }
-.chl-line{display:block;white-space:nowrap;}
+.chl-line{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;}
 .column-header-label:hover{color:#111111;}
 .dark .column-header-label{color:#c0bdd8;}
 .dark .column-header-label:hover{color:#ffffff;}

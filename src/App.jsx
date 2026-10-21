@@ -3677,11 +3677,12 @@ export default function App() {
             const svgCenterX = (REGION_LEFTS[key] || LEFT) + (REGION_WIDTHS[key] || 0) / 2;
             if (!REGIONS_WITH_NODES.has(key)) return null;
             const screenX = svgCenterX * tf.k + tf.x;
+            const colPx = (REGION_WIDTHS[key] || 120) * tf.k;
             return (
               <div key={key}
                 data-region={key} data-svgx={svgCenterX}
                 className="column-header-label"
-                style={{ left: screenX, cursor: 'pointer', visibility: (screenX < -300 || screenX > window.innerWidth + 300) ? 'hidden' : undefined }}
+                style={{ left: screenX, maxWidth: colPx, cursor: 'pointer', visibility: (screenX < -300 || screenX > window.innerWidth + 300) ? 'hidden' : undefined }}
                 onClick={() => doExpand(key)}>
                 <span className="chl-line">{(r.shortLabel || r.label).toUpperCase()}</span>
               </div>
@@ -3693,9 +3694,10 @@ export default function App() {
             return cities.map((city, i) => {
               const svgCenterX = LEFT + bw * i + bw / 2;
               const screenX = svgCenterX * tf.k + tf.x;
+              const colPx = bw * tf.k;
               return (
                 <div key={city} data-region={city} data-svgx={svgCenterX}
-                  className="column-header-label" style={{ left: screenX }}>
+                  className="column-header-label" style={{ left: screenX, maxWidth: colPx }}>
                   {city.toUpperCase()}
                 </div>
               );
