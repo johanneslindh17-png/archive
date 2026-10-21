@@ -1233,7 +1233,7 @@ export default function App() {
     }
 
     // Pan both axes so region bar always reflects the target node's region.
-    const gridCenterY = window.innerHeight / 2;
+    const gridCenterY = window.innerHeight / 2 - 20;
     const tyFull = gridCenterY - p.y * k1;
     const y1 = live.y + (tyFull - live.y) * centerFactor;
     // Update x only enough to keep node horizontally visible (centre on node when centerFactor = 1).
@@ -1278,7 +1278,7 @@ export default function App() {
     const live = d3.zoomTransform(svgRef.current);
     const k0 = live.k, x0 = live.x, y0 = live.y;
     const k1 = Math.max(targetK, k0);
-    const gridCenterY = window.innerHeight / 2;
+    const gridCenterY = window.innerHeight / 2 - 20;
     const x1 = window.innerWidth  / 2 - p.x * k1;
     const y1 = gridCenterY - p.y * k1;
     const target = d3.zoomIdentity.translate(x1, y1).scale(k1);
