@@ -1086,11 +1086,6 @@ export default function App() {
       clone.appendChild(inner);
     }
 
-    // Clone exits opposite to the direction new content enters
-    clip.getBoundingClientRect();
-    clone.style.transition = 'transform 0.7s cubic-bezier(0.4,0,0.2,1)';
-    clone.style.transform = dir === 'right' ? 'translateX(-100%)' : 'translateX(100%)';
-
     scrollToNode(id, 1.0);
 
     flushSync(() => {
@@ -1100,10 +1095,14 @@ export default function App() {
       window.history.replaceState(null, '', '#node=' + id);
     });
 
-    // Animate new content in from the correct side
-    scroll.getBoundingClientRect();
+    // Single reflow commits both starting positions, then both animations fire
+    // simultaneously — eliminates the frame gap that caused one to slide under the other
+    clip.getBoundingClientRect();
+    const ease = '0.7s cubic-bezier(0.4,0,0.2,1)';
+    clone.style.transition = `transform ${ease}`;
+    clone.style.transform = dir === 'right' ? 'translateX(-100%)' : 'translateX(100%)';
     const slideAnim = dir === 'right' ? 'dp-slide-in-right' : 'dp-slide-in-left';
-    scroll.style.animation = `${slideAnim} 0.7s cubic-bezier(0.4,0,0.2,1) both`;
+    scroll.style.animation = `${slideAnim} ${ease} both`;
 
     setTimeout(() => {
       clip.remove();
