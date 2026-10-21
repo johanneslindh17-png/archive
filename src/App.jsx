@@ -1753,8 +1753,10 @@ export default function App() {
   const darkMode = manualDark !== null ? manualDark : sunIsDark;
   const [colorTheme, setColorTheme] = useState(() => {
     const s = localStorage.getItem('colorTheme');
-    if (s === 'bw') return null;           // explicit B&W stored
-    return s || 'type';                    // default to type colors
+    if (s === 'bw') return null;
+    if (s === 'accent') return 'accent';
+    if (s === 'type') return 'type';
+    return 'accent';                       // default to accent
   });
 
   // Keep localStorage in sync whenever these change
@@ -1771,7 +1773,8 @@ export default function App() {
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', darkMode);
-    document.documentElement.classList.toggle('colorful', !!colorTheme);
+    document.documentElement.classList.toggle('colorful-accent', colorTheme === 'accent');
+    document.documentElement.classList.toggle('colorful', colorTheme === 'type');
   }, [darkMode, colorTheme]);
 
 
@@ -3295,12 +3298,12 @@ export default function App() {
             : (darkMode ? 'Auto: night — click to override' : 'Auto: day — click to override')}
         />
 
-        {/* Color toggle — on = color × type, off = mono */}
+        {/* Color mode — cycles: off → accent → full → off */}
         <div className="colorwrap">
           <button
-            className={`colorbtn${colorTheme ? ' on' : ''}`}
-            onClick={() => setColorTheme(t => t ? null : 'type')}
-            title={colorTheme ? 'Color: on — click to turn off' : 'Color: off — click to turn on'}
+            className={`colorbtn${colorTheme === 'accent' ? ' accent' : colorTheme === 'type' ? ' on' : ''}`}
+            onClick={() => setColorTheme(t => t === null ? 'accent' : t === 'accent' ? 'type' : null)}
+            title={colorTheme === null ? 'Color off — click for accent' : colorTheme === 'accent' ? 'Accent color — click for full' : 'Full color — click to turn off'}
           />
         </div>
 
@@ -3565,7 +3568,7 @@ export default function App() {
               {selectedSet.map(id => {
                 const nd = NODE_BY_ID.get(id);
                 if (!nd) return null;
-                const col = getThemeColors(nd, colorTheme, darkMode)?.stroke;
+                const col = colorTheme ? getThemeColors(nd, 'type', darkMode)?.stroke : null;
                 const isActive = id === selected;
                 return (
                   <div key={`tab-${id}`} className={`nbc-tab${isActive ? ' nbc-tab--active' : ''}`}
@@ -3577,7 +3580,7 @@ export default function App() {
               })}
               {pinned && !selectedSet.length && (() => {
                 const nd = NODE_BY_ID.get(pinned);
-                const col = nd ? getThemeColors(nd, colorTheme, darkMode)?.stroke : null;
+                const col = nd && colorTheme ? getThemeColors(nd, 'type', darkMode)?.stroke : null;
                 return (
                   <div className="nbc-tab nbc-tab--active"
                     style={col ? { color: col, background: col + '18' } : undefined}>
@@ -4258,7 +4261,7 @@ export default function App() {
             const on = typeFilters[key] !== false;
             // Match exact node colors for each type + theme
             let chipFill, chipStroke, chipText;
-            if (colorTheme === 'type') {
+            if (colorTheme === 'type' || colorTheme === 'accent') {
               const c = darkMode ? TYPE_COLORS[key]?.dark : TYPE_COLORS[key]?.light;
               chipFill   = c?.fill   ?? (darkMode ? '#0c0c10' : '#ffffff');
               chipStroke = c?.stroke ?? (darkMode ? 'rgba(255,255,255,0.9)' : '#000000');
