@@ -824,13 +824,9 @@ export default function App() {
     }
     if (selectedSet.includes(id)) {
       if (window.innerWidth < 600) {
-        // Tapping the already-selected node always deselects/closes
+        // Tapping the already-selected node deselects it fully
         if (id === selected) {
-          if (dpModeRef.current === 'peek' || dpModeRef.current === 'open') {
-            slideClosePanel();
-          } else {
-            selectNode(null);
-          }
+          slideClosePanel(() => { setSelectedSet([]); setPinned(null); });
           return;
         }
         if (dpModeRef.current === 'peek') {
