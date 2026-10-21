@@ -989,14 +989,21 @@ export default function App() {
     Object.assign(clone.style, {
       position: 'absolute', top: '0', left: '0',
       width: '100%', height: '100%',
-      transform: 'translateX(0)', transition: 'none', overflowY: 'scroll',
+      transform: 'translateX(0)', transition: 'none', overflowY: 'hidden',
       background: isDark ? 'rgba(12,12,16,0.95)' : 'rgba(255,255,255,0.95)',
     });
     clip.appendChild(clone);
 
-    // Force layout, then set scroll position (requires overflowY:scroll to work)
+    // Replicate scroll position via translateY on a wrapper — scrollTop is
+    // unreliable on overflow:hidden elements and gets reset by CSS animations
+    if (scrollY > 0) {
+      const inner = document.createElement('div');
+      inner.style.cssText = `transform:translateY(-${scrollY}px);width:100%;`;
+      while (clone.firstChild) inner.appendChild(clone.firstChild);
+      clone.appendChild(inner);
+    }
+
     clip.getBoundingClientRect();
-    clone.scrollTop = scrollY;
     clone.style.transition = 'transform 0.24s ease-in';
     clone.style.transform = 'translateX(-110%)';
 
@@ -1056,16 +1063,23 @@ export default function App() {
     const clone = scroll.cloneNode(true);
     Object.assign(clone.style, {
       position: 'absolute', top: '0', left: '0',
-      width: '100%', height: '100%', overflowY: 'scroll',
+      width: '100%', height: '100%', overflowY: 'hidden',
       background: isDark ? 'rgba(12,12,16,0.95)' : 'rgba(255,255,255,0.95)',
       willChange: 'transform',
       animation: 'none', transform: 'none',
     });
     clip.appendChild(clone);
 
-    // Force layout, then set scroll position (requires overflowY:scroll to work)
+    // Replicate scroll position via translateY on a wrapper — scrollTop is
+    // unreliable on overflow:hidden elements and gets reset by CSS animations
+    if (scrollY > 0) {
+      const inner = document.createElement('div');
+      inner.style.cssText = `transform:translateY(-${scrollY}px);width:100%;`;
+      while (clone.firstChild) inner.appendChild(clone.firstChild);
+      clone.appendChild(inner);
+    }
+
     clip.getBoundingClientRect();
-    clone.scrollTop = scrollY;
     clone.style.animation = 'dp-slide-out-left 1s cubic-bezier(0.4,0,0.2,1) both';
 
     scrollToNode(id, 1.0);
