@@ -3757,7 +3757,8 @@ export default function App() {
             // Peek mode: swipe up = expand, tap = expand, swipe down = close
             if (window.innerWidth < 600 && dpModeRef.current === 'peek') {
               if (deltaY < -40 || Math.abs(deltaY) < 10) {
-                // Swipe up or tap — expand to full
+                // Swipe up or tap — expand to full, unless tap was on a button/interactive
+                if (Math.abs(deltaY) < 10 && e.target.closest('button, a, .dp-conn, .dp-close, .dp-back')) return;
                 if (wasSwiping) el.classList.remove('dp-swiping');
                 el.style.transform = '';
                 flushSync(() => setDpMode('open'));
