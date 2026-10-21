@@ -1021,26 +1021,13 @@ export default function App() {
       clone.remove();
       scroll.style.transition = '';
       scroll.style.animation = '';
-      // Keep translateX(0) — DO NOT clear it yet. Clearing the inline transform
-      // demotes scroll off its GPU compositing layer; the async layer-merge runs
-      // during dp's upward animation and causes the mid-animation freeze.
-      // We clear it only after dp is fully open.
+      // Keep translateX(0) so scroll stays on its GPU compositing layer through
+      // dp's upward animation — clearing it mid-animation causes a freeze.
       scroll.style.transform = 'translateX(0)';
-      // Two rAFs so the GPU finishes processing the clone removal and any
-      // pending compositing work before dp's animation starts.
+      // Two rAFs let the GPU finish processing the clone removal before dp animates.
       requestAnimationFrame(() => requestAnimationFrame(() => {
-        const dpEl = dpRef.current;
-        if (!dpEl) return;
         flushSync(() => setDpMode('open'));
-        const onOpenEnd = (ev) => {
-          if (ev.propertyName !== 'transform') return;
-          dpEl.removeEventListener('transitionend', onOpenEnd);
-          // Leave scroll.style.transform as translateX(0) — demoting the layer here
-          // creates a GPU sync point right as the map animation starts. translateX(0)
-          // is visually identical to no transform so there's no reason to clear it.
-          scrollToNode(id, 1.0);
-        };
-        dpEl.addEventListener('transitionend', onOpenEnd);
+        // Node was just tapped so it's already on screen — no need to scroll the map.
       }));
     };
     scroll.addEventListener('transitionend', onSlideEnd);
