@@ -1026,8 +1026,11 @@ export default function App() {
       scroll.style.transform = 'translateX(0)';
       // Two rAFs let the GPU finish processing the clone removal before dp animates.
       requestAnimationFrame(() => requestAnimationFrame(() => {
+        // Flush any pending deferred React work (e.g. deferredHlIds SVG re-render)
+        // before dp animates. On mobile those deferred renders never get idle time
+        // during the side-slide; without this they fire mid-dp-animation and drop frames.
+        flushSync(() => {});
         flushSync(() => setDpMode('open'));
-        // Node was just tapped so it's already on screen — no need to scroll the map.
       }));
     };
     scroll.addEventListener('transitionend', onSlideEnd);
