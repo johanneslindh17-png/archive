@@ -1701,6 +1701,18 @@ export default function App() {
   useEffect(() => { dpModeRef.current = dpMode; }, [dpMode]);
   // Only one overlay at a time: opening the panel fully dismisses the node list
   useEffect(() => { if (dpMode === 'open' && window.innerWidth < 600) setNodesOpen(false); }, [dpMode]);
+  // Opening the node list minimizes any open panel to peek
+  useEffect(() => {
+    if (!nodesOpen || dpMode !== 'open' || window.innerWidth >= 600) return;
+    const el = dpRef.current;
+    if (el) {
+      el.style.transition = 'transform 0.45s ease-out';
+      el.style.transform = 'translateY(calc(100% - 76px))';
+      setTimeout(() => { if (dpRef.current) dpRef.current.style.transition = ''; }, 500);
+    }
+    setDpMode('peek');
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [nodesOpen]);
   const peekBarRef = useRef(null);
   const peekSwipeRef = useRef(null);
   const panelXRef = useRef(null);       // live ref so momentum loop reads current value
@@ -3258,15 +3270,6 @@ export default function App() {
               setSearchQ('');
               setNodeLogOpen(false);
               if (nodesScrollRef.current) nodesScrollRef.current.scrollTop = nodesScrollPosRef.current;
-              // Minimize any open panel to peek so only one layer shows at a time
-              if (window.innerWidth < 600 && dpModeRef.current === 'open') {
-                if (dpRef.current) {
-                  dpRef.current.style.transition = 'transform 0.45s ease-out';
-                  dpRef.current.style.transform = 'translateY(calc(100% - 76px))';
-                  setTimeout(() => { if (dpRef.current) dpRef.current.style.transition = ''; }, 500);
-                }
-                setDpMode('peek');
-              }
             } else {
               setSearchQ('');
             }
