@@ -1048,46 +1048,30 @@ export default function App() {
     const dp = dpRef.current;
     if (!scroll || !dp) { selectNode(id); return; }
 
-    // Read scroll position BEFORE any DOM mutations — iOS resets scrollTop when
-    // an element is moved off-screen with transform
     const scrollY = scroll.scrollTop;
-
     const dpRect = dp.getBoundingClientRect();
     const isDark = document.documentElement.classList.contains('dark');
+    const bg = isDark ? 'rgba(12,12,16,0.95)' : 'rgba(255,255,255,0.95)';
 
-    // Park new content off-screen in the direction it will enter from
-    scroll.style.transition = 'none';
-    scroll.style.animation = 'none';
-    scroll.style.transform = dir === 'right' ? 'translateX(100%)' : 'translateX(-100%)';
-
-    // Clip container sized to the dp panel
-    const clip = document.createElement('div');
-    Object.assign(clip.style, {
-      position: 'fixed', top: dpRect.top + 'px', left: dpRect.left + 'px',
-      width: dpRect.width + 'px', height: dpRect.height + 'px',
-      overflow: 'hidden', zIndex: '200', pointerEvents: 'none',
+    // Clone old content before React re-renders it
+    const oldClone = scroll.cloneNode(true);
+    Object.assign(oldClone.style, {
+      position: 'absolute', top: '0', width: '100%', height: '100%',
+      overflowY: 'hidden', background: bg, transform: 'none', transition: 'none', animation: 'none',
     });
-    document.body.appendChild(clip);
-    const clone = scroll.cloneNode(true);
-    Object.assign(clone.style, {
-      position: 'absolute', top: '0', left: '0',
-      width: '100%', height: '100%', overflowY: 'hidden',
-      background: isDark ? 'rgba(12,12,16,0.95)' : 'rgba(255,255,255,0.95)',
-      animation: 'none', transform: 'translateX(0)', transition: 'none',
-    });
-    clip.appendChild(clone);
-
-    // Replicate scroll position via translateY on a wrapper — scrollTop is
-    // unreliable on overflow:hidden elements and gets reset by CSS animations
     if (scrollY > 0) {
-      const inner = document.createElement('div');
-      inner.style.cssText = `transform:translateY(-${scrollY}px);width:100%;`;
-      while (clone.firstChild) inner.appendChild(clone.firstChild);
-      clone.appendChild(inner);
+      const scrollWrap = document.createElement('div');
+      scrollWrap.style.cssText = `transform:translateY(-${scrollY}px);width:100%;`;
+      while (oldClone.firstChild) scrollWrap.appendChild(oldClone.firstChild);
+      oldClone.appendChild(scrollWrap);
     }
 
-    scrollToNode(id, 1.0);
+    // Park the live scroll off-screen so React renders into it without flashing
+    scroll.style.transition = 'none';
+    scroll.style.animation = 'none';
+    scroll.style.transform = 'translateX(200%)';
 
+    scrollToNode(id, 1.0);
     flushSync(() => {
       setSelectedSet(prev => prev.includes(id) ? prev : [...prev, id]);
       setSelected(id);
@@ -1095,20 +1079,53 @@ export default function App() {
       window.history.replaceState(null, '', '#node=' + id);
     });
 
-    // Single reflow commits both starting positions, then both animations fire
-    // simultaneously — eliminates the frame gap that caused one to slide under the other
+    // Clone new content after React has rendered it
+    const newClone = scroll.cloneNode(true);
+    Object.assign(newClone.style, {
+      position: 'absolute', top: '0', width: '100%', height: '100%',
+      overflowY: 'hidden', background: bg, transform: 'none', transition: 'none', animation: 'none',
+    });
+
+    // Clip container over the dp panel
+    const clip = document.createElement('div');
+    Object.assign(clip.style, {
+      position: 'fixed', top: dpRect.top + 'px', left: dpRect.left + 'px',
+      width: dpRect.width + 'px', height: dpRect.height + 'px',
+      overflow: 'hidden', zIndex: '200', pointerEvents: 'none',
+    });
+    document.body.appendChild(clip);
+
+    // Single inner slider: 200% wide, holds both panels side by side
+    // For right: [oldClone | newClone], slide left 50% (= 100% of dp width)
+    // For left:  [newClone | oldClone], slide right 50%
+    const slider = document.createElement('div');
+    Object.assign(slider.style, {
+      position: 'absolute', top: '0', left: '0',
+      width: '200%', height: '100%',
+      transform: dir === 'right' ? 'translateX(0)' : 'translateX(-50%)',
+      transition: 'none',
+    });
+    if (dir === 'right') {
+      oldClone.style.left = '0';
+      newClone.style.left = '50%';
+    } else {
+      newClone.style.left = '0';
+      oldClone.style.left = '50%';
+    }
+    slider.appendChild(oldClone);
+    slider.appendChild(newClone);
+    clip.appendChild(slider);
+
+    // Single reflow → animate the whole slider as one solid mass
     clip.getBoundingClientRect();
-    const ease = '0.7s cubic-bezier(0.4,0,0.2,1)';
-    clone.style.transition = `transform ${ease}`;
-    clone.style.transform = dir === 'right' ? 'translateX(-100%)' : 'translateX(100%)';
-    const slideAnim = dir === 'right' ? 'dp-slide-in-right' : 'dp-slide-in-left';
-    scroll.style.animation = `${slideAnim} ${ease} both`;
+    slider.style.transition = 'transform 0.7s cubic-bezier(0.4,0,0.2,1)';
+    slider.style.transform = dir === 'right' ? 'translateX(-50%)' : 'translateX(0)';
 
     setTimeout(() => {
       clip.remove();
-      scroll.style.animation = '';
       scroll.style.transform = '';
       scroll.style.transition = '';
+      scroll.style.animation = '';
     }, 800);
   }
 
