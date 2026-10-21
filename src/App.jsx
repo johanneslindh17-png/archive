@@ -835,7 +835,12 @@ export default function App() {
           slidePeekSwitch(id, false);
           return;
         }
-        // Panel open or null — switch to this trail node
+        // Panel open + same node = close it
+        if (dpModeRef.current === 'open' && id === selected) {
+          slideClosePanel();
+          return;
+        }
+        // Panel open, different trail node — switch to it
         setSelected(id);
         setDpMode('open');
         window.history.replaceState(null, '', '#node=' + id);
