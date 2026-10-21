@@ -3595,10 +3595,7 @@ export default function App() {
           </div>
         )}
         {(selectedSet.length > 0 || pinned) && <>
-          <div style={{display:'flex',alignItems:'center',flexShrink:0}}>
-            <div className="nbc-home" onClick={() => { clearAll(); flyHome(); }}>← ALL NODES</div>
-            {selectedSet.length > 1 && <span className="nbc-count">{selectedSet.length}</span>}
-          </div>
+          <div className="nbc-home" onClick={() => { clearAll(); flyHome(); }}>← ALL</div>
           <div className="nbc-sep" />
           <div className="nbc-scroll-wrap">
             <div ref={nbcScrollRef} className="nbc-tabs-scroll" onScroll={checkNbcMore}>
@@ -3630,6 +3627,7 @@ export default function App() {
             {nbcHasLeft && <div className="nbc-more-arrow nbc-more-arrow--left" onClick={() => nbcScrollRef.current?.scrollBy({ left: -120, behavior: 'smooth' })}>‹</div>}
           </div>
           {nbcHasMore && <div className="nbc-more-arrow" onClick={() => nbcScrollRef.current?.scrollBy({ left: 120, behavior: 'smooth' })}>›</div>}
+          {selectedSet.length > 1 && <span className="nbc-count" style={{marginRight:'12px'}}>{selectedSet.length}</span>}
         </>}
       </div>
 

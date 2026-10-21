@@ -677,9 +677,9 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 
 /* Node breadcrumb bar */
 .nodebreadcrumb{
-  height:40px;border-bottom:1px solid var(--tb-border);
+  height:36px;border-bottom:1px solid var(--tb-border);
   background:var(--tb-bg);display:flex;align-items:center;
-  padding:0 16px;flex-shrink:0;overflow:hidden;transition:background 0.2s;
+  padding:0 0 0 12px;flex-shrink:0;overflow:hidden;transition:background 0.2s;
   gap:0;position:relative;z-index:1001;
 }
 .nbc-tabs-scroll{
@@ -689,11 +689,11 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .nbc-tabs-scroll::-webkit-scrollbar{display:none;}
 .nbc-scroll-wrap{position:relative;flex:1;min-width:0;display:flex;overflow:hidden;}
 .nbc-more-arrow{
-  position:absolute;right:0;top:0;bottom:0;width:60px;
-  background:linear-gradient(to left,var(--tb-bg) 50%,transparent);
+  position:absolute;right:0;top:0;bottom:0;width:48px;
+  background:linear-gradient(to left,var(--tb-bg) 55%,transparent);
   display:flex;align-items:center;justify-content:flex-end;
-  padding-right:10px;pointer-events:none;
-  font-family:'Syne Mono',monospace;font-size:0.75rem;color:var(--tb-text-mid);
+  padding-right:8px;pointer-events:auto;cursor:pointer;
+  font-family:'Syne Mono',monospace;font-size:0.85rem;color:var(--tb-text-mid);
   flex-shrink:0;
 }
 .nbc-more-arrow--left{left:0;right:auto;width:40px;background:linear-gradient(to right,var(--tb-bg) 35%,transparent);justify-content:flex-start;padding-right:0;padding-left:1px;}
@@ -714,24 +714,24 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .dark .nbc-welcome { color:#ccc; }
 .dark .nbc-welcome--linked:hover { color:#ddd; }
 .nbc-home{
-  font-family:'Syne Mono',monospace;font-size:0.46rem;letter-spacing:0.12em;
+  font-family:'Syne Mono',monospace;font-size:0.42rem;letter-spacing:0.08em;
   text-transform:uppercase;color:#aaa;cursor:pointer;white-space:nowrap;
   flex-shrink:0;transition:color 0.15s;
 }
 .nbc-home:hover{color:#111;}
 .nbc-count{
-  font-family:'Syne Mono',monospace;font-size:0.5rem;letter-spacing:0.06em;
+  font-family:'Syne Mono',monospace;font-size:0.48rem;letter-spacing:0.04em;
   color:#aaa;background:var(--tb-border);border-radius:8px;
-  padding:1px 5px;margin-left:5px;flex-shrink:0;white-space:nowrap;
+  padding:1px 6px;margin-left:auto;flex-shrink:0;white-space:nowrap;
 }
-.nbc-sep{width:1px;height:12px;background:var(--tb-border);margin:0 10px;flex-shrink:0;}
+.nbc-sep{width:1px;height:10px;background:var(--tb-border);margin:0 8px;flex-shrink:0;}
 .nbc-tab{
   display:flex;align-items:center;gap:4px;
-  font-family:'Syne Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;
+  font-family:'Syne Mono',monospace;font-size:0.55rem;letter-spacing:0.07em;
   text-transform:uppercase;color:#777;white-space:nowrap;
   flex-shrink:0;margin-right:5px;
   border:1.5px solid currentColor;border-radius:3px;
-  padding:2px 5px 2px 6px;
+  padding:1px 5px 1px 6px;
   background:transparent;
   transition:opacity 0.15s;
 }
@@ -1700,7 +1700,7 @@ path.eg.dim{opacity:0}
        Row 1: ELECTRONIC ARCHIVE.  [dark] [color] [?]
        Row 2: full-width search bar
   ── */
-  :root{--chrome-h:calc(120px + env(safe-area-inset-top,0px));}
+  :root{--chrome-h:calc(116px + env(safe-area-inset-top,0px));}
   /* Canvas fills entire screen — bars float as frosted overlays on top */
   .canvas{position:fixed !important;inset:0 !important;z-index:1 !important;}
   /* Topbar: fixed overlay with frosted glass */
