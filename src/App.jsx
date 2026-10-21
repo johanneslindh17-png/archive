@@ -1024,20 +1024,20 @@ export default function App() {
       // Keep translateX(0) inline so scroll stays on its GPU compositing layer
       // while dp slides up — clearing it demotes the layer mid-animation causing a bump
       scroll.style.transform = 'translateX(0)';
-      // Defer to a fresh macrotask (Safari transitionend handler quirk), then wait
-      // one rAF to let pending GPU compositing work flush before dp starts moving
+      // Defer to a fresh macrotask (Safari transitionend handler quirk)
       setTimeout(() => {
-        requestAnimationFrame(() => {
-          const dpEl = dpRef.current;
-          const onOpenEnd = (ev) => {
-            if (ev.propertyName !== 'transform') return;
-            dpEl.removeEventListener('transitionend', onOpenEnd);
-            scroll.style.transform = '';
-            scrollToNode(id, 1.0);
-          };
-          if (dpEl) dpEl.addEventListener('transitionend', onOpenEnd);
-          flushSync(() => setDpMode('open'));
-        });
+        const dpEl = dpRef.current;
+        if (!dpEl) return;
+        flushSync(() => setDpMode('open'));
+        // Read the actual CSS transition duration so scrollToNode fires only
+        // after dp has fully slid up — transitionend can fire early on iOS if
+        // the transition is interrupted by a re-render mid-animation
+        const durStr = getComputedStyle(dpEl).transitionDuration;
+        const durMs = Math.round(parseFloat(durStr) * 1000) || 850;
+        setTimeout(() => {
+          scroll.style.transform = '';
+          scrollToNode(id, 1.0);
+        }, durMs + 50);
       }, 0);
     };
     scroll.addEventListener('transitionend', onSlideEnd);
