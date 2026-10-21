@@ -824,22 +824,10 @@ export default function App() {
     }
     if (selectedSet.includes(id)) {
       if (window.innerWidth < 600) {
-        // Tapping a trail node removes it from the trail (same as desktop toggle-off)
-        const removeFromTrail = () => {
-          const newSet = selectedSet.filter(x => x !== id);
-          setSelectedSet(newSet);
-          const newActive = newSet.length ? newSet[newSet.length - 1] : null;
-          setSelected(newActive);
-          if (!newSet.length) { setPinned(null); }
-        };
-        // Panel closed — just remove from trail, no panel animation needed
-        if (!dpModeRef.current) {
-          removeFromTrail();
-          return;
-        }
-        // Currently shown node — close panel then remove from trail
-        if (id === selected) {
-          slideClosePanel(removeFromTrail);
+        // Mobile: clicking a trail/peek node opens it
+        if (dpModeRef.current === 'peek' && id === selected) {
+          if (dpRef.current) dpRef.current.style.transform = '';
+          flushSync(() => setDpMode('open'));
           return;
         }
         if (dpModeRef.current === 'peek') {
