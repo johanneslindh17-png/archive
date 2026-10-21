@@ -1050,13 +1050,15 @@ export default function App() {
 
     const scrollY = scroll.scrollTop;
     const dpRect = dp.getBoundingClientRect();
+    const W = dpRect.width;
+    const H = dpRect.height;
     const isDark = document.documentElement.classList.contains('dark');
     const bg = isDark ? 'rgba(12,12,16,0.95)' : 'rgba(255,255,255,0.95)';
 
     // Clone old content before React re-renders it
     const oldClone = scroll.cloneNode(true);
     Object.assign(oldClone.style, {
-      position: 'absolute', top: '0', width: '100%', height: '100%',
+      position: 'absolute', top: '0', width: W + 'px', height: H + 'px',
       overflowY: 'hidden', background: bg, transform: 'none', transition: 'none', animation: 'none',
     });
     if (scrollY > 0) {
@@ -1082,36 +1084,31 @@ export default function App() {
     // Clone new content after React has rendered it
     const newClone = scroll.cloneNode(true);
     Object.assign(newClone.style, {
-      position: 'absolute', top: '0', width: '100%', height: '100%',
+      position: 'absolute', top: '0', width: W + 'px', height: H + 'px',
       overflowY: 'hidden', background: bg, transform: 'none', transition: 'none', animation: 'none',
     });
 
-    // Clip container over the dp panel
+    // Clip container exactly over the dp panel
     const clip = document.createElement('div');
     Object.assign(clip.style, {
       position: 'fixed', top: dpRect.top + 'px', left: dpRect.left + 'px',
-      width: dpRect.width + 'px', height: dpRect.height + 'px',
+      width: W + 'px', height: H + 'px',
       overflow: 'hidden', zIndex: '200', pointerEvents: 'none',
     });
     document.body.appendChild(clip);
 
-    // Single inner slider: 200% wide, holds both panels side by side
-    // For right: [oldClone | newClone], slide left 50% (= 100% of dp width)
-    // For left:  [newClone | oldClone], slide right 50%
+    // Single inner slider: 2×W wide, holds both panels side by side in pixels
+    // dir=right: [old @ x=0 | new @ x=W], animate from 0 → -W
+    // dir=left:  [new @ x=0 | old @ x=W], animate from -W → 0
     const slider = document.createElement('div');
     Object.assign(slider.style, {
       position: 'absolute', top: '0', left: '0',
-      width: '200%', height: '100%',
-      transform: dir === 'right' ? 'translateX(0)' : 'translateX(-50%)',
+      width: (2 * W) + 'px', height: H + 'px',
+      transform: dir === 'right' ? 'translateX(0)' : `translateX(${-W}px)`,
       transition: 'none',
     });
-    if (dir === 'right') {
-      oldClone.style.left = '0';
-      newClone.style.left = '50%';
-    } else {
-      newClone.style.left = '0';
-      oldClone.style.left = '50%';
-    }
+    oldClone.style.left = dir === 'right' ? '0' : W + 'px';
+    newClone.style.left = dir === 'right' ? W + 'px' : '0';
     slider.appendChild(oldClone);
     slider.appendChild(newClone);
     clip.appendChild(slider);
@@ -1119,7 +1116,7 @@ export default function App() {
     // Single reflow → animate the whole slider as one solid mass
     clip.getBoundingClientRect();
     slider.style.transition = 'transform 0.7s cubic-bezier(0.4,0,0.2,1)';
-    slider.style.transform = dir === 'right' ? 'translateX(-50%)' : 'translateX(0)';
+    slider.style.transform = dir === 'right' ? `translateX(${-W}px)` : 'translateX(0)';
 
     setTimeout(() => {
       clip.remove();
