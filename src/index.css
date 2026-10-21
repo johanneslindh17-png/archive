@@ -1889,7 +1889,7 @@ path.eg.dim{opacity:0}
     height:100%;
     overflow-y:auto;
     overflow-x:hidden;
-    padding:14px 14px 16px;
+    padding:16px 14px 16px;
     box-sizing:border-box;
     overscroll-behavior:contain;
     -webkit-overflow-scrolling:touch;
