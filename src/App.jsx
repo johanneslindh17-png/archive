@@ -1011,7 +1011,7 @@ export default function App() {
     }
 
     clip.getBoundingClientRect();
-    clone.style.transition = 'transform 0.4s cubic-bezier(0.4,0,0.2,1)';
+    clone.style.transition = 'transform 2s cubic-bezier(0.4,0,0.2,1)';
     clone.style.transform = 'translateX(-100%)';
 
     flushSync(() => {
@@ -1022,7 +1022,7 @@ export default function App() {
 
     // New content is at translateX(100%) — force reflow then animate in
     scroll.getBoundingClientRect();
-    scroll.style.transition = 'transform 0.4s cubic-bezier(0.4,0,0.2,1)';
+    scroll.style.transition = 'transform 2s cubic-bezier(0.4,0,0.2,1)';
     scroll.style.transform = 'translateX(0)';
 
     const onSlideEnd = (e) => {
