@@ -1053,13 +1053,13 @@ export default function App() {
     const isDark = document.documentElement.classList.contains('dark');
     const bg = isDark ? 'rgba(12,12,16,0.95)' : 'rgba(255,255,255,0.95)';
 
-    // Clip container exactly over the scroll area — sized via scrollRect so
-    // width:100% on children equals the scroll element's natural width
+    // Clip spans full viewport width so translateX(100%) = exactly off-screen
+    const vw = window.innerWidth;
     const clip = document.createElement('div');
     Object.assign(clip.style, {
       position: 'fixed',
-      top: scrollRect.top + 'px', left: scrollRect.left + 'px',
-      width: scrollRect.width + 'px', height: (dpRect.bottom - scrollRect.top) + 'px',
+      top: scrollRect.top + 'px', left: '0',
+      width: vw + 'px', height: (dpRect.bottom - scrollRect.top) + 'px',
       overflow: 'hidden', zIndex: '200', pointerEvents: 'none',
     });
     document.body.appendChild(clip);
@@ -1067,7 +1067,7 @@ export default function App() {
     // Clone old content (before React re-renders) — exits in dir direction
     const oldClone = scroll.cloneNode(true);
     Object.assign(oldClone.style, {
-      position: 'absolute', top: '0', left: '0', width: '100%', height: '100%',
+      position: 'absolute', top: '0', left: '0', width: vw + 'px', height: '100%',
       overflowY: 'hidden', background: bg,
       transform: 'translateX(0)', transition: 'none', animation: 'none',
     });
@@ -1095,7 +1095,7 @@ export default function App() {
     // Clone new content (after React renders) — enters from opposite direction
     const newClone = scroll.cloneNode(true);
     Object.assign(newClone.style, {
-      position: 'absolute', top: '0', left: '0', width: '100%', height: '100%',
+      position: 'absolute', top: '0', left: '0', width: vw + 'px', height: '100%',
       overflowY: 'hidden', background: bg,
       transform: dir === 'right' ? 'translateX(100%)' : 'translateX(-100%)',
       transition: 'none', animation: 'none',
