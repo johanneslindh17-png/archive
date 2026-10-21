@@ -1035,8 +1035,9 @@ export default function App() {
         const onOpenEnd = (ev) => {
           if (ev.propertyName !== 'transform') return;
           dpEl.removeEventListener('transitionend', onOpenEnd);
-          // Now dp is fully open and static — safe to demote scroll's layer
-          scroll.style.transform = '';
+          // Leave scroll.style.transform as translateX(0) — demoting the layer here
+          // creates a GPU sync point right as the map animation starts. translateX(0)
+          // is visually identical to no transform so there's no reason to clear it.
           scrollToNode(id, 1.0);
         };
         dpEl.addEventListener('transitionend', onOpenEnd);
@@ -1237,12 +1238,14 @@ export default function App() {
     const txFull = window.innerWidth * 0.5 - p.x * k1;
     const x1 = live.x + (txFull - live.x) * centerFactor;
     const target = d3.zoomIdentity.translate(x1, y1).scale(k1);
-    positionPanel(id, target);
+    // On mobile dp is fixed full-width — panel position is irrelevant, and calling
+    // positionPanel triggers a React re-render that competes with d3's first tween frame.
+    if (window.innerWidth >= 600) positionPanel(id, target);
 
     const x0 = live.x, y0 = live.y;
     animatingRef.current = true;
     d3.select(svgRef.current)
-      .transition().duration(480).ease(d3.easeCubicOut)
+      .transition().duration(650).ease(d3.easeCubicInOut)
       .tween('scroll-to-node', () => t => {
         const x = x0 + (x1 - x0) * t;
         const y = y0 + (y1 - y0) * t;
