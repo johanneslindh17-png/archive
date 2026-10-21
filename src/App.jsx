@@ -1025,8 +1025,14 @@ export default function App() {
       // Defer to a fresh macrotask — Safari won't start a clean CSS transition
       // from within a transitionend handler
       setTimeout(() => {
+        const dpEl = dpRef.current;
+        const onOpenEnd = (e) => {
+          if (e.propertyName !== 'transform') return;
+          dpEl.removeEventListener('transitionend', onOpenEnd);
+          scrollToNode(id, 1.0);
+        };
+        if (dpEl) dpEl.addEventListener('transitionend', onOpenEnd);
         flushSync(() => setDpMode('open'));
-        scrollToNode(id, 1.0);
       }, 0);
     };
     scroll.addEventListener('transitionend', onSlideEnd);
