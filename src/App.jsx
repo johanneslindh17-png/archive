@@ -1028,16 +1028,14 @@ export default function App() {
       setTimeout(() => {
         const dpEl = dpRef.current;
         if (!dpEl) return;
+        // Clear scroll's inline transform before dp starts moving so the GPU
+        // layer demotion happens before the animation, not during it
+        scroll.style.transform = '';
         flushSync(() => setDpMode('open'));
-        // Read the actual CSS transition duration so scrollToNode fires only
-        // after dp has fully slid up — transitionend can fire early on iOS if
-        // the transition is interrupted by a re-render mid-animation
-        const durStr = getComputedStyle(dpEl).transitionDuration;
-        const durMs = Math.round(parseFloat(durStr) * 1000) || 850;
-        setTimeout(() => {
-          scroll.style.transform = '';
-          scrollToNode(id, 1.0);
-        }, durMs + 50);
+        // Start map scroll at the same time as dp slides up — concurrent
+        // animations feel smoother than sequential and avoid a stutter when
+        // scrollToNode's setTf re-render fires after dp is already open
+        scrollToNode(id, 1.0);
       }, 0);
     };
     scroll.addEventListener('transitionend', onSlideEnd);
