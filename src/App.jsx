@@ -2865,6 +2865,16 @@ export default function App() {
       : isChan   ? <polygon className="nd-border" points={chanPts} fill={fillColor} stroke={sc} strokeWidth={strokeW} />
       :            <rect className="nd-border" x={-hw} y={-hh} width={bw} height={bh} rx={2} fill={fillColor} stroke={sc} strokeWidth={strokeW} />;
 
+    const renderShine = () => isDim ? null : (
+      isArtist  ? <rect x={-hw} y={-hh} width={bw} height={bh} rx={8} fill="url(#nd-shine)" stroke="none" pointerEvents="none" />
+      : isLabel  ? <polygon points={octPts} fill="url(#nd-shine)" stroke="none" pointerEvents="none" />
+      : isNotch  ? <polygon points={ntchPts} fill="url(#nd-shine)" stroke="none" pointerEvents="none" />
+      : isStyle  ? <polygon points={stylePts} fill="url(#nd-shine)" stroke="none" pointerEvents="none" />
+      : isCulture? <polygon points={cultPts} fill="url(#nd-shine)" stroke="none" pointerEvents="none" />
+      : isChan   ? <polygon points={chanPts} fill="url(#nd-shine)" stroke="none" pointerEvents="none" />
+      :            <rect x={-hw} y={-hh} width={bw} height={bh} rx={2} fill="url(#nd-shine)" stroke="none" pointerEvents="none" />
+    );
+
     const mo = 0; // march offset — 0 = march dots trace the node outline exactly
     const octPtsM  = `${-hw+oc-mo},${-hh-mo} ${hw-oc+mo},${-hh-mo} ${hw+mo},${-hh+oc-mo} ${hw+mo},${hh-oc+mo} ${hw-oc+mo},${hh+mo} ${-hw+oc-mo},${hh+mo} ${-hw-mo},${hh-oc+mo} ${-hw-mo},${-hh+oc-mo}`;
     const ntchPtsM = `${-hw-mo},${-hh-mo} ${hw+mo},${-hh-mo} ${hw+mo},${-ni-mo} ${hw-nd+mo},0 ${hw+mo},${ni+mo} ${hw+mo},${hh+mo} ${-hw-mo},${hh+mo} ${-hw-mo},${ni+mo} ${-hw+nd-mo},0 ${-hw-mo},${-ni-mo}`;
@@ -3117,6 +3127,7 @@ export default function App() {
         <g className="nd-inner">
           {renderBg()}
           {renderBorder()}
+          {renderShine()}
           <text textAnchor="middle" dominantBaseline="middle"
             style={{ fill: textFill, fontSize: '7.0px', fontWeight: isHl || isSel ? '600' : '400' }}>
             {n.label}
@@ -3673,6 +3684,12 @@ export default function App() {
           hovPrevRef.current = [];
           startTransition(() => setHovNode(null));
         }}>
+          <defs>
+            <linearGradient id="nd-shine" gradientUnits="objectBoundingBox" x1="0.5" y1="0" x2="0.5" y2="1">
+              <stop offset="0%" stopColor="white" stopOpacity="0.22" />
+              <stop offset="58%" stopColor="white" stopOpacity="0" />
+            </linearGradient>
+          </defs>
           <rect x={0} y={0} width="100%" height="100%" fill={themeStyle?.bg || (darkMode ? '#0c0c10' : '#ffffff')} onClick={() => { clearAll(); flyHome(); }} />
           <g ref={svgGRef} style={{ transformOrigin: '0 0' }}>
 
