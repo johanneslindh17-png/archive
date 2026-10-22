@@ -2786,7 +2786,7 @@ export default function App() {
     const isHl = deferredHlIds ? deferredHlIds.has(n.id) : isFilt;
     const isDim = (deferredHlIds && !deferredHlIds.has(n.id)) || (!deferredHlIds && !isFilt);
     const isSel = selectedSetObj.has(n.id) || n.id === pinned;
-    const charW = 4.0, pad = 3;
+    const charW = 4.0, pad = 5;
     const isMoment  = n.type === 'moment';
     const isStyle   = n.type === 'style';
     const isCulture = n.type === 'culture';
