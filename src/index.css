@@ -185,7 +185,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   border-bottom:1px solid var(--tb-border);
 }
 .nodes-panel-title{font-family:'Syne Mono',monospace;font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--tb-text);padding-right:12px;border-right:1px solid var(--tb-border);}
-.nodes-panel-header-right{display:flex;align-items:center;gap:6px;min-width:0}
+.nodes-panel-header-right{display:flex;align-items:center;gap:6px;min-width:0;padding-left:12px;}
 .nodes-panel-close-wrap{display:flex;align-items:center;justify-content:flex-end}
 .nodes-panel-close{background:none;border:none;cursor:pointer;color:var(--tb-text-mid);font-size:1rem;padding:4px 4px;line-height:1;flex-shrink:0}
 .nodes-panel-close:hover{color:var(--tb-text)}
