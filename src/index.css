@@ -2058,7 +2058,7 @@ path.eg.dim{opacity:0}
   .dp-toprow-meta .dp-name.dp-name-sm{font-size:1.0rem !important;}
   .dp-toprow-meta .dp-name.dp-name-xs{font-size:0.85rem !important;}
   .dp-pill-below,.dp-name-below{display:none !important;}
-  .nodes-panel-close{width:32px;height:32px;padding:0;display:flex;align-items:center;justify-content:center;background:var(--tb-bg);border:1px solid var(--tb-border) !important;border-radius:2px;box-shadow:0 1px 6px rgba(0,0,0,0.18);font-size:0.9rem;}
+  .nodes-panel-close{width:32px;height:32px;padding:0;display:flex;align-items:center;justify-content:center;background:none !important;border:none !important;border-radius:0 !important;box-shadow:none !important;font-size:0.9rem;}
   .dp-move-hint{display:none;}
 
   /* ── Route card: above statusbar, full width ── */
