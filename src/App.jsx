@@ -2889,7 +2889,7 @@ export default function App() {
     const ringStroke = tc ? tc.stroke : (dm ? 'rgba(255,255,255,0.55)' : 'rgba(0,0,0,0.45)');
     const renderSelRing = () => !isSel ? null : (
       <rect className="nd-sel-ring" x={-hw-rr} y={-hh-rr} width={bw+rr*2} height={bh+rr*2} rx={isArtist ? 11 : 5}
-        fill="none" stroke={ringStroke} strokeWidth={0.7} strokeDasharray="3 3" pointerEvents="none" />
+        fill="none" stroke={ringStroke} strokeWidth={0.6} pointerEvents="none" />
     );
 
     const mo = 0; // march offset — 0 = march dots trace the node outline exactly
