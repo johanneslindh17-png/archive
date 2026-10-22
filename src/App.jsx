@@ -1776,9 +1776,6 @@ export default function App() {
     document.documentElement.classList.toggle('bw-strict', colorTheme === null);
     document.documentElement.classList.toggle('colorful-accent', colorTheme === 'accent');
     document.documentElement.classList.toggle('colorful', colorTheme === 'type');
-    let meta = document.querySelector('meta[name="theme-color"]');
-    if (!meta) { meta = document.createElement('meta'); meta.name = 'theme-color'; document.head.appendChild(meta); }
-    meta.content = darkMode ? '#0c0c10' : '#ffffff';
   }, [darkMode, colorTheme]);
 
 
