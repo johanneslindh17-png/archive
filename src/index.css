@@ -682,7 +682,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 }
 .regionlabel-back:hover{color:#111;}
 .regionlabel-sep{width:1px;height:12px;background:var(--tb-border);margin-right:14px;}
-.regionlabel strong{font-family:'Syne Mono',monospace;font-size:0.56rem;letter-spacing:0.18em;text-transform:uppercase;color:#333;font-weight:600;}
+.regionlabel strong{font-family:'Syne Mono',monospace;font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:#333;font-weight:600;}
 .dark .regionlabel-back{color:#444455;}
 .dark .regionlabel-back:hover{color:#9090a8;}
 .dark .regionlabel strong{color:#9090a8;}
