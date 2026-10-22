@@ -1676,12 +1676,13 @@ export default function App() {
 
   const [pinned, setPinned] = useState(null); // highlighted but panel closed
   useEffect(() => {
-    const el = nbcScrollRef.current;
-    if (!el) return;
-    requestAnimationFrame(() => {
+    const t = setTimeout(() => {
+      const el = nbcScrollRef.current;
+      if (!el) return;
       el.scrollLeft = el.scrollWidth;
       checkNbcMore();
-    });
+    }, 30);
+    return () => clearTimeout(t);
   }, [selectedSet, pinned]);
   useEffect(() => {
     const scroll = nbcScrollRef.current;
