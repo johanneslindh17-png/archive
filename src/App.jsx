@@ -2891,8 +2891,12 @@ export default function App() {
     const dm = darkMode;
     const tc = getThemeColors(n, colorTheme, dm);
     const ctryColor = COUNTRIES[n.country]?.color || '#5a5a70';
+    // Selected nodes always use country color — gives individual identity regardless of active theme
+    const selFill = dm
+      ? (() => { const c = parseInt(ctryColor.replace('#',''),16); const r=(c>>16)&0xff,g=(c>>8)&0xff,b=c&0xff; const lum=0.2126*r/255+0.7152*g/255+0.0722*b/255; if(lum>0.28) return ctryColor; const f=Math.min(255/Math.max(r,g,b,1),2.8); return `#${Math.min(255,Math.round(r*f)).toString(16).padStart(2,'0')}${Math.min(255,Math.round(g*f)).toString(16).padStart(2,'0')}${Math.min(255,Math.round(b*f)).toString(16).padStart(2,'0')}`; })()
+      : ctryColor;
     const fillColor = isSel
-      ? (tc ? tc.stroke : ctryColor)
+      ? selFill
       : isDim ? (dm ? '#0c0c10' : '#ffffff')
       : tc ? tc.fill : 'transparent';
     const strokeColor = isSel
@@ -2903,7 +2907,7 @@ export default function App() {
           ? (tc ? tc.stroke : (dm ? 'rgba(255,255,255,0.85)' : 'rgba(0,0,0,0.75)'))
           : tc ? tc.stroke : (dm ? 'rgba(255,255,255,0.40)' : 'rgba(0,0,0,0.28)');
     const textFill = isSel
-      ? (tc ? (dm ? '#0c0c10' : '#ffffff') : (hexLuminance(ctryColor) > 0.35 ? '#080808' : '#ffffff'))
+      ? (hexLuminance(selFill) > 0.35 ? '#080808' : '#ffffff')
       : isDim
         ? (dm ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.15)')
       : isHl
@@ -3234,7 +3238,7 @@ export default function App() {
         <g className="nd-inner">
           {isSel && (
             <rect x={-hw} y={-hh} width={bw} height={bh} rx={isArtist ? 8 : 3}
-              fill={tc ? tc.stroke : ctryColor} opacity={0.8}
+              fill={selFill} opacity={0.8}
               filter="url(#nd-glow-blur)" stroke="none" pointerEvents="none" />
           )}
           {renderBg()}
