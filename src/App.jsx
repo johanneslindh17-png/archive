@@ -3851,8 +3851,8 @@ export default function App() {
           <div ref={dpScrollRef} className="dp-scroll">
           {/* Peek mode: bouncing upward arrow */}
           <div className="dp-peek-hint">
-            <svg className="ph-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
-              <polyline points="1,5 5,1 9,5" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round"/>
+            <svg className="ph-arrow" width="8" height="5" viewBox="0 0 8 5" fill="none">
+              <polyline points="1,4 4,1 7,4" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round" strokeLinecap="round"/>
             </svg>
           </div>
           {/* Drag indicator — aligned with × button, always pulsing */}
