@@ -3135,12 +3135,19 @@ export default function App() {
           }, 20);
         }}
       >
-        <g className="nd-inner" transform={n.id === selected ? 'scale(1.12)' : undefined}>
+        <g className="nd-inner">
+          {isSel && n.id !== selected && (() => {
+            const gs = tc ? tc.stroke : (dm ? '#ffffff' : '#000000');
+            return [[7,0.07],[4,0.13],[2,0.20]].map(([o,op]) => (
+              <rect key={o} x={-hw-o} y={-hh-o} width={bw+o*2} height={bh+o*2} rx={isArtist ? 8+o : 3+o}
+                fill={gs} opacity={op} stroke="none" pointerEvents="none" />
+            ));
+          })()}
           {renderBg()}
           {renderBorder()}
           {renderShine()}
           {renderDepth()}
-          {isSel && n.id !== selected && <circle cx={0} cy={hh + 3.5} r={1.5} fill={tc ? tc.stroke : (dm ? '#e0ddd8' : '#333333')} opacity={0.75} pointerEvents="none" />}
+          {n.id === selected && <circle cx={0} cy={hh + 4} r={1.5} fill={tc ? tc.stroke : (dm ? '#e0ddd8' : '#333333')} opacity={0.9} pointerEvents="none" />}
           <text textAnchor="middle" dominantBaseline="middle"
             style={{ fill: textFill, fontSize: '7.0px', fontWeight: isHl || isSel ? '600' : '400' }}>
             {n.label}
