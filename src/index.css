@@ -881,11 +881,6 @@ path.eg.dim{opacity:0}
   50%    { opacity:1;   }
 }
 .dp-peek-hint{display:none;}
-@keyframes sel-ring-pulse{
-  0%,100%{ opacity:0.35; }
-  50%    { opacity:0.85; }
-}
-.nd-sel-ring{ animation:sel-ring-pulse 1.8s ease-in-out infinite; }
 @keyframes peek-bounce{
   0%,100%{ transform:translateY(0); opacity:0.4; }
   55%    { transform:translateY(-3px); opacity:0.9; }

@@ -2885,12 +2885,6 @@ export default function App() {
       :            <rect x={-hw} y={-hh} width={bw} height={bh} rx={2} fill="url(#nd-depth)" stroke="none" pointerEvents="none" />
     );
 
-    const rr = 3;
-    const ringStroke = tc ? tc.stroke : (dm ? 'rgba(255,255,255,0.55)' : 'rgba(0,0,0,0.45)');
-    const renderSelRing = () => !isSel ? null : (
-      <rect className="nd-sel-ring" x={-hw-rr} y={-hh-rr} width={bw+rr*2} height={bh+rr*2} rx={isArtist ? 11 : 5}
-        fill="none" stroke={ringStroke} strokeWidth={0.6} pointerEvents="none" />
-    );
 
     const mo = 0; // march offset — 0 = march dots trace the node outline exactly
     const octPtsM  = `${-hw+oc-mo},${-hh-mo} ${hw-oc+mo},${-hh-mo} ${hw+mo},${-hh+oc-mo} ${hw+mo},${hh-oc+mo} ${hw-oc+mo},${hh+mo} ${-hw+oc-mo},${hh+mo} ${-hw-mo},${hh-oc+mo} ${-hw-mo},${-hh+oc-mo}`;
@@ -3141,8 +3135,7 @@ export default function App() {
           }, 20);
         }}
       >
-        <g className="nd-inner">
-          {renderSelRing()}
+        <g className="nd-inner" transform={isSel ? 'scale(1.12)' : undefined}>
           {renderBg()}
           {renderBorder()}
           {renderShine()}
