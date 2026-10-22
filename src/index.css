@@ -696,7 +696,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 }
 .nbc-tabs-scroll{
   display:flex;align-items:center;flex:1;min-width:0;
-  overflow-x:auto;scrollbar-width:none;
+  overflow-x:auto;scrollbar-width:none;scroll-behavior:smooth;
 }
 .nbc-tabs-scroll::-webkit-scrollbar{display:none;}
 .nbc-scroll-wrap{position:relative;flex:1;min-width:0;display:flex;overflow:hidden;}

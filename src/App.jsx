@@ -637,7 +637,6 @@ export default function App() {
   const [nbcHasMore, setNbcHasMore] = useState(false);
   const [nbcHasLeft, setNbcHasLeft] = useState(false);
   const nbcScrollRef = useRef(null);
-  const nbcAddingRef = useRef(false);
   const newsGapTimerRef  = useRef(null);
   const newsStartRef     = useRef(null);  // Date.now() when current animation began
   const newsPausedAtRef  = useRef(0);     // ms elapsed when user navigated away
@@ -1686,25 +1685,23 @@ export default function App() {
 
   const [pinned, setPinned] = useState(null); // highlighted but panel closed
   useEffect(() => {
-    nbcAddingRef.current = true;
     const id = requestAnimationFrame(() => {
       const el = nbcScrollRef.current;
-      if (!el) { nbcAddingRef.current = false; return; }
-      el.scrollTo({ left: el.scrollWidth, behavior: 'smooth' });
-      setTimeout(() => { checkNbcMore(); nbcAddingRef.current = false; }, 400);
+      if (!el) return;
+      el.scrollLeft = el.scrollWidth;
+      checkNbcMore();
     });
-    return () => { cancelAnimationFrame(id); nbcAddingRef.current = false; };
+    return () => cancelAnimationFrame(id);
   }, [selectedSet, pinned]);
   useEffect(() => {
-    if (nbcAddingRef.current) return;
-    const scroll = nbcScrollRef.current;
-    if (!scroll) return;
     const id = requestAnimationFrame(() => {
+      const scroll = nbcScrollRef.current;
+      if (!scroll) return;
       const activeTab = scroll.querySelector('.nbc-tab--active');
       if (!activeTab) return;
       const targetLeft = activeTab.offsetLeft - scroll.clientWidth / 2 + activeTab.offsetWidth / 2;
-      scroll.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
-      setTimeout(checkNbcMore, 350);
+      scroll.scrollLeft = Math.max(0, targetLeft);
+      checkNbcMore();
     });
     return () => cancelAnimationFrame(id);
   }, [selected]);
