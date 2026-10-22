@@ -3135,11 +3135,12 @@ export default function App() {
           }, 20);
         }}
       >
-        <g className="nd-inner" transform={isSel ? 'scale(1.12)' : undefined}>
+        <g className="nd-inner" transform={n.id === selected ? 'scale(1.12)' : undefined}>
           {renderBg()}
           {renderBorder()}
           {renderShine()}
           {renderDepth()}
+          {isSel && n.id !== selected && <circle cx={0} cy={hh + 3.5} r={1.5} fill={tc ? tc.stroke : (dm ? '#e0ddd8' : '#333333')} opacity={0.75} pointerEvents="none" />}
           <text textAnchor="middle" dominantBaseline="middle"
             style={{ fill: textFill, fontSize: '7.0px', fontWeight: isHl || isSel ? '600' : '400' }}>
             {n.label}
