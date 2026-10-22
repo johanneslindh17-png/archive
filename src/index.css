@@ -738,10 +738,6 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   padding:1px 6px;margin-left:auto;flex-shrink:0;white-space:nowrap;
 }
 .nbc-sep{width:1px;height:10px;background:var(--tb-border);margin:0 8px;flex-shrink:0;}
-@keyframes nbc-tab-in{
-  from{transform:translateX(14px);opacity:0;}
-  to{transform:translateX(0);opacity:1;}
-}
 .nbc-tab{
   display:flex;align-items:center;gap:4px;
   font-family:'Syne Mono',monospace;font-size:0.63rem;letter-spacing:0.07em;
@@ -751,7 +747,6 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   padding:1px 5px 1px 6px;
   background:transparent;
   transition:opacity 0.15s;
-  animation:nbc-tab-in 0.22s ease-out both;
 }
 .nbc-tab--active{ opacity:1;box-shadow:0 0 6px 1px currentColor; }
 .nbc-tab--active .nbc-tab-label{ color:#111;font-weight:700; }
