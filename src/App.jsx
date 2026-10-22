@@ -3153,7 +3153,6 @@ export default function App() {
 
   return (
     <div className="app">
-      <div className="safe-area-fill" style={{background:darkMode?'#0c0c10':'#ffffff'}} />
       {/* TOPBAR */}
       <div className="topbar" style={themeStyle ? { background: themeStyle.surface, borderBottomColor: themeStyle.border } : undefined}>
         <div
@@ -4681,5 +4680,6 @@ export default function App() {
         </div>
       )}
     </div>
+    {createPortal(<div className="safe-area-fill" style={{background:darkMode?'#0c0c10':'#ffffff'}} />, document.body)}
   );
 }
