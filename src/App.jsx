@@ -965,8 +965,10 @@ export default function App() {
     slideClosePanel();
   }
 
-  // Peek node-switch: clone exits left, new node enters from right simultaneously, then slides up
-  function slidePeekSwitch(id, addToTrail) {
+  // Peek node-switch: clone exits opposite side, new node enters from dir side, optionally opens to full
+  // dir: 'right' (default) = new content enters from right, 'left' = enters from left
+  // stayInPeek: true = stay in peek after slide (for swipe navigation), false = open to full (for trail-node click)
+  function slidePeekSwitch(id, addToTrail, stayInPeek = false, dir = 'right') {
     const scroll = dpScrollRef.current;
     const dp = dpRef.current;
     if (!scroll || !dp) return;
@@ -976,10 +978,10 @@ export default function App() {
     const scrollY = scroll.scrollTop;
     const isDark = document.documentElement.classList.contains('dark');
 
-    // Park new content off-screen right within dp (dp's overflow:hidden clips it)
+    // Park new content off-screen (direction determines which side)
     scroll.style.transition = 'none';
     scroll.style.animation = 'none';
-    scroll.style.transform = 'translateX(100%)';
+    scroll.style.transform = dir === 'right' ? 'translateX(100%)' : 'translateX(-100%)';
 
     // Clone goes INSIDE dp — clipped by dp's own overflow:hidden, no z-index issues
     const clone = scroll.cloneNode(true);
@@ -1002,7 +1004,7 @@ export default function App() {
 
     dp.getBoundingClientRect();
     clone.style.transition = 'transform 0.4s cubic-bezier(0.4,0,0.2,1)';
-    clone.style.transform = 'translateX(-100%)';
+    clone.style.transform = dir === 'right' ? 'translateX(-100%)' : 'translateX(100%)';
 
     flushSync(() => {
       if (addToTrail) setSelectedSet(prev => prev.includes(id) ? prev : [...prev, id]);
@@ -1022,7 +1024,7 @@ export default function App() {
       scroll.style.transition = '';
       scroll.style.animation = '';
       scroll.style.transform = '';
-      if (addToTrail) return; // new node — stay in peek
+      if (addToTrail || stayInPeek) return; // new node or swipe-nav — stay in peek
       // Existing trail node — slide panel up to full open
       requestAnimationFrame(() => requestAnimationFrame(() => requestAnimationFrame(() => {
         const dpEl = dpRef.current;
@@ -1746,21 +1748,53 @@ export default function App() {
   }, [dpMode]);
   // Only one overlay at a time: opening the panel fully dismisses the node list
   useEffect(() => { if (dpMode === 'open' && window.innerWidth < 600) setNodesOpen(false); }, [dpMode]);
-  // Opening the node list slides dp left, nodes panel enters from right simultaneously
+  // Opening/closing the node list slides dp left/right; handles both open-mode and peek-mode dp
   useEffect(() => {
-    if (!nodesOpen || window.innerWidth >= 600 || dpModeRef.current !== 'open') return;
+    if (window.innerWidth >= 600) return;
     const el = dpRef.current;
-    if (!el) { setDpMode('peek'); return; }
-    el.style.transform = 'translateX(0)';
-    el.getBoundingClientRect();
-    el.style.transition = 'transform 0.38s cubic-bezier(0.25,0.1,0.25,1)';
-    el.style.transform = 'translateX(-100%)';
-    setTimeout(() => {
-      if (!dpRef.current) return;
-      dpRef.current.style.transform = '';
-      dpRef.current.style.transition = '';
-      setDpMode('peek');
-    }, 420);
+    const mode = dpModeRef.current;
+
+    if (nodesOpen) {
+      if (!el || !mode) return;
+      if (mode === 'open') {
+        // Full panel slides out to the left, then goes to peek
+        el.style.setProperty('transition', 'transform 0.38s cubic-bezier(0.25,0.1,0.25,1)', 'important');
+        el.style.transform = 'translateX(0)';
+        el.getBoundingClientRect();
+        el.style.transform = 'translateX(-100%)';
+        setTimeout(() => {
+          if (!dpRef.current) return;
+          dpRef.current.style.removeProperty('transition');
+          dpRef.current.style.transform = '';
+          setDpMode('peek');
+        }, 420);
+      } else if (mode === 'peek') {
+        // Peek strip slides out to the left
+        el.style.setProperty('transition', 'none', 'important');
+        el.style.setProperty('transform', 'translateX(0) translateY(calc(100% - 76px))', 'important');
+        el.getBoundingClientRect();
+        el.style.setProperty('transition', 'transform 0.38s cubic-bezier(0.25,0.1,0.25,1)', 'important');
+        el.style.setProperty('transform', 'translateX(-100%) translateY(calc(100% - 76px))', 'important');
+        setTimeout(() => {
+          if (!dpRef.current) return;
+          dpRef.current.style.removeProperty('transform');
+          dpRef.current.style.removeProperty('transition');
+        }, 420);
+      }
+    } else {
+      // Node list closing — bring peek strip back from the left
+      if (!el || mode !== 'peek') return;
+      el.style.setProperty('transition', 'none', 'important');
+      el.style.setProperty('transform', 'translateX(-100%) translateY(calc(100% - 76px))', 'important');
+      el.getBoundingClientRect();
+      el.style.setProperty('transition', 'transform 0.38s cubic-bezier(0.25,0.1,0.25,1)', 'important');
+      el.style.setProperty('transform', 'translateX(0) translateY(calc(100% - 76px))', 'important');
+      setTimeout(() => {
+        if (!dpRef.current) return;
+        dpRef.current.style.removeProperty('transform');
+        dpRef.current.style.removeProperty('transition');
+      }, 420);
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nodesOpen]);
   const peekBarRef = useRef(null);
@@ -3858,6 +3892,17 @@ export default function App() {
                 selectNodeFromPanel(selectedSet[idx + 1], 'right');
               } else if (deltaX > 0 && idx > 0) {
                 selectNodeFromPanel(selectedSet[idx - 1], 'left');
+              }
+              return;
+            }
+
+            // Horizontal swipe in peek mode — navigate between breadcrumbs (stay in peek)
+            if (start.dir === 'h' && window.innerWidth < 600 && dpModeRef.current === 'peek' && Math.abs(deltaX) > 55) {
+              const idx = selectedSet.indexOf(selected);
+              if (deltaX < 0 && idx < selectedSet.length - 1) {
+                slidePeekSwitch(selectedSet[idx + 1], false, true, 'right');
+              } else if (deltaX > 0 && idx > 0) {
+                slidePeekSwitch(selectedSet[idx - 1], false, true, 'left');
               }
               return;
             }
