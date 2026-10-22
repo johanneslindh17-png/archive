@@ -3136,13 +3136,11 @@ export default function App() {
         }}
       >
         <g className="nd-inner">
-          {isSel && (() => {
-            const gs = tc ? tc.stroke : (dm ? '#ffffff' : '#000000');
-            return [[10,0.01],[9,0.018],[8,0.027],[7,0.037],[6,0.048],[5.5,0.058],[5,0.068],[4.5,0.078],[4,0.088],[3.5,0.095],[3,0.102],[2.5,0.11],[2,0.12]].map(([o,op]) => (
-              <rect key={o} x={-hw-o} y={-hh-o} width={bw+o*2} height={bh+o*2} rx={isArtist ? 8+o : 3+o}
-                fill={gs} opacity={op} stroke="none" pointerEvents="none" />
-            ));
-          })()}
+          {isSel && (
+            <rect x={-hw} y={-hh} width={bw} height={bh} rx={isArtist ? 8 : 3}
+              fill={tc ? tc.stroke : (dm ? '#ffffff' : '#000000')} opacity={0.55}
+              filter="url(#nd-glow-blur)" stroke="none" pointerEvents="none" />
+          )}
           {renderBg()}
           {renderBorder()}
           {renderShine()}
@@ -3712,6 +3710,9 @@ export default function App() {
               <stop offset="45%" stopColor="black" stopOpacity="0" />
               <stop offset="100%" stopColor="black" stopOpacity="0.13" />
             </linearGradient>
+            <filter id="nd-glow-blur" x="-50%" y="-300%" width="200%" height="700%">
+              <feGaussianBlur stdDeviation="4" />
+            </filter>
           </defs>
           <rect x={0} y={0} width="100%" height="100%" fill={themeStyle?.bg || (darkMode ? '#0c0c10' : '#ffffff')} onClick={() => { clearAll(); flyHome(); }} />
           <g ref={svgGRef} style={{ transformOrigin: '0 0' }}>
