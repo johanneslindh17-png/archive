@@ -2890,11 +2890,9 @@ export default function App() {
     const bh = 11;
     const dm = darkMode;
     const tc = getThemeColors(n, colorTheme, dm);
-    const ctryColor = COUNTRIES[n.country]?.color || '#5a5a70';
-    // Selected nodes always use country color — gives individual identity regardless of active theme
-    const selFill = dm
-      ? (() => { const c = parseInt(ctryColor.replace('#',''),16); const r=(c>>16)&0xff,g=(c>>8)&0xff,b=c&0xff; const lum=0.2126*r/255+0.7152*g/255+0.0722*b/255; if(lum>0.28) return ctryColor; const f=Math.min(255/Math.max(r,g,b,1),2.8); return `#${Math.min(255,Math.round(r*f)).toString(16).padStart(2,'0')}${Math.min(255,Math.round(g*f)).toString(16).padStart(2,'0')}${Math.min(255,Math.round(b*f)).toString(16).padStart(2,'0')}`; })()
-      : ctryColor;
+    // Selected nodes always use type color regardless of active theme — type color is semantic
+    const typeTC = dm ? TYPE_COLORS[n.type]?.dark : TYPE_COLORS[n.type]?.light;
+    const selFill = typeTC?.stroke || (dm ? '#888899' : '#5a5a70');
     const fillColor = isSel
       ? selFill
       : isDim ? (dm ? '#0c0c10' : '#ffffff')
