@@ -3565,7 +3565,7 @@ export default function App() {
           </div>
         )}
         {(selectedSet.length > 0 || pinned) && <>
-          <div className="nbc-home" onClick={() => { clearAll(); flyHome(); }}><span className="nbc-home-label">ALL</span><span className="nbc-home-arrow">←</span></div>
+          <div className="nbc-home" onClick={() => { clearAll(); flyHome(); }}>← ALL</div>
           <div className="nbc-sep" />
           <div className="nbc-scroll-wrap">
             <div ref={nbcScrollRef} className="nbc-tabs-scroll" onScroll={checkNbcMore}>
