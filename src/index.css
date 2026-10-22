@@ -749,7 +749,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   background:transparent;
   transition:opacity 0.15s;
 }
-.nbc-tab--active{ opacity:1;box-shadow:0 0 8px 2px currentColor; }
+.nbc-tab--active{ opacity:1;box-shadow:0 0 6px 1px currentColor; }
 .nbc-tab--active .nbc-tab-label{ color:#111;font-weight:700; }
 .nbc-tab--active .nbc-tab-x{ color:#999; }
 .nbc-tab-label{ cursor:pointer;transition:color 0.15s; }
