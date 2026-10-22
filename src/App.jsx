@@ -1746,9 +1746,7 @@ export default function App() {
     // Clear inline touch-action left over from peek mode so scroll works immediately
     if (dpMode === 'open' && dpRef.current) dpRef.current.style.touchAction = '';
   }, [dpMode]);
-  // Only one overlay at a time: opening the panel fully dismisses the node list
-  useEffect(() => { if (dpMode === 'open' && window.innerWidth < 600) setNodesOpen(false); }, [dpMode]);
-  // Opening/closing the node list slides dp left/right; handles both open-mode and peek-mode dp
+  // Opening/closing the node list slides dp left/right; dp mode is preserved (open stays open, peek stays peek)
   useEffect(() => {
     if (window.innerWidth >= 600) return;
     const el = dpRef.current;
@@ -1757,7 +1755,7 @@ export default function App() {
     if (nodesOpen) {
       if (!el || !mode) return;
       if (mode === 'open') {
-        // Full panel slides out to the left, then goes to peek
+        // Full panel slides out to the left — stays in open mode, no mode change
         el.style.setProperty('transition', 'transform 0.38s cubic-bezier(0.25,0.1,0.25,1)', 'important');
         el.style.transform = 'translateX(0)';
         el.getBoundingClientRect();
@@ -1765,8 +1763,6 @@ export default function App() {
         setTimeout(() => {
           if (!dpRef.current) return;
           dpRef.current.style.removeProperty('transition');
-          dpRef.current.style.transform = '';
-          setDpMode('peek');
         }, 420);
       } else if (mode === 'peek') {
         // Peek strip slides out to the left
@@ -1782,18 +1778,32 @@ export default function App() {
         }, 420);
       }
     } else {
-      // Node list closing — bring peek strip back from the left
-      if (!el || mode !== 'peek') return;
-      el.style.setProperty('transition', 'none', 'important');
-      el.style.setProperty('transform', 'translateX(-100%) translateY(calc(100% - 76px))', 'important');
-      el.getBoundingClientRect();
-      el.style.setProperty('transition', 'transform 0.38s cubic-bezier(0.25,0.1,0.25,1)', 'important');
-      el.style.setProperty('transform', 'translateX(0) translateY(calc(100% - 76px))', 'important');
-      setTimeout(() => {
-        if (!dpRef.current) return;
-        dpRef.current.style.removeProperty('transform');
-        dpRef.current.style.removeProperty('transition');
-      }, 420);
+      if (!el || !mode) return;
+      if (mode === 'open') {
+        // Full panel comes back from the left
+        el.style.setProperty('transition', 'none', 'important');
+        el.style.transform = 'translateX(-100%)';
+        el.getBoundingClientRect();
+        el.style.setProperty('transition', 'transform 0.38s cubic-bezier(0.25,0.1,0.25,1)', 'important');
+        el.style.transform = 'translateX(0)';
+        setTimeout(() => {
+          if (!dpRef.current) return;
+          dpRef.current.style.removeProperty('transition');
+          dpRef.current.style.transform = '';
+        }, 420);
+      } else if (mode === 'peek') {
+        // Peek strip comes back from the left
+        el.style.setProperty('transition', 'none', 'important');
+        el.style.setProperty('transform', 'translateX(-100%) translateY(calc(100% - 76px))', 'important');
+        el.getBoundingClientRect();
+        el.style.setProperty('transition', 'transform 0.38s cubic-bezier(0.25,0.1,0.25,1)', 'important');
+        el.style.setProperty('transform', 'translateX(0) translateY(calc(100% - 76px))', 'important');
+        setTimeout(() => {
+          if (!dpRef.current) return;
+          dpRef.current.style.removeProperty('transform');
+          dpRef.current.style.removeProperty('transition');
+        }, 420);
+      }
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nodesOpen]);
