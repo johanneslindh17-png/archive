@@ -4680,6 +4680,5 @@ export default function App() {
         </div>
       )}
     </div>
-    {createPortal(<div className="safe-area-fill" style={{background:darkMode?'#0c0c10':'#ffffff'}} />, document.body)}
   );
 }
