@@ -1768,7 +1768,7 @@ export default function App() {
           dpRef.current.style.removeProperty('transition');
         }, 420);
       } else if (mode === 'peek') {
-        // Peek strip slides out to the left
+        // Peek strip slides out to the left — keep off-screen transform set (don't removeProperty)
         el.style.setProperty('transition', 'none', 'important');
         el.style.setProperty('transform', 'translateX(0) translateY(calc(100% - 76px))', 'important');
         el.getBoundingClientRect();
@@ -1776,39 +1776,35 @@ export default function App() {
         el.style.setProperty('transform', 'translateX(-100%) translateY(calc(100% - 76px))', 'important');
         setTimeout(() => {
           if (!dpRef.current) return;
-          dpRef.current.style.removeProperty('transform');
+          // Keep transform at off-screen position; only remove the transition override
           dpRef.current.style.removeProperty('transition');
         }, 420);
       }
     } else {
       if (!el || !mode) return;
-      // Delay until the nodes panel has finished sliding out before bringing the dp back
-      const waitId = setTimeout(() => {
-        const dpEl = dpRef.current;
-        if (!dpEl) return;
-        if (mode === 'open') {
-          dpEl.style.setProperty('transition', 'transform 0.38s cubic-bezier(0.25,0.1,0.25,1)', 'important');
-          dpEl.style.transform = 'translateX(-100%)';
-          dpEl.getBoundingClientRect();
-          dpEl.style.transform = 'translateX(0)';
-          setTimeout(() => {
-            if (!dpRef.current) return;
-            dpRef.current.style.removeProperty('transition');
-            dpRef.current.style.transform = '';
-          }, 420);
-        } else if (mode === 'peek') {
-          dpEl.style.setProperty('transition', 'transform 0.38s cubic-bezier(0.25,0.1,0.25,1)', 'important');
-          dpEl.style.setProperty('transform', 'translateX(-100%) translateY(calc(100% - 76px))', 'important');
-          dpEl.getBoundingClientRect();
-          dpEl.style.setProperty('transform', 'translateX(0) translateY(calc(100% - 76px))', 'important');
-          setTimeout(() => {
-            if (!dpRef.current) return;
-            dpRef.current.style.removeProperty('transform');
-            dpRef.current.style.removeProperty('transition');
-          }, 420);
-        }
-      }, 390); // wait for nodes panel close animation (380ms) to finish first
-      return () => clearTimeout(waitId);
+      // Start return animation immediately — node list is z-index 90, dp is 85,
+      // so dp slides in behind the closing list and becomes visible once it's gone
+      if (mode === 'open') {
+        el.style.setProperty('transition', 'transform 0.38s cubic-bezier(0.25,0.1,0.25,1)', 'important');
+        el.style.transform = 'translateX(-100%)';
+        el.getBoundingClientRect();
+        el.style.transform = 'translateX(0)';
+        setTimeout(() => {
+          if (!dpRef.current) return;
+          dpRef.current.style.removeProperty('transition');
+          dpRef.current.style.transform = '';
+        }, 420);
+      } else if (mode === 'peek') {
+        el.style.setProperty('transition', 'transform 0.38s cubic-bezier(0.25,0.1,0.25,1)', 'important');
+        el.style.setProperty('transform', 'translateX(-100%) translateY(calc(100% - 76px))', 'important');
+        el.getBoundingClientRect();
+        el.style.setProperty('transform', 'translateX(0) translateY(calc(100% - 76px))', 'important');
+        setTimeout(() => {
+          if (!dpRef.current) return;
+          dpRef.current.style.removeProperty('transform');
+          dpRef.current.style.removeProperty('transition');
+        }, 420);
+      }
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nodesOpen]);
