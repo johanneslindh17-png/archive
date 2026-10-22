@@ -1779,31 +1779,33 @@ export default function App() {
       }
     } else {
       if (!el || !mode) return;
-      if (mode === 'open') {
-        // Full panel comes back from the left
-        el.style.setProperty('transition', 'none', 'important');
-        el.style.transform = 'translateX(-100%)';
-        el.getBoundingClientRect();
-        el.style.setProperty('transition', 'transform 0.38s cubic-bezier(0.25,0.1,0.25,1)', 'important');
-        el.style.transform = 'translateX(0)';
-        setTimeout(() => {
-          if (!dpRef.current) return;
-          dpRef.current.style.removeProperty('transition');
-          dpRef.current.style.transform = '';
-        }, 420);
-      } else if (mode === 'peek') {
-        // Peek strip comes back from the left
-        el.style.setProperty('transition', 'none', 'important');
-        el.style.setProperty('transform', 'translateX(-100%) translateY(calc(100% - 76px))', 'important');
-        el.getBoundingClientRect();
-        el.style.setProperty('transition', 'transform 0.38s cubic-bezier(0.25,0.1,0.25,1)', 'important');
-        el.style.setProperty('transform', 'translateX(0) translateY(calc(100% - 76px))', 'important');
-        setTimeout(() => {
-          if (!dpRef.current) return;
-          dpRef.current.style.removeProperty('transform');
-          dpRef.current.style.removeProperty('transition');
-        }, 420);
-      }
+      // Delay until the nodes panel has finished sliding out before bringing the dp back
+      const waitId = setTimeout(() => {
+        const dpEl = dpRef.current;
+        if (!dpEl) return;
+        if (mode === 'open') {
+          dpEl.style.setProperty('transition', 'transform 0.38s cubic-bezier(0.25,0.1,0.25,1)', 'important');
+          dpEl.style.transform = 'translateX(-100%)';
+          dpEl.getBoundingClientRect();
+          dpEl.style.transform = 'translateX(0)';
+          setTimeout(() => {
+            if (!dpRef.current) return;
+            dpRef.current.style.removeProperty('transition');
+            dpRef.current.style.transform = '';
+          }, 420);
+        } else if (mode === 'peek') {
+          dpEl.style.setProperty('transition', 'transform 0.38s cubic-bezier(0.25,0.1,0.25,1)', 'important');
+          dpEl.style.setProperty('transform', 'translateX(-100%) translateY(calc(100% - 76px))', 'important');
+          dpEl.getBoundingClientRect();
+          dpEl.style.setProperty('transform', 'translateX(0) translateY(calc(100% - 76px))', 'important');
+          setTimeout(() => {
+            if (!dpRef.current) return;
+            dpRef.current.style.removeProperty('transform');
+            dpRef.current.style.removeProperty('transition');
+          }, 420);
+        }
+      }, 390); // wait for nodes panel close animation (380ms) to finish first
+      return () => clearTimeout(waitId);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nodesOpen]);
