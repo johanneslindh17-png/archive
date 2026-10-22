@@ -92,13 +92,13 @@ const TILE_W = W - LEFT; // = 1328
 
 // ── Colorful mode palettes (module-level — never recreated) ──────────────────
 const TYPE_COLORS = {
-  artist: { light:{ fill:'#ddeeff', stroke:'#4a7fc1', text:'#0a2855' }, dark:{ fill:'#0d1828', stroke:'#7aaade', text:'#aaccee' } },
-  label:  { light:{ fill:'#fff3e0', stroke:'#c87828', text:'#5a2800' }, dark:{ fill:'#1e1100', stroke:'#d99050', text:'#eebb88' } },
-  venue:  { light:{ fill:'#e0f5e4', stroke:'#3a9a50', text:'#0a3814' }, dark:{ fill:'#081a0d', stroke:'#6aaa80', text:'#99ddaa' } },
-  moment:  { light:{ fill:'#f4e0ff', stroke:'#8844cc', text:'#3a0860' }, dark:{ fill:'#14082a', stroke:'#aa77dd', text:'#ccaaee' } },
-  style:   { light:{ fill:'#fffbe0', stroke:'#b07800', text:'#3a2800' }, dark:{ fill:'#1a1400', stroke:'#d4a020', text:'#eedd88' } },
-  culture: { light:{ fill:'#fce8e0', stroke:'#bb3333', text:'#3a0808' }, dark:{ fill:'#1c0808', stroke:'#ee6655', text:'#ffccbb' } },
-  channel: { light:{ fill:'#d8f5f5', stroke:'#1a8888', text:'#083030' }, dark:{ fill:'#040f0f', stroke:'#44aaaa', text:'#88dddd' } },
+  artist: { light:{ fill:'#c8dff0', stroke:'#2d5c96', text:'#0a2040' }, dark:{ fill:'#0d1828', stroke:'#6688cc', text:'#a0c0e8' } },
+  label:  { light:{ fill:'#f0dfc0', stroke:'#9e5a14', text:'#3a1800' }, dark:{ fill:'#1e1100', stroke:'#c07030', text:'#e8aa70' } },
+  venue:  { light:{ fill:'#c4ead0', stroke:'#207040', text:'#08280e' }, dark:{ fill:'#081a0d', stroke:'#50985a', text:'#88cc99' } },
+  moment:  { light:{ fill:'#e8ccf8', stroke:'#5c2ea8', text:'#280660' }, dark:{ fill:'#14082a', stroke:'#8855c8', text:'#c0a0e8' } },
+  style:   { light:{ fill:'#f0e8b0', stroke:'#846000', text:'#2a1c00' }, dark:{ fill:'#1a1400', stroke:'#b89018', text:'#e8cc70' } },
+  culture: { light:{ fill:'#f8d4c8', stroke:'#8c1c1c', text:'#300606' }, dark:{ fill:'#1c0808', stroke:'#d04444', text:'#f0a898' } },
+  channel: { light:{ fill:'#bee8e8', stroke:'#0e6666', text:'#042222' }, dark:{ fill:'#040f0f', stroke:'#2e9090', text:'#70cccc' } },
 };
 const EDGE_TYPE_COLORS = {
   lineage:'#3355cc', roster:'#c86000', influence:'#009966', aesthetic:'#cc44aa',
@@ -173,6 +173,14 @@ const MONO_PALETTES = {
     culture: { light:{fill:'#ffd0b0',stroke:'#993300',text:'#2a0800'}, dark:{fill:'#140600',stroke:'#cc5522',text:'#ffbb88'} },
   },
 };
+
+/** Relative luminance of a hex color (0 = black, 1 = white). */
+function hexLuminance(hex) {
+  const n = parseInt(hex.replace('#', ''), 16);
+  return 0.2126 * ((n >> 16) & 0xff) / 255
+       + 0.7152 * ((n >> 8)  & 0xff) / 255
+       + 0.0722 * (n & 0xff) / 255;
+}
 
 /** Returns {fill, stroke, text} for a node given the active colour theme, or null. */
 function getThemeColors(n, theme, dm) {
@@ -2882,8 +2890,9 @@ export default function App() {
     const bh = 11;
     const dm = darkMode;
     const tc = getThemeColors(n, colorTheme, dm);
+    const ctryColor = COUNTRIES[n.country]?.color || '#5a5a70';
     const fillColor = isSel
-      ? (tc ? tc.stroke : '#5a5a70')
+      ? (tc ? tc.stroke : ctryColor)
       : isDim ? (dm ? '#0c0c10' : '#ffffff')
       : tc ? tc.fill : 'transparent';
     const strokeColor = isSel
@@ -2894,7 +2903,7 @@ export default function App() {
           ? (tc ? tc.stroke : (dm ? 'rgba(255,255,255,0.85)' : 'rgba(0,0,0,0.75)'))
           : tc ? tc.stroke : (dm ? 'rgba(255,255,255,0.40)' : 'rgba(0,0,0,0.28)');
     const textFill = isSel
-      ? (dm ? '#0c0c10' : '#ffffff')
+      ? (tc ? (dm ? '#0c0c10' : '#ffffff') : (hexLuminance(ctryColor) > 0.35 ? '#080808' : '#ffffff'))
       : isDim
         ? (dm ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.15)')
       : isHl
@@ -3225,7 +3234,7 @@ export default function App() {
         <g className="nd-inner">
           {isSel && (
             <rect x={-hw} y={-hh} width={bw} height={bh} rx={isArtist ? 8 : 3}
-              fill={tc ? tc.stroke : (dm ? '#ffffff' : '#000000')} opacity={0.8}
+              fill={tc ? tc.stroke : ctryColor} opacity={0.8}
               filter="url(#nd-glow-blur)" stroke="none" pointerEvents="none" />
           )}
           {renderBg()}
