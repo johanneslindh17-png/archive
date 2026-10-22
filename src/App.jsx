@@ -2847,13 +2847,13 @@ export default function App() {
     const isChan   = n.type === 'channel';
 
     const renderBg = () =>
-      isArtist  ? <rect className="nd-bg" x={-hw-1} y={-hh-1} width={bw+2} height={bh+2} rx={9} fill={bgFill} stroke="none" />
-      : isLabel  ? <polygon className="nd-bg" points={octPtsO} fill={bgFill} stroke="none" />
-      : isNotch  ? <polygon className="nd-bg" points={ntchPtsO} fill={bgFill} stroke="none" />
-      : isStyle  ? <polygon className="nd-bg" points={stylePtsO} fill={bgFill} stroke="none" />
-      : isCulture? <polygon className="nd-bg" points={cultPtsO} fill={bgFill} stroke="none" />
-      : isChan   ? <polygon className="nd-bg" points={chanPtsO} fill={bgFill} stroke="none" />
-      :            <rect className="nd-bg" x={-hw-1} y={-hh-1} width={bw+2} height={bh+2} rx={3} fill={bgFill} stroke="none" />;
+      isArtist  ? <rect className="nd-bg" x={-hw} y={-hh} width={bw} height={bh} rx={8} fill={bgFill} stroke="none" />
+      : isLabel  ? <polygon className="nd-bg" points={octPts} fill={bgFill} stroke="none" />
+      : isNotch  ? <polygon className="nd-bg" points={ntchPts} fill={bgFill} stroke="none" />
+      : isStyle  ? <polygon className="nd-bg" points={stylePts} fill={bgFill} stroke="none" />
+      : isCulture? <polygon className="nd-bg" points={cultPts} fill={bgFill} stroke="none" />
+      : isChan   ? <polygon className="nd-bg" points={chanPts} fill={bgFill} stroke="none" />
+      :            <rect className="nd-bg" x={-hw} y={-hh} width={bw} height={bh} rx={2} fill={bgFill} stroke="none" />;
 
     const sc = strokeColor;
     const renderBorder = () =>
@@ -2873,6 +2873,23 @@ export default function App() {
       : isCulture? <polygon points={cultPts} fill="url(#nd-shine)" stroke="none" pointerEvents="none" />
       : isChan   ? <polygon points={chanPts} fill="url(#nd-shine)" stroke="none" pointerEvents="none" />
       :            <rect x={-hw} y={-hh} width={bw} height={bh} rx={2} fill="url(#nd-shine)" stroke="none" pointerEvents="none" />
+    );
+
+    const renderDepth = () => isDim ? null : (
+      isArtist  ? <rect x={-hw} y={-hh} width={bw} height={bh} rx={8} fill="url(#nd-depth)" stroke="none" pointerEvents="none" />
+      : isLabel  ? <polygon points={octPts} fill="url(#nd-depth)" stroke="none" pointerEvents="none" />
+      : isNotch  ? <polygon points={ntchPts} fill="url(#nd-depth)" stroke="none" pointerEvents="none" />
+      : isStyle  ? <polygon points={stylePts} fill="url(#nd-depth)" stroke="none" pointerEvents="none" />
+      : isCulture? <polygon points={cultPts} fill="url(#nd-depth)" stroke="none" pointerEvents="none" />
+      : isChan   ? <polygon points={chanPts} fill="url(#nd-depth)" stroke="none" pointerEvents="none" />
+      :            <rect x={-hw} y={-hh} width={bw} height={bh} rx={2} fill="url(#nd-depth)" stroke="none" pointerEvents="none" />
+    );
+
+    const rr = 3;
+    const ringStroke = tc ? tc.stroke : (dm ? 'rgba(255,255,255,0.55)' : 'rgba(0,0,0,0.45)');
+    const renderSelRing = () => !isSel ? null : (
+      <rect className="nd-sel-ring" x={-hw-rr} y={-hh-rr} width={bw+rr*2} height={bh+rr*2} rx={isArtist ? 11 : 5}
+        fill="none" stroke={ringStroke} strokeWidth={0.7} strokeDasharray="3 3" pointerEvents="none" />
     );
 
     const mo = 0; // march offset — 0 = march dots trace the node outline exactly
@@ -3125,9 +3142,11 @@ export default function App() {
         }}
       >
         <g className="nd-inner">
+          {renderSelRing()}
           {renderBg()}
           {renderBorder()}
           {renderShine()}
+          {renderDepth()}
           <text textAnchor="middle" dominantBaseline="middle"
             style={{ fill: textFill, fontSize: '7.0px', fontWeight: isHl || isSel ? '600' : '400' }}>
             {n.label}
@@ -3686,8 +3705,12 @@ export default function App() {
         }}>
           <defs>
             <linearGradient id="nd-shine" gradientUnits="objectBoundingBox" x1="0.5" y1="0" x2="0.5" y2="1">
-              <stop offset="0%" stopColor="white" stopOpacity="0.22" />
+              <stop offset="0%" stopColor="white" stopOpacity="0.16" />
               <stop offset="58%" stopColor="white" stopOpacity="0" />
+            </linearGradient>
+            <linearGradient id="nd-depth" gradientUnits="objectBoundingBox" x1="0.5" y1="0" x2="0.5" y2="1">
+              <stop offset="45%" stopColor="black" stopOpacity="0" />
+              <stop offset="100%" stopColor="black" stopOpacity="0.13" />
             </linearGradient>
           </defs>
           <rect x={0} y={0} width="100%" height="100%" fill={themeStyle?.bg || (darkMode ? '#0c0c10' : '#ffffff')} onClick={() => { clearAll(); flyHome(); }} />
