@@ -3153,6 +3153,7 @@ export default function App() {
 
   return (
     <div className="app">
+      <div style={{position:'fixed',top:0,left:0,right:0,height:'env(safe-area-inset-top,0px)',background:darkMode?'#0c0c10':'#ffffff',zIndex:9999,pointerEvents:'none'}} />
       {/* TOPBAR */}
       <div className="topbar" style={themeStyle ? { background: themeStyle.surface, borderBottomColor: themeStyle.border } : undefined}>
         <div
