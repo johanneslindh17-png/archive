@@ -1741,11 +1741,14 @@ export default function App() {
   const [dpMode, setDpMode] = useState(null); // null | 'peek' | 'open' — mobile only
   const [dpSlide, setDpSlide] = useState(null); // 'exit' | 'enter' | 'center' | null
   const dpModeRef = useRef(null); // mirrors dpMode for closures that can't react to state
+  const nodesOpenRef = useRef(false); // mirrors nodesOpen for onTransitionEnd closure
   useEffect(() => {
     dpModeRef.current = dpMode;
     // Clear inline touch-action left over from peek mode so scroll works immediately
     if (dpMode === 'open' && dpRef.current) dpRef.current.style.touchAction = '';
   }, [dpMode]);
+  // Keep nodesOpenRef in sync so onTransitionEnd (a stable closure) can read current value
+  useEffect(() => { nodesOpenRef.current = nodesOpen; }, [nodesOpen]);
   // Opening/closing the node list slides dp left/right; dp mode is preserved (open stays open, peek stays peek)
   useEffect(() => {
     if (window.innerWidth >= 600) return;
@@ -2342,7 +2345,8 @@ export default function App() {
     };
     const onTransitionEnd = (e) => {
       if (e.propertyName !== 'transform') return;
-      if (el.classList.contains('open') && !el.classList.contains('dp-closing')) {
+      // Don't clear the transform while the node list is open — dp is intentionally off-screen left
+      if (el.classList.contains('open') && !el.classList.contains('dp-closing') && !nodesOpenRef.current) {
         el.style.transform = 'none'; // remove transform → backdrop-filter activates on iOS
       }
     };
