@@ -3138,7 +3138,7 @@ export default function App() {
         <g className="nd-inner">
           {isSel && (() => {
             const gs = tc ? tc.stroke : (dm ? '#ffffff' : '#000000');
-            return [[10,0.015],[9,0.025],[8,0.035],[7,0.05],[6,0.065],[5.5,0.08],[5,0.095],[4.5,0.11],[4,0.125],[3.5,0.13],[3,0.14],[2.5,0.15],[2,0.16]].map(([o,op]) => (
+            return [[10,0.01],[9,0.018],[8,0.027],[7,0.037],[6,0.048],[5.5,0.058],[5,0.068],[4.5,0.078],[4,0.088],[3.5,0.095],[3,0.102],[2.5,0.11],[2,0.12]].map(([o,op]) => (
               <rect key={o} x={-hw-o} y={-hh-o} width={bw+o*2} height={bh+o*2} rx={isArtist ? 8+o : 3+o}
                 fill={gs} opacity={op} stroke="none" pointerEvents="none" />
             ));
