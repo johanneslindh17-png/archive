@@ -1697,11 +1697,13 @@ export default function App() {
   useEffect(() => {
     const scroll = nbcScrollRef.current;
     if (!scroll) return;
-    const activeTab = scroll.querySelector('.nbc-tab--active');
-    if (!activeTab) return;
-    const targetLeft = activeTab.offsetLeft - scroll.clientWidth / 2 + activeTab.offsetWidth / 2;
-    scroll.scrollTo({ left: targetLeft, behavior: 'smooth' });
-    setTimeout(checkNbcMore, 350);
+    requestAnimationFrame(() => {
+      const activeTab = scroll.querySelector('.nbc-tab--active');
+      if (!activeTab) return;
+      const targetLeft = activeTab.offsetLeft - scroll.clientWidth / 2 + activeTab.offsetWidth / 2;
+      scroll.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
+      setTimeout(checkNbcMore, 350);
+    });
   }, [selected]);
   const [panelOnLeft, setPanelOnLeft] = useState(false); // panel flips left when clicked node is in right half
   const [panelX, setPanelX] = useState(null); // null = CSS default (right/left edge)
