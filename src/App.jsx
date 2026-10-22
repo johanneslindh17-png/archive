@@ -3147,7 +3147,6 @@ export default function App() {
           {renderBorder()}
           {renderShine()}
           {renderDepth()}
-          {n.id === selected && <circle cx={hw + 4} cy={0} r={1.5} fill={tc ? tc.stroke : (dm ? '#e0ddd8' : '#333333')} opacity={0.9} pointerEvents="none" />}
           <text textAnchor="middle" dominantBaseline="middle"
             style={{ fill: textFill, fontSize: '7.0px', fontWeight: isHl || isSel ? '600' : '400' }}>
             {n.label}
