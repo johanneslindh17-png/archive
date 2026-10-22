@@ -1133,6 +1133,32 @@ export default function App() {
     setLogHlDate(null);
   }
 
+  // Zoom out ~20% centred on viewport, clamped to home scale
+  function zoomOutSlightly() {
+    if (!zoomRef.current || !svgRef.current) return;
+    const live = d3.zoomTransform(svgRef.current);
+    const vw = window.innerWidth, vh = window.innerHeight;
+    const minK = Math.max(window.screen.width / W, 1.0);
+    const k1 = Math.max(minK, live.k * 0.78);
+    if (Math.abs(k1 - live.k) < 0.001) return;
+    const cx = vw / 2, cy = vh / 2;
+    const ratio = k1 / live.k;
+    const x1 = cx - (cx - live.x) * ratio;
+    const y1 = cy - (cy - live.y) * ratio;
+    const x0 = live.x, y0 = live.y, k0 = live.k;
+    const target = d3.zoomIdentity.translate(x1, y1).scale(k1);
+    animatingRef.current = true;
+    d3.select(svgRef.current)
+      .transition().duration(380).ease(d3.easeCubicOut)
+      .tween('zoom-out', () => t => {
+        const x = x0 + (x1 - x0) * t, y = y0 + (y1 - y0) * t;
+        const kk = k0 + (k1 - k0) * t;
+        svgRef.current.__zoom = d3.zoomIdentity.translate(x, y).scale(kk);
+        if (svgGRef.current) svgGRef.current.style.transform = `translate(${x}px,${y}px) scale(${kk})`;
+      })
+      .on('end', () => { animatingRef.current = false; if (svgRef.current) svgRef.current.__zoom = target; setTf(target); });
+  }
+
   // Fly back to the overview zoom level, keeping the current vertical era centred
   function flyHome() {
     if (!zoomRef.current || !svgRef.current) return;
@@ -3601,7 +3627,7 @@ export default function App() {
           </div>
         )}
         {(selectedSet.length > 0 || pinned) && <>
-          <div className="nbc-home" onClick={() => { clearAll(); flyHome(); }}>← ALL</div>
+          <div className="nbc-home" onClick={() => { clearAll(); zoomOutSlightly(); }}>← ALL</div>
           <div className="nbc-sep" />
           <div className="nbc-scroll-wrap">
             <div ref={nbcScrollRef} className="nbc-tabs-scroll" onScroll={checkNbcMore}>
@@ -3725,7 +3751,7 @@ export default function App() {
               <feGaussianBlur stdDeviation="4" />
             </filter>
           </defs>
-          <rect x={0} y={0} width="100%" height="100%" fill={themeStyle?.bg || (darkMode ? '#0c0c10' : '#ffffff')} onClick={() => { clearAll(); flyHome(); }} />
+          <rect x={0} y={0} width="100%" height="100%" fill={themeStyle?.bg || (darkMode ? '#0c0c10' : '#ffffff')} onClick={() => { clearAll(); zoomOutSlightly(); }} />
           <g ref={svgGRef} style={{ transformOrigin: '0 0' }}>
 
             {/* Global view */}
