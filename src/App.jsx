@@ -1024,21 +1024,7 @@ export default function App() {
       scroll.style.transition = '';
       scroll.style.animation = '';
       scroll.style.transform = '';
-      requestAnimationFrame(() => requestAnimationFrame(() => requestAnimationFrame(() => {
-        const dpEl = dpRef.current;
-        if (!dpEl) return;
-        // Suppress transition while we reset position
-        dpEl.classList.add('dp-swiping');
-        // Switch to open (removes dp-peek, adds open class) — no transition fires
-        flushSync(() => setDpMode('open'));
-        // Override .dp.open { translateY(0) } with off-screen start position
-        dpEl.style.transform = 'translateY(100vh)';
-        // Commit this state so the browser knows the "from" value
-        dpEl.getBoundingClientRect();
-        // Re-enable transition + clear inline transform → identical to direct-click
-        dpEl.classList.remove('dp-swiping');
-        dpEl.style.transform = '';
-      })));
+      // Stay in peek — panel position unchanged, new content visible in peek strip
     };
     scroll.addEventListener('transitionend', onSlideEnd);
   }
