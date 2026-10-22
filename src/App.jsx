@@ -3136,7 +3136,7 @@ export default function App() {
         }}
       >
         <g className="nd-inner">
-          {isSel && n.id !== selected && (() => {
+          {isSel && (() => {
             const gs = tc ? tc.stroke : (dm ? '#ffffff' : '#000000');
             return [[7,0.07],[4,0.13],[2,0.20]].map(([o,op]) => (
               <rect key={o} x={-hw-o} y={-hh-o} width={bw+o*2} height={bh+o*2} rx={isArtist ? 8+o : 3+o}
@@ -3147,7 +3147,7 @@ export default function App() {
           {renderBorder()}
           {renderShine()}
           {renderDepth()}
-          {n.id === selected && <circle cx={0} cy={hh + 4} r={1.5} fill={tc ? tc.stroke : (dm ? '#e0ddd8' : '#333333')} opacity={0.9} pointerEvents="none" />}
+          {n.id === selected && <circle cx={hw + 4} cy={0} r={1.5} fill={tc ? tc.stroke : (dm ? '#e0ddd8' : '#333333')} opacity={0.9} pointerEvents="none" />}
           <text textAnchor="middle" dominantBaseline="middle"
             style={{ fill: textFill, fontSize: '7.0px', fontWeight: isHl || isSel ? '600' : '400' }}>
             {n.label}
