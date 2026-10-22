@@ -4072,7 +4072,12 @@ export default function App() {
               })()}
 
               {/* Description */}
-              <div className="dp-desc">{renderDesc(selNode.desc, selNode.id, id => { selectNodeFromPanel(id); })}</div>
+              <div className="dp-desc">{renderDesc(selNode.desc, selNode.id, id => {
+                const trailIdx = selectedSet.indexOf(id);
+                const curIdx = selectedSet.indexOf(selected);
+                const dir = trailIdx >= 0 ? (trailIdx < curIdx ? 'left' : 'right') : 'right';
+                selectNodeFromPanel(id, dir);
+              })}</div>
 
               {/* Listen + external links */}
               <div className="dp-bandcamp">
@@ -4134,7 +4139,10 @@ export default function App() {
                         <div className="dp-sec">{label} <span className="dp-sec-count">{group.length}</span></div>
                         {group.map(c => (
                           <div key={c.node.id} className="dp-conn" onClick={() => {
-                            selectNodeFromPanel(c.node.id);
+                            const trailIdx = selectedSet.indexOf(c.node.id);
+                            const curIdx = selectedSet.indexOf(selected);
+                            const dir = trailIdx >= 0 ? (trailIdx < curIdx ? 'left' : 'right') : 'right';
+                            selectNodeFromPanel(c.node.id, dir);
                           }}>
                             <div className="dp-conn-dot" style={{ background: COUNTRIES[c.node.country]?.color || '#555' }} />
                             <div className="dp-conn-info">
