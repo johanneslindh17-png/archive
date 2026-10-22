@@ -1746,17 +1746,21 @@ export default function App() {
   }, [dpMode]);
   // Only one overlay at a time: opening the panel fully dismisses the node list
   useEffect(() => { if (dpMode === 'open' && window.innerWidth < 600) setNodesOpen(false); }, [dpMode]);
-  // Opening the node list minimizes any open panel to peek
+  // Opening the node list slides dp left, nodes panel enters from right simultaneously
   useEffect(() => {
-    if (!nodesOpen || dpModeRef.current !== 'open') return;
+    if (!nodesOpen || window.innerWidth >= 600 || dpModeRef.current !== 'open') return;
     const el = dpRef.current;
-    if (el) {
-      el.getBoundingClientRect(); // commit current position as transition "from"
-      el.style.transition = 'transform 0.45s ease-out';
-      el.style.transform = 'translateY(calc(100% - 76px))';
-      setTimeout(() => { if (dpRef.current) { dpRef.current.style.transition = ''; dpRef.current.style.transform = ''; } }, 500);
-    }
-    setDpMode('peek');
+    if (!el) { setDpMode('peek'); return; }
+    el.style.transform = 'translateX(0)';
+    el.getBoundingClientRect();
+    el.style.transition = 'transform 0.38s cubic-bezier(0.25,0.1,0.25,1)';
+    el.style.transform = 'translateX(-100%)';
+    setTimeout(() => {
+      if (!dpRef.current) return;
+      dpRef.current.style.transform = '';
+      dpRef.current.style.transition = '';
+      setDpMode('peek');
+    }, 420);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nodesOpen]);
   const peekBarRef = useRef(null);
