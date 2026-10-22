@@ -838,10 +838,8 @@ export default function App() {
           slidePeekSwitch(id, false);
           return;
         }
-        // Panel open, different trail node — switch to it (peek first)
-        setSelected(id);
-        setDpMode('peek');
-        window.history.replaceState(null, '', '#node=' + id);
+        // Panel open, different trail node — stay open, slide content
+        selectNodeFromPanel(id, selectedSet.indexOf(id) > selectedSet.indexOf(selected) ? 'right' : 'left');
         return;
       }
       // Desktop: toggle off — remove from trail
@@ -1025,7 +1023,18 @@ export default function App() {
       scroll.style.transition = '';
       scroll.style.animation = '';
       scroll.style.transform = '';
-      // Stay in peek — panel position unchanged, new content visible in peek strip
+      if (addToTrail) return; // new node — stay in peek
+      // Existing trail node — slide panel up to full open
+      requestAnimationFrame(() => requestAnimationFrame(() => requestAnimationFrame(() => {
+        const dpEl = dpRef.current;
+        if (!dpEl) return;
+        dpEl.classList.add('dp-swiping');
+        flushSync(() => setDpMode('open'));
+        dpEl.style.transform = 'translateY(100vh)';
+        dpEl.getBoundingClientRect();
+        dpEl.classList.remove('dp-swiping');
+        dpEl.style.transform = '';
+      })));
     };
     scroll.addEventListener('transitionend', onSlideEnd);
   }
