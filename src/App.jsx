@@ -3138,7 +3138,7 @@ export default function App() {
         <g className="nd-inner">
           {isSel && (
             <rect x={-hw} y={-hh} width={bw} height={bh} rx={isArtist ? 8 : 3}
-              fill={tc ? tc.stroke : (dm ? '#ffffff' : '#000000')} opacity={0.55}
+              fill={tc ? tc.stroke : (dm ? '#ffffff' : '#000000')} opacity={0.8}
               filter="url(#nd-glow-blur)" stroke="none" pointerEvents="none" />
           )}
           {renderBg()}
