@@ -1976,6 +1976,7 @@ path.eg.dim{opacity:0}
     -webkit-overflow-scrolling:touch;
     background:transparent;
     border-top:0.5px solid var(--tb-border);
+    position:relative;
   }
   .dp::after{content:none;}
   .dp.open{
@@ -1987,20 +1988,22 @@ path.eg.dim{opacity:0}
   }
   .dp-peek-hint{
     display:none;
+    position:absolute;top:5px;left:0;right:0;
     justify-content:center;align-items:center;
-    height:20px;padding:2px 0;pointer-events:none;
+    pointer-events:none;z-index:2;
   }
   .dp.dp-peek .dp-peek-hint{display:flex;}
   .dp-peek-hint .ph-arrow{
     animation:peek-bounce 1.6s ease-in-out infinite;
     color:var(--tb-text-mid);
+    opacity:0.6;
   }
 
   /* dp-peek MUST come before dp-closing so that when both are present,
      dp-closing (later in cascade, same !important specificity) wins */
   .dp.dp-peek{
-    /* 20px peek-hint + 10px scroll-padding + 10px meta-padding + ~18px pill + 8px gap + ~23px name + 7px margin = 96px */
-    transform:translateY(calc(100% - 96px)) !important;
+    /* 10px scroll-padding + 10px meta-padding + ~18px pill + 8px gap + ~23px name + 7px margin = 76px */
+    transform:translateY(calc(100% - 76px)) !important;
     opacity:1 !important;visibility:visible !important;
     pointer-events:all !important;
   }
@@ -2019,11 +2022,11 @@ path.eg.dim{opacity:0}
   }
   /* Peek node-switch: new panel parks off-screen right, slides in, then up */
   .dp.dp-slide-enter{
-    transform:translateX(100%) translateY(calc(100% - 96px)) !important;
+    transform:translateX(100%) translateY(calc(100% - 76px)) !important;
     transition:none !important;
   }
   .dp.dp-slide-center{
-    transform:translateX(0) translateY(calc(100% - 96px)) !important;
+    transform:translateX(0) translateY(calc(100% - 76px)) !important;
     transition:transform 0.24s ease-in-out !important;
   }
   @keyframes dp-slide-in-right {
