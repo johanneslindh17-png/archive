@@ -952,6 +952,18 @@ export default function App() {
     if (returnToNodesRef.current) { returnToNodesRef.current = false; setNodesOpen(true); }
   }
 
+  // Find the best connected neighbor to continue to when swiping past the breadcrumb end.
+  // Prefers nodes not yet in trail; sorts by era (forward=true → later, forward=false → earlier).
+  function nextConnectedByTime(nodeId, trail, forward) {
+    const neighbors = EDGE_ADJ.get(nodeId) || [];
+    const all = neighbors.map(id => NODE_BY_ID.get(id)).filter(Boolean);
+    const fresh = all.filter(n => !trail.includes(n.id));
+    const pool = fresh.length > 0 ? fresh : all.filter(n => n.id !== nodeId);
+    if (!pool.length) return null;
+    pool.sort((a, b) => forward ? (b.era - a.era) : (a.era - b.era));
+    return pool[0].id;
+  }
+
   // Animated close: slide panel down, then close (mobile only; falls back to instant on desktop)
   function slideClosePanel(onDone) {
     if (window.innerWidth >= 600 || !selected) { closePanel(); onDone?.(); return; }
@@ -3908,24 +3920,32 @@ export default function App() {
             const deltaX = e.changedTouches[0].clientX - start.x;
             const wasSwiping = el?.classList.contains('dp-swiping');
 
-            // Horizontal swipe in open mode — navigate between breadcrumbs
+            // Horizontal swipe in open mode — navigate between breadcrumbs or to next network node
             if (start.dir === 'h' && window.innerWidth < 600 && dpModeRef.current === 'open' && Math.abs(deltaX) > 55) {
               const idx = selectedSet.indexOf(selected);
               if (deltaX < 0 && idx < selectedSet.length - 1) {
                 selectNodeFromPanel(selectedSet[idx + 1], 'right');
               } else if (deltaX > 0 && idx > 0) {
                 selectNodeFromPanel(selectedSet[idx - 1], 'left');
+              } else {
+                const forward = deltaX < 0;
+                const next = nextConnectedByTime(selected, selectedSet, forward);
+                if (next) selectNodeFromPanel(next, forward ? 'right' : 'left');
               }
               return;
             }
 
-            // Horizontal swipe in peek mode — navigate between breadcrumbs (stay in peek)
+            // Horizontal swipe in peek mode — navigate between breadcrumbs or to next network node
             if (start.dir === 'h' && window.innerWidth < 600 && dpModeRef.current === 'peek' && Math.abs(deltaX) > 55) {
               const idx = selectedSet.indexOf(selected);
               if (deltaX < 0 && idx < selectedSet.length - 1) {
                 slidePeekSwitch(selectedSet[idx + 1], false, true, 'right');
               } else if (deltaX > 0 && idx > 0) {
                 slidePeekSwitch(selectedSet[idx - 1], false, true, 'left');
+              } else {
+                const forward = deltaX < 0;
+                const next = nextConnectedByTime(selected, selectedSet, forward);
+                if (next) slidePeekSwitch(next, true, true, forward ? 'right' : 'left');
               }
               return;
             }
