@@ -2138,13 +2138,6 @@ export default function App() {
     return () => document.removeEventListener('click', close);
   }, [contactOpen]);
 
-  // Close submit dropdown on outside click
-  useEffect(() => {
-    if (!submitOpen) return;
-    const close = () => setSubmitOpen(false);
-    document.addEventListener('click', close);
-    return () => document.removeEventListener('click', close);
-  }, [submitOpen]);
 
   // Close node-type popup on outside click
   useEffect(() => {
