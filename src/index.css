@@ -234,10 +234,12 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 .nodes-panel-list::-webkit-scrollbar-thumb{background:var(--tb-border);border-radius:0;}
 .nodes-panel-list::-webkit-scrollbar-thumb:hover{background:var(--tb-text-mid);}
 .npl-item{
-  display:flex;align-items:baseline;justify-content:space-between;gap:8px;
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
   padding:8px 14px;border-bottom:1px solid var(--tb-border);
   cursor:pointer;transition:background 0.1s;
+  border-left:3px solid transparent;
 }
+.npl-item--trail{ border-left-width:3px; }
 .npl-item:hover{background:rgba(0,0,0,0.03)}
 .dark .npl-item:hover{background:rgba(255,255,255,0.03)}
 .npl-label{font-family:'Syne Mono',monospace;font-size:0.74rem;color:var(--tb-text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex-shrink:0;max-width:45%}
@@ -749,7 +751,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
   background:transparent;
   transition:opacity 0.15s;
 }
-.nbc-tab--active{ opacity:1;box-shadow:0 0 6px 1px currentColor; }
+.nbc-tab--active{ opacity:1;filter:drop-shadow(0 0 3px currentColor); }
 .nbc-tab--active .nbc-tab-label{ color:#111;font-weight:700; }
 .nbc-tab--active .nbc-tab-x{ color:#999; }
 .nbc-tab-label{ cursor:pointer;transition:color 0.15s; }
@@ -1819,7 +1821,7 @@ path.eg.dim{opacity:0}
   .nodes-backdrop{background:transparent;z-index:18;}
   .dark .nodes-backdrop{background:transparent;}
   /* Node list: column layout — name | type | year | city | genre */
-  .npl-item{display:grid !important;grid-template-columns:minmax(0,1fr) min-content 30px 48px 82px;gap:0 4px;align-items:center;padding:7px 14px;}
+  .npl-item{display:grid !important;grid-template-columns:20px minmax(0,1fr) min-content 30px 48px 82px;gap:0 4px;align-items:center;padding:7px 14px;}
   .npl-meta{display:none !important;}
   .npl-label{max-width:none !important;}
   .npl-mc-type,.npl-mc-year,.npl-mc-city,.npl-mc-genre{display:block;font-family:'Syne Mono',monospace;font-size:0.5rem;color:#888;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:0.03em;text-align:left;border-left:1px solid var(--tb-border);padding-left:5px;}

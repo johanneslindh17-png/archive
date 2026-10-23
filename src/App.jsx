@@ -90,6 +90,47 @@ const REGIONS_WITH_NODES = new Set(NODES.map(n => COUNTRY_REGION[n.country] || '
 // the right-strip could cover it.
 const TILE_W = W - LEFT; // = 1328
 
+// ── Tiny node shape icon (used in breadcrumb tabs and node list) ─────────────
+function NodeMini({ type, fill, stroke, w = 20, h = 12 }) {
+  const hw = w / 2, hh = h / 2;
+  const oc = Math.round(h * 0.35), at = Math.round(h * 0.33);
+  const nd = Math.round(h * 0.22), ni = Math.round(h * 0.36);
+  const fc = Math.round(h * 0.42);
+  const oct = `${-hw+oc},${-hh} ${hw-oc},${-hh} ${hw},${-hh+oc} ${hw},${hh-oc} ${hw-oc},${hh} ${-hw+oc},${hh} ${-hw},${hh-oc} ${-hw},${-hh+oc}`;
+  const ntch = `${-hw},${-hh} ${hw},${-hh} ${hw},${-ni} ${hw-nd},0 ${hw},${ni} ${hw},${hh} ${-hw},${hh} ${-hw},${ni} ${-hw+nd},0 ${-hw},${-ni}`;
+  const sty = `${-hw},${-hh} ${hw-at},${-hh} ${hw},0 ${hw-at},${hh} ${-hw},${hh}`;
+  const cult = `${-hw+at},${-hh} ${hw},${-hh} ${hw},${hh} ${-hw+at},${hh} ${-hw},0`;
+  const chan = `${-hw},${-hh} ${hw-fc},${-hh} ${hw},${-hh+fc} ${hw},${hh} ${-hw},${hh}`;
+  const props = { fill, stroke, strokeWidth: 1 };
+  const shape =
+    type === 'artist'  ? <rect {...props} x={-hw} y={-hh} width={w} height={h} rx={Math.round(h * 0.55)} /> :
+    type === 'label'   ? <polygon {...props} points={oct} /> :
+    type === 'moment'  ? <polygon {...props} points={ntch} /> :
+    type === 'style'   ? <polygon {...props} points={sty} /> :
+    type === 'culture' ? <polygon {...props} points={cult} /> :
+    type === 'channel' ? <polygon {...props} points={chan} /> :
+                         <rect {...props} x={-hw} y={-hh} width={w} height={h} rx={2} />;
+  return (
+    <svg width={w} height={h} viewBox={`${-hw} ${-hh} ${w} ${h}`}
+      style={{ display:'block', flexShrink:0, overflow:'visible' }}>
+      {shape}
+    </svg>
+  );
+}
+
+// Returns clip-path string and extra padding for a breadcrumb tab's shape
+function nodeTabShape(type) {
+  switch (type) {
+    case 'artist':  return { clipPath: null, borderRadius: '7px', px: [0, 0] };
+    case 'label':   return { clipPath: 'polygon(4px 0%,calc(100% - 4px) 0%,100% 4px,100% calc(100% - 4px),calc(100% - 4px) 100%,4px 100%,0% calc(100% - 4px),0% 4px)', borderRadius: 0, px: [0, 0] };
+    case 'moment':  return { clipPath: 'polygon(0% 0%,100% 0%,100% calc(50% - 4px),calc(100% - 3px) 50%,100% calc(50% + 4px),100% 100%,0% 100%,0% calc(50% + 4px),3px 50%,0% calc(50% - 4px))', borderRadius: 0, px: [4, 4] };
+    case 'style':   return { clipPath: 'polygon(0% 0%,calc(100% - 5px) 0%,100% 50%,calc(100% - 5px) 100%,0% 100%)', borderRadius: 0, px: [0, 7] };
+    case 'culture': return { clipPath: 'polygon(5px 0%,100% 0%,100% 100%,5px 100%,0% 50%)', borderRadius: 0, px: [8, 0] };
+    case 'channel': return { clipPath: 'polygon(0% 0%,calc(100% - 5px) 0%,100% 5px,100% 100%,0% 100%)', borderRadius: 0, px: [0, 0] };
+    default:        return { clipPath: null, borderRadius: '2px', px: [0, 0] };
+  }
+}
+
 // ── Colorful mode palettes (module-level — never recreated) ──────────────────
 const TYPE_COLORS = {
   artist: { light:{ fill:'#c8dff0', stroke:'#2d5c96', text:'#0a2040' }, dark:{ fill:'#0d1828', stroke:'#6688cc', text:'#a0c0e8' } },
@@ -3707,11 +3748,19 @@ export default function App() {
               {selectedSet.map(id => {
                 const nd = NODE_BY_ID.get(id);
                 if (!nd) return null;
-                const col = colorTheme === 'type' ? getThemeColors(nd, 'type', darkMode)?.stroke : null;
+                const typeTC = darkMode ? TYPE_COLORS[nd.type]?.dark : TYPE_COLORS[nd.type]?.light;
                 const isActive = id === selected;
+                const shp = nodeTabShape(nd.type);
+                const tabStyle = {
+                  color: typeTC?.stroke,
+                  background: typeTC ? typeTC.fill : undefined,
+                  ...(shp.clipPath ? { clipPath: shp.clipPath, borderRadius: 0 } : { borderRadius: shp.borderRadius }),
+                  ...(shp.px[0] ? { paddingLeft: `${6 + shp.px[0]}px` } : {}),
+                  ...(shp.px[1] ? { paddingRight: `${5 + shp.px[1]}px` } : {}),
+                };
                 return (
                   <div key={`tab-${id}`} className={`nbc-tab${isActive ? ' nbc-tab--active' : ''}`}
-                    style={col ? { color: col, background: col + '18' } : undefined}>
+                    style={tabStyle}>
                     <span className="nbc-tab-label" onClick={() => jumpToTab(id)}>{nd.label}</span>
                     <button className="nbc-tab-x" onClick={e => { e.stopPropagation(); removeFromSet(id); }}>×</button>
                   </div>
@@ -3719,10 +3768,16 @@ export default function App() {
               })}
               {pinned && !selectedSet.length && (() => {
                 const nd = NODE_BY_ID.get(pinned);
-                const col = nd && colorTheme === 'type' ? getThemeColors(nd, 'type', darkMode)?.stroke : null;
+                const typeTC = nd && (darkMode ? TYPE_COLORS[nd.type]?.dark : TYPE_COLORS[nd.type]?.light);
+                const shp = nd ? nodeTabShape(nd.type) : { clipPath: null, borderRadius: '2px', px: [0,0] };
+                const tabStyle = typeTC ? {
+                  color: typeTC.stroke, background: typeTC.fill,
+                  ...(shp.clipPath ? { clipPath: shp.clipPath, borderRadius: 0 } : { borderRadius: shp.borderRadius }),
+                  ...(shp.px[0] ? { paddingLeft: `${6 + shp.px[0]}px` } : {}),
+                  ...(shp.px[1] ? { paddingRight: `${5 + shp.px[1]}px` } : {}),
+                } : undefined;
                 return (
-                  <div className="nbc-tab nbc-tab--active"
-                    style={col ? { color: col, background: col + '18' } : undefined}>
+                  <div className="nbc-tab nbc-tab--active" style={tabStyle}>
                     <span className="nbc-tab-label" onClick={() => jumpToTab(pinned)}>{nd?.label}</span>
                     <button className="nbc-tab-x" onClick={() => clearAll()}>×</button>
                   </div>
@@ -4291,20 +4346,25 @@ export default function App() {
                       lastDate = n.dateAdded;
                       items.push(<div key={`dh-${n.dateAdded}`} className="npl-date-header">{n.dateAdded || '—'}</div>);
                     }
+                    const nplTC = darkMode ? TYPE_COLORS[n.type]?.dark : TYPE_COLORS[n.type]?.light;
+                    const nplInTrail = selectedSet.includes(n.id);
                     items.push(
-                      <div key={n.id} className="npl-item" onClick={() => {
-                        if (window.innerWidth < 600) {
-                          centerOnNode(n.id, 1.5);
-                          setNodesOpen(false);
-                          setSelectedSet(prev => prev.includes(n.id) ? prev : [n.id]);
-                          setSelected(n.id);
-                          setDpMode('peek');
-                          window.history.replaceState(null, '', '#node=' + n.id);
-                        } else {
-                          selectNode(n.id);
-                          scrollToNode(n.id, 0.2);
-                        }
-                      }}>
+                      <div key={n.id} className={`npl-item${nplInTrail ? ' npl-item--trail' : ''}`}
+                        style={nplInTrail && nplTC ? { borderLeftColor: nplTC.stroke } : undefined}
+                        onClick={() => {
+                          if (window.innerWidth < 600) {
+                            centerOnNode(n.id, 1.5);
+                            setNodesOpen(false);
+                            setSelectedSet(prev => prev.includes(n.id) ? prev : [n.id]);
+                            setSelected(n.id);
+                            setDpMode('peek');
+                            window.history.replaceState(null, '', '#node=' + n.id);
+                          } else {
+                            selectNode(n.id);
+                            scrollToNode(n.id, 0.2);
+                          }
+                        }}>
+                        <NodeMini type={n.type} fill={nplTC?.fill || 'transparent'} stroke={nplTC?.stroke || '#888'} />
                         <span className="npl-label">{n.label}</span>
                         <span className="npl-meta">
                           <span
