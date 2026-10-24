@@ -198,6 +198,76 @@ function NodeTag({ type, darkMode, h = 10, active = false, onClick }) {
   );
 }
 
+// ── Breadcrumb tab rendered as SVG — exact same 4-layer look as map nodes ──
+function BreadcrumbTab({ nd, darkMode, isActive, onLabelClick, onClose }) {
+  const typeTC = darkMode ? TYPE_COLORS[nd.type]?.dark : TYPE_COLORS[nd.type]?.light;
+  const h = 15;
+  const fillC  = isActive ? (typeTC?.stroke || (darkMode ? '#888899' : '#5a5a70')) : (typeTC?.fill || (darkMode ? '#12121c' : '#f0f0f5'));
+  const strokeC = isActive ? (darkMode ? '#c8c8d8' : '#111111') : (typeTC?.stroke || (darkMode ? '#445588' : '#9090b0'));
+  const textC  = isActive ? (darkMode ? '#e0ddd8' : '#111111') : (typeTC?.stroke || (darkMode ? '#7070a0' : '#777777'));
+  const bgFill = darkMode ? '#0c0c10' : '#ffffff';
+  const fsPx   = Math.round(h * 0.57);
+  const charW  = fsPx * 0.62;
+  const padL = 5, padR = 4, xGap = 3, xW = fsPx;
+  const oc = Math.round(h * 0.35), at = Math.round(h * 0.33);
+  const ndv = Math.round(h * 0.22), ni = Math.round(h * 0.36), fc = Math.round(h * 0.42);
+  let extraL = 0, extraR = 0;
+  if (nd.type === 'style')   extraR = at;
+  if (nd.type === 'culture') extraL = at;
+  if (nd.type === 'moment')  { extraL = ndv; extraR = ndv; }
+  const totalW = Math.ceil(nd.label.length * charW) + padL + extraL + xGap + xW + padR + extraR;
+  const hw = totalW / 2, hh = h / 2;
+  const oct  = `${-hw+oc},${-hh} ${hw-oc},${-hh} ${hw},${-hh+oc} ${hw},${hh-oc} ${hw-oc},${hh} ${-hw+oc},${hh} ${-hw},${hh-oc} ${-hw},${-hh+oc}`;
+  const ntch = `${-hw},${-hh} ${hw},${-hh} ${hw},${-ni} ${hw-ndv},0 ${hw},${ni} ${hw},${hh} ${-hw},${hh} ${-hw},${ni} ${-hw+ndv},0 ${-hw},${-ni}`;
+  const sty  = `${-hw},${-hh} ${hw-at},${-hh} ${hw},0 ${hw-at},${hh} ${-hw},${hh}`;
+  const cult = `${-hw+at},${-hh} ${hw},${-hh} ${hw},${hh} ${-hw+at},${hh} ${-hw},0`;
+  const chan  = `${-hw},${-hh} ${hw-fc},${-hh} ${hw},${-hh+fc} ${hw},${hh} ${-hw},${hh}`;
+  const mk = (p) =>
+    nd.type === 'artist'  ? <rect    {...p} x={-hw} y={-hh} width={totalW} height={h} rx={Math.round(h * 0.55)} /> :
+    nd.type === 'label'   ? <polygon {...p} points={oct}  /> :
+    nd.type === 'moment'  ? <polygon {...p} points={ntch} /> :
+    nd.type === 'style'   ? <polygon {...p} points={sty}  /> :
+    nd.type === 'culture' ? <polygon {...p} points={cult} /> :
+    nd.type === 'channel' ? <polygon {...p} points={chan} /> :
+                            <rect    {...p} x={-hw} y={-hh} width={totalW} height={h} rx={2} />;
+  const uid = String(nd.id).replace(/[^a-zA-Z0-9]/g, '_');
+  const labelX = -hw + padL + extraL;
+  const xBtnX  = hw - padR - xW / 2 - extraR;
+  return (
+    <svg width={totalW} height={h} viewBox={`${-hw} ${-hh} ${totalW} ${h}`}
+      style={{ display:'block', flexShrink:0, overflow:'visible', marginRight:'4px',
+               filter: isActive ? `drop-shadow(0 0 4px ${fillC})` : undefined }}>
+      <defs>
+        <linearGradient id={`bsh${uid}`} gradientUnits="objectBoundingBox" x1="0.5" y1="0" x2="0.5" y2="1">
+          <stop offset="0%" stopColor="white" stopOpacity="0.16"/>
+          <stop offset="58%" stopColor="white" stopOpacity="0"/>
+        </linearGradient>
+        <linearGradient id={`bdp${uid}`} gradientUnits="objectBoundingBox" x1="0.5" y1="0" x2="0.5" y2="1">
+          <stop offset="45%" stopColor="black" stopOpacity="0"/>
+          <stop offset="100%" stopColor="black" stopOpacity="0.13"/>
+        </linearGradient>
+      </defs>
+      <g style={{ cursor:'pointer' }} onClick={onLabelClick}>
+        {mk({ fill: bgFill, stroke: 'none' })}
+        {mk({ fill: fillC, stroke: strokeC, strokeWidth: 1 })}
+        {mk({ fill: `url(#bsh${uid})`, stroke: 'none', pointerEvents: 'none' })}
+        {mk({ fill: `url(#bdp${uid})`, stroke: 'none', pointerEvents: 'none' })}
+        <text x={labelX} y="0.5" textAnchor="start" dominantBaseline="middle"
+          style={{ fill:textC, fontSize:`${fsPx}px`, fontFamily:"'Syne Mono',monospace",
+                   letterSpacing:'0.02em', textTransform:'uppercase', pointerEvents:'none', userSelect:'none' }}>
+          {nd.label}
+        </text>
+      </g>
+      <text x={xBtnX} y="0.5" textAnchor="middle" dominantBaseline="middle"
+        onClick={e => { e.stopPropagation(); onClose(); }}
+        style={{ fill:textC, fontSize:`${fsPx + 1}px`, fontFamily:'sans-serif',
+                 pointerEvents:'auto', userSelect:'none', opacity:0.75, cursor:'pointer' }}>
+        ×
+      </text>
+    </svg>
+  );
+}
+
 // Returns clip-path string and extra padding for a breadcrumb tab's shape
 function nodeTabShape(type) {
   switch (type) {
@@ -3821,62 +3891,23 @@ export default function App() {
               {selectedSet.map(id => {
                 const nd = NODE_BY_ID.get(id);
                 if (!nd) return null;
-                const typeTC = darkMode ? TYPE_COLORS[nd.type]?.dark : TYPE_COLORS[nd.type]?.light;
-                const isActive = id === selected;
-                const shp = nodeTabShape(nd.type);
-                const tabFill = typeTC?.stroke || (darkMode ? '#888899' : '#5a5a70');
-                const shine = 'linear-gradient(to bottom,rgba(255,255,255,0.16) 0%,rgba(255,255,255,0) 58%)';
-                const depth = 'linear-gradient(to bottom,transparent 45%,rgba(0,0,0,0.12) 100%)';
-                const tabText = isActive ? (darkMode ? '#e0ddd8' : '#111111') : (typeTC?.stroke || (darkMode ? '#7070a0' : '#777'));
-                const tabBg = isActive ? `${shine},${depth},${tabFill}` : `${shine},${depth},${typeTC?.fill || 'transparent'}`;
-                const borderC = isActive ? tabText : (typeTC?.stroke || (darkMode ? '#6688cc' : '#888899'));
-                const ring = (c) => `drop-shadow(1px 0 0 ${c}) drop-shadow(-1px 0 0 ${c}) drop-shadow(0 1px 0 ${c}) drop-shadow(0 -1px 0 ${c})`;
-                const tabStyle = {
-                  color: tabText,
-                  background: tabBg,
-                  ...(shp.clipPath ? { clipPath: shp.clipPath, borderRadius: 0, border: 'none',
-                      filter: isActive ? `${ring(borderC)} drop-shadow(0 0 5px ${tabFill})` : ring(borderC),
-                    } : {
-                      borderRadius: shp.borderRadius,
-                      ...(isActive ? { filter: `drop-shadow(0 0 5px ${tabFill})` } : {}),
-                    }),
-                  ...(shp.px[0] ? { paddingLeft: `${6 + shp.px[0]}px` } : {}),
-                  ...(shp.px[1] ? { paddingRight: `${5 + shp.px[1]}px` } : {}),
-                };
                 return (
-                  <div key={`tab-${id}`} className={`nbc-tab${isActive ? ' nbc-tab--active' : ''}`}
-                    style={tabStyle}>
-                    <span className="nbc-tab-label" onClick={() => jumpToTab(id)}>{nd.label}</span>
-                    <button className="nbc-tab-x" onClick={e => { e.stopPropagation(); removeFromSet(id); }}>×</button>
-                  </div>
+                  <BreadcrumbTab key={`tab-${id}`}
+                    nd={nd} darkMode={darkMode} isActive={id === selected}
+                    onLabelClick={() => jumpToTab(id)}
+                    onClose={() => removeFromSet(id)}
+                  />
                 );
               })}
               {pinned && !selectedSet.length && (() => {
                 const nd = NODE_BY_ID.get(pinned);
-                const typeTC = nd && (darkMode ? TYPE_COLORS[nd.type]?.dark : TYPE_COLORS[nd.type]?.light);
-                const shp = nd ? nodeTabShape(nd.type) : { clipPath: null, borderRadius: '2px', px: [0,0] };
-                const pTabFill = typeTC?.stroke || (darkMode ? '#888899' : '#5a5a70');
-                const pTabText = darkMode ? '#e0ddd8' : '#111111';
-                const shine = 'linear-gradient(to bottom,rgba(255,255,255,0.16) 0%,rgba(255,255,255,0) 58%)';
-                const depth = 'linear-gradient(to bottom,transparent 45%,rgba(0,0,0,0.12) 100%)';
-                const pRing = (c) => `drop-shadow(1px 0 0 ${c}) drop-shadow(-1px 0 0 ${c}) drop-shadow(0 1px 0 ${c}) drop-shadow(0 -1px 0 ${c})`;
-                const pTabStyle = typeTC ? {
-                  color: pTabText,
-                  background: `${shine},${depth},${pTabFill}`,
-                  ...(shp.clipPath ? { clipPath: shp.clipPath, borderRadius: 0, border: 'none',
-                      filter: `${pRing(pTabText)} drop-shadow(0 0 5px ${pTabFill})`,
-                    } : {
-                      borderRadius: shp.borderRadius,
-                      filter: `drop-shadow(0 0 5px ${pTabFill})`,
-                    }),
-                  ...(shp.px[0] ? { paddingLeft: `${6 + shp.px[0]}px` } : {}),
-                  ...(shp.px[1] ? { paddingRight: `${5 + shp.px[1]}px` } : {}),
-                } : undefined;
+                if (!nd) return null;
                 return (
-                  <div className="nbc-tab nbc-tab--active" style={pTabStyle}>
-                    <span className="nbc-tab-label" onClick={() => jumpToTab(pinned)}>{nd?.label}</span>
-                    <button className="nbc-tab-x" onClick={() => clearAll()}>×</button>
-                  </div>
+                  <BreadcrumbTab
+                    nd={nd} darkMode={darkMode} isActive={true}
+                    onLabelClick={() => jumpToTab(pinned)}
+                    onClose={() => clearAll()}
+                  />
                 );
               })()}
             </div>
