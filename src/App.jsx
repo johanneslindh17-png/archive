@@ -90,30 +90,47 @@ const REGIONS_WITH_NODES = new Set(NODES.map(n => COUNTRY_REGION[n.country] || '
 // the right-strip could cover it.
 const TILE_W = W - LEFT; // = 1328
 
-// ── Tiny node shape icon (used in breadcrumb tabs and node list) ─────────────
-function NodeMini({ type, fill, stroke, w = 20, h = 12 }) {
+// ── Tiny node shape icon — renders as selected-state (bg + fill + shine + depth + glow) ──
+function NodeMini({ type, darkMode, w = 20, h = 12 }) {
+  const typeTC = darkMode ? TYPE_COLORS[type]?.dark : TYPE_COLORS[type]?.light;
+  const selFill = typeTC?.stroke || (darkMode ? '#888899' : '#5a5a70');
+  const selStroke = darkMode ? '#c8c8d8' : '#111111';
+  const bgFill = darkMode ? '#0c0c10' : '#ffffff';
   const hw = w / 2, hh = h / 2;
   const oc = Math.round(h * 0.35), at = Math.round(h * 0.33);
   const nd = Math.round(h * 0.22), ni = Math.round(h * 0.36);
   const fc = Math.round(h * 0.42);
-  const oct = `${-hw+oc},${-hh} ${hw-oc},${-hh} ${hw},${-hh+oc} ${hw},${hh-oc} ${hw-oc},${hh} ${-hw+oc},${hh} ${-hw},${hh-oc} ${-hw},${-hh+oc}`;
+  const oct  = `${-hw+oc},${-hh} ${hw-oc},${-hh} ${hw},${-hh+oc} ${hw},${hh-oc} ${hw-oc},${hh} ${-hw+oc},${hh} ${-hw},${hh-oc} ${-hw},${-hh+oc}`;
   const ntch = `${-hw},${-hh} ${hw},${-hh} ${hw},${-ni} ${hw-nd},0 ${hw},${ni} ${hw},${hh} ${-hw},${hh} ${-hw},${ni} ${-hw+nd},0 ${-hw},${-ni}`;
-  const sty = `${-hw},${-hh} ${hw-at},${-hh} ${hw},0 ${hw-at},${hh} ${-hw},${hh}`;
+  const sty  = `${-hw},${-hh} ${hw-at},${-hh} ${hw},0 ${hw-at},${hh} ${-hw},${hh}`;
   const cult = `${-hw+at},${-hh} ${hw},${-hh} ${hw},${hh} ${-hw+at},${hh} ${-hw},0`;
-  const chan = `${-hw},${-hh} ${hw-fc},${-hh} ${hw},${-hh+fc} ${hw},${hh} ${-hw},${hh}`;
-  const props = { fill, stroke, strokeWidth: 1 };
-  const shape =
-    type === 'artist'  ? <rect {...props} x={-hw} y={-hh} width={w} height={h} rx={Math.round(h * 0.55)} /> :
-    type === 'label'   ? <polygon {...props} points={oct} /> :
-    type === 'moment'  ? <polygon {...props} points={ntch} /> :
-    type === 'style'   ? <polygon {...props} points={sty} /> :
-    type === 'culture' ? <polygon {...props} points={cult} /> :
-    type === 'channel' ? <polygon {...props} points={chan} /> :
-                         <rect {...props} x={-hw} y={-hh} width={w} height={h} rx={2} />;
+  const chan  = `${-hw},${-hh} ${hw-fc},${-hh} ${hw},${-hh+fc} ${hw},${hh} ${-hw},${hh}`;
+  const mk = (p) =>
+    type === 'artist'  ? <rect {...p} x={-hw} y={-hh} width={w} height={h} rx={Math.round(h * 0.55)} /> :
+    type === 'label'   ? <polygon {...p} points={oct} /> :
+    type === 'moment'  ? <polygon {...p} points={ntch} /> :
+    type === 'style'   ? <polygon {...p} points={sty} /> :
+    type === 'culture' ? <polygon {...p} points={cult} /> :
+    type === 'channel' ? <polygon {...p} points={chan} /> :
+                         <rect {...p} x={-hw} y={-hh} width={w} height={h} rx={2} />;
   return (
     <svg width={w} height={h} viewBox={`${-hw} ${-hh} ${w} ${h}`}
-      style={{ display:'block', flexShrink:0, overflow:'visible' }}>
-      {shape}
+      style={{ display:'block', flexShrink:0, overflow:'visible',
+               filter: `drop-shadow(0 0 2.5px ${selFill})` }}>
+      <defs>
+        <linearGradient id="nmi-shine" gradientUnits="objectBoundingBox" x1="0.5" y1="0" x2="0.5" y2="1">
+          <stop offset="0%" stopColor="white" stopOpacity="0.16" />
+          <stop offset="58%" stopColor="white" stopOpacity="0" />
+        </linearGradient>
+        <linearGradient id="nmi-depth" gradientUnits="objectBoundingBox" x1="0.5" y1="0" x2="0.5" y2="1">
+          <stop offset="45%" stopColor="black" stopOpacity="0" />
+          <stop offset="100%" stopColor="black" stopOpacity="0.13" />
+        </linearGradient>
+      </defs>
+      {mk({ fill: bgFill, stroke: 'none' })}
+      {mk({ fill: selFill, stroke: selStroke, strokeWidth: 1.5 })}
+      {mk({ fill: 'url(#nmi-shine)', stroke: 'none', pointerEvents: 'none' })}
+      {mk({ fill: 'url(#nmi-depth)', stroke: 'none', pointerEvents: 'none' })}
     </svg>
   );
 }
@@ -3744,9 +3761,14 @@ export default function App() {
                 const typeTC = darkMode ? TYPE_COLORS[nd.type]?.dark : TYPE_COLORS[nd.type]?.light;
                 const isActive = id === selected;
                 const shp = nodeTabShape(nd.type);
+                const tabFill = typeTC?.stroke || (darkMode ? '#888899' : '#5a5a70');
+                const tabText = hexLuminance(tabFill) > 0.35 ? '#080808' : '#ffffff';
+                const shine = 'linear-gradient(to bottom,rgba(255,255,255,0.16) 0%,rgba(255,255,255,0) 58%)';
+                const depth = 'linear-gradient(to bottom,transparent 45%,rgba(0,0,0,0.12) 100%)';
                 const tabStyle = {
-                  color: typeTC?.stroke,
-                  background: typeTC ? typeTC.fill : undefined,
+                  color: tabText,
+                  background: `${shine},${depth},${tabFill}`,
+                  ...(isActive ? { filter: `drop-shadow(0 0 5px ${tabFill})` } : {}),
                   ...(shp.clipPath ? { clipPath: shp.clipPath, borderRadius: 0 } : { borderRadius: shp.borderRadius }),
                   ...(shp.px[0] ? { paddingLeft: `${6 + shp.px[0]}px` } : {}),
                   ...(shp.px[1] ? { paddingRight: `${5 + shp.px[1]}px` } : {}),
@@ -3763,8 +3785,14 @@ export default function App() {
                 const nd = NODE_BY_ID.get(pinned);
                 const typeTC = nd && (darkMode ? TYPE_COLORS[nd.type]?.dark : TYPE_COLORS[nd.type]?.light);
                 const shp = nd ? nodeTabShape(nd.type) : { clipPath: null, borderRadius: '2px', px: [0,0] };
+                const pTabFill = typeTC?.stroke || (darkMode ? '#888899' : '#5a5a70');
+                const pTabText = hexLuminance(pTabFill) > 0.35 ? '#080808' : '#ffffff';
+                const shine = 'linear-gradient(to bottom,rgba(255,255,255,0.16) 0%,rgba(255,255,255,0) 58%)';
+                const depth = 'linear-gradient(to bottom,transparent 45%,rgba(0,0,0,0.12) 100%)';
                 const tabStyle = typeTC ? {
-                  color: typeTC.stroke, background: typeTC.fill,
+                  color: pTabText,
+                  background: `${shine},${depth},${pTabFill}`,
+                  filter: `drop-shadow(0 0 5px ${pTabFill})`,
                   ...(shp.clipPath ? { clipPath: shp.clipPath, borderRadius: 0 } : { borderRadius: shp.borderRadius }),
                   ...(shp.px[0] ? { paddingLeft: `${6 + shp.px[0]}px` } : {}),
                   ...(shp.px[1] ? { paddingRight: `${5 + shp.px[1]}px` } : {}),
@@ -4357,7 +4385,7 @@ export default function App() {
                             scrollToNode(n.id, 0.2);
                           }
                         }}>
-                        <NodeMini type={n.type} fill={nplTC?.fill || 'transparent'} stroke={nplTC?.stroke || '#888'} />
+                        <NodeMini type={n.type} darkMode={darkMode} />
                         <span className="npl-label">{n.label}</span>
                         <span className="npl-meta">
                           <span
