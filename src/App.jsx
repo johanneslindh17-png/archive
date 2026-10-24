@@ -208,14 +208,14 @@ function BreadcrumbTab({ nd, darkMode, isActive, onLabelClick, onClose }) {
   const bgFill = darkMode ? '#0c0c10' : '#ffffff';
   const fsPx   = Math.round(h * 0.57);
   const charW  = fsPx * 0.54;
-  const padL = 5, padR = 4;
+  const padL = 5, padR = 5, xGap = 4, xW = Math.round(fsPx * 0.9);
   const oc = Math.round(h * 0.35), at = Math.round(h * 0.33);
   const ndv = Math.round(h * 0.22), ni = Math.round(h * 0.36), fc = Math.round(h * 0.42);
   let extraL = 0, extraR = 0;
   if (nd.type === 'style')   extraR = at;
   if (nd.type === 'culture') extraL = at;
   if (nd.type === 'moment')  { extraL = ndv; extraR = ndv; }
-  const totalW = Math.ceil(nd.label.length * charW) + padL + extraL + padR + extraR;
+  const totalW = Math.ceil(nd.label.length * charW) + padL + extraL + xGap + xW + padR + extraR;
   const hw = totalW / 2, hh = h / 2;
   const oct  = `${-hw+oc},${-hh} ${hw-oc},${-hh} ${hw},${-hh+oc} ${hw},${hh-oc} ${hw-oc},${hh} ${-hw+oc},${hh} ${-hw},${hh-oc} ${-hw},${-hh+oc}`;
   const ntch = `${-hw},${-hh} ${hw},${-hh} ${hw},${-ni} ${hw-ndv},0 ${hw},${ni} ${hw},${hh} ${-hw},${hh} ${-hw},${ni} ${-hw+ndv},0 ${-hw},${-ni}`;
@@ -223,7 +223,7 @@ function BreadcrumbTab({ nd, darkMode, isActive, onLabelClick, onClose }) {
   const cult = `${-hw+at},${-hh} ${hw},${-hh} ${hw},${hh} ${-hw+at},${hh} ${-hw},0`;
   const chan  = `${-hw},${-hh} ${hw-fc},${-hh} ${hw},${-hh+fc} ${hw},${hh} ${-hw},${hh}`;
   const mk = (p) =>
-    nd.type === 'artist'  ? <rect    {...p} x={-hw} y={-hh} width={totalW} height={h} rx={Math.round(h * 0.55)} /> :
+    nd.type === 'artist'  ? <rect    {...p} x={-hw} y={-hh} width={totalW} height={h} rx={hh} /> :
     nd.type === 'label'   ? <polygon {...p} points={oct}  /> :
     nd.type === 'moment'  ? <polygon {...p} points={ntch} /> :
     nd.type === 'style'   ? <polygon {...p} points={sty}  /> :
@@ -232,21 +232,21 @@ function BreadcrumbTab({ nd, darkMode, isActive, onLabelClick, onClose }) {
                             <rect    {...p} x={-hw} y={-hh} width={totalW} height={h} rx={2} />;
   const uid = String(nd.id).replace(/[^a-zA-Z0-9]/g, '_');
   const labelX = -hw + padL + extraL;
+  const xBtnX  = hw - padR - xW / 2 - extraR;
   return (
-    <div style={{ display:'flex', alignItems:'center', flexShrink:0, marginRight:'5px' }}>
-      <svg width={totalW} height={h} viewBox={`${-hw} ${-hh} ${totalW} ${h}`}
-        style={{ display:'block', flexShrink:0, cursor:'pointer' }}
-        onClick={onLabelClick}>
-        <defs>
-          <linearGradient id={`bsh${uid}`} gradientUnits="objectBoundingBox" x1="0.5" y1="0" x2="0.5" y2="1">
-            <stop offset="0%" stopColor="white" stopOpacity="0.16"/>
-            <stop offset="58%" stopColor="white" stopOpacity="0"/>
-          </linearGradient>
-          <linearGradient id={`bdp${uid}`} gradientUnits="objectBoundingBox" x1="0.5" y1="0" x2="0.5" y2="1">
-            <stop offset="45%" stopColor="black" stopOpacity="0"/>
-            <stop offset="100%" stopColor="black" stopOpacity="0.13"/>
-          </linearGradient>
-        </defs>
+    <svg width={totalW} height={h} viewBox={`${-hw} ${-hh} ${totalW} ${h}`}
+      style={{ display:'block', flexShrink:0, overflow:'visible', marginRight:'5px' }}>
+      <defs>
+        <linearGradient id={`bsh${uid}`} gradientUnits="objectBoundingBox" x1="0.5" y1="0" x2="0.5" y2="1">
+          <stop offset="0%" stopColor="white" stopOpacity="0.16"/>
+          <stop offset="58%" stopColor="white" stopOpacity="0"/>
+        </linearGradient>
+        <linearGradient id={`bdp${uid}`} gradientUnits="objectBoundingBox" x1="0.5" y1="0" x2="0.5" y2="1">
+          <stop offset="45%" stopColor="black" stopOpacity="0"/>
+          <stop offset="100%" stopColor="black" stopOpacity="0.13"/>
+        </linearGradient>
+      </defs>
+      <g style={{ cursor:'pointer' }} onClick={onLabelClick}>
         {mk({ fill: bgFill, stroke: 'none' })}
         {mk({ fill: fillC, stroke: strokeC, strokeWidth: isActive ? 1.5 : 1 })}
         {mk({ fill: `url(#bsh${uid})`, stroke: 'none', pointerEvents: 'none' })}
@@ -256,15 +256,14 @@ function BreadcrumbTab({ nd, darkMode, isActive, onLabelClick, onClose }) {
                    letterSpacing:'0.02em', textTransform:'uppercase', pointerEvents:'none', userSelect:'none' }}>
           {nd.label}
         </text>
-      </svg>
-      <button
+      </g>
+      <text x={xBtnX} y="0.5" textAnchor="middle" dominantBaseline="middle"
         onClick={e => { e.stopPropagation(); onClose(); }}
-        style={{ background:'none', border:'none', padding:'3px 3px 3px 2px', cursor:'pointer',
-                 fontSize:'0.8rem', lineHeight:1, color:textC, opacity:0.5,
-                 flexShrink:0, display:'flex', alignItems:'center' }}>
+        style={{ fill:textC, fontSize:`${fsPx + 1}px`, fontFamily:'sans-serif',
+                 pointerEvents:'auto', userSelect:'none', opacity:0.65, cursor:'pointer' }}>
         ×
-      </button>
-    </div>
+      </text>
+    </svg>
   );
 }
 
