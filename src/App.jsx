@@ -3773,7 +3773,9 @@ export default function App() {
                 const tabStyle = {
                   color: tabText,
                   background: tabBg,
-                  ...(isActive ? { filter: `drop-shadow(0 0 0.5px ${tabText}) drop-shadow(0 0 5px ${tabFill})` } : { opacity: 0.7 }),
+                  ...(isActive
+                    ? { filter: `drop-shadow(0 0 0.5px ${tabText}) drop-shadow(0 0 5px ${tabFill})` }
+                    : (shp.clipPath ? { filter: `drop-shadow(0 0 0.8px ${typeTC?.stroke || (darkMode ? '#445588' : '#aaaacc')})` } : {})),
                   ...(shp.clipPath ? { clipPath: shp.clipPath, borderRadius: 0, border: 'none' } : { borderRadius: shp.borderRadius }),
                   ...(shp.px[0] ? { paddingLeft: `${6 + shp.px[0]}px` } : {}),
                   ...(shp.px[1] ? { paddingRight: `${5 + shp.px[1]}px` } : {}),
@@ -4350,10 +4352,13 @@ export default function App() {
                       );
                     }
                     const shp = nodeTabShape(t);
+                    const borderC = darkMode ? '#2a2a40' : '#e8e8ee';
+                    const textC = darkMode ? '#e8e4de' : '#111111';
+                    const outlineC = tc ? tc.stroke : (isActive ? textC : borderC);
                     const pillStyle = {
-                      ...(tc ? (isActive ? { color: tc.text, background: tc.fill } : { color: tc.stroke, opacity: 0.55 }) : undefined),
+                      ...(tc ? (isActive ? { color: tc.text, background: tc.fill } : { color: tc.stroke, opacity: 0.65 }) : undefined),
                       ...(shp.clipPath
-                        ? { clipPath: shp.clipPath, borderRadius: 0, border: 'none' }
+                        ? { clipPath: shp.clipPath, borderRadius: 0, border: 'none', filter: `drop-shadow(0 0 0.8px ${outlineC})` }
                         : { borderRadius: shp.borderRadius }
                       ),
                       ...(shp.px[0] ? { paddingLeft: `${6 + Math.round(shp.px[0] * 0.5)}px` } : {}),
@@ -4387,8 +4392,9 @@ export default function App() {
                     const nplTagStyle = {
                       ...(nplTC ? { color: nplTC.text, background: nplTC.fill } : undefined),
                       ...(nplTagShp.clipPath
-                        ? { clipPath: nplTagShp.clipPath, borderRadius: 0, border: 'none' }
-                        : { borderRadius: nplTagShp.borderRadius }
+                        ? { clipPath: nplTagShp.clipPath, borderRadius: 0, border: 'none',
+                            filter: `drop-shadow(0 0 0.8px ${nplTC?.stroke || (darkMode ? '#445588' : '#aaaacc')})` }
+                        : { borderRadius: nplTagShp.borderRadius, borderColor: nplTC?.stroke || 'transparent' }
                       ),
                       ...(nplTagShp.px[0] ? { paddingLeft: `${3 + Math.round(nplTagShp.px[0] * 0.5)}px` } : {}),
                       ...(nplTagShp.px[1] ? { paddingRight: `${3 + Math.round(nplTagShp.px[1] * 0.5)}px` } : {}),

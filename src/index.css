@@ -222,7 +222,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;-webki
 }
 .npt-pill{
   background:none;border:1px solid var(--tb-border);border-radius:99px;
-  font-family:'Syne Mono',monospace;font-size:0.48rem;letter-spacing:0.06em;
+  font-family:'Syne Mono',monospace;font-size:0.52rem;letter-spacing:0.06em;
   text-transform:uppercase;color:var(--tb-text-mid);padding:2px 8px;
   cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all 0.12s;
 }
