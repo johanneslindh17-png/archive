@@ -3766,15 +3766,15 @@ export default function App() {
                 const isActive = id === selected;
                 const shp = nodeTabShape(nd.type);
                 const tabFill = typeTC?.stroke || (darkMode ? '#888899' : '#5a5a70');
-                const tabText = darkMode ? '#e0ddd8' : '#111111';
                 const shine = 'linear-gradient(to bottom,rgba(255,255,255,0.16) 0%,rgba(255,255,255,0) 58%)';
                 const depth = 'linear-gradient(to bottom,transparent 45%,rgba(0,0,0,0.12) 100%)';
-                const outline = `drop-shadow(0 0 0.5px ${tabText})`;
+                const tabText = isActive ? (darkMode ? '#e0ddd8' : '#111111') : (typeTC?.stroke || (darkMode ? '#7070a0' : '#777'));
+                const tabBg = isActive ? `${shine},${depth},${tabFill}` : `${shine},${depth},${typeTC?.fill || 'transparent'}`;
                 const tabStyle = {
                   color: tabText,
-                  background: `${shine},${depth},${tabFill}`,
-                  filter: isActive ? `${outline} drop-shadow(0 0 5px ${tabFill})` : outline,
-                  ...(shp.clipPath ? { clipPath: shp.clipPath, borderRadius: 0 } : { borderRadius: shp.borderRadius }),
+                  background: tabBg,
+                  ...(isActive ? { filter: `drop-shadow(0 0 0.5px ${tabText}) drop-shadow(0 0 5px ${tabFill})` } : { opacity: 0.7 }),
+                  ...(shp.clipPath ? { clipPath: shp.clipPath, borderRadius: 0, border: 'none' } : { borderRadius: shp.borderRadius }),
                   ...(shp.px[0] ? { paddingLeft: `${6 + shp.px[0]}px` } : {}),
                   ...(shp.px[1] ? { paddingRight: `${5 + shp.px[1]}px` } : {}),
                 };
@@ -3794,12 +3794,11 @@ export default function App() {
                 const pTabText = darkMode ? '#e0ddd8' : '#111111';
                 const shine = 'linear-gradient(to bottom,rgba(255,255,255,0.16) 0%,rgba(255,255,255,0) 58%)';
                 const depth = 'linear-gradient(to bottom,transparent 45%,rgba(0,0,0,0.12) 100%)';
-                const pOutline = `drop-shadow(0 0 0.5px ${pTabText})`;
                 const tabStyle = typeTC ? {
                   color: pTabText,
                   background: `${shine},${depth},${pTabFill}`,
-                  filter: `${pOutline} drop-shadow(0 0 5px ${pTabFill})`,
-                  ...(shp.clipPath ? { clipPath: shp.clipPath, borderRadius: 0 } : { borderRadius: shp.borderRadius }),
+                  filter: `drop-shadow(0 0 0.5px ${pTabText}) drop-shadow(0 0 5px ${pTabFill})`,
+                  ...(shp.clipPath ? { clipPath: shp.clipPath, borderRadius: 0, border: 'none' } : { borderRadius: shp.borderRadius }),
                   ...(shp.px[0] ? { paddingLeft: `${6 + shp.px[0]}px` } : {}),
                   ...(shp.px[1] ? { paddingRight: `${5 + shp.px[1]}px` } : {}),
                 } : undefined;
@@ -4352,8 +4351,11 @@ export default function App() {
                     }
                     const shp = nodeTabShape(t);
                     const pillStyle = {
-                      ...(tc ? (isActive ? { color: tc.text, borderColor: tc.stroke, background: tc.fill } : { color: tc.stroke, borderColor: tc.stroke, opacity: 0.45 }) : undefined),
-                      ...(shp.clipPath ? { clipPath: shp.clipPath, borderRadius: 0 } : { borderRadius: shp.borderRadius }),
+                      ...(tc ? (isActive ? { color: tc.text, background: tc.fill } : { color: tc.stroke, opacity: 0.55 }) : undefined),
+                      ...(shp.clipPath
+                        ? { clipPath: shp.clipPath, borderRadius: 0, border: 'none' }
+                        : { borderRadius: shp.borderRadius }
+                      ),
                       ...(shp.px[0] ? { paddingLeft: `${6 + Math.round(shp.px[0] * 0.5)}px` } : {}),
                       ...(shp.px[1] ? { paddingRight: `${6 + Math.round(shp.px[1] * 0.5)}px` } : {}),
                     };
@@ -4383,8 +4385,11 @@ export default function App() {
                     const nplInTrail = selectedSet.includes(n.id);
                     const nplTagShp = nodeTabShape(n.type);
                     const nplTagStyle = {
-                      ...(nplTC ? { color: nplTC.text, background: nplTC.fill, borderColor: nplTC.stroke } : undefined),
-                      ...(nplTagShp.clipPath ? { clipPath: nplTagShp.clipPath, borderRadius: 0 } : { borderRadius: nplTagShp.borderRadius }),
+                      ...(nplTC ? { color: nplTC.text, background: nplTC.fill } : undefined),
+                      ...(nplTagShp.clipPath
+                        ? { clipPath: nplTagShp.clipPath, borderRadius: 0, border: 'none' }
+                        : { borderRadius: nplTagShp.borderRadius }
+                      ),
                       ...(nplTagShp.px[0] ? { paddingLeft: `${3 + Math.round(nplTagShp.px[0] * 0.5)}px` } : {}),
                       ...(nplTagShp.px[1] ? { paddingRight: `${3 + Math.round(nplTagShp.px[1] * 0.5)}px` } : {}),
                     };
