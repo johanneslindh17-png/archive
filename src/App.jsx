@@ -90,11 +90,15 @@ const REGIONS_WITH_NODES = new Set(NODES.map(n => COUNTRY_REGION[n.country] || '
 // the right-strip could cover it.
 const TILE_W = W - LEFT; // = 1328
 
-// ── Tiny node shape icon — renders as selected-state (bg + fill + shine + depth + glow) ──
-function NodeMini({ type, darkMode, w = 20, h = 12 }) {
+// ── Tiny node shape icon — selected=true: strong fill+glow; selected=false: type fill ──
+function NodeMini({ type, darkMode, selected = true, w = 20, h = 12 }) {
   const typeTC = darkMode ? TYPE_COLORS[type]?.dark : TYPE_COLORS[type]?.light;
-  const selFill = typeTC?.stroke || (darkMode ? '#888899' : '#5a5a70');
-  const selStroke = darkMode ? '#c8c8d8' : '#111111';
+  const selFill = selected
+    ? (typeTC?.stroke || (darkMode ? '#888899' : '#5a5a70'))
+    : (typeTC?.fill || 'transparent');
+  const selStroke = selected
+    ? (darkMode ? '#c8c8d8' : '#111111')
+    : (typeTC?.stroke || (darkMode ? '#666688' : '#888888'));
   const bgFill = darkMode ? '#0c0c10' : '#ffffff';
   const hw = w / 2, hh = h / 2;
   const oc = Math.round(h * 0.35), at = Math.round(h * 0.33);
@@ -116,7 +120,7 @@ function NodeMini({ type, darkMode, w = 20, h = 12 }) {
   return (
     <svg width={w} height={h} viewBox={`${-hw} ${-hh} ${w} ${h}`}
       style={{ display:'block', flexShrink:0, overflow:'visible',
-               filter: `drop-shadow(0 0 2.5px ${selFill})` }}>
+               filter: selected ? `drop-shadow(0 0 2.5px ${selFill})` : undefined }}>
       <defs>
         <linearGradient id="nmi-shine" gradientUnits="objectBoundingBox" x1="0.5" y1="0" x2="0.5" y2="1">
           <stop offset="0%" stopColor="white" stopOpacity="0.16" />
@@ -3762,13 +3766,14 @@ export default function App() {
                 const isActive = id === selected;
                 const shp = nodeTabShape(nd.type);
                 const tabFill = typeTC?.stroke || (darkMode ? '#888899' : '#5a5a70');
-                const tabText = hexLuminance(tabFill) > 0.35 ? '#080808' : '#ffffff';
+                const tabText = darkMode ? '#e0ddd8' : '#111111';
                 const shine = 'linear-gradient(to bottom,rgba(255,255,255,0.16) 0%,rgba(255,255,255,0) 58%)';
                 const depth = 'linear-gradient(to bottom,transparent 45%,rgba(0,0,0,0.12) 100%)';
+                const outline = `drop-shadow(0 0 0.5px ${tabText})`;
                 const tabStyle = {
                   color: tabText,
                   background: `${shine},${depth},${tabFill}`,
-                  ...(isActive ? { filter: `drop-shadow(0 0 5px ${tabFill})` } : {}),
+                  filter: isActive ? `${outline} drop-shadow(0 0 5px ${tabFill})` : outline,
                   ...(shp.clipPath ? { clipPath: shp.clipPath, borderRadius: 0 } : { borderRadius: shp.borderRadius }),
                   ...(shp.px[0] ? { paddingLeft: `${6 + shp.px[0]}px` } : {}),
                   ...(shp.px[1] ? { paddingRight: `${5 + shp.px[1]}px` } : {}),
@@ -3786,13 +3791,14 @@ export default function App() {
                 const typeTC = nd && (darkMode ? TYPE_COLORS[nd.type]?.dark : TYPE_COLORS[nd.type]?.light);
                 const shp = nd ? nodeTabShape(nd.type) : { clipPath: null, borderRadius: '2px', px: [0,0] };
                 const pTabFill = typeTC?.stroke || (darkMode ? '#888899' : '#5a5a70');
-                const pTabText = hexLuminance(pTabFill) > 0.35 ? '#080808' : '#ffffff';
+                const pTabText = darkMode ? '#e0ddd8' : '#111111';
                 const shine = 'linear-gradient(to bottom,rgba(255,255,255,0.16) 0%,rgba(255,255,255,0) 58%)';
                 const depth = 'linear-gradient(to bottom,transparent 45%,rgba(0,0,0,0.12) 100%)';
+                const pOutline = `drop-shadow(0 0 0.5px ${pTabText})`;
                 const tabStyle = typeTC ? {
                   color: pTabText,
                   background: `${shine},${depth},${pTabFill}`,
-                  filter: `drop-shadow(0 0 5px ${pTabFill})`,
+                  filter: `${pOutline} drop-shadow(0 0 5px ${pTabFill})`,
                   ...(shp.clipPath ? { clipPath: shp.clipPath, borderRadius: 0 } : { borderRadius: shp.borderRadius }),
                   ...(shp.px[0] ? { paddingLeft: `${6 + shp.px[0]}px` } : {}),
                   ...(shp.px[1] ? { paddingRight: `${5 + shp.px[1]}px` } : {}),
@@ -4344,7 +4350,13 @@ export default function App() {
                         </div>
                       );
                     }
-                    const pillStyle = tc ? (isActive ? { color: tc.text, borderColor: tc.stroke, background: tc.fill } : { color: tc.stroke, borderColor: tc.stroke, opacity: 0.45 }) : undefined;
+                    const shp = nodeTabShape(t);
+                    const pillStyle = {
+                      ...(tc ? (isActive ? { color: tc.text, borderColor: tc.stroke, background: tc.fill } : { color: tc.stroke, borderColor: tc.stroke, opacity: 0.45 }) : undefined),
+                      ...(shp.clipPath ? { clipPath: shp.clipPath, borderRadius: 0 } : { borderRadius: shp.borderRadius }),
+                      ...(shp.px[0] ? { paddingLeft: `${8 + shp.px[0]}px` } : {}),
+                      ...(shp.px[1] ? { paddingRight: `${8 + shp.px[1]}px` } : {}),
+                    };
                     return (
                       <button key={t}
                         className={`npt-pill${isActive ? ' active' : ''}`}
@@ -4385,20 +4397,16 @@ export default function App() {
                             scrollToNode(n.id, 0.2);
                           }
                         }}>
-                        <NodeMini type={n.type} darkMode={darkMode} />
                         <span className="npl-label">{n.label}</span>
                         <span className="npl-meta">
-                          <span
-                            className={`npl-type-tag npl-type-${n.type}${nodesSort === 'type' ? ' npl-hl-tag' : ''}`}
-                            style={(colorTheme === 'type' || colorTheme === 'accent') ? (() => { const tc = darkMode ? TYPE_COLORS[n.type]?.dark : TYPE_COLORS[n.type]?.light; return tc ? { color: tc.text, background: tc.fill, borderColor: tc.stroke } : undefined; })() : undefined}
-                          >{n.type}</span>
+                          <span className="npl-type-icon"><NodeMini type={n.type} darkMode={darkMode} selected={false} w={14} h={9} /></span>
                           {' '}
                           {n.city ? <span className={nodesSort === 'city' ? 'npl-hl' : undefined}>{n.city}</span> : null}
                           {n.city ? ' · ' : ''}
                           <span className={nodesSort === 'year' ? 'npl-hl' : undefined}>{n.era}</span>
                           {n.genre && GENRES[n.genre] ? <> · <span className={nodesSort === 'genre' ? 'npl-hl' : undefined}>{GENRES[n.genre].label}</span></> : ''}
                         </span>
-                        <span className={`npl-mc-type npl-type-tag npl-type-${n.type}${nodesSort === 'type' ? ' npl-hl-tag' : ''}`} style={(colorTheme === 'type' || colorTheme === 'accent') ? (() => { const tc = darkMode ? TYPE_COLORS[n.type]?.dark : TYPE_COLORS[n.type]?.light; return tc ? { color: tc.text, background: tc.fill, borderColor: tc.stroke } : undefined; })() : undefined}>{n.type}</span>
+                        <span className="npl-mc-type"><NodeMini type={n.type} darkMode={darkMode} selected={false} w={16} h={10} /></span>
                         <span className={`npl-mc-year${nodesSort === 'year' ? ' npl-hl' : ''}`}>{n.era}</span>
                         <span className={`npl-mc-city${nodesSort === 'city' ? ' npl-hl' : ''}`}>{n.city || ''}</span>
                         <span className={`npl-mc-genre${nodesSort === 'genre' ? ' npl-hl' : ''}`}>{n.genre && GENRES[n.genre] ? GENRES[n.genre].label : ''}</span>
