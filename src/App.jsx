@@ -3829,31 +3829,25 @@ export default function App() {
                 const depth = 'linear-gradient(to bottom,transparent 45%,rgba(0,0,0,0.12) 100%)';
                 const tabText = isActive ? (darkMode ? '#e0ddd8' : '#111111') : (typeTC?.stroke || (darkMode ? '#7070a0' : '#777'));
                 const tabBg = isActive ? `${shine},${depth},${tabFill}` : `${shine},${depth},${typeTC?.fill || 'transparent'}`;
-                const tabContent = (
-                  <>
-                    <span className="nbc-tab-label" onClick={() => jumpToTab(id)}>{nd.label}</span>
-                    <button className="nbc-tab-x" onClick={e => { e.stopPropagation(); removeFromSet(id); }}>×</button>
-                  </>
-                );
-                if (shp.clipPath) {
-                  const outerBg = isActive ? tabText : (typeTC?.stroke || (darkMode ? '#6688cc' : '#888899'));
-                  return (
-                    <div key={`tab-${id}`} className={`nbc-tab${isActive ? ' nbc-tab--active' : ''}`}
-                      style={{ padding:'1px', background:outerBg, color:tabText, border:'none',
-                               clipPath:shp.clipPath, borderRadius:0,
-                               ...(isActive ? { filter:`drop-shadow(0 0 5px ${tabFill})` } : {}) }}>
-                      <div style={{ background:tabBg, display:'flex', alignItems:'center', gap:'3px',
-                                    padding:`0 ${3+shp.px[1]}px 0 ${4+shp.px[0]}px` }}>
-                        {tabContent}
-                      </div>
-                    </div>
-                  );
-                }
+                const borderC = isActive ? tabText : (typeTC?.stroke || (darkMode ? '#6688cc' : '#888899'));
+                const ring = (c) => `drop-shadow(1px 0 0 ${c}) drop-shadow(-1px 0 0 ${c}) drop-shadow(0 1px 0 ${c}) drop-shadow(0 -1px 0 ${c})`;
+                const tabStyle = {
+                  color: tabText,
+                  background: tabBg,
+                  ...(shp.clipPath ? { clipPath: shp.clipPath, borderRadius: 0, border: 'none',
+                      filter: isActive ? `${ring(borderC)} drop-shadow(0 0 5px ${tabFill})` : ring(borderC),
+                    } : {
+                      borderRadius: shp.borderRadius,
+                      ...(isActive ? { filter: `drop-shadow(0 0 5px ${tabFill})` } : {}),
+                    }),
+                  ...(shp.px[0] ? { paddingLeft: `${6 + shp.px[0]}px` } : {}),
+                  ...(shp.px[1] ? { paddingRight: `${5 + shp.px[1]}px` } : {}),
+                };
                 return (
                   <div key={`tab-${id}`} className={`nbc-tab${isActive ? ' nbc-tab--active' : ''}`}
-                    style={{ color:tabText, background:tabBg, borderRadius:shp.borderRadius,
-                             ...(isActive ? { filter:`drop-shadow(0 0 5px ${tabFill})` } : {}) }}>
-                    {tabContent}
+                    style={tabStyle}>
+                    <span className="nbc-tab-label" onClick={() => jumpToTab(id)}>{nd.label}</span>
+                    <button className="nbc-tab-x" onClick={e => { e.stopPropagation(); removeFromSet(id); }}>×</button>
                   </div>
                 );
               })}
@@ -3865,27 +3859,21 @@ export default function App() {
                 const pTabText = darkMode ? '#e0ddd8' : '#111111';
                 const shine = 'linear-gradient(to bottom,rgba(255,255,255,0.16) 0%,rgba(255,255,255,0) 58%)';
                 const depth = 'linear-gradient(to bottom,transparent 45%,rgba(0,0,0,0.12) 100%)';
-                if (typeTC && shp.clipPath) {
-                  return (
-                    <div className="nbc-tab nbc-tab--active"
-                      style={{ padding:'1px', background:pTabText, color:pTabText, border:'none',
-                               clipPath:shp.clipPath, borderRadius:0,
-                               filter:`drop-shadow(0 0 5px ${pTabFill})` }}>
-                      <div style={{ background:`${shine},${depth},${pTabFill}`, display:'flex', alignItems:'center', gap:'3px',
-                                    padding:`0 ${3+shp.px[1]}px 0 ${4+shp.px[0]}px` }}>
-                        <span className="nbc-tab-label" onClick={() => jumpToTab(pinned)}>{nd?.label}</span>
-                        <button className="nbc-tab-x" onClick={() => clearAll()}>×</button>
-                      </div>
-                    </div>
-                  );
-                }
+                const pRing = (c) => `drop-shadow(1px 0 0 ${c}) drop-shadow(-1px 0 0 ${c}) drop-shadow(0 1px 0 ${c}) drop-shadow(0 -1px 0 ${c})`;
+                const pTabStyle = typeTC ? {
+                  color: pTabText,
+                  background: `${shine},${depth},${pTabFill}`,
+                  ...(shp.clipPath ? { clipPath: shp.clipPath, borderRadius: 0, border: 'none',
+                      filter: `${pRing(pTabText)} drop-shadow(0 0 5px ${pTabFill})`,
+                    } : {
+                      borderRadius: shp.borderRadius,
+                      filter: `drop-shadow(0 0 5px ${pTabFill})`,
+                    }),
+                  ...(shp.px[0] ? { paddingLeft: `${6 + shp.px[0]}px` } : {}),
+                  ...(shp.px[1] ? { paddingRight: `${5 + shp.px[1]}px` } : {}),
+                } : undefined;
                 return (
-                  <div className="nbc-tab nbc-tab--active" style={typeTC ? {
-                    color: pTabText,
-                    background: `${shine},${depth},${pTabFill}`,
-                    filter: `drop-shadow(0 0 5px ${pTabFill})`,
-                    borderRadius: shp.borderRadius,
-                  } : undefined}>
+                  <div className="nbc-tab nbc-tab--active" style={pTabStyle}>
                     <span className="nbc-tab-label" onClick={() => jumpToTab(pinned)}>{nd?.label}</span>
                     <button className="nbc-tab-x" onClick={() => clearAll()}>×</button>
                   </div>
