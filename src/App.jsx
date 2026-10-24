@@ -4354,8 +4354,8 @@ export default function App() {
                     const pillStyle = {
                       ...(tc ? (isActive ? { color: tc.text, borderColor: tc.stroke, background: tc.fill } : { color: tc.stroke, borderColor: tc.stroke, opacity: 0.45 }) : undefined),
                       ...(shp.clipPath ? { clipPath: shp.clipPath, borderRadius: 0 } : { borderRadius: shp.borderRadius }),
-                      ...(shp.px[0] ? { paddingLeft: `${8 + shp.px[0]}px` } : {}),
-                      ...(shp.px[1] ? { paddingRight: `${8 + shp.px[1]}px` } : {}),
+                      ...(shp.px[0] ? { paddingLeft: `${6 + Math.round(shp.px[0] * 0.5)}px` } : {}),
+                      ...(shp.px[1] ? { paddingRight: `${6 + Math.round(shp.px[1] * 0.5)}px` } : {}),
                     };
                     return (
                       <button key={t}
@@ -4381,6 +4381,13 @@ export default function App() {
                     }
                     const nplTC = darkMode ? TYPE_COLORS[n.type]?.dark : TYPE_COLORS[n.type]?.light;
                     const nplInTrail = selectedSet.includes(n.id);
+                    const nplTagShp = nodeTabShape(n.type);
+                    const nplTagStyle = {
+                      ...(nplTC ? { color: nplTC.text, background: nplTC.fill, borderColor: nplTC.stroke } : undefined),
+                      ...(nplTagShp.clipPath ? { clipPath: nplTagShp.clipPath, borderRadius: 0 } : { borderRadius: nplTagShp.borderRadius }),
+                      ...(nplTagShp.px[0] ? { paddingLeft: `${3 + Math.round(nplTagShp.px[0] * 0.5)}px` } : {}),
+                      ...(nplTagShp.px[1] ? { paddingRight: `${3 + Math.round(nplTagShp.px[1] * 0.5)}px` } : {}),
+                    };
                     items.push(
                       <div key={n.id} className={`npl-item${nplInTrail ? ' npl-item--trail' : ''}`}
                         style={nplInTrail && nplTC ? { borderLeftColor: nplTC.stroke } : undefined}
@@ -4399,14 +4406,14 @@ export default function App() {
                         }}>
                         <span className="npl-label">{n.label}</span>
                         <span className="npl-meta">
-                          <span className="npl-type-icon"><NodeMini type={n.type} darkMode={darkMode} selected={false} w={14} h={9} /></span>
+                          <span className="npl-type-tag" style={nplTagStyle}>{n.type}</span>
                           {' '}
                           {n.city ? <span className={nodesSort === 'city' ? 'npl-hl' : undefined}>{n.city}</span> : null}
                           {n.city ? ' · ' : ''}
                           <span className={nodesSort === 'year' ? 'npl-hl' : undefined}>{n.era}</span>
                           {n.genre && GENRES[n.genre] ? <> · <span className={nodesSort === 'genre' ? 'npl-hl' : undefined}>{GENRES[n.genre].label}</span></> : ''}
                         </span>
-                        <span className="npl-mc-type"><NodeMini type={n.type} darkMode={darkMode} selected={false} w={16} h={10} /></span>
+                        <span className="npl-mc-type" style={nplTagStyle}>{n.type}</span>
                         <span className={`npl-mc-year${nodesSort === 'year' ? ' npl-hl' : ''}`}>{n.era}</span>
                         <span className={`npl-mc-city${nodesSort === 'city' ? ' npl-hl' : ''}`}>{n.city || ''}</span>
                         <span className={`npl-mc-genre${nodesSort === 'genre' ? ' npl-hl' : ''}`}>{n.genre && GENRES[n.genre] ? GENRES[n.genre].label : ''}</span>
