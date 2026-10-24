@@ -253,7 +253,7 @@ function BreadcrumbTab({ nd, darkMode, isActive, onLabelClick, onClose }) {
         {mk({ fill: `url(#bdp${uid})`, stroke: 'none', pointerEvents: 'none' })}
         <text x={labelX} y="0.5" textAnchor="start" dominantBaseline="middle"
           style={{ fill:textC, fontSize:`${fsPx}px`, fontFamily:"'Syne Mono',monospace",
-                   letterSpacing:'0.02em', textTransform:'uppercase', pointerEvents:'none', userSelect:'none' }}>
+                   fontWeight:'600', letterSpacing:'0.02em', textTransform:'uppercase', pointerEvents:'none', userSelect:'none' }}>
           {nd.label}
         </text>
       </g>
