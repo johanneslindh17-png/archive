@@ -208,7 +208,7 @@ function BreadcrumbTab({ nd, darkMode, isActive, onLabelClick, onClose }) {
   const bgFill = darkMode ? '#0c0c10' : '#ffffff';
   const fsPx   = Math.round(h * 0.57);
   const charW  = fsPx * 0.54;
-  const padL = 5, padR = 5, xGap = 4, xW = Math.round(fsPx * 0.9);
+  const padL = 5, padR = 5, xGap = 7, xW = Math.round(fsPx * 0.9);
   const oc = Math.round(h * 0.35), at = Math.round(h * 0.33);
   const ndv = Math.round(h * 0.22), ni = Math.round(h * 0.36), fc = Math.round(h * 0.42);
   let extraL = 0, extraR = 0;
