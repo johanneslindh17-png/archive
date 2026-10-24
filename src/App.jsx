@@ -139,6 +139,65 @@ function NodeMini({ type, darkMode, selected = true, w = 20, h = 12 }) {
   );
 }
 
+// ── SVG node shape tag with type name text — crisp SVG stroke, no CSS clip-path ──
+function NodeTag({ type, darkMode, h = 10, active = false, onClick }) {
+  const typeTC = darkMode ? TYPE_COLORS[type]?.dark : TYPE_COLORS[type]?.light;
+  const fill = active
+    ? (typeTC?.stroke || (darkMode ? '#6688cc' : '#3366aa'))
+    : (typeTC?.fill || (darkMode ? '#12121c' : '#f0f0f5'));
+  const strokeC = active
+    ? (darkMode ? '#c8d0e8' : '#111111')
+    : (typeTC?.stroke || (darkMode ? '#445588' : '#9090b0'));
+  const textColor = active
+    ? (darkMode ? '#e0ddd8' : '#111111')
+    : (typeTC?.text || (darkMode ? '#a0a0c8' : '#404060'));
+  const bgFill = darkMode ? '#0c0c10' : '#ffffff';
+
+  const charW = h * 0.455;
+  const padH = h * 0.4;
+  const at = Math.round(h * 0.33);
+  const nd = Math.round(h * 0.22);
+  const ni = Math.round(h * 0.36);
+  const oc = Math.round(h * 0.35);
+  const fc = Math.round(h * 0.42);
+
+  let extraL = 0, extraR = 0;
+  if (type === 'moment') { extraL = nd; extraR = nd; }
+  if (type === 'style')  { extraR = at + 2; }
+  if (type === 'culture'){ extraL = at + 2; }
+
+  const bw  = Math.ceil(type.length * charW) + Math.ceil(padH * 2) + extraL + extraR;
+  const hw  = bw / 2, hh = h / 2;
+  const oct  = `${-hw+oc},${-hh} ${hw-oc},${-hh} ${hw},${-hh+oc} ${hw},${hh-oc} ${hw-oc},${hh} ${-hw+oc},${hh} ${-hw},${hh-oc} ${-hw},${-hh+oc}`;
+  const ntch = `${-hw},${-hh} ${hw},${-hh} ${hw},${-ni} ${hw-nd},0 ${hw},${ni} ${hw},${hh} ${-hw},${hh} ${-hw},${ni} ${-hw+nd},0 ${-hw},${-ni}`;
+  const sty  = `${-hw},${-hh} ${hw-at},${-hh} ${hw},0 ${hw-at},${hh} ${-hw},${hh}`;
+  const cult = `${-hw+at},${-hh} ${hw},${-hh} ${hw},${hh} ${-hw+at},${hh} ${-hw},0`;
+  const chan  = `${-hw},${-hh} ${hw-fc},${-hh} ${hw},${-hh+fc} ${hw},${hh} ${-hw},${hh}`;
+  const sp = (p) =>
+    type === 'artist'  ? <rect  {...p} x={-hw} y={-hh} width={bw} height={h} rx={Math.round(h * 0.45)} /> :
+    type === 'label'   ? <polygon {...p} points={oct}  /> :
+    type === 'moment'  ? <polygon {...p} points={ntch} /> :
+    type === 'style'   ? <polygon {...p} points={sty}  /> :
+    type === 'culture' ? <polygon {...p} points={cult} /> :
+    type === 'channel' ? <polygon {...p} points={chan} /> :
+                         <rect  {...p} x={-hw} y={-hh} width={bw} height={h} rx={2} />;
+  const textX = type === 'style' ? -at / 2 : type === 'culture' ? at / 2 : 0;
+  const fsPx  = Math.max(4, Math.round(h * 0.46));
+  return (
+    <svg width={bw} height={h} viewBox={`${-hw} ${-hh} ${bw} ${h}`} onClick={onClick}
+      style={{ display:'inline-block', verticalAlign:'middle', flexShrink:0, overflow:'visible',
+               cursor: onClick ? 'pointer' : undefined }}>
+      {sp({ fill: bgFill, stroke: 'none' })}
+      {sp({ fill, stroke: strokeC, strokeWidth: 1 })}
+      <text x={textX} y="0.5" textAnchor="middle" dominantBaseline="middle"
+        style={{ fill: textColor, fontSize: `${fsPx}px`, fontFamily:"'Syne Mono',monospace",
+                 letterSpacing:'0.06em', pointerEvents:'none', userSelect:'none' }}>
+        {type.toUpperCase()}
+      </text>
+    </svg>
+  );
+}
+
 // Returns clip-path string and extra padding for a breadcrumb tab's shape
 function nodeTabShape(type) {
   switch (type) {
@@ -3775,7 +3834,7 @@ export default function App() {
                   background: tabBg,
                   ...(isActive
                     ? { filter: `drop-shadow(0 0 0.5px ${tabText}) drop-shadow(0 0 5px ${tabFill})` }
-                    : (shp.clipPath ? { filter: `drop-shadow(0 0 0.8px ${typeTC?.stroke || (darkMode ? '#445588' : '#aaaacc')})` } : {})),
+                    : (shp.clipPath ? { filter: `drop-shadow(0 0 0.4px ${typeTC?.stroke || (darkMode ? '#445588' : '#aaaacc')}) drop-shadow(0 0 0.4px ${typeTC?.stroke || (darkMode ? '#445588' : '#aaaacc')}) drop-shadow(0 0 0.4px ${typeTC?.stroke || (darkMode ? '#445588' : '#aaaacc')})` } : {})),
                   ...(shp.clipPath ? { clipPath: shp.clipPath, borderRadius: 0, border: 'none' } : { borderRadius: shp.borderRadius }),
                   ...(shp.px[0] ? { paddingLeft: `${6 + shp.px[0]}px` } : {}),
                   ...(shp.px[1] ? { paddingRight: `${5 + shp.px[1]}px` } : {}),
@@ -4351,26 +4410,10 @@ export default function App() {
                         </div>
                       );
                     }
-                    const shp = nodeTabShape(t);
-                    const borderC = darkMode ? '#2a2a40' : '#e8e8ee';
-                    const textC = darkMode ? '#e8e4de' : '#111111';
-                    const outlineC = tc ? tc.stroke : (isActive ? textC : borderC);
-                    const pillStyle = {
-                      ...(tc ? (isActive ? { color: tc.text, background: tc.fill } : { color: tc.stroke, opacity: 0.65 }) : undefined),
-                      ...(shp.clipPath
-                        ? { clipPath: shp.clipPath, borderRadius: 0, border: 'none', filter: `drop-shadow(0 0 0.8px ${outlineC})` }
-                        : { borderRadius: shp.borderRadius }
-                      ),
-                      ...(shp.px[0] ? { paddingLeft: `${6 + Math.round(shp.px[0] * 0.5)}px` } : {}),
-                      ...(shp.px[1] ? { paddingRight: `${6 + Math.round(shp.px[1] * 0.5)}px` } : {}),
-                    };
                     return (
-                      <button key={t}
-                        className={`npt-pill${isActive ? ' active' : ''}`}
-                        onClick={() => setNodesTypeFilter(t)}
-                        style={pillStyle}
-                      >
-                        {t.charAt(0).toUpperCase() + t.slice(1)}
+                      <button key={t} className="npt-pill-icon"
+                        onClick={() => setNodesTypeFilter(t)}>
+                        <NodeTag type={t} darkMode={darkMode} h={12} active={isActive} />
                       </button>
                     );
                   })}
@@ -4388,17 +4431,6 @@ export default function App() {
                     }
                     const nplTC = darkMode ? TYPE_COLORS[n.type]?.dark : TYPE_COLORS[n.type]?.light;
                     const nplInTrail = selectedSet.includes(n.id);
-                    const nplTagShp = nodeTabShape(n.type);
-                    const nplTagStyle = {
-                      ...(nplTC ? { color: nplTC.text, background: nplTC.fill } : undefined),
-                      ...(nplTagShp.clipPath
-                        ? { clipPath: nplTagShp.clipPath, borderRadius: 0, border: 'none',
-                            filter: `drop-shadow(0 0 0.8px ${nplTC?.stroke || (darkMode ? '#445588' : '#aaaacc')})` }
-                        : { borderRadius: nplTagShp.borderRadius, borderColor: nplTC?.stroke || 'transparent' }
-                      ),
-                      ...(nplTagShp.px[0] ? { paddingLeft: `${3 + Math.round(nplTagShp.px[0] * 0.5)}px` } : {}),
-                      ...(nplTagShp.px[1] ? { paddingRight: `${3 + Math.round(nplTagShp.px[1] * 0.5)}px` } : {}),
-                    };
                     items.push(
                       <div key={n.id} className={`npl-item${nplInTrail ? ' npl-item--trail' : ''}`}
                         style={nplInTrail && nplTC ? { borderLeftColor: nplTC.stroke } : undefined}
@@ -4417,14 +4449,14 @@ export default function App() {
                         }}>
                         <span className="npl-label">{n.label}</span>
                         <span className="npl-meta">
-                          <span className="npl-type-tag" style={nplTagStyle}>{n.type}</span>
+                          <NodeTag type={n.type} darkMode={darkMode} h={10} />
                           {' '}
                           {n.city ? <span className={nodesSort === 'city' ? 'npl-hl' : undefined}>{n.city}</span> : null}
                           {n.city ? ' · ' : ''}
                           <span className={nodesSort === 'year' ? 'npl-hl' : undefined}>{n.era}</span>
                           {n.genre && GENRES[n.genre] ? <> · <span className={nodesSort === 'genre' ? 'npl-hl' : undefined}>{GENRES[n.genre].label}</span></> : ''}
                         </span>
-                        <span className="npl-mc-type" style={nplTagStyle}>{n.type}</span>
+                        <NodeTag type={n.type} darkMode={darkMode} h={10} />
                         <span className={`npl-mc-year${nodesSort === 'year' ? ' npl-hl' : ''}`}>{n.era}</span>
                         <span className={`npl-mc-city${nodesSort === 'city' ? ' npl-hl' : ''}`}>{n.city || ''}</span>
                         <span className={`npl-mc-genre${nodesSort === 'genre' ? ' npl-hl' : ''}`}>{n.genre && GENRES[n.genre] ? GENRES[n.genre].label : ''}</span>
