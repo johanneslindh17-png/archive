@@ -3830,7 +3830,7 @@ export default function App() {
                 const tabText = isActive ? (darkMode ? '#e0ddd8' : '#111111') : (typeTC?.stroke || (darkMode ? '#7070a0' : '#777'));
                 const tabBg = isActive ? `${shine},${depth},${tabFill}` : `${shine},${depth},${typeTC?.fill || 'transparent'}`;
                 const borderC = isActive ? tabText : (typeTC?.stroke || (darkMode ? '#6688cc' : '#888899'));
-                const ring = (c) => `drop-shadow(1px 0 0 ${c}) drop-shadow(-1px 0 0 ${c}) drop-shadow(0 1px 0 ${c}) drop-shadow(0 -1px 0 ${c})`;
+                const ring = (c) => `drop-shadow(1px 0 0 ${c}) drop-shadow(-1px 0 0 ${c}) drop-shadow(0 1px 0 ${c}) drop-shadow(0 -1px 0 ${c}) drop-shadow(1px 1px 0 ${c}) drop-shadow(-1px -1px 0 ${c}) drop-shadow(1px -1px 0 ${c}) drop-shadow(-1px 1px 0 ${c})`;
                 const tabStyle = {
                   color: tabText,
                   background: tabBg,
