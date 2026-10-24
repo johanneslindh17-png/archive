@@ -3829,21 +3829,31 @@ export default function App() {
                 const depth = 'linear-gradient(to bottom,transparent 45%,rgba(0,0,0,0.12) 100%)';
                 const tabText = isActive ? (darkMode ? '#e0ddd8' : '#111111') : (typeTC?.stroke || (darkMode ? '#7070a0' : '#777'));
                 const tabBg = isActive ? `${shine},${depth},${tabFill}` : `${shine},${depth},${typeTC?.fill || 'transparent'}`;
-                const tabStyle = {
-                  color: tabText,
-                  background: tabBg,
-                  ...(isActive
-                    ? { filter: `drop-shadow(0 0 0.5px ${tabText}) drop-shadow(0 0 5px ${tabFill})` }
-                    : (shp.clipPath ? { filter: `drop-shadow(0 0 0.4px ${typeTC?.stroke || (darkMode ? '#445588' : '#aaaacc')}) drop-shadow(0 0 0.4px ${typeTC?.stroke || (darkMode ? '#445588' : '#aaaacc')}) drop-shadow(0 0 0.4px ${typeTC?.stroke || (darkMode ? '#445588' : '#aaaacc')})` } : {})),
-                  ...(shp.clipPath ? { clipPath: shp.clipPath, borderRadius: 0, border: 'none' } : { borderRadius: shp.borderRadius }),
-                  ...(shp.px[0] ? { paddingLeft: `${6 + shp.px[0]}px` } : {}),
-                  ...(shp.px[1] ? { paddingRight: `${5 + shp.px[1]}px` } : {}),
-                };
-                return (
-                  <div key={`tab-${id}`} className={`nbc-tab${isActive ? ' nbc-tab--active' : ''}`}
-                    style={tabStyle}>
+                const tabContent = (
+                  <>
                     <span className="nbc-tab-label" onClick={() => jumpToTab(id)}>{nd.label}</span>
                     <button className="nbc-tab-x" onClick={e => { e.stopPropagation(); removeFromSet(id); }}>×</button>
+                  </>
+                );
+                if (shp.clipPath) {
+                  const outerBg = isActive ? tabText : (typeTC?.stroke || (darkMode ? '#6688cc' : '#888899'));
+                  return (
+                    <div key={`tab-${id}`} className={`nbc-tab${isActive ? ' nbc-tab--active' : ''}`}
+                      style={{ padding:'1px', background:outerBg, color:tabText, border:'none',
+                               clipPath:shp.clipPath, borderRadius:0,
+                               ...(isActive ? { filter:`drop-shadow(0 0 5px ${tabFill})` } : {}) }}>
+                      <div style={{ background:tabBg, display:'flex', alignItems:'center', gap:'3px',
+                                    padding:`0 ${3+shp.px[1]}px 0 ${4+shp.px[0]}px` }}>
+                        {tabContent}
+                      </div>
+                    </div>
+                  );
+                }
+                return (
+                  <div key={`tab-${id}`} className={`nbc-tab${isActive ? ' nbc-tab--active' : ''}`}
+                    style={{ color:tabText, background:tabBg, borderRadius:shp.borderRadius,
+                             ...(isActive ? { filter:`drop-shadow(0 0 5px ${tabFill})` } : {}) }}>
+                    {tabContent}
                   </div>
                 );
               })}
@@ -3855,16 +3865,27 @@ export default function App() {
                 const pTabText = darkMode ? '#e0ddd8' : '#111111';
                 const shine = 'linear-gradient(to bottom,rgba(255,255,255,0.16) 0%,rgba(255,255,255,0) 58%)';
                 const depth = 'linear-gradient(to bottom,transparent 45%,rgba(0,0,0,0.12) 100%)';
-                const tabStyle = typeTC ? {
-                  color: pTabText,
-                  background: `${shine},${depth},${pTabFill}`,
-                  filter: `drop-shadow(0 0 0.5px ${pTabText}) drop-shadow(0 0 5px ${pTabFill})`,
-                  ...(shp.clipPath ? { clipPath: shp.clipPath, borderRadius: 0, border: 'none' } : { borderRadius: shp.borderRadius }),
-                  ...(shp.px[0] ? { paddingLeft: `${6 + shp.px[0]}px` } : {}),
-                  ...(shp.px[1] ? { paddingRight: `${5 + shp.px[1]}px` } : {}),
-                } : undefined;
+                if (typeTC && shp.clipPath) {
+                  return (
+                    <div className="nbc-tab nbc-tab--active"
+                      style={{ padding:'1px', background:pTabText, color:pTabText, border:'none',
+                               clipPath:shp.clipPath, borderRadius:0,
+                               filter:`drop-shadow(0 0 5px ${pTabFill})` }}>
+                      <div style={{ background:`${shine},${depth},${pTabFill}`, display:'flex', alignItems:'center', gap:'3px',
+                                    padding:`0 ${3+shp.px[1]}px 0 ${4+shp.px[0]}px` }}>
+                        <span className="nbc-tab-label" onClick={() => jumpToTab(pinned)}>{nd?.label}</span>
+                        <button className="nbc-tab-x" onClick={() => clearAll()}>×</button>
+                      </div>
+                    </div>
+                  );
+                }
                 return (
-                  <div className="nbc-tab nbc-tab--active" style={tabStyle}>
+                  <div className="nbc-tab nbc-tab--active" style={typeTC ? {
+                    color: pTabText,
+                    background: `${shine},${depth},${pTabFill}`,
+                    filter: `drop-shadow(0 0 5px ${pTabFill})`,
+                    borderRadius: shp.borderRadius,
+                  } : undefined}>
                     <span className="nbc-tab-label" onClick={() => jumpToTab(pinned)}>{nd?.label}</span>
                     <button className="nbc-tab-x" onClick={() => clearAll()}>×</button>
                   </div>
@@ -4413,7 +4434,7 @@ export default function App() {
                     return (
                       <button key={t} className="npt-pill-icon"
                         onClick={() => setNodesTypeFilter(t)}>
-                        <NodeTag type={t} darkMode={darkMode} h={12} active={isActive} />
+                        <NodeTag type={t} darkMode={darkMode} h={15} active={isActive} />
                       </button>
                     );
                   })}
@@ -4449,14 +4470,14 @@ export default function App() {
                         }}>
                         <span className="npl-label">{n.label}</span>
                         <span className="npl-meta">
-                          <NodeTag type={n.type} darkMode={darkMode} h={10} />
+                          <NodeTag type={n.type} darkMode={darkMode} h={13} />
                           {' '}
                           {n.city ? <span className={nodesSort === 'city' ? 'npl-hl' : undefined}>{n.city}</span> : null}
                           {n.city ? ' · ' : ''}
                           <span className={nodesSort === 'year' ? 'npl-hl' : undefined}>{n.era}</span>
                           {n.genre && GENRES[n.genre] ? <> · <span className={nodesSort === 'genre' ? 'npl-hl' : undefined}>{GENRES[n.genre].label}</span></> : ''}
                         </span>
-                        <NodeTag type={n.type} darkMode={darkMode} h={10} />
+                        <NodeTag type={n.type} darkMode={darkMode} h={13} />
                         <span className={`npl-mc-year${nodesSort === 'year' ? ' npl-hl' : ''}`}>{n.era}</span>
                         <span className={`npl-mc-city${nodesSort === 'city' ? ' npl-hl' : ''}`}>{n.city || ''}</span>
                         <span className={`npl-mc-genre${nodesSort === 'genre' ? ' npl-hl' : ''}`}>{n.genre && GENRES[n.genre] ? GENRES[n.genre].label : ''}</span>
